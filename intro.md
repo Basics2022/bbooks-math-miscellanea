@@ -1,9 +1,14 @@
-# basics-book template
+# Matematica per l'università
 
-If you want ot start a new basics-book, it could be a good idea to start from this template.
+**Argomenti.**
 
-Please check out the Github repo of the project, [basics-book project](https://github.com/Basics2022).
-
-
-```{tableofcontents}
-```
+- **Calcolo**
+  - Calcolo multivariabile e calcolo vettoriale in spazi euclidei 2D e 3D
+  - Algebra lineare e multilineare su spazi con prodotto interno
+  - Calcolo lineare e multilineare su spazi con prodotto interno
+- **Geometria**
+  - Geometria differenziale
+- **Calcolo delle variazioni** (qui e/o nella scuola superiore?)
+- **Calcolo complesso**
+  - Analisi complessa
+  - **Teoria delle trasformate**: Fourier, Laplace

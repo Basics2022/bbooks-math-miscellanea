@@ -3,5 +3,15 @@
 
 format: jb-book
 root: intro
-chapters:
-- file: markdown
+parts:
+- caption: Algebra e calcolo
+  chapters:
+  - file: ch/multi-variable
+  - file: ch/linear-algebra
+  - file: ch/linear-calculus
+- caption: Geometria
+  - file: ch/geometry-differential
+- caption: Calcolo delle variazioni
+  - file: ch/variations
+- caption: Calcolo complesso
+  - file: ch/complex-calculus
