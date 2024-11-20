@@ -10,8 +10,11 @@ parts:
   - file: ch/linear-algebra
   - file: ch/linear-calculus
 - caption: Geometria
+  chapters:
   - file: ch/geometry-differential
 - caption: Calcolo delle variazioni
+  chapters:
   - file: ch/variations
 - caption: Calcolo complesso
+  chapters:
   - file: ch/complex-calculus
