@@ -4,17 +4,40 @@
 format: jb-book
 root: intro
 parts:
-- caption: Algebra e calcolo
+- caption: Multivariable Calculus
   chapters:
-  - file: ch/multi-variable
-  - file: ch/linear-algebra
-  - file: ch/linear-calculus
-- caption: Geometria
+  - file: ch/multivariable/intro
+- caption: Differential Geometry
   chapters:
-  - file: ch/geometry-differential
-- caption: Calcolo delle variazioni
+  - file: ch/differential-geometry/intro
+- caption: Vector and Tensor Algebra and Calculus
   chapters:
-  - file: ch/variations
-- caption: Calcolo complesso
+  - file: ch/tensor-algebra-calculus/algebra
+# - file: ch/tensor-algebra-calculus/calculus
+  - file: ch/tensor-algebra-calculus/calculus-euclidean
+- caption: Functional Analysis
   chapters:
-  - file: ch/complex-calculus
+  - file: ch/functional-analysis/intro
+  - file: ch/functional-analysis/dirac-delta
+- caption: Complex Calculus
+  chapters:
+  - file: ch/complex/analysis
+  - file: ch/complex/laplace
+  - file: ch/complex/fourier
+- caption: Calculus of Variations
+  chapters:
+  - file: ch/calculus-variations/intro
+# - caption: Algebra e calcolo
+#   chapters:
+#   - file: ch/multi-variable
+#   - file: ch/linear-algebra
+#   - file: ch/linear-calculus
+# - caption: Geometria
+#   chapters:
+#   - file: ch/geometry-differential
+# - caption: Calcolo delle variazioni
+#   chapters:
+#   - file: ch/variations
+# - caption: Calcolo complesso
+#   chapters:
+#   - file: ch/complex-calculus
