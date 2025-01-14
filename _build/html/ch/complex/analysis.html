@@ -1,0 +1,774 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Complex Analysis &#8212; basics - math</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/style.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/complex/analysis';</script>
+    <link rel="shortcut icon" href="../../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Laplace Transform" href="laplace.html" />
+    <link rel="prev" title="Distributions (or generalized functions)" href="../functional-analysis/dirac-delta.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.svg" class="logo__image only-light" alt="basics - math - Home"/>
+    <script>document.write(`<img src="../../_static/logo-dark.svg" class="logo__image only-dark" alt="basics - math - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Multivariable Calculus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../multivariable/intro.html">Introduction to multi-variable calculus</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Differential Geometry</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../differential-geometry/intro.html">Introduction to Differential Geometry</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Vector and Tensor Algebra and Calculus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/algebra.html">Tensor Algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean.html">Tensor Calculus in Euclidean Spaces</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Functional Analysis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../functional-analysis/intro.html">Introduction to Functional Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functional-analysis/dirac-delta.html">Distributions (or generalized functions)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Complex Calculus</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Complex Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="laplace.html">Laplace Transform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fourier.html">Fourier Transforms</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Calculus of Variations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../calculus-variations/intro.html">Introduction to Calculus of Variations</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/ch/complex/analysis.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Complex Analysis</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-functions-f-mathbb-c-rightarrow-mathbb-c">Complex functions, <span class="math notranslate nohighlight">\(f: \mathbb{C} \rightarrow \mathbb{C}\)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limit">Limit</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#derivative">Derivative</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#line-integrals">Line Integrals</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#holomorphic-functions-analytic-functions">Holomorphic Functions - Analytic Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cauchy-riemann-conditions">Cauchy-Riemann conditions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cauchy-theorem">Cauchy Theorem</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-integrals">Useful integrals</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#independence-of-line-integral-for-holomorphic-functions">Independence of line integral for holomorphic functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sum-and-difference-of-line-integrals">Sum and difference of line integrals</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integral-of-z-n">Integral of <span class="math notranslate nohighlight">\(z^n\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#meromorphic-functions">Meromorphic functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#singularities">Singularities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#laurent-series">Laurent Series</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cauchy-formula">Cauchy formula</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#residues">Residues</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#residue-theorem">Residue Theorem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluation-of-integrals">Evaluation of integrals</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inverse-laplace-transform">Inverse Laplace Transform</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="tex2jax_ignore mathjax_ignore section" id="complex-analysis">
+<span id="id1"></span><h1>Complex Analysis<a class="headerlink" href="#complex-analysis" title="Permalink to this heading">#</a></h1>
+<div class="section" id="complex-functions-f-mathbb-c-rightarrow-mathbb-c">
+<span id="complex-analysis-fun"></span><h2>Complex functions, <span class="math notranslate nohighlight">\(f: \mathbb{C} \rightarrow \mathbb{C}\)</span><a class="headerlink" href="#complex-functions-f-mathbb-c-rightarrow-mathbb-c" title="Permalink to this heading">#</a></h2>
+<p>A complex function <span class="math notranslate nohighlight">\(f\)</span> of complex variable <span class="math notranslate nohighlight">\(z = x + i y\)</span>, <span class="math notranslate nohighlight">\(f: \mathbb{C} \rightarrow \mathbb{C}\)</span>, can be written as</p>
+<div class="math notranslate nohighlight">
+\[f(z) = \tilde{u}(z) + i \tilde{v}(z) = u(x,y) + i v(x,y) \ ,\]</div>
+<p>as the sum of its real part <span class="math notranslate nohighlight">\(u(z)\)</span> and <span class="math notranslate nohighlight">\(i\)</span> times its imaginary part <span class="math notranslate nohighlight">\(v(x,y)\)</span>. Here <span class="math notranslate nohighlight">\(x,y \in \mathbb{R}\)</span>, while <span class="math notranslate nohighlight">\(\tilde{u}(z), \tilde{v}(z): \mathbb{C} \rightarrow \mathbb{R}\)</span> and <span class="math notranslate nohighlight">\(u(x,y), v(x,y): \mathbb{R}^2 \rightarrow \mathbb{R}\)</span>. With some abuse of notation, tilde won’t be always explicitly written when arguments of real and imaginary parts of <span class="math notranslate nohighlight">\(f\)</span> functions won’t be written.</p>
+<div class="section" id="limit">
+<span id="complex-analysis-fun-limit"></span><h3>Limit<a class="headerlink" href="#limit" title="Permalink to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[\lim_{z \rightarrow z_0} f(z) = f(z_0) \qquad , \qquad \forall \varepsilon &gt; 0 \ \exists \delta &gt; 0 \ \text{ s.t. } \  |f(z) - f(z_0)| &lt; \delta \ \forall z \text{ s.t. } |z - z_0| &lt; \varepsilon, \ z \ne z_0 \ .\]</div>
+</div>
+<div class="section" id="derivative">
+<span id="complex-analysis-fun-derivative"></span><h3>Derivative<a class="headerlink" href="#derivative" title="Permalink to this heading">#</a></h3>
+<p>Using the definition of <a class="reference internal" href="#complex-analysis-fun-derivative"><span class="std std-ref">limit of complex functions</span></a>, the derivative of a function <span class="math notranslate nohighlight">\(f: \mathbb{C} \rightarrow \mathbb{C}\)</span>, if it exists, is the limit of incremental ratio,</p>
+<div class="math notranslate nohighlight">
+\[f'(z) = \lim_{\Delta z \rightarrow 0} \frac{f(z + \Delta z) - f(z)}{\Delta z} \ .\]</div>
+</div>
+<div class="section" id="line-integrals">
+<span id="complex-analysis-fun-line-integral"></span><h3>Line Integrals<a class="headerlink" href="#line-integrals" title="Permalink to this heading">#</a></h3>
+<p>Given a line <span class="math notranslate nohighlight">\(\gamma \in \mathbb{C}\)</span>, whose parametric form is <span class="math notranslate nohighlight">\(z(s)\)</span>, with regular parametrization with parameter <span class="math notranslate nohighlight">\(s \in [s_0, s_1]\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\int_{\gamma} f(z) \, dz = \int_{s=s_0}^{s_1} f(z(s)) \, z'(s) \, ds \ .\]</div>
+</div>
+</div>
+<div class="section" id="holomorphic-functions-analytic-functions">
+<span id="complex-analysis-holo-fun"></span><h2>Holomorphic Functions - Analytic Functions<a class="headerlink" href="#holomorphic-functions-analytic-functions" title="Permalink to this heading">#</a></h2>
+<div class="proof definition admonition" id="definition-0">
+<p class="admonition-title"><span class="caption-number">Definition 1 </span></p>
+<div class="definition-content section" id="proof-content">
+<p>A holomorphic function is a function whose <a class="reference internal" href="#complex-analysis-fun-derivative"><span class="std std-ref">derivative</span></a> exists.</p>
+</div>
+</div><p><strong>Examples of analytic functions.</strong> <strong>todo</strong>…</p>
+<div class="section" id="cauchy-riemann-conditions">
+<span id="complex-analysis-holo-fun-cauchy-riemann"></span><h3>Cauchy-Riemann conditions<a class="headerlink" href="#cauchy-riemann-conditions" title="Permalink to this heading">#</a></h3>
+<p>For a holomorphic function <span class="math notranslate nohighlight">\(f(z) = u(x,y) + i v(x,y)\)</span>, Cauchy-Riemann conditions</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{cases}
+u_{/x} = v_{/y} \\
+u_{/y} = - v_{/x}
+\end{cases}\end{split}\]</div>
+<p>hold. The evaluation of the derivative once with <span class="math notranslate nohighlight">\(\Delta z = \Delta x\)</span> and once with <span class="math notranslate nohighlight">\(\Delta z = i \Delta y\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+&amp; f'(z) = \lim_{\Delta z \rightarrow 0} \frac{f(z+\Delta z) - f(z)}{\Delta z} = \\ 
+&amp; = \left\{
+\begin{aligned}
+  \lim_{\Delta x \rightarrow 0} \frac{f(x+\Delta x,y) - f(x,y)}{\Delta x} = \lim_{\Delta x \rightarrow 0} \frac{u(x+\Delta x,y) + i v(x+\Delta x,y) - u(x,y) - i v(x,y)}{\Delta x} = u_{/x} + i v_{/x} \\ 
+  \lim_{\Delta y \rightarrow 0} \frac{f(x,y+\Delta y) - f(x,y)}{i \Delta y} = \lim_{\Delta y \rightarrow 0}  \frac{u(x,y+\Delta y) + i v(x,y+\Delta y) - u(x,y) - i v(x,y)}{i \Delta y} = -i u_{/y} + v_{/y} \\ 
+\end{aligned}
+\right.
+\end{aligned}\end{split}\]</div>
+<p>provides the proof.</p>
+</div>
+<div class="section" id="cauchy-theorem">
+<span id="complex-analysis-holo-fun-cauchy-thm"></span><h3>Cauchy Theorem<a class="headerlink" href="#cauchy-theorem" title="Permalink to this heading">#</a></h3>
+<p>For a holomorphic function <span class="math notranslate nohighlight">\(f\)</span>, <span class="math notranslate nohighlight">\(f: \Omega \subseteq \mathbb{C} \rightarrow \mathbb{C}\)</span></p>
+<div class="math notranslate nohighlight">
+\[\oint_{\gamma} f(z) \, dz = 0 \ ,\]</div>
+<p>for <span class="math notranslate nohighlight">\(\forall \gamma \subset \Omega\)</span>. Proof follows from <a class="reference internal" href="../multivariable/intro.html#multivariable-calculus-green-lemma"><span class="std std-ref">Green’s lemma</span></a>, and <a class="reference internal" href="#complex-analysis-holo-fun-cauchy-riemann"><span class="std std-ref">Cauchy-Riemann conditions</span></a></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \oint_{\gamma} f(z) dz &amp; = \oint_{\gamma} \left( u(x,y) + i v(x,y) \right) \left( dx + i dy \right) = \\
+  &amp; = \oint_{\gamma} \left( u dx - v dy \right) + i \oint_{\gamma} \left( u dy + v dx \right) = \\
+  &amp; = - \int_{S} \left( \underbrace{u_{/y} + v_{/x}}_{=0} \right) \, dx \, dy + i \int_{S} \left( \underbrace{u_{/x} - v_{/y}}_{=0}  \right) \, dx \, dy = 0 \ .
+\end{aligned}\end{split}\]</div>
+</div>
+</div>
+<div class="section" id="useful-integrals">
+<span id="complex-analysis-useful-int"></span><h2>Useful integrals<a class="headerlink" href="#useful-integrals" title="Permalink to this heading">#</a></h2>
+<div class="section" id="independence-of-line-integral-for-holomorphic-functions">
+<span id="complex-analysis-useful-int-path-independence"></span><h3>Independence of line integral for holomorphic functions<a class="headerlink" href="#independence-of-line-integral-for-holomorphic-functions" title="Permalink to this heading">#</a></h3>
+<p>For a function <span class="math notranslate nohighlight">\(f(z)\)</span> analytic in <span class="math notranslate nohighlight">\(D\)</span>, the line integral on paths <span class="math notranslate nohighlight">\(\ell_{ab,i}\)</span> with the same extreme points <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span> contained in <span class="math notranslate nohighlight">\(D\)</span> is independent on the path, but only depends on the extreme points <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\int_{\ell_{ab,1}} f(z) \, dz = \int_{\ell_{ab,2}} f(z) \, dz\]</div>
+<p>The proof readily follows, using <a class="reference internal" href="#complex-analysis-holo-fun-cauchy-thm"><span class="std std-ref">Cauchy theorem</span></a> applied to a function <span class="math notranslate nohighlight">\(f(z): D \subseteq \mathbb{C} \rightarrow \mathbb{C}\)</span>, analytic in <span class="math notranslate nohighlight">\(D\)</span>, and splitting the closed path <span class="math notranslate nohighlight">\(\gamma\)</span> into two paths <span class="math notranslate nohighlight">\(\ell_1\)</span>, <span class="math notranslate nohighlight">\(\ell_2\)</span> with the same extreme points, <span class="math notranslate nohighlight">\(\gamma = \ell_1 \cup (- \ell_2)\)</span></p>
+<div class="math notranslate nohighlight">
+\[0 = \oint_{\gamma} f(z) \, dz = \int_{\ell_1} f(z) \, dz + \int_{-\ell_2} f(z) \, dz = \int_{\ell_1} f(z) \, dz - \int_{\ell_2} f(z) \, dz \ .\]</div>
+</div>
+<div class="section" id="sum-and-difference-of-line-integrals">
+<span id="complex-analysis-useful-int-path-independence-sum"></span><h3>Sum and difference of line integrals<a class="headerlink" href="#sum-and-difference-of-line-integrals" title="Permalink to this heading">#</a></h3>
+</div>
+<div class="section" id="integral-of-z-n">
+<span id="complex-analysis-useful-int-path-independence-z-n"></span><h3>Integral of <span class="math notranslate nohighlight">\(z^n\)</span><a class="headerlink" href="#integral-of-z-n" title="Permalink to this heading">#</a></h3>
+<p>Given a path <span class="math notranslate nohighlight">\(\gamma\)</span> embracing <span class="math notranslate nohighlight">\(z=0\)</span> only once in counter-clockwise direction, and <span class="math notranslate nohighlight">\(n \in \mathbb{Z}\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\oint_{\gamma} z^n \, dz = \left\{ \begin{aligned}  2 \pi i &amp; \qquad \text{if $n = -1$} \\ 0 &amp; \qquad \text{otherwise} \end{aligned} \right.\end{split}\]</div>
+<p>Since <span class="math notranslate nohighlight">\(z^n\)</span> is analytic everywhere (<strong>todo</strong> <em>prove it! Add a section with proofs for common functions</em>) except for <span class="math notranslate nohighlight">\(z=0\)</span>, it’s possible to evaluate the integral on a circle with center <span class="math notranslate nohighlight">\(z=0\)</span> and radius <span class="math notranslate nohighlight">\(R\)</span>. Using polar expression of the complex numbers on the circle, <span class="math notranslate nohighlight">\(z = R e^{i \theta}\)</span>, <span class="math notranslate nohighlight">\(\theta \in [0, 2 \pi]\)</span>, <span class="math notranslate nohighlight">\(R\)</span> const, the differential becomes <span class="math notranslate nohighlight">\(dz = i R e^{i \theta} d \theta\)</span> and the integral</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+\oint_{\gamma} z^n \, dz
+  &amp; = \int_{\theta=0}^{2 \pi} \left( R e^{i\theta}\right)^n i R e^{i \theta} d \theta = \\
+  &amp; = i \int_{\theta=0}^{2 \pi} R^{n+1} e^{i (n+1) \theta} d \theta = \\
+  &amp; = \left\{ \begin{aligned}
+    &amp; \text{if $n=-1$} &amp; : &amp; \quad  i 2 \pi \\
+    &amp; \text{otherwise} &amp; : &amp; \quad  i R^{n+1} \frac{1}{i(n+1)} \left.e^{i(n+1)\theta}\right|_{\theta=0}^{2\pi} = \frac{R^{n+1}}{n+1} ( 1 - 1 ) = 0 \\
+  \end{aligned} \right.\\
+\end{aligned}\end{split}\]</div>
+</div>
+</div>
+<div class="section" id="meromorphic-functions">
+<span id="complex-analysis-mero-fun"></span><h2>Meromorphic functions<a class="headerlink" href="#meromorphic-functions" title="Permalink to this heading">#</a></h2>
+<div class="proof definition admonition" id="definition-1">
+<p class="admonition-title"><span class="caption-number">Definition 2 </span></p>
+<div class="definition-content section" id="proof-content">
+<p>A meromorphic function in a domain is a function holomorphic everywhere except for a (finite?) number of poles. <strong>check</strong></p>
+</div>
+</div><div class="section" id="singularities">
+<span id="complex-analysis-singularities"></span><h3>Singularities<a class="headerlink" href="#singularities" title="Permalink to this heading">#</a></h3>
+<div class="proof definition admonition" id="definition-2">
+<p class="admonition-title"><span class="caption-number">Definition 3 </span> (Pole)</p>
+<div class="definition-content section" id="proof-content">
+<p>A pole of order <span class="math notranslate nohighlight">\(n\)</span> of a function <span class="math notranslate nohighlight">\(f(z)\)</span> is a complex number <span class="math notranslate nohighlight">\(a\)</span> so that</p>
+<div class="math notranslate nohighlight">
+\[f(z) = \frac{\phi(z)}{(z-a)^n} \ ,\]</div>
+<p>with <span class="math notranslate nohighlight">\(\phi(z)\)</span> holomorphic in <span class="math notranslate nohighlight">\(\phi(a) \ne 0\)</span></p>
+</div>
+</div><p><strong>Examples.</strong> …</p>
+<div class="proof definition admonition" id="definition-3">
+<p class="admonition-title"><span class="caption-number">Definition 4 </span> (Branch)</p>
+<div class="definition-content section" id="proof-content">
+</div>
+</div><p><strong>Examples.</strong> <span class="math notranslate nohighlight">\(f(z) = z^{\frac{1}{2}}\)</span></p>
+<div class="proof definition admonition" id="definition-4">
+<p class="admonition-title"><span class="caption-number">Definition 5 </span> (Removable singularities)</p>
+<div class="definition-content section" id="proof-content">
+</div>
+</div><p><strong>Example.</strong> <span class="math notranslate nohighlight">\(f(z) = \frac{\sin z}{z}\)</span></p>
+<p><strong>Other irregularities.</strong></p>
+</div>
+<div class="section" id="laurent-series">
+<span id="complex-analysis-mero-fun-laurent"></span><h3>Laurent Series<a class="headerlink" href="#laurent-series" title="Permalink to this heading">#</a></h3>
+<p>Given a function <span class="math notranslate nohighlight">\(f(z)\)</span>, in a disk <span class="math notranslate nohighlight">\(D_{a,\varepsilon}: 0 &lt; |z-a| &lt; \varepsilon\)</span>, its Laurent series centered in <span class="math notranslate nohighlight">\(a\)</span> is the convergent (to <span class="math notranslate nohighlight">\(f(z)\)</span>, <strong>todo</strong> <em>which type of convergnence?</em>) series</p>
+<div class="math notranslate nohighlight" id="equation-eq-laurent">
+<span class="eqno">(1)<a class="headerlink" href="#equation-eq-laurent" title="Permalink to this equation">#</a></span>\[f(z) \sim \sum_{n=-\infty}^{+\infty} a_n (z-a)^n \ ,\]</div>
+<p>with</p>
+<div class="math notranslate nohighlight" id="equation-eq-laurent-coeff">
+<span class="eqno">(2)<a class="headerlink" href="#equation-eq-laurent-coeff" title="Permalink to this equation">#</a></span>\[a_n = \frac{1}{2 \pi i}\int_{\gamma} f(z) \, (z-a)^{-(n+1)} \, dz\]</div>
+<p>and <span class="math notranslate nohighlight">\(\gamma\)</span> embracing <span class="math notranslate nohighlight">\(z = a\)</span> once counter-clockwise. Proof follows immediately inserting the expressions of the coefficients <span class="math notranslate nohighlight">\(a_n\)</span> and using the <a class="reference internal" href="#complex-analysis-useful-int-path-independence-z-n"><span class="std std-ref">integral of <span class="math notranslate nohighlight">\(z^n\)</span></span></a>. Evaluating the integral <a class="reference internal" href="#equation-eq-laurent-coeff">(2)</a> of the coefficients of the Laurent series, using <a class="reference internal" href="#equation-eq-laurent">(1)</a> to replace <span class="math notranslate nohighlight">\(f(z)\)</span> with its series</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  a_n &amp; = \frac{1}{2 \pi i}\oint_{\gamma} \sum_{m=-\infty}^{+\infty} a_m (z-a)^m (z-a)^{-(n+1)} = \\
+  &amp; = \frac{1}{2 \pi i} \oint_{\gamma} \sum_{m=-\infty}^{+\infty} a_m (z-a)^{m - n - 1}  \, dz = \\
+  &amp; = \frac{1}{2 \pi i} \oint_{\gamma} a_n \, z^{-1} \, dz = \\
+  &amp; = a_n \ . 
+\end{aligned}\end{split}\]</div>
+<p><strong>todo</strong> <em>Some freestyle with function and its convergent series…add some detail, and the meaning of convergence</em></p>
+</div>
+<div class="section" id="cauchy-formula">
+<span id="complex-analysis-mero-fun-cauchy-formula"></span><h3>Cauchy formula<a class="headerlink" href="#cauchy-formula" title="Permalink to this heading">#</a></h3>
+<p>For an analytic function <span class="math notranslate nohighlight">\(f(z)\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[f(a) = \frac{1}{2 \pi i} \oint_{\gamma} \frac{f(z)}{z-a} \, dz\]</div>
+<p>Proof readily follows using the <a class="reference internal" href="#complex-analysis-useful-int-path-independence-z-n"><span class="std std-ref">integral of <span class="math notranslate nohighlight">\(z^n\)</span></span></a> on the Taylor series of <span class="math notranslate nohighlight">\(\frac{f(z)}{z-a}\)</span> whose <span class="math notranslate nohighlight">\(0^{th}\)</span> order term reads <span class="math notranslate nohighlight">\(f(a)\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{2\pi i} \oint_{\gamma} \frac{f(a)+\sum_{m=1}^{+\infty} f'(a) (z-a)^m}{z-a} \, dz = \frac{1}{2\pi i} \oint_{\gamma} \frac{f(a)}{z-a} \, dz = f(a) \frac{2 \pi i}{2 \pi i} = f(a) \ .\]</div>
+</div>
+<div class="section" id="residues">
+<span id="complex-analysis-mero-fun-residues"></span><h3>Residues<a class="headerlink" href="#residues" title="Permalink to this heading">#</a></h3>
+<div class="proof definition admonition" id="definition-5">
+<p class="admonition-title"><span class="caption-number">Definition 6 </span> (Residue)</p>
+<div class="definition-content section" id="proof-content">
+<p>The residue of function <span class="math notranslate nohighlight">\(f\)</span> in <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(\text{Res}(f,a)\)</span> is a complex number <span class="math notranslate nohighlight">\(R\)</span> so that <span class="math notranslate nohighlight">\(f(z) - \frac{R}{(z-a)}\)</span> has analytic antiderivative in a disk <span class="math notranslate nohighlight">\(D_{a,\varepsilon}: \ 0 &lt; |z-a| &lt; \varepsilon\)</span>.</p>
+</div>
+</div><p><strong>todo</strong> Explain this definition. Couldn’t be possible to use <span class="math notranslate nohighlight">\(\text{Res}(f,a) = \frac{1}{2 \pi i} \oint_{\gamma} f(z) \, dz = a_{-1}\)</span> instead?</p>
+<p><strong>Properties.</strong></p>
+<ul>
+<li><p>If <span class="math notranslate nohighlight">\(f(z)\)</span> is analytic in <span class="math notranslate nohighlight">\(D_{a,\varepsilon}\)</span> and has a pole of order <span class="math notranslate nohighlight">\(n\)</span> in <span class="math notranslate nohighlight">\(z = a\)</span>, its Laurent series has <span class="math notranslate nohighlight">\(a_m=0\)</span> for <span class="math notranslate nohighlight">\(m &lt; n\)</span> and reads</p>
+<div class="math notranslate nohighlight" id="equation-eq-laurent-pole-n">
+<span class="eqno">(3)<a class="headerlink" href="#equation-eq-laurent-pole-n" title="Permalink to this equation">#</a></span>\[f(z) = \sum_{m=-n}^{+\infty} a_m (z-a)^m \ ,\]</div>
+<p>with <span class="math notranslate nohighlight">\(a_{-n} \ne 0\)</span>. Since <span class="math notranslate nohighlight">\(f(z)\)</span> has a pole of order <span class="math notranslate nohighlight">\(n\)</span> in <span class="math notranslate nohighlight">\(z = a\)</span>, it can be written as</p>
+<div class="math notranslate nohighlight">
+\[f(z) = \frac{\phi(z)}{(z-a)^n} \ ,\]</div>
+<p>with <span class="math notranslate nohighlight">\(\phi(z)\)</span> analytic in <span class="math notranslate nohighlight">\(D_{a,\varepsilon}\)</span> and <span class="math notranslate nohighlight">\(\phi(a) \ne 0\)</span>. Since <span class="math notranslate nohighlight">\(\phi(z)\)</span> is analytic, it has a Taylor series (or a Laurent series with non-negative powers),</p>
+<div class="math notranslate nohighlight">
+\[\phi(z) \sim \sum_{m=0}^{+\infty} b_m (z-a)^m \ ,\]</div>
+<p>(<strong>todo</strong> <em>prove it! Extension of the real case. Add a link to the proof</em>) and thus</p>
+<div class="math notranslate nohighlight">
+\[f(z) \sim \sum_{m=0}^{+\infty} b_m (z-a)^{m-n} = \sum_{m=-n}^{+\infty} b_{m+n} (z-a)^{m} = \sum_{m=-n}^{+\infty} a_{m} (z-a)^m \ , \]</div>
+<p>with <span class="math notranslate nohighlight">\(a_m = b_{m+n}\)</span>.</p>
+</li>
+<li><p>For simple closed path <span class="math notranslate nohighlight">\(\gamma\)</span> (embracing <span class="math notranslate nohighlight">\(a\)</span> only once counter-clokwise) in <span class="math notranslate nohighlight">\(D_{a, \varepsilon}\)</span>,</p>
+<div class="math notranslate nohighlight" id="equation-eq-residue-thm-0">
+<span class="eqno">(4)<a class="headerlink" href="#equation-eq-residue-thm-0" title="Permalink to this equation">#</a></span>\[\oint_{\gamma} f(z) \, dz = 2 \pi i a_{-1} = 2 \pi i \text{Res}(f,a)\]</div>
+<p>The proof readily follows, using the <a class="reference internal" href="#complex-analysis-useful-int-path-independence-z-n"><span class="std std-ref">integral of <span class="math notranslate nohighlight">\(z^n\)</span></span></a> and Laurent series <a class="reference internal" href="#equation-eq-laurent">(1)</a> of <span class="math notranslate nohighlight">\(f(z)\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\oint_{\gamma} f(z) \, dz = \oint_{\gamma} \sum_{m=-\infty}^{+\infty} a_m (z-a)^m \, dz = 2 \pi i a_{-1} \ .\]</div>
+</li>
+<li><p>For a pole <span class="math notranslate nohighlight">\(a\)</span> of order <span class="math notranslate nohighlight">\(n\)</span>, the following holds</p>
+<div class="math notranslate nohighlight">
+\[a_{-1} =  \frac{1}{(n+1)!} \lim_{z \rightarrow a} \frac{d^{n-1}}{dz^{n-1}} \left[ (z-a)^n \, f(z) \right]\]</div>
+<p>The proof follows using Laurent series {eq}`eq:laurent:pole-n} for a function with pole of order <span class="math notranslate nohighlight">\(n\)</span>, and evaluating the <span class="math notranslate nohighlight">\((n-1)^{th}\)</span> order derivative</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+   \frac{d^{n-1}}{dz^{n-1}} \left[ (z-a)^n f(z) \right] 
+    &amp; = \frac{d^{n-1}}{dz^{n-1}} \left[ (z-a)^n \sum_{m=-n}^{+\infty} a_n (z-a)^m \right] = \\
+    &amp; = \dfrac{d^{n-1}}{dz^{n-1}} \left[ \sum_{m=-n}^{+\infty} a_n (z-a)^{m+n} \right] = \\
+    &amp; = \dfrac{d^{n-1}}{dz^{n-1}} \left[ \sum_{m=0}^{+\infty} a_{m-n} (z-a)^{m} \right] = \\
+    &amp; = \dfrac{d^{n-2}}{dz^{n-2}} \left[ \sum_{m=0}^{+\infty} m a_{m-n} (z-a)^{m-1} \right] = \\
+    &amp; = \dfrac{d^{n-3}}{dz^{n-3}} \left[ \sum_{m=0}^{+\infty} m(m-1) a_{m-n} (z-a)^{m-2} \right] = \\
+    &amp; = \dots = \\
+    &amp; = \left[ \sum_{m=0}^{+\infty} m! \, a_{m-n} (z-a)^{m-n+1} \right] \\
+  \end{aligned}\end{split}\]</div>
+<p>and then letting <span class="math notranslate nohighlight">\(z \rightarrow a\)</span>, so that only the term with <span class="math notranslate nohighlight">\(m-n+1 = 0\)</span> survives</p>
+<div class="math notranslate nohighlight">
+\[\lim_{z \rightarrow a} \frac{d^{n-1}}{dz^{n-1}} \left[ (z-a)^n \sum_{m=-n}^{+\infty} a_n (z-a)^m \right] = (n-1)! \, a_{-1} \ .\]</div>
+</li>
+</ul>
+</div>
+<div class="section" id="residue-theorem">
+<span id="complex-analysis-mero-fun-residues-thm"></span><h3>Residue Theorem<a class="headerlink" href="#residue-theorem" title="Permalink to this heading">#</a></h3>
+<div class="proof theorem admonition" id="theorem-6">
+<p class="admonition-title"><span class="caption-number">Theorem 1 </span> (Residue Theorem)</p>
+<div class="theorem-content section" id="proof-content">
+<p>Given <span class="math notranslate nohighlight">\(f(z)\)</span> with a finite number of poles <span class="math notranslate nohighlight">\(p_n \in D\)</span>, then</p>
+<div class="math notranslate nohighlight">
+\[\int_{\gamma} f(z) \, dz = 2 \pi i \ \sum_{n} I(\gamma, p_n) \text{Res}(f,p_n) \ ,\]</div>
+<p>being <span class="math notranslate nohighlight">\(\gamma\)</span> a path in <span class="math notranslate nohighlight">\(D\)</span>, and <span class="math notranslate nohighlight">\(I(\gamma, p_n)\)</span> the winding index of the path <span class="math notranslate nohighlight">\(\gamma\)</span> around pole <span class="math notranslate nohighlight">\(p_n\)</span> (+1 for each counter-clockwise loop, -1 for each clockwise loop).</p>
+</div>
+</div><p>The proof readily follows extending the result for a single pole <a class="reference internal" href="#equation-eq-residue-thm-0">(4)</a> to general number of poles and general paths <span class="math notranslate nohighlight">\(\gamma\)</span> embracing (with sign) each pole <span class="math notranslate nohighlight">\(p_n\)</span> <span class="math notranslate nohighlight">\(I(\gamma,p_n)\)</span> times, with the same techinques shown in section <a class="reference internal" href="#complex-analysis-useful-int-path-independence-sum"><span class="std std-ref">Sum and difference of line integrals</span></a>.</p>
+</div>
+<div class="section" id="evaluation-of-integrals">
+<h3>Evaluation of integrals<a class="headerlink" href="#evaluation-of-integrals" title="Permalink to this heading">#</a></h3>
+</div>
+<div class="section" id="inverse-laplace-transform">
+<h3>Inverse Laplace Transform<a class="headerlink" href="#inverse-laplace-transform" title="Permalink to this heading">#</a></h3>
+<p>Given Laplace transform</p>
+<div class="math notranslate nohighlight">
+\[F(s) := \mathscr{L}\{f(t)\}(s) := \int_{t=0^-}^{+\infty} f(t) e^{-st} \, dt \ ,\]</div>
+<p>the inverse transform can be evaluated as</p>
+<div class="math notranslate nohighlight">
+\[f(t) = \mathscr{L}^{-1}\{F(s)\}(t) := \lim_{T \rightarrow +\infty} \frac{1}{2 \pi i} \int_{s = a-iT}^{a+iT} e^{st} F(s) \, ds \ ,\]</div>
+<p>with <span class="math notranslate nohighlight">\(a &gt; \text{Re}\{p_n\}\)</span> for each pole of the function <span class="math notranslate nohighlight">\(F(s)\)</span>, evaluated on the vertical line <span class="math notranslate nohighlight">\(s = a+iy\)</span>, <span class="math notranslate nohighlight">\(y \in [-T,T]\)</span>, <span class="math notranslate nohighlight">\(ds = i d y\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \lim_{T \rightarrow +\infty} \frac{1}{2 \pi i} \int_{s = a-iT}^{a+iT} e^{st} F(s) \, ds 
+  &amp; = \lim_{T \rightarrow +\infty} \frac{1}{2 \pi i} \int_{s = a-iT}^{a+iT} e^{st} \int_{\tau=0^-}^{+\infty} f(\tau) e^{-s\tau} \, d \tau  \, ds = \\
+  &amp; = \lim_{T \rightarrow +\infty} \frac{1}{2 \pi i} \int_{y = -iT}^{iT} e^{(a+iy)t} \int_{\tau=0^-}^{+\infty} f(\tau) e^{-(a+iy)\tau} \, d \tau  \, i dy = \\
+  &amp; = \lim_{T \rightarrow +\infty} \frac{1}{2 \pi} \int_{y = -iT}^{iT} \int_{\tau=0^-}^{+\infty} e^{iy(t-\tau)} e^{a(t-\tau)} f(\tau) \, d \tau  \, dy = \\
+  &amp; = \dots \\
+  &amp; = \int_{\tau=0^-}^{+\infty} \delta(t-\tau) e^{a(t-\tau)} f(\tau) d \tau = f(t) \ .
+\end{aligned}\end{split}\]</div>
+<p>having used the transform of <a class="reference internal" href="../functional-analysis/dirac-delta.html#functional-analysis-dirac-delta"><span class="std std-ref">Dirac’s delta</span></a> <span class="math notranslate nohighlight">\(\delta(t) = \frac{1}{2\pi} \int_{\omega=-\infty}^{+\infty} e^{-j \omega t} \, d\omega\)</span>.</p>
+<p><strong>todo</strong> <em>If <span class="math notranslate nohighlight">\(a &gt; \text{Re}\{p_n\}\)</span>, the contour build with the vertical line with real part <span class="math notranslate nohighlight">\(a\)</span> and the arc of circumference on its</em></p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./ch/complex"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../functional-analysis/dirac-delta.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Distributions (or generalized functions)</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="laplace.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Laplace Transform</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-functions-f-mathbb-c-rightarrow-mathbb-c">Complex functions, <span class="math notranslate nohighlight">\(f: \mathbb{C} \rightarrow \mathbb{C}\)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limit">Limit</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#derivative">Derivative</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#line-integrals">Line Integrals</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#holomorphic-functions-analytic-functions">Holomorphic Functions - Analytic Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cauchy-riemann-conditions">Cauchy-Riemann conditions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cauchy-theorem">Cauchy Theorem</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-integrals">Useful integrals</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#independence-of-line-integral-for-holomorphic-functions">Independence of line integral for holomorphic functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sum-and-difference-of-line-integrals">Sum and difference of line integrals</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#integral-of-z-n">Integral of <span class="math notranslate nohighlight">\(z^n\)</span></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#meromorphic-functions">Meromorphic functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#singularities">Singularities</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#laurent-series">Laurent Series</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cauchy-formula">Cauchy formula</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#residues">Residues</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#residue-theorem">Residue Theorem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluation-of-integrals">Evaluation of integrals</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inverse-laplace-transform">Inverse Laplace Transform</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By basics
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="it" data-content_root="" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -56,7 +56,6 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
-    <script src="_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -67,11 +66,11 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
     <link rel="shortcut icon" href="_static/favicon.svg"/>
-    <link rel="index" title="Indice" href="genindex.html" />
-    <link rel="search" title="Cerca" href="search.html" />
-    <link rel="next" title="Calcolo multivariabile" href="ch/multi-variable.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Introduction to multi-variable calculus" href="ch/multivariable/intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="it"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -163,23 +162,33 @@ const thebe_selector_output = ".output, .cell_output"
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Algebra e calcolo</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Multivariable Calculus</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="ch/multi-variable.html">Calcolo multivariabile</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch/linear-algebra.html">Algebra lineare su spazi con prodotto interno</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch/linear-calculus.html">Calcolo lineare su spazi con prodotto interno</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/multivariable/intro.html">Introduction to multi-variable calculus</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Geometria</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Differential Geometry</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="ch/geometry-differential.html">Geometria differenziale</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/differential-geometry/intro.html">Introduction to Differential Geometry</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Calcolo delle variazioni</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Vector and Tensor Algebra and Calculus</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="ch/variations.html">Calcolo delle variazioni</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/tensor-algebra-calculus/algebra.html">Tensor Algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/tensor-algebra-calculus/calculus-euclidean.html">Tensor Calculus in Euclidean Spaces</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Calcolo complesso</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Functional Analysis</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="ch/complex-calculus.html">Calcolo complesso</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/functional-analysis/intro.html">Introduction to Functional Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/functional-analysis/dirac-delta.html">Distributions (or generalized functions)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Complex Calculus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ch/complex/analysis.html">Complex Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/complex/laplace.html">Laplace Transform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/complex/fourier.html">Fourier Transforms</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Calculus of Variations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ch/calculus-variations/intro.html">Introduction to Calculus of Variations</a></li>
 </ul>
 
     </div>
@@ -227,7 +236,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 <div class="dropdown dropdown-download-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Scarica questa pagina">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
     <i class="fas fa-download"></i>
   </button>
   <ul class="dropdown-menu">
@@ -236,7 +245,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="_sources/intro.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
-   title="Scarica il file sorgente"
+   title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
@@ -254,7 +263,7 @@ const thebe_selector_output = ".output, .cell_output"
       <li>
 <button onclick="window.print()"
   class="btn btn-sm btn-download-pdf-button dropdown-item"
-  title="Stampa in PDF"
+  title="Print to PDF"
   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
@@ -274,7 +283,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 <button onclick="toggleFullScreen()"
   class="btn btn-sm btn-fullscreen-button"
-  title="Modalità schermo intero"
+  title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
@@ -300,7 +309,7 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Cerca" aria-label="Cerca" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
@@ -362,6 +371,10 @@ document.write(`
 </div>
 <div class="toctree-wrapper compound">
 </div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -395,11 +408,11 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="right-next"
-       href="ch/multi-variable.html"
+       href="ch/multivariable/intro.html"
        title="next page">
       <div class="prev-next-info">
-        <p class="prev-next-subtitle">successivo</p>
-        <p class="prev-next-title">Calcolo multivariabile</p>
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Introduction to multi-variable calculus</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -419,7 +432,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-Di basics
+By basics
 </p>
 
   </div>

@@ -85,7 +85,7 @@
         
 
 \title{basics - math}
-\date{Jan 07, 2025}
+\date{Jan 08, 2025}
 \release{}
 \author{basics}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -218,6 +218,145 @@ In a simple domain in  \(y\), so that the closed contour \(\partial S\) is delim
 
 \chapter{Introduction to Differential Geometry}
 \label{\detokenize{ch/differential-geometry/intro:introduction-to-differential-geometry}}\label{\detokenize{ch/differential-geometry/intro:differential-geometry-intro}}\label{\detokenize{ch/differential-geometry/intro::doc}}
+
+\section{Differential geometry in \protect\(E^3\protect\)}
+\label{\detokenize{ch/differential-geometry/intro:differential-geometry-in-e-3}}
+
+\subsection{Curves}
+\label{\detokenize{ch/differential-geometry/intro:curves}}
+\sphinxAtStartPar
+Parametric representation of curve in 3\sphinxhyphen{}dimensional (Euclidean) space \(E^3\)
+\begin{equation*}
+\begin{split}\vec{r}(q)\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Differential, \(d \vec{r}\).}
+\begin{equation*}
+\begin{split}d \vec{r}(q) = \vec{r}'(q) \, d q \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Arc\sphinxhyphen{}length parameter, \(s\).} So that \(d s = |d \vec{r}(s)|\) and thus
+\begin{equation*}
+\begin{split}|d \vec{r}(s)| = |\vec{r}'(s)| \, |d s| \qquad \rightarrow \qquad |\vec{r}'(s)| = 1 \qquad \rightarrow \qquad \vec{r}'(s) = \hat{t}(s) \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Frenet basis.} Using arc\sphinxhyphen{}length parameter, Frenet basis is naturally defined as the set \(\{ \hat{t}, \hat{n}, \hat{b} \}\):
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+tangent unit vector, \(\hat{t}(s) = \vec{r}'(s)\),
+
+\item {} 
+\sphinxAtStartPar
+normal unit vector, \(\hat{r}''(s) = \hat{t}'(s) =: \kappa(s) \, \hat{n}(s) \), with \(\kappa(s)\) local curvature
+
+\item {} 
+\sphinxAtStartPar
+binormal unit vector, \(\hat{b}(s) = \hat{t}(s) \times \hat{n}(s)\)
+
+\end{itemize}
+
+\sphinxAtStartPar
+Using a general parameter, \(t\), with some abuse of notation \(\vec{r}(t) = \vec{r}(s(t))\) and indicating \(\dot{()} = \frac{d}{dt}\),
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\(\dot{\vec{r}} = \frac{d s}{d t} \frac{d \vec{r}}{d s} = \dot{s} \hat{t}\)
+
+\item {} 
+\sphinxAtStartPar
+\(\ddot{\vec{r}} = \dfrac{d}{dt} \dot{\vec{r}} = \dfrac{d}{dt} \left( \dot{s} \hat{t} \right) = \ddot{s} \hat{t} + \dfrac{ds}{dt} \dfrac{d}{ds} \hat{t} = \ddot{s} \hat{t} + \dot{s}^2 \kappa \, \hat{n}\)
+
+\end{itemize}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Osculator circle.} Circle with \(R(s) = \frac{1}{\kappa(s)}\), in plane orthogonal to \(\hat{b}(s)\), passing through \(\vec{r}(s)\), and thus center in \(\vec{r}_C(s) = \vec{r}(s) + \hat{n} R(s)\). Its parametric representation using its arc\sphinxhyphen{}length parameter \(p\), with \(\vec{r}(p=0) = \vec{r}(s)\) reads
+\begin{equation*}
+\begin{split}\vec{r}(p) = \vec{r}_C(s) + R(s) \left[ - \cos \left(\frac{p}{R(s)} \right) \hat{n}(s) + \sin \left(\frac{p}{R(s)}  \right)\hat{t}(s) \right] \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Its first and second order derivatives w.r.t. the arc\sphinxhyphen{}length \(p\) evaluated in \(p=0\), i.e. \(\vec{r} = \vec{r}(s)\) read:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+first derivative in \(p=0\),
+\begin{equation*}
+\begin{split}\left.\hat{t}(p)\right|_{p=0} = \left.\vec{r}'(p)\right|_{p=0} = \left.  \left[ \sin \left(\frac{p}{R(s)} \right) \hat{n}(s) + \cos \left(\frac{p}{R(s)}  \right)\hat{t}(s) \right] \right|_{p=0} = \hat{t}(s) \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+i.e. the osculator circle has the same tangent as the curve in the point.
+
+\item {} 
+\sphinxAtStartPar
+second derivative in \(p=0\),
+\begin{equation*}
+\begin{split}\left. \kappa(p) \hat{n}(p)\right|_{p=0} = \left.\vec{r}''(p)\right|_{p=0} = \frac{1}{R(s)} \left.  \left[ \cos \left(\frac{p}{R(s)} \right) \hat{n}(s) - \sin \left(\frac{p}{R(s)}  \right)\hat{t}(s) \right] \right|_{p=0} = \frac{1}{R(s)}\hat{n}(s) = \kappa(s) \hat{n}(s) \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+i.e. the osculator circle has the same normal vector and curvature as the curve in the point.
+
+\end{itemize}
+
+
+\subsection{Surfaces}
+\label{\detokenize{ch/differential-geometry/intro:surfaces}}\begin{equation*}
+\begin{split}\vec{r}(q^1, q^2)\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}d \vec{r} =
+  \frac{\partial \vec{r}}{\partial q^1} \, d q^1 + \frac{\partial \vec{r}}{\partial q^2} \, d q^2 =
+  \vec{b}_1 \, d q^1 + \vec{b}_2 \, d q^2
+\end{split}
+\end{equation*}
+\sphinxAtStartPar
+A third vector \(\vec{b}_3 := \hat{n}\) can be defined so that \(|\hat{n}| = 1\) and \(\hat{n} \cdot \vec{b}_{i} = 0\), \(i=1:2\). For \(i=1:2\), \(k=1:2\)
+\begin{equation*}
+\begin{split}\frac{\partial \vec{b}_i}{\partial q^j} = \Gamma_{ij}^k \vec{b}_k = \Gamma_{ij}^1 \vec{b}_1 + \Gamma_{ij}^2 \vec{b}_2 + \Gamma_{ij}^3 \vec{b}_3\end{split}
+\end{equation*}
+\sphinxAtStartPar
+so that
+\begin{equation*}
+\begin{split}\Gamma_{ij}^{k} = \vec{b}^k \cdot \frac{\partial \vec{b}_i}{\partial q^j}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Normal vector.}
+\begin{equation*}
+\begin{split}\vec{n}(q^1, q^2) = \frac{\partial \vec{r}}{\partial q^1}(q^1, q^2) \times \frac{\partial \vec{r}}{\partial q^2}(q^1, q^2) = \vec{b}_1(q^1, q^2) \times \vec{b}_2(q^1, q^2)\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Tangent plane.}
+\begin{equation*}
+\begin{split}(\vec{r} - \vec{r}(q^1, q^2)) \cdot \vec{n}(q^1, q^2) = 0\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Length of elementary segment.}
+\begin{equation*}
+\begin{split}\begin{aligned}
+|d \vec{r}|^2 
+  & = d \vec{r} \cdot d \vec{r} = \\
+  & = \left( \vec{b}_1 \, d q^1 + \vec{b}_2 \, d q^2 \right) \cdot \left( \vec{b}_1 \, d q^1 + \vec{b}_2 \, d q^2 \right) = \\
+  & = g_{11} \, dq^1 \, dq^1 + g_{12} \, dq^1 \, dq^2 + g_{21} \, dq^2 \, dq^1 + g_{22} \, dq^2 \, d q^2 = g_{ij} \, dq^i \, dq^j 
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Second order approximation.}
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \vec{r}(q^1 + d q^1, q^2 + d q^2) 
+  & = \vec{r}(q_1, q_2) + \frac{\partial \vec{r}}{\partial q^i} \, dq^i + \frac{\partial^2 \vec{r}}{\partial q^i \partial q^j} \, dq^i \, dq^j = \\
+  & = \vec{r}(q_1, q_2) + \vec{b}_{i} \, dq^i + \vec{b}_k \Gamma^{k}_{ij} \, dq^i \, dq^j +  \hat{n} \, \Gamma^{3}_{ij} \, dq^i \, dq^j 
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+so that
+\begin{equation*}
+\begin{split}\begin{aligned}
+\left[ \vec{r}(q^1 + d q^1, q^2 + d q^2) - \vec{r}(q^1, q^2) \right] \cdot \hat{n} 
+ & = \Gamma^3_{ij} \, d q^i \, dq^j = \\
+ & = \hat{n} \cdot \frac{\partial^2 \vec{r}}{\partial q^i \partial q^j} \, d q^i \, dq^j = \\
+ & = \hat{n} \cdot \frac{\partial^2 \vec{r}}{\partial q^i \partial q^j} \, \vec{b}^i \cdot \vec{b}_k d q^k \, \vec{b}^j \cdot \vec{b}_l dq^l = \\
+ & = \underbrace{d q^k \vec{b}_k}_{d \vec{r}} \cdot \left[ \hat{n} \cdot \frac{\partial^2 \vec{r}}{\partial q^i \partial q^j}  \vec{b}^i \otimes \vec{b}^j \right] \cdot \underbrace{d q^l \vec{b}_l}_{d\vec{r}}
+\end{aligned}\end{split}
+\end{equation*}
 \sphinxstepscope
 
 
@@ -228,13 +367,42 @@ In a simple domain in  \(y\), so that the closed contour \(\partial S\) is delim
 
 \chapter{Tensor Algebra}
 \label{\detokenize{ch/tensor-algebra-calculus/algebra:tensor-algebra}}\label{\detokenize{ch/tensor-algebra-calculus/algebra:id1}}\label{\detokenize{ch/tensor-algebra-calculus/algebra::doc}}
+
+\section{Basis}
+\label{\detokenize{ch/tensor-algebra-calculus/algebra:basis}}\label{ch/tensor-algebra-calculus/algebra:definition-0}
+\begin{sphinxadmonition}{note}{Definition 1 (Basis)}
+
+
+\end{sphinxadmonition}
+\label{ch/tensor-algebra-calculus/algebra:definition-1}
+\begin{sphinxadmonition}{note}{Definition 2 (Reciprocal basis)}
+
+
+
+\sphinxAtStartPar
+In a inner product space, the reciprocal basis of a given basis \(\{ \vec{b}_a \}_{a=1:d}\) is the set of vectors \(\{ \vec{b}_{b} \}_{b=1:d}\), s.t.
+\begin{equation*}
+\begin{split}\vec{b}^b \cdot \vec{b}_a = \delta_a^b \ .\end{split}
+\end{equation*}\end{sphinxadmonition}
+
+
+\section{Exterior algebra}
+\label{\detokenize{ch/tensor-algebra-calculus/algebra:exterior-algebra}}\begin{equation*}
+\begin{split}\land\end{split}
+\end{equation*}
+
+\section{Exterior product}
+\label{\detokenize{ch/tensor-algebra-calculus/algebra:exterior-product}}
+\sphinxAtStartPar
+Generalization of the vector product
+
 \sphinxstepscope
 
 
 \chapter{Tensor Calculus in Euclidean Spaces}
 \label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:tensor-calculus-in-euclidean-spaces}}\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:tensor-calculus}}\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean::doc}}
 \sphinxAtStartPar
-This section deals with tensor calculus in Euclidean space or on manifolds embedded in Euclidean spaces, focusing on \(d\)\sphinxhyphen{}dimensional spaces with \(d \le 3\).
+This section deals with tensor calculus in Euclidean space or on manifolds embedded in Euclidean spaces, focusing on \(d\)\sphinxhyphen{}dimensional spaces with \(d \le 3\), with \sphinxstyleemphasis{inner product}.
 
 \sphinxAtStartPar
 This section may rely on results of {\hyperref[\detokenize{ch/differential-geometry/intro:differential-geometry-intro}]{\sphinxcrossref{\DUrole{std,std-ref}{differential geometry}}}}.
@@ -242,6 +410,245 @@ This section may rely on results of {\hyperref[\detokenize{ch/differential-geome
 
 \section{Coordinates}
 \label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:coordinates}}
+\sphinxAtStartPar
+A set of parameters \(\{q^a\}_{a=1:d}\) to represent vector (or point) in space,
+\begin{equation*}
+\begin{split}\vec{r}(q^a)\end{split}
+\end{equation*}
+\sphinxAtStartPar
+if \(\vec{r} \in E^{d}\), \(a=1:d\).
+
+\sphinxAtStartPar
+In \(E^3\),
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Coordinate lines}, 2\sphinxhyphen{}parameter family of lines, keeping 2 coordinates constant. As an example, coordinate lines with constant \(q^2, \, q^3\)
+\begin{equation*}
+\begin{split}\vec{r}_1(q^1) = \vec{r}(q^1, \bar{q}^2, \bar{q}^3) \ .\end{split}
+\end{equation*}
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Coordinate surfaces,} 1\sphinxhyphen{}parameter family of surfaces, keeping 1 coordinate constant. As an example, coordinate surfaces with constant \(q^1\),
+\begin{equation*}
+\begin{split}\vec{r}_{23}(q^2, q^3) = \vec{r}(\bar{q}^1, q^2, q^3) \ .\end{split}
+\end{equation*}
+\end{itemize}
+\label{ch/tensor-algebra-calculus/calculus-euclidean:definition-0}
+\begin{sphinxadmonition}{note}{Definition 3 (Regular parametrization)}
+
+
+
+\sphinxAtStartPar
+If \(\frac{\partial \vec{r}}{\partial q^a} \ne 0\).
+\end{sphinxadmonition}
+
+
+\subsection{Natural basis}
+\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:natural-basis}}\label{ch/tensor-algebra-calculus/calculus-euclidean:definition-1}
+\begin{sphinxadmonition}{note}{Definition 4 (Natural basis)}
+
+
+
+\sphinxAtStartPar
+Vectors of natural basis
+\begin{equation*}
+\begin{split}\vec{b}_a := \frac{\partial \vec{r}}{\partial q^a}\end{split}
+\end{equation*}\end{sphinxadmonition}
+\label{ch/tensor-algebra-calculus/calculus-euclidean:definition-2}
+\begin{sphinxadmonition}{note}{Definition 5 (Christoffel symbols)}
+
+
+\end{sphinxadmonition}
+
+
+\section{Fields}
+\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:fields}}
+\sphinxAtStartPar
+Function of the points in space \(F: E^d \rightarrow V^r\), being \(V^r\) a space of tensors of order \(r\).
+
+
+\section{Differential operators}
+\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:differential-operators}}
+
+\subsection{Directional derivative}
+\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:directional-derivative}}\begin{equation*}
+\begin{split}F(\vec{r}) = F\left(\vec{r}\left(q^a\right)\right) = f(q^a)\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}f(q^a + \beta \Delta q^a) = F(\vec{r}(q^a + \beta \Delta q^a))\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\vec{r}(q^a) + \alpha \vec{v} = \vec{r}(q^a + \beta \Delta q^a) \sim \vec{r}(q^a) + \frac{\partial \vec{r}}{\partial q^b} \beta \Delta q^b \end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\alpha \vec{v} \sim \beta \frac{\partial \vec{r}}{\partial q^b}(q^a) \, \Delta q^b = \beta \vec{b}_b(q^a) \Delta q^b
+\qquad \rightarrow \qquad \Delta q^b = \frac{\alpha}{\beta} \vec{b}^b(q^a) \cdot \vec{v} \end{split}
+\end{equation*}
+\sphinxAtStartPar
+The directional derivative for an arbitrary vector \(\vec{v} \in V\)
+\begin{equation*}
+\begin{split}\frac{d}{d \alpha} F(\vec{r} + \alpha \vec{v})\bigg|_{\alpha = 0}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+is evaluated as the limit for \(\alpha \rightarrow 0\) of the incremental ratio
+\begin{equation*}
+\begin{split}\begin{aligned}
+ \frac{F(\vec{r} + \alpha \vec{v}) - F(\vec{r})}{\alpha} 
+ & \sim \frac{f(q^a + \beta \Delta q^a) - f(q^a)}{\alpha} = \\ 
+ & \sim \frac{1}{\alpha} \frac{\partial f}{\partial q^b}(q^a) \beta \Delta q^b = \\
+ & \sim \vec{v} \cdot \vec{b}^b(q^a) \frac{\partial f}{\partial q^b}(q^a) = \\
+ & = \vec{v} \cdot \nabla F(\vec{r})
+\end{aligned}\end{split}
+\end{equation*}
+
+\subsection{Gradient}
+\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:gradient}}
+\sphinxAtStartPar
+The gradient is the differential operator is the first\sphinxhyphen{}order differential operator appearing in the definition of the directional derivative, \(\nabla F(\vec{r})\). It takes a tensor field \(F(\vec{r})\) of order \(r\) and gives a tensor field \(\nabla F(\vec{r})\) of order \(r+1\). Given a set of coordinates \(\{q^a\}_{a=1:d}\), the gradient can be written using the reciprocal basis of the natural basis as
+\begin{equation*}
+\begin{split}\nabla F(\vec{r}) = \vec{b}^b(\vec{r}) \frac{\partial F}{\partial q^b}(\vec{r})\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Examples.} …
+
+
+\subsection{Divergence}
+\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:divergence}}
+\sphinxAtStartPar
+Divergence opearator is a first\sphinxhyphen{}order differential operator that can be defined as the contraction of the first two indices of the gradient,
+\begin{equation*}
+\begin{split}\nabla \cdot F = C_{1}^{2}\left( \nabla F \right) \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+It takes a tensor field \(F(\vec{r})\) of order \(r \ge 1\) and gives a tensor field \(\nabla \cdot F(\vec{r})\) of order \(r-1 \ge 0\).
+
+
+\subsection{Laplacian}
+\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:laplacian}}
+\sphinxAtStartPar
+Laplacian operator is second\sphinxhyphen{}order differential operator that can be defined as the divergence of the gradient,
+\begin{equation*}
+\begin{split}\Delta F = \nabla^2 F = \nabla \cdot \nabla F \ .\end{split}
+\end{equation*}
+
+\subsection{Curl}
+\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:curl}}
+
+\section{Integrals in \protect\(E^d\protect\), \protect\(d \le 3\protect\)}
+\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:integrals-in-e-d-d-le-3}}
+
+\subsection{Line integrals}
+\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:line-integrals}}
+
+\subsubsection{Density}
+\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:density}}
+\sphinxAtStartPar
+Integrals
+\begin{equation*}
+\begin{split} \int_{\vec{r}\in\gamma} F(\vec{r})\end{split}
+\end{equation*}
+\sphinxAtStartPar
+represent the summation of contributions \(F(\vec{r})\) over elementary segments of path \(\gamma\), whose dimension is \(|d \vec{r}|\), i.e. implicitly means
+\begin{equation*}
+\begin{split}\int_{\vec{r}\in\gamma} F(\vec{r}) = \int_{\vec{r} \in \gamma} F(\vec{r}) \, |d \vec{r}| \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Given a regular parametrization of the curve \(\vec{r}(q^1)\) (with increasing \(q^1\) so that \(|dq^1| = dq^1\)), and the differential \(d \vec{r} = \vec{r}'(q^1) \, d q^1\), the integral can be written as an integral in the parameter \(q^1\)
+\begin{equation*}
+\begin{split}\int_{q=q^1_a}^{q^1_b} F(\vec{r}(q^1)) \, |\vec{r}'(q^1)| \, dq^1 \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+with \(\vec{r}(q^1_a)\), \(\vec{r}(q^1_b)\) the extreme points of path \(\gamma\).
+
+
+\subsubsection{Work}
+\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:work}}
+\sphinxAtStartPar
+Integrals
+\begin{equation*}
+\begin{split}\int_{\vec{r} \in \gamma} F(\vec{r}) \cdot \hat{t}(\vec{r})\end{split}
+\end{equation*}
+\sphinxAtStartPar
+implicitly mean
+\begin{equation*}
+\begin{split}\int_{\vec{r} \in \gamma} F(\vec{r}) \cdot \hat{t}(\vec{r}) = \int_{\vec{r} \in \gamma} F(\vec{r}) \cdot \hat{t}(\vec{r}) |d \vec{r}| = \int_{\vec{r} \in \gamma} F(\vec{r}) \cdot d \vec{r} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+as \(\hat{t} = \frac{d \vec{r}}{|d \vec{r}|}\).
+Given a regular parametrization of the curve \(\vec{r}(q^1)\) (with increasing \(q^1\) so that \(|dq^1| = dq^1\)), and the differential \(d \vec{r} = \vec{r}'(q^1) \, d q^1\), the integral can be written as an integral in the parameter \(q^1\)
+\begin{equation*}
+\begin{split}\int_{q^1=q^1_a}^{q^1_b} F(\vec{r}(q^1)) \cdot \vec{r}'(q^1) \, dq^1\end{split}
+\end{equation*}
+
+\subsection{Surface integrals}
+\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:surface-integrals}}
+\sphinxAtStartPar
+Given two coordinates \(q^1, \, q^2\) describing a surface, \(\vec{r}(q^1, q^2)\) the elementary surface with unit normal reads
+\begin{equation*}
+\begin{split}\hat{n} \, dS = d \vec{r}_1 \times d \vec{r}_2 = \frac{\partial \vec{r}}{\partial q^1} \times \frac{\partial \vec{r}}{\partial q^2} \, dq^1 \, dq^2 \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and the elementary surface thus reads
+\begin{equation*}
+\begin{split}|dS| = |\hat{n} dS| = \left| \frac{\partial \vec{r}}{\partial q^1} \times \frac{\partial \vec{r}}{\partial q^2} \, dq^1 \, dq^2  \right|\end{split}
+\end{equation*}
+
+\subsubsection{Density}
+\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:id1}}
+\sphinxAtStartPar
+Integrals
+\begin{equation*}
+\begin{split}\int_{\vec{r} \in S} F(\vec{r}) \end{split}
+\end{equation*}
+\sphinxAtStartPar
+implicitly mean
+\begin{equation*}
+\begin{split}\int_{\vec{r} \in S} F(\vec{r}) = \int_{\vec{r} \in S} F(\vec{r}) |d S| \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Given regular parametrization of the surface, \(\vec{r}(q^1, \, q^2), \ (q^1, q^2) \in Q^{12}\), the integral can be written as the multi\sphinxhyphen{}dimensional integral in coordinates \(q^1, \ q^2\),
+\begin{equation*}
+\begin{split}\int_{\vec{r} \in S} F(\vec{r}) = \int_{(q^1,q^2) \in Q^{12}} F(\vec{r}(q^1,q^2)) \left| \frac{\partial \vec{r}}{\partial q^1} \times \frac{\partial \vec{r}}{\partial q^2}  \, dq^1 \, dq^2 \right|\end{split}
+\end{equation*}
+
+\subsubsection{Flux}
+\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:flux}}
+\sphinxAtStartPar
+Integrals
+\begin{equation*}
+\begin{split}\int_{\vec{r} \in S} \hat{n}(\vec{r}) \cdot F(\vec{r}) \end{split}
+\end{equation*}
+\sphinxAtStartPar
+implicitly mean
+\begin{equation*}
+\begin{split}\int_{\vec{r} \in S} \hat{n}(\vec{r}) \cdot F(\vec{r}) = \int_{\vec{r} \in S} \hat{n}(\vec{r}) \cdot F(\vec{r}) |dS| \end{split}
+\end{equation*}
+\sphinxAtStartPar
+Given regular parametrization of the surface, \(\vec{r}(q^1, \, q^2), \ (q^1, q^2) \in Q^{12}\), the integral can be written as the multi\sphinxhyphen{}dimensional integral in coordinates \(q^1, \ q^2\),
+\begin{equation*}
+\begin{split}\int_{\vec{r} \in S} \hat{n}(\vec{r}) \cdot F(\vec{r}) = \int_{(q^1,q^2) \in Q^{12}} \frac{\partial \vec{r}}{\partial q^1} \times \frac{\partial \vec{r}}{\partial q^2} \cdot  F(\vec{r}(q^1,q^2))\, dq^1 \, dq^2 \end{split}
+\end{equation*}
+
+\subsection{Volume}
+\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:volume}}\begin{equation*}
+\begin{split}dV = \frac{\partial \vec{r}}{\partial q^1} \cdot \frac{\partial \vec{r}}{\partial q^2} \times \frac{\partial \vec{r}}{\partial q^3} \, dq^1 \, dq^2 \, d q^3 \ . \end{split}
+\end{equation*}
+
+\subsubsection{Density}
+\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:id2}}
+\sphinxAtStartPar
+Integrals
+\begin{equation*}
+\begin{split}\int_{\vec{r} \in V} F(\vec{r})\end{split}
+\end{equation*}
+\sphinxAtStartPar
+implicitly mean
+\begin{equation*}
+\begin{split}\int_{\vec{r} \in V} F(\vec{r}) = \int_{\vec{r} \in V} F(\vec{r}) \, |dV| \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Given regular parametrization of the volume, \(\vec{r}(q^1, \, q^2, \, q^3), \ (q^1, q^2, q^3) \in Q\), the integral can be written as the multi\sphinxhyphen{}dimensional integral in coordinates \(q^1, \, q^2, \, q^3\),
+\begin{equation*}
+\begin{split}\int_{\vec{r} \in V} F(\vec{r}) |d V| = \int_{(q^1,q^2,q^3) \in Q} F(\vec{r}(q^1,q^2,q^3))  \left| \frac{\partial \vec{r}}{\partial q^1} \cdot \frac{\partial \vec{r}}{\partial q^2} \times \frac{\partial \vec{r}}{\partial q^3} \, dq^1 \, dq^2 \, d q^3 \right| \ .\end{split}
+\end{equation*}
 \sphinxstepscope
 
 
@@ -420,7 +827,7 @@ Directly follows from integral of approximation 2,
 \begin{split}\frac{1}{2\pi}\sum_{n=-N}^{N} e^{i n x} = \frac{1}{2 \pi} \frac{\sin\left(\left(N+\frac{1}{2}\right)x\right)}{\sin\left( \frac{x}{2} \right)} \sim \delta(x)\end{split}
 \end{equation*}
 
-\subsubsection*{Integral \protect\(I = \int_{-\infty}^{+\infty} e^{-\alpha x^2} \, dx\protect\)}
+\phantomsection\label{\detokenize{ch/functional-analysis/dirac-delta:integral-e-x2}}\subsubsection*{Integral \protect\(I = \int_{-\infty}^{+\infty} e^{-\alpha x^2} \, dx\protect\)}
 \begin{equation*}
 \begin{split}\begin{aligned}
   I^2 
@@ -476,7 +883,7 @@ Given a line \(\gamma \in \mathbb{C}\), whose parametric form is \(z(s)\), with 
 
 \section{Holomorphic Functions \sphinxhyphen{} Analytic Functions}
 \label{\detokenize{ch/complex/analysis:holomorphic-functions-analytic-functions}}\label{\detokenize{ch/complex/analysis:complex-analysis-holo-fun}}\label{ch/complex/analysis:definition-0}
-\begin{sphinxadmonition}{note}{Definition 1}
+\begin{sphinxadmonition}{note}{Definition 6}
 
 
 
@@ -574,7 +981,7 @@ Since \(z^n\) is analytic everywhere (\sphinxstylestrong{todo} \sphinxstyleempha
 
 \section{Meromorphic functions}
 \label{\detokenize{ch/complex/analysis:meromorphic-functions}}\label{\detokenize{ch/complex/analysis:complex-analysis-mero-fun}}\label{ch/complex/analysis:definition-1}
-\begin{sphinxadmonition}{note}{Definition 2}
+\begin{sphinxadmonition}{note}{Definition 7}
 
 
 
@@ -585,7 +992,7 @@ A meromorphic function in a domain is a function holomorphic everywhere except f
 
 \subsection{Singularities}
 \label{\detokenize{ch/complex/analysis:singularities}}\label{\detokenize{ch/complex/analysis:complex-analysis-singularities}}\label{ch/complex/analysis:definition-2}
-\begin{sphinxadmonition}{note}{Definition 3 (Pole)}
+\begin{sphinxadmonition}{note}{Definition 8 (Pole)}
 
 
 
@@ -601,7 +1008,7 @@ with \(\phi(z)\) holomorphic in \(\phi(a) \ne 0\)
 \sphinxAtStartPar
 \sphinxstylestrong{Examples.} …
 \label{ch/complex/analysis:definition-3}
-\begin{sphinxadmonition}{note}{Definition 4 (Branch)}
+\begin{sphinxadmonition}{note}{Definition 9 (Branch)}
 
 
 \end{sphinxadmonition}
@@ -609,7 +1016,7 @@ with \(\phi(z)\) holomorphic in \(\phi(a) \ne 0\)
 \sphinxAtStartPar
 \sphinxstylestrong{Examples.} \(f(z) = z^{\frac{1}{2}}\)
 \label{ch/complex/analysis:definition-4}
-\begin{sphinxadmonition}{note}{Definition 5 (Removable singularities)}
+\begin{sphinxadmonition}{note}{Definition 10 (Removable singularities)}
 
 
 \end{sphinxadmonition}
@@ -662,7 +1069,7 @@ Proof readily follows using the {\hyperref[\detokenize{ch/complex/analysis:compl
 
 \subsection{Residues}
 \label{\detokenize{ch/complex/analysis:residues}}\label{\detokenize{ch/complex/analysis:complex-analysis-mero-fun-residues}}\label{ch/complex/analysis:definition-5}
-\begin{sphinxadmonition}{note}{Definition 6 (Residue)}
+\begin{sphinxadmonition}{note}{Definition 11 (Residue)}
 
 
 
@@ -774,13 +1181,13 @@ the inverse transform can be evaluated as
 \begin{split}f(t) = \mathscr{L}^{-1}\{F(s)\}(t) := \lim_{T \rightarrow +\infty} \frac{1}{2 \pi i} \int_{s = a-iT}^{a+iT} e^{st} F(s) \, ds \ ,\end{split}
 \end{equation*}
 \sphinxAtStartPar
-with \(a > \text{Re}\{p_n\}\) for each pole of the function \(F(s)\), evaluated on the vertical line \(s = a+iy\), \(y \in [-T,T]\), \(ds = i d y\),
+with \(a > \text{Re}\{p_n\}\) (\sphinxstylestrong{todo} \sphinxstyleemphasis{why?}) for each pole of the function \(F(s)\), evaluated on the vertical line \(s = a+iy\), \(y \in [-T,T]\), \(ds = i d y\),
 \begin{equation*}
 \begin{split}\begin{aligned}
   \lim_{T \rightarrow +\infty} \frac{1}{2 \pi i} \int_{s = a-iT}^{a+iT} e^{st} F(s) \, ds 
   & = \lim_{T \rightarrow +\infty} \frac{1}{2 \pi i} \int_{s = a-iT}^{a+iT} e^{st} \int_{\tau=0^-}^{+\infty} f(\tau) e^{-s\tau} \, d \tau  \, ds = \\
-  & = \lim_{T \rightarrow +\infty} \frac{1}{2 \pi i} \int_{y = -iT}^{iT} e^{(a+iy)t} \int_{\tau=0^-}^{+\infty} f(\tau) e^{-(a+iy)\tau} \, d \tau  \, i dy = \\
-  & = \lim_{T \rightarrow +\infty} \frac{1}{2 \pi} \int_{y = -iT}^{iT} \int_{\tau=0^-}^{+\infty} e^{iy(t-\tau)} e^{a(t-\tau)} f(\tau) \, d \tau  \, dy = \\
+  & = \lim_{T \rightarrow +\infty} \frac{1}{2 \pi i} \int_{y = -T}^{T} e^{(a+iy)t} \int_{\tau=0^-}^{+\infty} f(\tau) e^{-(a+iy)\tau} \, d \tau  \, i dy = \\
+  & = \lim_{T \rightarrow +\infty} \frac{1}{2 \pi} \int_{y = -T}^{T} \int_{\tau=0^-}^{+\infty} e^{iy(t-\tau)} e^{a(t-\tau)} f(\tau) \, d \tau  \, dy = \\
   & = \dots \\
   & = \int_{\tau=0^-}^{+\infty} \delta(t-\tau) e^{a(t-\tau)} f(\tau) d \tau = f(t) \ .
 \end{aligned}\end{split}
@@ -789,14 +1196,14 @@ with \(a > \text{Re}\{p_n\}\) for each pole of the function \(F(s)\), evaluated 
 having used the transform of {\hyperref[\detokenize{ch/functional-analysis/dirac-delta:functional-analysis-dirac-delta}]{\sphinxcrossref{\DUrole{std,std-ref}{Dirac’s delta}}}} \(\delta(t) = \frac{1}{2\pi} \int_{\omega=-\infty}^{+\infty} e^{-j \omega t} \, d\omega\).
 
 \sphinxAtStartPar
-\sphinxstylestrong{todo} \sphinxstyleemphasis{If \(a > \text{Re}\{p_n\}\), the contour build with the vertical line with real part \(a\) and the arc of circumference on its}
+\sphinxstylestrong{todo} \sphinxstyleemphasis{Ohter approach: if \(a > \text{Re}\{p_n\}\), the contour built with the vertical line with real part \(a\) and the arc of circumference on its…}
 
 \sphinxstepscope
 
 
 \chapter{Laplace Transform}
 \label{\detokenize{ch/complex/laplace:laplace-transform}}\label{\detokenize{ch/complex/laplace:complex-laplace}}\label{\detokenize{ch/complex/laplace::doc}}\begin{equation*}
-\begin{split}\mathscr{L}\left\{ f(t) \right\}(s) := \int_{t=0^-}^{+\infty} f(t) \, e^{st} \, dt = F(s) \ .\end{split}
+\begin{split}\mathscr{L}\left\{ f(t) \right\}(s) := \int_{t=0^-}^{+\infty} e^{-st} f(t) \, dt = F(s) \ .\end{split}
 \end{equation*}
 
 \section{Inverse transform}
@@ -808,26 +1215,97 @@ having used the transform of {\hyperref[\detokenize{ch/functional-analysis/dirac
 \label{\detokenize{ch/complex/laplace:properties}}
 \sphinxAtStartPar
 \sphinxstylestrong{Linearity.}
-
+\begin{equation*}
+\begin{split}\mathscr{L}\{ a f(t) + b g(t) \}(s) = a F(s) + b G(s)\end{split}
+\end{equation*}
 \sphinxAtStartPar
 \sphinxstylestrong{{\hyperref[\detokenize{ch/functional-analysis/dirac-delta:functional-analysis-dirac-delta}]{\sphinxcrossref{\DUrole{std,std-ref}{Dirac delta}}}}.}
 \begin{equation*}
 \begin{split}\mathscr{L}\left\{ \delta(t) \right\} = \int_{t=0^-}^{+\infty} \delta(t) \, e^{st} \, dt = 1 \end{split}
 \end{equation*}
 \sphinxAtStartPar
-\sphinxstylestrong{Time delay.}
-
+\sphinxstylestrong{Time delay.} If \(f(t) = 0\) for \(t < 0\) (“causality”), for \(\tau > 0\),
+\begin{equation*}
+\begin{split}\mathscr{L}\{ f(t-\tau) \}(s) = e^{-s \tau} F(s)\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Proof readily follows direct computation with change of variable \(z = t - \tau\), \(dt = dz\)
+\begin{equation*}
+\begin{split}\mathscr{L}\{ f(t - \tau) \}(s) = \int_{t=0^-}^{+\infty} f(t-\tau) e^{-s t} \, dt = \int_{z = - \tau}^{+\infty} f(z) e^{-s z } \, dz \, e^{-s \tau} = \int_{z = 0}^{+\infty} f(z) e^{-s z } \, dz \, e^{-s \tau} = e^{-s \tau} F(s) \ . \end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{“Frequency shift”}
+\begin{equation*}
+\begin{split}\mathscr{L}\{ f(t) e^{a t} \}(s) = F(s-a)\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Direct computation gives
+\begin{equation*}
+\begin{split}\mathscr{L}\{ f(t) e^{a t} \}(s) = \int_{t=0^-}^{+\infty} f(t) e^{a t} e^{-st} \, dt =  \int_{t=0^-}^{+\infty} f(t) e^{-(s-a)t} \, dt = F(s-a)\end{split}
+\end{equation*}
 \sphinxAtStartPar
 \sphinxstylestrong{Derivative.}
+\begin{equation*}
+\begin{split}\mathscr{L}\{ f'(t) \}(s) = s F(s) - f(0^-) \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Proof readily follows direct computation, with integration by parts
+\begin{equation*}
+\begin{split}\mathscr{L}\{ f'(t) \}(s) = \int_{t=0^-}^{+\infty} f'(t) e^{-s t} \, dt = \left[ f(t) e^{-s t} \right]|_{t = 0^-}^{+\infty} + s \int_{t=0^-}^{+\infty} f(t) e^{-s t} \, dt = s F(s) - f(0^-) \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+provided that \(\lim_{s \rightarrow +\infty} f(t) e^{-s t} = 0\).
 
 \sphinxAtStartPar
 \sphinxstylestrong{Integral.}
+\begin{equation*}
+\begin{split}\mathscr{L}\left\{ \int_{\tau=0}^{t} f(\tau) \, d \tau \right\}(s) = \frac{1}{s} F(s) \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Proof readily follows direct computation, with integration by parts
+\begin{equation*}
+\begin{split}\mathscr{L}\left\{ \int_{\tau=0^-}^{t} f(\tau) \, d \tau \right\}(s) = \int_{t=0^-}^{+\infty} \int_{\tau=0^-}^{t} f(\tau) \, d \tau e^{-s t} \, dt = \left[ -\frac{e^{-st}}{s} \int_{\tau=0^-}^{t} f(\tau) \, d\tau \right]_{t=0}^{+\infty} + \frac{1}{s} \int_{t=0}^{+\infty} f(t) e^{-s t} \, dt = \frac{1}{s} F(s) \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+provided that \(\int_{\tau=0^-}^{0} f(\tau) d \tau = 0\) and \(\lim_{t \rightarrow +\infty}\frac{e^{-st}}{s} \int_{\tau=0^-}^{+\infty} f(\tau) \, d \tau = 0\).
 
 \sphinxAtStartPar
-\sphinxstylestrong{Initial value.}
+\sphinxstylestrong{Initial value.} If …
+\begin{equation*}
+\begin{split}f(0^+) = \lim_{s \rightarrow + \infty} s F(s)\end{split}
+\end{equation*}
+\sphinxAtStartPar
+From direct computation,
+\begin{equation*}
+\begin{split}\begin{aligned}
+ \lim_{s \rightarrow +\infty} s F(s)
+ & = \lim_{s \rightarrow +\infty} s \int_{t = 0^-}^{+\infty} f(t) \, e^{-st} \, dt = \\
+ & = \lim_{s\rightarrow + \infty} \left\{ \left[s \left(-\frac{e^{-st}}{s}\right)f(t) \right]\bigg|_{t=0}^{+\infty} + \int_{t=0}^{+\infty} e^{-st} f'(t) \, dt \right\} = \\
+ & = \lim_{s \rightarrow +\infty} \left\{ \left[-e^{-st} f(t) \right]\bigg|_{t=0}^{+\infty} + \int_{t=0}^{+\infty} e^{-st} f'(t) \, dt \right\} = \\
+ & = f(0) \ ,
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+provided that \(\lim_{s \rightarrow +\infty} \lim_{t \rightarrow +\infty} e^{-s t} f(t) = 0\) and \(\lim_{s \rightarrow + \infty} \int_{t=0}^{+\infty} e^{-st} f'(t) \, dt = 0\).
 
 \sphinxAtStartPar
-\sphinxstylestrong{Final value.}
+\sphinxstylestrong{Final value.} If …
+\begin{equation*}
+\begin{split}f(+\infty) = \lim_{s \rightarrow 0} s F(s)\end{split}
+\end{equation*}
+\sphinxAtStartPar
+From direct computation (\sphinxstylestrong{todo} \sphinxstyleemphasis{check and/or explain proof}),
+\begin{equation*}
+\begin{split}\begin{aligned}
+ \lim_{s \rightarrow 0} s F(s)
+ & = \lim_{s \rightarrow 0} s \int_{t = 0^-}^{+\infty} f(t) \, e^{-st} \, dt = \\
+ & = \lim_{s \rightarrow 0} \left\{ \left[s \left(-\frac{e^{-st}}{s}\right)f(t) \right]\bigg|_{t=0}^{+\infty} + \int_{t=0}^{+\infty} e^{-st} f'(t) \, dt \right\} = \\
+ & = \lim_{s \rightarrow 0} \left\{ \left[-e^{-st} f(t) \right]\bigg|_{t=0}^{+\infty} + \int_{t=0}^{+\infty} e^{-st} f'(t) \, dt \right\} = \\
+ & = f(0) + f(+\infty) - f(0) = f(+\infty) \ ,
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+provided that \(\lim_{s \rightarrow 0} \lim_{t \rightarrow +\infty} e^{-s t} f(t) = 0\).
 
 \sphinxstepscope
 
@@ -908,9 +1386,118 @@ For a \(T\)\sphinxhyphen{}periodic function,
 \end{aligned}\end{split}
 \end{equation*}
 \sphinxAtStartPar
-\sphinxstylestrong{Proof.}
+\sphinxstylestrong{Proof.} By the \sphinxstyleemphasis{dominated convergence theorem}, it follows that
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \int_{\mathbb{R}} e^{i 2 \pi x \xi} F(\xi) \, d \xi
+  & = \lim_{\varepsilon \rightarrow 0} \int_{\mathbb{R}} \underbrace{e^{-\pi \varepsilon^2 \xi^2 + i 2 \pi x \xi}}_{G(\xi;x,\varepsilon)} F(\xi) \, d \xi = \\
+  & = \lim_{\varepsilon \rightarrow 0} \int_{\mathbb{R}} g(y;x,\varepsilon) f(y) \, dy = \\
+  & = \lim_{\varepsilon \rightarrow 0} \int_{\mathbb{R}} \varphi_{\varepsilon}(x-y) \, f(y) \, dy = \\
+  & = \int_{\mathbb{R}} \delta(x-y) \, f(y) \, dy = f(x)
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Lemma 1.} The Fourier transform of function \(\varphi(t):= e^{-\pi|t|^2}\) reads
+\begin{equation*}
+\begin{split}\begin{aligned}
+\mathscr{F}\{ \varphi(t) \}(\omega) 
+ & = \int_{t=-\infty}^{+\infty} \varphi(t) e^{-i \omega t} \, dt = \\ 
+ & = \int_{t=-\infty}^{+\infty} e^{-\pi|t|^2} e^{-i \omega t} \, dt = \\
+ & = \int_{t=-\infty}^{+\infty} e^{-\pi \left( t^2 + i \frac{\omega}{\pi} t - \frac{\omega^2}{4 \pi^2}  \right)} \, dt \, e^{- \frac{\omega^2}{4 \pi^2}} = \\
+ & = \int_{t=-\infty}^{+\infty} e^{-\pi \left( t + i \frac{\omega}{2 \pi}  \right)^2} \, dt \, e^{- \frac{\omega^2}{4 \pi}} = \\
+ & = e^{- \frac{\omega^2}{4 \pi}} \ ,
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+having evaluated {\hyperref[\detokenize{ch/functional-analysis/dirac-delta:integral-e-x2}]{\sphinxcrossref{\DUrole{std,std-ref}{the integral \(\int_{-\infty}^{+\infty} e^{-\alpha x^2}\)}}}} with \(\alpha = \pi\). \sphinxstylestrong{todo} \sphinxstyleemphasis{justify the result for complex exponential. Use Bromwich contour integrals}
 
+\sphinxAtStartPar
+\sphinxstylestrong{Lemma 2.} Fourier transform of \(f(\alpha t)\), \(\alpha > 0\)
+\begin{equation*}
+\begin{split}\mathscr{F}\{ f(\alpha t) \}(\omega) = \int_{\mathbb{R}} f(\alpha t) e^{-j\omega t} \, dt = \int_{\tau \in \mathbb{R}} f(\tau) e^{-j \frac{\omega}{\alpha} \tau} \, d\tau \frac{1}{\alpha} = \frac{1}{\alpha} F\left(\frac{\omega}{\alpha} \right) \end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Lemma 3.} \(\frac{1}{\varepsilon} \varphi\left(\frac{t}{\varepsilon} \right) \rightarrow \delta(x)\) for \(\varepsilon \rightarrow 0\)
+\begin{equation*}
+\begin{split}\mathscr{F}\left\{\frac{1}{\varepsilon}\varphi\left(\frac{t}{\varepsilon} \right) \right\}(\omega) = \frac{1}{\varepsilon} \varepsilon e^{-\frac{\omega^2}{4 \pi \varepsilon^2}} = e^{-\frac{\omega^2}{4 \pi \varepsilon^2}}\end{split}
+\end{equation*}\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\setcounter{enumi}{-1}
+\item {} 
+\sphinxAtStartPar
+Fourier transform
 
+\end{enumerate}
+\begin{equation*}
+\begin{split}G(f) = \int_{t=-\infty}^{\infty} e^{-i \omega t} g(t) \, dt\end{split}
+\end{equation*}\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\end{enumerate}
+\begin{equation*}
+\begin{split}g(t) = e^{i \alpha t} \psi(t)\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\mathscr{F}\{ g(t) \}(\omega) = \int_{t=-\infty}^{+\infty} g(t) e^{-i \omega t} \, dt = \int_{t=-\infty}^{+\infty} \psi(t) e^{i \alpha t} e^{-i \omega t} \, dt =  \int_{t=-\infty}^{+\infty} \psi(t) e^{-i (\omega-\alpha) t} \, dt = \mathscr{F}\{ \psi(t) \}(\omega-\alpha) \ .\end{split}
+\end{equation*}\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\setcounter{enumi}{1}
+\item {} 
+\end{enumerate}
+\begin{equation*}
+\begin{split}\psi(t) = \phi(\alpha t)\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}
+\mathscr{F}\{ \psi(t) \} 
+ = \int_{t=-\infty}^{+\infty} \psi(t) e^{-i \omega t} \, dt 
+ = \int_{t=-\infty}^{+\infty} \phi(\alpha t) e^{-i \omega t} \, dt 
+ = \int_{\tau = -\infty}^{+\infty} \phi(\tau) e^{-i \frac{\omega}{\alpha} \tau} \, \frac{d \tau}{\alpha} 
+ = \frac{1}{\alpha} \mathscr{F}\{ \phi(t) \}\left( \frac{\omega}{\alpha} \right) \ .
+\end{split}
+\end{equation*}\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\setcounter{enumi}{2}
+\item {} 
+\sphinxAtStartPar
+Fubini’s theorem
+
+\item {} 
+\end{enumerate}
+\begin{equation*}
+\begin{split}\varphi(t):= e^{-\pi t^2}\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}
+\mathscr{F}\{ \varphi(t) \} 
+ = \int_{t=-\infty}^{+\infty} \varphi(t) e^{-i \omega t} \, dt 
+ = \int_{t=-\infty}^{+\infty} e^{-\pi t^2} e^{-i \omega t} \, dt 
+\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}0 = \oint_{\gamma} e^{-\alpha |z|^2} \, dz = \int_{\dots} \dots\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}z = R e^{i \theta}, \quad dz = i R e^{i \theta} d \theta\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\int_{C/4} e^{-\alpha |z|^2} \, dz = \int_{\theta=0}^{\frac{\pi}{2}} e^{-\alpha R^2} i R e^{i\theta} d \theta = i R e^{-\alpha R^2 } \frac{e^{-i \theta}}{i}|_{\theta= 0}^{\frac{\pi}{2}}\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\begin{aligned}
+  \int_{t=0}^{+\infty} e^{-\pi t^2} e^{-i \omega t} \, dt 
+  & = \int_{t=0}^{+\infty} e^{-\left( \pi t^2 + i \omega t - \frac{\omega^2}{4 \pi} \right)} \, dt \, e^{-\frac{\omega^2}{4 \pi}} = \\
+  & = \int_{t=0}^{+\infty} e^{-\pi \left( t + i \frac{\omega}{2 \pi} \right)^2} \, dt \, e^{-\frac{\omega^2}{4 \pi}} \\
+\end{aligned}\end{split}
+\end{equation*}\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\setcounter{enumi}{4}
+\item {} 
+\sphinxAtStartPar
+\(\varphi_{\varepsilon}(t) = \frac{1}{\varepsilon^n} \varphi\left( \frac{t}{\varepsilon} \right)\), \(t \in \mathbb{R}^n\), is an approximation of Dirac’s delta for \(\varepsilon \rightarrow 0\), so that
+\begin{equation*}
+\begin{split}\begin{aligned}
+      & \lim_{\varepsilon \rightarrow 0} \int_{t = -\infty}^{+\infty} \varphi_{\varepsilon}(t- \tau) f(t) \, dt = f(\tau) \\
+      & \lim_{\varepsilon \rightarrow 0} \int_{t = -\infty}^{+\infty} \varphi_{\varepsilon}(t) \, dt = 1 \\
+    \end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+As the Fourier transform \(\mathscr{F}\left\{\varphi_{\varepsilon}(t)\right\}(\omega) \rightarrow 1\) for \(\varepsilon \rightarrow 0\), then \(\varphi_{\varepsilon}(t) \rightarrow \delta(t)\).
+
+\end{enumerate}
 
 
 
@@ -924,6 +1511,74 @@ For a \(T\)\sphinxhyphen{}periodic function,
 
 \chapter{Introduction to Calculus of Variations}
 \label{\detokenize{ch/calculus-variations/intro:introduction-to-calculus-of-variations}}\label{\detokenize{ch/calculus-variations/intro:calculus-variations-intro}}\label{\detokenize{ch/calculus-variations/intro::doc}}
+\sphinxAtStartPar
+Given the functional \(S\),
+\begin{equation*}
+\begin{split}S[q(t),t] = \int_{t=t_0}^{t_1} L(\dot{q}(t), \, q(t), \, t) \, dt\end{split}
+\end{equation*}
+\sphinxAtStartPar
+its variation reads
+\begin{equation*}
+\begin{split}\delta S[q(t), t] = \lim_{\varepsilon \rightarrow 0} \frac{1}{\varepsilon} \left( S[q(t)+\varepsilon w(t), \, t] - S[q(t),\, t]\right)\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\begin{aligned}
+\delta S[q(t), t]
+  & = \lim_{\varepsilon \rightarrow 0} \frac{1}{\varepsilon} \left( S[q(t)+\varepsilon w(t), \, t] - S[q(t),\, t]\right) = \\
+  & = \lim_{\varepsilon \rightarrow 0} \frac{1}{\varepsilon} \int_{t = t_0}^{t_1} \left( L(\dot{q}(t)+\varepsilon w(t), \, q(t)+\varepsilon w(t), \, t) - L(\dot{q}(t), \, q(t), \, t) \right) \, dt = \\
+  & = \lim_{\varepsilon \rightarrow 0} \frac{1}{\varepsilon} \int_{t = t_0}^{t_1} \left\{ L(\dot{q}(t), \, q(t), \, t) + \varepsilon \left[ \frac{\partial L}{\partial \dot{q}} \dot{w}(t) + \frac{\partial L}{\partial q} w(t) \right] + o(\varepsilon) - L(\dot{q}(t), \, q(t), \, t) \right\} \, dt = \\
+  & = \lim_{\varepsilon \rightarrow 0} \frac{1}{\varepsilon} \int_{t = t_0}^{t_1} \left\{ \varepsilon \left[ \frac{\partial L}{\partial \dot{q}} \dot{w}(t) + \frac{\partial L}{\partial q} w(t) \right] + o(\varepsilon) \right\} \, dt = \\
+  & = \int_{t = t_0}^{t_1} \left\{ \frac{\partial L}{\partial \dot{q}} \dot{w}(t) + \frac{\partial L}{\partial q} w(t) \right\} \, dt = \\
+  & = \left.\left[ w(t) \frac{\partial L}{\partial \dot{q}} \right]\right|_{t=t_0}^{t_1} + \int_{t = t_0}^{t_1} \left\{ - \dfrac{d}{dt} \left( \frac{\partial L}{\partial \dot{q}} \right) + \frac{\partial L}{\partial q} \right\} w(t) \, dt \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+If \(q(t_0)\), \(q(t_1)\) are prescribed, then \(w(t_0) = w(t_1) = 0\) and thus
+\begin{equation*}
+\begin{split}\delta S[q(t), t] = \int_{t = t_0}^{t_1} \left\{ - \dfrac{d}{dt} \left( \frac{\partial L}{\partial \dot{q}} \right) + \frac{\partial L}{\partial q} \right\} \delta q(t) \, dt \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+having called \(w(t) = \delta q(t)\) to stress that is the variation of function \(q(t)\).
+
+\sphinxAtStartPar
+\sphinxstylestrong{Stationary conditions, \(\delta S = 0\).} Stationary condition for \(\forall \delta q(t)\) implies Lagrange equation,
+\begin{equation*}
+\begin{split}\frac{d}{dt}\left( \frac{\partial L}{\partial \dot{q}} \right) - \frac{\partial L}{\partial q} = 0 \ .\end{split}
+\end{equation*}
+
+\section{Higher\sphinxhyphen{}order derivatives}
+\label{\detokenize{ch/calculus-variations/intro:higher-order-derivatives}}
+\sphinxAtStartPar
+\sphinxstylestrong{Method 1.} If the Lagrangian function \(L\) depends on higher order derivatives,
+\begin{equation*}
+\begin{split}L \left(q^{(n)}(t), \, q^{(n-1)}(t), \, \dots, \, q'(t), \, q(t), \, t \right)\end{split}
+\end{equation*}
+\sphinxAtStartPar
+it’s possible to recast the problem defining the \(n\)\sphinxhyphen{}dimensional function, \(\mathbf{q}(t)\),
+\begin{equation*}
+\begin{split}\mathbf{q}(t) = \left( q^0(t), q^1(t), \dots, q^{n-1}(t) \right) := \left(q(t), q'(t), \dots, q^{(n-1)}(t) \right) \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+With some abuse of notation in \(L\), the functional \(S\) can be recasted as
+\begin{equation*}
+\begin{split}\begin{aligned}
+  S[q(t),t] 
+  & = \int_{t=t_0}^{t_1} L(q^{(n)}(t), \, \dots, \, q(t), \, t) \, dt = \\
+  & = \int_{t=t_0}^{t_1} L(\dot{\mathbf{q}}(t), \, \mathbf{q}(t), \, t) \, dt \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{todo} \sphinxstyleemphasis{Add constraints on components of \(\mathbf{q}(t)\)}
+
+\sphinxAtStartPar
+Repeating the computation, the variation of the functional reads
+\begin{equation*}
+\begin{split}\delta S[\mathbf{q}(t), t] = \left.\left[ \delta \mathbf{q}^T(t) \frac{\partial L}{\partial \dot{\mathbf{q}}} \right]\right|_{t=t_0}^{t_1} + \int_{t = t_0}^{t_1} \delta \mathbf{q}^T(t) \, \left\{ - \dfrac{d}{dt} \left( \frac{\partial L}{\partial \dot{\mathbf{q}}} \right) + \frac{\partial L}{\partial \mathbf{q}} \right\} \, dt \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Method 2.}
+
+
+
 
 
 
@@ -933,13 +1588,13 @@ For a \(T\)\sphinxhyphen{}periodic function,
 \begin{sphinxtheindex}
 \let\bigletter\sphinxstyleindexlettergroup
 \bigletter{definition\sphinxhyphen{}0}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}0}\sphinxstyleindexextra{ch/complex/analysis}\sphinxstyleindexpageref{ch/complex/analysis:\detokenize{definition-0}}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}0}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/calculus\sphinxhyphen{}euclidean}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/calculus-euclidean:\detokenize{definition-0}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}1}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}1}\sphinxstyleindexextra{ch/complex/analysis}\sphinxstyleindexpageref{ch/complex/analysis:\detokenize{definition-1}}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}1}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/calculus\sphinxhyphen{}euclidean}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/calculus-euclidean:\detokenize{definition-1}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}2}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}2}\sphinxstyleindexextra{ch/complex/analysis}\sphinxstyleindexpageref{ch/complex/analysis:\detokenize{definition-2}}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}2}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/calculus\sphinxhyphen{}euclidean}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/calculus-euclidean:\detokenize{definition-2}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}3}
 \item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}3}\sphinxstyleindexextra{ch/complex/analysis}\sphinxstyleindexpageref{ch/complex/analysis:\detokenize{definition-3}}

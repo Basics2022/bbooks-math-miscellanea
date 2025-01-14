@@ -1,0 +1,611 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Distributions (or generalized functions) &#8212; basics - math</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/style.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/functional-analysis/dirac-delta';</script>
+    <link rel="shortcut icon" href="../../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Complex Analysis" href="../complex/analysis.html" />
+    <link rel="prev" title="Introduction to Functional Analysis" href="intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.svg" class="logo__image only-light" alt="basics - math - Home"/>
+    <script>document.write(`<img src="../../_static/logo-dark.svg" class="logo__image only-dark" alt="basics - math - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Multivariable Calculus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../multivariable/intro.html">Introduction to multi-variable calculus</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Differential Geometry</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../differential-geometry/intro.html">Introduction to Differential Geometry</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Vector and Tensor Algebra and Calculus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/algebra.html">Tensor Algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean.html">Tensor Calculus in Euclidean Spaces</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Functional Analysis</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction to Functional Analysis</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Distributions (or generalized functions)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Complex Calculus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../complex/analysis.html">Complex Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../complex/laplace.html">Laplace Transform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../complex/fourier.html">Fourier Transforms</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Calculus of Variations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../calculus-variations/intro.html">Introduction to Calculus of Variations</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/ch/functional-analysis/dirac-delta.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Distributions (or generalized functions)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dirac-s-delta">Dirac’s delta</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dirac-s-delta-in-terms-of-regular-functions">Dirac’s delta in terms of regular functions</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="tex2jax_ignore mathjax_ignore section" id="distributions-or-generalized-functions">
+<span id="functional-analysis-distributions"></span><h1>Distributions (or generalized functions)<a class="headerlink" href="#distributions-or-generalized-functions" title="Permalink to this heading">#</a></h1>
+<p>…</p>
+<div class="section" id="dirac-s-delta">
+<span id="functional-analysis-dirac-delta"></span><h2>Dirac’s delta<a class="headerlink" href="#dirac-s-delta" title="Permalink to this heading">#</a></h2>
+<p>Dirac’s delta <span class="math notranslate nohighlight">\(\delta(x)\)</span> is a distribution, or generalized function, with the following properties</p>
+<ol class="arabic simple">
+<li></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\int_{D} \delta(x-x_0) \, dx = 1  \quad \text{if $x_0 \in D$}\]</div>
+<ol class="arabic simple" start="2">
+<li></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\int_{D} f(x) \delta(x-x_0) \, dx \quad \text{if $x_0 \in D$}\]</div>
+<p>for <span class="math notranslate nohighlight">\(\forall f(x)\)</span> “regular” <strong>todo</strong> <em>what does regular mean?</em></p>
+<div class="section" id="dirac-s-delta-in-terms-of-regular-functions">
+<h3>Dirac’s delta in terms of regular functions<a class="headerlink" href="#dirac-s-delta-in-terms-of-regular-functions" title="Permalink to this heading">#</a></h3>
+<p><strong>Approximations …</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\delta(x) \sim r_{\varepsilon}(x) = \begin{cases} \frac{1}{\varepsilon} &amp; x \in \left[-\frac{\varepsilon}{2}, \frac{\varepsilon}{2} \right] \\ 0 &amp; \text{otherwise} \end{cases}\end{split}\]</div>
+<p>as</p>
+<ol class="arabic">
+<li><p>Unitariety</p>
+<div class="math notranslate nohighlight">
+\[\int_{x=-\infty}^{\infty} r_{\varepsilon}(x-x_0) \, dx = \int_{x=x_0-\frac{\varepsilon}{2}}^{x_0+\frac{\varepsilon}{2}} \frac{1}{\varepsilon} \, dx = 1 \ ,  \]</div>
+<p>for <span class="math notranslate nohighlight">\(\forall \varepsilon\)</span>;</p>
+</li>
+<li><p>Shift property, using mean-value theorem of continuous functions</p>
+<div class="math notranslate nohighlight">
+\[\int_{x=-\infty}^{\infty} r_{\varepsilon}(x-x_0) f(x) \, dx = \int_{x=x_0-\frac{\varepsilon}{2}}^{x_0+\frac{\varepsilon}{2}} \frac{1}{\varepsilon} f(x) \, dx = \frac{1}{\varepsilon} \varepsilon f(\xi) \ ,  \]</div>
+<p>with <span class="math notranslate nohighlight">\(\xi \in \left[x_0-\frac{\varepsilon}{2}, x_0+\frac{\varepsilon}{2}\right]\)</span>, for the mean value theorem. As <span class="math notranslate nohighlight">\(\varepsilon \rightarrow 0\)</span>, <span class="math notranslate nohighlight">\(\xi \rightarrow x_0\)</span>, and thus</p>
+<div class="math notranslate nohighlight">
+\[\int_{x=-\infty}^{\infty} r_{\varepsilon}(x-x_0) f(x) \, dx \rightarrow f(x_0) \]</div>
+</li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\begin{split}\delta(x) \sim t_{\varepsilon}(x) = \begin{cases} \frac{2}{\varepsilon} \left( 1 - \frac{2 |x|}{\varepsilon} \right) &amp; x \in \left[-\frac{\varepsilon}{2}, \frac{\varepsilon}{2} \right] \\ 0 &amp; \text{otherwise} \end{cases}\end{split}\]</div>
+<p>as</p>
+<ol class="arabic">
+<li><p>Unitariety</p>
+<div class="math notranslate nohighlight">
+\[\int_{x=-\infty}^{\infty} t_{\varepsilon}(x-x_0) \, dx = \int_{x=x_0-\frac{\varepsilon}{2}}^{x_0+\frac{\varepsilon}{2}} \frac{2}{\varepsilon} \left( 1 - \frac{2 |x|}{\varepsilon} \right) \, dx = \frac{1}{2} \varepsilon \frac{2}{\varepsilon} = 1 \ ,  \]</div>
+<p>for <span class="math notranslate nohighlight">\(\forall \varepsilon\)</span>;</p>
+</li>
+<li><p>Shift property, using mean-value integration scheme in <span class="math notranslate nohighlight">\(x \in \left[x_0-\frac{\varepsilon}{2}, x_0 \right]\)</span>,  <span class="math notranslate nohighlight">\(x \in \left[x_0, x_0+\frac{\varepsilon}{2} \right]\)</span> (<strong>todo</strong> <em>why?</em>)</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+   \int_{x=-\infty}^{\infty} t_{\varepsilon}(x-x_0) f(x) \, dx
+   &amp; = \int_{x=x_0-\frac{\varepsilon}{2}}^{x_0+\frac{\varepsilon}{2}} \frac{2}{\varepsilon} \left( 1 - \frac{2 |x-x_0|}{\varepsilon} \right)  f(x) \, dx = \\
+   &amp; = \int_{x=x_0-\frac{\varepsilon}{2}}^{x_0} \frac{2}{\varepsilon} \left( 1 - \frac{2 |x-x_0|}{\varepsilon} \right)  f(x) \, dx 
+     + \int_{x=x_0}^{x_0+\frac{\varepsilon}{2}} \frac{2}{\varepsilon} \left( 1 - \frac{2 |x-x_0|}{\varepsilon} \right)  f(x) \, dx = \\
+   &amp; = \frac{\varepsilon}{2} \frac{2}{\varepsilon} \left( 1 - \frac{2}{\varepsilon}\frac{\varepsilon}{4} \right)  f\left(x_0-\frac{\varepsilon}{4} \right) \, dx 
+     + \frac{\varepsilon}{2} \frac{2}{\varepsilon} \left( 1 - \frac{2}{\varepsilon}\frac{\varepsilon}{4} \right)  f\left(x_0+\frac{\varepsilon}{4} \right) \, dx = \\
+   &amp; = \frac{1}{2} f\left( x_0 - \frac{\varepsilon}{4} \right) + \frac{1}{2} f\left( x_0 + \frac{\varepsilon}{4} \right)
+   \end{aligned}\end{split}\]</div>
+<p>As <span class="math notranslate nohighlight">\(\varepsilon \rightarrow 0\)</span></p>
+<div class="math notranslate nohighlight">
+\[\int_{x=-\infty}^{\infty} t_{\varepsilon}(x-x_0) f(x) \, dx \rightarrow f(x_0) \]</div>
+</li>
+</ol>
+<p><strong>Approximation 1.</strong> For <span class="math notranslate nohighlight">\(\alpha \rightarrow +\infty\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\varphi_{\alpha}(x) = \sqrt{\frac{\alpha}{\pi}}e^{-\alpha x^2} \sim \delta(x)\]</div>
+<p>Fourier transform of <span class="math notranslate nohighlight">\(\varphi_{\alpha}(x)\)</span> reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+ \mathscr{F}\{ \varphi_{\alpha}(x) \}(k)
+ &amp; = \int_{x=-\infty}^{+\infty} \varphi_\alpha(x) e^{-ikx} \, dx = \\
+ &amp; = \int_{x=-\infty}^{+\infty} \sqrt{\frac{\alpha}{\pi}} e^{-\alpha x^2} e^{-ikx} \, dx = \\
+ &amp; = \sqrt{\frac{\alpha}{\pi}} \int_{x=-\infty}^{+\infty} e^{-\alpha \left( x + i \frac{k}{2 \alpha} \right)^2} \, dx \, e^{-\frac{k^2}{4 \alpha}} = \\
+ &amp; = \sqrt{\frac{\alpha}{\pi}} \, \sqrt{\frac{\pi}{\alpha}} \, e^{-\frac{k^2}{4 \alpha}} =  e^{-\frac{k^2}{4 \alpha}} \ ,\\
+\end{aligned}\end{split}\]</div>
+<p>for <span class="math notranslate nohighlight">\(\alpha \rightarrow +\infty\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\mathscr{F}\{ \varphi_{\alpha}(x) \}(k) \rightarrow 1\]</div>
+<p>and thus <span class="math notranslate nohighlight">\(\varphi_\alpha(x) \rightarrow \delta(x)\)</span> for <span class="math notranslate nohighlight">\(\alpha \rightarrow +\infty\)</span>.</p>
+<p><strong>Approximation 2.</strong> For <span class="math notranslate nohighlight">\(a \rightarrow +\infty\)</span></p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{2 \pi} \int_{k=-2\pi a}^{2 \pi a} e^{i k x} \, dk = \int_{y=-a}^{+a} e^{i 2 \pi y x} \, dy \sim \delta(x)\]</div>
+<p>or</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \delta(x)
+  &amp; \sim \frac{1}{2 \pi} \int_{k=-2\pi a}^{2 \pi a} e^{i k x} \, dk = \frac{1}{2 \pi} \left( \int_{k=-2\pi a}^{0} e^{i k x} \, dk +  \int_{0}^{k=2\pi a} e^{i k x} \, dk \right) = \frac{1}{2 \pi} \int_{k = 0}^{2 \pi a} \left( e^{ikx} + e^{ikx} \right) \, dx = \frac{1}{\pi} \int_{x=0}^{2 \pi a} \cos(k x) \, dk \\
+  &amp; = \int_{y=-a}^{+a} e^{i 2 \pi y x} \, dy = \dots = \int_{y = 0}^{a} (e^{i 2 \pi y x} + e^{i 2 \pi y x}) \, dy = 2 \int_{y=0}^{a} \cos(2 \pi y x) \, dy \ .
+\end{aligned}\end{split}\]</div>
+<p><strong>Approximation 3.</strong> For <span class="math notranslate nohighlight">\(a \rightarrow +\infty\)</span></p>
+<div class="math notranslate nohighlight">
+\[\frac{\sin(2 \pi x a)}{\pi x} \sim \delta(x)\]</div>
+<p>Directly follows from integral of approximation 2,</p>
+<div class="math notranslate nohighlight">
+\[\int_{y=-a}^{+a} e^{i 2 \pi y x} \, dy = \frac{1}{i 2 \pi x} \left. e^{i 2 \pi y x}\right|_{y=-a}^{+a} = \frac{1}{\pi x} \frac{e^{i 2 \pi a x} - e^{-i 2 \pi a x}}{2 i} = \frac{\sin(2 \pi x a)}{\pi x}\]</div>
+<p><strong>Approximation 4.</strong> For <span class="math notranslate nohighlight">\(x \in [-\pi, \pi]\)</span>, and <span class="math notranslate nohighlight">\(N \rightarrow +\infty\)</span></p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{2\pi}\sum_{n=-N}^{N} e^{i n x} = \frac{1}{2 \pi} \frac{\sin\left(\left(N+\frac{1}{2}\right)x\right)}{\sin\left( \frac{x}{2} \right)} \sim \delta(x)\]</div>
+<!--
+Fourier transform reads
+
+$$\begin{aligned}
+\mathscr{F}\left\{ \int_{y=-\infty}^{+\infty} e^{i 2 \pi y x} \, dy \right\}(z)
+& = \int_{x=-\infty}^{+\infty} \int_{y=-\infty}^{+\infty} e^{i 2 \pi y x} \, dy \, e^{-i 2 \pi z x} \, dx = \\
+& = \int_{y=-\infty}^{+\infty} \int_{x=-\infty}^{+\infty} e^{i 2 \pi (y-z) x} \, dx \, dy = \\
+& = \lim_{X \rightarrow +\infty} \int_{y=-\infty}^{+\infty} \frac{1}{i 2 \pi (y-z)} \left[ e^{i 2 \pi (y-z) X} - e^{-i 2 \pi (y-z) X} \right] \, dy = \\ 
+& = \lim_{X \rightarrow +\infty} \int_{w=-\infty}^{+\infty} \frac{1}{i 2 \pi w} \left[ e^{i 2 \pi w X} - e^{-i 2 \pi w X} \right] \, dw = \\ 
+& = \lim_{X \rightarrow +\infty} \int_{w=-\infty}^{+\infty} \frac{\sin(2\pi w X)}{\pi w} \, dw = \\ 
+& = \lim_{X \rightarrow +\infty} \int_{w=-\infty}^{+\infty} \frac{\sin(2\pi w X)}{2 \pi w X} \, d ( 2 \pi w X ) \frac{1}{\pi} = \\
+& = \lim_{X \rightarrow +\infty} \dots
+\end{aligned}$$
+-->
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Integral <span class="math notranslate nohighlight">\(I = \int_{-\infty}^{+\infty} e^{-\alpha x^2} \, dx\)</span><div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  I^2 
+  &amp; = \int_{x=-\infty}^{+\infty} e^{-\alpha x^2} \, dx \, \int_{y=-\infty}^{+\infty} e^{-\alpha y^2} \, dy = \\
+  &amp; = \int_{x=-\infty}^{+\infty} \int_{y=-\infty}^{+\infty} e^{-\alpha (x^2 + y^2)} \, dx \, dy = \\
+  &amp; = \int_{\theta=0}^{2\pi} \int_{r=0}^{+\infty} e^{-\alpha r^2} \, r \, dr \, d \theta = \\
+  &amp; = 2 \pi \frac{1}{2 \alpha} \int_{r=0}^{+\infty} e^{-\alpha r^2} d \left(\alpha r^2 \right) = \\
+  &amp; = \frac{\pi}{\alpha} \left[ - e^{\alpha r^2} \right]\bigg|_{r = 0}^{+\infty} = \frac{\pi}{\alpha} \ .
+\end{aligned}\end{split}\]</div>
+</div>
+</details></div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./ch/functional-analysis"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Introduction to Functional Analysis</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../complex/analysis.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Complex Analysis</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dirac-s-delta">Dirac’s delta</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dirac-s-delta-in-terms-of-regular-functions">Dirac’s delta in terms of regular functions</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By basics
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
