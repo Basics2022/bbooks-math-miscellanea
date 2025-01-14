@@ -356,7 +356,7 @@ document.write(`
   <div class="tex2jax_ignore mathjax_ignore section" id="laplace-transform">
 <span id="complex-laplace"></span><h1>Laplace Transform<a class="headerlink" href="#laplace-transform" title="Permalink to this heading">#</a></h1>
 <div class="math notranslate nohighlight">
-\[\mathscr{L}\left\{ f(t) \right\}(s) := \int_{t=0^-}^{+\infty} f(t) \, e^{st} \, dt = F(s) \ .\]</div>
+\[\mathscr{L}\left\{ f(t) \right\}(s) := \int_{t=0^-}^{+\infty} e^{-st} f(t) \, dt = F(s) \ .\]</div>
 <div class="section" id="inverse-transform">
 <h2>Inverse transform<a class="headerlink" href="#inverse-transform" title="Permalink to this heading">#</a></h2>
 <div class="math notranslate nohighlight">
@@ -365,14 +365,63 @@ document.write(`
 <div class="section" id="properties">
 <h2>Properties<a class="headerlink" href="#properties" title="Permalink to this heading">#</a></h2>
 <p><strong>Linearity.</strong></p>
+<div class="math notranslate nohighlight">
+\[\mathscr{L}\{ a f(t) + b g(t) \}(s) = a F(s) + b G(s)\]</div>
 <p><strong><a class="reference internal" href="../functional-analysis/dirac-delta.html#functional-analysis-dirac-delta"><span class="std std-ref">Dirac delta</span></a>.</strong></p>
 <div class="math notranslate nohighlight">
 \[\mathscr{L}\left\{ \delta(t) \right\} = \int_{t=0^-}^{+\infty} \delta(t) \, e^{st} \, dt = 1 \]</div>
-<p><strong>Time delay.</strong></p>
+<p><strong>Time delay.</strong> If <span class="math notranslate nohighlight">\(f(t) = 0\)</span> for <span class="math notranslate nohighlight">\(t &lt; 0\)</span> (“causality”), for <span class="math notranslate nohighlight">\(\tau &gt; 0\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\mathscr{L}\{ f(t-\tau) \}(s) = e^{-s \tau} F(s)\]</div>
+<p>Proof readily follows direct computation with change of variable <span class="math notranslate nohighlight">\(z = t - \tau\)</span>, <span class="math notranslate nohighlight">\(dt = dz\)</span></p>
+<div class="math notranslate nohighlight">
+\[\mathscr{L}\{ f(t - \tau) \}(s) = \int_{t=0^-}^{+\infty} f(t-\tau) e^{-s t} \, dt = \int_{z = - \tau}^{+\infty} f(z) e^{-s z } \, dz \, e^{-s \tau} = \int_{z = 0}^{+\infty} f(z) e^{-s z } \, dz \, e^{-s \tau} = e^{-s \tau} F(s) \ . \]</div>
+<p><strong>“Frequency shift”</strong></p>
+<div class="math notranslate nohighlight">
+\[\mathscr{L}\{ f(t) e^{a t} \}(s) = F(s-a)\]</div>
+<p>Direct computation gives</p>
+<div class="math notranslate nohighlight">
+\[\mathscr{L}\{ f(t) e^{a t} \}(s) = \int_{t=0^-}^{+\infty} f(t) e^{a t} e^{-st} \, dt =  \int_{t=0^-}^{+\infty} f(t) e^{-(s-a)t} \, dt = F(s-a)\]</div>
 <p><strong>Derivative.</strong></p>
+<div class="math notranslate nohighlight">
+\[\mathscr{L}\{ f'(t) \}(s) = s F(s) - f(0^-) \ .\]</div>
+<p>Proof readily follows direct computation, with integration by parts</p>
+<div class="math notranslate nohighlight">
+\[\mathscr{L}\{ f'(t) \}(s) = \int_{t=0^-}^{+\infty} f'(t) e^{-s t} \, dt = \left[ f(t) e^{-s t} \right]|_{t = 0^-}^{+\infty} + s \int_{t=0^-}^{+\infty} f(t) e^{-s t} \, dt = s F(s) - f(0^-) \ ,\]</div>
+<p>provided that <span class="math notranslate nohighlight">\(\lim_{s \rightarrow +\infty} f(t) e^{-s t} = 0\)</span>.</p>
 <p><strong>Integral.</strong></p>
-<p><strong>Initial value.</strong></p>
-<p><strong>Final value.</strong></p>
+<div class="math notranslate nohighlight">
+\[\mathscr{L}\left\{ \int_{\tau=0}^{t} f(\tau) \, d \tau \right\}(s) = \frac{1}{s} F(s) \ .\]</div>
+<p>Proof readily follows direct computation, with integration by parts</p>
+<div class="math notranslate nohighlight">
+\[\mathscr{L}\left\{ \int_{\tau=0^-}^{t} f(\tau) \, d \tau \right\}(s) = \int_{t=0^-}^{+\infty} \int_{\tau=0^-}^{t} f(\tau) \, d \tau e^{-s t} \, dt = \left[ -\frac{e^{-st}}{s} \int_{\tau=0^-}^{t} f(\tau) \, d\tau \right]_{t=0}^{+\infty} + \frac{1}{s} \int_{t=0}^{+\infty} f(t) e^{-s t} \, dt = \frac{1}{s} F(s) \ ,\]</div>
+<p>provided that <span class="math notranslate nohighlight">\(\int_{\tau=0^-}^{0} f(\tau) d \tau = 0\)</span> and <span class="math notranslate nohighlight">\(\lim_{t \rightarrow +\infty}\frac{e^{-st}}{s} \int_{\tau=0^-}^{+\infty} f(\tau) \, d \tau = 0\)</span>.</p>
+<p><strong>Initial value.</strong> If …</p>
+<div class="math notranslate nohighlight">
+\[f(0^+) = \lim_{s \rightarrow + \infty} s F(s)\]</div>
+<p>From direct computation,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+ \lim_{s \rightarrow +\infty} s F(s)
+ &amp; = \lim_{s \rightarrow +\infty} s \int_{t = 0^-}^{+\infty} f(t) \, e^{-st} \, dt = \\
+ &amp; = \lim_{s\rightarrow + \infty} \left\{ \left[s \left(-\frac{e^{-st}}{s}\right)f(t) \right]\bigg|_{t=0}^{+\infty} + \int_{t=0}^{+\infty} e^{-st} f'(t) \, dt \right\} = \\
+ &amp; = \lim_{s \rightarrow +\infty} \left\{ \left[-e^{-st} f(t) \right]\bigg|_{t=0}^{+\infty} + \int_{t=0}^{+\infty} e^{-st} f'(t) \, dt \right\} = \\
+ &amp; = f(0) \ ,
+\end{aligned}\end{split}\]</div>
+<p>provided that <span class="math notranslate nohighlight">\(\lim_{s \rightarrow +\infty} \lim_{t \rightarrow +\infty} e^{-s t} f(t) = 0\)</span> and <span class="math notranslate nohighlight">\(\lim_{s \rightarrow + \infty} \int_{t=0}^{+\infty} e^{-st} f'(t) \, dt = 0\)</span>.</p>
+<p><strong>Final value.</strong> If …</p>
+<div class="math notranslate nohighlight">
+\[f(+\infty) = \lim_{s \rightarrow 0} s F(s)\]</div>
+<p>From direct computation (<strong>todo</strong> <em>check and/or explain proof</em>),</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+ \lim_{s \rightarrow 0} s F(s)
+ &amp; = \lim_{s \rightarrow 0} s \int_{t = 0^-}^{+\infty} f(t) \, e^{-st} \, dt = \\
+ &amp; = \lim_{s \rightarrow 0} \left\{ \left[s \left(-\frac{e^{-st}}{s}\right)f(t) \right]\bigg|_{t=0}^{+\infty} + \int_{t=0}^{+\infty} e^{-st} f'(t) \, dt \right\} = \\
+ &amp; = \lim_{s \rightarrow 0} \left\{ \left[-e^{-st} f(t) \right]\bigg|_{t=0}^{+\infty} + \int_{t=0}^{+\infty} e^{-st} f'(t) \, dt \right\} = \\
+ &amp; = f(0) + f(+\infty) - f(0) = f(+\infty) \ ,
+\end{aligned}\end{split}\]</div>
+<p>provided that <span class="math notranslate nohighlight">\(\lim_{s \rightarrow 0} \lim_{t \rightarrow +\infty} e^{-s t} f(t) = 0\)</span>.</p>
 </div>
 </div>
 

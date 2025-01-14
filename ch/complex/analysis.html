@@ -407,7 +407,7 @@ document.write(`
 <div class="section" id="holomorphic-functions-analytic-functions">
 <span id="complex-analysis-holo-fun"></span><h2>Holomorphic Functions - Analytic Functions<a class="headerlink" href="#holomorphic-functions-analytic-functions" title="Permalink to this heading">#</a></h2>
 <div class="proof definition admonition" id="definition-0">
-<p class="admonition-title"><span class="caption-number">Definition 1 </span></p>
+<p class="admonition-title"><span class="caption-number">Definition 6 </span></p>
 <div class="definition-content section" id="proof-content">
 <p>A holomorphic function is a function whose <a class="reference internal" href="#complex-analysis-fun-derivative"><span class="std std-ref">derivative</span></a> exists.</p>
 </div>
@@ -482,14 +482,14 @@ u_{/y} = - v_{/x}
 <div class="section" id="meromorphic-functions">
 <span id="complex-analysis-mero-fun"></span><h2>Meromorphic functions<a class="headerlink" href="#meromorphic-functions" title="Permalink to this heading">#</a></h2>
 <div class="proof definition admonition" id="definition-1">
-<p class="admonition-title"><span class="caption-number">Definition 2 </span></p>
+<p class="admonition-title"><span class="caption-number">Definition 7 </span></p>
 <div class="definition-content section" id="proof-content">
 <p>A meromorphic function in a domain is a function holomorphic everywhere except for a (finite?) number of poles. <strong>check</strong></p>
 </div>
 </div><div class="section" id="singularities">
 <span id="complex-analysis-singularities"></span><h3>Singularities<a class="headerlink" href="#singularities" title="Permalink to this heading">#</a></h3>
 <div class="proof definition admonition" id="definition-2">
-<p class="admonition-title"><span class="caption-number">Definition 3 </span> (Pole)</p>
+<p class="admonition-title"><span class="caption-number">Definition 8 </span> (Pole)</p>
 <div class="definition-content section" id="proof-content">
 <p>A pole of order <span class="math notranslate nohighlight">\(n\)</span> of a function <span class="math notranslate nohighlight">\(f(z)\)</span> is a complex number <span class="math notranslate nohighlight">\(a\)</span> so that</p>
 <div class="math notranslate nohighlight">
@@ -498,12 +498,12 @@ u_{/y} = - v_{/x}
 </div>
 </div><p><strong>Examples.</strong> …</p>
 <div class="proof definition admonition" id="definition-3">
-<p class="admonition-title"><span class="caption-number">Definition 4 </span> (Branch)</p>
+<p class="admonition-title"><span class="caption-number">Definition 9 </span> (Branch)</p>
 <div class="definition-content section" id="proof-content">
 </div>
 </div><p><strong>Examples.</strong> <span class="math notranslate nohighlight">\(f(z) = z^{\frac{1}{2}}\)</span></p>
 <div class="proof definition admonition" id="definition-4">
-<p class="admonition-title"><span class="caption-number">Definition 5 </span> (Removable singularities)</p>
+<p class="admonition-title"><span class="caption-number">Definition 10 </span> (Removable singularities)</p>
 <div class="definition-content section" id="proof-content">
 </div>
 </div><p><strong>Example.</strong> <span class="math notranslate nohighlight">\(f(z) = \frac{\sin z}{z}\)</span></p>
@@ -539,7 +539,7 @@ u_{/y} = - v_{/x}
 <div class="section" id="residues">
 <span id="complex-analysis-mero-fun-residues"></span><h3>Residues<a class="headerlink" href="#residues" title="Permalink to this heading">#</a></h3>
 <div class="proof definition admonition" id="definition-5">
-<p class="admonition-title"><span class="caption-number">Definition 6 </span> (Residue)</p>
+<p class="admonition-title"><span class="caption-number">Definition 11 </span> (Residue)</p>
 <div class="definition-content section" id="proof-content">
 <p>The residue of function <span class="math notranslate nohighlight">\(f\)</span> in <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(\text{Res}(f,a)\)</span> is a complex number <span class="math notranslate nohighlight">\(R\)</span> so that <span class="math notranslate nohighlight">\(f(z) - \frac{R}{(z-a)}\)</span> has analytic antiderivative in a disk <span class="math notranslate nohighlight">\(D_{a,\varepsilon}: \ 0 &lt; |z-a| &lt; \varepsilon\)</span>.</p>
 </div>
@@ -611,18 +611,18 @@ u_{/y} = - v_{/x}
 <p>the inverse transform can be evaluated as</p>
 <div class="math notranslate nohighlight">
 \[f(t) = \mathscr{L}^{-1}\{F(s)\}(t) := \lim_{T \rightarrow +\infty} \frac{1}{2 \pi i} \int_{s = a-iT}^{a+iT} e^{st} F(s) \, ds \ ,\]</div>
-<p>with <span class="math notranslate nohighlight">\(a &gt; \text{Re}\{p_n\}\)</span> for each pole of the function <span class="math notranslate nohighlight">\(F(s)\)</span>, evaluated on the vertical line <span class="math notranslate nohighlight">\(s = a+iy\)</span>, <span class="math notranslate nohighlight">\(y \in [-T,T]\)</span>, <span class="math notranslate nohighlight">\(ds = i d y\)</span>,</p>
+<p>with <span class="math notranslate nohighlight">\(a &gt; \text{Re}\{p_n\}\)</span> (<strong>todo</strong> <em>why?</em>) for each pole of the function <span class="math notranslate nohighlight">\(F(s)\)</span>, evaluated on the vertical line <span class="math notranslate nohighlight">\(s = a+iy\)</span>, <span class="math notranslate nohighlight">\(y \in [-T,T]\)</span>, <span class="math notranslate nohighlight">\(ds = i d y\)</span>,</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
   \lim_{T \rightarrow +\infty} \frac{1}{2 \pi i} \int_{s = a-iT}^{a+iT} e^{st} F(s) \, ds 
   &amp; = \lim_{T \rightarrow +\infty} \frac{1}{2 \pi i} \int_{s = a-iT}^{a+iT} e^{st} \int_{\tau=0^-}^{+\infty} f(\tau) e^{-s\tau} \, d \tau  \, ds = \\
-  &amp; = \lim_{T \rightarrow +\infty} \frac{1}{2 \pi i} \int_{y = -iT}^{iT} e^{(a+iy)t} \int_{\tau=0^-}^{+\infty} f(\tau) e^{-(a+iy)\tau} \, d \tau  \, i dy = \\
-  &amp; = \lim_{T \rightarrow +\infty} \frac{1}{2 \pi} \int_{y = -iT}^{iT} \int_{\tau=0^-}^{+\infty} e^{iy(t-\tau)} e^{a(t-\tau)} f(\tau) \, d \tau  \, dy = \\
+  &amp; = \lim_{T \rightarrow +\infty} \frac{1}{2 \pi i} \int_{y = -T}^{T} e^{(a+iy)t} \int_{\tau=0^-}^{+\infty} f(\tau) e^{-(a+iy)\tau} \, d \tau  \, i dy = \\
+  &amp; = \lim_{T \rightarrow +\infty} \frac{1}{2 \pi} \int_{y = -T}^{T} \int_{\tau=0^-}^{+\infty} e^{iy(t-\tau)} e^{a(t-\tau)} f(\tau) \, d \tau  \, dy = \\
   &amp; = \dots \\
   &amp; = \int_{\tau=0^-}^{+\infty} \delta(t-\tau) e^{a(t-\tau)} f(\tau) d \tau = f(t) \ .
 \end{aligned}\end{split}\]</div>
 <p>having used the transform of <a class="reference internal" href="../functional-analysis/dirac-delta.html#functional-analysis-dirac-delta"><span class="std std-ref">Dirac’s delta</span></a> <span class="math notranslate nohighlight">\(\delta(t) = \frac{1}{2\pi} \int_{\omega=-\infty}^{+\infty} e^{-j \omega t} \, d\omega\)</span>.</p>
-<p><strong>todo</strong> <em>If <span class="math notranslate nohighlight">\(a &gt; \text{Re}\{p_n\}\)</span>, the contour build with the vertical line with real part <span class="math notranslate nohighlight">\(a\)</span> and the arc of circumference on its</em></p>
+<p><strong>todo</strong> <em>Ohter approach: if <span class="math notranslate nohighlight">\(a &gt; \text{Re}\{p_n\}\)</span>, the contour built with the vertical line with real part <span class="math notranslate nohighlight">\(a\)</span> and the arc of circumference on its…</em></p>
 </div>
 </div>
 </div>

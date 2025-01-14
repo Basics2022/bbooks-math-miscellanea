@@ -64,6 +64,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'ch/differential-geometry/intro';</script>
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -315,7 +317,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -331,6 +335,18 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differential-geometry-in-e-3">Differential geometry in <span class="math notranslate nohighlight">\(E^3\)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#curves">Curves</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#surfaces">Surfaces</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -342,6 +358,95 @@ document.write(`
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="introduction-to-differential-geometry">
 <span id="differential-geometry-intro"></span><h1>Introduction to Differential Geometry<a class="headerlink" href="#introduction-to-differential-geometry" title="Permalink to this heading">#</a></h1>
+<div class="section" id="differential-geometry-in-e-3">
+<h2>Differential geometry in <span class="math notranslate nohighlight">\(E^3\)</span><a class="headerlink" href="#differential-geometry-in-e-3" title="Permalink to this heading">#</a></h2>
+<div class="section" id="curves">
+<h3>Curves<a class="headerlink" href="#curves" title="Permalink to this heading">#</a></h3>
+<p>Parametric representation of curve in 3-dimensional (Euclidean) space <span class="math notranslate nohighlight">\(E^3\)</span></p>
+<div class="math notranslate nohighlight">
+\[\vec{r}(q)\]</div>
+<p><strong>Differential, <span class="math notranslate nohighlight">\(d \vec{r}\)</span>.</strong></p>
+<div class="math notranslate nohighlight">
+\[d \vec{r}(q) = \vec{r}'(q) \, d q \ .\]</div>
+<p><strong>Arc-length parameter, <span class="math notranslate nohighlight">\(s\)</span>.</strong> So that <span class="math notranslate nohighlight">\(d s = |d \vec{r}(s)|\)</span> and thus</p>
+<div class="math notranslate nohighlight">
+\[|d \vec{r}(s)| = |\vec{r}'(s)| \, |d s| \qquad \rightarrow \qquad |\vec{r}'(s)| = 1 \qquad \rightarrow \qquad \vec{r}'(s) = \hat{t}(s) \ .\]</div>
+<p><strong>Frenet basis.</strong> Using arc-length parameter, Frenet basis is naturally defined as the set <span class="math notranslate nohighlight">\(\{ \hat{t}, \hat{n}, \hat{b} \}\)</span>:</p>
+<ul class="simple">
+<li><p>tangent unit vector, <span class="math notranslate nohighlight">\(\hat{t}(s) = \vec{r}'(s)\)</span>,</p></li>
+<li><p>normal unit vector, <span class="math notranslate nohighlight">\(\hat{r}''(s) = \hat{t}'(s) =: \kappa(s) \, \hat{n}(s) \)</span>, with <span class="math notranslate nohighlight">\(\kappa(s)\)</span> local curvature</p></li>
+<li><p>binormal unit vector, <span class="math notranslate nohighlight">\(\hat{b}(s) = \hat{t}(s) \times \hat{n}(s)\)</span></p></li>
+</ul>
+<p>Using a general parameter, <span class="math notranslate nohighlight">\(t\)</span>, with some abuse of notation <span class="math notranslate nohighlight">\(\vec{r}(t) = \vec{r}(s(t))\)</span> and indicating <span class="math notranslate nohighlight">\(\dot{()} = \frac{d}{dt}\)</span>,</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\dot{\vec{r}} = \frac{d s}{d t} \frac{d \vec{r}}{d s} = \dot{s} \hat{t}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\ddot{\vec{r}} = \dfrac{d}{dt} \dot{\vec{r}} = \dfrac{d}{dt} \left( \dot{s} \hat{t} \right) = \ddot{s} \hat{t} + \dfrac{ds}{dt} \dfrac{d}{ds} \hat{t} = \ddot{s} \hat{t} + \dot{s}^2 \kappa \, \hat{n}\)</span></p></li>
+</ul>
+<p><strong>Osculator circle.</strong> Circle with <span class="math notranslate nohighlight">\(R(s) = \frac{1}{\kappa(s)}\)</span>, in plane orthogonal to <span class="math notranslate nohighlight">\(\hat{b}(s)\)</span>, passing through <span class="math notranslate nohighlight">\(\vec{r}(s)\)</span>, and thus center in <span class="math notranslate nohighlight">\(\vec{r}_C(s) = \vec{r}(s) + \hat{n} R(s)\)</span>. Its parametric representation using its arc-length parameter <span class="math notranslate nohighlight">\(p\)</span>, with <span class="math notranslate nohighlight">\(\vec{r}(p=0) = \vec{r}(s)\)</span> reads</p>
+<div class="math notranslate nohighlight">
+\[\vec{r}(p) = \vec{r}_C(s) + R(s) \left[ - \cos \left(\frac{p}{R(s)} \right) \hat{n}(s) + \sin \left(\frac{p}{R(s)}  \right)\hat{t}(s) \right] \ .\]</div>
+<p>Its first and second order derivatives w.r.t. the arc-length <span class="math notranslate nohighlight">\(p\)</span> evaluated in <span class="math notranslate nohighlight">\(p=0\)</span>, i.e. <span class="math notranslate nohighlight">\(\vec{r} = \vec{r}(s)\)</span> read:</p>
+<ul>
+<li><p>first derivative in <span class="math notranslate nohighlight">\(p=0\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\left.\hat{t}(p)\right|_{p=0} = \left.\vec{r}'(p)\right|_{p=0} = \left.  \left[ \sin \left(\frac{p}{R(s)} \right) \hat{n}(s) + \cos \left(\frac{p}{R(s)}  \right)\hat{t}(s) \right] \right|_{p=0} = \hat{t}(s) \ ,\]</div>
+<p>i.e. the osculator circle has the same tangent as the curve in the point.</p>
+</li>
+<li><p>second derivative in <span class="math notranslate nohighlight">\(p=0\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\left. \kappa(p) \hat{n}(p)\right|_{p=0} = \left.\vec{r}''(p)\right|_{p=0} = \frac{1}{R(s)} \left.  \left[ \cos \left(\frac{p}{R(s)} \right) \hat{n}(s) - \sin \left(\frac{p}{R(s)}  \right)\hat{t}(s) \right] \right|_{p=0} = \frac{1}{R(s)}\hat{n}(s) = \kappa(s) \hat{n}(s) \ ,\]</div>
+<p>i.e. the osculator circle has the same normal vector and curvature as the curve in the point.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="surfaces">
+<h3>Surfaces<a class="headerlink" href="#surfaces" title="Permalink to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[\vec{r}(q^1, q^2)\]</div>
+<div class="math notranslate nohighlight">
+\[d \vec{r} =
+  \frac{\partial \vec{r}}{\partial q^1} \, d q^1 + \frac{\partial \vec{r}}{\partial q^2} \, d q^2 =
+  \vec{b}_1 \, d q^1 + \vec{b}_2 \, d q^2
+\]</div>
+<p>A third vector <span class="math notranslate nohighlight">\(\vec{b}_3 := \hat{n}\)</span> can be defined so that <span class="math notranslate nohighlight">\(|\hat{n}| = 1\)</span> and <span class="math notranslate nohighlight">\(\hat{n} \cdot \vec{b}_{i} = 0\)</span>, <span class="math notranslate nohighlight">\(i=1:2\)</span>. For <span class="math notranslate nohighlight">\(i=1:2\)</span>, <span class="math notranslate nohighlight">\(k=1:2\)</span></p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial \vec{b}_i}{\partial q^j} = \Gamma_{ij}^k \vec{b}_k = \Gamma_{ij}^1 \vec{b}_1 + \Gamma_{ij}^2 \vec{b}_2 + \Gamma_{ij}^3 \vec{b}_3\]</div>
+<p>so that</p>
+<div class="math notranslate nohighlight">
+\[\Gamma_{ij}^{k} = \vec{b}^k \cdot \frac{\partial \vec{b}_i}{\partial q^j}\]</div>
+<p><strong>Normal vector.</strong></p>
+<div class="math notranslate nohighlight">
+\[\vec{n}(q^1, q^2) = \frac{\partial \vec{r}}{\partial q^1}(q^1, q^2) \times \frac{\partial \vec{r}}{\partial q^2}(q^1, q^2) = \vec{b}_1(q^1, q^2) \times \vec{b}_2(q^1, q^2)\]</div>
+<p><strong>Tangent plane.</strong></p>
+<div class="math notranslate nohighlight">
+\[(\vec{r} - \vec{r}(q^1, q^2)) \cdot \vec{n}(q^1, q^2) = 0\]</div>
+<p><strong>Length of elementary segment.</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+|d \vec{r}|^2 
+  &amp; = d \vec{r} \cdot d \vec{r} = \\
+  &amp; = \left( \vec{b}_1 \, d q^1 + \vec{b}_2 \, d q^2 \right) \cdot \left( \vec{b}_1 \, d q^1 + \vec{b}_2 \, d q^2 \right) = \\
+  &amp; = g_{11} \, dq^1 \, dq^1 + g_{12} \, dq^1 \, dq^2 + g_{21} \, dq^2 \, dq^1 + g_{22} \, dq^2 \, d q^2 = g_{ij} \, dq^i \, dq^j 
+\end{aligned}\end{split}\]</div>
+<p><strong>Second order approximation.</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \vec{r}(q^1 + d q^1, q^2 + d q^2) 
+  &amp; = \vec{r}(q_1, q_2) + \frac{\partial \vec{r}}{\partial q^i} \, dq^i + \frac{\partial^2 \vec{r}}{\partial q^i \partial q^j} \, dq^i \, dq^j = \\
+  &amp; = \vec{r}(q_1, q_2) + \vec{b}_{i} \, dq^i + \vec{b}_k \Gamma^{k}_{ij} \, dq^i \, dq^j +  \hat{n} \, \Gamma^{3}_{ij} \, dq^i \, dq^j 
+\end{aligned}\end{split}\]</div>
+<p>so that</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+\left[ \vec{r}(q^1 + d q^1, q^2 + d q^2) - \vec{r}(q^1, q^2) \right] \cdot \hat{n} 
+ &amp; = \Gamma^3_{ij} \, d q^i \, dq^j = \\
+ &amp; = \hat{n} \cdot \frac{\partial^2 \vec{r}}{\partial q^i \partial q^j} \, d q^i \, dq^j = \\
+ &amp; = \hat{n} \cdot \frac{\partial^2 \vec{r}}{\partial q^i \partial q^j} \, \vec{b}^i \cdot \vec{b}_k d q^k \, \vec{b}^j \cdot \vec{b}_l dq^l = \\
+ &amp; = \underbrace{d q^k \vec{b}_k}_{d \vec{r}} \cdot \left[ \hat{n} \cdot \frac{\partial^2 \vec{r}}{\partial q^i \partial q^j}  \vec{b}^i \otimes \vec{b}^j \right] \cdot \underbrace{d q^l \vec{b}_l}_{d\vec{r}}
+\end{aligned}\end{split}\]</div>
+<p><strong>Curvature tensor.</strong></p>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -398,6 +503,24 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differential-geometry-in-e-3">Differential geometry in <span class="math notranslate nohighlight">\(E^3\)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#curves">Curves</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#surfaces">Surfaces</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

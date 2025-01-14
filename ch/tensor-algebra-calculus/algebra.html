@@ -64,6 +64,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'ch/tensor-algebra-calculus/algebra';</script>
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -315,7 +317,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -331,6 +335,16 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basis">Basis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exterior-algebra">Exterior algebra</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exterior-product">Exterior product</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -342,6 +356,29 @@ document.write(`
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="tensor-algebra">
 <span id="id1"></span><h1>Tensor Algebra<a class="headerlink" href="#tensor-algebra" title="Permalink to this heading">#</a></h1>
+<div class="section" id="basis">
+<h2>Basis<a class="headerlink" href="#basis" title="Permalink to this heading">#</a></h2>
+<div class="proof definition admonition" id="definition-0">
+<p class="admonition-title"><span class="caption-number">Definition 1 </span> (Basis)</p>
+<div class="definition-content section" id="proof-content">
+</div>
+</div><div class="proof definition admonition" id="definition-1">
+<p class="admonition-title"><span class="caption-number">Definition 2 </span> (Reciprocal basis)</p>
+<div class="definition-content section" id="proof-content">
+<p>In a inner product space, the reciprocal basis of a given basis <span class="math notranslate nohighlight">\(\{ \vec{b}_a \}_{a=1:d}\)</span> is the set of vectors <span class="math notranslate nohighlight">\(\{ \vec{b}_{b} \}_{b=1:d}\)</span>, s.t.</p>
+<div class="math notranslate nohighlight">
+\[\vec{b}^b \cdot \vec{b}_a = \delta_a^b \ .\]</div>
+</div>
+</div></div>
+<div class="section" id="exterior-algebra">
+<h2>Exterior algebra<a class="headerlink" href="#exterior-algebra" title="Permalink to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[\land\]</div>
+</div>
+<div class="section" id="exterior-product">
+<h2>Exterior product<a class="headerlink" href="#exterior-product" title="Permalink to this heading">#</a></h2>
+<p>Generalization of the vector product</p>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -398,6 +435,22 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basis">Basis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exterior-algebra">Exterior algebra</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exterior-product">Exterior product</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
