@@ -260,19 +260,19 @@ the inverse transform can be evaluated as
 
 $$f(t) = \mathscr{L}^{-1}\{F(s)\}(t) := \lim_{T \rightarrow +\infty} \frac{1}{2 \pi i} \int_{s = a-iT}^{a+iT} e^{st} F(s) \, ds \ ,$$
 
-with $a > \text{Re}\{p_n\}$ for each pole of the function $F(s)$, evaluated on the vertical line $s = a+iy$, $y \in [-T,T]$, $ds = i d y$,
+with $a > \text{Re}\{p_n\}$ (**todo** *why?*) for each pole of the function $F(s)$, evaluated on the vertical line $s = a+iy$, $y \in [-T,T]$, $ds = i d y$,
 
 $$\begin{aligned}
   \lim_{T \rightarrow +\infty} \frac{1}{2 \pi i} \int_{s = a-iT}^{a+iT} e^{st} F(s) \, ds 
   & = \lim_{T \rightarrow +\infty} \frac{1}{2 \pi i} \int_{s = a-iT}^{a+iT} e^{st} \int_{\tau=0^-}^{+\infty} f(\tau) e^{-s\tau} \, d \tau  \, ds = \\
-  & = \lim_{T \rightarrow +\infty} \frac{1}{2 \pi i} \int_{y = -iT}^{iT} e^{(a+iy)t} \int_{\tau=0^-}^{+\infty} f(\tau) e^{-(a+iy)\tau} \, d \tau  \, i dy = \\
-  & = \lim_{T \rightarrow +\infty} \frac{1}{2 \pi} \int_{y = -iT}^{iT} \int_{\tau=0^-}^{+\infty} e^{iy(t-\tau)} e^{a(t-\tau)} f(\tau) \, d \tau  \, dy = \\
+  & = \lim_{T \rightarrow +\infty} \frac{1}{2 \pi i} \int_{y = -T}^{T} e^{(a+iy)t} \int_{\tau=0^-}^{+\infty} f(\tau) e^{-(a+iy)\tau} \, d \tau  \, i dy = \\
+  & = \lim_{T \rightarrow +\infty} \frac{1}{2 \pi} \int_{y = -T}^{T} \int_{\tau=0^-}^{+\infty} e^{iy(t-\tau)} e^{a(t-\tau)} f(\tau) \, d \tau  \, dy = \\
   & = \dots \\
   & = \int_{\tau=0^-}^{+\infty} \delta(t-\tau) e^{a(t-\tau)} f(\tau) d \tau = f(t) \ .
 \end{aligned}$$
 
 having used the transform of [Dirac's delta](functional-analysis:dirac-delta) $\delta(t) = \frac{1}{2\pi} \int_{\omega=-\infty}^{+\infty} e^{-j \omega t} \, d\omega$.
 
-**todo** *If $a > \text{Re}\{p_n\}$, the contour build with the vertical line with real part $a$ and the arc of circumference on its*
+**todo** *Ohter approach: if $a > \text{Re}\{p_n\}$, the contour built with the vertical line with real part $a$ and the arc of circumference on its...*
 
 

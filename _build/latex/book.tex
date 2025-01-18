@@ -85,7 +85,7 @@
         
 
 \title{basics - math}
-\date{Jan 08, 2025}
+\date{Jan 18, 2025}
 \release{}
 \author{basics}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -357,6 +357,9 @@ so that
  & = \underbrace{d q^k \vec{b}_k}_{d \vec{r}} \cdot \left[ \hat{n} \cdot \frac{\partial^2 \vec{r}}{\partial q^i \partial q^j}  \vec{b}^i \otimes \vec{b}^j \right] \cdot \underbrace{d q^l \vec{b}_l}_{d\vec{r}}
 \end{aligned}\end{split}
 \end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Curvature tensor.}
+
 \sphinxstepscope
 
 
@@ -409,7 +412,7 @@ This section may rely on results of {\hyperref[\detokenize{ch/differential-geome
 
 
 \section{Coordinates}
-\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:coordinates}}
+\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:coordinates}}\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:tensor-calculus-coordinates}}
 \sphinxAtStartPar
 A set of parameters \(\{q^a\}_{a=1:d}\) to represent vector (or point) in space,
 \begin{equation*}
@@ -445,7 +448,7 @@ If \(\frac{\partial \vec{r}}{\partial q^a} \ne 0\).
 
 
 \subsection{Natural basis}
-\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:natural-basis}}\label{ch/tensor-algebra-calculus/calculus-euclidean:definition-1}
+\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:natural-basis}}\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:tensor-calculus-coordinates-natural-basis}}\label{ch/tensor-algebra-calculus/calculus-euclidean:definition-1}
 \begin{sphinxadmonition}{note}{Definition 4 (Natural basis)}
 
 
@@ -463,16 +466,16 @@ Vectors of natural basis
 
 
 \section{Fields}
-\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:fields}}
+\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:fields}}\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:tensor-calculus-fields}}
 \sphinxAtStartPar
 Function of the points in space \(F: E^d \rightarrow V^r\), being \(V^r\) a space of tensors of order \(r\).
 
 
 \section{Differential operators}
-\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:differential-operators}}
+\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:differential-operators}}\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:tensor-calculus-differential-operators}}
 
 \subsection{Directional derivative}
-\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:directional-derivative}}\begin{equation*}
+\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:directional-derivative}}\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:tensor-calculus-differential-operators-directional-derivative}}\begin{equation*}
 \begin{split}F(\vec{r}) = F\left(\vec{r}\left(q^a\right)\right) = f(q^a)\end{split}
 \end{equation*}\begin{equation*}
 \begin{split}f(q^a + \beta \Delta q^a) = F(\vec{r}(q^a + \beta \Delta q^a))\end{split}
@@ -500,7 +503,7 @@ is evaluated as the limit for \(\alpha \rightarrow 0\) of the incremental ratio
 \end{equation*}
 
 \subsection{Gradient}
-\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:gradient}}
+\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:gradient}}\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:tensor-calculus-differential-operators-gradient}}
 \sphinxAtStartPar
 The gradient is the differential operator is the first\sphinxhyphen{}order differential operator appearing in the definition of the directional derivative, \(\nabla F(\vec{r})\). It takes a tensor field \(F(\vec{r})\) of order \(r\) and gives a tensor field \(\nabla F(\vec{r})\) of order \(r+1\). Given a set of coordinates \(\{q^a\}_{a=1:d}\), the gradient can be written using the reciprocal basis of the natural basis as
 \begin{equation*}
@@ -511,7 +514,7 @@ The gradient is the differential operator is the first\sphinxhyphen{}order diffe
 
 
 \subsection{Divergence}
-\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:divergence}}
+\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:divergence}}\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:tensor-calculus-differential-operators-divergence}}
 \sphinxAtStartPar
 Divergence opearator is a first\sphinxhyphen{}order differential operator that can be defined as the contraction of the first two indices of the gradient,
 \begin{equation*}
@@ -522,7 +525,7 @@ It takes a tensor field \(F(\vec{r})\) of order \(r \ge 1\) and gives a tensor f
 
 
 \subsection{Laplacian}
-\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:laplacian}}
+\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:laplacian}}\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:tensor-calculus-differential-operators-laplacian}}
 \sphinxAtStartPar
 Laplacian operator is second\sphinxhyphen{}order differential operator that can be defined as the divergence of the gradient,
 \begin{equation*}
@@ -530,16 +533,16 @@ Laplacian operator is second\sphinxhyphen{}order differential operator that can 
 \end{equation*}
 
 \subsection{Curl}
-\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:curl}}
+\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:curl}}\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:tensor-calculus-differential-operators-curl}}
 
 \section{Integrals in \protect\(E^d\protect\), \protect\(d \le 3\protect\)}
-\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:integrals-in-e-d-d-le-3}}
+\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:integrals-in-e-d-d-le-3}}\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:tensor-calculus-integrals}}
 
 \subsection{Line integrals}
-\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:line-integrals}}
+\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:line-integrals}}\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:tensor-calculus-integrals-line}}
 
 \subsubsection{Density}
-\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:density}}
+\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:density}}\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:tensor-calculus-integrals-line-density}}
 \sphinxAtStartPar
 Integrals
 \begin{equation*}
@@ -560,7 +563,7 @@ with \(\vec{r}(q^1_a)\), \(\vec{r}(q^1_b)\) the extreme points of path \(\gamma\
 
 
 \subsubsection{Work}
-\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:work}}
+\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:work}}\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:tensor-calculus-integrals-line-work}}
 \sphinxAtStartPar
 Integrals
 \begin{equation*}
@@ -579,7 +582,7 @@ Given a regular parametrization of the curve \(\vec{r}(q^1)\) (with increasing \
 \end{equation*}
 
 \subsection{Surface integrals}
-\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:surface-integrals}}
+\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:surface-integrals}}\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:tensor-calculus-integrals-surface}}
 \sphinxAtStartPar
 Given two coordinates \(q^1, \, q^2\) describing a surface, \(\vec{r}(q^1, q^2)\) the elementary surface with unit normal reads
 \begin{equation*}
@@ -592,7 +595,7 @@ and the elementary surface thus reads
 \end{equation*}
 
 \subsubsection{Density}
-\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:id1}}
+\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:tensor-calculus-integrals-surface-density}}\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:id1}}
 \sphinxAtStartPar
 Integrals
 \begin{equation*}
@@ -610,7 +613,7 @@ Given regular parametrization of the surface, \(\vec{r}(q^1, \, q^2), \ (q^1, q^
 \end{equation*}
 
 \subsubsection{Flux}
-\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:flux}}
+\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:flux}}\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:tensor-calculus-integrals-surface-flux}}
 \sphinxAtStartPar
 Integrals
 \begin{equation*}
@@ -628,12 +631,12 @@ Given regular parametrization of the surface, \(\vec{r}(q^1, \, q^2), \ (q^1, q^
 \end{equation*}
 
 \subsection{Volume}
-\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:volume}}\begin{equation*}
+\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:volume}}\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:tensor-calculus-integrals-volume}}\begin{equation*}
 \begin{split}dV = \frac{\partial \vec{r}}{\partial q^1} \cdot \frac{\partial \vec{r}}{\partial q^2} \times \frac{\partial \vec{r}}{\partial q^3} \, dq^1 \, dq^2 \, d q^3 \ . \end{split}
 \end{equation*}
 
 \subsubsection{Density}
-\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:id2}}
+\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:tensor-calculus-integrals-volume-density}}\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:id2}}
 \sphinxAtStartPar
 Integrals
 \begin{equation*}
@@ -649,6 +652,54 @@ Given regular parametrization of the volume, \(\vec{r}(q^1, \, q^2, \, q^3), \ (
 \begin{equation*}
 \begin{split}\int_{\vec{r} \in V} F(\vec{r}) |d V| = \int_{(q^1,q^2,q^3) \in Q} F(\vec{r}(q^1,q^2,q^3))  \left| \frac{\partial \vec{r}}{\partial q^1} \cdot \frac{\partial \vec{r}}{\partial q^2} \times \frac{\partial \vec{r}}{\partial q^3} \, dq^1 \, dq^2 \, d q^3 \right| \ .\end{split}
 \end{equation*}
+
+\subsection{Theorems}
+\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:theorems}}\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:tensor-calculus-integrals-theorems}}
+
+\subsubsection{Gradient theorem}
+\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:gradient-theorem}}\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:tensor-calculus-integrals-theorems-gradient}}\begin{equation*}
+\begin{split}\int_{V} \nabla f = \oint_{\partial V} f \hat{n}\end{split}
+\end{equation*}
+
+\subsubsection{Divergence theorem}
+\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:divergence-theorem}}\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:tensor-calculus-integrals-theorems-divergence}}\begin{equation*}
+\begin{split}\int_{V} \nabla \cdot \vec{f} = \oint_{\partial V} \vec{f} \cdot \hat{n}\end{split}
+\end{equation*}
+
+\subsubsection{Curl theorem}
+\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:curl-theorem}}\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:tensor-calculus-integrals-theorems-curl}}\begin{equation*}
+\begin{split}\int_{S} \left[ \nabla \times \vec{f} \right] \cdot \hat{n} = \oint_{\partial S} \vec{f} \cdot \hat{t}\end{split}
+\end{equation*}
+\sphinxstepscope
+
+
+\chapter{Time derivative of integrals over moving domains}
+\label{\detokenize{ch/tensor-algebra-calculus/time-derivative-of-integrals:time-derivative-of-integrals-over-moving-domains}}\label{\detokenize{ch/tensor-algebra-calculus/time-derivative-of-integrals:tensor-calculus-time-derivative-of-integrals}}\label{\detokenize{ch/tensor-algebra-calculus/time-derivative-of-integrals::doc}}
+\sphinxAtStartPar
+Some results about time derivatives over moving domains are collected here.
+
+
+\section{Volume density}
+\label{\detokenize{ch/tensor-algebra-calculus/time-derivative-of-integrals:volume-density}}\label{\detokenize{ch/tensor-algebra-calculus/time-derivative-of-integrals:tensor-calculus-time-derivative-of-integrals-volume-density}}
+\sphinxAtStartPar
+\sphinxstylestrong{Reynolds transport theorem.}
+Given a volume \(V(t)\) with boundary \(\partial V(t)\), whose points \(\vec{r} \in \partial V(t)\) have velocity \(\vec{v}_b\),
+\begin{equation*}
+\begin{split}\dfrac{d}{dt} \int_{V(t)} f = \int_{V(t)} \dfrac{\partial f}{\partial t} + \oint_{\partial V(t)} f \vec{v}_b \cdot \hat{n} \ .\end{split}
+\end{equation*}\subsubsection*{“Proof”}
+
+
+\section{Flux across a surface}
+\label{\detokenize{ch/tensor-algebra-calculus/time-derivative-of-integrals:flux-across-a-surface}}\label{\detokenize{ch/tensor-algebra-calculus/time-derivative-of-integrals:tensor-calculus-time-derivative-of-integrals-flux}}\begin{equation*}
+\begin{split}\frac{d}{dt} \int_{S(t)} \vec{f} \cdot \hat{n} = \int_{S(t)} \frac{\partial \vec{f}}{\partial t} \cdot \hat{n} + \int_{S(t)} \nabla \cdot \vec{f} \,\, \vec{v}_b \cdot \hat{n} - \int_{\partial S(t)} \vec{v}_b \times \vec{f} \cdot \hat{t} \end{split}
+\end{equation*}\subsubsection*{“Proof”}
+
+
+\section{Work line integral along a line}
+\label{\detokenize{ch/tensor-algebra-calculus/time-derivative-of-integrals:work-line-integral-along-a-line}}\label{\detokenize{ch/tensor-algebra-calculus/time-derivative-of-integrals:tensor-calculus-time-derivative-of-integrals-work}}\begin{equation*}
+\begin{split}\frac{d}{dt} \int_{\ell(t)} \vec{f} \cdot \hat{t} =  \int_{\ell(t)} \frac{\partial \vec{f}}{\partial t} \cdot \hat{t} + \int_{\ell(t)} \nabla \times \vec{f} \cdot \vec{v}_b \times \hat{t} + \vec{f}_B \cdot \vec{v}_B - \vec{f}_A \cdot \vec{v}_A \end{split}
+\end{equation*}\subsubsection*{“Proof”}
+
 \sphinxstepscope
 
 

@@ -124,7 +124,7 @@ $$\begin{aligned}
 \end{aligned}$$
 -->
 
-
+(integral:e^x2)=
 ```{dropdown} Integral $I = \int_{-\infty}^{+\infty} e^{-\alpha x^2} \, dx$
 
 $$\begin{aligned}
