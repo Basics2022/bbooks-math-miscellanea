@@ -70,7 +70,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Introduction to Functional Analysis" href="../functional-analysis/intro.html" />
+    <link rel="next" title="Time derivative of integrals over moving domains" href="time-derivative-of-integrals.html" />
     <link rel="prev" title="Tensor Algebra" href="algebra.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -177,6 +177,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="algebra.html">Tensor Algebra</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Tensor Calculus in Euclidean Spaces</a></li>
+<li class="toctree-l1"><a class="reference internal" href="time-derivative-of-integrals.html">Time derivative of integrals over moving domains</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Functional Analysis</span></p>
 <ul class="nav bd-sidenav">
@@ -360,12 +361,18 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#surface-integrals">Surface integrals</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Density</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tensor-calculus-integrals-surface-density">Density</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#flux">Flux</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#volume">Volume</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Density</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tensor-calculus-integrals-volume-density">Density</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#theorems">Theorems</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-theorem">Gradient theorem</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#divergence-theorem">Divergence theorem</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#curl-theorem">Curl theorem</a></li>
 </ul>
 </li>
 </ul>
@@ -386,7 +393,7 @@ document.write(`
 <p>This section deals with tensor calculus in Euclidean space or on manifolds embedded in Euclidean spaces, focusing on <span class="math notranslate nohighlight">\(d\)</span>-dimensional spaces with <span class="math notranslate nohighlight">\(d \le 3\)</span>, with <em>inner product</em>.</p>
 <p>This section may rely on results of <a class="reference internal" href="../differential-geometry/intro.html#differential-geometry-intro"><span class="std std-ref">differential geometry</span></a>.</p>
 <div class="section" id="coordinates">
-<h2>Coordinates<a class="headerlink" href="#coordinates" title="Permalink to this heading">#</a></h2>
+<span id="tensor-calculus-coordinates"></span><h2>Coordinates<a class="headerlink" href="#coordinates" title="Permalink to this heading">#</a></h2>
 <p>A set of parameters <span class="math notranslate nohighlight">\(\{q^a\}_{a=1:d}\)</span> to represent vector (or point) in space,</p>
 <div class="math notranslate nohighlight">
 \[\vec{r}(q^a)\]</div>
@@ -408,7 +415,7 @@ document.write(`
 <p>If <span class="math notranslate nohighlight">\(\frac{\partial \vec{r}}{\partial q^a} \ne 0\)</span>.</p>
 </div>
 </div><div class="section" id="natural-basis">
-<h3>Natural basis<a class="headerlink" href="#natural-basis" title="Permalink to this heading">#</a></h3>
+<span id="tensor-calculus-coordinates-natural-basis"></span><h3>Natural basis<a class="headerlink" href="#natural-basis" title="Permalink to this heading">#</a></h3>
 <div class="proof definition admonition" id="definition-1">
 <p class="admonition-title"><span class="caption-number">Definition 4 </span> (Natural basis)</p>
 <div class="definition-content section" id="proof-content">
@@ -423,13 +430,13 @@ document.write(`
 </div></div>
 </div>
 <div class="section" id="fields">
-<h2>Fields<a class="headerlink" href="#fields" title="Permalink to this heading">#</a></h2>
+<span id="tensor-calculus-fields"></span><h2>Fields<a class="headerlink" href="#fields" title="Permalink to this heading">#</a></h2>
 <p>Function of the points in space <span class="math notranslate nohighlight">\(F: E^d \rightarrow V^r\)</span>, being <span class="math notranslate nohighlight">\(V^r\)</span> a space of tensors of order <span class="math notranslate nohighlight">\(r\)</span>.</p>
 </div>
 <div class="section" id="differential-operators">
-<h2>Differential operators<a class="headerlink" href="#differential-operators" title="Permalink to this heading">#</a></h2>
+<span id="tensor-calculus-differential-operators"></span><h2>Differential operators<a class="headerlink" href="#differential-operators" title="Permalink to this heading">#</a></h2>
 <div class="section" id="directional-derivative">
-<h3>Directional derivative<a class="headerlink" href="#directional-derivative" title="Permalink to this heading">#</a></h3>
+<span id="tensor-calculus-differential-operators-directional-derivative"></span><h3>Directional derivative<a class="headerlink" href="#directional-derivative" title="Permalink to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[F(\vec{r}) = F\left(\vec{r}\left(q^a\right)\right) = f(q^a)\]</div>
 <div class="math notranslate nohighlight">
@@ -453,35 +460,35 @@ document.write(`
 \end{aligned}\end{split}\]</div>
 </div>
 <div class="section" id="gradient">
-<h3>Gradient<a class="headerlink" href="#gradient" title="Permalink to this heading">#</a></h3>
+<span id="tensor-calculus-differential-operators-gradient"></span><h3>Gradient<a class="headerlink" href="#gradient" title="Permalink to this heading">#</a></h3>
 <p>The gradient is the differential operator is the first-order differential operator appearing in the definition of the directional derivative, <span class="math notranslate nohighlight">\(\nabla F(\vec{r})\)</span>. It takes a tensor field <span class="math notranslate nohighlight">\(F(\vec{r})\)</span> of order <span class="math notranslate nohighlight">\(r\)</span> and gives a tensor field <span class="math notranslate nohighlight">\(\nabla F(\vec{r})\)</span> of order <span class="math notranslate nohighlight">\(r+1\)</span>. Given a set of coordinates <span class="math notranslate nohighlight">\(\{q^a\}_{a=1:d}\)</span>, the gradient can be written using the reciprocal basis of the natural basis as</p>
 <div class="math notranslate nohighlight">
 \[\nabla F(\vec{r}) = \vec{b}^b(\vec{r}) \frac{\partial F}{\partial q^b}(\vec{r})\]</div>
 <p><strong>Examples.</strong> …</p>
 </div>
 <div class="section" id="divergence">
-<h3>Divergence<a class="headerlink" href="#divergence" title="Permalink to this heading">#</a></h3>
+<span id="tensor-calculus-differential-operators-divergence"></span><h3>Divergence<a class="headerlink" href="#divergence" title="Permalink to this heading">#</a></h3>
 <p>Divergence opearator is a first-order differential operator that can be defined as the contraction of the first two indices of the gradient,</p>
 <div class="math notranslate nohighlight">
 \[\nabla \cdot F = C_{1}^{2}\left( \nabla F \right) \ .\]</div>
 <p>It takes a tensor field <span class="math notranslate nohighlight">\(F(\vec{r})\)</span> of order <span class="math notranslate nohighlight">\(r \ge 1\)</span> and gives a tensor field <span class="math notranslate nohighlight">\(\nabla \cdot F(\vec{r})\)</span> of order <span class="math notranslate nohighlight">\(r-1 \ge 0\)</span>.</p>
 </div>
 <div class="section" id="laplacian">
-<h3>Laplacian<a class="headerlink" href="#laplacian" title="Permalink to this heading">#</a></h3>
+<span id="tensor-calculus-differential-operators-laplacian"></span><h3>Laplacian<a class="headerlink" href="#laplacian" title="Permalink to this heading">#</a></h3>
 <p>Laplacian operator is second-order differential operator that can be defined as the divergence of the gradient,</p>
 <div class="math notranslate nohighlight">
 \[\Delta F = \nabla^2 F = \nabla \cdot \nabla F \ .\]</div>
 </div>
 <div class="section" id="curl">
-<h3>Curl<a class="headerlink" href="#curl" title="Permalink to this heading">#</a></h3>
+<span id="tensor-calculus-differential-operators-curl"></span><h3>Curl<a class="headerlink" href="#curl" title="Permalink to this heading">#</a></h3>
 </div>
 </div>
 <div class="section" id="integrals-in-e-d-d-le-3">
-<h2>Integrals in <span class="math notranslate nohighlight">\(E^d\)</span>, <span class="math notranslate nohighlight">\(d \le 3\)</span><a class="headerlink" href="#integrals-in-e-d-d-le-3" title="Permalink to this heading">#</a></h2>
+<span id="tensor-calculus-integrals"></span><h2>Integrals in <span class="math notranslate nohighlight">\(E^d\)</span>, <span class="math notranslate nohighlight">\(d \le 3\)</span><a class="headerlink" href="#integrals-in-e-d-d-le-3" title="Permalink to this heading">#</a></h2>
 <div class="section" id="line-integrals">
-<h3>Line integrals<a class="headerlink" href="#line-integrals" title="Permalink to this heading">#</a></h3>
+<span id="tensor-calculus-integrals-line"></span><h3>Line integrals<a class="headerlink" href="#line-integrals" title="Permalink to this heading">#</a></h3>
 <div class="section" id="density">
-<h4>Density<a class="headerlink" href="#density" title="Permalink to this heading">#</a></h4>
+<span id="tensor-calculus-integrals-line-density"></span><h4>Density<a class="headerlink" href="#density" title="Permalink to this heading">#</a></h4>
 <p>Integrals</p>
 <div class="math notranslate nohighlight">
 \[ \int_{\vec{r}\in\gamma} F(\vec{r})\]</div>
@@ -494,7 +501,7 @@ document.write(`
 <p>with <span class="math notranslate nohighlight">\(\vec{r}(q^1_a)\)</span>, <span class="math notranslate nohighlight">\(\vec{r}(q^1_b)\)</span> the extreme points of path <span class="math notranslate nohighlight">\(\gamma\)</span>.</p>
 </div>
 <div class="section" id="work">
-<h4>Work<a class="headerlink" href="#work" title="Permalink to this heading">#</a></h4>
+<span id="tensor-calculus-integrals-line-work"></span><h4>Work<a class="headerlink" href="#work" title="Permalink to this heading">#</a></h4>
 <p>Integrals</p>
 <div class="math notranslate nohighlight">
 \[\int_{\vec{r} \in \gamma} F(\vec{r}) \cdot \hat{t}(\vec{r})\]</div>
@@ -508,15 +515,15 @@ Given a regular parametrization of the curve <span class="math notranslate nohig
 </div>
 </div>
 <div class="section" id="surface-integrals">
-<h3>Surface integrals<a class="headerlink" href="#surface-integrals" title="Permalink to this heading">#</a></h3>
+<span id="tensor-calculus-integrals-surface"></span><h3>Surface integrals<a class="headerlink" href="#surface-integrals" title="Permalink to this heading">#</a></h3>
 <p>Given two coordinates <span class="math notranslate nohighlight">\(q^1, \, q^2\)</span> describing a surface, <span class="math notranslate nohighlight">\(\vec{r}(q^1, q^2)\)</span> the elementary surface with unit normal reads</p>
 <div class="math notranslate nohighlight">
 \[\hat{n} \, dS = d \vec{r}_1 \times d \vec{r}_2 = \frac{\partial \vec{r}}{\partial q^1} \times \frac{\partial \vec{r}}{\partial q^2} \, dq^1 \, dq^2 \ ,\]</div>
 <p>and the elementary surface thus reads</p>
 <div class="math notranslate nohighlight">
 \[|dS| = |\hat{n} dS| = \left| \frac{\partial \vec{r}}{\partial q^1} \times \frac{\partial \vec{r}}{\partial q^2} \, dq^1 \, dq^2  \right|\]</div>
-<div class="section" id="id1">
-<h4>Density<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h4>
+<div class="section" id="tensor-calculus-integrals-surface-density">
+<span id="id1"></span><h4>Density<a class="headerlink" href="#tensor-calculus-integrals-surface-density" title="Permalink to this heading">#</a></h4>
 <p>Integrals</p>
 <div class="math notranslate nohighlight">
 \[\int_{\vec{r} \in S} F(\vec{r}) \]</div>
@@ -528,7 +535,7 @@ Given a regular parametrization of the curve <span class="math notranslate nohig
 \[\int_{\vec{r} \in S} F(\vec{r}) = \int_{(q^1,q^2) \in Q^{12}} F(\vec{r}(q^1,q^2)) \left| \frac{\partial \vec{r}}{\partial q^1} \times \frac{\partial \vec{r}}{\partial q^2}  \, dq^1 \, dq^2 \right|\]</div>
 </div>
 <div class="section" id="flux">
-<h4>Flux<a class="headerlink" href="#flux" title="Permalink to this heading">#</a></h4>
+<span id="tensor-calculus-integrals-surface-flux"></span><h4>Flux<a class="headerlink" href="#flux" title="Permalink to this heading">#</a></h4>
 <p>Integrals</p>
 <div class="math notranslate nohighlight">
 \[\int_{\vec{r} \in S} \hat{n}(\vec{r}) \cdot F(\vec{r}) \]</div>
@@ -541,11 +548,11 @@ Given a regular parametrization of the curve <span class="math notranslate nohig
 </div>
 </div>
 <div class="section" id="volume">
-<h3>Volume<a class="headerlink" href="#volume" title="Permalink to this heading">#</a></h3>
+<span id="tensor-calculus-integrals-volume"></span><h3>Volume<a class="headerlink" href="#volume" title="Permalink to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[dV = \frac{\partial \vec{r}}{\partial q^1} \cdot \frac{\partial \vec{r}}{\partial q^2} \times \frac{\partial \vec{r}}{\partial q^3} \, dq^1 \, dq^2 \, d q^3 \ . \]</div>
-<div class="section" id="id2">
-<h4>Density<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h4>
+<div class="section" id="tensor-calculus-integrals-volume-density">
+<span id="id2"></span><h4>Density<a class="headerlink" href="#tensor-calculus-integrals-volume-density" title="Permalink to this heading">#</a></h4>
 <p>Integrals</p>
 <div class="math notranslate nohighlight">
 \[\int_{\vec{r} \in V} F(\vec{r})\]</div>
@@ -555,6 +562,24 @@ Given a regular parametrization of the curve <span class="math notranslate nohig
 <p>Given regular parametrization of the volume, <span class="math notranslate nohighlight">\(\vec{r}(q^1, \, q^2, \, q^3), \ (q^1, q^2, q^3) \in Q\)</span>, the integral can be written as the multi-dimensional integral in coordinates <span class="math notranslate nohighlight">\(q^1, \, q^2, \, q^3\)</span>,</p>
 <div class="math notranslate nohighlight">
 \[\int_{\vec{r} \in V} F(\vec{r}) |d V| = \int_{(q^1,q^2,q^3) \in Q} F(\vec{r}(q^1,q^2,q^3))  \left| \frac{\partial \vec{r}}{\partial q^1} \cdot \frac{\partial \vec{r}}{\partial q^2} \times \frac{\partial \vec{r}}{\partial q^3} \, dq^1 \, dq^2 \, d q^3 \right| \ .\]</div>
+</div>
+</div>
+<div class="section" id="theorems">
+<span id="tensor-calculus-integrals-theorems"></span><h3>Theorems<a class="headerlink" href="#theorems" title="Permalink to this heading">#</a></h3>
+<div class="section" id="gradient-theorem">
+<span id="tensor-calculus-integrals-theorems-gradient"></span><h4>Gradient theorem<a class="headerlink" href="#gradient-theorem" title="Permalink to this heading">#</a></h4>
+<div class="math notranslate nohighlight">
+\[\int_{V} \nabla f = \oint_{\partial V} f \hat{n}\]</div>
+</div>
+<div class="section" id="divergence-theorem">
+<span id="tensor-calculus-integrals-theorems-divergence"></span><h4>Divergence theorem<a class="headerlink" href="#divergence-theorem" title="Permalink to this heading">#</a></h4>
+<div class="math notranslate nohighlight">
+\[\int_{V} \nabla \cdot \vec{f} = \oint_{\partial V} \vec{f} \cdot \hat{n}\]</div>
+</div>
+<div class="section" id="curl-theorem">
+<span id="tensor-calculus-integrals-theorems-curl"></span><h4>Curl theorem<a class="headerlink" href="#curl-theorem" title="Permalink to this heading">#</a></h4>
+<div class="math notranslate nohighlight">
+\[\int_{S} \left[ \nabla \times \vec{f} \right] \cdot \hat{n} = \oint_{\partial S} \vec{f} \cdot \hat{t}\]</div>
 </div>
 </div>
 </div>
@@ -600,11 +625,11 @@ Given a regular parametrization of the curve <span class="math notranslate nohig
       </div>
     </a>
     <a class="right-next"
-       href="../functional-analysis/intro.html"
+       href="time-derivative-of-integrals.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Introduction to Functional Analysis</p>
+        <p class="prev-next-title">Time derivative of integrals over moving domains</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -643,12 +668,18 @@ Given a regular parametrization of the curve <span class="math notranslate nohig
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#surface-integrals">Surface integrals</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Density</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tensor-calculus-integrals-surface-density">Density</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#flux">Flux</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#volume">Volume</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Density</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tensor-calculus-integrals-volume-density">Density</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#theorems">Theorems</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-theorem">Gradient theorem</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#divergence-theorem">Divergence theorem</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#curl-theorem">Curl theorem</a></li>
 </ul>
 </li>
 </ul>
