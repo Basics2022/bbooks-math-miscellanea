@@ -179,7 +179,12 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Vector and Tensor Algebra and Calculus</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="ch/tensor-algebra-calculus/algebra.html">Tensor Algebra</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch/tensor-algebra-calculus/calculus-euclidean.html">Tensor Calculus in Euclidean Spaces</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="ch/tensor-algebra-calculus/calculus-euclidean.html">Tensor Calculus in Euclidean Spaces</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="ch/tensor-algebra-calculus/calculus-euclidean-cartesian.html">Tensor Calculus in Euclidean Spaces - Cartesian coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch/tensor-algebra-calculus/calculus-euclidean-cylindrical.html">Tensor Calculus in Euclidean Spaces - cylindrical coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch/tensor-algebra-calculus/calculus-euclidean-spherical.html">Tensor Calculus in Euclidean Spaces - Spehrical coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="ch/tensor-algebra-calculus/time-derivative-of-integrals.html">Time derivative of integrals over moving domains</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Functional Analysis</span></p>
@@ -308,6 +313,17 @@ document.write(`
    <a href="#cap-definition-3"><strong>definition-3</strong></a> | 
    <a href="#cap-definition-4"><strong>definition-4</strong></a> | 
    <a href="#cap-definition-5"><strong>definition-5</strong></a> | 
+   <a href="#cap-example-0"><strong>example-0</strong></a> | 
+   <a href="#cap-example-1"><strong>example-1</strong></a> | 
+   <a href="#cap-example-10"><strong>example-10</strong></a> | 
+   <a href="#cap-example-2"><strong>example-2</strong></a> | 
+   <a href="#cap-example-3"><strong>example-3</strong></a> | 
+   <a href="#cap-example-4"><strong>example-4</strong></a> | 
+   <a href="#cap-example-5"><strong>example-5</strong></a> | 
+   <a href="#cap-example-6"><strong>example-6</strong></a> | 
+   <a href="#cap-example-7"><strong>example-7</strong></a> | 
+   <a href="#cap-example-8"><strong>example-8</strong></a> | 
+   <a href="#cap-example-9"><strong>example-9</strong></a> | 
    <a href="#cap-theorem-6"><strong>theorem-6</strong></a>
    </div>
 
@@ -342,7 +358,7 @@ document.write(`
      <tr>
        <td></td>
        <td>
-       <a href="ch/complex/analysis.html#definition-3"><code class="xref">definition-3</code></a> <em>(ch/complex/analysis)</em></td><td>
+       <a href="ch/tensor-algebra-calculus/calculus-euclidean.html#definition-3"><code class="xref">definition-3</code></a> <em>(ch/tensor-algebra-calculus/calculus-euclidean)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-definition-4"><td></td><td>
@@ -360,6 +376,94 @@ document.write(`
        <td>
        <a href="ch/complex/analysis.html#definition-5"><code class="xref">definition-5</code></a> <em>(ch/complex/analysis)</em></td><td>
        <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-example-0"><td></td><td>
+       <strong>example-0</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch/tensor-algebra-calculus/calculus-euclidean-cylindrical.html#example-0"><code class="xref">example-0</code></a> <em>(ch/tensor-algebra-calculus/calculus-euclidean-cylindrical)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-example-1"><td></td><td>
+       <strong>example-1</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch/tensor-algebra-calculus/calculus-euclidean-cylindrical.html#example-1"><code class="xref">example-1</code></a> <em>(ch/tensor-algebra-calculus/calculus-euclidean-cylindrical)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-example-10"><td></td><td>
+       <strong>example-10</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch/tensor-algebra-calculus/calculus-euclidean.html#example-10"><code class="xref">example-10</code></a> <em>(ch/tensor-algebra-calculus/calculus-euclidean)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-example-2"><td></td><td>
+       <strong>example-2</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch/tensor-algebra-calculus/calculus-euclidean-cylindrical.html#example-2"><code class="xref">example-2</code></a> <em>(ch/tensor-algebra-calculus/calculus-euclidean-cylindrical)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-example-3"><td></td><td>
+       <strong>example-3</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch/tensor-algebra-calculus/calculus-euclidean-cylindrical.html#example-3"><code class="xref">example-3</code></a> <em>(ch/tensor-algebra-calculus/calculus-euclidean-cylindrical)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-example-4"><td></td><td>
+       <strong>example-4</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch/tensor-algebra-calculus/calculus-euclidean-cylindrical.html#example-4"><code class="xref">example-4</code></a> <em>(ch/tensor-algebra-calculus/calculus-euclidean-cylindrical)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-example-5"><td></td><td>
+       <strong>example-5</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch/tensor-algebra-calculus/calculus-euclidean-cylindrical.html#example-5"><code class="xref">example-5</code></a> <em>(ch/tensor-algebra-calculus/calculus-euclidean-cylindrical)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-example-6"><td></td><td>
+       <strong>example-6</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch/tensor-algebra-calculus/calculus-euclidean-cylindrical.html#example-6"><code class="xref">example-6</code></a> <em>(ch/tensor-algebra-calculus/calculus-euclidean-cylindrical)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-example-7"><td></td><td>
+       <strong>example-7</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch/tensor-algebra-calculus/calculus-euclidean.html#example-7"><code class="xref">example-7</code></a> <em>(ch/tensor-algebra-calculus/calculus-euclidean)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-example-8"><td></td><td>
+       <strong>example-8</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch/tensor-algebra-calculus/calculus-euclidean.html#example-8"><code class="xref">example-8</code></a> <em>(ch/tensor-algebra-calculus/calculus-euclidean)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-example-9"><td></td><td>
+       <strong>example-9</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch/tensor-algebra-calculus/calculus-euclidean.html#example-9"><code class="xref">example-9</code></a> <em>(ch/tensor-algebra-calculus/calculus-euclidean)</em></td><td>
+       <em>example</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-theorem-6"><td></td><td>
        <strong>theorem-6</strong></td><td></td></tr>

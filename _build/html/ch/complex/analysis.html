@@ -176,7 +176,12 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Vector and Tensor Algebra and Calculus</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/algebra.html">Tensor Algebra</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean.html">Tensor Calculus in Euclidean Spaces</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean.html">Tensor Calculus in Euclidean Spaces</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean-cartesian.html">Tensor Calculus in Euclidean Spaces - Cartesian coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean-cylindrical.html">Tensor Calculus in Euclidean Spaces - cylindrical coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean-spherical.html">Tensor Calculus in Euclidean Spaces - Spehrical coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/time-derivative-of-integrals.html">Time derivative of integrals over moving domains</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Functional Analysis</span></p>
@@ -408,7 +413,7 @@ document.write(`
 <div class="section" id="holomorphic-functions-analytic-functions">
 <span id="complex-analysis-holo-fun"></span><h2>Holomorphic Functions - Analytic Functions<a class="headerlink" href="#holomorphic-functions-analytic-functions" title="Permalink to this heading">#</a></h2>
 <div class="proof definition admonition" id="definition-0">
-<p class="admonition-title"><span class="caption-number">Definition 6 </span></p>
+<p class="admonition-title"><span class="caption-number">Definition 7 </span></p>
 <div class="definition-content section" id="proof-content">
 <p>A holomorphic function is a function whose <a class="reference internal" href="#complex-analysis-fun-derivative"><span class="std std-ref">derivative</span></a> exists.</p>
 </div>
@@ -483,14 +488,14 @@ u_{/y} = - v_{/x}
 <div class="section" id="meromorphic-functions">
 <span id="complex-analysis-mero-fun"></span><h2>Meromorphic functions<a class="headerlink" href="#meromorphic-functions" title="Permalink to this heading">#</a></h2>
 <div class="proof definition admonition" id="definition-1">
-<p class="admonition-title"><span class="caption-number">Definition 7 </span></p>
+<p class="admonition-title"><span class="caption-number">Definition 8 </span></p>
 <div class="definition-content section" id="proof-content">
 <p>A meromorphic function in a domain is a function holomorphic everywhere except for a (finite?) number of poles. <strong>check</strong></p>
 </div>
 </div><div class="section" id="singularities">
 <span id="complex-analysis-singularities"></span><h3>Singularities<a class="headerlink" href="#singularities" title="Permalink to this heading">#</a></h3>
 <div class="proof definition admonition" id="definition-2">
-<p class="admonition-title"><span class="caption-number">Definition 8 </span> (Pole)</p>
+<p class="admonition-title"><span class="caption-number">Definition 9 </span> (Pole)</p>
 <div class="definition-content section" id="proof-content">
 <p>A pole of order <span class="math notranslate nohighlight">\(n\)</span> of a function <span class="math notranslate nohighlight">\(f(z)\)</span> is a complex number <span class="math notranslate nohighlight">\(a\)</span> so that</p>
 <div class="math notranslate nohighlight">
@@ -499,12 +504,12 @@ u_{/y} = - v_{/x}
 </div>
 </div><p><strong>Examples.</strong> …</p>
 <div class="proof definition admonition" id="definition-3">
-<p class="admonition-title"><span class="caption-number">Definition 9 </span> (Branch)</p>
+<p class="admonition-title"><span class="caption-number">Definition 10 </span> (Branch)</p>
 <div class="definition-content section" id="proof-content">
 </div>
 </div><p><strong>Examples.</strong> <span class="math notranslate nohighlight">\(f(z) = z^{\frac{1}{2}}\)</span></p>
 <div class="proof definition admonition" id="definition-4">
-<p class="admonition-title"><span class="caption-number">Definition 10 </span> (Removable singularities)</p>
+<p class="admonition-title"><span class="caption-number">Definition 11 </span> (Removable singularities)</p>
 <div class="definition-content section" id="proof-content">
 </div>
 </div><p><strong>Example.</strong> <span class="math notranslate nohighlight">\(f(z) = \frac{\sin z}{z}\)</span></p>
@@ -514,11 +519,11 @@ u_{/y} = - v_{/x}
 <span id="complex-analysis-mero-fun-laurent"></span><h3>Laurent Series<a class="headerlink" href="#laurent-series" title="Permalink to this heading">#</a></h3>
 <p>Given a function <span class="math notranslate nohighlight">\(f(z)\)</span>, in a disk <span class="math notranslate nohighlight">\(D_{a,\varepsilon}: 0 &lt; |z-a| &lt; \varepsilon\)</span>, its Laurent series centered in <span class="math notranslate nohighlight">\(a\)</span> is the convergent (to <span class="math notranslate nohighlight">\(f(z)\)</span>, <strong>todo</strong> <em>which type of convergnence?</em>) series</p>
 <div class="math notranslate nohighlight" id="equation-eq-laurent">
-<span class="eqno">(1)<a class="headerlink" href="#equation-eq-laurent" title="Permalink to this equation">#</a></span>\[f(z) \sim \sum_{n=-\infty}^{+\infty} a_n (z-a)^n \ ,\]</div>
+<span class="eqno">(3)<a class="headerlink" href="#equation-eq-laurent" title="Permalink to this equation">#</a></span>\[f(z) \sim \sum_{n=-\infty}^{+\infty} a_n (z-a)^n \ ,\]</div>
 <p>with</p>
 <div class="math notranslate nohighlight" id="equation-eq-laurent-coeff">
-<span class="eqno">(2)<a class="headerlink" href="#equation-eq-laurent-coeff" title="Permalink to this equation">#</a></span>\[a_n = \frac{1}{2 \pi i}\int_{\gamma} f(z) \, (z-a)^{-(n+1)} \, dz\]</div>
-<p>and <span class="math notranslate nohighlight">\(\gamma\)</span> embracing <span class="math notranslate nohighlight">\(z = a\)</span> once counter-clockwise. Proof follows immediately inserting the expressions of the coefficients <span class="math notranslate nohighlight">\(a_n\)</span> and using the <a class="reference internal" href="#complex-analysis-useful-int-path-independence-z-n"><span class="std std-ref">integral of <span class="math notranslate nohighlight">\(z^n\)</span></span></a>. Evaluating the integral <a class="reference internal" href="#equation-eq-laurent-coeff">(2)</a> of the coefficients of the Laurent series, using <a class="reference internal" href="#equation-eq-laurent">(1)</a> to replace <span class="math notranslate nohighlight">\(f(z)\)</span> with its series</p>
+<span class="eqno">(4)<a class="headerlink" href="#equation-eq-laurent-coeff" title="Permalink to this equation">#</a></span>\[a_n = \frac{1}{2 \pi i}\int_{\gamma} f(z) \, (z-a)^{-(n+1)} \, dz\]</div>
+<p>and <span class="math notranslate nohighlight">\(\gamma\)</span> embracing <span class="math notranslate nohighlight">\(z = a\)</span> once counter-clockwise. Proof follows immediately inserting the expressions of the coefficients <span class="math notranslate nohighlight">\(a_n\)</span> and using the <a class="reference internal" href="#complex-analysis-useful-int-path-independence-z-n"><span class="std std-ref">integral of <span class="math notranslate nohighlight">\(z^n\)</span></span></a>. Evaluating the integral <a class="reference internal" href="#equation-eq-laurent-coeff">(4)</a> of the coefficients of the Laurent series, using <a class="reference internal" href="#equation-eq-laurent">(3)</a> to replace <span class="math notranslate nohighlight">\(f(z)\)</span> with its series</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
   a_n &amp; = \frac{1}{2 \pi i}\oint_{\gamma} \sum_{m=-\infty}^{+\infty} a_m (z-a)^m (z-a)^{-(n+1)} = \\
@@ -540,7 +545,7 @@ u_{/y} = - v_{/x}
 <div class="section" id="residues">
 <span id="complex-analysis-mero-fun-residues"></span><h3>Residues<a class="headerlink" href="#residues" title="Permalink to this heading">#</a></h3>
 <div class="proof definition admonition" id="definition-5">
-<p class="admonition-title"><span class="caption-number">Definition 11 </span> (Residue)</p>
+<p class="admonition-title"><span class="caption-number">Definition 12 </span> (Residue)</p>
 <div class="definition-content section" id="proof-content">
 <p>The residue of function <span class="math notranslate nohighlight">\(f\)</span> in <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(\text{Res}(f,a)\)</span> is a complex number <span class="math notranslate nohighlight">\(R\)</span> so that <span class="math notranslate nohighlight">\(f(z) - \frac{R}{(z-a)}\)</span> has analytic antiderivative in a disk <span class="math notranslate nohighlight">\(D_{a,\varepsilon}: \ 0 &lt; |z-a| &lt; \varepsilon\)</span>.</p>
 </div>
@@ -549,7 +554,7 @@ u_{/y} = - v_{/x}
 <ul>
 <li><p>If <span class="math notranslate nohighlight">\(f(z)\)</span> is analytic in <span class="math notranslate nohighlight">\(D_{a,\varepsilon}\)</span> and has a pole of order <span class="math notranslate nohighlight">\(n\)</span> in <span class="math notranslate nohighlight">\(z = a\)</span>, its Laurent series has <span class="math notranslate nohighlight">\(a_m=0\)</span> for <span class="math notranslate nohighlight">\(m &lt; n\)</span> and reads</p>
 <div class="math notranslate nohighlight" id="equation-eq-laurent-pole-n">
-<span class="eqno">(3)<a class="headerlink" href="#equation-eq-laurent-pole-n" title="Permalink to this equation">#</a></span>\[f(z) = \sum_{m=-n}^{+\infty} a_m (z-a)^m \ ,\]</div>
+<span class="eqno">(5)<a class="headerlink" href="#equation-eq-laurent-pole-n" title="Permalink to this equation">#</a></span>\[f(z) = \sum_{m=-n}^{+\infty} a_m (z-a)^m \ ,\]</div>
 <p>with <span class="math notranslate nohighlight">\(a_{-n} \ne 0\)</span>. Since <span class="math notranslate nohighlight">\(f(z)\)</span> has a pole of order <span class="math notranslate nohighlight">\(n\)</span> in <span class="math notranslate nohighlight">\(z = a\)</span>, it can be written as</p>
 <div class="math notranslate nohighlight">
 \[f(z) = \frac{\phi(z)}{(z-a)^n} \ ,\]</div>
@@ -563,8 +568,8 @@ u_{/y} = - v_{/x}
 </li>
 <li><p>For simple closed path <span class="math notranslate nohighlight">\(\gamma\)</span> (embracing <span class="math notranslate nohighlight">\(a\)</span> only once counter-clokwise) in <span class="math notranslate nohighlight">\(D_{a, \varepsilon}\)</span>,</p>
 <div class="math notranslate nohighlight" id="equation-eq-residue-thm-0">
-<span class="eqno">(4)<a class="headerlink" href="#equation-eq-residue-thm-0" title="Permalink to this equation">#</a></span>\[\oint_{\gamma} f(z) \, dz = 2 \pi i a_{-1} = 2 \pi i \text{Res}(f,a)\]</div>
-<p>The proof readily follows, using the <a class="reference internal" href="#complex-analysis-useful-int-path-independence-z-n"><span class="std std-ref">integral of <span class="math notranslate nohighlight">\(z^n\)</span></span></a> and Laurent series <a class="reference internal" href="#equation-eq-laurent">(1)</a> of <span class="math notranslate nohighlight">\(f(z)\)</span>,</p>
+<span class="eqno">(6)<a class="headerlink" href="#equation-eq-residue-thm-0" title="Permalink to this equation">#</a></span>\[\oint_{\gamma} f(z) \, dz = 2 \pi i a_{-1} = 2 \pi i \text{Res}(f,a)\]</div>
+<p>The proof readily follows, using the <a class="reference internal" href="#complex-analysis-useful-int-path-independence-z-n"><span class="std std-ref">integral of <span class="math notranslate nohighlight">\(z^n\)</span></span></a> and Laurent series <a class="reference internal" href="#equation-eq-laurent">(3)</a> of <span class="math notranslate nohighlight">\(f(z)\)</span>,</p>
 <div class="math notranslate nohighlight">
 \[\oint_{\gamma} f(z) \, dz = \oint_{\gamma} \sum_{m=-\infty}^{+\infty} a_m (z-a)^m \, dz = 2 \pi i a_{-1} \ .\]</div>
 </li>
@@ -599,7 +604,7 @@ u_{/y} = - v_{/x}
 \[\int_{\gamma} f(z) \, dz = 2 \pi i \ \sum_{n} I(\gamma, p_n) \text{Res}(f,p_n) \ ,\]</div>
 <p>being <span class="math notranslate nohighlight">\(\gamma\)</span> a path in <span class="math notranslate nohighlight">\(D\)</span>, and <span class="math notranslate nohighlight">\(I(\gamma, p_n)\)</span> the winding index of the path <span class="math notranslate nohighlight">\(\gamma\)</span> around pole <span class="math notranslate nohighlight">\(p_n\)</span> (+1 for each counter-clockwise loop, -1 for each clockwise loop).</p>
 </div>
-</div><p>The proof readily follows extending the result for a single pole <a class="reference internal" href="#equation-eq-residue-thm-0">(4)</a> to general number of poles and general paths <span class="math notranslate nohighlight">\(\gamma\)</span> embracing (with sign) each pole <span class="math notranslate nohighlight">\(p_n\)</span> <span class="math notranslate nohighlight">\(I(\gamma,p_n)\)</span> times, with the same techinques shown in section <a class="reference internal" href="#complex-analysis-useful-int-path-independence-sum"><span class="std std-ref">Sum and difference of line integrals</span></a>.</p>
+</div><p>The proof readily follows extending the result for a single pole <a class="reference internal" href="#equation-eq-residue-thm-0">(6)</a> to general number of poles and general paths <span class="math notranslate nohighlight">\(\gamma\)</span> embracing (with sign) each pole <span class="math notranslate nohighlight">\(p_n\)</span> <span class="math notranslate nohighlight">\(I(\gamma,p_n)\)</span> times, with the same techinques shown in section <a class="reference internal" href="#complex-analysis-useful-int-path-independence-sum"><span class="std std-ref">Sum and difference of line integrals</span></a>.</p>
 </div>
 <div class="section" id="evaluation-of-integrals">
 <h3>Evaluation of integrals<a class="headerlink" href="#evaluation-of-integrals" title="Permalink to this heading">#</a></h3>

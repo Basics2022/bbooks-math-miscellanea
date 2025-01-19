@@ -70,7 +70,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Time derivative of integrals over moving domains" href="time-derivative-of-integrals.html" />
+    <link rel="next" title="Tensor Calculus in Euclidean Spaces - Cartesian coordinates in \(E^3\)" href="calculus-euclidean-cartesian.html" />
     <link rel="prev" title="Tensor Algebra" href="algebra.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -176,7 +176,12 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Vector and Tensor Algebra and Calculus</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="algebra.html">Tensor Algebra</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Tensor Calculus in Euclidean Spaces</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Tensor Calculus in Euclidean Spaces</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="calculus-euclidean-cartesian.html">Tensor Calculus in Euclidean Spaces - Cartesian coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="calculus-euclidean-cylindrical.html">Tensor Calculus in Euclidean Spaces - cylindrical coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="calculus-euclidean-spherical.html">Tensor Calculus in Euclidean Spaces - Spehrical coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="time-derivative-of-integrals.html">Time derivative of integrals over moving domains</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Functional Analysis</span></p>
@@ -424,10 +429,38 @@ document.write(`
 \[\vec{b}_a := \frac{\partial \vec{r}}{\partial q^a}\]</div>
 </div>
 </div><div class="proof definition admonition" id="definition-2">
-<p class="admonition-title"><span class="caption-number">Definition 5 </span> (Christoffel symbols)</p>
+<p class="admonition-title"><span class="caption-number">Definition 5 </span> (Reciprocal basis (<strong>todo</strong> move to <a class="reference internal" href="algebra.html#tensor-algebra"><span class="std std-ref">Tensor Algebra</span></a>))</p>
 <div class="definition-content section" id="proof-content">
+<p>Given a basis <span class="math notranslate nohighlight">\(\{ \vec{b}_a \}_{a}\)</span>, its reciprocal basis the set of vector <span class="math notranslate nohighlight">\(\{ \vec{b}^b \}_b\)</span> defined as</p>
+<div class="math notranslate nohighlight">
+\[\vec{b}^b \cdot \vec{b}_a = \delta_{a}^b \ ,\]</div>
+<p>being <span class="math notranslate nohighlight">\(\delta_a^b\)</span> Kronecker delta.</p>
 </div>
-</div></div>
+</div><div class="proof definition admonition" id="definition-3">
+<p class="admonition-title"><span class="caption-number">Definition 6 </span> (Christoffel symbols)</p>
+<div class="definition-content section" id="proof-content">
+<p>Christoffel symbols (of the <span class="math notranslate nohighlight">\(2^{nd}\)</span> kind) are defined as the components of the partial derivatives of the vectors of a natural basis w.r.t. the coordinates referred to the natural basis itself,</p>
+<div class="math notranslate nohighlight" id="equation-def-christoffel-2">
+<span class="eqno">(1)<a class="headerlink" href="#equation-def-christoffel-2" title="Permalink to this equation">#</a></span>\[\dfrac{\partial \vec{b}_a}{\partial q^b} = \Gamma_{ab}^c \, \vec{b}_c\]</div>
+</div>
+</div><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Properties of Christoffel symbols<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Exploiting the definition of reciprocal basis, Christoffel symbols can be written as</p>
+<div class="math notranslate nohighlight">
+\[\Gamma_{ab}^c = \vec{b}^c \cdot \dfrac{\partial \vec{b}_a}{\partial q^b} \ .\]</div>
+<p class="sd-card-text"><strong>Symmetry.</strong> Symmetry os the lower indices</p>
+<div class="math notranslate nohighlight">
+\[\Gamma_{ab}^{c} = \Gamma_{ba}^c \ ,\]</div>
+<p class="sd-card-text">readily follows Schwartz theorem about partial derivatives</p>
+<div class="math notranslate nohighlight">
+\[\dfrac{\partial \vec{b}_a}{\partial q^b} = \dfrac{\partial}{\partial q^c}\dfrac{\partial \vec{r}}{\partial q^a} = \dfrac{\partial}{\partial q^a}\dfrac{\partial \vec{r}}{\partial q^b} = \dfrac{\partial \vec{b}_b}{\partial q^a}\]</div>
+</div>
+</details></div>
 </div>
 <div class="section" id="fields">
 <span id="tensor-calculus-fields"></span><h2>Fields<a class="headerlink" href="#fields" title="Permalink to this heading">#</a></h2>
@@ -462,23 +495,112 @@ document.write(`
 <div class="section" id="gradient">
 <span id="tensor-calculus-differential-operators-gradient"></span><h3>Gradient<a class="headerlink" href="#gradient" title="Permalink to this heading">#</a></h3>
 <p>The gradient is the differential operator is the first-order differential operator appearing in the definition of the directional derivative, <span class="math notranslate nohighlight">\(\nabla F(\vec{r})\)</span>. It takes a tensor field <span class="math notranslate nohighlight">\(F(\vec{r})\)</span> of order <span class="math notranslate nohighlight">\(r\)</span> and gives a tensor field <span class="math notranslate nohighlight">\(\nabla F(\vec{r})\)</span> of order <span class="math notranslate nohighlight">\(r+1\)</span>. Given a set of coordinates <span class="math notranslate nohighlight">\(\{q^a\}_{a=1:d}\)</span>, the gradient can be written using the reciprocal basis of the natural basis as</p>
-<div class="math notranslate nohighlight">
-\[\nabla F(\vec{r}) = \vec{b}^b(\vec{r}) \frac{\partial F}{\partial q^b}(\vec{r})\]</div>
+<div class="math notranslate nohighlight" id="equation-def-grad-q">
+<span class="eqno">(2)<a class="headerlink" href="#equation-def-grad-q" title="Permalink to this equation">#</a></span>\[\nabla F(\vec{r}) = \vec{b}^b(\vec{r}) \frac{\partial F}{\partial q^b}(\vec{r})\]</div>
 <p><strong>Examples.</strong> …</p>
+<div class="proof example dropdown admonition" id="example-4">
+<p class="admonition-title"><span class="caption-number">Example 1 </span> (Gradient of a scalar field - with general coordinates <span class="math notranslate nohighlight">\(q^{a}\)</span>)</p>
+<div class="example-content section" id="proof-content">
+<p>Applying the definition <a class="reference internal" href="#equation-def-grad-q">(2)</a> of gradient operator, it readily follows</p>
+<div class="math notranslate nohighlight">
+\[\nabla F = \vec{b}^a \dfrac{\partial F}{\partial q^a}\]</div>
 </div>
+</div><div class="proof example dropdown admonition" id="example-5">
+<p class="admonition-title"><span class="caption-number">Example 2 </span> (Gradient of a vector field - with general coordinates <span class="math notranslate nohighlight">\(q^{a}\)</span>)</p>
+<div class="example-content section" id="proof-content">
+<p>Applying the definition <a class="reference internal" href="#equation-def-grad-q">(2)</a> of gradient operator, rule for the derivative of a product and the definition <a class="reference internal" href="#equation-def-christoffel-2">(1)</a> of Christoffel symbols to write derivatives of base vectors,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \nabla F 
+  &amp; = \vec{b}^a \dfrac{\partial}{\partial q^a} \left( F^b \vec{b}_b \right) = \\
+  &amp; = \vec{b}^a \left[ \dfrac{\partial F^b}{\partial q^a} \vec{b}_b + F^b \dfrac{\partial \vec{b}_b}{\partial q^a} \right] = \\
+  &amp; = \vec{b}^a \left[ \dfrac{\partial F^b}{\partial q^a} \vec{b}_b + F^b \, \Gamma_{ab}^c \, \vec{b}_c \right] = \\
+  &amp; = \vec{b}^a \otimes \vec{b}_b \left[ \dfrac{\partial F^b}{\partial q^a} + \Gamma_{ac}^b \, F^c \right] \ .
+\end{aligned}\end{split}\]</div>
+</div>
+</div><div class="proof example dropdown admonition" id="example-6">
+<p class="admonition-title"><span class="caption-number">Example 3 </span> (Gradient of a <span class="math notranslate nohighlight">\(2^{nd}\)</span>-order tensor field - with general coordinates <span class="math notranslate nohighlight">\(q^{a}\)</span>)</p>
+<div class="example-content section" id="proof-content">
+<p>Applying the definition <a class="reference internal" href="#equation-def-grad-q">(2)</a> of gradient operator, rule for the derivative of a product and the definition <a class="reference internal" href="#equation-def-christoffel-2">(1)</a> of Christoffel symbols to write derivatives of base vectors,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \nabla F 
+  &amp; = \vec{b}^a \dfrac{\partial}{\partial q^a} \left( F^{bc} \vec{b}_b \otimes \vec{b}_c \right) = \\
+  &amp; = \vec{b}^a \left[ \dfrac{\partial F^{bc}}{\partial q^a} \vec{b}_b \, \vec{b}_c + F^{bc} \dfrac{\partial \vec{b}_b}{\partial q^a} \, \vec{b}_c + F^{bc} \vec{b}_b \dfrac{\partial \vec{b}_c}{\partial q^a} \right] = \\
+  &amp; = \vec{b}^a \left[ \dfrac{\partial F^{bc}}{\partial q^a} \vec{b}_b \, \vec{b}_c + F^{bc} \Gamma_{ab}^d \, \vec{b}_d \, \vec{b}_c + F^{bc} \, \Gamma_{d}^{ac} \, \vec{b}_b \, \vec{b}_d \right] = \\
+  &amp; = \vec{b}^a \otimes \vec{b}_b \otimes \vec{b}_c \left[ \dfrac{\partial F^{bc}}{\partial q^a} + \Gamma_{ad}^b \, F^{dc} + \Gamma^{c}_{ad} \, F^{bd}  \right] \ .
+\end{aligned}\end{split}\]</div>
+</div>
+</div></div>
 <div class="section" id="divergence">
 <span id="tensor-calculus-differential-operators-divergence"></span><h3>Divergence<a class="headerlink" href="#divergence" title="Permalink to this heading">#</a></h3>
 <p>Divergence opearator is a first-order differential operator that can be defined as the contraction of the first two indices of the gradient,</p>
 <div class="math notranslate nohighlight">
 \[\nabla \cdot F = C_{1}^{2}\left( \nabla F \right) \ .\]</div>
 <p>It takes a tensor field <span class="math notranslate nohighlight">\(F(\vec{r})\)</span> of order <span class="math notranslate nohighlight">\(r \ge 1\)</span> and gives a tensor field <span class="math notranslate nohighlight">\(\nabla \cdot F(\vec{r})\)</span> of order <span class="math notranslate nohighlight">\(r-1 \ge 0\)</span>.</p>
+<div class="proof example dropdown admonition" id="example-7">
+<p class="admonition-title"><span class="caption-number">Example 4 </span> (Divergence of a vector field - with general coordiantes <span class="math notranslate nohighlight">\(q^{a}\)</span>)</p>
+<div class="example-content section" id="proof-content">
+<p>Applying contraction to the gradient of a vector field, it readily follows,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \nabla \cdot \left( F^b \vec{b}_b \right)
+  &amp; = C_{1}^{2} \left( \nabla F \right) = \\
+  &amp; = C_1^2 \left( \vec{b}^a \otimes \vec{b}_b \left[ \dfrac{\partial F^b}{\partial q^a} + \Gamma_{ac}^b \, F^c \right] \right) = \\
+  &amp; = \dfrac{\partial F^a}{\partial q^a} + \Gamma_{ac}^a \, F^c
+\end{aligned}\end{split}\]</div>
 </div>
+</div><div class="proof example dropdown admonition" id="example-8">
+<p class="admonition-title"><span class="caption-number">Example 5 </span> (Divergence of a <span class="math notranslate nohighlight">\(2^{nd}\)</span>-order tensor field - with general coordiantes <span class="math notranslate nohighlight">\(q^{a}\)</span>)</p>
+<div class="example-content section" id="proof-content">
+<p>Applying contraction to the gradient of a vector field, it readily follows,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \nabla \cdot \left( F^{bc} \vec{b}_b \otimes \vec{b}_c \right)
+  &amp; = C_{1}^{2} \left( \nabla F \right) = \\
+  &amp; = C_1^2 \left( \vec{b}^a \otimes \vec{b}_b \otimes \vec{b}_c \left[ \dfrac{\partial F^{bc}}{\partial q^a} + \Gamma_{ad}^b \, F^{dc} + \Gamma^{c}_{ad} \, F^{bd}  \right]  \right) = \\
+  &amp; = \vec{b}_c \, \left[ \dfrac{\partial F^{ac}}{\partial q^a} + \Gamma_{ad}^a \, F^{dc} + \Gamma^{c}_{ad} \, F^{ad}  \right] 
+\end{aligned}\end{split}\]</div>
+</div>
+</div></div>
 <div class="section" id="laplacian">
 <span id="tensor-calculus-differential-operators-laplacian"></span><h3>Laplacian<a class="headerlink" href="#laplacian" title="Permalink to this heading">#</a></h3>
 <p>Laplacian operator is second-order differential operator that can be defined as the divergence of the gradient,</p>
 <div class="math notranslate nohighlight">
 \[\Delta F = \nabla^2 F = \nabla \cdot \nabla F \ .\]</div>
+<div class="proof example dropdown admonition" id="example-9">
+<p class="admonition-title"><span class="caption-number">Example 6 </span> (Laplacian of a scalar field - with general coordinates <span class="math notranslate nohighlight">\(q^a\)</span>)</p>
+<div class="example-content section" id="proof-content">
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\nabla \cdot \nabla F
+  &amp; = C_{1}^2 \left[ \nabla \left( \nabla F \right) \right] = \\
+  &amp; = C_{1}^2 \left[ \nabla \left( \vec{b}^a \dfrac{\partial F}{\partial q^a} \right) \right] = \\
+  &amp; = C_{1}^2 \left[ \nabla \left( \vec{b}_b \, g^{ab} \, \dfrac{\partial F}{\partial q^a} \right) \right] = \\
+  &amp; = C_{1}^2 \left[ \vec{b}^c \frac{\partial}{\partial q^c} \left( \vec{b}_b \, g^{ab} \, \dfrac{\partial F}{\partial q^a} \right) \right] = \\
+  &amp; = C_{1}^2 \left\{ \vec{b}^c \left[ \vec{b}_b \, \frac{\partial}{\partial q^c} \left( \, g^{ab} \, \dfrac{\partial F}{\partial q^a} \right) + g^{ab} \dfrac{\partial F}{\partial q^a} \dfrac{\partial \vec{b}_b}{\partial q^c} \right] \right\} = \\
+  &amp; = C_{1}^2 \left\{ \vec{b}^c \left[ \vec{b}_b \, \frac{\partial}{\partial q^c} \left( \, g^{ab} \, \dfrac{\partial F}{\partial q^a} \right) + g^{ab} \dfrac{\partial F}{\partial q^a} \, \Gamma_{bc}^d \, \vec{b}_d \right] \right \} = \\
+  &amp; = C_{1}^2 \left\{ \vec{b}^c \, \vec{b}_b \left[ \frac{\partial}{\partial q^c} \left( \, g^{ab} \, \dfrac{\partial F}{\partial q^a} \right) + g^{ad} \, \Gamma_{cd}^b \, \dfrac{\partial F}{\partial q^a} \right] \right \} = \\
+  &amp; = \frac{\partial}{\partial q^b} \left( \, g^{ab} \, \dfrac{\partial F}{\partial q^a} \right) + g^{ad} \, \Gamma_{bd}^b \, \dfrac{\partial F}{\partial q^a} \ .
+\end{split}\]</div>
 </div>
+</div><div class="proof example dropdown admonition" id="example-10">
+<p class="admonition-title"><span class="caption-number">Example 7 </span> (Laplacian of a vector field - with general coordinates <span class="math notranslate nohighlight">\(q^a\)</span>)</p>
+<div class="example-content section" id="proof-content">
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\nabla \cdot \nabla F
+  &amp; = C_{1}^2 \left[ \nabla \left( \nabla F \right) \right] = \\
+  &amp; = C_{1}^2 \left\{ \nabla \left[ \vec{b}^a \, \vec{b}_b \left( \dfrac{\partial F^b}{\partial q^a} + \Gamma^{b}_{ac} F^c \right) \right] \right\} = \\
+  &amp; = C_{1}^2 \left\{ \nabla \left[ \vec{b}_c \, \vec{b}_b \,  g^{ac} \left( \dfrac{\partial F^b}{\partial q^a} + \Gamma^{b}_{ac} F^c \right) \right] \right\} = \\
+  &amp; = C_{1}^2 \left\{ \nabla \cdot \left((\nabla F)^{cb} \, \vec{b}_c \, \vec{b}_b \right) \right\} = \\
+  &amp; = C_{1}^2 \left\{ \vec{b}^a \, \vec{b}_c \, \vec{b}_b \, \left[ \dfrac{\partial (\nabla F)^{cb}}{\partial q^a} 
+     + \Gamma_{ad}^c (\nabla F)^{db} + \Gamma_{ad}^b (\nabla F)^{cd} \right] \right\} = \\
+  &amp; = \vec{b}_b \, \left[ \dfrac{\partial (\nabla F)^{ab}}{\partial q^a} 
+     + \Gamma_{ad}^a (\nabla F)^{db} + \Gamma_{ad}^b (\nabla F)^{ad} \right] = \ .
+\end{split}\]</div>
+</div>
+</div></div>
 <div class="section" id="curl">
 <span id="tensor-calculus-differential-operators-curl"></span><h3>Curl<a class="headerlink" href="#curl" title="Permalink to this heading">#</a></h3>
 </div>
@@ -583,6 +705,8 @@ Given a regular parametrization of the curve <span class="math notranslate nohig
 </div>
 </div>
 </div>
+<div class="toctree-wrapper compound">
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -625,11 +749,11 @@ Given a regular parametrization of the curve <span class="math notranslate nohig
       </div>
     </a>
     <a class="right-next"
-       href="time-derivative-of-integrals.html"
+       href="calculus-euclidean-cartesian.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Time derivative of integrals over moving domains</p>
+        <p class="prev-next-title">Tensor Calculus in Euclidean Spaces - Cartesian coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

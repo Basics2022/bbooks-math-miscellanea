@@ -85,7 +85,7 @@
         
 
 \title{basics - math}
-\date{Jan 18, 2025}
+\date{Jan 19, 2025}
 \release{}
 \author{basics}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -459,11 +459,45 @@ Vectors of natural basis
 \begin{split}\vec{b}_a := \frac{\partial \vec{r}}{\partial q^a}\end{split}
 \end{equation*}\end{sphinxadmonition}
 \label{ch/tensor-algebra-calculus/calculus-euclidean:definition-2}
-\begin{sphinxadmonition}{note}{Definition 5 (Christoffel symbols)}
+\begin{sphinxadmonition}{note}{Definition 5 (Reciprocal basis (\sphinxstylestrong{todo} move to Tensor Algebra))}
 
 
+
+\sphinxAtStartPar
+Given a basis \(\{ \vec{b}_a \}_{a}\), its reciprocal basis the set of vector \(\{ \vec{b}^b \}_b\) defined as
+\begin{equation*}
+\begin{split}\vec{b}^b \cdot \vec{b}_a = \delta_{a}^b \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+being \(\delta_a^b\) Kronecker delta.
 \end{sphinxadmonition}
+\label{ch/tensor-algebra-calculus/calculus-euclidean:definition-3}
+\begin{sphinxadmonition}{note}{Definition 6 (Christoffel symbols)}
 
+
+
+\sphinxAtStartPar
+Christoffel symbols (of the \(2^{nd}\) kind) are defined as the components of the partial derivatives of the vectors of a natural basis w.r.t. the coordinates referred to the natural basis itself,
+\begin{equation}\label{equation:ch/tensor-algebra-calculus/calculus-euclidean:def:christoffel:2}
+\begin{split}\dfrac{\partial \vec{b}_a}{\partial q^b} = \Gamma_{ab}^c \, \vec{b}_c\end{split}
+\end{equation}\end{sphinxadmonition}
+\subsubsection*{Properties of Christoffel symbols}
+
+\sphinxAtStartPar
+Exploiting the definition of reciprocal basis, Christoffel symbols can be written as
+\begin{equation*}
+\begin{split}\Gamma_{ab}^c = \vec{b}^c \cdot \dfrac{\partial \vec{b}_a}{\partial q^b} \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Symmetry.} Symmetry os the lower indices
+\begin{equation*}
+\begin{split}\Gamma_{ab}^{c} = \Gamma_{ba}^c \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+readily follows Schwartz theorem about partial derivatives
+\begin{equation*}
+\begin{split}\dfrac{\partial \vec{b}_a}{\partial q^b} = \dfrac{\partial}{\partial q^c}\dfrac{\partial \vec{r}}{\partial q^a} = \dfrac{\partial}{\partial q^a}\dfrac{\partial \vec{r}}{\partial q^b} = \dfrac{\partial \vec{b}_b}{\partial q^a}\end{split}
+\end{equation*}
 
 \section{Fields}
 \label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:fields}}\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:tensor-calculus-fields}}
@@ -506,11 +540,53 @@ is evaluated as the limit for \(\alpha \rightarrow 0\) of the incremental ratio
 \label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:gradient}}\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:tensor-calculus-differential-operators-gradient}}
 \sphinxAtStartPar
 The gradient is the differential operator is the first\sphinxhyphen{}order differential operator appearing in the definition of the directional derivative, \(\nabla F(\vec{r})\). It takes a tensor field \(F(\vec{r})\) of order \(r\) and gives a tensor field \(\nabla F(\vec{r})\) of order \(r+1\). Given a set of coordinates \(\{q^a\}_{a=1:d}\), the gradient can be written using the reciprocal basis of the natural basis as
-\begin{equation*}
+\begin{equation}\label{equation:ch/tensor-algebra-calculus/calculus-euclidean:def:grad:q}
 \begin{split}\nabla F(\vec{r}) = \vec{b}^b(\vec{r}) \frac{\partial F}{\partial q^b}(\vec{r})\end{split}
-\end{equation*}
+\end{equation}
 \sphinxAtStartPar
 \sphinxstylestrong{Examples.} …
+\label{ch/tensor-algebra-calculus/calculus-euclidean:example-4}
+\begin{sphinxadmonition}{note}{Example 1 (Gradient of a scalar field \sphinxhyphen{} with general coordinates \protect\(q^{a}\protect\))}
+
+
+
+\sphinxAtStartPar
+Applying the definition \eqref{equation:ch/tensor-algebra-calculus/calculus-euclidean:def:grad:q} of gradient operator, it readily follows
+\begin{equation*}
+\begin{split}\nabla F = \vec{b}^a \dfrac{\partial F}{\partial q^a}\end{split}
+\end{equation*}\end{sphinxadmonition}
+\label{ch/tensor-algebra-calculus/calculus-euclidean:example-5}
+\begin{sphinxadmonition}{note}{Example 2 (Gradient of a vector field \sphinxhyphen{} with general coordinates \protect\(q^{a}\protect\))}
+
+
+
+\sphinxAtStartPar
+Applying the definition \eqref{equation:ch/tensor-algebra-calculus/calculus-euclidean:def:grad:q} of gradient operator, rule for the derivative of a product and the definition \eqref{equation:ch/tensor-algebra-calculus/calculus-euclidean:def:christoffel:2} of Christoffel symbols to write derivatives of base vectors,
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \nabla F 
+  & = \vec{b}^a \dfrac{\partial}{\partial q^a} \left( F^b \vec{b}_b \right) = \\
+  & = \vec{b}^a \left[ \dfrac{\partial F^b}{\partial q^a} \vec{b}_b + F^b \dfrac{\partial \vec{b}_b}{\partial q^a} \right] = \\
+  & = \vec{b}^a \left[ \dfrac{\partial F^b}{\partial q^a} \vec{b}_b + F^b \, \Gamma_{ab}^c \, \vec{b}_c \right] = \\
+  & = \vec{b}^a \otimes \vec{b}_b \left[ \dfrac{\partial F^b}{\partial q^a} + \Gamma_{ac}^b \, F^c \right] \ .
+\end{aligned}\end{split}
+\end{equation*}\end{sphinxadmonition}
+\label{ch/tensor-algebra-calculus/calculus-euclidean:example-6}
+\begin{sphinxadmonition}{note}{Example 3 (Gradient of a \protect\(2^{nd}\protect\)\sphinxhyphen{}order tensor field \sphinxhyphen{} with general coordinates \protect\(q^{a}\protect\))}
+
+
+
+\sphinxAtStartPar
+Applying the definition \eqref{equation:ch/tensor-algebra-calculus/calculus-euclidean:def:grad:q} of gradient operator, rule for the derivative of a product and the definition \eqref{equation:ch/tensor-algebra-calculus/calculus-euclidean:def:christoffel:2} of Christoffel symbols to write derivatives of base vectors,
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \nabla F 
+  & = \vec{b}^a \dfrac{\partial}{\partial q^a} \left( F^{bc} \vec{b}_b \otimes \vec{b}_c \right) = \\
+  & = \vec{b}^a \left[ \dfrac{\partial F^{bc}}{\partial q^a} \vec{b}_b \, \vec{b}_c + F^{bc} \dfrac{\partial \vec{b}_b}{\partial q^a} \, \vec{b}_c + F^{bc} \vec{b}_b \dfrac{\partial \vec{b}_c}{\partial q^a} \right] = \\
+  & = \vec{b}^a \left[ \dfrac{\partial F^{bc}}{\partial q^a} \vec{b}_b \, \vec{b}_c + F^{bc} \Gamma_{ab}^d \, \vec{b}_d \, \vec{b}_c + F^{bc} \, \Gamma_{d}^{ac} \, \vec{b}_b \, \vec{b}_d \right] = \\
+  & = \vec{b}^a \otimes \vec{b}_b \otimes \vec{b}_c \left[ \dfrac{\partial F^{bc}}{\partial q^a} + \Gamma_{ad}^b \, F^{dc} + \Gamma^{c}_{ad} \, F^{bd}  \right] \ .
+\end{aligned}\end{split}
+\end{equation*}\end{sphinxadmonition}
 
 
 \subsection{Divergence}
@@ -522,6 +598,36 @@ Divergence opearator is a first\sphinxhyphen{}order differential operator that c
 \end{equation*}
 \sphinxAtStartPar
 It takes a tensor field \(F(\vec{r})\) of order \(r \ge 1\) and gives a tensor field \(\nabla \cdot F(\vec{r})\) of order \(r-1 \ge 0\).
+\label{ch/tensor-algebra-calculus/calculus-euclidean:example-7}
+\begin{sphinxadmonition}{note}{Example 4 (Divergence of a vector field \sphinxhyphen{} with general coordiantes \protect\(q^{a}\protect\))}
+
+
+
+\sphinxAtStartPar
+Applying contraction to the gradient of a vector field, it readily follows,
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \nabla \cdot \left( F^b \vec{b}_b \right)
+  & = C_{1}^{2} \left( \nabla F \right) = \\
+  & = C_1^2 \left( \vec{b}^a \otimes \vec{b}_b \left[ \dfrac{\partial F^b}{\partial q^a} + \Gamma_{ac}^b \, F^c \right] \right) = \\
+  & = \dfrac{\partial F^a}{\partial q^a} + \Gamma_{ac}^a \, F^c
+\end{aligned}\end{split}
+\end{equation*}\end{sphinxadmonition}
+\label{ch/tensor-algebra-calculus/calculus-euclidean:example-8}
+\begin{sphinxadmonition}{note}{Example 5 (Divergence of a \protect\(2^{nd}\protect\)\sphinxhyphen{}order tensor field \sphinxhyphen{} with general coordiantes \protect\(q^{a}\protect\))}
+
+
+
+\sphinxAtStartPar
+Applying contraction to the gradient of a vector field, it readily follows,
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \nabla \cdot \left( F^{bc} \vec{b}_b \otimes \vec{b}_c \right)
+  & = C_{1}^{2} \left( \nabla F \right) = \\
+  & = C_1^2 \left( \vec{b}^a \otimes \vec{b}_b \otimes \vec{b}_c \left[ \dfrac{\partial F^{bc}}{\partial q^a} + \Gamma_{ad}^b \, F^{dc} + \Gamma^{c}_{ad} \, F^{bd}  \right]  \right) = \\
+  & = \vec{b}_c \, \left[ \dfrac{\partial F^{ac}}{\partial q^a} + \Gamma_{ad}^a \, F^{dc} + \Gamma^{c}_{ad} \, F^{ad}  \right] 
+\end{aligned}\end{split}
+\end{equation*}\end{sphinxadmonition}
 
 
 \subsection{Laplacian}
@@ -530,7 +636,41 @@ It takes a tensor field \(F(\vec{r})\) of order \(r \ge 1\) and gives a tensor f
 Laplacian operator is second\sphinxhyphen{}order differential operator that can be defined as the divergence of the gradient,
 \begin{equation*}
 \begin{split}\Delta F = \nabla^2 F = \nabla \cdot \nabla F \ .\end{split}
-\end{equation*}
+\end{equation*}\label{ch/tensor-algebra-calculus/calculus-euclidean:example-9}
+\begin{sphinxadmonition}{note}{Example 6 (Laplacian of a scalar field \sphinxhyphen{} with general coordinates \protect\(q^a\protect\))}
+
+
+\begin{equation*}
+\begin{split}
+\nabla \cdot \nabla F
+  & = C_{1}^2 \left[ \nabla \left( \nabla F \right) \right] = \\
+  & = C_{1}^2 \left[ \nabla \left( \vec{b}^a \dfrac{\partial F}{\partial q^a} \right) \right] = \\
+  & = C_{1}^2 \left[ \nabla \left( \vec{b}_b \, g^{ab} \, \dfrac{\partial F}{\partial q^a} \right) \right] = \\
+  & = C_{1}^2 \left[ \vec{b}^c \frac{\partial}{\partial q^c} \left( \vec{b}_b \, g^{ab} \, \dfrac{\partial F}{\partial q^a} \right) \right] = \\
+  & = C_{1}^2 \left\{ \vec{b}^c \left[ \vec{b}_b \, \frac{\partial}{\partial q^c} \left( \, g^{ab} \, \dfrac{\partial F}{\partial q^a} \right) + g^{ab} \dfrac{\partial F}{\partial q^a} \dfrac{\partial \vec{b}_b}{\partial q^c} \right] \right\} = \\
+  & = C_{1}^2 \left\{ \vec{b}^c \left[ \vec{b}_b \, \frac{\partial}{\partial q^c} \left( \, g^{ab} \, \dfrac{\partial F}{\partial q^a} \right) + g^{ab} \dfrac{\partial F}{\partial q^a} \, \Gamma_{bc}^d \, \vec{b}_d \right] \right \} = \\
+  & = C_{1}^2 \left\{ \vec{b}^c \, \vec{b}_b \left[ \frac{\partial}{\partial q^c} \left( \, g^{ab} \, \dfrac{\partial F}{\partial q^a} \right) + g^{ad} \, \Gamma_{cd}^b \, \dfrac{\partial F}{\partial q^a} \right] \right \} = \\
+  & = \frac{\partial}{\partial q^b} \left( \, g^{ab} \, \dfrac{\partial F}{\partial q^a} \right) + g^{ad} \, \Gamma_{bd}^b \, \dfrac{\partial F}{\partial q^a} \ .
+\end{split}
+\end{equation*}\end{sphinxadmonition}
+\label{ch/tensor-algebra-calculus/calculus-euclidean:example-10}
+\begin{sphinxadmonition}{note}{Example 7 (Laplacian of a vector field \sphinxhyphen{} with general coordinates \protect\(q^a\protect\))}
+
+
+\begin{equation*}
+\begin{split}
+\nabla \cdot \nabla F
+  & = C_{1}^2 \left[ \nabla \left( \nabla F \right) \right] = \\
+  & = C_{1}^2 \left\{ \nabla \left[ \vec{b}^a \, \vec{b}_b \left( \dfrac{\partial F^b}{\partial q^a} + \Gamma^{b}_{ac} F^c \right) \right] \right\} = \\
+  & = C_{1}^2 \left\{ \nabla \left[ \vec{b}_c \, \vec{b}_b \,  g^{ac} \left( \dfrac{\partial F^b}{\partial q^a} + \Gamma^{b}_{ac} F^c \right) \right] \right\} = \\
+  & = C_{1}^2 \left\{ \nabla \cdot \left((\nabla F)^{cb} \, \vec{b}_c \, \vec{b}_b \right) \right\} = \\
+  & = C_{1}^2 \left\{ \vec{b}^a \, \vec{b}_c \, \vec{b}_b \, \left[ \dfrac{\partial (\nabla F)^{cb}}{\partial q^a} 
+     + \Gamma_{ad}^c (\nabla F)^{db} + \Gamma_{ad}^b (\nabla F)^{cd} \right] \right\} = \\
+  & = \vec{b}_b \, \left[ \dfrac{\partial (\nabla F)^{ab}}{\partial q^a} 
+     + \Gamma_{ad}^a (\nabla F)^{db} + \Gamma_{ad}^b (\nabla F)^{ad} \right] = \ .
+\end{split}
+\end{equation*}\end{sphinxadmonition}
+
 
 \subsection{Curl}
 \label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:curl}}\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:tensor-calculus-differential-operators-curl}}
@@ -670,6 +810,346 @@ Given regular parametrization of the volume, \(\vec{r}(q^1, \, q^2, \, q^3), \ (
 \label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:curl-theorem}}\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:tensor-calculus-integrals-theorems-curl}}\begin{equation*}
 \begin{split}\int_{S} \left[ \nabla \times \vec{f} \right] \cdot \hat{n} = \oint_{\partial S} \vec{f} \cdot \hat{t}\end{split}
 \end{equation*}
+\sphinxstepscope
+
+
+\section{Tensor Calculus in Euclidean Spaces \sphinxhyphen{} Cartesian coordinates in \protect\(E^3\protect\)}
+\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean-cartesian:tensor-calculus-in-euclidean-spaces-cartesian-coordinates-in-e-3}}\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean-cartesian:tensor-calculus-cartesian}}\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean-cartesian::doc}}
+\sphinxAtStartPar
+Using Cartesian coordinates \((q^1, q^2, q^3) = (r, \theta, z)\) and Cartesian base vectors (uniform in space, so that their derivatives are zero), a point in Euclidean vector space \(E^3\) can be represented as
+\begin{equation*}
+\begin{split}\vec{r} = x \, \hat{x} + y \, \hat{y} + z \, \hat{z} \ .\end{split}
+\end{equation*}
+
+\subsection{Natural basis, reciprocal basis, metric tensor, and Christoffel symbols}
+\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean-cartesian:natural-basis-reciprocal-basis-metric-tensor-and-christoffel-symbols}}\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean-cartesian:tensor-calculus-cartesian-metric}}
+\sphinxAtStartPar
+Cartesian coordinates in Euclidean spaces are a very special coordinate system, with reciprocal basis everywhere coinciding with natural basis, with uniform basis in space (zero second\sphinxhyphen{}order derivative of space w.r.t. coordinates, and thus zero first order derivative of base vectors, and thus identically zero Christoffel symbols), and components of the metric tensor equal to the identity matrix
+\begin{equation*}
+\begin{split}\begin{cases}
+  \vec{b}_1 = \vec{b}^1 = \hat{x} \\
+  \vec{b}_2 = \vec{b}^2 = \hat{y} \\
+  \vec{b}_3 = \vec{b}^3 = \hat{z} \\
+\end{cases}\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\left[g_{ab} \right] = \left[ g^{ab} \right] = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix}\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\Gamma_{ab}^c = 0 \qquad , \qquad \forall a,b,c = 1:3 \ .\end{split}
+\end{equation*}
+
+\subsection{Differential operators}
+\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean-cartesian:differential-operators}}\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean-cartesian:tensor-calculus-cartesian-differential-operators}}
+
+\subsubsection{Gradient}
+\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean-cartesian:gradient}}\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean-cartesian:tensor-calculus-cartesian-differential-operators-gradient}}\label{ch/tensor-algebra-calculus/calculus-euclidean-cartesian:example-0}
+\begin{sphinxadmonition}{note}{Example 8 (Gradient of a scalar field)}
+
+
+\begin{equation*}
+\begin{split}\nabla F = \hat{x} \, \partial_x F + \hat{y} \, \partial_y F + \hat{z} \, \partial_z F_z\end{split}
+\end{equation*}\end{sphinxadmonition}
+\label{ch/tensor-algebra-calculus/calculus-euclidean-cartesian:example-1}
+\begin{sphinxadmonition}{note}{Example 9 (Gradient of a vector field)}
+
+
+\begin{equation*}
+\begin{split}\begin{aligned}
+\nabla F 
+  & = \nabla (F_x \hat{x} + F_y \hat{y} + F_z \hat{z}) = \\
+  & = \hat{x} \otimes \hat{x} \, \partial_x F_x + \hat{x} \otimes \hat{y} \, \partial_x F_y + \hat{x} \otimes \hat{z} \, \partial_x F_z + \\
+  & + \hat{y} \otimes \hat{x} \, \partial_y F_x + \hat{y} \otimes \hat{y} \, \partial_y F_y + \hat{y} \otimes \hat{z} \, \partial_y F_z + \\
+  & + \hat{z} \otimes \hat{x} \, \partial_z F_x + \hat{z} \otimes \hat{y} \, \partial_z F_y + \hat{z} \otimes \hat{z} \, \partial_z F_z + \\
+\end{aligned}\end{split}
+\end{equation*}\end{sphinxadmonition}
+\label{ch/tensor-algebra-calculus/calculus-euclidean-cartesian:example-2}
+\begin{sphinxadmonition}{note}{Example 10 (Gradient of a \protect\(2^{nd}\protect\)\sphinxhyphen{}order tensor field)}
+
+
+\end{sphinxadmonition}
+
+
+\subsubsection{Directional derivative}
+\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean-cartesian:directional-derivative}}
+
+\subsubsection{Divergence}
+\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean-cartesian:divergence}}\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean-cartesian:tensor-calculus-cartesian-differential-operators-divergence}}\label{ch/tensor-algebra-calculus/calculus-euclidean-cartesian:example-3}
+\begin{sphinxadmonition}{note}{Example 11 (Divergence of a vector field)}
+
+
+\begin{equation*}
+\begin{split}\begin{aligned}
+ \nabla \cdot F 
+  & = \nabla \cdot \left( F_x \, \hat{x} + F_y \, \hat{y} + F_z \, \hat{z} \right) = \\
+  & = \partial_x F_x + \partial_y F_y + \partial_z F_z \ .
+\end{aligned}\end{split}
+\end{equation*}\end{sphinxadmonition}
+\label{ch/tensor-algebra-calculus/calculus-euclidean-cartesian:example-4}
+\begin{sphinxadmonition}{note}{Example 12 (Divergence of a \protect\(2^{nd}\protect\)\sphinxhyphen{}order tensor field)}
+
+
+\begin{equation*}
+\begin{split}\begin{aligned}
+ \nabla \cdot F 
+  & = \nabla \cdot \left( F_{ab} \vec{e}_a \otimes \vec{e}_b \right) = \\
+  & = \vec{e}_c \dfrac{\partial F_{ab}}{\partial q^a} = \\
+  & = \hat{x} \left[ \partial_x F_{xx} + \partial_y F_{yx} + \partial_z F_{zx} \right] + \\ 
+  & + \hat{y} \left[ \partial_x F_{xy} + \partial_y F_{yy} + \partial_z F_{zy} \right] + \\ 
+  & + \hat{z} \left[ \partial_x F_{xz} + \partial_y F_{yz} + \partial_z F_{zz} \right] \ .
+\end{aligned}\end{split}
+\end{equation*}\end{sphinxadmonition}
+
+
+\subsubsection{Laplacian}
+\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean-cartesian:laplacian}}\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean-cartesian:tensor-calculus-cartesian-differential-operators-laplacian}}\label{ch/tensor-algebra-calculus/calculus-euclidean-cartesian:example-5}
+\begin{sphinxadmonition}{note}{Example 13 (Laplacian of a scalar field)}
+
+
+\begin{equation*}
+\begin{split}\nabla^2 F = \partial_{xx} F + \partial_{yy} F + \partial_{zz} F\end{split}
+\end{equation*}\end{sphinxadmonition}
+\label{ch/tensor-algebra-calculus/calculus-euclidean-cartesian:example-6}
+\begin{sphinxadmonition}{note}{Example 14 (Laplacian of a vector field)}
+
+
+\end{sphinxadmonition}
+
+\sphinxstepscope
+
+
+\section{Tensor Calculus in Euclidean Spaces \sphinxhyphen{} cylindrical coordinates in \protect\(E^3\protect\)}
+\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean-cylindrical:tensor-calculus-in-euclidean-spaces-cylindrical-coordinates-in-e-3}}\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean-cylindrical:tensor-calculus-cylindrical}}\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean-cylindrical::doc}}
+
+\subsection{Cylindrical coordiantes and cylindrical coordinates}
+\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean-cylindrical:cylindrical-coordiantes-and-cylindrical-coordinates}}\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean-cylindrical:tensor-calculus-cylindrical-coordinates}}
+\sphinxAtStartPar
+Using cylindrical coordinates \((q^1, q^2, q^3) = (r, \theta, z)\) and cylindrical base vectors (uniform in space, so that their derivatives are zero), a point in Euclidean vector space \(E^3\) can be represented as
+\begin{equation*}
+\begin{split}\vec{r} = r \cos \theta \, \hat{x} + r \sin \theta \, \hat{y} + z \, \hat{z} \ .\end{split}
+\end{equation*}
+
+\subsection{Natural basis, reciprocal basis, metric tensor, and Christoffel symbols}
+\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean-cylindrical:natural-basis-reciprocal-basis-metric-tensor-and-christoffel-symbols}}\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean-cylindrical:tensor-calculus-cylindrical-metric}}\subsubsection*{Natural basis}
+
+\sphinxAtStartPar
+Natural basis reads
+\begin{equation*}
+\begin{split}\begin{cases}
+\vec{b}_1 = \dfrac{\partial \vec{r}}{\partial q^1} = \dfrac{\partial \vec{r}}{\partial r     } = \cos \theta \, \hat{x} + \sin \theta \, \hat{y} \\
+\vec{b}_2 = \dfrac{\partial \vec{r}}{\partial q^2} = \dfrac{\partial \vec{r}}{\partial \theta} = - r \sin \theta \, \hat{x} + r \cos \theta \, \hat{y} \\
+\vec{b}_3 = \dfrac{\partial \vec{r}}{\partial q^3} = \dfrac{\partial \vec{r}}{\partial z     } = \hat{z} \\
+\end{cases}\end{split}
+\end{equation*}\subsubsection*{Metric tensor}
+
+\sphinxAtStartPar
+Covariant components of metric tensors,
+\begin{equation*}
+\begin{split}g_{ab} = \vec{b}_a \cdot \vec{b}_b \ , \end{split}
+\end{equation*}
+\sphinxAtStartPar
+can be collected in the diagonal matrix
+\begin{equation*}
+\begin{split}\left[ g_{ab} \right] = \begin{bmatrix} 1 & 0 & 0 \\ 0 & r^2 & 0 \\ 0 & 0 & 1 \end{bmatrix} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+while its contra\sphinxhyphen{}variant components can be collected in the inverse matrix (easy to compute, since \(\left[ g_{ab} \right]\) is diagonal),
+\begin{equation*}
+\begin{split}\left[ g^{ab} \right] = \begin{bmatrix} 1 & 0 & 0 \\ 0 & \frac{1}{r^2} & 0 \\ 0 & 0 & 1 \end{bmatrix} \ .\end{split}
+\end{equation*}\subsubsection*{Reciprocal basis}
+
+\sphinxAtStartPar
+Reciprocal basis is readily evaluated using \(\vec{b}^a = g^{ab} \, \vec{b}_b\),
+\begin{equation*}
+\begin{split}\begin{cases}
+\vec{b}^1 =  \cos \theta \, \hat{x} + \sin \theta \, \hat{y} \\
+\vec{b}^2 =  - \dfrac{1}{r} \sin \theta \, \hat{x} + \dfrac{1}{r} \cos \theta \, \hat{y} \\
+\vec{b}^3 =  \hat{z} \\
+\end{cases}\end{split}
+\end{equation*}\subsubsection*{Physical basis}
+
+\sphinxAtStartPar
+Since metric tensor is diagonal, the cylindrical coordinate system is orthogonal, and its natural and reciprocal basis are orthogonal. A unit orthogonal basis, usually named \sphinxstylestrong{physical basis} with unit vector with no physical dimension, is evalated by normalization process,
+\begin{equation*}
+\begin{split}\begin{cases}
+  \hat{r}      = \hat{b}_1 = \dfrac{\vec{b}_1}{g_{11}} = \dfrac{\vec{b}^1}{g^{11}} =  \cos \theta \, \hat{x} + \sin \theta \, \hat{y} \\
+  \hat{\theta} = \hat{b}_2 = \dfrac{\vec{b}_2}{g_{22}} = \dfrac{\vec{b}^2}{g^{22}} = -\sin \theta \, \hat{x} + \cos \theta \, \hat{y} \\
+  \hat{z}      = \hat{b}_3 = \dfrac{\vec{b}_3}{g_{33}} = \dfrac{\vec{b}^3}{g^{33}} =  \hat{z} \ .
+\end{cases}\end{split}
+\end{equation*}\subsubsection*{Derivatives of natural basis and Christoffel symbols}
+
+\sphinxAtStartPar
+Derivatives of the natural basis read
+\begin{equation*}
+\begin{split}\begin{aligned}
+ \dfrac{\partial \vec{b}_1}{\partial q^1} & = \vec{0} \\
+ \dfrac{\partial \vec{b}_2}{\partial q^2} & = -r \cos \theta \, \hat{x} - r \sin \theta \, \hat{y} = - q^1 \, \vec{b}_1 \\
+ \dfrac{\partial \vec{b}_3}{\partial q^3} & = \vec{0} \\
+ \dfrac{\partial \vec{b}_2}{\partial q^1} = \dfrac{\partial \vec{b}_1}{\partial q^2} & = -\sin \theta \, \hat{x} + \cos \theta \hat{y} = \dfrac{1}{q^1} \, \vec{b}_2 \\
+ \dfrac{\partial \vec{b}_3}{\partial q^1} = \dfrac{\partial \vec{b}_1}{\partial q^3} & = \vec{0} \\
+ \dfrac{\partial \vec{b}_3}{\partial q^2} = \dfrac{\partial \vec{b}_2}{\partial q^3} & = \vec{0} \\
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+so that non\sphinxhyphen{}zero Christoffel symbols of a cylindrical coordinate system are
+\begin{equation*}
+\begin{split}\begin{aligned}
+  & \Gamma_{12}^{2} = \Gamma_{21}^2 = \dfrac{1}{q^1} \\
+  & \Gamma_{22}^{1} = - q^1 \ .
+\end{aligned}\end{split}
+\end{equation*}
+
+\subsection{Differential operators}
+\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean-cylindrical:differential-operators}}\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean-cylindrical:tensor-calculus-cylindrical-differential-operators}}
+
+\subsubsection{Gradient}
+\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean-cylindrical:gradient}}\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean-cylindrical:tensor-calculus-cylindrical-differential-operators-gradient}}\label{ch/tensor-algebra-calculus/calculus-euclidean-cylindrical:example-0}
+\begin{sphinxadmonition}{note}{Example 15 (Gradient of a scalar field)}
+
+
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \nabla F 
+  & = \vec{b}^a \dfrac{\partial F}{\partial q^a} = \\
+  & = \hat{b}_a \, g^{aa} \, \dfrac{\partial F}{\partial q^a} = \\
+  & = \hat{r} \, \dfrac{\partial F}{\partial  r} 
+    + \hat{\theta} \, \dfrac{1}{r} \, \dfrac{\partial F}{\partial \theta}  
+    + \hat{z} \dfrac{\partial F}{\partial z} \ . 
+\end{aligned}\end{split}
+\end{equation*}\end{sphinxadmonition}
+\label{ch/tensor-algebra-calculus/calculus-euclidean-cylindrical:example-1}
+\begin{sphinxadmonition}{note}{Example 16 (Gradient of a vector field)}
+
+
+
+
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \nabla F 
+  & = \vec{b}^a \otimes \vec{b}_b \left[ \dfrac{\partial F^b}{\partial q^a} + \Gamma_{ac}^b \, F^c \right] = \\
+  & = \dots = \\
+  & =  \vec{b}^1 \otimes \vec{b}_1 \, \partial_1 F^1 
+  && + \vec{b}^1 \otimes \vec{b}_2 \, \left[ \partial_1 F^2 + \Gamma_{12}^2 F^2 \right]
+  && + \vec{b}^1 \otimes \vec{b}_3 \, \partial_1 F^3 \\
+  &  + \vec{b}^2 \otimes \vec{b}_1 \, \left[ \partial_2 F^1 + \Gamma_{22}^1 F^2 \right]
+  && + \vec{b}^2 \otimes \vec{b}_2 \, \left[ \partial_2 F^2 + \Gamma_{21}^2 F^1 \right]
+  && + \vec{b}^2 \otimes \vec{b}_3 \, \partial_2 F^3 \\
+  &  + \vec{b}^3 \otimes \vec{b}_1 \, \partial_3 F^1 
+  && + \vec{b}^3 \otimes \vec{b}_2 \, \partial_3 F^2 
+  && + \vec{b}^3 \otimes \vec{b}_3 \, \partial_3 F^3 \\
+  &  = \hat{r     } \otimes \hat{r     } \, \partial_r F_r   
+  && + \hat{r     } \otimes \hat{\theta} \, \frac{1}{r} \left[ \partial_r (r F_{\theta}) + F_{\theta} \right]
+  && + \hat{r     } \otimes \hat{z     } \, \partial_r F_z \\
+  &  + \hat{\theta} \otimes \hat{r     } \, \frac{1}{r} \left[ \partial_\theta F_r - r F_{\theta} \right]
+  && + \hat{\theta} \otimes \hat{\theta} \, \left[ \partial_\theta \left( \frac{F_\theta}{r} \right) + \frac{F_r}{r} \right]
+  && + \hat{\theta} \otimes \hat{z     } \, \frac{1}{r} \partial_{\theta} F_z \\
+  &  + \hat{z     } \otimes \hat{r     } \, \partial_z F_x   
+  && + \hat{z     } \otimes \hat{\theta} \, \frac{1}{r} \partial_\theta F_y   
+  && + \hat{z     } \otimes \hat{z     } \, \partial_z F_z \ .
+\end{aligned}\end{split}
+\end{equation*}\end{sphinxadmonition}
+\label{ch/tensor-algebra-calculus/calculus-euclidean-cylindrical:example-2}
+\begin{sphinxadmonition}{note}{Example 17 (Gradient of a \protect\(2^{nd}\protect\)\sphinxhyphen{}order tensor field)}
+
+
+\end{sphinxadmonition}
+
+
+\subsubsection{Directional derivative}
+\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean-cylindrical:directional-derivative}}\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean-cylindrical:tensor-calculus-cylindrical-differential-operators-directional-der}}
+
+\subsubsection{Divergence}
+\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean-cylindrical:divergence}}\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean-cylindrical:tensor-calculus-cylindrical-differential-operators-divergence}}\label{ch/tensor-algebra-calculus/calculus-euclidean-cylindrical:example-3}
+\begin{sphinxadmonition}{note}{Example 18 (Divergence of a vector field)}
+
+
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \nabla \cdot \vec{F} 
+  & = \dfrac{\partial F^a}{\partial q^a} + \Gamma_{ac}^a \, F^c = \\
+  & = \dfrac{\partial F_r}{\partial r} + \dfrac{\partial}{\partial \theta}\left( \frac{F_\theta}{r} \right) + \Gamma_{ac}^a \, F^c + \dfrac{\partial F_z}{\partial z} = \\
+\end{aligned}\end{split}
+\end{equation*}\end{sphinxadmonition}
+\label{ch/tensor-algebra-calculus/calculus-euclidean-cylindrical:example-4}
+\begin{sphinxadmonition}{note}{Example 19 (Divergence of a \protect\(2^{nd}\protect\)\sphinxhyphen{}order tensor field)}
+
+
+\end{sphinxadmonition}
+
+
+\subsubsection{Laplacian}
+\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean-cylindrical:laplacian}}\label{ch/tensor-algebra-calculus/calculus-euclidean-cylindrical:example-5}
+\begin{sphinxadmonition}{note}{Example 20 (Laplacian of a scalar field)}
+
+
+\end{sphinxadmonition}
+\label{ch/tensor-algebra-calculus/calculus-euclidean-cylindrical:example-6}
+\begin{sphinxadmonition}{note}{Example 21 (Laplacian of a vector field)}
+
+
+\end{sphinxadmonition}
+
+\sphinxstepscope
+
+
+\section{Tensor Calculus in Euclidean Spaces \sphinxhyphen{} Spehrical coordinates in \protect\(E^3\protect\)}
+\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean-spherical:tensor-calculus-in-euclidean-spaces-spehrical-coordinates-in-e-3}}\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean-spherical:tensor-calculus-spherical}}\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean-spherical::doc}}
+\sphinxAtStartPar
+Using spherical coordinates \((q^1, q^2, q^3) = (r, \phi, \theta)\) and spherical base vectors (uniform in space, so that their derivatives are zero), a point in Euclidean vector space \(E^3\) can be represented as
+\begin{equation*}
+\begin{split}\vec{r} = r \cos \theta \sin \phi \, \hat{x} + r \sin \theta \sin \phi \, \hat{y} + r \cos \phi \, \hat{z} \ .\end{split}
+\end{equation*}
+
+\subsection{Natural basis, reciprocal basis, metric tensor, and Christoffel symbols}
+\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean-spherical:natural-basis-reciprocal-basis-metric-tensor-and-christoffel-symbols}}\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean-spherical:tensor-calculus-spherical-metric}}
+
+\subsection{Differential operators}
+\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean-spherical:differential-operators}}\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean-spherical:tensor-calculus-spherical-differential-operators}}
+
+\subsubsection{Gradient}
+\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean-spherical:gradient}}\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean-spherical:tensor-calculus-spherical-differential-operators-gradient}}\label{ch/tensor-algebra-calculus/calculus-euclidean-spherical:example-0}
+\begin{sphinxadmonition}{note}{Example 22 (Gradient of a scalar field)}
+
+
+\end{sphinxadmonition}
+\label{ch/tensor-algebra-calculus/calculus-euclidean-spherical:example-1}
+\begin{sphinxadmonition}{note}{Example 23 (Gradient of a vector field)}
+
+
+\end{sphinxadmonition}
+\label{ch/tensor-algebra-calculus/calculus-euclidean-spherical:example-2}
+\begin{sphinxadmonition}{note}{Example 24 (Gradient of a \protect\(2^{nd}\protect\)\sphinxhyphen{}order tensor field)}
+
+
+\end{sphinxadmonition}
+
+
+\subsubsection{Directional derivative}
+\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean-spherical:directional-derivative}}\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean-spherical:tensor-calculus-spherical-differential-operators-directional-der}}
+
+\subsubsection{Divergence}
+\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean-spherical:divergence}}\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean-spherical:tensor-calculus-spherical-differential-operators-divergence}}\label{ch/tensor-algebra-calculus/calculus-euclidean-spherical:example-3}
+\begin{sphinxadmonition}{note}{Example 25 (Divergence of a vector field)}
+
+
+\end{sphinxadmonition}
+\label{ch/tensor-algebra-calculus/calculus-euclidean-spherical:example-4}
+\begin{sphinxadmonition}{note}{Example 26 (Divergence of a \protect\(2^{nd}\protect\)\sphinxhyphen{}order tensor field)}
+
+
+\end{sphinxadmonition}
+
+
+\subsubsection{Laplacian}
+\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean-spherical:laplacian}}\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean-spherical:tensor-calculus-spherical-differential-operators-laplacian}}\label{ch/tensor-algebra-calculus/calculus-euclidean-spherical:example-5}
+\begin{sphinxadmonition}{note}{Example 27 (Laplacian of a scalar field)}
+
+
+\end{sphinxadmonition}
+\label{ch/tensor-algebra-calculus/calculus-euclidean-spherical:example-6}
+\begin{sphinxadmonition}{note}{Example 28 (Laplacian of a vector field)}
+
+
+\end{sphinxadmonition}
+
 \sphinxstepscope
 
 
@@ -934,7 +1414,7 @@ Given a line \(\gamma \in \mathbb{C}\), whose parametric form is \(z(s)\), with 
 
 \section{Holomorphic Functions \sphinxhyphen{} Analytic Functions}
 \label{\detokenize{ch/complex/analysis:holomorphic-functions-analytic-functions}}\label{\detokenize{ch/complex/analysis:complex-analysis-holo-fun}}\label{ch/complex/analysis:definition-0}
-\begin{sphinxadmonition}{note}{Definition 6}
+\begin{sphinxadmonition}{note}{Definition 7}
 
 
 
@@ -1032,7 +1512,7 @@ Since \(z^n\) is analytic everywhere (\sphinxstylestrong{todo} \sphinxstyleempha
 
 \section{Meromorphic functions}
 \label{\detokenize{ch/complex/analysis:meromorphic-functions}}\label{\detokenize{ch/complex/analysis:complex-analysis-mero-fun}}\label{ch/complex/analysis:definition-1}
-\begin{sphinxadmonition}{note}{Definition 7}
+\begin{sphinxadmonition}{note}{Definition 8}
 
 
 
@@ -1043,7 +1523,7 @@ A meromorphic function in a domain is a function holomorphic everywhere except f
 
 \subsection{Singularities}
 \label{\detokenize{ch/complex/analysis:singularities}}\label{\detokenize{ch/complex/analysis:complex-analysis-singularities}}\label{ch/complex/analysis:definition-2}
-\begin{sphinxadmonition}{note}{Definition 8 (Pole)}
+\begin{sphinxadmonition}{note}{Definition 9 (Pole)}
 
 
 
@@ -1059,7 +1539,7 @@ with \(\phi(z)\) holomorphic in \(\phi(a) \ne 0\)
 \sphinxAtStartPar
 \sphinxstylestrong{Examples.} …
 \label{ch/complex/analysis:definition-3}
-\begin{sphinxadmonition}{note}{Definition 9 (Branch)}
+\begin{sphinxadmonition}{note}{Definition 10 (Branch)}
 
 
 \end{sphinxadmonition}
@@ -1067,7 +1547,7 @@ with \(\phi(z)\) holomorphic in \(\phi(a) \ne 0\)
 \sphinxAtStartPar
 \sphinxstylestrong{Examples.} \(f(z) = z^{\frac{1}{2}}\)
 \label{ch/complex/analysis:definition-4}
-\begin{sphinxadmonition}{note}{Definition 10 (Removable singularities)}
+\begin{sphinxadmonition}{note}{Definition 11 (Removable singularities)}
 
 
 \end{sphinxadmonition}
@@ -1120,7 +1600,7 @@ Proof readily follows using the {\hyperref[\detokenize{ch/complex/analysis:compl
 
 \subsection{Residues}
 \label{\detokenize{ch/complex/analysis:residues}}\label{\detokenize{ch/complex/analysis:complex-analysis-mero-fun-residues}}\label{ch/complex/analysis:definition-5}
-\begin{sphinxadmonition}{note}{Definition 11 (Residue)}
+\begin{sphinxadmonition}{note}{Definition 12 (Residue)}
 
 
 
@@ -1648,13 +2128,46 @@ Repeating the computation, the variation of the functional reads
 \item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}2}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/calculus\sphinxhyphen{}euclidean}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/calculus-euclidean:\detokenize{definition-2}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}3}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}3}\sphinxstyleindexextra{ch/complex/analysis}\sphinxstyleindexpageref{ch/complex/analysis:\detokenize{definition-3}}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}3}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/calculus\sphinxhyphen{}euclidean}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/calculus-euclidean:\detokenize{definition-3}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}4}
 \item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}4}\sphinxstyleindexextra{ch/complex/analysis}\sphinxstyleindexpageref{ch/complex/analysis:\detokenize{definition-4}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}5}
 \item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}5}\sphinxstyleindexextra{ch/complex/analysis}\sphinxstyleindexpageref{ch/complex/analysis:\detokenize{definition-5}}
+\indexspace
+\bigletter{example\sphinxhyphen{}0}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}0}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/calculus\sphinxhyphen{}euclidean\sphinxhyphen{}cylindrical}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/calculus-euclidean-cylindrical:\detokenize{example-0}}
+\indexspace
+\bigletter{example\sphinxhyphen{}1}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}1}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/calculus\sphinxhyphen{}euclidean\sphinxhyphen{}cylindrical}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/calculus-euclidean-cylindrical:\detokenize{example-1}}
+\indexspace
+\bigletter{example\sphinxhyphen{}10}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}10}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/calculus\sphinxhyphen{}euclidean}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/calculus-euclidean:\detokenize{example-10}}
+\indexspace
+\bigletter{example\sphinxhyphen{}2}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}2}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/calculus\sphinxhyphen{}euclidean\sphinxhyphen{}cylindrical}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/calculus-euclidean-cylindrical:\detokenize{example-2}}
+\indexspace
+\bigletter{example\sphinxhyphen{}3}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}3}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/calculus\sphinxhyphen{}euclidean\sphinxhyphen{}cylindrical}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/calculus-euclidean-cylindrical:\detokenize{example-3}}
+\indexspace
+\bigletter{example\sphinxhyphen{}4}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}4}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/calculus\sphinxhyphen{}euclidean\sphinxhyphen{}cylindrical}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/calculus-euclidean-cylindrical:\detokenize{example-4}}
+\indexspace
+\bigletter{example\sphinxhyphen{}5}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}5}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/calculus\sphinxhyphen{}euclidean\sphinxhyphen{}cylindrical}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/calculus-euclidean-cylindrical:\detokenize{example-5}}
+\indexspace
+\bigletter{example\sphinxhyphen{}6}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}6}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/calculus\sphinxhyphen{}euclidean\sphinxhyphen{}cylindrical}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/calculus-euclidean-cylindrical:\detokenize{example-6}}
+\indexspace
+\bigletter{example\sphinxhyphen{}7}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}7}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/calculus\sphinxhyphen{}euclidean}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/calculus-euclidean:\detokenize{example-7}}
+\indexspace
+\bigletter{example\sphinxhyphen{}8}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}8}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/calculus\sphinxhyphen{}euclidean}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/calculus-euclidean:\detokenize{example-8}}
+\indexspace
+\bigletter{example\sphinxhyphen{}9}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}9}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/calculus\sphinxhyphen{}euclidean}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/calculus-euclidean:\detokenize{example-9}}
 \indexspace
 \bigletter{theorem\sphinxhyphen{}6}
 \item\relax\sphinxstyleindexentry{theorem\sphinxhyphen{}6}\sphinxstyleindexextra{ch/complex/analysis}\sphinxstyleindexpageref{ch/complex/analysis:\detokenize{theorem-6}}
