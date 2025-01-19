@@ -35,7 +35,36 @@ $$\vec{b}_a := \frac{\partial \vec{r}}{\partial q^a}$$
 
 ```
 
+```{prf:definition} Reciprocal basis (**todo** move to [Tensor Algebra](tensor:algebra))
+Given a basis $\{ \vec{b}_a \}_{a}$, its reciprocal basis the set of vector $\{ \vec{b}^b \}_b$ defined as
+
+$$\vec{b}^b \cdot \vec{b}_a = \delta_{a}^b \ ,$$
+
+being $\delta_a^b$ Kronecker delta.
+
+```
+
 ```{prf:definition} Christoffel symbols
+Christoffel symbols (of the $2^{nd}$ kind) are defined as the components of the partial derivatives of the vectors of a natural basis w.r.t. the coordinates referred to the natural basis itself,
+
+$$\dfrac{\partial \vec{b}_a}{\partial q^b} = \Gamma_{ab}^c \, \vec{b}_c$$ (def:christoffel:2)
+
+```
+
+```{dropdown} Properties of Christoffel symbols
+
+Exploiting the definition of reciprocal basis, Christoffel symbols can be written as
+
+$$\Gamma_{ab}^c = \vec{b}^c \cdot \dfrac{\partial \vec{b}_a}{\partial q^b} \ .$$
+
+**Symmetry.** Symmetry os the lower indices
+
+$$\Gamma_{ab}^{c} = \Gamma_{ba}^c \ ,$$
+
+readily follows Schwartz theorem about partial derivatives
+
+$$\dfrac{\partial \vec{b}_a}{\partial q^b} = \dfrac{\partial}{\partial q^c}\dfrac{\partial \vec{r}}{\partial q^a} = \dfrac{\partial}{\partial q^a}\dfrac{\partial \vec{r}}{\partial q^b} = \dfrac{\partial \vec{b}_b}{\partial q^a}$$
+
 ```
 
 
@@ -76,9 +105,47 @@ $$\begin{aligned}
 
 The gradient is the differential operator is the first-order differential operator appearing in the definition of the directional derivative, $\nabla F(\vec{r})$. It takes a tensor field $F(\vec{r})$ of order $r$ and gives a tensor field $\nabla F(\vec{r})$ of order $r+1$. Given a set of coordinates $\{q^a\}_{a=1:d}$, the gradient can be written using the reciprocal basis of the natural basis as
 
-$$\nabla F(\vec{r}) = \vec{b}^b(\vec{r}) \frac{\partial F}{\partial q^b}(\vec{r})$$
+$$\nabla F(\vec{r}) = \vec{b}^b(\vec{r}) \frac{\partial F}{\partial q^b}(\vec{r})$$ (def:grad:q)
 
 **Examples.** ...
+```{prf:example} Gradient of a scalar field - with general coordinates $q^{a}$
+:class: dropdown
+
+Applying the definition {eq}`def:grad:q` of gradient operator, it readily follows
+
+$$\nabla F = \vec{b}^a \dfrac{\partial F}{\partial q^a}$$
+
+```
+
+```{prf:example} Gradient of a vector field - with general coordinates $q^{a}$
+:class: dropdown
+
+Applying the definition {eq}`def:grad:q` of gradient operator, rule for the derivative of a product and the definition {eq}`def:christoffel:2` of Christoffel symbols to write derivatives of base vectors,
+
+$$\begin{aligned}
+  \nabla F 
+  & = \vec{b}^a \dfrac{\partial}{\partial q^a} \left( F^b \vec{b}_b \right) = \\
+  & = \vec{b}^a \left[ \dfrac{\partial F^b}{\partial q^a} \vec{b}_b + F^b \dfrac{\partial \vec{b}_b}{\partial q^a} \right] = \\
+  & = \vec{b}^a \left[ \dfrac{\partial F^b}{\partial q^a} \vec{b}_b + F^b \, \Gamma_{ab}^c \, \vec{b}_c \right] = \\
+  & = \vec{b}^a \otimes \vec{b}_b \left[ \dfrac{\partial F^b}{\partial q^a} + \Gamma_{ac}^b \, F^c \right] \ .
+\end{aligned}$$
+
+```
+
+```{prf:example} Gradient of a $2^{nd}$-order tensor field - with general coordinates $q^{a}$
+:class: dropdown
+
+Applying the definition {eq}`def:grad:q` of gradient operator, rule for the derivative of a product and the definition {eq}`def:christoffel:2` of Christoffel symbols to write derivatives of base vectors,
+
+$$\begin{aligned}
+  \nabla F 
+  & = \vec{b}^a \dfrac{\partial}{\partial q^a} \left( F^{bc} \vec{b}_b \otimes \vec{b}_c \right) = \\
+  & = \vec{b}^a \left[ \dfrac{\partial F^{bc}}{\partial q^a} \vec{b}_b \, \vec{b}_c + F^{bc} \dfrac{\partial \vec{b}_b}{\partial q^a} \, \vec{b}_c + F^{bc} \vec{b}_b \dfrac{\partial \vec{b}_c}{\partial q^a} \right] = \\
+  & = \vec{b}^a \left[ \dfrac{\partial F^{bc}}{\partial q^a} \vec{b}_b \, \vec{b}_c + F^{bc} \Gamma_{ab}^d \, \vec{b}_d \, \vec{b}_c + F^{bc} \, \Gamma_{d}^{ac} \, \vec{b}_b \, \vec{b}_d \right] = \\
+  & = \vec{b}^a \otimes \vec{b}_b \otimes \vec{b}_c \left[ \dfrac{\partial F^{bc}}{\partial q^a} + \Gamma_{ad}^b \, F^{dc} + \Gamma^{c}_{ad} \, F^{bd}  \right] \ .
+\end{aligned}$$
+
+```
 
 (tensor:calculus:differential-operators:divergence)=
 ### Divergence
@@ -89,12 +156,74 @@ $$\nabla \cdot F = C_{1}^{2}\left( \nabla F \right) \ .$$
 
 It takes a tensor field $F(\vec{r})$ of order $r \ge 1$ and gives a tensor field $\nabla \cdot F(\vec{r})$ of order $r-1 \ge 0$.
 
+```{prf:example} Divergence of a vector field - with general coordiantes $q^{a}$
+:class: dropdown
+
+Applying contraction to the gradient of a vector field, it readily follows,
+
+$$\begin{aligned}
+  \nabla \cdot \left( F^b \vec{b}_b \right)
+  & = C_{1}^{2} \left( \nabla F \right) = \\
+  & = C_1^2 \left( \vec{b}^a \otimes \vec{b}_b \left[ \dfrac{\partial F^b}{\partial q^a} + \Gamma_{ac}^b \, F^c \right] \right) = \\
+  & = \dfrac{\partial F^a}{\partial q^a} + \Gamma_{ac}^a \, F^c
+\end{aligned}$$
+
+```
+
+```{prf:example} Divergence of a $2^{nd}$-order tensor field - with general coordiantes $q^{a}$
+:class: dropdown
+
+Applying contraction to the gradient of a vector field, it readily follows,
+
+$$\begin{aligned}
+  \nabla \cdot \left( F^{bc} \vec{b}_b \otimes \vec{b}_c \right)
+  & = C_{1}^{2} \left( \nabla F \right) = \\
+  & = C_1^2 \left( \vec{b}^a \otimes \vec{b}_b \otimes \vec{b}_c \left[ \dfrac{\partial F^{bc}}{\partial q^a} + \Gamma_{ad}^b \, F^{dc} + \Gamma^{c}_{ad} \, F^{bd}  \right]  \right) = \\
+  & = \vec{b}_c \, \left[ \dfrac{\partial F^{ac}}{\partial q^a} + \Gamma_{ad}^a \, F^{dc} + \Gamma^{c}_{ad} \, F^{ad}  \right] 
+\end{aligned}$$
+
+```
+
 (tensor:calculus:differential-operators:laplacian)=
 ### Laplacian
 
 Laplacian operator is second-order differential operator that can be defined as the divergence of the gradient,
 
 $$\Delta F = \nabla^2 F = \nabla \cdot \nabla F \ .$$
+
+```{prf:example} Laplacian of a scalar field - with general coordinates $q^a$
+:class: dropdown
+
+$$
+\nabla \cdot \nabla F
+  & = C_{1}^2 \left[ \nabla \left( \nabla F \right) \right] = \\
+  & = C_{1}^2 \left[ \nabla \left( \vec{b}^a \dfrac{\partial F}{\partial q^a} \right) \right] = \\
+  & = C_{1}^2 \left[ \nabla \left( \vec{b}_b \, g^{ab} \, \dfrac{\partial F}{\partial q^a} \right) \right] = \\
+  & = C_{1}^2 \left[ \vec{b}^c \frac{\partial}{\partial q^c} \left( \vec{b}_b \, g^{ab} \, \dfrac{\partial F}{\partial q^a} \right) \right] = \\
+  & = C_{1}^2 \left\{ \vec{b}^c \left[ \vec{b}_b \, \frac{\partial}{\partial q^c} \left( \, g^{ab} \, \dfrac{\partial F}{\partial q^a} \right) + g^{ab} \dfrac{\partial F}{\partial q^a} \dfrac{\partial \vec{b}_b}{\partial q^c} \right] \right\} = \\
+  & = C_{1}^2 \left\{ \vec{b}^c \left[ \vec{b}_b \, \frac{\partial}{\partial q^c} \left( \, g^{ab} \, \dfrac{\partial F}{\partial q^a} \right) + g^{ab} \dfrac{\partial F}{\partial q^a} \, \Gamma_{bc}^d \, \vec{b}_d \right] \right \} = \\
+  & = C_{1}^2 \left\{ \vec{b}^c \, \vec{b}_b \left[ \frac{\partial}{\partial q^c} \left( \, g^{ab} \, \dfrac{\partial F}{\partial q^a} \right) + g^{ad} \, \Gamma_{cd}^b \, \dfrac{\partial F}{\partial q^a} \right] \right \} = \\
+  & = \frac{\partial}{\partial q^b} \left( \, g^{ab} \, \dfrac{\partial F}{\partial q^a} \right) + g^{ad} \, \Gamma_{bd}^b \, \dfrac{\partial F}{\partial q^a} \ .
+$$
+
+```
+
+```{prf:example} Laplacian of a vector field - with general coordinates $q^a$
+:class: dropdown
+
+$$
+\nabla \cdot \nabla F
+  & = C_{1}^2 \left[ \nabla \left( \nabla F \right) \right] = \\
+  & = C_{1}^2 \left\{ \nabla \left[ \vec{b}^a \, \vec{b}_b \left( \dfrac{\partial F^b}{\partial q^a} + \Gamma^{b}_{ac} F^c \right) \right] \right\} = \\
+  & = C_{1}^2 \left\{ \nabla \left[ \vec{b}_c \, \vec{b}_b \,  g^{ac} \left( \dfrac{\partial F^b}{\partial q^a} + \Gamma^{b}_{ac} F^c \right) \right] \right\} = \\
+  & = C_{1}^2 \left\{ \nabla \cdot \left((\nabla F)^{cb} \, \vec{b}_c \, \vec{b}_b \right) \right\} = \\
+  & = C_{1}^2 \left\{ \vec{b}^a \, \vec{b}_c \, \vec{b}_b \, \left[ \dfrac{\partial (\nabla F)^{cb}}{\partial q^a} 
+     + \Gamma_{ad}^c (\nabla F)^{db} + \Gamma_{ad}^b (\nabla F)^{cd} \right] \right\} = \\
+  & = \vec{b}_b \, \left[ \dfrac{\partial (\nabla F)^{ab}}{\partial q^a} 
+     + \Gamma_{ad}^a (\nabla F)^{db} + \Gamma_{ad}^b (\nabla F)^{ad} \right] = \ .
+$$
+
+```
 
 (tensor:calculus:differential-operators:curl)=
 ### Curl

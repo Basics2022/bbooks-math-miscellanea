@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Time derivative of integrals over moving domains &#8212; basics - math</title>
+    <title>Tensor Calculus in Euclidean Spaces - cylindrical coordinates in \(E^3\) &#8212; basics - math</title>
   
   
   
@@ -66,12 +66,12 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/tensor-algebra-calculus/time-derivative-of-integrals';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/tensor-algebra-calculus/calculus-euclidean-cylindrical';</script>
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Introduction to Functional Analysis" href="../functional-analysis/intro.html" />
-    <link rel="prev" title="Tensor Calculus in Euclidean Spaces - Spehrical coordinates in \(E^3\)" href="calculus-euclidean-spherical.html" />
+    <link rel="next" title="Tensor Calculus in Euclidean Spaces - Spehrical coordinates in \(E^3\)" href="calculus-euclidean-spherical.html" />
+    <link rel="prev" title="Tensor Calculus in Euclidean Spaces - Cartesian coordinates in \(E^3\)" href="calculus-euclidean-cartesian.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -176,13 +176,13 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Vector and Tensor Algebra and Calculus</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="algebra.html">Tensor Algebra</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="calculus-euclidean.html">Tensor Calculus in Euclidean Spaces</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="calculus-euclidean.html">Tensor Calculus in Euclidean Spaces</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="calculus-euclidean-cartesian.html">Tensor Calculus in Euclidean Spaces - Cartesian coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
-<li class="toctree-l2"><a class="reference internal" href="calculus-euclidean-cylindrical.html">Tensor Calculus in Euclidean Spaces - cylindrical coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Tensor Calculus in Euclidean Spaces - cylindrical coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
 <li class="toctree-l2"><a class="reference internal" href="calculus-euclidean-spherical.html">Tensor Calculus in Euclidean Spaces - Spehrical coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Time derivative of integrals over moving domains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="time-derivative-of-integrals.html">Time derivative of integrals over moving domains</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Functional Analysis</span></p>
 <ul class="nav bd-sidenav">
@@ -252,7 +252,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/ch/tensor-algebra-calculus/time-derivative-of-integrals.md" target="_blank"
+      <li><a href="../../_sources/ch/tensor-algebra-calculus/calculus-euclidean-cylindrical.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -336,7 +336,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Time derivative of integrals over moving domains</h1>
+    <h1>Tensor Calculus in Euclidean Spaces - cylindrical coordinates in E^3</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -346,9 +346,15 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#volume-density">Volume density</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flux-across-a-surface">Flux across a surface</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#work-line-integral-along-a-line">Work line integral along a line</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cylindrical-coordiantes-and-cylindrical-coordinates">Cylindrical coordiantes and cylindrical coordinates</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#natural-basis-reciprocal-basis-metric-tensor-and-christoffel-symbols">Natural basis, reciprocal basis, metric tensor, and Christoffel symbols</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differential-operators">Differential operators</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient">Gradient</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#directional-derivative">Directional derivative</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#divergence">Divergence</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#laplacian">Laplacian</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -360,50 +366,193 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="time-derivative-of-integrals-over-moving-domains">
-<span id="tensor-calculus-time-derivative-of-integrals"></span><h1>Time derivative of integrals over moving domains<a class="headerlink" href="#time-derivative-of-integrals-over-moving-domains" title="Permalink to this heading">#</a></h1>
-<p>Some results about time derivatives over moving domains are collected here.</p>
-<div class="section" id="volume-density">
-<span id="tensor-calculus-time-derivative-of-integrals-volume-density"></span><h2>Volume density<a class="headerlink" href="#volume-density" title="Permalink to this heading">#</a></h2>
-<p><strong>Reynolds transport theorem.</strong>
-Given a volume <span class="math notranslate nohighlight">\(V(t)\)</span> with boundary <span class="math notranslate nohighlight">\(\partial V(t)\)</span>, whose points <span class="math notranslate nohighlight">\(\vec{r} \in \partial V(t)\)</span> have velocity <span class="math notranslate nohighlight">\(\vec{v}_b\)</span>,</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="tensor-calculus-in-euclidean-spaces-cylindrical-coordinates-in-e-3">
+<span id="tensor-calculus-cylindrical"></span><h1>Tensor Calculus in Euclidean Spaces - cylindrical coordinates in <span class="math notranslate nohighlight">\(E^3\)</span><a class="headerlink" href="#tensor-calculus-in-euclidean-spaces-cylindrical-coordinates-in-e-3" title="Permalink to this heading">#</a></h1>
+<div class="section" id="cylindrical-coordiantes-and-cylindrical-coordinates">
+<span id="tensor-calculus-cylindrical-coordinates"></span><h2>Cylindrical coordiantes and cylindrical coordinates<a class="headerlink" href="#cylindrical-coordiantes-and-cylindrical-coordinates" title="Permalink to this heading">#</a></h2>
+<p>Using cylindrical coordinates <span class="math notranslate nohighlight">\((q^1, q^2, q^3) = (r, \theta, z)\)</span> and cylindrical base vectors (uniform in space, so that their derivatives are zero), a point in Euclidean vector space <span class="math notranslate nohighlight">\(E^3\)</span> can be represented as</p>
 <div class="math notranslate nohighlight">
-\[\dfrac{d}{dt} \int_{V(t)} f = \int_{V(t)} \dfrac{\partial f}{\partial t} + \oint_{\partial V(t)} f \vec{v}_b \cdot \hat{n} \ .\]</div>
+\[\vec{r} = r \cos \theta \, \hat{x} + r \sin \theta \, \hat{y} + z \, \hat{z} \ .\]</div>
+</div>
+<div class="section" id="natural-basis-reciprocal-basis-metric-tensor-and-christoffel-symbols">
+<span id="tensor-calculus-cylindrical-metric"></span><h2>Natural basis, reciprocal basis, metric tensor, and Christoffel symbols<a class="headerlink" href="#natural-basis-reciprocal-basis-metric-tensor-and-christoffel-symbols" title="Permalink to this heading">#</a></h2>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
-“Proof”<div class="sd-summary-down docutils">
+Natural basis<div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-</div>
-</details></div>
-<div class="section" id="flux-across-a-surface">
-<span id="tensor-calculus-time-derivative-of-integrals-flux"></span><h2>Flux across a surface<a class="headerlink" href="#flux-across-a-surface" title="Permalink to this heading">#</a></h2>
+<p class="sd-card-text">Natural basis reads</p>
 <div class="math notranslate nohighlight">
-\[\frac{d}{dt} \int_{S(t)} \vec{f} \cdot \hat{n} = \int_{S(t)} \frac{\partial \vec{f}}{\partial t} \cdot \hat{n} + \int_{S(t)} \nabla \cdot \vec{f} \,\, \vec{v}_b \cdot \hat{n} - \int_{\partial S(t)} \vec{v}_b \times \vec{f} \cdot \hat{t} \]</div>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+\[\begin{split}\begin{cases}
+\vec{b}_1 = \dfrac{\partial \vec{r}}{\partial q^1} = \dfrac{\partial \vec{r}}{\partial r     } = \cos \theta \, \hat{x} + \sin \theta \, \hat{y} \\
+\vec{b}_2 = \dfrac{\partial \vec{r}}{\partial q^2} = \dfrac{\partial \vec{r}}{\partial \theta} = - r \sin \theta \, \hat{x} + r \cos \theta \, \hat{y} \\
+\vec{b}_3 = \dfrac{\partial \vec{r}}{\partial q^3} = \dfrac{\partial \vec{r}}{\partial z     } = \hat{z} \\
+\end{cases}\end{split}\]</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
-“Proof”<div class="sd-summary-down docutils">
+Metric tensor<div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-</div>
-</details></div>
-<div class="section" id="work-line-integral-along-a-line">
-<span id="tensor-calculus-time-derivative-of-integrals-work"></span><h2>Work line integral along a line<a class="headerlink" href="#work-line-integral-along-a-line" title="Permalink to this heading">#</a></h2>
+<p class="sd-card-text">Covariant components of metric tensors,</p>
 <div class="math notranslate nohighlight">
-\[\frac{d}{dt} \int_{\ell(t)} \vec{f} \cdot \hat{t} =  \int_{\ell(t)} \frac{\partial \vec{f}}{\partial t} \cdot \hat{t} + \int_{\ell(t)} \nabla \times \vec{f} \cdot \vec{v}_b \times \hat{t} + \vec{f}_B \cdot \vec{v}_B - \vec{f}_A \cdot \vec{v}_A \]</div>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+\[g_{ab} = \vec{b}_a \cdot \vec{b}_b \ , \]</div>
+<p class="sd-card-text">can be collected in the diagonal matrix</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left[ g_{ab} \right] = \begin{bmatrix} 1 &amp; 0 &amp; 0 \\ 0 &amp; r^2 &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{bmatrix} \ ,\end{split}\]</div>
+<p class="sd-card-text">while its contra-variant components can be collected in the inverse matrix (easy to compute, since <span class="math notranslate nohighlight">\(\left[ g_{ab} \right]\)</span> is diagonal),</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left[ g^{ab} \right] = \begin{bmatrix} 1 &amp; 0 &amp; 0 \\ 0 &amp; \frac{1}{r^2} &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{bmatrix} \ .\end{split}\]</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
-“Proof”<div class="sd-summary-down docutils">
+Reciprocal basis<div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Reciprocal basis is readily evaluated using <span class="math notranslate nohighlight">\(\vec{b}^a = g^{ab} \, \vec{b}_b\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{cases}
+\vec{b}^1 =  \cos \theta \, \hat{x} + \sin \theta \, \hat{y} \\
+\vec{b}^2 =  - \dfrac{1}{r} \sin \theta \, \hat{x} + \dfrac{1}{r} \cos \theta \, \hat{y} \\
+\vec{b}^3 =  \hat{z} \\
+\end{cases}\end{split}\]</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Physical basis<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Since metric tensor is diagonal, the cylindrical coordinate system is orthogonal, and its natural and reciprocal basis are orthogonal. A unit orthogonal basis, usually named <strong>physical basis</strong> with unit vector with no physical dimension, is evalated by normalization process,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{cases}
+  \hat{r}      = \hat{b}_1 = \dfrac{\vec{b}_1}{g_{11}} = \dfrac{\vec{b}^1}{g^{11}} =  \cos \theta \, \hat{x} + \sin \theta \, \hat{y} \\
+  \hat{\theta} = \hat{b}_2 = \dfrac{\vec{b}_2}{g_{22}} = \dfrac{\vec{b}^2}{g^{22}} = -\sin \theta \, \hat{x} + \cos \theta \, \hat{y} \\
+  \hat{z}      = \hat{b}_3 = \dfrac{\vec{b}_3}{g_{33}} = \dfrac{\vec{b}^3}{g^{33}} =  \hat{z} \ .
+\end{cases}\end{split}\]</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Derivatives of natural basis and Christoffel symbols<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Derivatives of the natural basis read</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+ \dfrac{\partial \vec{b}_1}{\partial q^1} &amp; = \vec{0} \\
+ \dfrac{\partial \vec{b}_2}{\partial q^2} &amp; = -r \cos \theta \, \hat{x} - r \sin \theta \, \hat{y} = - q^1 \, \vec{b}_1 \\
+ \dfrac{\partial \vec{b}_3}{\partial q^3} &amp; = \vec{0} \\
+ \dfrac{\partial \vec{b}_2}{\partial q^1} = \dfrac{\partial \vec{b}_1}{\partial q^2} &amp; = -\sin \theta \, \hat{x} + \cos \theta \hat{y} = \dfrac{1}{q^1} \, \vec{b}_2 \\
+ \dfrac{\partial \vec{b}_3}{\partial q^1} = \dfrac{\partial \vec{b}_1}{\partial q^3} &amp; = \vec{0} \\
+ \dfrac{\partial \vec{b}_3}{\partial q^2} = \dfrac{\partial \vec{b}_2}{\partial q^3} &amp; = \vec{0} \\
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">so that non-zero Christoffel symbols of a cylindrical coordinate system are</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  &amp; \Gamma_{12}^{2} = \Gamma_{21}^2 = \dfrac{1}{q^1} \\
+  &amp; \Gamma_{22}^{1} = - q^1 \ .
+\end{aligned}\end{split}\]</div>
 </div>
 </details></div>
+<div class="section" id="differential-operators">
+<span id="tensor-calculus-cylindrical-differential-operators"></span><h2>Differential operators<a class="headerlink" href="#differential-operators" title="Permalink to this heading">#</a></h2>
+<div class="section" id="gradient">
+<span id="tensor-calculus-cylindrical-differential-operators-gradient"></span><h3>Gradient<a class="headerlink" href="#gradient" title="Permalink to this heading">#</a></h3>
+<div class="proof example dropdown admonition" id="example-0">
+<p class="admonition-title"><span class="caption-number">Example 15 </span> (Gradient of a scalar field)</p>
+<div class="example-content section" id="proof-content">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \nabla F 
+  &amp; = \vec{b}^a \dfrac{\partial F}{\partial q^a} = \\
+  &amp; = \hat{b}_a \, g^{aa} \, \dfrac{\partial F}{\partial q^a} = \\
+  &amp; = \hat{r} \, \dfrac{\partial F}{\partial  r} 
+    + \hat{\theta} \, \dfrac{1}{r} \, \dfrac{\partial F}{\partial \theta}  
+    + \hat{z} \dfrac{\partial F}{\partial z} \ . 
+\end{aligned}\end{split}\]</div>
+</div>
+</div><div class="proof example dropdown admonition" id="example-1">
+<p class="admonition-title"><span class="caption-number">Example 16 </span> (Gradient of a vector field)</p>
+<div class="example-content section" id="proof-content">
+<!--
+$$\begin{aligned}
+ \vec{F}
+ & = F^1 \, \vec{b}_1 + F^2        \, \vec{b}_2    + \vec{F}^3 \, \vec{b}_3 = \\
+ & = F_1 \, \vec{b}^1 + F_2        \, \vec{b}^2    + \vec{F}_3 \, \vec{b}^3 = \\
+ & = F_r \, \hat{r}   + F_{\theta} \, \hat{\theta} + \vec{F}_z \, \hat{z} \ .
+\end{aligned}$$
+-->
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \nabla F 
+  &amp; = \vec{b}^a \otimes \vec{b}_b \left[ \dfrac{\partial F^b}{\partial q^a} + \Gamma_{ac}^b \, F^c \right] = \\
+  &amp; = \dots = \\
+  &amp; =  \vec{b}^1 \otimes \vec{b}_1 \, \partial_1 F^1 
+  &amp;&amp; + \vec{b}^1 \otimes \vec{b}_2 \, \left[ \partial_1 F^2 + \Gamma_{12}^2 F^2 \right]
+  &amp;&amp; + \vec{b}^1 \otimes \vec{b}_3 \, \partial_1 F^3 \\
+  &amp;  + \vec{b}^2 \otimes \vec{b}_1 \, \left[ \partial_2 F^1 + \Gamma_{22}^1 F^2 \right]
+  &amp;&amp; + \vec{b}^2 \otimes \vec{b}_2 \, \left[ \partial_2 F^2 + \Gamma_{21}^2 F^1 \right]
+  &amp;&amp; + \vec{b}^2 \otimes \vec{b}_3 \, \partial_2 F^3 \\
+  &amp;  + \vec{b}^3 \otimes \vec{b}_1 \, \partial_3 F^1 
+  &amp;&amp; + \vec{b}^3 \otimes \vec{b}_2 \, \partial_3 F^2 
+  &amp;&amp; + \vec{b}^3 \otimes \vec{b}_3 \, \partial_3 F^3 \\
+  &amp;  = \hat{r     } \otimes \hat{r     } \, \partial_r F_r   
+  &amp;&amp; + \hat{r     } \otimes \hat{\theta} \, \frac{1}{r} \left[ \partial_r (r F_{\theta}) + F_{\theta} \right]
+  &amp;&amp; + \hat{r     } \otimes \hat{z     } \, \partial_r F_z \\
+  &amp;  + \hat{\theta} \otimes \hat{r     } \, \frac{1}{r} \left[ \partial_\theta F_r - r F_{\theta} \right]
+  &amp;&amp; + \hat{\theta} \otimes \hat{\theta} \, \left[ \partial_\theta \left( \frac{F_\theta}{r} \right) + \frac{F_r}{r} \right]
+  &amp;&amp; + \hat{\theta} \otimes \hat{z     } \, \frac{1}{r} \partial_{\theta} F_z \\
+  &amp;  + \hat{z     } \otimes \hat{r     } \, \partial_z F_x   
+  &amp;&amp; + \hat{z     } \otimes \hat{\theta} \, \frac{1}{r} \partial_\theta F_y   
+  &amp;&amp; + \hat{z     } \otimes \hat{z     } \, \partial_z F_z \ .
+\end{aligned}\end{split}\]</div>
+</div>
+</div><div class="proof example dropdown admonition" id="example-2">
+<p class="admonition-title"><span class="caption-number">Example 17 </span> (Gradient of a <span class="math notranslate nohighlight">\(2^{nd}\)</span>-order tensor field)</p>
+<div class="example-content section" id="proof-content">
+</div>
+</div></div>
+<div class="section" id="directional-derivative">
+<span id="tensor-calculus-cylindrical-differential-operators-directional-der"></span><h3>Directional derivative<a class="headerlink" href="#directional-derivative" title="Permalink to this heading">#</a></h3>
+</div>
+<div class="section" id="divergence">
+<span id="tensor-calculus-cylindrical-differential-operators-divergence"></span><h3>Divergence<a class="headerlink" href="#divergence" title="Permalink to this heading">#</a></h3>
+<div class="proof example dropdown admonition" id="example-3">
+<span id="tensor-calculus-cylindrical-differential-operators-laplacian"></span><p class="admonition-title"><span class="caption-number">Example 18 </span> (Divergence of a vector field)</p>
+<div class="example-content section" id="proof-content">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \nabla \cdot \vec{F} 
+  &amp; = \dfrac{\partial F^a}{\partial q^a} + \Gamma_{ac}^a \, F^c = \\
+  &amp; = \dfrac{\partial F_r}{\partial r} + \dfrac{\partial}{\partial \theta}\left( \frac{F_\theta}{r} \right) + \frac{F_\theta}{r} + \dfrac{\partial F_z}{\partial z} \ .
+\end{aligned}\end{split}\]</div>
+</div>
+</div><div class="proof example dropdown admonition" id="example-4">
+<p class="admonition-title"><span class="caption-number">Example 19 </span> (Divergence of a <span class="math notranslate nohighlight">\(2^{nd}\)</span>-order tensor field)</p>
+<div class="example-content section" id="proof-content">
+</div>
+</div></div>
+<div class="section" id="laplacian">
+<h3>Laplacian<a class="headerlink" href="#laplacian" title="Permalink to this heading">#</a></h3>
+<div class="proof example dropdown admonition" id="example-5">
+<p class="admonition-title"><span class="caption-number">Example 20 </span> (Laplacian of a scalar field)</p>
+<div class="example-content section" id="proof-content">
+</div>
+</div><div class="proof example dropdown admonition" id="example-6">
+<p class="admonition-title"><span class="caption-number">Example 21 </span> (Laplacian of a vector field)</p>
+<div class="example-content section" id="proof-content">
+</div>
+</div></div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -437,20 +586,20 @@ Given a volume <span class="math notranslate nohighlight">\(V(t)\)</span> with b
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="calculus-euclidean-spherical.html"
+       href="calculus-euclidean-cartesian.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Tensor Calculus in Euclidean Spaces - Spehrical coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></p>
+        <p class="prev-next-title">Tensor Calculus in Euclidean Spaces - Cartesian coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></p>
       </div>
     </a>
     <a class="right-next"
-       href="../functional-analysis/intro.html"
+       href="calculus-euclidean-spherical.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Introduction to Functional Analysis</p>
+        <p class="prev-next-title">Tensor Calculus in Euclidean Spaces - Spehrical coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -469,9 +618,15 @@ Given a volume <span class="math notranslate nohighlight">\(V(t)\)</span> with b
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#volume-density">Volume density</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flux-across-a-surface">Flux across a surface</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#work-line-integral-along-a-line">Work line integral along a line</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cylindrical-coordiantes-and-cylindrical-coordinates">Cylindrical coordiantes and cylindrical coordinates</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#natural-basis-reciprocal-basis-metric-tensor-and-christoffel-symbols">Natural basis, reciprocal basis, metric tensor, and Christoffel symbols</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differential-operators">Differential operators</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient">Gradient</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#directional-derivative">Directional derivative</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#divergence">Divergence</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#laplacian">Laplacian</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
