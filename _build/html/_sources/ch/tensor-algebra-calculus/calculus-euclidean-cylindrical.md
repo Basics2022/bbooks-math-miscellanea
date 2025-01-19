@@ -147,7 +147,7 @@ $$\begin{aligned}
 $$\begin{aligned}
   \nabla \cdot \vec{F} 
   & = \dfrac{\partial F^a}{\partial q^a} + \Gamma_{ac}^a \, F^c = \\
-  & = \dfrac{\partial F_r}{\partial r} + \dfrac{\partial}{\partial \theta}\left( \frac{F_\theta}{r} \right) + \frac{F_\theta}{r} + \dfrac{\partial F_z}{\partial z} = \\
+  & = \dfrac{\partial F_r}{\partial r} + \dfrac{\partial}{\partial \theta}\left( \frac{F_\theta}{r} \right) + \frac{F_\theta}{r} + \dfrac{\partial F_z}{\partial z} \ .
 \end{aligned}$$
 ```
 ```{prf:example} Divergence of a $2^{nd}$-order tensor field
