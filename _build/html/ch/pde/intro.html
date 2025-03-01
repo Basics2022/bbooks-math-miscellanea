@@ -70,6 +70,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Weak formulation" href="weak.html" />
     <link rel="prev" title="Introduction to Ordinary Differential Equations" href="../ode/intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -205,6 +206,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Partial Differential Equations</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Introduction to Partial Differential Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="weak.html">Weak formulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fem.html">Finite Element Method</a></li>
 </ul>
 
     </div>
@@ -368,6 +371,16 @@ document.write(`
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="introduction-to-partial-differential-equations">
 <span id="pde"></span><h1>Introduction to Partial Differential Equations<a class="headerlink" href="#introduction-to-partial-differential-equations" title="Permalink to this heading">#</a></h1>
+<p>Partial differential equations usually comes from balance equations. Integral equations are the most general form of these equations, and an equivalent differential problem only exists if the fields involved in the equations are regular enough, for their derivatives to exist - and to apply theorems requiring some regularity of the functions.</p>
+<p>Classical numerical methods:</p>
+<ul class="simple">
+<li><p><strong>FVM</strong>: directly solves the <strong>integral problem</strong>, solving integral balance equations for cells in which the domain is divided</p></li>
+<li><p><strong>FDM</strong>: given the problem in <strong>differential form</strong>, FDM directly approximates space derivatives of the <strong>strong formulation</strong> of the problem</p></li>
+<li><p><strong>FEM</strong>: given the problem in <strong>differential form</strong>, FEM projects the <strong>weak formulation</strong> of the problem on a finite-dimensional space</p></li>
+<li><p><strong>BEM</strong>: <em>integro-differential equation</em>, <em>singularities</em>,…</p></li>
+<li><p><strong>Spectral methods</strong>,…</p></li>
+<li><p><strong>SEM</strong>,…</p></li>
+</ul>
 <div class="section" id="examples">
 <span id="pde-examples"></span><h2>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">#</a></h2>
 <p>In Physics:</p>
@@ -382,7 +395,7 @@ document.write(`
 </li>
 <li><p>Hyperbolic equation/system of equations</p>
 <div class="math notranslate nohighlight">
-\[\partial \mathbf{u} + \nabla \cdot \mathbf{F}(\mathbf{u}) = \mathbf{f} \]</div>
+\[\partial_t \mathbf{u} + \nabla \cdot \mathbf{F}(\mathbf{u}) = \mathbf{f} \]</div>
 </li>
 <li><p>Wave equation</p>
 <div class="math notranslate nohighlight">
@@ -413,6 +426,60 @@ document.write(`
      \end{cases}\end{split}\]</div>
 </li>
 </ul>
+</li>
+</ul>
+<p><strong>todo</strong></p>
+<ul>
+<li><p>Different forms of equations may be more or less convenient for different solution approaches</p></li>
+<li><p>Most of the physical laws comes from integral balance equation of the form</p>
+<div class="math notranslate nohighlight">
+\[\dfrac{d}{dt} \int_{V_t} \rho \mathbf{u} = \int_{V_t} \rho \mathbf{r} + \oint_{\partial V_t} \hat{n} \cdot \mathbf{T}(\mathbf{u})\]</div>
+<p>whose local - differential - form (in case of differentiable functions) readily follows from the application of Reynolds’ transport theorem and divergence theorem to transform time derivative and boundary terms</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+     &amp; \partial_t \left( \rho \mathbf{u} \right) + \nabla \cdot (\rho \mathbf{u} \vec{u}) = \rho \mathbf{r} + \nabla \cdot \mathbf{T}(\mathbf{u}) \\
+     &amp; \partial_t \left( \rho \mathbf{u} \right) + \nabla \cdot \mathbf{F}(\mathbf{u}) = \rho \mathbf{r} \ ,
+   \end{aligned}\end{split}\]</div>
+<p>and the physical meaning of each term is evident and readily expalinable as flux or volume or surface sources.</p>
+</li>
+<li><p>Further manipulation/simplification may cover the clear meaning of the terms of the differential equation. As an example, the conservative form of Navier-Stokes equations for incompressible fluids with constant and uniform density read</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{cases}
+    \partial_t \left( \rho \vec{u} \right) + \nabla \cdot ( \rho \vec{u} \otimes \vec{u} ) = \rho \vec{g} + \nabla \cdot \mathbb{T} \\
+    \nabla \cdot \vec{u} = 0 \ ,
+  \end{cases}\end{split}\]</div>
+<p>where the stress tensor for a Newtonian fluid reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+    \mathbb{T}
+    &amp; = - p \mathbb{I} + 2 \mu \mathbb{D} + \lambda \left( \nabla \cdot \vec{u} \right) \mathbb{I} \\
+    &amp; = - p \mathbb{I} + \mu \left( \nabla \vec{u} + \nabla^T \vec{u} \right) + \lambda \left( \nabla \cdot \vec{u} \right) \mathbb{I}
+  \end{aligned}\end{split}\]</div>
+<p>Using the incompressibility constraint <span class="math notranslate nohighlight">\(\nabla \cdot \vec{u}\)</span>, and treating the density <span class="math notranslate nohighlight">\(\rho\)</span> as a constant and uniform parameter, the convective form of the Navier-Stokes equations reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{cases}
+    \rho \partial_t \vec{u} + \rho \left( \vec{u} \cdot \nabla \right) \vec{u} = \rho \vec{g} - \nabla P + 2 \mu \nabla \cdot \mathbb{D} \\
+    \nabla \cdot \vec{u} = 0 \ .
+  \end{cases}\end{split}\]</div>
+<p>The divergence of the viscous stress tensor becomes</p>
+<div class="math notranslate nohighlight">
+\[2 \mu \nabla \cdot \mathbb{D} = \mu \nabla \cdot \left( \nabla \vec{u} + \nabla^T \vec{u} \right) = \mu \left( \nabla^2 \vec{u} + \nabla \underbrace{\left( \nabla \cdot \vec{u} \right)}_{= 0} \right) = \mu \nabla^2 \vec{u} \ ,\]</div>
+<p>so that one of the most common form of incompressible Navier-Stokes equations follows</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{cases}
+    \rho \partial_t \vec{u} + \rho ( \vec{u} \cdot \nabla ) \vec{u} - \mu \nabla^2 \vec{u} + \nabla P = \rho \vec{g} \\
+    \nabla \cdot \vec{u} = 0 \ .
+  \end{cases}\end{split}\]</div>
+<p>It should be evident that in the latter form of Navier-Stokes equations no divergence explicitly appears, so that the right expression of surface source terms can’t be found immediately. In momentum equation, surface source terms come from surface stress acting on the boundary of the domain, whose expression reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+    \vec{t}_n 
+    &amp; = \hat{n} \cdot \mathbb{T} = \\
+    &amp; = \hat{n} \cdot \left(- P \mathbb{I} + 2 \mu \mathbb{D} \right) = \\
+    &amp; = \hat{n} \cdot \left(- P \mathbb{I} + \mu \left( \nabla \vec{u} + \nabla^T \vec{u} \right) \right) = \\
+    &amp; = - P \hat{n} +  \hat{n} \cdot \left( \mu \left( \nabla \vec{u} + \nabla^T \vec{u} \right) \right) = \\
+  \end{aligned}\end{split}\]</div>
+<p>As an example, in <a class="reference internal" href="weak.html#ode-weak-ns-inc"><span class="std std-ref">weak formulation of incompressible Navier-Stokes problem</span></a> the <strong>natural boundary condition</strong> arising in the method depends on the expression of the strong formulation of the NS problem. If one needs to prescribe stress boundary conditions, it could be an idea to start from NS equations w/o extra simplifications.</p>
 </li>
 </ul>
 </div>
@@ -456,6 +523,15 @@ document.write(`
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">Introduction to Ordinary Differential Equations</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="weak.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Weak formulation</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
