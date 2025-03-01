@@ -32,6 +32,15 @@ parts:
 - caption: Calculus of Variations
   chapters:
   - file: ch/calculus-variations/intro
+- caption: Ordinary Differential Equations
+  chapters:
+  - file: ch/ode/intro
+- caption: Partial Differential Equations
+  chapters:
+  - file: ch/pde/intro
+  - file: ch/pde/weak
+  - file: ch/pde/fem
+
 # - caption: Algebra e calcolo
 #   chapters:
 #   - file: ch/multi-variable

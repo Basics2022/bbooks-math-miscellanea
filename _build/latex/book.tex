@@ -85,7 +85,7 @@
         
 
 \title{basics - math}
-\date{Jan 19, 2025}
+\date{Mar 01, 2025}
 \release{}
 \author{basics}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -1065,7 +1065,7 @@ so that non\sphinxhyphen{}zero Christoffel symbols of a cylindrical coordinate s
 \begin{split}\begin{aligned}
   \nabla \cdot \vec{F} 
   & = \dfrac{\partial F^a}{\partial q^a} + \Gamma_{ac}^a \, F^c = \\
-  & = \dfrac{\partial F_r}{\partial r} + \dfrac{\partial}{\partial \theta}\left( \frac{F_\theta}{r} \right) + \Gamma_{ac}^a \, F^c + \dfrac{\partial F_z}{\partial z} = \\
+  & = \dfrac{\partial F_r}{\partial r} + \dfrac{\partial}{\partial \theta}\left( \frac{F_\theta}{r} \right) + \frac{F_\theta}{r} + \dfrac{\partial F_z}{\partial z} \ .
 \end{aligned}\end{split}
 \end{equation*}\end{sphinxadmonition}
 \label{ch/tensor-algebra-calculus/calculus-euclidean-cylindrical:example-4}
@@ -2110,6 +2110,207 @@ Repeating the computation, the variation of the functional reads
 
 
 
+\sphinxstepscope
+
+
+\part{Ordinary Differential Equations}
+
+\sphinxstepscope
+
+
+\chapter{Introduction to Ordinary Differential Equations}
+\label{\detokenize{ch/ode/intro:introduction-to-ordinary-differential-equations}}\label{\detokenize{ch/ode/intro:ode}}\label{\detokenize{ch/ode/intro::doc}}
+\sphinxstepscope
+
+
+\part{Partial Differential Equations}
+
+\sphinxstepscope
+
+
+\chapter{Introduction to Partial Differential Equations}
+\label{\detokenize{ch/pde/intro:introduction-to-partial-differential-equations}}\label{\detokenize{ch/pde/intro:pde}}\label{\detokenize{ch/pde/intro::doc}}
+\sphinxAtStartPar
+Partial differential equations usually comes from balance equations. Integral equations are the most general form of these equations, and an equivalent differential problem only exists if the fields involved in the equations are regular enough, for their derivatives to exist \sphinxhyphen{} and to apply theorems requiring some regularity of the functions.
+
+\sphinxAtStartPar
+Classical numerical methods:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{FVM}: directly solves the \sphinxstylestrong{integral problem}, solving integral balance equations for cells in which the domain is divided
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{FDM}: given the problem in \sphinxstylestrong{differential form}, FDM directly approximates space derivatives of the \sphinxstylestrong{strong formulation} of the problem
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{FEM}: given the problem in \sphinxstylestrong{differential form}, FEM projects the \sphinxstylestrong{weak formulation} of the problem on a finite\sphinxhyphen{}dimensional space
+
+\end{itemize}
+
+
+\section{Examples}
+\label{\detokenize{ch/pde/intro:examples}}\label{\detokenize{ch/pde/intro:pde-examples}}
+\sphinxAtStartPar
+In Physics:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Advection equation
+\begin{equation*}
+\begin{split}\partial_t u + \vec{a} \cdot \nabla u = f\end{split}
+\end{equation*}
+\item {} 
+\sphinxAtStartPar
+Diffusion equation
+\begin{equation*}
+\begin{split}\partial_t u - \nu \nabla^2 u = f\end{split}
+\end{equation*}
+\item {} 
+\sphinxAtStartPar
+Hyperbolic equation/system of equations
+\begin{equation*}
+\begin{split}\partial_t \mathbf{u} + \nabla \cdot \mathbf{F}(\mathbf{u}) = \mathbf{f} \end{split}
+\end{equation*}
+\item {} 
+\sphinxAtStartPar
+Wave equation
+\begin{equation*}
+\begin{split}\frac{1}{c^2} \partial_{tt} u - \nabla^2 u = f\end{split}
+\end{equation*}
+\end{itemize}
+
+
+\section{Balance equations in physics}
+\label{\detokenize{ch/pde/intro:balance-equations-in-physics}}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Small\sphinxhyphen{}strain continuum mechanics
+\begin{equation*}
+\begin{split}\rho \partial_{tt} \vec{s} = \rho_0 \vec{g} + \nabla \cdot \symbf{\sigma}(\symbf{\varepsilon})\end{split}
+\end{equation*}
+\item {} 
+\sphinxAtStartPar
+Heat conduction
+
+\item {} 
+\sphinxAtStartPar
+Fluid dynamics
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Navier\sphinxhyphen{}Stokes for compressible fluids  (conservative or convective equations)
+\begin{equation*}
+\begin{split}\begin{cases}
+     \end{cases}\end{split}
+\end{equation*}
+\item {} 
+\sphinxAtStartPar
+Navier\sphinxhyphen{}Stokes for incompressible fluids (convective form,…)
+\begin{equation*}
+\begin{split}\begin{cases}
+        \rho \partial_t \vec{u} + \rho (\vec{u} \cdot \nabla ) \vec{u} - \mu \nabla^2 \vec{u} + \nabla P = \rho \vec{g} \\
+        \nabla \cdot \vec{u} = 0
+     \end{cases}\end{split}
+\end{equation*}
+\end{itemize}
+
+\end{itemize}
+
+\sphinxAtStartPar
+\sphinxstylestrong{todo}
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Different forms of equations may be more or less convenient for different solution approaches
+
+\item {} 
+\sphinxAtStartPar
+Most of the physical laws comes from integral balance equation of the form
+\begin{equation*}
+\begin{split}\dfrac{d}{dt} \int_{V_t} \rho \mathbf{u} = \int_{V_t} \rho \mathbf{r} + \oint_{\partial V_t} \hat{n} \cdot \mathbf{T}(\mathbf{u})\end{split}
+\end{equation*}
+\sphinxAtStartPar
+whose local \sphinxhyphen{} differential \sphinxhyphen{} form (in case of differentiable functions) readily follows from the application of Reynolds’ transport theorem and divergence theorem to transform time derivative and boundary terms
+\begin{equation*}
+\begin{split}\begin{aligned}
+     & \partial_t \left( \rho \mathbf{u} \right) + \nabla \cdot (\rho \mathbf{u} \vec{u}) = \rho \mathbf{r} + \nabla \cdot \mathbf{T}(\mathbf{u}) \\
+     & \partial_t \left( \rho \mathbf{u} \right) + \nabla \cdot \mathbf{F}(\mathbf{u}) = \rho \mathbf{r} \ ,
+   \end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and the physical meaning of each term is evident and readily expalinable as flux or volume or surface sources.
+
+\item {} 
+\sphinxAtStartPar
+Further manipulation/simplification may cover the clear meaning of the terms of the differential equation. As an example, the conservative form of Navier\sphinxhyphen{}Stokes equations for incompressible fluids with constant and uniform density read
+\begin{equation*}
+\begin{split}\begin{cases}
+    \partial_t \left( \rho \vec{u} \right) + \nabla \cdot ( \rho \vec{u} \otimes \vec{u} ) = \rho \vec{g} + \nabla \cdot \mathbb{T} \\
+    \nabla \cdot \vec{u} = 0 \ ,
+  \end{cases}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+where the stress tensor for a Newtonian fluid reads
+\begin{equation*}
+\begin{split}\begin{aligned}
+    \mathbb{T}
+    & = - p \mathbb{I} + 2 \mu \mathbb{D} + \lambda \left( \nabla \cdot \vec{u} \right) \mathbb{I} \\
+    & = - p \mathbb{I} + \mu \left( \nabla \vec{u} + \nabla^T \vec{u} \right) + \lambda \left( \nabla \cdot \vec{u} \right) \mathbb{I}
+  \end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Using the incompressibility constraint \(\nabla \cdot \vec{u}\), and treating the density \(\rho\) as a constant and uniform parameter, the convective form of the Navier\sphinxhyphen{}Stokes equations reads
+\begin{equation*}
+\begin{split}\begin{cases}
+    \rho \partial_t \vec{u} + \rho \left( \vec{u} \cdot \nabla \right) \vec{u} = \rho \vec{g} - \nabla P + 2 \mu \nabla \cdot \mathbb{D} \\
+    \nabla \cdot \vec{u} = 0 \ .
+  \end{cases}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+The divergence of the viscous stress tensor becomes
+\begin{equation*}
+\begin{split}2 \mu \nabla \cdot \mathbb{D} = \mu \nabla \cdot \left( \nabla \vec{u} + \nabla^T \vec{u} \right) = \mu \left( \nabla^2 \vec{u} + \nabla \underbrace{\left( \nabla \cdot \vec{u} \right)}_{= 0} \right) = \mu \nabla^2 \vec{u} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+so that one of the most common form of incompressible Navier\sphinxhyphen{}Stokes equations follows
+\begin{equation*}
+\begin{split}\begin{cases}
+    \rho \partial_t \vec{u} + \rho ( \vec{u} \cdot \nabla ) \vec{u} - \mu \nabla^2 \vec{u} + \nabla P = \rho \vec{g} \\
+    \nabla \cdot \vec{u} = 0 \ .
+  \end{cases}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+It should be evident that in the latter form of Navier\sphinxhyphen{}Stokes equations no divergence explicitly appears, so that the right expression of surface source terms can’t be found immediately. In momentum equation, surface source terms come from surface stress acting on the boundary of the domain, whose expression reads
+\begin{equation*}
+\begin{split}\begin{aligned}
+    \vec{t}_n 
+    & = \hat{n} \cdot \mathbb{T} = \\
+    & = \hat{n} \cdot \left(- P \mathbb{I} + 2 \mu \mathbb{D} \right) = \\
+    & = \hat{n} \cdot \left(- P \mathbb{I} + \mu \left( \nabla \vec{u} + \nabla^T \vec{u} \right) \right) = \\
+    & = - P \hat{n} +  \hat{n} \cdot \left( \mu \left( \nabla \vec{u} + \nabla^T \vec{u} \right) \right) = \\
+  \end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+As an example, in {\hyperref[\detokenize{ch/pde/weak:ode-weak-ns-inc}]{\sphinxcrossref{\DUrole{std,std-ref}{weak formulation of incompressible Navier\sphinxhyphen{}Stokes problem}}}} the \sphinxstylestrong{natural boundary condition} arising in the method depends on the expression of the strong formulation of the NS problem. If one needs to prescribe stress boundary conditions, it could be an idea to start from NS equations w/o extra simplifications.
+
+\end{itemize}
+
+\sphinxstepscope
+
+
+\chapter{Weak formulation}
+\label{\detokenize{ch/pde/weak:weak-formulation}}\label{\detokenize{ch/pde/weak:ode-weak}}\label{\detokenize{ch/pde/weak::doc}}
+
+\section{Incompressible Navier\sphinxhyphen{}Stokes equations}
+\label{\detokenize{ch/pde/weak:incompressible-navier-stokes-equations}}\label{\detokenize{ch/pde/weak:ode-weak-ns-inc}}
+\sphinxstepscope
+
+
+\chapter{Finite Element Method}
+\label{\detokenize{ch/pde/fem:finite-element-method}}\label{\detokenize{ch/pde/fem:ode-fem}}\label{\detokenize{ch/pde/fem::doc}}
 
 
 
@@ -2137,28 +2338,28 @@ Repeating the computation, the variation of the functional reads
 \item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}5}\sphinxstyleindexextra{ch/complex/analysis}\sphinxstyleindexpageref{ch/complex/analysis:\detokenize{definition-5}}
 \indexspace
 \bigletter{example\sphinxhyphen{}0}
-\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}0}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/calculus\sphinxhyphen{}euclidean\sphinxhyphen{}cylindrical}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/calculus-euclidean-cylindrical:\detokenize{example-0}}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}0}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/calculus\sphinxhyphen{}euclidean\sphinxhyphen{}spherical}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/calculus-euclidean-spherical:\detokenize{example-0}}
 \indexspace
 \bigletter{example\sphinxhyphen{}1}
-\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}1}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/calculus\sphinxhyphen{}euclidean\sphinxhyphen{}cylindrical}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/calculus-euclidean-cylindrical:\detokenize{example-1}}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}1}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/calculus\sphinxhyphen{}euclidean\sphinxhyphen{}spherical}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/calculus-euclidean-spherical:\detokenize{example-1}}
 \indexspace
 \bigletter{example\sphinxhyphen{}10}
 \item\relax\sphinxstyleindexentry{example\sphinxhyphen{}10}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/calculus\sphinxhyphen{}euclidean}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/calculus-euclidean:\detokenize{example-10}}
 \indexspace
 \bigletter{example\sphinxhyphen{}2}
-\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}2}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/calculus\sphinxhyphen{}euclidean\sphinxhyphen{}cylindrical}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/calculus-euclidean-cylindrical:\detokenize{example-2}}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}2}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/calculus\sphinxhyphen{}euclidean\sphinxhyphen{}spherical}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/calculus-euclidean-spherical:\detokenize{example-2}}
 \indexspace
 \bigletter{example\sphinxhyphen{}3}
-\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}3}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/calculus\sphinxhyphen{}euclidean\sphinxhyphen{}cylindrical}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/calculus-euclidean-cylindrical:\detokenize{example-3}}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}3}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/calculus\sphinxhyphen{}euclidean\sphinxhyphen{}spherical}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/calculus-euclidean-spherical:\detokenize{example-3}}
 \indexspace
 \bigletter{example\sphinxhyphen{}4}
-\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}4}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/calculus\sphinxhyphen{}euclidean\sphinxhyphen{}cylindrical}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/calculus-euclidean-cylindrical:\detokenize{example-4}}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}4}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/calculus\sphinxhyphen{}euclidean\sphinxhyphen{}spherical}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/calculus-euclidean-spherical:\detokenize{example-4}}
 \indexspace
 \bigletter{example\sphinxhyphen{}5}
-\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}5}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/calculus\sphinxhyphen{}euclidean\sphinxhyphen{}cylindrical}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/calculus-euclidean-cylindrical:\detokenize{example-5}}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}5}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/calculus\sphinxhyphen{}euclidean\sphinxhyphen{}spherical}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/calculus-euclidean-spherical:\detokenize{example-5}}
 \indexspace
 \bigletter{example\sphinxhyphen{}6}
-\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}6}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/calculus\sphinxhyphen{}euclidean\sphinxhyphen{}cylindrical}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/calculus-euclidean-cylindrical:\detokenize{example-6}}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}6}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/calculus\sphinxhyphen{}euclidean\sphinxhyphen{}spherical}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/calculus-euclidean-spherical:\detokenize{example-6}}
 \indexspace
 \bigletter{example\sphinxhyphen{}7}
 \item\relax\sphinxstyleindexentry{example\sphinxhyphen{}7}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/calculus\sphinxhyphen{}euclidean}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/calculus-euclidean:\detokenize{example-7}}
