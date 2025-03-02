@@ -38,8 +38,14 @@ parts:
 - caption: Partial Differential Equations
   chapters:
   - file: ch/pde/intro
-  - file: ch/pde/weak
-  - file: ch/pde/fem
+  - file: ch/pde/elliptic
+  - file: ch/pde/parabolic
+  - file: ch/pde/hyperbolic
+  - file: ch/pde/nc
+  - file: ch/pde/ns
+  - file: ch/pde/ale
+# - file: ch/pde/weak
+# - file: ch/pde/fem
 
 # - caption: Algebra e calcolo
 #   chapters:

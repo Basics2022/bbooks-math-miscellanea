@@ -85,7 +85,7 @@
         
 
 \title{basics - math}
-\date{Mar 01, 2025}
+\date{Mar 02, 2025}
 \release{}
 \author{basics}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -2306,23 +2306,269 @@ It should be evident that in the latter form of Navier\sphinxhyphen{}Stokes equa
   \end{aligned}\end{split}
 \end{equation*}
 \sphinxAtStartPar
-As an example, in {\hyperref[\detokenize{ch/pde/weak:ode-weak-ns-inc}]{\sphinxcrossref{\DUrole{std,std-ref}{weak formulation of incompressible Navier\sphinxhyphen{}Stokes problem}}}} the \sphinxstylestrong{natural boundary condition} arising in the method depends on the expression of the strong formulation of the NS problem. If one needs to prescribe stress boundary conditions, it could be an idea to start from NS equations w/o extra simplifications.
+As an example, in \DUrole{xref,myst}{weak formulation of incompressible Navier\sphinxhyphen{}Stokes problem} the \sphinxstylestrong{natural boundary condition} arising in the method depends on the expression of the strong formulation of the NS problem. If one needs to prescribe stress boundary conditions, it could be an idea to start from NS equations w/o extra simplifications.
 
 \end{itemize}
 
 \sphinxstepscope
 
 
-\chapter{Weak formulation}
-\label{\detokenize{ch/pde/weak:weak-formulation}}\label{\detokenize{ch/pde/weak:ode-weak}}\label{\detokenize{ch/pde/weak::doc}}
+\chapter{Elliptic equations}
+\label{\detokenize{ch/pde/elliptic:elliptic-equations}}\label{\detokenize{ch/pde/elliptic:pde-elliptic}}\label{\detokenize{ch/pde/elliptic::doc}}
 
-\section{Incompressible Navier\sphinxhyphen{}Stokes equations}
-\label{\detokenize{ch/pde/weak:incompressible-navier-stokes-equations}}\label{\detokenize{ch/pde/weak:ode-weak-ns-inc}}
+\section{Poisson equation}
+\label{\detokenize{ch/pde/elliptic:poisson-equation}}\label{\detokenize{ch/pde/elliptic:pde-elliptic-poisson}}
+\sphinxAtStartPar
+Given the volume density source \(f(\vec{r})\) and the diffusivity \(\nu(\vec{r})\), Poisson equation for the scalar field \(\phi(\vec{r})\) reads
+\begin{equation*}
+\begin{split}- \nabla \cdot ( \nu \nabla \phi) = f \qquad \vec{r} \in V\end{split}
+\end{equation*}
+\sphinxAtStartPar
+with proper boundary conditions on \(\partial V\). As an example, tipical boundary conditions are:
+\begin{equation*}
+\begin{split}\begin{aligned}
+  & \phi(\vec{r}) = g(\vec{r}) && \vec{r} \in S_D && \text{esserntial - Dirichlet b.c.}  \\
+  & \nu \hat{n} \cdot \nabla \phi(\vec{r}) = h(\vec{r}) && \vec{r} \in S_N && \text{natural - Neumann b.c.}  \\
+  & a \phi(\vec{r}) + \nu \hat{n} \cdot \nabla \phi(\vec{r}) = b(\vec{r}) && \vec{r} \in S_R && \text{Robin b.c.} \\
+\end{aligned}\end{split}
+\end{equation*}
+
+\subsection{Weak formulation}
+\label{\detokenize{ch/pde/elliptic:weak-formulation}}\label{\detokenize{ch/pde/elliptic:pde-elliptic-poisson-weak}}
+\sphinxAtStartPar
+For \(\forall w \in \dots\) (functional space, recall some results about existence and uniqueness of the solution, Lax\sphinxhyphen{}Milgram theorem,…)
+\begin{equation*}
+\begin{split}\begin{aligned}
+  0
+  &  = \int_V w \, \left\{ \nabla \cdot (\nu \nabla \phi) + f \right\} = \\
+  &  = \oint_{\partial V} w \hat{n} \cdot (\nu \nabla \phi) + \int_V \left\{ - \nu \nabla \vec{w} \cdot \nabla \phi  + w f \right\} = \\
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Splitting boundary contribution as the sum from single contributions from different regions, and applying boundary conditions, setting \(w = 0\) for \(\vec{r} \in S_D\) (see the ways to prescribe essential boundary conditions),
+\begin{equation*}
+\begin{split}\begin{aligned}
+  0 = \int_{S_D} \underbrace{w}_{= 0} \hat{n} \cdot (\nu \nabla \phi) + \int_{S_N} w \underbrace{\hat{n} \cdot (\nu \nabla \phi)}_{ = h} + \int_{S_R} w \underbrace{ \hat{n} \cdot (\nu \nabla \phi)}_{ = b - a \phi } + \int_V \left\{ - \nu \nabla \vec{w} \cdot \nabla \phi  + w f \right\} \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and rearranging the equation separating terms containing unknowns from known contributions,
+\begin{equation*}
+\begin{split}\int_{V} \nu \nabla w \cdot \nabla \phi + \int_{S_R} w a \phi = \int_{V} w f + \int_{S_N} w h + \int_{S_R} w b \qquad \forall w \in \dots \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and \(\phi = g\), for \(\vec{r} \in S_D\).
+\subsubsection*{Different ways to prescribe essential boundary conditions}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Strong formulation.}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Using Lagrance multiplier \sphinxhyphen{} weak formulation of essential boundary conditions.} Adding a the essential boundary condition as a constraint with Lagrange multipliers in the weak formulation of the problem,
+\begin{equation*}
+\begin{split}\dots + \int_{S_D} w_D ( \phi - g ) \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+…
+
 \sphinxstepscope
 
 
-\chapter{Finite Element Method}
-\label{\detokenize{ch/pde/fem:finite-element-method}}\label{\detokenize{ch/pde/fem:ode-fem}}\label{\detokenize{ch/pde/fem::doc}}
+\chapter{Parabolic equations}
+\label{\detokenize{ch/pde/parabolic:parabolic-equations}}\label{\detokenize{ch/pde/parabolic:pde-parabolic}}\label{\detokenize{ch/pde/parabolic::doc}}
+
+\section{Heat equation}
+\label{\detokenize{ch/pde/parabolic:heat-equation}}\label{\detokenize{ch/pde/parabolic:pde-parabolic-heat}}
+\sphinxAtStartPar
+Heat equation for a scalar field \(\phi(\vec{r},t)\) can be interpreted as the unsteady equation of a {\hyperref[\detokenize{ch/pde/elliptic:pde-elliptic-poisson}]{\sphinxcrossref{\DUrole{std,std-ref}{Poisson equation}}}},
+\begin{equation*}
+\begin{split}\partial_t \phi - \nabla \cdot (\nu \nabla \phi) = f \qquad (\vec{r}, t) \in V \times [0, T] \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+with proper boundary and initial conditions, \(\phi(\vec{r},0) = \phi_0(\vec{r})\). Common boundary conditions are the same as the one discussed for Poisson problem.
+
+
+\subsection{Weak formulation}
+\label{\detokenize{ch/pde/parabolic:weak-formulation}}\label{\detokenize{ch/pde/parabolic:pde-parabolic-heat-weak}}
+\sphinxAtStartPar
+For \(\forall w \in \dots\) (functional space, recall some results about existence and uniqueness of the solution, Lax\sphinxhyphen{}Milgram theorem,…)
+\begin{equation*}
+\begin{split}\begin{aligned}
+  0
+  &  = \int_V w \, \left\{ - \partial_t \phi + \nabla \cdot (\nu \nabla \phi) + f \right\} = \\
+  &  = \oint_{\partial V} w \hat{n} \cdot (\nu \nabla \phi) + \int_V \left\{ - \partial_t \phi - \nu \nabla \vec{w} \cdot \nabla \phi  + w f \right\} = \\
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Splitting boundary contribution as the sum from single contributions from different regions, and applying boundary conditions, setting \(w = 0\) for \(\vec{r} \in S_D\) (see the ways to prescribe essential boundary conditions),
+\begin{equation*}
+\begin{split}\begin{aligned}
+  0 = \int_{S_D} \underbrace{w}_{= 0} \hat{n} \cdot (\nu \nabla \phi) + \int_{S_N} w \underbrace{\hat{n} \cdot (\nu \nabla \phi)}_{ = h} + \int_{S_R} w \underbrace{ \hat{n} \cdot (\nu \nabla \phi)}_{ = k - \phi } + \int_V \left\{ - \partial_t \phi  - \nu \nabla \vec{w} \cdot \nabla \phi  + w f \right\} \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and rearranging the equation separating terms containing unknowns from known contributions,
+\begin{equation*}
+\begin{split}\int_{V} w \partial_t \phi + \int_{V} \nu \nabla w \cdot \nabla \phi + \int_{S_R} w \phi = \int_{V} w f + \int_{S_N} w h + \int_{S_R} w k \qquad \forall w \in \dots \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and \(\phi = g\), for \(\vec{r} \in S_D\).
+
+\sphinxstepscope
+
+
+\chapter{Hyperbolic problems}
+\label{\detokenize{ch/pde/hyperbolic:hyperbolic-problems}}\label{\detokenize{ch/pde/hyperbolic:pde-hyperbolic}}\label{\detokenize{ch/pde/hyperbolic::doc}}
+
+\section{Scalar linear}
+\label{\detokenize{ch/pde/hyperbolic:scalar-linear}}\label{\detokenize{ch/pde/hyperbolic:pde-hyperbolic-scalar-linear}}
+
+\section{Scalar non\sphinxhyphen{}linear}
+\label{\detokenize{ch/pde/hyperbolic:scalar-non-linear}}\label{\detokenize{ch/pde/hyperbolic:pde-hyperbolic-scalar-non-linear}}
+
+\section{System linear}
+\label{\detokenize{ch/pde/hyperbolic:system-linear}}\label{\detokenize{ch/pde/hyperbolic:pde-hyperbolic-system-linear}}
+
+\section{System non\sphinxhyphen{}linear}
+\label{\detokenize{ch/pde/hyperbolic:system-non-linear}}\label{\detokenize{ch/pde/hyperbolic:pde-hyperbolic-system-non-linear}}
+\sphinxstepscope
+
+
+\chapter{Navier\sphinxhyphen{}Cauchy equations}
+\label{\detokenize{ch/pde/nc:navier-cauchy-equations}}\label{\detokenize{ch/pde/nc:pde-nc}}\label{\detokenize{ch/pde/nc::doc}}
+\sphinxAtStartPar
+Navier\sphinxhyphen{}Cauchy equations are the differential balance equation of the momentum of an elastic isotropic medium in the regime of small strain and displacement,
+\begin{equation*}
+\begin{split}\rho_0 \partial_{tt} \vec{s} = \rho_0 \vec{g} + \nabla \cdot \symbf{\sigma} \ . \end{split}
+\end{equation*}
+\sphinxAtStartPar
+Stress tensor for an isotropic medium reads
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \symbf{\sigma}
+   & = 2 \mu \symbf{\varepsilon} + \lambda \, \text{tr} \left( \symbf{\varepsilon} \right) \mathbb{I} = \\
+   & = \left( 2 \mu \symbf{\varepsilon} - \frac{2}{3} \mu \, \text{tr}(\symbf{\varepsilon}) \mathbb{I} \right) + \left( \lambda + \frac{2}{3} \mu \right) \, \text{tr} \left( \symbf{\varepsilon} \right) \mathbb{I} \ ,
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+with the small strain tensor
+\begin{equation*}
+\begin{split}\symbf{\varepsilon} = \frac{1}{2} \left( \nabla \vec{s} + \nabla^T \vec{s} \right) \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Essential, natural and Robin boundary conditions read
+\begin{equation*}
+\begin{split}\begin{aligned}
+  & \vec{s} = \overline{\vec{s}} && \vec{r} \in S_D && \text{esserntial - Dirichlet b.c.}  \\
+  & \hat{n} \cdot \symbf{\sigma} = \overline{\vec{t}}_n && \vec{r} \in S_N && \text{natural - Neumann b.c.}  \\
+  & a \vec{s} + \hat{n} \cdot \symbf{\sigma} = \vec{b} && \vec{r} \in S_R && \text{Robin b.c.} \\
+\end{aligned}\end{split}
+\end{equation*}
+
+\section{Weak formulation}
+\label{\detokenize{ch/pde/nc:weak-formulation}}
+\sphinxAtStartPar
+For \(\forall \vec{w} \in \dots\)
+\begin{equation*}
+\begin{split}\begin{aligned}
+  0
+  & = - \int_V \rho \vec{w} \cdot \partial_{tt} \vec{s} + \int_V \rho_0 \vec{w} \cdot \vec{g} + \int_{V} \vec{w} \cdot \nabla \cdot \symbf{\sigma} = \\ 
+  & = - \int_V \rho \vec{w} \cdot \partial_{tt} \vec{s} + \int_V \rho_0 \vec{w} \cdot \vec{g} + \int_{\partial V} \hat{n} \cdot \symbf{\sigma} \cdot \vec{w} - \int_{V} \nabla \vec{w} : \symbf{\sigma} 
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+The volume integral containing the stress tensor can be written either as
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \int_V \nabla \vec{w} : \symbf{\sigma} 
+  & = \int_V w_{i/j} \left[ \mu \left( s_{i/j} + s_{j/i} \right) + \lambda s_{k/k} \delta_{ij} \right] = \\
+  & = \int_V \mu w_{i/j} \left( s_{i/j} + s_{j/i} \right) + \int_V \lambda w_{j/j} s_{k/k} 
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+or
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \int_V \frac{1}{2} \left( \nabla \vec{w} + \nabla^T \vec{w} \right) : \symbf{\sigma} 
+  & = \int_V \frac{1}{2} \left( w_{i/j} + w_{j/i} \right) \left[ \mu \left( s_{i/j} + s_{j/i} \right) + \lambda s_{k/k} \delta_{ij} \right] = \\
+  & = \int_V \frac{\mu}{2} \left( w_{i/j} + w_{j/i} \right) \left( s_{i/j} + s_{j/i} \right) + \int_{V} \lambda w_{j/j} s_{k/k} 
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+The weak formulation of the Navier\sphinxhyphen{}Cauchy equations reads
+\begin{equation*}
+\begin{split}\int_V \rho_0 \vec{w} \cdot \partial_{tt} \vec{s} + \int_{V} 2 \mu \frac{\nabla \vec{w} + \nabla^T \vec{w}}{2} : \frac{\nabla \vec{s} + \nabla^T \vec{s}}{2} + \int_{V} \lambda \nabla \cdot \vec{w} \, \nabla \cdot \vec{s} + \int_{S_R} \vec{w} \cdot a \vec{s} = \int_{V} \rho_0 \vec{w} \cdot \vec{g} + \int_{S_N} \vec{w} \cdot \overline{\vec{t}}_n + \int_{S_R} \vec{w} \cdot \vec{b} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+for \(\forall \vec{w} \in \dots\), and with \(\vec{s} = \overline{\vec{s}}\) for \(\vec{r} \in S_D\).
+
+\sphinxstepscope
+
+
+\chapter{Navier\sphinxhyphen{}Stokes equations}
+\label{\detokenize{ch/pde/ns:navier-stokes-equations}}\label{\detokenize{ch/pde/ns:pde-ns}}\label{\detokenize{ch/pde/ns::doc}}
+\sphinxstepscope
+
+
+\chapter{Arbitrary Lagrangian\sphinxhyphen{}Eulerian description}
+\label{\detokenize{ch/pde/ale:arbitrary-lagrangian-eulerian-description}}\label{\detokenize{ch/pde/ale:pde-ale-description}}\label{\detokenize{ch/pde/ale::doc}}
+\sphinxAtStartPar
+Reynold’s transport theorem allows for the formulation of intergal equations, and grid\sphinxhyphen{}based methods like FVM, on moving grids and changing domains. Rules for derivatives of composite functions provide the relations between time derivatives in a Lagrangian, Eulerian, or arbitrary description,
+\begin{equation*}
+\begin{split}\begin{aligned}
+  & \left.\dfrac{\partial f}{\partial t}\right|_{\vec{r}_0} = \left.\dfrac{\partial f}{\partial t}\right|_{\vec{r}} + \vec{u}   \cdot \nabla f \\
+  & \left.\dfrac{\partial f}{\partial t}\right|_{\vec{r}_b} = \left.\dfrac{\partial f}{\partial t}\right|_{\vec{r}} + \vec{u}_b \cdot \nabla f \\
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Equations governing the motion of the grid are usually required as well. E.g.:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+known and prescribed motion of the grid;
+
+\item {} 
+\sphinxAtStartPar
+boundary conditions only without changing grids (for small displacements)
+
+\item {} 
+\sphinxAtStartPar
+pseudo\sphinxhyphen{}elastic deformation (usually good for small strain and displacement;
+
+\item {} 
+\sphinxAtStartPar
+for large displacements of/or models with complex geometry, sliding and/or overlapping grids could an option for grid\sphinxhyphen{}based methods.
+
+\end{itemize}
+
+
+\section{Integral problem}
+\label{\detokenize{ch/pde/ale:integral-problem}}\label{\detokenize{ch/pde/ale:pde-ale-description-integral}}
+\sphinxAtStartPar
+Application of Reynolds theorem to the balance equation of the quantity \(\mathbf{u}\) for a material volume \(V_t\)
+\begin{equation*}
+\begin{split}\dfrac{d}{dt} \int_{V_t} \rho \mathbf{u} = \int_{V_t} \rho \mathbf{f} + \oint_{\partial V_t} \hat{n} \cdot \mathbf{T} \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+provides the expression of the balance equation for a geometrical volume \(v_t\) in arbitrary motion,
+\begin{equation*}
+\begin{split}\dfrac{d}{dt} \int_{v_t} \rho \mathbf{u} + \oint_{\partial v_t} \rho \mathbf{u} \left( \vec{u} - \vec{u}_b \right) \cdot \hat{n} = \int_{v_t} \rho \mathbf{f} + \oint_{\partial v_t} \hat{n} \cdot \mathbf{T} \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Here, the integral forulation of the problem will be applied to each element of the grid in arbitrary motion, for domains with variable geometry.
+
+
+\section{Differential problem}
+\label{\detokenize{ch/pde/ale:differential-problem}}\label{\detokenize{ch/pde/ale:pde-ale-description-differential}}
+\sphinxAtStartPar
+Rules for derivatives of composite functions allows to write the differential w.r.t. the variables associated with the points of a moving grid. A balance equation in convective form can be written as
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \rho \dfrac{D \mathbf{u}}{D t} & = \rho \mathbf{f} + \nabla \cdot \mathbf{T} \\
+  \rho \left[ \dfrac{\partial \mathbf{u}}{\partial t} + \vec{u} \cdot \nabla \mathbf{u} \right] & = \\
+  \rho \left[ \left.\dfrac{\partial \mathbf{u}}{\partial t}\right|_{\vec{r}_b} + \left( \vec{u} - \vec{u}_b \right) \cdot \nabla \mathbf{u} \right] & = \\
+\end{aligned}\end{split}
+\end{equation*}
 
 
 

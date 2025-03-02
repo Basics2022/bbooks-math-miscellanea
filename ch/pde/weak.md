@@ -1,8 +1,8 @@
-(ode:weak)=
+(pde:weak)=
 # Weak formulation
 
 
-(ode:weak:ns-inc)=
+(pde:weak:ns-inc)=
 ## Incompressible Navier-Stokes equations
 
 
