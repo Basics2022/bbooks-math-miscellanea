@@ -64,6 +64,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'ch/pde/hyperbolic';</script>
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -358,10 +360,20 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scalar-linear">Scalar linear</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scalar-linear">Scalar linear</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dimensional">1-dimensional</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scalar-non-linear">Scalar non-linear</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#system-linear">System linear</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#system-non-linear">System non-linear</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#system-linear">System linear</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">1-dimensional</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#system-non-linear">System non-linear</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dimensional-space">1-dimensional space</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#n-dimensional-space">n-dimensional space</a></li>
 </ul>
             </nav>
         </div>
@@ -375,18 +387,174 @@ document.write(`
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="hyperbolic-problems">
 <span id="pde-hyperbolic"></span><h1>Hyperbolic problems<a class="headerlink" href="#hyperbolic-problems" title="Permalink to this heading">#</a></h1>
+<p>Hyperbolic problems often come from a small-amplitude linearization, or as the non-diffusion (or inviscid) limit of a more general problem.</p>
+<p>As a result of these simplification, these problems may experience <strong>shocks</strong> (i.e. discontinuity in the solution, where the differential equations stop to hold, and integral equations and jump conditions are required). <strong>todo</strong> <em>classification of discontinuities on the massflow across the surface</em></p>
+<p>The very nature of these problem also suggest methods for the solution or the analysis of these equations, like <strong>characteristic method</strong>.</p>
 <div class="section" id="scalar-linear">
 <span id="pde-hyperbolic-scalar-linear"></span><h2>Scalar linear<a class="headerlink" href="#scalar-linear" title="Permalink to this heading">#</a></h2>
+<div class="section" id="dimensional">
+<h3>1-dimensional<a class="headerlink" href="#dimensional" title="Permalink to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[\partial_t u(x,t) + a \partial_x u(x,t) = f(x,t)\]</div>
+<p><strong>Caracteristic method.</strong> <span class="math notranslate nohighlight">\(U(t) = u(X(t), t)\)</span>, with the caracteristic curves <span class="math notranslate nohighlight">\(X(t)\)</span> defined as those curves where the PDE becomes a ODE. Evaluating the time derivative of the function <span class="math notranslate nohighlight">\(u(X(t),t)\)</span>, the hyperbolic equation can be recast as</p>
+<div class="math notranslate nohighlight">
+\[\dfrac{d U}{dt} + \left[ a(X(t),t) - \dfrac{d X}{d t} \right] \partial_x u = f(X(t),t) \ .\]</div>
+<p>The equation of characteristic lines is</p>
+<div class="math notranslate nohighlight">
+\[\dfrac{d X}{d t} = a(X(t), t) \ ,\]</div>
+<p>and the PDE on characteristic line becomes the ODE</p>
+<div class="math notranslate nohighlight">
+\[\dfrac{d U}{d t}(X(t), t) = f(X(t), t) \ .\]</div>
+</div>
 </div>
 <div class="section" id="scalar-non-linear">
 <span id="pde-hyperbolic-scalar-non-linear"></span><h2>Scalar non-linear<a class="headerlink" href="#scalar-non-linear" title="Permalink to this heading">#</a></h2>
 </div>
 <div class="section" id="system-linear">
 <span id="pde-hyperbolic-system-linear"></span><h2>System linear<a class="headerlink" href="#system-linear" title="Permalink to this heading">#</a></h2>
+<div class="section" id="id1">
+<h3>1-dimensional<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[\mathbf{u}(x,t)\]</div>
+<div class="math notranslate nohighlight">
+\[\partial_t \mathbf{u} + \mathbf{A} \partial_x \mathbf{u} = \mathbf{f}\]</div>
+<p><strong>Characteristics.</strong> <span class="math notranslate nohighlight">\(\mathbf{U}(t) = \mathbf{u}(X(t), t)\)</span></p>
+<div class="math notranslate nohighlight">
+\[\dfrac{d \mathbf{U}}{dt} - \dfrac{d X}{dt} \partial_x \mathbf{u} + \mathbf{A} \partial_x \mathbf{u} = \mathbf{f}\]</div>
+<p>In order to get the equations of characteristic lines where PDE turns into ODEs, the eigenproblem</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{A} \partial_x \mathbf{u} = \dfrac{d X}{d t} \partial_x \mathbf{u} \ ,\]</div>
+<p>holds. This problem has non trivial solution if <span class="math notranslate nohighlight">\(\frac{d X}{dt}\)</span> and <span class="math notranslate nohighlight">\(\partial_x \mathbf{u}\)</span> are pairs of eigenvalues and (right) eigenvectors of the array <span class="math notranslate nohighlight">\(\mathbf{A}\)</span>.</p>
+<p><strong>Diagonalization.</strong></p>
+<div class="math notranslate nohighlight">
+\[\mathbf{A} = \mathbf{R} \symbf{\Lambda} \mathbf{L}\]</div>
+<div class="math notranslate nohighlight">
+\[\mathbf{L} \left[ \partial_t \mathbf{u} + \mathbf{R} \symbf{\Lambda} \mathbf{L} \partial_x \mathbf{u} \right] = \mathbf{L} \mathbf{f} \]</div>
+<p>Since <span class="math notranslate nohighlight">\(\mathbf{L} = \mathbf{R}^{-1}\)</span>, and defining <span class="math notranslate nohighlight">\(d \mathbf{q} = \mathbf{L} d \mathbf{u}\)</span>, it’s possible to recast the original problem in diagonal form</p>
+<div class="math notranslate nohighlight">
+\[\partial_t \mathbf{q} + \symbf{\Lambda} \partial_x \mathbf{q} = \mathbf{L} \mathbf{f}\]</div>
+<div class="math notranslate nohighlight">
+\[\partial_t q_i + \Lambda_i \partial_x q_i = \sum_{k} R_{ik} \, f_k =: F_i \ .\]</div>
+<p>Thus, on the <span class="math notranslate nohighlight">\(i^{th}\)</span> family of characteristic lines, <span class="math notranslate nohighlight">\(\dfrac{d X}{dt} = \lambda_i\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\dfrac{d Q_i}{d t} = F_i\]</div>
+</div>
 </div>
 <div class="section" id="system-non-linear">
 <span id="pde-hyperbolic-system-non-linear"></span><h2>System non-linear<a class="headerlink" href="#system-non-linear" title="Permalink to this heading">#</a></h2>
+<div class="section" id="dimensional-space">
+<h3>1-dimensional space<a class="headerlink" href="#dimensional-space" title="Permalink to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[\mathbf{u}(x,t)\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  &amp; \partial_t \mathbf{u} + \partial_x \mathbf{F}(\mathbf{u}) = \mathbf{f}  &amp;&amp; \text{(conservative form)} \\
+  &amp; \partial_t \mathbf{u} + \partial_{\mathbf{u}} \mathbf{F}(\mathbf{u}) \partial_x \mathbf{u} = \mathbf{f}  &amp;&amp; \text{(convective form)} \\
+\end{aligned}\end{split}\]</div>
 </div>
+</div>
+<div class="section" id="n-dimensional-space">
+<h2>n-dimensional space<a class="headerlink" href="#n-dimensional-space" title="Permalink to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[\mathbf{u}(\vec{r}, t)\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  &amp; \partial_t \mathbf{u} + \nabla \cdot \mathbf{F}(\mathbf{u}) = \mathbf{f}  &amp;&amp; \text{(conservative form)} \\
+  &amp; \partial_t \mathbf{u} + \nabla \mathbf{u} \cdot \partial_{\mathbf{u}} \mathbf{F}(\mathbf{u}) = \mathbf{f}  &amp;&amp; \text{(convective form)} \\
+\end{aligned}\end{split}\]</div>
+<p>Different descritpions of integral problem,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \dfrac{d}{dt} \int_V \mathbf{u} + \oint_{\partial V} \hat{n} \cdot \mathbf{F}(\mathbf{u}) &amp; = \int_V \mathbf{f} &amp;&amp; \quad \text{(Eulerian)} \\
+  \dfrac{d}{dt} \int_{V_t} \mathbf{u} - \oint_{\partial V_t} \mathbf{u} \vec{u} \cdot \hat{n} + \oint_{\partial V_t} \hat{n} \cdot \mathbf{F}(\mathbf{u}) &amp; = \int_{V_t} \mathbf{f} &amp;&amp; \quad \text{(Lagrangian)} \\
+  \dfrac{d}{dt} \int_{v_t} \mathbf{u} - \oint_{\partial v_t} \mathbf{u} \vec{u}_b \cdot \hat{n} + \oint_{\partial v_t} \hat{n} \cdot \mathbf{F}(\mathbf{u}) &amp; = \int_{v_t} \mathbf{f} &amp;&amp; \quad \text{(arbitrary)}
+\end{aligned}\end{split}\]</div>
+<p><strong>todo</strong> <em>in coordinates</em></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned} 
+  f_i
+  &amp; = \partial_t u_i + \partial_{x_k} F_{ki} (u_l) = \\
+  &amp; = \partial_t u_i + \partial_{x_k} u_m \partial_{u_m} F_{ki} (u_l) = \\
+\end{aligned}\end{split}\]</div>
+<div class="proof example admonition" id="example-0">
+<p class="admonition-title"><span class="caption-number">Example 29 </span> (P-system in 1-dimensional domain)</p>
+<div class="example-content section" id="proof-content">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{cases}
+ \partial_t \rho + u \partial_x \rho + \rho \partial_x u = 0 \\
+ \rho \partial_t u + \rho u \partial_x u + \partial_x P = 0 \\
+\end{cases}\end{split}\]</div>
+<p>with <span class="math notranslate nohighlight">\(\partial_x P = a^2 \partial_x \rho\)</span>,</p>
+<p><strong>Convective form</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\partial_t \begin{bmatrix} \rho \\ u \end{bmatrix} + \begin{bmatrix} u &amp; \rho \\ \frac{a^2}{\rho} &amp; u \end{bmatrix} \partial_x \begin{bmatrix} \rho \\ u \end{bmatrix} = \underline{0} \ .\end{split}\]</div>
+<p><strong>Conservative form</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\partial_t \begin{bmatrix} \rho \\ \rho u \end{bmatrix} + \partial_x \begin{bmatrix} \rho u \\ \rho u^2 + \rho a^2 \end{bmatrix} = \underline{0} \ .\end{split}\]</div>
+<p><strong>Spectral decomposition</strong> of <span class="math notranslate nohighlight">\(\mathbf{A}(\mathbf{u})\)</span> gives</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}0 = \left| \begin{bmatrix} u - s &amp; \rho \\ \frac{a^2}{\rho} &amp; u - s \end{bmatrix} \right| = (u - s)^2  - a^2\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  s_{1,2} &amp; = u \mp a \\
+  \mathbf{R} &amp; = \begin{bmatrix} \rho &amp; \rho \\ a &amp; -a  \end{bmatrix} \\
+  \mathbf{L} &amp; = \frac{1}{2 \rho a} \begin{bmatrix} a &amp; \rho \\ a &amp; -\rho  \end{bmatrix} \\
+\end{aligned}\end{split}\]</div>
+</div>
+</div><div class="proof example admonition" id="example-1">
+<p class="admonition-title"><span class="caption-number">Example 30 </span> (Euler equations in 1-dimensional domain)</p>
+<div class="example-content section" id="proof-content">
+<p><strong>Conservative form</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\partial_t \begin{bmatrix} \rho \\ \rho u \\ \rho e^t \end{bmatrix} + \partial_x \begin{bmatrix} \rho u \\ \rho u^2 + P \\ \rho u h^t  \end{bmatrix} = \underline{0} \ ,\end{split}\]</div>
+<p>with <span class="math notranslate nohighlight">\(h^t = e^t + \frac{P}{\rho}\)</span> and <span class="math notranslate nohighlight">\(e^t = e + \frac{u^2}{2}\)</span>, and the pressure field can be written as a function of the other thermodynamic variables. As an example, using conservative variables <span class="math notranslate nohighlight">\((\rho, m, E^t) = (\rho, \rho u, \rho e^t) = \left(\rho, \rho u, \rho \left(e + \frac{u^2}{2}\right) \right)\)</span></p>
+<div class="math notranslate nohighlight">
+\[P(\rho, e) = P\left(\rho, \frac{E^t}{\rho} - \frac{m^2}{2 \rho^2}\right) = \Pi\left( \rho, m, E^t \right)\]</div>
+<p>so that</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+ \partial_{\rho} \Pi &amp; = \partial_\rho P \big|_e + \partial_e P \big|_\rho \left( -\frac{E^t}{\rho^2} + \frac{m^2}{\rho^3} \right) \\
+ \partial_{m   } \Pi &amp; = \partial_e P \big|_\rho \left( - 2 \frac{m}{\rho^2}  \right) \\
+ \partial_{E^t } \Pi &amp; = \partial_e P \big|_\rho \left( \frac{1}{\rho} \right) \\
+\end{aligned}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[dP = \left( \frac{\partial P}{\partial \rho} \right)_{e} d \rho + \left( \frac{\partial P}{\partial e} \right)_{\rho} d e\]</div>
+<p>while starting from <span class="math notranslate nohighlight">\(P(s, \rho)\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  dP
+  &amp; = \left( \frac{\partial P}{\partial \rho} \right)_{s} d \rho + \left( \frac{\partial P}{\partial s} \right)_{\rho} d s = \\
+  &amp; = c^2(\rho, s) d \rho + \left( \frac{\partial P}{\partial s} \right)_{\rho} d s  \ .
+\end{aligned}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[P(\rho, s(\rho, e))\]</div>
+<div class="math notranslate nohighlight">
+\[d P = \partial_\rho P \big|_{s} d \rho + \partial_s P\big|_{\rho} \left( \partial_{\rho} s \big|_{e} d \rho + \partial_e s \big|_{\rho} d e  \right)\]</div>
+<p>and using <span class="math notranslate nohighlight">\(d s = \frac{d e}{T} - \frac{P}{\rho^2 T} d \rho \ ,\)</span></p>
+<div class="math notranslate nohighlight">
+\[P(\rho, s) = P(\rho, e(\rho, s))\]</div>
+<div class="math notranslate nohighlight">
+\[c^2 = \partial_\rho P\big|_s = \partial_\rho P\big|_e + \partial_e P\big|_{\rho} \, \partial_\rho e\big|_s \]</div>
+<p><strong>Conservative form in conservative variables.</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\partial_t \begin{bmatrix} \rho \\ m \\ E^t \end{bmatrix} + \partial_x \begin{bmatrix} m \\ \frac{m^2}{\rho} + \Pi(\rho,m,E^t) \\ \frac{m}{\rho} \left(E^t + \Pi(\rho, m, E^t)\right)  \end{bmatrix} = \underline{0} \ ,\end{split}\]</div>
+<p><strong>Convective form in conservative variables.</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\partial_t \begin{bmatrix} \rho \\ m \\ E^t \end{bmatrix} + \partial_x \begin{bmatrix} 0 &amp; 1 &amp; 0 \\ - \frac{m^2}{\rho^2} + \partial_\rho \Pi &amp; \frac{2 m}{\rho} + \partial_m \Pi &amp; \partial_{E^t} \Pi \\ - \frac{m}{\rho^2}(E^t+\Pi)+ \frac{m}{\rho}\partial_\rho \Pi &amp; \frac{1}{\rho} (E^t + \Pi) + \frac{m}{ \rho} \partial_{m} \Pi &amp; \frac{m}{\rho} \left( 1 + \partial_{E^t} \Pi \right)  \end{bmatrix} \partial_x \begin{bmatrix} \rho \\ m \\ E^t \end{bmatrix}  = \underline{0} \ ,\end{split}\]</div>
+<p><strong>Spectral decomposition</strong> of <span class="math notranslate nohighlight">\(\mathbf{A}(\mathbf{u})\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+  0
+  &amp; = \left| \begin{bmatrix} -s &amp; 1 &amp; 0 \\ 
+   -u^2 + \partial_\rho \Pi &amp; 2 u + \partial_m \Pi - s &amp; \partial_{E^t} \Pi \\
+   - u \left(e^t+\frac{P}{\rho} \right)+ u \partial_\rho \Pi &amp; e^t + \frac{P}{\rho} + u \partial_{m} \Pi &amp; u \left( 1 + \partial_{E^t} \Pi \right) - s
+  \end{bmatrix} \right| = \\
+  &amp; = - s \left[ \left( 2 u + \partial_m \Pi - s  \right) \left( u \left( 1 + \partial_{E^t} \Pi \right) - s \right) - \partial_{E^t} \Pi \left( h^t + u \partial_m \Pi \right) \right] + \\
+  &amp; \quad - u h^t \partial_{E^t} \Pi + u \partial_\rho \Pi \partial_{E^t} \Pi + \\
+  &amp; \quad + (u^2 - \partial_\rho \Pi) \left( u (1 + \partial_{E^t} \Pi) - s \right)
+\end{split}\]</div>
+</div>
+</div></div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -452,10 +620,20 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scalar-linear">Scalar linear</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scalar-linear">Scalar linear</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dimensional">1-dimensional</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scalar-non-linear">Scalar non-linear</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#system-linear">System linear</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#system-non-linear">System non-linear</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#system-linear">System linear</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">1-dimensional</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#system-non-linear">System non-linear</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dimensional-space">1-dimensional space</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#n-dimensional-space">n-dimensional space</a></li>
 </ul>
   </nav></div>
 
