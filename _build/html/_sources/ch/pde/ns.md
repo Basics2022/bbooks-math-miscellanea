@@ -39,6 +39,25 @@ $$\rho \partial_t \widetilde{u} + \mu |\vec{\kappa}|^2 \widetilde{u} = \left[ 1 
 
 as the orthogonal projector $[ 1 - \frac{\vec{\kappa} \vec{\kappa}}{|\vec{\kappa}|^2}]$ onto the space of divergence-free functions acts on the non-linear and forcing terms.
 
+<!--
+## Lagrangina formulation of the problem
+
+$$L = T + U$$
+
+$$\dfrac{d}{dt} \left( \frac{\partial L}{\partial \dot{q}} \right) - \frac{\partial L}{\partial q} = Q_q$$
+
+For a material volume $V_t$
+
+$$\begin{aligned}
+  T
+    = \frac{1}{2} \int_{V_t} \rho \vec{u} \cdot \vec{u} \, dV 
+    =\frac{1}{2} \int_{V_0} \rho_0 \vec{u} \cdot \vec{u} \, dV_0
+\end{aligned}$$
+
+$$\vec{u} = \dfrac{D \vec{r}}{Dt}$$
+
+Virtual work
+-->
 ## Weak formulation of the problem
 <!--
   & = \int_{V} \vec{w} \cdot \left[ \rho \partial_t \vec{u} + \rho ( \vec{u} \cdot \nabla ) \vec{u} - 2 \mu \nabla \cdot \left( \frac{1}{2} \left(  \nabla \vec{u} + \nabla^T \vec{u} \right) \right) + \nabla P - \rho \vec{g} \right] - \int_{V} v \nabla \cdot \vec{u} = \\
@@ -47,8 +66,32 @@ as the orthogonal projector $[ 1 - \frac{\vec{\kappa} \vec{\kappa}}{|\vec{\kappa
 $$\begin{aligned}
   0
   & = \int_{V} \vec{w} \cdot \left[ \rho \partial_t \vec{u} + \rho ( \vec{u} \cdot \nabla ) \vec{u} - 2 \mu \nabla \cdot \mathbb{D}(\vec{u}) + \nabla P - \rho \vec{g} \right] - \int_{V} v \nabla \cdot \vec{u} = \\
-  & = \int_{V} \vec{w} \cdot \left[ \rho \partial_t \vec{u} + \rho ( \vec{u} \cdot \nabla ) \vec{u} \right] + \int_V 2 \mu \nabla \vec{w} : \mathbb{D} - \int_V \nabla \cdot \vec{w} P - \int_V \rho \vec{g} - \int_{V} v \nabla \cdot \vec{u} - \int_{\partial V} \hat{n} \cdot \left( \mathbb{S} - P \mathbb{I} \right) \cdot \vec{w} \ ,
+  & = \int_{V} \vec{w} \cdot \left[ \rho \partial_t \vec{u} + \rho ( \vec{u} \cdot \nabla ) \vec{u} \right] + \int_V 2 \mu \nabla \vec{w} : \mathbb{D} - \int_V \nabla \cdot \vec{w} P - \int_V \vec{w} \cdot \rho \vec{g} - \int_{V} v \nabla \cdot \vec{u} - \int_{\partial V} \hat{n} \cdot \left( \mathbb{S} - P \mathbb{I} \right) \cdot \vec{w} \ ,
 \end{aligned}$$
+
+### Weak formulation and incompressibility constraint
+
+$$\vec{r}(\vec{r}_0, t) = \vec{r}(q(t), t)$$
+
+$$\vec{u} = \dfrac{D \vec{r}}{D t} = \dot{q} \dfrac{\partial \vec{r}}{\partial q} + \dfrac{\partial \vec{r}}{\partial t}$$
+
+In the weak formulation, using $\vec{w} = \frac{\partial \vec{r}}{\partial q} = \frac{\partial \vec{u}}{\partial \dot{q}}$
+
+$$\begin{aligned}
+  0
+  & = \int_{V} \vec{w} \cdot \rho \frac{D \vec{u}}{D t} + \int_V 2 \mu \nabla \vec{w} : \mathbb{D} - \int_V \nabla \cdot \vec{w} P - \int_V \rho \vec{w} \cdot \vec{g} - \int_{V} v \nabla \cdot \vec{u} - \int_{\partial V} \vec{t}_{\hat{n}} \cdot \vec{w} \ ,
+\end{aligned}$$
+
+$$\begin{aligned}
+  \int_V  \vec{w} \cdot \rho \dfrac{D \vec{u}}{Dt} \, dV 
+  & = \int_{V_0} \rho_0 \frac{\partial \vec{u}}{\partial \dot{q}} \cdot \dfrac{D \vec{u}}{D t} = \\ 
+  & = \int_{V_0} \rho_0 \dfrac{D}{D t} \left( \frac{\partial \vec{u}}{\partial \dot{q}} \cdot \vec{u} \right) \, dV_0
+    - \int_{V_0} \rho_0 \dfrac{D}{Dt} \left( \dfrac{\partial \vec{r}}{\partial \dot{q}} \right) \cdot \vec{u} \, dV_0  = \\ 
+  & = \int_{V_0} \rho_0 \dfrac{D}{D t} \left( \frac{\partial}{\partial \dot{q}} \frac{|\vec{u}|^2}{2} \right) \, dV_0
+    - \int_{V_0} \rho_0 \dfrac{\partial }{\partial q} \frac{|\vec{u}|^2}{2} \, dV_0  = \\ 
+\end{aligned}$$
+
+...
 
 ## Non-linear term
 
