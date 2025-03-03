@@ -64,6 +64,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'ch/pde/ns';</script>
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -335,7 +337,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -351,6 +355,19 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#incompressibility-constraint">Incompressibility constraint</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wave-vector-transformed-space">Wave-vector transformed space</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-formulation-of-the-problem">Weak formulation of the problem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-term">Non-linear term</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -362,6 +379,68 @@ document.write(`
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="navier-stokes-equations">
 <span id="pde-ns"></span><h1>Navier-Stokes equations<a class="headerlink" href="#navier-stokes-equations" title="Permalink to this heading">#</a></h1>
+<p>Incompressible Navier-Stokes equations read</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{cases}
+  \rho \partial_t \vec{u} + \rho \left( \vec{u} \cdot \nabla \right) \vec{u} - \mu \nabla^2 \vec{u} + \nabla P = \rho \vec{g} \\
+  \nabla \cdot \vec{u} = 0 \ . 
+\end{cases}\end{split}\]</div>
+<p>Mass balance equation is replaced by the incompressiblity kinematic constraint, <span class="math notranslate nohighlight">\(\nabla \cdot \vec{u} = 0\)</span>: this constraint is not dynamic, as time derivative of density does not appear in the equation. With the incompressibility constraint, mass equation tells us that material particles keep their density constant,</p>
+<div class="math notranslate nohighlight">
+\[0 = \underbrace{\partial_t \rho + \vec{u} \cdot \nabla \rho}_{=\frac{D \vec{\rho}}{D t}} + \rho \underbrace{\nabla \cdot \vec{u}}_{=0} = \frac{D \rho}{D t} \ , \]</div>
+<p>whose solution can be written using material coordinates <span class="math notranslate nohighlight">\(\vec{r}_0\)</span> as <span class="math notranslate nohighlight">\(\rho(\vec{r}(\vec{r}_0,t), t) = \rho_0(\vec{r}_0, t)\)</span>.</p>
+<div class="section" id="incompressibility-constraint">
+<h2>Incompressibility constraint<a class="headerlink" href="#incompressibility-constraint" title="Permalink to this heading">#</a></h2>
+<p>Incompressibility constraint makes thermodynamic fade, while pressure field is replaced by/contains the contribution of a Lagrangian multiplier related to the incompressiblity constraint.</p>
+<div class="section" id="wave-vector-transformed-space">
+<h3>Wave-vector transformed space<a class="headerlink" href="#wave-vector-transformed-space" title="Permalink to this heading">#</a></h3>
+<p>Transforming the fields from physical space to the wave-vector space <span class="math notranslate nohighlight">\(\widetilde{u}(\vec{\kappa}, t) = \mathscr{F}\left\{ \vec{u}(\vec{r},t) \right\}\)</span>, Navier-Stokes equations for incompressible fluids with uniform and constant density <span class="math notranslate nohighlight">\(\rho(\vec{r},t) = \rho\)</span> becomes</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{cases}
+  \rho \partial_t \widetilde{u} + \mathscr{F}\left\{ \left( \vec{u} \cdot \nabla \right) \vec{u} \right\} + \mu |\vec{\kappa}|^2 \widetilde{u} + i \vec{k} \widetilde{P} = \rho \widetilde{g} \\
+  i \vec{\kappa} \cdot \widetilde{u} = 0 \ .
+\end{cases}\end{split}\]</div>
+<p>Taking the divergence of the momentum balance equation, i.e. taking the scalar product with <span class="math notranslate nohighlight">\(i \vec{\kappa}\)</span> in the transformed space, and using the incompressibility constraint to set <span class="math notranslate nohighlight">\(i \vec{\kappa} \cdot \widetilde{u} = 0\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[i \vec{\kappa} \cdot \mathscr{F}\left\{ (\vec{u} \cdot \nabla ) \vec{u} \right\} - |\vec{\kappa}|^2 \widetilde{P} = i \vec{\kappa} \cdot \rho \widetilde{g} \ ,\]</div>
+<p>so that the transformed pressure field becomes</p>
+<div class="math notranslate nohighlight">
+\[\widetilde{P} = \frac{i \vec{\kappa}}{|\vec{\kappa}|^2} \cdot \mathscr{F} \left\{ \left( \vec{u} \cdot \nabla \right) \vec{u} - \rho \vec{g} \right\} \ ,\]</div>
+<p>Replacing this expression in the transformed Navier-Stokes equations, the meaning of the pressure field as a Lagrange multiplier associated with incompressibility constraint becomes clear,</p>
+<div class="math notranslate nohighlight">
+\[\rho \partial_t \widetilde{u} + \mu |\vec{\kappa}|^2 \widetilde{u} = \left[ 1 - \frac{\vec{\kappa} \vec{\kappa}}{|\vec{\kappa}|^2} \right] \cdot \mathscr{F}\left\{ - (\vec{u} \cdot \nabla) \vec{u} + \rho \widetilde{g} \right\}\]</div>
+<p>as the orthogonal projector <span class="math notranslate nohighlight">\([ 1 - \frac{\vec{\kappa} \vec{\kappa}}{|\vec{\kappa}|^2}]\)</span> onto the space of divergence-free functions acts on the non-linear and forcing terms.</p>
+</div>
+</div>
+<div class="section" id="weak-formulation-of-the-problem">
+<h2>Weak formulation of the problem<a class="headerlink" href="#weak-formulation-of-the-problem" title="Permalink to this heading">#</a></h2>
+<!--
+  & = \int_{V} \vec{w} \cdot \left[ \rho \partial_t \vec{u} + \rho ( \vec{u} \cdot \nabla ) \vec{u} - 2 \mu \nabla \cdot \left( \frac{1}{2} \left(  \nabla \vec{u} + \nabla^T \vec{u} \right) \right) + \nabla P - \rho \vec{g} \right] - \int_{V} v \nabla \cdot \vec{u} = \\
+-->
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  0
+  &amp; = \int_{V} \vec{w} \cdot \left[ \rho \partial_t \vec{u} + \rho ( \vec{u} \cdot \nabla ) \vec{u} - 2 \mu \nabla \cdot \mathbb{D}(\vec{u}) + \nabla P - \rho \vec{g} \right] - \int_{V} v \nabla \cdot \vec{u} = \\
+  &amp; = \int_{V} \vec{w} \cdot \left[ \rho \partial_t \vec{u} + \rho ( \vec{u} \cdot \nabla ) \vec{u} \right] + \int_V 2 \mu \nabla \vec{w} : \mathbb{D} - \int_V \nabla \cdot \vec{w} P - \int_V \rho \vec{g} - \int_{V} v \nabla \cdot \vec{u} - \int_{\partial V} \hat{n} \cdot \left( \mathbb{S} - P \mathbb{I} \right) \cdot \vec{w} \ ,
+\end{aligned}\end{split}\]</div>
+</div>
+<div class="section" id="non-linear-term">
+<h2>Non-linear term<a class="headerlink" href="#non-linear-term" title="Permalink to this heading">#</a></h2>
+<p>Different ways to treat the non-linear term:</p>
+<ul>
+<li><p>Semi-linear approximation of the non-linear term</p>
+<div class="math notranslate nohighlight">
+\[( \vec{u}(\vec{r}, t^n) \cdot \nabla ) \vec{u}(\vec{r}, t^n) \sim ( \vec{u}^*(\vec{r}, t^n) \cdot \nabla ) \vec{u}(\vec{r}, t^n) \ , \]</div>
+<p>with <span class="math notranslate nohighlight">\(\vec{u}^*(\vec{r}, t^n)\)</span> an approximation of <span class="math notranslate nohighlight">\(\vec{u}(\vec{r},t^n)\)</span> involving values of the velocity field at previous time-steps, as an example</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\vec{u}^*(\vec{r}, t^n) = 
+   \begin{cases}
+      \vec{u}(\vec{r}, t^{n-1}) &amp; \text{$1^{st}$-order} \\
+      2 \vec{u}(\vec{r}, t^{n-1}) - \vec{u}(\vec{r}, t^{n-2}) &amp; \text{$2^{nd}$-order} \\
+   \end{cases}\end{split}\]</div>
+</li>
+</ul>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -418,6 +497,25 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#incompressibility-constraint">Incompressibility constraint</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wave-vector-transformed-space">Wave-vector transformed space</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-formulation-of-the-problem">Weak formulation of the problem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-term">Non-linear term</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

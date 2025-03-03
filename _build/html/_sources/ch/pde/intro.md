@@ -1,7 +1,7 @@
 (pde)=
 # Introduction to Partial Differential Equations
 
-Partial differential equations usually comes from balance equations. Integral equations are the most general form of these equations, and an equivalent differential problem only exists if the fields involved in the equations are regular enough, for their derivatives to exist - and to apply theorems requiring some regularity of the functions.
+Partial differential equations usually comes from balance equations in **continuum mechanics**. Integral equations are the most general form of these equations, and an equivalent differential problem only exists if the fields involved in the equations are regular enough, for their derivatives to exist - and to apply theorems requiring some regularity of the functions.
 
 Classical numerical methods:
 - **FVM**: directly solves the **integral problem**, solving integral balance equations for cells in which the domain is divided
