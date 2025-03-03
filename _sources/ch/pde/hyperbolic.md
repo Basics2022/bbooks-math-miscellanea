@@ -170,7 +170,12 @@ and using $d s = \frac{d e}{T} - \frac{P}{\rho^2 T} d \rho \ ,$
 
 $$P(\rho, s) = P(\rho, e(\rho, s))$$
 
-$$c^2 = \partial_\rho P\big|_s = \partial_\rho P\big|_e + \partial_e P\big|_{\rho} \, \partial_\rho e\big|_s $$
+$$\begin{aligned}
+  c^2
+  & = \partial_\rho P\big|_s = \\
+  & = \partial_\rho P\big|_e + \partial_e P\big|_{\rho} \, \partial_\rho e\big|_s = \\
+  & = \partial_\rho P\big|_e + \frac{P}{\rho^2} \partial_e P \big|_{\rho} \ ,
+\end{aligned}$$
 
 **Conservative form in conservative variables.**
 

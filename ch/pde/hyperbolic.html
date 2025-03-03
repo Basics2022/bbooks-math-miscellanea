@@ -534,7 +534,12 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[P(\rho, s) = P(\rho, e(\rho, s))\]</div>
 <div class="math notranslate nohighlight">
-\[c^2 = \partial_\rho P\big|_s = \partial_\rho P\big|_e + \partial_e P\big|_{\rho} \, \partial_\rho e\big|_s \]</div>
+\[\begin{split}\begin{aligned}
+  c^2
+  &amp; = \partial_\rho P\big|_s = \\
+  &amp; = \partial_\rho P\big|_e + \partial_e P\big|_{\rho} \, \partial_\rho e\big|_s = \\
+  &amp; = \partial_\rho P\big|_e + \frac{P}{\rho^2} \partial_e P \big|_{\rho} \ ,
+\end{aligned}\end{split}\]</div>
 <p><strong>Conservative form in conservative variables.</strong></p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\partial_t \begin{bmatrix} \rho \\ m \\ E^t \end{bmatrix} + \partial_x \begin{bmatrix} m \\ \frac{m^2}{\rho} + \Pi(\rho,m,E^t) \\ \frac{m}{\rho} \left(E^t + \Pi(\rho, m, E^t)\right)  \end{bmatrix} = \underline{0} \ ,\end{split}\]</div>
