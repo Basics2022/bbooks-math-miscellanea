@@ -161,7 +161,7 @@ $$m \partial_{tt} u - EA \partial_{xx} u = f \ ,$$
 
 that can be recast in the general expression of wave equation
 
-$$\partial_{tt} u - c^2 \partial_{xx} u = \frac{F}$$
+$$\partial_{tt} u - c^2 \partial_{xx} u = F$$
 
 ```
 
