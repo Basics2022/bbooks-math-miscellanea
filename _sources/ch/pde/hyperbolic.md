@@ -114,13 +114,54 @@ the solution is in the $S_i$ region is
 $$u_i(x,t) = \sum_{\lambda_k > \frac{x}{t}} R_{ik} q_{a,k} +  \sum_{\lambda_k < \frac{x}{t}} R_{ik} q_{b,k}$$ 
 
 ```{prf:example} Linear(ized) P-system
-The linear(ized) P-system around a uniform reference state $\overline{\rho}$, $\overline{u}$ read
+:class: dropdown
+
+The linear(ized) P-system around a uniform reference state $\overline{\rho}$, $\overline{u}$ in convective form reads
 
 $$
-  \partial_t \begin{bamtrix} \rho \\ u \end{bmatrix} + \begin{matrix}  \end{matrix} \begin{bmatrix} \rho \\ u \end{bmatrix} = \amthbf{0} \ .
+  \partial_t \begin{bmatrix} \rho \\ u \end{bmatrix} + \begin{bmatrix} \overline{u} & \overline{\rho} \\ \frac{a^2}{\overline{\rho}} & \overline{u} \end{bmatrix} \partial_x \begin{bmatrix} \rho \\ u \end{bmatrix} = \mathbf{0} \ .
 $$
+
+**Spectral decomposition.**
+
+$$0 = \left| -\lambda \mathbf{I} + \mathbf{A} \right| = (\overline{u}-\lambda)^2 - a^2$$
+
+$$\lambda_{12} = \overline{u} \mp a \qquad , \qquad \mathbf{r}_{12} = \begin{bmatrix} \overline{\rho} \\ \mp a \end{bmatrix} $$
+
+$$\begin{aligned}
+  \mathbf{R} & = \begin{bmatrix} \overline{\rho} & \overline{\rho} \\ - a & a \end{bmatrix} \\
+  \mathbf{L} & = \mathbf{R}^{-1} = \frac{1}{2 \overline{\rho} a} \begin{bmatrix} a & -\overline{\rho} \\ a & \overline{\rho} \end{bmatrix} \\
+\end{aligned}$$
+
+**Reference state.**
+
+$$|u| \ : \  
+\begin{cases}
+   = 0 && \text{at rest} \\
+   < a && \text{subsonic flow} \\
+   > a && \text{supersonic flow to the left/right} \\
+\end{cases}
+$$
+
+Subsonic: the two families of characteristic lines have opposite direction; supersonic: the two families of characteristic lines have the same direction.
 
 ```
+
+```{prf:example} Linearized shallow water equations
+```
+
+```{prf:example} Linearized Euler equations (acoustics)
+```
+
+```{prf:example} Wave equation
+
+A wave equation arises in many different fields of science. As an example, 1-dimensional wave equation descrives the axial dynamics of a truss
+
+$$m partial_{tt} u - EA \partial_{xx} u= f$$
+
+```
+
+
 
 
 (pde:hyperbolic:system-non-linear)=
