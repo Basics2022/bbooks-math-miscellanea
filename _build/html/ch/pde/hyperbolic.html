@@ -487,7 +487,7 @@ document.write(`
 <p>the solution is in the <span class="math notranslate nohighlight">\(S_i\)</span> region is</p>
 <div class="math notranslate nohighlight">
 \[u_i(x,t) = \sum_{\lambda_k &gt; \frac{x}{t}} R_{ik} q_{a,k} +  \sum_{\lambda_k &lt; \frac{x}{t}} R_{ik} q_{b,k}\]</div>
-<div class="proof example admonition" id="example-0">
+<div class="proof example dropdown admonition" id="example-0">
 <p class="admonition-title"><span class="caption-number">Example 29 </span> (Linear(ized) P-system)</p>
 <div class="example-content section" id="proof-content">
 <p>The linear(ized) P-system around a uniform reference state <span class="math notranslate nohighlight">\(\overline{\rho}\)</span>, <span class="math notranslate nohighlight">\(\overline{u}\)</span> in convective form reads</p>
@@ -514,6 +514,52 @@ document.write(`
    &gt; a &amp;&amp; \text{supersonic flow to the left/right} \\
 \end{cases}
 \end{split}\]</div>
+<p>Subsonic: the two families of characteristic lines have opposite direction; supersonic: the two families of characteristic lines have the same direction.</p>
+</div>
+</div><div class="proof example admonition" id="example-1">
+<p class="admonition-title"><span class="caption-number">Example 30 </span> (Linearized shallow water equations)</p>
+<div class="example-content section" id="proof-content">
+</div>
+</div><div class="proof example admonition" id="example-2">
+<p class="admonition-title"><span class="caption-number">Example 31 </span> (Linearized Euler equations (acoustics))</p>
+<div class="example-content section" id="proof-content">
+</div>
+</div><div class="proof example dropdown admonition" id="example-3">
+<p class="admonition-title"><span class="caption-number">Example 32 </span> (Wave equation)</p>
+<div class="example-content section" id="proof-content">
+<p>A wave equation arises in many different fields of science. As an example, 1-dimensional wave equation descrives the axial dynamics of a truss</p>
+<div class="math notranslate nohighlight">
+\[m \partial_{tt} u - EA \partial_{xx} u = f \ ,\]</div>
+<p>that can be recast in the general expression of wave equation</p>
+<div class="math notranslate nohighlight">
+\[\partial_{tt} u - c^2 \partial_{xx} u = F\]</div>
+<p>The <span class="math notranslate nohighlight">\(2^{nd}\)</span> order differential operator appearing in 1-dimensional wave equation can be factored as the “product” of 2 <span class="math notranslate nohighlight">\(1^{st}\)</span> order differentail operators,</p>
+<div class="math notranslate nohighlight">
+\[\left( \partial_{tt} - c^2 \partial_{xx} \right) u = \left( \partial_t - c \partial_x \right) \left( \partial_t + c \partial_x \right) u\]</div>
+<p>and thus a wave equation can be written as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{cases}
+  \partial_t u + c \partial_x u - w = 0 \\
+  \partial_t w - c \partial_x w     = F \\
+\end{cases}\end{split}\]</div>
+<p>In the regime of small displacement, the velocity field is the partial time derivative of the dispalcement field, <span class="math notranslate nohighlight">\(v = \partial_t u\)</span>, and the axial force reads <span class="math notranslate nohighlight">\(N = EA \partial_x u\)</span>. Exploiting Schwartz’s theorem about mixed partial derivatives to write <span class="math notranslate nohighlight">\(\partial_t N = EA \partial_x v\)</span>, it’s possible to write the wave function as the following system of hyperbolic equations in the physical unknowns <span class="math notranslate nohighlight">\(v, N\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{cases}
+  \partial_t N - EA \partial_x v = 0 \\
+  \partial_t v - \frac{1}{m}\partial_x N = f
+\end{cases}\end{split}\]</div>
+<p><strong>P-system and wave equation - reference state at rest, <span class="math notranslate nohighlight">\(\ u = 0\)</span>.</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{cases}
+  \partial_t \rho + \overline{\rho} \partial_x u = 0 \\
+  \partial_t u    + \frac{a^2}{\overline{\rho}} \partial_x \rho = 0 \\
+\end{cases}\end{split}\]</div>
+<p>Taking time partial derivative of the first and space partial derivative of the second equation times <span class="math notranslate nohighlight">\(\overline{\rho}\)</span>, and evaluating their difference, a wave equation for <span class="math notranslate nohighlight">\(rho\)</span> appears</p>
+<div class="math notranslate nohighlight">
+\[\partial_{tt} \rho - a^2 \partial_{xx} \rho = 0 \ .\]</div>
+<p>Analogously, taking space derivative of the first and time derivative of the second, a wave equation for the velocity field appears</p>
+<div class="math notranslate nohighlight">
+\[\partial_{tt} u - a^2 \partial_{xx} u = 0 \ .\]</div>
 </div>
 </div></div>
 </div>
@@ -554,8 +600,8 @@ document.write(`
   &amp; = \partial_t u_i + \partial_{x_k} F_{ki} (u_l) = \\
   &amp; = \partial_t u_i + \partial_{x_k} u_m \partial_{u_m} F_{ki} (u_l) = \\
 \end{aligned}\end{split}\]</div>
-<div class="proof example admonition" id="example-1">
-<p class="admonition-title"><span class="caption-number">Example 30 </span> (P-system in 1-dimensional domain)</p>
+<div class="proof example admonition" id="example-4">
+<p class="admonition-title"><span class="caption-number">Example 33 </span> (P-system in 1-dimensional domain)</p>
 <div class="example-content section" id="proof-content">
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{cases}
@@ -579,8 +625,8 @@ document.write(`
   \mathbf{L} &amp; = \frac{1}{2 \rho a} \begin{bmatrix} a &amp; \rho \\ a &amp; -\rho  \end{bmatrix} \\
 \end{aligned}\end{split}\]</div>
 </div>
-</div><div class="proof example admonition" id="example-2">
-<p class="admonition-title"><span class="caption-number">Example 31 </span> (Euler equations in 1-dimensional domain)</p>
+</div><div class="proof example admonition" id="example-5">
+<p class="admonition-title"><span class="caption-number">Example 34 </span> (Euler equations in 1-dimensional domain)</p>
 <div class="example-content section" id="proof-content">
 <p><strong>Conservative form</strong></p>
 <div class="math notranslate nohighlight">
