@@ -154,6 +154,7 @@ Subsonic: the two families of characteristic lines have opposite direction; supe
 ```
 
 ```{prf:example} Wave equation
+:class: dropdown
 
 A wave equation arises in many different fields of science. As an example, 1-dimensional wave equation descrives the axial dynamics of a truss
 
@@ -170,9 +171,17 @@ $$\left( \partial_{tt} - c^2 \partial_{xx} \right) u = \left( \partial_t - c \pa
 and thus a wave equation can be written as
 
 $$\begin{cases}
-  \partial_t u + c \partial_x u - v = 0 \\
-  \partial_t v - c \partial_x v     = F \\
+  \partial_t u + c \partial_x u - w = 0 \\
+  \partial_t w - c \partial_x w     = F \\
 \end{cases}$$
+
+In the regime of small displacement, the velocity field is the partial time derivative of the dispalcement field, $v = \partial_t u$, and the axial force reads $N = EA \partial_x u$. Exploiting Schwartz's theorem about mixed partial derivatives to write $\partial_t N = EA \partial_x v$, it's possible to write the wave function as the following system of hyperbolic equations in the physical unknowns $v, N$
+
+$$\begin{cases}
+  \partial_t N - EA \partial_x v = 0 \\
+  \partial_t v - \frac{1}{m}\partial_x N = f
+\end{cases}$$
+
 
 **P-system and wave equation - reference state at rest, $\ u = 0$.**
 
@@ -180,6 +189,14 @@ $$\begin{cases}
   \partial_t \rho + \overline{\rho} \partial_x u = 0 \\
   \partial_t u    + \frac{a^2}{\overline{\rho}} \partial_x \rho = 0 \\
 \end{cases}$$
+
+Taking time partial derivative of the first and space partial derivative of the second equation times $\overline{\rho}$, and evaluating their difference, a wave equation for $rho$ appears
+
+$$\partial_{tt} \rho - a^2 \partial_{xx} \rho = 0 \ .$$
+
+Analogously, taking space derivative of the first and time derivative of the second, a wave equation for the velocity field appears
+
+$$\partial_{tt} u - a^2 \partial_{xx} u = 0 \ .$$
 
 ```
 

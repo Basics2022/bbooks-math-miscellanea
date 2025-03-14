@@ -524,7 +524,7 @@ document.write(`
 <p class="admonition-title"><span class="caption-number">Example 31 </span> (Linearized Euler equations (acoustics))</p>
 <div class="example-content section" id="proof-content">
 </div>
-</div><div class="proof example admonition" id="example-3">
+</div><div class="proof example dropdown admonition" id="example-3">
 <p class="admonition-title"><span class="caption-number">Example 32 </span> (Wave equation)</p>
 <div class="example-content section" id="proof-content">
 <p>A wave equation arises in many different fields of science. As an example, 1-dimensional wave equation descrives the axial dynamics of a truss</p>
@@ -539,8 +539,14 @@ document.write(`
 <p>and thus a wave equation can be written as</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{cases}
-  \partial_t u + c \partial_x u - v = 0 \\
-  \partial_t v - c \partial_x v     = F \\
+  \partial_t u + c \partial_x u - w = 0 \\
+  \partial_t w - c \partial_x w     = F \\
+\end{cases}\end{split}\]</div>
+<p>In the regime of small displacement, the velocity field is the partial time derivative of the dispalcement field, <span class="math notranslate nohighlight">\(v = \partial_t u\)</span>, and the axial force reads <span class="math notranslate nohighlight">\(N = EA \partial_x u\)</span>. Exploiting Schwartz’s theorem about mixed partial derivatives to write <span class="math notranslate nohighlight">\(\partial_t N = EA \partial_x v\)</span>, it’s possible to write the wave function as the following system of hyperbolic equations in the physical unknowns <span class="math notranslate nohighlight">\(v, N\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{cases}
+  \partial_t N - EA \partial_x v = 0 \\
+  \partial_t v - \frac{1}{m}\partial_x N = f
 \end{cases}\end{split}\]</div>
 <p><strong>P-system and wave equation - reference state at rest, <span class="math notranslate nohighlight">\(\ u = 0\)</span>.</strong></p>
 <div class="math notranslate nohighlight">
@@ -548,6 +554,12 @@ document.write(`
   \partial_t \rho + \overline{\rho} \partial_x u = 0 \\
   \partial_t u    + \frac{a^2}{\overline{\rho}} \partial_x \rho = 0 \\
 \end{cases}\end{split}\]</div>
+<p>Taking time partial derivative of the first and space partial derivative of the second equation times <span class="math notranslate nohighlight">\(\overline{\rho}\)</span>, and evaluating their difference, a wave equation for <span class="math notranslate nohighlight">\(rho\)</span> appears</p>
+<div class="math notranslate nohighlight">
+\[\partial_{tt} \rho - a^2 \partial_{xx} \rho = 0 \ .\]</div>
+<p>Analogously, taking space derivative of the first and time derivative of the second, a wave equation for the velocity field appears</p>
+<div class="math notranslate nohighlight">
+\[\partial_{tt} u - a^2 \partial_{xx} u = 0 \ .\]</div>
 </div>
 </div></div>
 </div>
