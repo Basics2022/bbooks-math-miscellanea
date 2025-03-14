@@ -113,6 +113,14 @@ the solution is in the $S_i$ region is
 
 $$u_i(x,t) = \sum_{\lambda_k > \frac{x}{t}} R_{ik} q_{a,k} +  \sum_{\lambda_k < \frac{x}{t}} R_{ik} q_{b,k}$$ 
 
+```{prf:example} Linear(ized) P-system
+The linear(ized) P-system around a uniform reference state $\overline{\rho}$, $\overline{u}$ read
+
+$$
+  \partial_t \begin{bamtrix} \rho \\ u \end{bmatrix} + \begin{matrix}  \end{matrix} \begin{bmatrix} \rho \\ u \end{bmatrix} = \amthbf{0} \ .
+$$
+
+```
 
 
 (pde:hyperbolic:system-non-linear)=
