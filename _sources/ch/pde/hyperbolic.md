@@ -174,6 +174,13 @@ $$\begin{cases}
   \partial_t v - c \partial_x v     = F \\
 \end{cases}$$
 
+**P-system and wave equation - reference state at rest, $\ u = 0$.**
+
+$$\begin{cases}
+  \partial_t \rho + \overline{\rho} \partial_x u = 0 \\
+  \partial_t u    + \frac{a^2}{\overline{\rho}} \partial_x \rho = 0 \\
+\end{cases}$$
+
 ```
 
 
