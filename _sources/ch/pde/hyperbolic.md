@@ -167,6 +167,13 @@ The $2^{nd}$ order differential operator appearing in 1-dimensional wave equatio
 
 $$\left( \partial_{tt} - c^2 \partial_{xx} \right) u = \left( \partial_t - c \partial_x \right) \left( \partial_t + c \partial_x \right) u$$
 
+and thus a wave equation can be written as
+
+$$\begin{cases}
+  \partial_t u + c \partial_x u - v = 0 \\
+  \partial_t v - c \partial_x v     = F \\
+\end{cases}$$
+
 ```
 
 
