@@ -157,7 +157,7 @@ Subsonic: the two families of characteristic lines have opposite direction; supe
 
 A wave equation arises in many different fields of science. As an example, 1-dimensional wave equation descrives the axial dynamics of a truss
 
-$$m partial_{tt} u - EA \partial_{xx} u= f$$
+$$m \partial_{tt} u - EA \partial_{xx} u= f$$
 
 ```
 
