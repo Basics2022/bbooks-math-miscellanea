@@ -38,6 +38,7 @@ $$\mathbf{u}(x,t)$$
 
 $$\partial_t \mathbf{u} + \mathbf{A} \partial_x \mathbf{u} = \mathbf{f}$$
 
+#### Method of characteristics
 **Characteristics.** $\mathbf{U}(t) = \mathbf{u}(X(t), t)$
 
 $$\dfrac{d \mathbf{U}}{dt} - \dfrac{d X}{dt} \partial_x \mathbf{u} + \mathbf{A} \partial_x \mathbf{u} = \mathbf{f}$$
@@ -54,15 +55,65 @@ $$\mathbf{A} = \mathbf{R} \symbf{\Lambda} \mathbf{L}$$
 
 $$\mathbf{L} \left[ \partial_t \mathbf{u} + \mathbf{R} \symbf{\Lambda} \mathbf{L} \partial_x \mathbf{u} \right] = \mathbf{L} \mathbf{f} $$
 
-Since $\mathbf{L} = \mathbf{R}^{-1}$, and defining $d \mathbf{q} = \mathbf{L} d \mathbf{u}$, it's possible to recast the original problem in diagonal form
+Since $\mathbf{L} = \mathbf{R}^{-1}$, and defining the **characteristic variables** by $d \mathbf{q} = \mathbf{L} d \mathbf{u}$ - in linear problems matrix $\mathbf{A}$ is constant, and so its spectral decomoposition, and thus $\mathbf{q} = \mathbf{L} \mathbf{u}$ - , it's possible to recast the original problem in diagonal form
 
 $$\partial_t \mathbf{q} + \symbf{\Lambda} \partial_x \mathbf{q} = \mathbf{L} \mathbf{f}$$
 
-$$\partial_t q_i + \Lambda_i \partial_x q_i = \sum_{k} R_{ik} \, f_k =: F_i \ .$$
+$$\partial_t q_i + \Lambda_i \partial_x q_i = \sum_{k} L_{ik} \, f_k =: F_i \ .$$
 
-Thus, on the $i^{th}$ family of characteristic lines, $\dfrac{d X}{dt} = \lambda_i$,
+Thus, on the $i^{th}$ family of characteristic lines, $\dfrac{d X}{dt} = \lambda_i$, $Q_i(t) = q_i(x(t), t)$ evolves as
 
-$$\dfrac{d Q_i}{d t} = F_i$$
+$$\dfrac{d Q_i}{d t} = F_i \ .$$
+
+If $F_i = \left[ \mathbf{L} \mathbf{f} \right]_i = 0$, the characteristic variable $q_i$ is constant along the characteristic lines. Once the characteristic variables are determined, the conservative variables are evalauted as $\mathbf{u}(x,t) = \mathbf{R} \mathbf{q}(x,t)$.
+
+#### Domain of influence and domain of dependence
+
+#### Riemann problem
+A Riemann problem is defined as the evolution of the initial state 
+
+$$\mathbf{u}(x,t_0) =
+  \begin{cases}
+  \mathbf{u}_a \ , && x < x_0 \\
+  \mathbf{u}_b \ , && x > x_0 \\
+\end{cases}$$
+
+This problem is quite useful in quite a wide range of numerical methods for hyperbolic problems - Godunov schemes in Finite Volume Methods -, to evaluate the **boundary state** to be used numerical flux.
+
+For linear problems, the matrix $\mathbf{A}$ is constant ad so it is its spectral decomposition, $\mathbf{A} = \mathbf{R} \symbf{\Lambda} \mathbf{L}$, and the solution of a Riemann problem of an homogeneous linear hyperbolic system can be easily determined analytically with the method of characteristics,
+
+Let's change the origin of space and time, so that the initial state is in $t=0$, and the jump in the initial condiiton in $x = 0$. Each charactersitic variable $q_k(x, t)$ is constant on its family of characteristic lines, $x = X_k(t) = x_{0,k} + \lambda_k t$.
+
+$$q_k(x,t) = q_k(x_{0,k} + \lambda_k t, t) = q_k(x_{0,k}, 0) = q_k(x - \lambda_k t, 0) = L_{ki} u_j(x - \lambda_k t, 0) \ .$$
+
+Thus, the solution in conservative variables $\mathbf{u}(x,t)$ in $x$ at time $t$ reads
+
+$$\begin{aligned}
+  \mathbf{u}(x,t) & = \mathbf{R} \mathbf{q}(x,t) \\
+  u_i(x,t) & = R_{ik} q_k(x,t) = R_{ik} q_k(x-\lambda_k t, 0) = R_{ik} L_{kj} u_j(x-\lambda_k t, 0) \\
+\end{aligned}$$
+
+In a Riemann problem for a $N$-dimensional linear system the solution shows $N+1$ homogeneous regions (at most, in general the same number as the number of the non-coincident eigenvalues $+1$), delimited by the characteristic lines with origin in the discontinuity. Sorting the eigenvalues in increasing order
+
+$$\lambda_1 > \lambda_2 > \dots > \lambda_N \ ,$$
+
+and defining the homogeneous regions
+
+$$\begin{aligned}
+  S_0 & : \frac{x}{t} \in (-\infty, \lambda_1) \\
+  S_1 & : \frac{x}{t} \in (\lambda_1, \lambda_2) \\
+  \dots & \\
+  S_i & : \frac{x}{t} \in (\lambda_i, \lambda_{i+1}) \\ 
+  \dots & \\
+  S_{N-1} & : \frac{x}{t} \in (\lambda_{N-1}, \lambda_{N}) \\ 
+  S_{N}   & : \frac{x}{t} \in (\lambda_{N}, +\infty) \\ 
+\end{aligned}$$
+
+the solution is in the $S_i$ region is
+
+$$u_i(x,t) = \sum_{\lambda_k > \frac{x}{t}} R_{ik} q_{a,k} +  \sum_{\lambda_k < \frac{x}{t}} R_{ik} q_{b,k}$$ 
+
+
 
 (pde:hyperbolic:system-non-linear)=
 ## System non-linear
@@ -145,12 +196,16 @@ $$P(\rho, e) = P\left(\rho, \frac{E^t}{\rho} - \frac{m^2}{2 \rho^2}\right) = \Pi
 so that
 
 $$\begin{aligned}
- \partial_{\rho} \Pi & = \partial_\rho P \big|_e + \partial_e P \big|_\rho \left( -\frac{E^t}{\rho^2} + \frac{m^2}{\rho^3} \right) \\
- \partial_{m   } \Pi & = \partial_e P \big|_\rho \left( - 2 \frac{m}{\rho^2}  \right) \\
+ \partial_{\rho} \Pi
+  & = \partial_\rho P \big|_e + \partial_e P \big|_\rho \left( -\frac{E^t}{\rho^2} + \frac{m^2}{\rho^3} \right) = \\
+  & = \partial_\rho P \big|_e + \partial_e P \big|_\rho \left( - \frac{e^t}{\rho} + \frac{u^2}{\rho} \right) \\
+  & = c^2 - \frac{P}{\rho^2} \partial_e P \big|_\rho + \partial_e P \big|_\rho \left( - \frac{e^t}{\rho} + \frac{u^2}{\rho} \right) \\
+  & = c^2 + \partial_e P \big|_\rho \left( - \frac{h^t}{\rho} + \frac{u^2}{\rho} \right) \\
+ \partial_{m   } \Pi & = \partial_e P \big|_\rho \left( - \frac{m}{\rho^2}  \right) \\
  \partial_{E^t } \Pi & = \partial_e P \big|_\rho \left( \frac{1}{\rho} \right) \\
 \end{aligned}$$
 
-
+<!--
 
 $$dP = \left( \frac{\partial P}{\partial \rho} \right)_{e} d \rho + \left( \frac{\partial P}{\partial e} \right)_{\rho} d e$$
 
@@ -169,6 +224,10 @@ $$d P = \partial_\rho P \big|_{s} d \rho + \partial_s P\big|_{\rho} \left( \part
 and using $d s = \frac{d e}{T} - \frac{P}{\rho^2 T} d \rho \ ,$
 
 $$P(\rho, s) = P(\rho, e(\rho, s))$$
+
+-->
+
+The speed of sound reads
 
 $$\begin{aligned}
   c^2
@@ -195,7 +254,55 @@ $$
   \end{bmatrix} \right| = \\
   & = - s \left[ \left( 2 u + \partial_m \Pi - s  \right) \left( u \left( 1 + \partial_{E^t} \Pi \right) - s \right) - \partial_{E^t} \Pi \left( h^t + u \partial_m \Pi \right) \right] + \\
   & \quad - u h^t \partial_{E^t} \Pi + u \partial_\rho \Pi \partial_{E^t} \Pi + \\
-  & \quad + (u^2 - \partial_\rho \Pi) \left( u (1 + \partial_{E^t} \Pi) - s \right)
+  & \quad + (u^2 - \partial_\rho \Pi) \left( u (1 + \partial_{E^t} \Pi) - s \right) = \\
+  & = -s^3 + \\
+  & \quad + s^2 \left( 2 u + \partial_m \Pi + u + u \partial_{E^t} \Pi  \right) + \\
+  & \quad + s   \left( - 2 u^2 - 2u^2 \partial_{E^t} \Pi - u \partial_m \Pi - u \partial_m \Pi \, \partial_{E^t} \Pi + \partial_{E^t} \Pi \, h^t + u \partial_{E^t} \Pi \, \partial_m \Pi - u^2 + \partial_{\rho} \Pi  \right) + \\
+  & \quad +     \left( -u h^t \partial_{E^t} \Pi + u \partial_{\rho} \Pi \, \partial_{E^t} \Pi + u^3 + u^3 \partial_{E^t} \Pi - u \partial_{\rho} \Pi - u \partial_{\rho} \Pi \, \partial_{E^t} \Pi \right) + \\
+  & = -s^3 + \\
+  & \quad + s^2 \left( 3 u + \partial_m \Pi + u \partial_{E^t} \Pi  \right) + \\
+  & \quad + s   \left( - 3 u^2 - 2u^2 \partial_{E^t} \Pi - u \partial_m \Pi + \partial_{E^t} \Pi \, h^t + \partial_{\rho} \Pi  \right) + \\
+  & \quad +     \left( u^3 - u h^t \partial_{E^t} \Pi + u^3 \partial_{E^t} \Pi - u \partial_{\rho} \Pi \right) = \\
+  & = - (s - u)^3 + ( s - u ) c^2 = \\
+  & = ( s - u ) \left[ -(s-u)^2 + c^2 \right]
 $$
+
+being
+
+$$\begin{aligned}
+  \partial_m \Pi + u \partial_{E^t} \Pi
+  & = \left( - \frac{u}{\rho}  + \frac{u}{\rho} \right) \partial_\rho P \big|_e = 0 \\
+  - 2u^2 \partial_{E^t} \Pi - u \partial_m \Pi + \partial_{E^t} \Pi \, h^t + \partial_{\rho} \Pi 
+  & =  - \frac{u^2}{\rho} \partial_\rho P\big|_e + \frac{1}{\rho} \partial_e P\big|_\rho \, h^t + \partial_\rho P\big|_e + \partial_e P\big|_\rho \left( -\frac{e^t}{\rho} + \frac{u^2}{\rho} \right) = \\
+  & = \partial_{e} P \big|_{\rho} \frac{P}{\rho^2} + \partial_{\rho} P \big|_e = \\
+  & = c^2 \\
+ - u \partial_{\rho} \Pi + u^3 \partial_{E^t} \Pi - u h^t \partial_{E^t} \Pi
+  & = u \left( - \partial_\rho P \big|_e - \partial_e P \big|_{\rho} \left( -\frac{e^t}{\rho} + \frac{u^2}{\rho} \right) + \frac{u^2}{\rho} \partial_e P\big|_\rho - \frac{h^t}{\rho} \partial_e P\big|_{\rho}  \right) \\
+  & = u \left( -\partial_\rho P\big|_e - \frac{P}{\rho^2} \partial_e P \big|_\rho \right) = \\
+  & = - u c^2 \ .
+\end{aligned}$$
+
+Thus,
+
+$$s_{1,3} = u \mp c \quad , \quad s_{2} = u $$
+
+$$
+\mathbf{r}_{1,3} = \begin{bmatrix} 1 \\ u \mp c \\ \dots \end{bmatrix} \hat{\rho}
+ \quad , \quad
+\mathbf{r}_2 = \begin{bmatrix} \dots \\ 0 \\ \dots \end{bmatrix} \hat{\rho}
+$$
+
+being
+
+$$\begin{aligned}
+  \hat{E}^t \partial_{E^t} \Pi
+  & = \left[  u^2 - \partial_\rho \Pi + ( -u \pm c -\partial_m \Pi ) (u \mp c) \right] \hat{\rho} = \\
+  & = \left[  u^2 - \partial_\rho \Pi - u^2 + \pm 2 u c - c^2  -\partial_m \Pi (u \mp c) \right] \hat{\rho} = \\
+  & = \left[ - c^2 - \partial_e P \big|_\rho \left( - \frac{h^t}{\rho} + \frac{u^2}{\rho} \right) \pm 2 u c - c^2  + \frac{u}{\rho} \partial_e P \big|_\rho (u \mp c) \right] \hat{\rho} = \\
+  & = \left[ - 2 c^2 + \partial_e P \big|_\rho \, \frac{h^t}{\rho} \pm 2 u c  \mp  \frac{u c}{\rho} \partial_e P\big|_\rho \right] \hat{\rho} = \\
+\end{aligned}$$
+
+$$\mathbf{R} = \dots $$
+$$\mathbf{L} = \dots $$
 
 ```
