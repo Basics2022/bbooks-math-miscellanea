@@ -7,11 +7,10 @@ Classical numerical methods:
 - **FVM**: directly solves the **integral problem**, solving integral balance equations for cells in which the domain is divided
 - **FDM**: given the problem in **differential form**, FDM directly approximates space derivatives of the **strong formulation** of the problem
 - **FEM**: given the problem in **differential form**, FEM projects the **weak formulation** of the problem on a finite-dimensional space
-
 - **BEM**: *integro-differential equation*, *singularities*,...
-
 - **Spectral methods**,...
 - **SEM**,...
+
 
 (pde:examples)=
 ## Examples

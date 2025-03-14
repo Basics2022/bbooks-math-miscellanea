@@ -366,7 +366,12 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scalar-non-linear">Scalar non-linear</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#system-linear">System linear</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">1-dimensional</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">1-dimensional</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#method-of-characteristics">Method of characteristics</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#domain-of-influence-and-domain-of-dependence">Domain of influence and domain of dependence</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#riemann-problem">Riemann problem</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#system-non-linear">System non-linear</a><ul class="nav section-nav flex-column">
@@ -418,6 +423,8 @@ document.write(`
 \[\mathbf{u}(x,t)\]</div>
 <div class="math notranslate nohighlight">
 \[\partial_t \mathbf{u} + \mathbf{A} \partial_x \mathbf{u} = \mathbf{f}\]</div>
+<div class="section" id="method-of-characteristics">
+<h4>Method of characteristics<a class="headerlink" href="#method-of-characteristics" title="Permalink to this heading">#</a></h4>
 <p><strong>Characteristics.</strong> <span class="math notranslate nohighlight">\(\mathbf{U}(t) = \mathbf{u}(X(t), t)\)</span></p>
 <div class="math notranslate nohighlight">
 \[\dfrac{d \mathbf{U}}{dt} - \dfrac{d X}{dt} \partial_x \mathbf{u} + \mathbf{A} \partial_x \mathbf{u} = \mathbf{f}\]</div>
@@ -430,14 +437,57 @@ document.write(`
 \[\mathbf{A} = \mathbf{R} \symbf{\Lambda} \mathbf{L}\]</div>
 <div class="math notranslate nohighlight">
 \[\mathbf{L} \left[ \partial_t \mathbf{u} + \mathbf{R} \symbf{\Lambda} \mathbf{L} \partial_x \mathbf{u} \right] = \mathbf{L} \mathbf{f} \]</div>
-<p>Since <span class="math notranslate nohighlight">\(\mathbf{L} = \mathbf{R}^{-1}\)</span>, and defining <span class="math notranslate nohighlight">\(d \mathbf{q} = \mathbf{L} d \mathbf{u}\)</span>, it’s possible to recast the original problem in diagonal form</p>
+<p>Since <span class="math notranslate nohighlight">\(\mathbf{L} = \mathbf{R}^{-1}\)</span>, and defining the <strong>characteristic variables</strong> by <span class="math notranslate nohighlight">\(d \mathbf{q} = \mathbf{L} d \mathbf{u}\)</span> - in linear problems matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> is constant, and so its spectral decomoposition, and thus <span class="math notranslate nohighlight">\(\mathbf{q} = \mathbf{L} \mathbf{u}\)</span> - , it’s possible to recast the original problem in diagonal form</p>
 <div class="math notranslate nohighlight">
 \[\partial_t \mathbf{q} + \symbf{\Lambda} \partial_x \mathbf{q} = \mathbf{L} \mathbf{f}\]</div>
 <div class="math notranslate nohighlight">
-\[\partial_t q_i + \Lambda_i \partial_x q_i = \sum_{k} R_{ik} \, f_k =: F_i \ .\]</div>
-<p>Thus, on the <span class="math notranslate nohighlight">\(i^{th}\)</span> family of characteristic lines, <span class="math notranslate nohighlight">\(\dfrac{d X}{dt} = \lambda_i\)</span>,</p>
+\[\partial_t q_i + \Lambda_i \partial_x q_i = \sum_{k} L_{ik} \, f_k =: F_i \ .\]</div>
+<p>Thus, on the <span class="math notranslate nohighlight">\(i^{th}\)</span> family of characteristic lines, <span class="math notranslate nohighlight">\(\dfrac{d X}{dt} = \lambda_i\)</span>, <span class="math notranslate nohighlight">\(Q_i(t) = q_i(x(t), t)\)</span> evolves as</p>
 <div class="math notranslate nohighlight">
-\[\dfrac{d Q_i}{d t} = F_i\]</div>
+\[\dfrac{d Q_i}{d t} = F_i \ .\]</div>
+<p>If <span class="math notranslate nohighlight">\(F_i = \left[ \mathbf{L} \mathbf{f} \right]_i = 0\)</span>, the characteristic variable <span class="math notranslate nohighlight">\(q_i\)</span> is constant along the characteristic lines. Once the characteristic variables are determined, the conservative variables are evalauted as <span class="math notranslate nohighlight">\(\mathbf{u}(x,t) = \mathbf{R} \mathbf{q}(x,t)\)</span>.</p>
+</div>
+<div class="section" id="domain-of-influence-and-domain-of-dependence">
+<h4>Domain of influence and domain of dependence<a class="headerlink" href="#domain-of-influence-and-domain-of-dependence" title="Permalink to this heading">#</a></h4>
+</div>
+<div class="section" id="riemann-problem">
+<h4>Riemann problem<a class="headerlink" href="#riemann-problem" title="Permalink to this heading">#</a></h4>
+<p>A Riemann problem is defined as the evolution of the initial state</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{u}(x,t_0) =
+  \begin{cases}
+  \mathbf{u}_a \ , &amp;&amp; x &lt; x_0 \\
+  \mathbf{u}_b \ , &amp;&amp; x &gt; x_0 \\
+\end{cases}\end{split}\]</div>
+<p>This problem is quite useful in quite a wide range of numerical methods for hyperbolic problems - Godunov schemes in Finite Volume Methods -, to evaluate the <strong>boundary state</strong> to be used numerical flux.</p>
+<p>For linear problems, the matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> is constant ad so it is its spectral decomposition, <span class="math notranslate nohighlight">\(\mathbf{A} = \mathbf{R} \symbf{\Lambda} \mathbf{L}\)</span>, and the solution of a Riemann problem of an homogeneous linear hyperbolic system can be easily determined analytically with the method of characteristics,</p>
+<p>Let’s change the origin of space and time, so that the initial state is in <span class="math notranslate nohighlight">\(t=0\)</span>, and the jump in the initial condiiton in <span class="math notranslate nohighlight">\(x = 0\)</span>. Each charactersitic variable <span class="math notranslate nohighlight">\(q_k(x, t)\)</span> is constant on its family of characteristic lines, <span class="math notranslate nohighlight">\(x = X_k(t) = x_{0,k} + \lambda_k t\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[q_k(x,t) = q_k(x_{0,k} + \lambda_k t, t) = q_k(x_{0,k}, 0) = q_k(x - \lambda_k t, 0) = L_{ki} u_j(x - \lambda_k t, 0) \ .\]</div>
+<p>Thus, the solution in conservative variables <span class="math notranslate nohighlight">\(\mathbf{u}(x,t)\)</span> in <span class="math notranslate nohighlight">\(x\)</span> at time <span class="math notranslate nohighlight">\(t\)</span> reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathbf{u}(x,t) &amp; = \mathbf{R} \mathbf{q}(x,t) \\
+  u_i(x,t) &amp; = R_{ik} q_k(x,t) = R_{ik} q_k(x-\lambda_k t, 0) = R_{ik} L_{kj} u_j(x-\lambda_k t, 0) \\
+\end{aligned}\end{split}\]</div>
+<p>In a Riemann problem for a <span class="math notranslate nohighlight">\(N\)</span>-dimensional linear system the solution shows <span class="math notranslate nohighlight">\(N+1\)</span> homogeneous regions (at most, in general the same number as the number of the non-coincident eigenvalues <span class="math notranslate nohighlight">\(+1\)</span>), delimited by the characteristic lines with origin in the discontinuity. Sorting the eigenvalues in increasing order</p>
+<div class="math notranslate nohighlight">
+\[\lambda_1 &gt; \lambda_2 &gt; \dots &gt; \lambda_N \ ,\]</div>
+<p>and defining the homogeneous regions</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  S_0 &amp; : \frac{x}{t} \in (-\infty, \lambda_1) \\
+  S_1 &amp; : \frac{x}{t} \in (\lambda_1, \lambda_2) \\
+  \dots &amp; \\
+  S_i &amp; : \frac{x}{t} \in (\lambda_i, \lambda_{i+1}) \\ 
+  \dots &amp; \\
+  S_{N-1} &amp; : \frac{x}{t} \in (\lambda_{N-1}, \lambda_{N}) \\ 
+  S_{N}   &amp; : \frac{x}{t} \in (\lambda_{N}, +\infty) \\ 
+\end{aligned}\end{split}\]</div>
+<p>the solution is in the <span class="math notranslate nohighlight">\(S_i\)</span> region is</p>
+<div class="math notranslate nohighlight">
+\[u_i(x,t) = \sum_{\lambda_k &gt; \frac{x}{t}} R_{ik} q_{a,k} +  \sum_{\lambda_k &lt; \frac{x}{t}} R_{ik} q_{b,k}\]</div>
+</div>
 </div>
 </div>
 <div class="section" id="system-non-linear">
@@ -513,28 +563,43 @@ document.write(`
 <p>so that</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
- \partial_{\rho} \Pi &amp; = \partial_\rho P \big|_e + \partial_e P \big|_\rho \left( -\frac{E^t}{\rho^2} + \frac{m^2}{\rho^3} \right) \\
- \partial_{m   } \Pi &amp; = \partial_e P \big|_\rho \left( - 2 \frac{m}{\rho^2}  \right) \\
+ \partial_{\rho} \Pi
+  &amp; = \partial_\rho P \big|_e + \partial_e P \big|_\rho \left( -\frac{E^t}{\rho^2} + \frac{m^2}{\rho^3} \right) = \\
+  &amp; = \partial_\rho P \big|_e + \partial_e P \big|_\rho \left( - \frac{e^t}{\rho} + \frac{u^2}{\rho} \right) \\
+  &amp; = c^2 - \frac{P}{\rho^2} \partial_e P \big|_\rho + \partial_e P \big|_\rho \left( - \frac{e^t}{\rho} + \frac{u^2}{\rho} \right) \\
+  &amp; = c^2 + \partial_e P \big|_\rho \left( - \frac{h^t}{\rho} + \frac{u^2}{\rho} \right) \\
+ \partial_{m   } \Pi &amp; = \partial_e P \big|_\rho \left( - \frac{m}{\rho^2}  \right) \\
  \partial_{E^t } \Pi &amp; = \partial_e P \big|_\rho \left( \frac{1}{\rho} \right) \\
 \end{aligned}\end{split}\]</div>
-<div class="math notranslate nohighlight">
-\[dP = \left( \frac{\partial P}{\partial \rho} \right)_{e} d \rho + \left( \frac{\partial P}{\partial e} \right)_{\rho} d e\]</div>
-<p>while starting from <span class="math notranslate nohighlight">\(P(s, \rho)\)</span></p>
+<!--
+
+$$dP = \left( \frac{\partial P}{\partial \rho} \right)_{e} d \rho + \left( \frac{\partial P}{\partial e} \right)_{\rho} d e$$
+
+while starting from $P(s, \rho)$
+
+$$\begin{aligned}
+  dP
+  & = \left( \frac{\partial P}{\partial \rho} \right)_{s} d \rho + \left( \frac{\partial P}{\partial s} \right)_{\rho} d s = \\
+  & = c^2(\rho, s) d \rho + \left( \frac{\partial P}{\partial s} \right)_{\rho} d s  \ .
+\end{aligned}$$
+
+$$P(\rho, s(\rho, e))$$
+
+$$d P = \partial_\rho P \big|_{s} d \rho + \partial_s P\big|_{\rho} \left( \partial_{\rho} s \big|_{e} d \rho + \partial_e s \big|_{\rho} d e  \right)$$
+
+and using $d s = \frac{d e}{T} - \frac{P}{\rho^2 T} d \rho \ ,$
+
+$$P(\rho, s) = P(\rho, e(\rho, s))$$
+
+-->
+<p>The speed of sound reads</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
-  dP
-  &amp; = \left( \frac{\partial P}{\partial \rho} \right)_{s} d \rho + \left( \frac{\partial P}{\partial s} \right)_{\rho} d s = \\
-  &amp; = c^2(\rho, s) d \rho + \left( \frac{\partial P}{\partial s} \right)_{\rho} d s  \ .
+  c^2
+  &amp; = \partial_\rho P\big|_s = \\
+  &amp; = \partial_\rho P\big|_e + \partial_e P\big|_{\rho} \, \partial_\rho e\big|_s = \\
+  &amp; = \partial_\rho P\big|_e + \frac{P}{\rho^2} \partial_e P \big|_{\rho} \ ,
 \end{aligned}\end{split}\]</div>
-<div class="math notranslate nohighlight">
-\[P(\rho, s(\rho, e))\]</div>
-<div class="math notranslate nohighlight">
-\[d P = \partial_\rho P \big|_{s} d \rho + \partial_s P\big|_{\rho} \left( \partial_{\rho} s \big|_{e} d \rho + \partial_e s \big|_{\rho} d e  \right)\]</div>
-<p>and using <span class="math notranslate nohighlight">\(d s = \frac{d e}{T} - \frac{P}{\rho^2 T} d \rho \ ,\)</span></p>
-<div class="math notranslate nohighlight">
-\[P(\rho, s) = P(\rho, e(\rho, s))\]</div>
-<div class="math notranslate nohighlight">
-\[c^2 = \partial_\rho P\big|_s = \partial_\rho P\big|_e + \partial_e P\big|_{\rho} \, \partial_\rho e\big|_s \]</div>
 <p><strong>Conservative form in conservative variables.</strong></p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\partial_t \begin{bmatrix} \rho \\ m \\ E^t \end{bmatrix} + \partial_x \begin{bmatrix} m \\ \frac{m^2}{\rho} + \Pi(\rho,m,E^t) \\ \frac{m}{\rho} \left(E^t + \Pi(\rho, m, E^t)\right)  \end{bmatrix} = \underline{0} \ ,\end{split}\]</div>
@@ -551,8 +616,54 @@ document.write(`
   \end{bmatrix} \right| = \\
   &amp; = - s \left[ \left( 2 u + \partial_m \Pi - s  \right) \left( u \left( 1 + \partial_{E^t} \Pi \right) - s \right) - \partial_{E^t} \Pi \left( h^t + u \partial_m \Pi \right) \right] + \\
   &amp; \quad - u h^t \partial_{E^t} \Pi + u \partial_\rho \Pi \partial_{E^t} \Pi + \\
-  &amp; \quad + (u^2 - \partial_\rho \Pi) \left( u (1 + \partial_{E^t} \Pi) - s \right)
+  &amp; \quad + (u^2 - \partial_\rho \Pi) \left( u (1 + \partial_{E^t} \Pi) - s \right) = \\
+  &amp; = -s^3 + \\
+  &amp; \quad + s^2 \left( 2 u + \partial_m \Pi + u + u \partial_{E^t} \Pi  \right) + \\
+  &amp; \quad + s   \left( - 2 u^2 - 2u^2 \partial_{E^t} \Pi - u \partial_m \Pi - u \partial_m \Pi \, \partial_{E^t} \Pi + \partial_{E^t} \Pi \, h^t + u \partial_{E^t} \Pi \, \partial_m \Pi - u^2 + \partial_{\rho} \Pi  \right) + \\
+  &amp; \quad +     \left( -u h^t \partial_{E^t} \Pi + u \partial_{\rho} \Pi \, \partial_{E^t} \Pi + u^3 + u^3 \partial_{E^t} \Pi - u \partial_{\rho} \Pi - u \partial_{\rho} \Pi \, \partial_{E^t} \Pi \right) + \\
+  &amp; = -s^3 + \\
+  &amp; \quad + s^2 \left( 3 u + \partial_m \Pi + u \partial_{E^t} \Pi  \right) + \\
+  &amp; \quad + s   \left( - 3 u^2 - 2u^2 \partial_{E^t} \Pi - u \partial_m \Pi + \partial_{E^t} \Pi \, h^t + \partial_{\rho} \Pi  \right) + \\
+  &amp; \quad +     \left( u^3 - u h^t \partial_{E^t} \Pi + u^3 \partial_{E^t} \Pi - u \partial_{\rho} \Pi \right) = \\
+  &amp; = - (s - u)^3 + ( s - u ) c^2 = \\
+  &amp; = ( s - u ) \left[ -(s-u)^2 + c^2 \right]
 \end{split}\]</div>
+<p>being</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \partial_m \Pi + u \partial_{E^t} \Pi
+  &amp; = \left( - \frac{u}{\rho}  + \frac{u}{\rho} \right) \partial_\rho P \big|_e = 0 \\
+  - 2u^2 \partial_{E^t} \Pi - u \partial_m \Pi + \partial_{E^t} \Pi \, h^t + \partial_{\rho} \Pi 
+  &amp; =  - \frac{u^2}{\rho} \partial_\rho P\big|_e + \frac{1}{\rho} \partial_e P\big|_\rho \, h^t + \partial_\rho P\big|_e + \partial_e P\big|_\rho \left( -\frac{e^t}{\rho} + \frac{u^2}{\rho} \right) = \\
+  &amp; = \partial_{e} P \big|_{\rho} \frac{P}{\rho^2} + \partial_{\rho} P \big|_e = \\
+  &amp; = c^2 \\
+ - u \partial_{\rho} \Pi + u^3 \partial_{E^t} \Pi - u h^t \partial_{E^t} \Pi
+  &amp; = u \left( - \partial_\rho P \big|_e - \partial_e P \big|_{\rho} \left( -\frac{e^t}{\rho} + \frac{u^2}{\rho} \right) + \frac{u^2}{\rho} \partial_e P\big|_\rho - \frac{h^t}{\rho} \partial_e P\big|_{\rho}  \right) \\
+  &amp; = u \left( -\partial_\rho P\big|_e - \frac{P}{\rho^2} \partial_e P \big|_\rho \right) = \\
+  &amp; = - u c^2 \ .
+\end{aligned}\end{split}\]</div>
+<p>Thus,</p>
+<div class="math notranslate nohighlight">
+\[s_{1,3} = u \mp c \quad , \quad s_{2} = u \]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{r}_{1,3} = \begin{bmatrix} 1 \\ u \mp c \\ \dots \end{bmatrix} \hat{\rho}
+ \quad , \quad
+\mathbf{r}_2 = \begin{bmatrix} \dots \\ 0 \\ \dots \end{bmatrix} \hat{\rho}
+\end{split}\]</div>
+<p>being</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \hat{E}^t \partial_{E^t} \Pi
+  &amp; = \left[  u^2 - \partial_\rho \Pi + ( -u \pm c -\partial_m \Pi ) (u \mp c) \right] \hat{\rho} = \\
+  &amp; = \left[  u^2 - \partial_\rho \Pi - u^2 + \pm 2 u c - c^2  -\partial_m \Pi (u \mp c) \right] \hat{\rho} = \\
+  &amp; = \left[ - c^2 - \partial_e P \big|_\rho \left( - \frac{h^t}{\rho} + \frac{u^2}{\rho} \right) \pm 2 u c - c^2  + \frac{u}{\rho} \partial_e P \big|_\rho (u \mp c) \right] \hat{\rho} = \\
+  &amp; = \left[ - 2 c^2 + \partial_e P \big|_\rho \, \frac{h^t}{\rho} \pm 2 u c  \mp  \frac{u c}{\rho} \partial_e P\big|_\rho \right] \hat{\rho} = \\
+\end{aligned}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\mathbf{R} = \dots \]</div>
+<div class="math notranslate nohighlight">
+\[\mathbf{L} = \dots \]</div>
 </div>
 </div></div>
 </div>
@@ -626,7 +737,12 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scalar-non-linear">Scalar non-linear</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#system-linear">System linear</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">1-dimensional</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">1-dimensional</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#method-of-characteristics">Method of characteristics</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#domain-of-influence-and-domain-of-dependence">Domain of influence and domain of dependence</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#riemann-problem">Riemann problem</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#system-non-linear">System non-linear</a><ul class="nav section-nav flex-column">
