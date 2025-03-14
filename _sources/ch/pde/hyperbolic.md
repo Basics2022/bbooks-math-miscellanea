@@ -163,6 +163,10 @@ that can be recast in the general expression of wave equation
 
 $$\partial_{tt} u - c^2 \partial_{xx} u = F$$
 
+The $2^{nd}$ order differential operator appearing in 1-dimensional wave equation can be factored as the "product" of 2 $1^{st}$ order differentail operators, 
+
+$$\left( \partial_{tt} - c^2 \partial_{xx} \right) u = \left( \partial_t - c \partial_x \right) \left( \partial_t + c \partial_x \right) u$$
+
 ```
 
 
