@@ -548,7 +548,7 @@ document.write(`
   \partial_t N - EA \partial_x v = 0 \\
   \partial_t v - \frac{1}{m}\partial_x N = f
 \end{cases}\end{split}\]</div>
-<p><strong>P-system and wave equation - reference state at rest, <span class="math notranslate nohighlight">\(\ u = 0\)</span>.</strong></p>
+<p><strong>P-system and wave equation - reference state at rest, <span class="math notranslate nohighlight">\(\ \overline{u} = 0\)</span>.</strong></p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{cases}
   \partial_t \rho + \overline{\rho} \partial_x u = 0 \\
@@ -600,7 +600,7 @@ document.write(`
   &amp; = \partial_t u_i + \partial_{x_k} F_{ki} (u_l) = \\
   &amp; = \partial_t u_i + \partial_{x_k} u_m \partial_{u_m} F_{ki} (u_l) = \\
 \end{aligned}\end{split}\]</div>
-<div class="proof example admonition" id="example-4">
+<div class="proof example dropdown admonition" id="example-4">
 <p class="admonition-title"><span class="caption-number">Example 33 </span> (P-system in 1-dimensional domain)</p>
 <div class="example-content section" id="proof-content">
 <div class="math notranslate nohighlight">
@@ -625,7 +625,7 @@ document.write(`
   \mathbf{L} &amp; = \frac{1}{2 \rho a} \begin{bmatrix} a &amp; \rho \\ a &amp; -\rho  \end{bmatrix} \\
 \end{aligned}\end{split}\]</div>
 </div>
-</div><div class="proof example admonition" id="example-5">
+</div><div class="proof example dropdown admonition" id="example-5">
 <p class="admonition-title"><span class="caption-number">Example 34 </span> (Euler equations in 1-dimensional domain)</p>
 <div class="example-content section" id="proof-content">
 <p><strong>Conservative form</strong></p>
@@ -738,6 +738,97 @@ $$P(\rho, s) = P(\rho, e(\rho, s))$$
 \[\mathbf{R} = \dots \]</div>
 <div class="math notranslate nohighlight">
 \[\mathbf{L} = \dots \]</div>
+</div>
+</div><div class="proof example admonition" id="example-6">
+<p class="admonition-title"><span class="caption-number">Example 35 </span> (Shallow water equation in <span class="math notranslate nohighlight">\(1\)</span>-dimensional domain)</p>
+<div class="example-content section" id="proof-content">
+<p>Let <span class="math notranslate nohighlight">\(b(x)\)</span>…, <span class="math notranslate nohighlight">\(h(x)\)</span> the height of the free surface, <span class="math notranslate nohighlight">\(\eta(x) = h(x) - b(x)\)</span> the depth.</p>
+<p>Derivative of integrals with non-constant extremes</p>
+<div class="math notranslate nohighlight">
+\[\partial_x \int_{z=0}^{\eta(x,t)} \rho u \, dz = \int_{z=0}^{\eta(x,t)} \partial_x (\rho u) \, dz + \rho u(x,\eta(x,t),t) \partial_x \eta(x,t) \ .\]</div>
+<p>Continuity equation reads</p>
+<div class="math notranslate nohighlight">
+\[\partial_t \rho + \partial_x (\rho u ) + \partial_z (\rho w) = 0 \ ,\]</div>
+<p>for fluids with constant and uniform density</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  0
+  &amp; = \int_{z=0}^{\eta(x,t)} \left( \partial_t \rho + \partial_x (\rho u) + \partial_z (\rho w) \right) \, dz = \\
+  &amp; = \partial_x \int_{z=0}^{\eta(x,t)} (\rho u) \, dz - \rho u(x,\eta,t) \partial_x \eta + \rho w(x,\eta(x,t),t) = \\
+  &amp; = \partial_x \int_{z=0}^{\eta(x,t)} (\rho u) \, dz + \rho \partial_t \eta = 
+  &amp; \simeq \partial_x \left(  \rho \eta u \right) + \partial_t \left( \rho \eta \right) \ .
+\end{aligned}\end{split}\]</div>
+<p>having linked the velocity to the material derivative of the position, whose vertical component reads</p>
+<div class="math notranslate nohighlight">
+\[w(x,\eta(x,t), t) = \dfrac{D \eta}{Dt} = \partial_t \eta(x,t) + u(x,\eta(x,t),t) \partial_x \eta \ .\]</div>
+<p>Assuming hydrostatic pressure distribution, <span class="math notranslate nohighlight">\(p = P_a + \rho g z\)</span> at depth <span class="math notranslate nohighlight">\(z\)</span> under the level of local free surface,</p>
+<p>Momentum equation reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+  0
+  &amp; = \partial_t (\rho u) + \partial_x (\rho u^2) + \partial_z (\rho u w) + \partial_x P \ .
+\end{aligned}\]</div>
+<p>and integration in <span class="math notranslate nohighlight">\(z\)</span>-direction <strong>todo</strong> Explicitly treat the <span class="math notranslate nohighlight">\(z\)</span> term</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  0
+  &amp; = \partial_t (\rho \eta u) + \partial_x (\rho u^2 \eta) + \partial_x \int_{z=0}^{\eta(x)} (P_a + \rho g z) \, dz = \\
+  &amp; = \partial_t (\rho \eta u) + \partial_x \left(\rho u^2 \eta + \frac{1}{2} \rho g \eta^2 \right)  \ .
+\end{aligned}\end{split}\]</div>
+<p><strong>Conservative form of the equations.</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{cases}
+  \partial_t (\eta) + \partial_x m = 0 \\
+  \partial_t m + \partial_x \left( \frac{m^2}{\eta} + \frac{g \eta^2}{2} \right) = 0 \\
+\end{cases}\end{split}\]</div>
+<p><strong>Convective form of the equations.</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+  \partial_t \begin{bmatrix} \eta \\ m \end{bmatrix} + \begin{bmatrix} 0 &amp; 1 \\ -\frac{m^2}{\eta^2}+g\eta &amp; 2 \frac{m}{\eta} \end{bmatrix} \partial_x \begin{bmatrix} \eta \\ m \end{bmatrix} = \underline{0}
+\end{split}\]</div>
+<p><strong>Spectrum of matrix <span class="math notranslate nohighlight">\(\mathbf{A}(\mathbf{u})\)</span>.</strong></p>
+<div class="math notranslate nohighlight">
+\[0 = |\mathbf{A}(\mathbf{u}) - s^2 \mathbf{I}| = -s \left( 2 u - s ) + u^2 - g \eta = (s-u)^2 - g  \eta \ .\]</div>
+</div>
+</div><div class="proof example admonition" id="example-7">
+<p class="admonition-title"><span class="caption-number">Example 36 </span> (P-system in n-dimensional domain)</p>
+<div class="example-content section" id="proof-content">
+<ul class="simple">
+<li><p>Conservative variables: <span class="math notranslate nohighlight">\((\rho, \vec{m})\)</span></p></li>
+<li><p>Physical variables: e.g. <span class="math notranslate nohighlight">\((\rho, \vec{u})\)</span>, <span class="math notranslate nohighlight">\((P, \vec{u})\)</span>,…</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{cases}
+  \partial_t \rho + \nabla \cdot \vec{m} = 0 \\
+  \partial_t \vec{m} + \nabla \cdot \left[ \frac{\vec{m}\otimes\vec{m}}{\rho} + \rho a^2 \mathbb{I} \right] = 0 \\
+\end{cases}\end{split}\]</div>
+</div>
+</div><div class="proof example admonition" id="example-8">
+<p class="admonition-title"><span class="caption-number">Example 37 </span> (Euler system in n-dimensional domain)</p>
+<div class="example-content section" id="proof-content">
+<ul class="simple">
+<li><p>Conservative variables: <span class="math notranslate nohighlight">\((\rho, \vec{m}, E^t)\)</span></p></li>
+<li><p>Physical variables: e.g. <span class="math notranslate nohighlight">\((\rho, \vec{u}, e)\)</span>,…</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{cases}
+  \partial_t \rho + \nabla \cdot \vec{m} = 0 \\
+  \partial_t \vec{m} + \nabla \cdot \left[ \frac{\vec{m}\otimes\vec{m}}{\rho} + \Pi \, \mathbb{I} \right] = \vec{0} \\
+  \partial_t E^t + \nabla \cdot \left[ \frac{\vec{m} (E^t + \Pi)}{\rho} \right] = 0
+\end{cases}\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\Pi\)</span> represents the pressure field as a function of the conservative varaibles,</p>
+<div class="math notranslate nohighlight">
+\[\Pi\left(\rho, \vec{m}, E^t\right) = P\left( \rho, e\right) = P\left( \rho, \frac{E^t}{\rho}-\frac{|\vec{m}|^2}{\rho^3}  \right) \ ,\]</div>
+<p>and <span class="math notranslate nohighlight">\(P\)</span> the pressure field expressed by the <strong>equation of state of the fluid</strong> as a function of density and internal energy per unit mass as the pair of independent variables determining the thermodynamic state.</p>
+</div>
+</div><div class="proof example admonition" id="example-9">
+<p class="admonition-title"><span class="caption-number">Example 38 </span> (Shallow water equations in 2-dimensional domain)</p>
+<div class="example-content section" id="proof-content">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{cases}
+  \partial_t (\rho \eta) + \nabla \cdot (\rho \eta \vec{u}) = 0 \\
+  \partial_t (\rho \eta \vec{u}) + \nabla \cdot \left(\rho \eta \vec{u} \vec{u} + \frac{1}{2} \rho g \eta^2 \mathbb{I} \right) = 0 \\
+\end{cases}\end{split}\]</div>
 </div>
 </div></div>
 </div>
