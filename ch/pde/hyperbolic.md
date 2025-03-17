@@ -183,7 +183,7 @@ $$\begin{cases}
 \end{cases}$$
 
 
-**P-system and wave equation - reference state at rest, $\ u = 0$.**
+**P-system and wave equation - reference state at rest, $\ \overline{u} = 0$.**
 
 $$\begin{cases}
   \partial_t \rho + \overline{\rho} \partial_x u = 0 \\
@@ -242,6 +242,7 @@ $$\begin{aligned}
 
 
 ```{prf:example} P-system in 1-dimensional domain
+:class: dropdown
 
 $$\begin{cases}
  \partial_t \rho + u \partial_x \rho + \rho \partial_x u = 0 \\
@@ -272,6 +273,7 @@ $$\begin{aligned}
 ```
 
 ```{prf:example} Euler equations in 1-dimensional domain
+:class: dropdown
 
 **Conservative form**
 
@@ -394,3 +396,116 @@ $$\mathbf{R} = \dots $$
 $$\mathbf{L} = \dots $$
 
 ```
+
+```{prf:example} Shallow water equation in $1$-dimensional domain
+
+Let $b(x)$..., $h(x)$ the height of the free surface, $\eta(x) = h(x) - b(x)$ the depth.
+
+Derivative of integrals with non-constant extremes
+
+$$\partial_x \int_{z=0}^{\eta(x,t)} \rho u \, dz = \int_{z=0}^{\eta(x,t)} \partial_x (\rho u) \, dz + \rho u(x,\eta(x,t),t) \partial_x \eta(x,t) \ .$$
+
+
+Continuity equation reads
+
+$$\partial_t \rho + \partial_x (\rho u ) + \partial_z (\rho w) = 0 \ ,$$
+
+for fluids with constant and uniform density
+
+$$\begin{aligned}
+  0
+  & = \int_{z=0}^{\eta(x,t)} \left( \partial_t \rho + \partial_x (\rho u) + \partial_z (\rho w) \right) \, dz = \\
+  & = \partial_x \int_{z=0}^{\eta(x,t)} (\rho u) \, dz - \rho u(x,\eta,t) \partial_x \eta + \rho w(x,\eta(x,t),t) = \\
+  & = \partial_x \int_{z=0}^{\eta(x,t)} (\rho u) \, dz + \rho \partial_t \eta = 
+  & \simeq \partial_x \left(  \rho \eta u \right) + \partial_t \left( \rho \eta \right) \ .
+\end{aligned}$$
+
+having linked the velocity to the material derivative of the position, whose vertical component reads
+
+$$w(x,\eta(x,t), t) = \dfrac{D \eta}{Dt} = \partial_t \eta(x,t) + u(x,\eta(x,t),t) \partial_x \eta \ .$$
+
+
+Assuming hydrostatic pressure distribution, $p = P_a + \rho g z$ at depth $z$ under the level of local free surface,
+
+Momentum equation reads
+
+$$\begin{aligned}
+  0
+  & = \partial_t (\rho u) + \partial_x (\rho u^2) + \partial_z (\rho u w) + \partial_x P \ .
+\end{aligned}$$
+
+and integration in $z$-direction **todo** Explicitly treat the $z$ term
+
+$$\begin{aligned}
+  0
+  & = \partial_t (\rho \eta u) + \partial_x (\rho u^2 \eta) + \partial_x \int_{z=0}^{\eta(x)} (P_a + \rho g z) \, dz = \\
+  & = \partial_t (\rho \eta u) + \partial_x \left(\rho u^2 \eta + \frac{1}{2} \rho g \eta^2 \right)  \ .
+\end{aligned}$$
+
+
+**Conservative form of the equations.**
+
+$$\begin{cases}
+  \partial_t (\eta) + \partial_x m = 0 \\
+  \partial_t m + \partial_x \left( \frac{m^2}{\eta} + \frac{g \eta^2}{2} \right) = 0 \\
+\end{cases}$$
+
+**Convective form of the equations.**
+
+$$
+  \partial_t \begin{bmatrix} \eta \\ m \end{bmatrix} + \begin{bmatrix} 0 & 1 \\ -\frac{m^2}{\eta^2}+g\eta & 2 \frac{m}{\eta} \end{bmatrix} \partial_x \begin{bmatrix} \eta \\ m \end{bmatrix} = \underline{0}
+$$
+
+**Spectrum of matrix $\mathbf{A}(\mathbf{u})$.**
+
+$$0 = |\mathbf{A}(\mathbf{u}) - s^2 \mathbf{I}| = -s \left( 2 u - s ) + u^2 - g \eta = (s-u)^2 - g  \eta \ .$$
+
+
+```
+
+
+
+```{prf:example} P-system in n-dimensional domain
+
+- Conservative variables: $(\rho, \vec{m})$
+- Physical variables: e.g. $(\rho, \vec{u})$, $(P, \vec{u})$,...
+
+$$\begin{cases}
+  \partial_t \rho + \nabla \cdot \vec{m} = 0 \\
+  \partial_t \vec{m} + \nabla \cdot \left[ \frac{\vec{m}\otimes\vec{m}}{\rho} + \rho a^2 \mathbb{I} \right] = 0 \\
+\end{cases}$$
+
+
+```
+
+```{prf:example} Euler system in n-dimensional domain
+
+- Conservative variables: $(\rho, \vec{m}, E^t)$
+- Physical variables: e.g. $(\rho, \vec{u}, e)$,...
+
+$$\begin{cases}
+  \partial_t \rho + \nabla \cdot \vec{m} = 0 \\
+  \partial_t \vec{m} + \nabla \cdot \left[ \frac{\vec{m}\otimes\vec{m}}{\rho} + \Pi \, \mathbb{I} \right] = \vec{0} \\
+  \partial_t E^t + \nabla \cdot \left[ \frac{\vec{m} (E^t + \Pi)}{\rho} \right] = 0
+\end{cases}$$
+
+where $\Pi$ represents the pressure field as a function of the conservative varaibles,
+
+$$\Pi\left(\rho, \vec{m}, E^t\right) = P\left( \rho, e\right) = P\left( \rho, \frac{E^t}{\rho}-\frac{|\vec{m}|^2}{\rho^3}  \right) \ ,$$
+
+and $P$ the pressure field expressed by the **equation of state of the fluid** as a function of density and internal energy per unit mass as the pair of independent variables determining the thermodynamic state.
+
+
+```
+
+```{prf:example} Shallow water equations in 2-dimensional domain
+
+$$\begin{cases}
+  \partial_t (\rho \eta) + \nabla \cdot (\rho \eta \vec{u}) = 0 \\
+  \partial_t (\rho \eta \vec{u}) + \nabla \cdot \left(\rho \eta \vec{u} \vec{u} + \frac{1}{2} \rho g \eta^2 \mathbb{I} \right) = 0 \\
+\end{cases}$$
+
+
+```
+
+
