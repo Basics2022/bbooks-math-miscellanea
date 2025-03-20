@@ -5,12 +5,15 @@ format: jb-book
 root: intro
 parts:
 - caption: Multivariable Calculus
+  numbered: True
   chapters:
   - file: ch/multivariable/intro
 - caption: Differential Geometry
+  numbered: True
   chapters:
   - file: ch/differential-geometry/intro
 - caption: Vector and Tensor Algebra and Calculus
+  numbered: True
   chapters:
   - file: ch/tensor-algebra-calculus/algebra
 # - file: ch/tensor-algebra-calculus/calculus
@@ -21,21 +24,28 @@ parts:
     - file: ch/tensor-algebra-calculus/calculus-euclidean-spherical
   - file: ch/tensor-algebra-calculus/time-derivative-of-integrals
 - caption: Functional Analysis
+  numbered: True
   chapters:
   - file: ch/functional-analysis/intro
   - file: ch/functional-analysis/dirac-delta
 - caption: Complex Calculus
+  numbered: True
   chapters:
   - file: ch/complex/analysis
   - file: ch/complex/laplace
   - file: ch/complex/fourier
+    sections:
+    - file: ch/complex/fourier-transforms
 - caption: Calculus of Variations
+  numbered: True
   chapters:
   - file: ch/calculus-variations/intro
 - caption: Ordinary Differential Equations
+  numbered: True
   chapters:
   - file: ch/ode/intro
 - caption: Partial Differential Equations
+  numbered: True
   chapters:
   - file: ch/pde/intro
   - file: ch/pde/elliptic
