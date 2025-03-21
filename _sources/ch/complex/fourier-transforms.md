@@ -46,7 +46,7 @@ $$\begin{aligned}
  & \sim \Delta t \frac{1}{\Delta t} \int_{t=-\infty}^{+\infty} f(t) \, \sum_{n=-\infty}^{+\infty} e^{i n \frac{2 \pi}{\Delta t} t} e^{-i 2 \pi \nu t} \, dt =  \\
  & = \sum_{n=-\infty}^{+\infty}  \int_{t=-\infty}^{+\infty} f(t) \, e^{-i 2 \pi \left( \nu - n \overline{\nu} \right) t} \, dt =  \\
  & = \sum_{n=-\infty}^{+\infty} F\left(\nu - n \overline{\nu} \right) = \text{DTFT}(f(t); \Delta t) \ ,
-\end{aligned}$$
+\end{aligned}$$ (eq:dtft:1)
 
 i.e. equals the periodic sum of the Fourier of the original function, with period
 
@@ -64,11 +64,49 @@ $$\nu_s \ge 2 \nu_{max} \ .$$
 
 **todo** check alternative expressions if using the definition of train of impulses instead of the Fourier series of Dirac's comb.
 
+$$\begin{aligned}
+ & = \Delta t \int_{t=-\infty}^{+\infty} f(t) \sum_{k=-\infty}^{+\infty} \delta(t - k \Delta t) \, e^{-i 2 \pi \nu t} \, dt = \\
+ & = \Delta t \sum_{k=-\infty}^{+\infty} f(k \Delta t)  e^{-i 2 \pi \nu k \Delta t} = \text{DTFT}\left( f(t); \Delta t \right) 
+\end{aligned}$$ (eq:dtft:2)
+
 [^shannon-max-frequency]: Usually there's no such a frequency above which the signal is exactly zero, but usually there's a frequency above which the spectrum of the signal is approximately zero, i.e. below a threshold where it can be treated as zero, and introduce no aliasing.
 
 (complex:fourier:dft)=
 ## Fourier transform of the sum of shifted integral functions sampled with a Dirac comb
 
+Fourier transform of the periodic sum
+
+$$\Delta t \, \tilde{f}(t) \, \text{III}_{\Delta t}(t) = \Delta t \, \sum_{n=-\infty}^{+\infty} f(t-nT) \, \text{III}_{\Delta t}(t) $$
+
+reads
+
+$$\begin{aligned}
+\mathscr{F}\left\{ \Delta t \, \tilde{f}(t) \, \text{III}_{\Delta t}(t) \right\}(\nu) 
+  & = \Delta t \int_{t=-\infty}^{+\infty} \sum_{n=-\infty}^{+\infty} f(t-nT) \sum_{k=-\infty}^{+\infty} \delta(t-k \Delta t) \, e^{-i 2 \pi \nu t } \, dt = \\
+  & = \Delta t \sum_{n=-\infty}^{+\infty} \sum_{k=-\infty}^{+\infty} f(k \Delta t - nT) \, e^{-i 2 \pi \nu k \Delta t } = \\
+\end{aligned}$$
+
+and defining $k \Delta \tau_n := k \Delta t - nT$,
+
+$$\begin{aligned}
+& = \Delta t \sum_{n=-\infty}^{+\infty} \sum_{k=-\infty}^{+\infty} f(k \Delta \tau_n) e^{-i 2 \pi \nu k \Delta \tau_n} e^{-i 2 \pi \nu n T} = \\
+& = \underbrace{\Delta t \sum_{k=-\infty}^{+\infty} f(k \Delta \tau_n) e^{-i 2 \pi \nu k \Delta \tau_n}}_{=\text{DTFT}(f(t), \Delta t)} \, \underbrace{\sum_{n=-\infty}^{+\infty} e^{-i 2 \pi \nu n T}}_{= \Delta \nu \, \text{III}_{\Delta \nu}(\nu)} = \\
+& = \text{DTFT}(f(t), \Delta t) \, \Delta \nu \, \text{III}_{\Delta \nu}(\nu) \ .
+\end{aligned}$$
+
+<span style="color:red"> **todo** **check!** check the change of coordinates that makes DTFT appear</span>
+
+<span style="color:red"> **todo** **check!** what follows
+or, using the relation between $\Delta t$ and $T = N \Delta t$, $\Delta \nu = \frac{1}{T}$, and thus
+
+$$\Delta t \, \Delta \nu = \Delta t \, \frac{1}{T} = \frac{1}{N} \ ,$$
+
+it follows 
+
+$$
+ = \frac{1}{N} \sum_{k=-\infty}^{+\infty} f(k \Delta \tau_n) e^{-i 2 \pi \nu k \Delta \tau_n} \ \text{III}_{\Delta \nu}(\nu) \ .
+$$
+</span>
 
 (complex:fourier:useful-properties)=
 ## Useful properties
