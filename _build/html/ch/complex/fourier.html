@@ -214,16 +214,17 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Ordinary Differential Equations</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../ode/intro.html">12. Introduction to Ordinary Differential Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ode/lti.html">13. Linear Time-Invariant Systems</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Partial Differential Equations</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../pde/intro.html">13. Introduction to Partial Differential Equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pde/elliptic.html">14. Elliptic equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pde/parabolic.html">15. Parabolic equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pde/hyperbolic.html">16. Hyperbolic problems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pde/nc.html">17. Navier-Cauchy equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pde/ns.html">18. Navier-Stokes equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pde/ale.html">19. Arbitrary Lagrangian-Eulerian description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/intro.html">14. Introduction to Partial Differential Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/elliptic.html">15. Elliptic equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/parabolic.html">16. Parabolic equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/hyperbolic.html">17. Hyperbolic problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/nc.html">18. Navier-Cauchy equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/ns.html">19. Navier-Stokes equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/ale.html">20. Arbitrary Lagrangian-Eulerian description</a></li>
 </ul>
 
     </div>
@@ -420,13 +421,13 @@ Proof<div class="sd-summary-down docutils">
 <div class="math notranslate nohighlight">
 \[\begin{split}\int_{t=0}^{T} e^{i k \frac{2 \pi}{T} t} \, dt = 
 \begin{cases}
-\frac{1}{i n \frac{2 \pi}{T}} \left.\left[ e^{ik \frac{2\pi}{T} t} \right]\right|_{t=0}^{T} = 0 &amp;&amp; \text{if $ k \ne 0$} \\
-T &amp;&amp; \text{if $ k = 0$}
+\frac{1}{i n \frac{2 \pi}{T}} \left.\left[ e^{ik \frac{2\pi}{T} t} \right]\right|_{t=0}^{T} = 0 \hfill \text{if $ k \ne 0$} \\
+T \hfill \text{if $ k = 0$}
 \end{cases}
 \end{split}\]</div>
 <div class="math notranslate nohighlight">
-\[\int_{t=0}^{T} f(t) e^{i -m \frac{2 \pi}{T} t} \, dt
- \sim \int_{t=0}^{T} \sum_{n=-\infty}^{+\infty} c_n e^{i n \frac{2 \pi }{T}t}  e^{i -m \frac{2 \pi}{T} t}
+\[\int_{t=0}^{T} f(t) e^{-i m \frac{2 \pi}{T} t} \, dt
+ \sim \int_{t=0}^{T} \sum_{n=-\infty}^{+\infty} c_n e^{i n \frac{2 \pi }{T}t}  e^{-i m \frac{2 \pi}{T} t}
  \sim \sum_{n=-\infty}^{+\infty} c_n \sim \int_{t=0}^{T} e^{i (n-m) \frac{2 \pi }{T}t} 
  \sim T \, c_m \ .
 \]</div>

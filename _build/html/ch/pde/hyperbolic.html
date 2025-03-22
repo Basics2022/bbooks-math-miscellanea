@@ -75,6 +75,15 @@ const thebe_selector_output = ".output, .cell_output"
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPXX63Z3XR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-JPXX63Z3XR');
+</script>
+
   
   
   <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
@@ -460,8 +469,8 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[\begin{split}\mathbf{u}(x,t_0) =
   \begin{cases}
-  \mathbf{u}_a \ , &amp;&amp; x &lt; x_0 \\
-  \mathbf{u}_b \ , &amp;&amp; x &gt; x_0 \\
+  \mathbf{u}_a \ , \hfill \quad x &lt; x_0 \\
+  \mathbf{u}_b \ , \hfill \quad x &gt; x_0 \\
 \end{cases}\end{split}\]</div>
 <p>This problem is quite useful in quite a wide range of numerical methods for hyperbolic problems - Godunov schemes in Finite Volume Methods -, to evaluate the <strong>boundary state</strong> to be used numerical flux.</p>
 <p>For linear problems, the matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> is constant ad so it is its spectral decomposition, <span class="math notranslate nohighlight">\(\mathbf{A} = \mathbf{R} \symbf{\Lambda} \mathbf{L}\)</span>, and the solution of a Riemann problem of an homogeneous linear hyperbolic system can be easily determined analytically with the method of characteristics,</p>
@@ -513,9 +522,9 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[\begin{split}|u| \ : \  
 \begin{cases}
-   = 0 &amp;&amp; \text{at rest} \\
-   &lt; a &amp;&amp; \text{subsonic flow} \\
-   &gt; a &amp;&amp; \text{supersonic flow to the left/right} \\
+   = 0 \hfill \qquad \text{at rest} \\
+   &lt; a \hfill \qquad \text{subsonic flow} \\
+   &gt; a \hfill \qquad \text{supersonic flow to the left/right} \\
 \end{cases}
 \end{split}\]</div>
 <p>Subsonic: the two families of characteristic lines have opposite direction; supersonic: the two families of characteristic lines have the same direction.</p>
@@ -792,7 +801,7 @@ $$P(\rho, s) = P(\rho, e(\rho, s))$$
 \end{split}\]</div>
 <p><strong>Spectrum of matrix <span class="math notranslate nohighlight">\(\mathbf{A}(\mathbf{u})\)</span>.</strong></p>
 <div class="math notranslate nohighlight">
-\[0 = |\mathbf{A}(\mathbf{u}) - s^2 \mathbf{I}| = -s \left( 2 u - s ) + u^2 - g \eta = (s-u)^2 - g  \eta \ .\]</div>
+\[0 = |\mathbf{A}(\mathbf{u}) - s^2 \mathbf{I}| = -s \left( 2 u - s \right) + u^2 - g \eta = (s-u)^2 - g  \eta \ .\]</div>
 </div>
 </div><div class="proof example admonition" id="example-7">
 <p class="admonition-title"><span class="caption-number">Example 17.8 </span> (P-system in n-dimensional domain)</p>

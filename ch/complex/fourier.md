@@ -30,13 +30,13 @@ Exploiting the properties of integrals of complex exponentials with $k \in \math
 
 $$\int_{t=0}^{T} e^{i k \frac{2 \pi}{T} t} \, dt = 
 \begin{cases}
-\frac{1}{i n \frac{2 \pi}{T}} \left.\left[ e^{ik \frac{2\pi}{T} t} \right]\right|_{t=0}^{T} = 0 && \text{if $ k \ne 0$} \\
-T && \text{if $ k = 0$}
+\frac{1}{i n \frac{2 \pi}{T}} \left.\left[ e^{ik \frac{2\pi}{T} t} \right]\right|_{t=0}^{T} = 0 \hfill \text{if $ k \ne 0$} \\
+T \hfill \text{if $ k = 0$}
 \end{cases}
 $$
 
-$$\int_{t=0}^{T} f(t) e^{i -m \frac{2 \pi}{T} t} \, dt
- \sim \int_{t=0}^{T} \sum_{n=-\infty}^{+\infty} c_n e^{i n \frac{2 \pi }{T}t}  e^{i -m \frac{2 \pi}{T} t}
+$$\int_{t=0}^{T} f(t) e^{-i m \frac{2 \pi}{T} t} \, dt
+ \sim \int_{t=0}^{T} \sum_{n=-\infty}^{+\infty} c_n e^{i n \frac{2 \pi }{T}t}  e^{-i m \frac{2 \pi}{T} t}
  \sim \sum_{n=-\infty}^{+\infty} c_n \sim \int_{t=0}^{T} e^{i (n-m) \frac{2 \pi }{T}t} 
  \sim T \, c_m \ .
 $$

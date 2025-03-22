@@ -51,6 +51,22 @@ $$\mathscr{L}\left\{ \int_{\tau=0^-}^{t} f(\tau) \, d \tau \right\}(s) = \int_{t
 
 provided that $\int_{\tau=0^-}^{0} f(\tau) d \tau = 0$ and $\lim_{t \rightarrow +\infty}\frac{e^{-st}}{s} \int_{\tau=0^-}^{+\infty} f(\tau) \, d \tau = 0$.
 
+**Convolution.**
+
+$$\begin{aligned}
+  \mathscr{L}\left\{ f(t) \ast g(t) \right\} 
+  & = \int_{t=0^-}^{+\infty} \int_{\tau=-\infty}^{+\infty} f(t-\tau) g(\tau) \, d \tau \, e^{-s t }\, dt = && (1) \\
+  & = \int_{\tau=-\infty}^{+\infty} \int_{z=-\tau^-}^{+\infty} f(z) g(\tau) \, e^{-s (z + \tau)}\, d\tau \, dz = (2) \\
+  & = \int_{z=0^-}^{+\infty} f(z) \, e^{-s z }\, dz \int_{\tau=0^-}^{+\infty} g(\tau) e^{-s \tau} = \\
+  & = \mathscr{L}\{ f(t) \}(s) \, \mathscr{L}\{ g(t) \} (s) \ .
+\end{aligned}$$ (laplace:convolution)
+
+having performed the change of coordinates $z = t - \tau$, $\tau = \tau$, with unitary Jacobian, 
+
+$$\frac{\partial(t,\tau)}{\partial(z,\tau)} = \partial_z t \partial_{\tau} \tau - \partial_z \tau \partial_z t =  1 \cdot 1 - 1 \cdot 0 = 1 ,$$
+
+given the proper description of the domain of integration summarised in the extremes of integration in (1), and causality - i.e. all the functions $f(t)$ are identically zero for $t < 0$ - in (2).
+
 **Initial value.** If ...
 
 $$f(0^+) = \lim_{s \rightarrow + \infty} s F(s)$$

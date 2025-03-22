@@ -75,6 +75,15 @@ const thebe_selector_output = ".output, .cell_output"
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPXX63Z3XR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-JPXX63Z3XR');
+</script>
+
   
   
   <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
@@ -426,12 +435,10 @@ The <a class="reference internal" href="../complex/laplace.html#complex-laplace"
 \[(s\mathbf{I} - \mathbf{A}) \hat{\mathbf{x}} = \mathbf{B} \hat{\mathbf{u}} + \mathbf{x}_0\]</div>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
-  \hat{\mathbf{x}}(s) &amp; = (s\mathbf{I} - \mathbf{A})^{-1} \mathbf{B} \hat{\mathbf{u}}(s) + (s\mathbf{I} - \mathbf{A})^{-1} \mathbf{x}_0 \\
-  \hat{\mathbf{y}}(s) &amp; = \left[ \mathbf{C} (s\mathbf{I} - \mathbf{A})^{-1} \mathbf{B} + \mathbf{D} \right] \hat{\mathbf{u}}(s) + \mathbf{C} (s\mathbf{I} - \mathbf{A})^{-1}\mathbf{x}_0
+  \hat{\mathbf{x}}(s) &amp; = (s\mathbf{I} - \mathbf{A})^{-1} \mathbf{x}_0 + (s\mathbf{I} - \mathbf{A})^{-1} \mathbf{B} \hat{\mathbf{u}}(s) \\
+  \hat{\mathbf{y}}(s) &amp; = \mathbf{C} (s\mathbf{I} - \mathbf{A})^{-1}\mathbf{x}_0 + \left[ \mathbf{C} (s\mathbf{I} - \mathbf{A})^{-1} \mathbf{B} + \mathbf{D} \right] \hat{\mathbf{u}}(s)
 \end{aligned}\end{split}\]</div>
-<p>Performing inverse Laplace transform allows to go back to time domain</p>
-<div class="math notranslate nohighlight">
-\[\]</div>
+<p>Performing inverse Laplace transform allows to go back to time domain (just use Laplace inverse transform of a matrix exponential, and the formula <a class="reference internal" href="../complex/laplace.html#equation-laplace-convolution">(9.1)</a> for Laplace transform of convolution).</p>
 <div class="section" id="impulsive-force">
 <h2><span class="section-number">13.1. </span>Impulsive force<a class="headerlink" href="#impulsive-force" title="Permalink to this heading">#</a></h2>
 <p>The effect of an impulsive force at time <span class="math notranslate nohighlight">\(t=0\)</span> is equivalent to an instantaneous change in the initial state, from time <span class="math notranslate nohighlight">\(0^-\)</span> before the impulse to time <span class="math notranslate nohighlight">\(0^+\)</span> after the impulse. Splitting the input <span class="math notranslate nohighlight">\(\mathbf{u}(t)\)</span> as the sum of impulsive input and regular input,</p>
