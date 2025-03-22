@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>14. Introduction to Partial Differential Equations &#8212; basics - math</title>
+    <title>13. Linear Time-Invariant Systems &#8212; basics - math</title>
   
   
   
@@ -66,12 +66,12 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/pde/intro';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/ode/lti';</script>
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="15. Elliptic equations" href="elliptic.html" />
-    <link rel="prev" title="13. Linear Time-Invariant Systems" href="../ode/lti.html" />
+    <link rel="next" title="14. Introduction to Partial Differential Equations" href="../pde/intro.html" />
+    <link rel="prev" title="12. Introduction to Ordinary Differential Equations" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -203,19 +203,19 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../calculus-variations/intro.html">11. Introduction to Calculus of Variations</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Ordinary Differential Equations</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../ode/intro.html">12. Introduction to Ordinary Differential Equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ode/lti.html">13. Linear Time-Invariant Systems</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">12. Introduction to Ordinary Differential Equations</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">13. Linear Time-Invariant Systems</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Partial Differential Equations</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">14. Introduction to Partial Differential Equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="elliptic.html">15. Elliptic equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="parabolic.html">16. Parabolic equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hyperbolic.html">17. Hyperbolic problems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="nc.html">18. Navier-Cauchy equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ns.html">19. Navier-Stokes equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ale.html">20. Arbitrary Lagrangian-Eulerian description</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../pde/intro.html">14. Introduction to Partial Differential Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/elliptic.html">15. Elliptic equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/parabolic.html">16. Parabolic equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/hyperbolic.html">17. Hyperbolic problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/nc.html">18. Navier-Cauchy equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/ns.html">19. Navier-Stokes equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/ale.html">20. Arbitrary Lagrangian-Eulerian description</a></li>
 </ul>
 
     </div>
@@ -270,7 +270,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/ch/pde/intro.md" target="_blank"
+      <li><a href="../../_sources/ch/ode/lti.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -354,7 +354,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Introduction to Partial Differential Equations</h1>
+    <h1>Linear Time-Invariant Systems</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -364,8 +364,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">14.1. Examples</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#balance-equations-in-physics">14.2. Balance equations in physics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#impulsive-force">13.1. Impulsive force</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#properties">13.2. Properties</a></li>
 </ul>
             </nav>
         </div>
@@ -377,119 +377,114 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="introduction-to-partial-differential-equations">
-<span id="pde"></span><h1><span class="section-number">14. </span>Introduction to Partial Differential Equations<a class="headerlink" href="#introduction-to-partial-differential-equations" title="Permalink to this heading">#</a></h1>
-<p>Partial differential equations usually comes from balance equations in <strong>continuum mechanics</strong>. Integral equations are the most general form of these equations, and an equivalent differential problem only exists if the fields involved in the equations are regular enough, for their derivatives to exist - and to apply theorems requiring some regularity of the functions.</p>
-<p>Classical numerical methods:</p>
-<ul class="simple">
-<li><p><strong>FVM</strong>: directly solves the <strong>integral problem</strong>, solving integral balance equations for cells in which the domain is divided</p></li>
-<li><p><strong>FDM</strong>: given the problem in <strong>differential form</strong>, FDM directly approximates space derivatives of the <strong>strong formulation</strong> of the problem</p></li>
-<li><p><strong>FEM</strong>: given the problem in <strong>differential form</strong>, FEM projects the <strong>weak formulation</strong> of the problem on a finite-dimensional space</p></li>
-<li><p><strong>BEM</strong>: <em>integro-differential equation</em>, <em>singularities</em>,…</p></li>
-<li><p><strong>Spectral methods</strong>,…</p></li>
-<li><p><strong>SEM</strong>,…</p></li>
-</ul>
-<div class="section" id="examples">
-<span id="pde-examples"></span><h2><span class="section-number">14.1. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">#</a></h2>
-<p>In Physics:</p>
-<ul>
-<li><p>Advection equation</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="linear-time-invariant-systems">
+<span id="ode-lti"></span><h1><span class="section-number">13. </span>Linear Time-Invariant Systems<a class="headerlink" href="#linear-time-invariant-systems" title="Permalink to this heading">#</a></h1>
+<p>A linear time invariant system is governed by a linear ODE with constant coefficients. These equations can be recast as a first order system of ODEs,</p>
 <div class="math notranslate nohighlight">
-\[\partial_t u + \vec{a} \cdot \nabla u = f\]</div>
-</li>
-<li><p>Diffusion equation</p>
+\[\begin{split}\begin{cases}
+  \dot{\mathbf{x}} = \mathbf{A} \mathbf{x} + \mathbf{B} \mathbf{u} \\
+       \mathbf{y}  = \mathbf{C} \mathbf{x} + \mathbf{D} \mathbf{u} \\
+  \mathbf{x}(0^-) = \mathbf{x}_0
+\end{cases}\end{split}\]</div>
+<p>Exploiting the <a class="reference internal" href="#ode-lti-matrix-properties"><span class="std std-ref">properties of matrix exponential</span></a> the general expression of the state can be written as the sum of the free response to initial condition and the forced response.</p>
 <div class="math notranslate nohighlight">
-\[\partial_t u - \nu \nabla^2 u = f\]</div>
-</li>
-<li><p>Hyperbolic equation/system of equations</p>
+\[\begin{split}\begin{aligned}
+  \mathbf{x}(t) &amp; = e^{\mathbf{A}t} \mathbf{x}_0 + \int_{\tau=0^-}^{t} e^{\mathbf{A}(t-\tau)} \mathbf{B} \mathbf{u} (\tau) \, d \tau \\
+  \mathbf{y}(t) &amp; = \mathbf{C} e^{\mathbf{A}t} \mathbf{x}_0 + \mathbf{C} \int_{\tau=0^-}^{t} e^{\mathbf{A}(t-\tau)} \mathbf{B} \mathbf{u} (\tau) \, d \tau  + \mathbf{D} \mathbf{u}(t) \\
+\end{aligned}\end{split}\]</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Proof in time domain<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Multipying by <span class="math notranslate nohighlight">\(e^{-\mathbf{A} t}\)</span>,</p>
 <div class="math notranslate nohighlight">
-\[\partial_t \mathbf{u} + \nabla \cdot \mathbf{F}(\mathbf{u}) = \mathbf{f} \]</div>
-</li>
-<li><p>Wave equation</p>
+\[\begin{split}\begin{aligned}
+  e^{-\mathbf{A}t} ( \dot{x}(t) - \mathbf{A} \mathbf{x}(t) ) &amp; = e^{-\mathbf{A} t} \mathbf{B} \mathbf{u}(t) \\
+    \dfrac{d}{dt} \left( \mathbf{x} e^{-\mathbf{A}t} \right) &amp; = e^{-\mathbf{A} t} \mathbf{B} \mathbf{u}(t) \\
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">and integrating from <span class="math notranslate nohighlight">\(0^-\)</span> to a generic time value <span class="math notranslate nohighlight">\(t\)</span>,</p>
 <div class="math notranslate nohighlight">
-\[\frac{1}{c^2} \partial_{tt} u - \nabla^2 u = f\]</div>
-</li>
-</ul>
+\[e^{-\mathbf{A}t} \mathbf{x}(t) - \mathbf{x}_0 = \int_{\tau=0^-}^{t} e^{-\mathbf{A}\tau} \mathbf{B} \mathbf{u} (\tau) \, d \tau\]</div>
+<p class="sd-card-text">The state <span class="math notranslate nohighlight">\(\mathbf{x}(t)\)</span> can be written as the sum of the free response and a force response. The general expression of the state and the output as a function reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathbf{x}(t) &amp; = e^{\mathbf{A}t} \mathbf{x}_0 + \int_{\tau=0^-}^{t} e^{\mathbf{A}(t-\tau)} \mathbf{B} \mathbf{u} (\tau) \, d \tau \\
+  \mathbf{y}(t) &amp; = \mathbf{C} e^{\mathbf{A}t} \mathbf{x}_0 + \mathbf{C} \int_{\tau=0^-}^{t} e^{\mathbf{A}(t-\tau)} \mathbf{B} \mathbf{u} (\tau) \, d \tau  + \mathbf{D} \mathbf{u}(t) \\
+\end{aligned}\end{split}\]</div>
 </div>
-<div class="section" id="balance-equations-in-physics">
-<h2><span class="section-number">14.2. </span>Balance equations in physics<a class="headerlink" href="#balance-equations-in-physics" title="Permalink to this heading">#</a></h2>
-<ul>
-<li><p>Small-strain continuum mechanics</p>
-<div class="math notranslate nohighlight">
-\[\rho \partial_{tt} \vec{s} = \rho_0 \vec{g} + \nabla \cdot \symbf{\sigma}(\symbf{\varepsilon})\]</div>
-</li>
-<li><p>Heat conduction</p></li>
-<li><p>Fluid dynamics</p>
-<ul>
-<li><p>Navier-Stokes for compressible fluids  (conservative or convective equations)</p>
-<div class="math notranslate nohighlight">
-\[\begin{cases}
-     \end{cases}\]</div>
-</li>
-<li><p>Navier-Stokes for incompressible fluids (convective form,…)</p>
+</details><p><strong>Laplace domain.</strong>
+The <a class="reference internal" href="../complex/laplace.html#complex-laplace"><span class="std std-ref">Laplace transform</span></a> of the problem reads</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{cases}
-        \rho \partial_t \vec{u} + \rho (\vec{u} \cdot \nabla ) \vec{u} - \mu \nabla^2 \vec{u} + \nabla P = \rho \vec{g} \\
-        \nabla \cdot \vec{u} = 0
-     \end{cases}\end{split}\]</div>
-</li>
-</ul>
-</li>
-</ul>
-<p><strong>todo</strong></p>
-<ul>
-<li><p>Different forms of equations may be more or less convenient for different solution approaches</p></li>
-<li><p>Most of the physical laws comes from integral balance equation of the form</p>
+   s \hat{\mathbf{x}} = \mathbf{A} \hat{\mathbf{x}} + \mathbf{B} \hat{\mathbf{u}} + \mathbf{x}_0 \\
+     \hat{\mathbf{y}} = \mathbf{C} \hat{\mathbf{x}} + \mathbf{D} \hat{\mathbf{u}} \\
+\end{cases}\end{split}\]</div>
 <div class="math notranslate nohighlight">
-\[\dfrac{d}{dt} \int_{V_t} \rho \mathbf{u} = \int_{V_t} \rho \mathbf{r} + \oint_{\partial V_t} \hat{n} \cdot \mathbf{T}(\mathbf{u})\]</div>
-<p>whose local - differential - form (in case of differentiable functions) readily follows from the application of Reynolds’ transport theorem and divergence theorem to transform time derivative and boundary terms</p>
+\[(s\mathbf{I} - \mathbf{A}) \hat{\mathbf{x}} = \mathbf{B} \hat{\mathbf{u}} + \mathbf{x}_0\]</div>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
-     &amp; \partial_t \left( \rho \mathbf{u} \right) + \nabla \cdot (\rho \mathbf{u} \vec{u}) = \rho \mathbf{r} + \nabla \cdot \mathbf{T}(\mathbf{u}) \\
-     &amp; \partial_t \left( \rho \mathbf{u} \right) + \nabla \cdot \mathbf{F}(\mathbf{u}) = \rho \mathbf{r} \ ,
-   \end{aligned}\end{split}\]</div>
-<p>and the physical meaning of each term is evident and readily expalinable as flux or volume or surface sources.</p>
-</li>
-<li><p>Further manipulation/simplification may cover the clear meaning of the terms of the differential equation. As an example, the conservative form of Navier-Stokes equations for incompressible fluids with constant and uniform density read</p>
+  \hat{\mathbf{x}}(s) &amp; = (s\mathbf{I} - \mathbf{A})^{-1} \mathbf{B} \hat{\mathbf{u}}(s) + (s\mathbf{I} - \mathbf{A})^{-1} \mathbf{x}_0 \\
+  \hat{\mathbf{y}}(s) &amp; = \left[ \mathbf{C} (s\mathbf{I} - \mathbf{A})^{-1} \mathbf{B} + \mathbf{D} \right] \hat{\mathbf{u}}(s) + \mathbf{C} (s\mathbf{I} - \mathbf{A})^{-1}\mathbf{x}_0
+\end{aligned}\end{split}\]</div>
+<p>Performing inverse Laplace transform allows to go back to time domain</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\begin{cases}
-    \partial_t \left( \rho \vec{u} \right) + \nabla \cdot ( \rho \vec{u} \otimes \vec{u} ) = \rho \vec{g} + \nabla \cdot \mathbb{T} \\
-    \nabla \cdot \vec{u} = 0 \ ,
-  \end{cases}\end{split}\]</div>
-<p>where the stress tensor for a Newtonian fluid reads</p>
+\[\]</div>
+<div class="section" id="impulsive-force">
+<h2><span class="section-number">13.1. </span>Impulsive force<a class="headerlink" href="#impulsive-force" title="Permalink to this heading">#</a></h2>
+<p>The effect of an impulsive force at time <span class="math notranslate nohighlight">\(t=0\)</span> is equivalent to an instantaneous change in the initial state, from time <span class="math notranslate nohighlight">\(0^-\)</span> before the impulse to time <span class="math notranslate nohighlight">\(0^+\)</span> after the impulse. Splitting the input <span class="math notranslate nohighlight">\(\mathbf{u}(t)\)</span> as the sum of impulsive input and regular input,</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
-    \mathbb{T}
-    &amp; = - p \mathbb{I} + 2 \mu \mathbb{D} + \lambda \left( \nabla \cdot \vec{u} \right) \mathbb{I} \\
-    &amp; = - p \mathbb{I} + \mu \left( \nabla \vec{u} + \nabla^T \vec{u} \right) + \lambda \left( \nabla \cdot \vec{u} \right) \mathbb{I}
-  \end{aligned}\end{split}\]</div>
-<p>Using the incompressibility constraint <span class="math notranslate nohighlight">\(\nabla \cdot \vec{u}\)</span>, and treating the density <span class="math notranslate nohighlight">\(\rho\)</span> as a constant and uniform parameter, the convective form of the Navier-Stokes equations reads</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{cases}
-    \rho \partial_t \vec{u} + \rho \left( \vec{u} \cdot \nabla \right) \vec{u} = \rho \vec{g} - \nabla P + 2 \mu \nabla \cdot \mathbb{D} \\
-    \nabla \cdot \vec{u} = 0 \ .
-  \end{cases}\end{split}\]</div>
-<p>The divergence of the viscous stress tensor becomes</p>
-<div class="math notranslate nohighlight">
-\[2 \mu \nabla \cdot \mathbb{D} = \mu \nabla \cdot \left( \nabla \vec{u} + \nabla^T \vec{u} \right) = \mu \left( \nabla^2 \vec{u} + \nabla \underbrace{\left( \nabla \cdot \vec{u} \right)}_{= 0} \right) = \mu \nabla^2 \vec{u} \ ,\]</div>
-<p>so that one of the most common form of incompressible Navier-Stokes equations follows</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{cases}
-    \rho \partial_t \vec{u} + \rho ( \vec{u} \cdot \nabla ) \vec{u} - \mu \nabla^2 \vec{u} + \nabla P = \rho \vec{g} \\
-    \nabla \cdot \vec{u} = 0 \ .
-  \end{cases}\end{split}\]</div>
-<p>It should be evident that in the latter form of Navier-Stokes equations no divergence explicitly appears, so that the right expression of surface source terms can’t be found immediately. In momentum equation, surface source terms come from surface stress acting on the boundary of the domain, whose expression reads</p>
+  \mathbf{u}(t) &amp; = \mathbf{u}_r(t) + \mathbf{u}_\delta \delta(t) \\
+  \hat{\mathbf{u}}(s) &amp; = \hat{\mathbf{u}}_r(s) + \mathbf{u}_\delta \\
+\end{aligned}\end{split}\]</div>
+<p>the solution in time and Laplace domain reads</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
-    \vec{t}_n 
-    &amp; = \hat{n} \cdot \mathbb{T} = \\
-    &amp; = \hat{n} \cdot \left(- P \mathbb{I} + 2 \mu \mathbb{D} \right) = \\
-    &amp; = \hat{n} \cdot \left(- P \mathbb{I} + \mu \left( \nabla \vec{u} + \nabla^T \vec{u} \right) \right) = \\
-    &amp; = - P \hat{n} +  \hat{n} \cdot \left( \mu \left( \nabla \vec{u} + \nabla^T \vec{u} \right) \right) = \\
-  \end{aligned}\end{split}\]</div>
-<p>As an example, in <span class="xref myst">weak formulation of incompressible Navier-Stokes problem</span> the <strong>natural boundary condition</strong> arising in the method depends on the expression of the strong formulation of the NS problem. If one needs to prescribe stress boundary conditions, it could be an idea to start from NS equations w/o extra simplifications.</p>
-</li>
-</ul>
+  \mathbf{x}(t)
+  &amp; = e^{\mathbf{A}t} \mathbf{x}_0 + \int_{\tau=0^-}^{t} e^{\mathbf{A}(t-\tau)} \mathbf{B} \left( \mathbf{u}_r (\tau) + \mathbf{u}_\delta \delta(\tau) \right) \, d \tau = \\ 
+  &amp; = e^{\mathbf{A}t} \left( \mathbf{x}_0 + \mathbf{B} \mathbf{u}_\delta \right) + \int_{\tau=0^-}^{t} e^{\mathbf{A}(t-\tau)} \mathbf{B} \mathbf{u}_r (\tau) \, d \tau \\
+  \mathbf{y}(t)
+  &amp; = \mathbf{C} e^{\mathbf{A}t} \left( \mathbf{x}_0 + \mathbf{B} \mathbf{u}_\delta \right) + \int_{\tau=0^-}^{t} \mathbf{C} e^{\mathbf{A}(t-\tau)} \mathbf{B} \mathbf{u}_r (\tau) \, d \tau + \mathbf{D} \mathbf{u}_r(t) + \mathbf{D} \mathbf{u}_\delta(t) \\
+\end{aligned}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+  \hat{\mathbf{x}}(s) &amp; = (s\mathbf{I} - \mathbf{A})^{-1} \mathbf{B} \hat{\mathbf{u}}_r(s) + (s\mathbf{I} - \mathbf{A})^{-1} \left( \mathbf{x}_0 + \mathbf{B} \mathbf{u}_\delta \right) \\
+  \hat{\mathbf{y}}(s) &amp; = \left[ \mathbf{C} (s\mathbf{I} - \mathbf{A})^{-1} \mathbf{B} + \mathbf{D} \right] \hat{\mathbf{u}}_r(s) + \mathbf{C} (s\mathbf{I} - \mathbf{A})^{-1} \left( \mathbf{x}_0 + \mathbf{B} \mathbf{u}_\delta \right) + \mathbf{D} \mathbf{u}_{\delta}
+\end{split}\]</div>
+</div>
+<div class="section" id="properties">
+<span id="ode-lti-matrix-properties"></span><h2><span class="section-number">13.2. </span>Properties<a class="headerlink" href="#properties" title="Permalink to this heading">#</a></h2>
+<p><strong>Matrix exponential.</strong></p>
+<div class="math notranslate nohighlight">
+\[e^{\mathbf{A} t} = \sum_{k = 0}^{+\infty} \frac{\mathbf{A}^k t^k}{k!} \ .\]</div>
+<p>Assuming it’s possible swap derivative operator and summation (when?), it’s possible to write</p>
+<div class="math notranslate nohighlight">
+\[\frac{d}{dt} e^{\mathbf{A}t} = \dfrac{d}{dt} \sum_{k = 0}^{+\infty} \frac{\mathbf{A}^k t^k}{k!} = \sum_{k=1}^{+\infty} k t^{k-1} \frac{\mathbf{A}^k t^{k-1}}{k!} = \mathbf{A} e^{\mathbf{A} t} \ .\]</div>
+<p><strong>Laplace transform of exponential matrix.</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathscr{L}\left\{ e^{\mathbf{A}t} \right\}(s)
+  &amp; := \int_{t=0^-}^{+\infty} e^{\mathbf{A} t} e^{-s t} \, dt = \\
+  &amp; = \int_{t=0^-}^{+\infty} e^{(-s\mathbf{I} + \mathbf{A}) t} \, dt = \\
+  &amp; = (-s\mathbf{I} + \mathbf{A})^{-1} \left.e^{(-s\mathbf{I} + \mathbf{A}) t}\right|_{t=0^-}^{+\infty} = \\
+  &amp; = (- s \mathbf{I} + \mathbf{A})^{-1} \ ,
+\end{aligned}\end{split}\]</div>
+<p>for all the values of <span class="math notranslate nohighlight">\(s\)</span> for which <span class="math notranslate nohighlight">\(-s\mathbf{I} + \mathbf{A}\)</span> is asymptotically stable, i.e. has all the eignevalues (thus, assuming that the matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> can be diagonalizable. What happens if not? Exploit other matrix decompositions to draw conclusions) with negative real parts, and thus for all the values of <span class="math notranslate nohighlight">\(s &gt; \max \text{re}\{ s_k(\mathbf{A}) \}\)</span>, as it’s shown in <a class="reference internal" href="#matrix-stability-spectrum">Example 13.1</a></p>
+<div class="proof example admonition" id="matrix-stability-spectrum">
+<p class="admonition-title"><span class="caption-number">Example 13.1 </span> (Asymptotic stability of a matrix <span class="math notranslate nohighlight">\(\ \mathbf{A}\)</span>)</p>
+<div class="example-content section" id="proof-content">
+<p>An <span class="math notranslate nohighlight">\(N \times N\)</span> diagnonalizable matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span>,</p>
+<div class="math notranslate nohighlight" id="equation-eq-matrix-stability-spectrum-a">
+<span class="eqno">(13.1)<a class="headerlink" href="#equation-eq-matrix-stability-spectrum-a" title="Permalink to this equation">#</a></span>\[\mathbf{A} \mathbf{v}_k = \mathbf{v}_k \, s_k\]</div>
+<p>has all the eigenvalues with negative real part, <span class="math notranslate nohighlight">\(\text{re}\left\{ s_k \right\} &lt; 0\)</span>, <span class="math notranslate nohighlight">\(\forall k=1:N\)</span>.</p>
+<p>The eigenvalues of a matrix <span class="math notranslate nohighlight">\(a \mathbf{I} + \mathbf{A}\)</span> are <span class="math notranslate nohighlight">\(a + s_k\)</span>, while the eigenvectors are the same as those of the matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span>. This can be easily proved adding <span class="math notranslate nohighlight">\(a \mathbf{I} \mathbf{v}_k\)</span> to both sides of equation <a class="reference internal" href="#equation-eq-matrix-stability-spectrum-a">(13.1)</a>,</p>
+<div class="math notranslate nohighlight">
+\[\left( a \mathbf{I} + \mathbf{A} \right) \mathbf{v}_k = \mathbf{v}_k (a + s_k) \ .\]</div>
+</div>
+</div><p><strong>Transform of the convolution.</strong></p>
 </div>
 </div>
 
@@ -506,7 +501,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./ch/pde"
+            path: "./ch/ode"
         },
         predefinedOutput: true
     }
@@ -524,20 +519,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../ode/lti.html"
+       href="intro.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">13. </span>Linear Time-Invariant Systems</p>
+        <p class="prev-next-title"><span class="section-number">12. </span>Introduction to Ordinary Differential Equations</p>
       </div>
     </a>
     <a class="right-next"
-       href="elliptic.html"
+       href="../pde/intro.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">15. </span>Elliptic equations</p>
+        <p class="prev-next-title"><span class="section-number">14. </span>Introduction to Partial Differential Equations</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -556,8 +551,8 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">14.1. Examples</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#balance-equations-in-physics">14.2. Balance equations in physics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#impulsive-force">13.1. Impulsive force</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#properties">13.2. Properties</a></li>
 </ul>
   </nav></div>
 

@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>17. Navier-Cauchy equations &#8212; basics - math</title>
+    <title>18. Navier-Cauchy equations &#8212; basics - math</title>
   
   
   
@@ -70,20 +70,11 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="18. Navier-Stokes equations" href="ns.html" />
-    <link rel="prev" title="16. Hyperbolic problems" href="hyperbolic.html" />
+    <link rel="next" title="19. Navier-Stokes equations" href="ns.html" />
+    <link rel="prev" title="17. Hyperbolic problems" href="hyperbolic.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPXX63Z3XR"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-JPXX63Z3XR');
-</script>
-
   
   
   <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
@@ -214,16 +205,17 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Ordinary Differential Equations</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../ode/intro.html">12. Introduction to Ordinary Differential Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ode/lti.html">13. Linear Time-Invariant Systems</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Partial Differential Equations</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="intro.html">13. Introduction to Partial Differential Equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="elliptic.html">14. Elliptic equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="parabolic.html">15. Parabolic equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hyperbolic.html">16. Hyperbolic problems</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">17. Navier-Cauchy equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ns.html">18. Navier-Stokes equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ale.html">19. Arbitrary Lagrangian-Eulerian description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">14. Introduction to Partial Differential Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="elliptic.html">15. Elliptic equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parabolic.html">16. Parabolic equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hyperbolic.html">17. Hyperbolic problems</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">18. Navier-Cauchy equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ns.html">19. Navier-Stokes equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ale.html">20. Arbitrary Lagrangian-Eulerian description</a></li>
 </ul>
 
     </div>
@@ -372,7 +364,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-formulation">17.1. Weak formulation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-formulation">18.1. Weak formulation</a></li>
 </ul>
             </nav>
         </div>
@@ -385,7 +377,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="navier-cauchy-equations">
-<span id="pde-nc"></span><h1><span class="section-number">17. </span>Navier-Cauchy equations<a class="headerlink" href="#navier-cauchy-equations" title="Permalink to this heading">#</a></h1>
+<span id="pde-nc"></span><h1><span class="section-number">18. </span>Navier-Cauchy equations<a class="headerlink" href="#navier-cauchy-equations" title="Permalink to this heading">#</a></h1>
 <p>Navier-Cauchy equations are the differential balance equation of the momentum of an elastic isotropic medium in the regime of small strain and displacement,</p>
 <div class="math notranslate nohighlight">
 \[\rho_0 \partial_{tt} \vec{s} = \rho_0 \vec{g} + \nabla \cdot \symbf{\sigma} \ . \]</div>
@@ -407,7 +399,7 @@ document.write(`
   &amp; a \vec{s} + \hat{n} \cdot \symbf{\sigma} = \vec{b} &amp;&amp; \vec{r} \in S_R &amp;&amp; \text{Robin b.c.} \\
 \end{aligned}\end{split}\]</div>
 <div class="section" id="weak-formulation">
-<h2><span class="section-number">17.1. </span>Weak formulation<a class="headerlink" href="#weak-formulation" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">18.1. </span>Weak formulation<a class="headerlink" href="#weak-formulation" title="Permalink to this heading">#</a></h2>
 <p>For <span class="math notranslate nohighlight">\(\forall \vec{w} \in \dots\)</span></p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
@@ -472,7 +464,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">16. </span>Hyperbolic problems</p>
+        <p class="prev-next-title"><span class="section-number">17. </span>Hyperbolic problems</p>
       </div>
     </a>
     <a class="right-next"
@@ -480,7 +472,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">18. </span>Navier-Stokes equations</p>
+        <p class="prev-next-title"><span class="section-number">19. </span>Navier-Stokes equations</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -499,7 +491,7 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-formulation">17.1. Weak formulation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-formulation">18.1. Weak formulation</a></li>
 </ul>
   </nav></div>
 
