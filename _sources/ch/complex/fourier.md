@@ -30,7 +30,7 @@ Exploiting the properties of integrals of complex exponentials with $k \in \math
 
 $$\int_{t=0}^{T} e^{i k \frac{2 \pi}{T} t} \, dt = 
 \begin{cases}
-\frac{1}{i n \frac{2 \pi}{T}} \left.\left[ e^{ik \frac{2\pi}{T} t} \right]\right|_{t=0}^{T} = 0 \hfill \text{if $ k \ne 0$} \\
+\frac{1}{i k \frac{2 \pi}{T}} \left.\left[ e^{ik \frac{2\pi}{T} t} \right]\right|_{t=0}^{T} = 0 \hfill \qquad \text{if $ k \ne 0$} \\
 T \hfill \text{if $ k = 0$}
 \end{cases}
 $$
