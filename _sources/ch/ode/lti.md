@@ -49,14 +49,12 @@ $$\begin{cases}
 $$(s\mathbf{I} - \mathbf{A}) \hat{\mathbf{x}} = \mathbf{B} \hat{\mathbf{u}} + \mathbf{x}_0$$
 
 $$\begin{aligned}
-  \hat{\mathbf{x}}(s) & = (s\mathbf{I} - \mathbf{A})^{-1} \mathbf{B} \hat{\mathbf{u}}(s) + (s\mathbf{I} - \mathbf{A})^{-1} \mathbf{x}_0 \\
-  \hat{\mathbf{y}}(s) & = \left[ \mathbf{C} (s\mathbf{I} - \mathbf{A})^{-1} \mathbf{B} + \mathbf{D} \right] \hat{\mathbf{u}}(s) + \mathbf{C} (s\mathbf{I} - \mathbf{A})^{-1}\mathbf{x}_0
+  \hat{\mathbf{x}}(s) & = (s\mathbf{I} - \mathbf{A})^{-1} \mathbf{x}_0 + (s\mathbf{I} - \mathbf{A})^{-1} \mathbf{B} \hat{\mathbf{u}}(s) \\
+  \hat{\mathbf{y}}(s) & = \mathbf{C} (s\mathbf{I} - \mathbf{A})^{-1}\mathbf{x}_0 + \left[ \mathbf{C} (s\mathbf{I} - \mathbf{A})^{-1} \mathbf{B} + \mathbf{D} \right] \hat{\mathbf{u}}(s)
 \end{aligned}$$
 
 
-Performing inverse Laplace transform allows to go back to time domain
-
-$$$$
+Performing inverse Laplace transform allows to go back to time domain (just use Laplace inverse transform of a matrix exponential, and the formula {eq}`laplace:convolution` for Laplace transform of convolution).
 
 
 ## Impulsive force

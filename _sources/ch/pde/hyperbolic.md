@@ -74,8 +74,8 @@ A Riemann problem is defined as the evolution of the initial state
 
 $$\mathbf{u}(x,t_0) =
   \begin{cases}
-  \mathbf{u}_a \ , && x < x_0 \\
-  \mathbf{u}_b \ , && x > x_0 \\
+  \mathbf{u}_a \ , \hfill \quad x < x_0 \\
+  \mathbf{u}_b \ , \hfill \quad x > x_0 \\
 \end{cases}$$
 
 This problem is quite useful in quite a wide range of numerical methods for hyperbolic problems - Godunov schemes in Finite Volume Methods -, to evaluate the **boundary state** to be used numerical flux.
@@ -137,9 +137,9 @@ $$\begin{aligned}
 
 $$|u| \ : \  
 \begin{cases}
-   = 0 && \text{at rest} \\
-   < a && \text{subsonic flow} \\
-   > a && \text{supersonic flow to the left/right} \\
+   = 0 \hfill \qquad \text{at rest} \\
+   < a \hfill \qquad \text{subsonic flow} \\
+   > a \hfill \qquad \text{supersonic flow to the left/right} \\
 \end{cases}
 $$
 
@@ -458,7 +458,7 @@ $$
 
 **Spectrum of matrix $\mathbf{A}(\mathbf{u})$.**
 
-$$0 = |\mathbf{A}(\mathbf{u}) - s^2 \mathbf{I}| = -s \left( 2 u - s ) + u^2 - g \eta = (s-u)^2 - g  \eta \ .$$
+$$0 = |\mathbf{A}(\mathbf{u}) - s^2 \mathbf{I}| = -s \left( 2 u - s \right) + u^2 - g \eta = (s-u)^2 - g  \eta \ .$$
 
 
 ```
