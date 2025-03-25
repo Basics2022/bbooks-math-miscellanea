@@ -14,7 +14,7 @@ For a $T$-periodic function,
 
 $$g(t) \sim \frac{a_0}{2} + \sum_{n=1}^{+\infty} \left[ a_n \, \cos\left( n \frac{2\pi}{T} t \right) + b_n \, \sin\left( n \frac{2 \pi }{T} t \right) \right] \ ,$$
 
-**todo** Prove it with properties of integrals of $\sin$ and $\cos$ over $t \in \left[ 0, T \right]$; prove convergene to average value at jumps
+**todo** Prove it with properties of integrals of $\sin$ and $\cos$ over $t \in \left[ 0, T \right]$; prove convergence to average value at jumps
 
 The exponential form reads
 
