@@ -373,7 +373,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#higher-order-derivatives">11.1. Higher-order derivatives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lagrange-equations">11.1. Lagrange equations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#euler-beltrami-equation">11.1.1. Euler-Beltrami equation</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -387,55 +390,182 @@ document.write(`
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="introduction-to-calculus-of-variations">
 <span id="calculus-variations-intro"></span><h1><span class="section-number">11. </span>Introduction to Calculus of Variations<a class="headerlink" href="#introduction-to-calculus-of-variations" title="Permalink to this heading">#</a></h1>
-<p>Given the functional <span class="math notranslate nohighlight">\(S\)</span>,</p>
+<p>Calculus of variation deals with variations - i.e. “small changes” - of functions and functionals.</p>
+<p>The meaning of the term functional may vary on the subfield of interest. In the field of calculus of variation, a <strong>functional</strong> can be defined as a function of function, i.e. a function whose argument is another function.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Fields and applications<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Fields and applications related to calculus of variations (give some examples below):</p>
+<ul class="simple">
+<li><p class="sd-card-text">gradient-based techniques like some methods in:</p>
+<ul>
+<li><p class="sd-card-text">optimization, either free or constrained (via Lagrange multiplier methods)</p></li>
+<li><p class="sd-card-text">sensitivity</p></li>
+</ul>
+</li>
+<li><p class="sd-card-text">classical mechanics and physics in general:</p>
+<ul>
+<li><p class="sd-card-text">analytical mechanics: <a class="reference external" href="https://basics2022.github.io/bbooks-physics-mechanics/ch/lagrange.html">Lagrangian formulation</a> and <a class="reference external" href="https://basics2022.github.io/bbooks-physics-mechanics/ch/hamilton.html">Hamiltonian formulation</a> of classical mechanics</p></li>
+</ul>
+</li>
+<li><p class="sd-card-text">…</p></li>
+</ul>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Examples<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<ul class="simple">
+<li><p class="sd-card-text">Lagrange equations for general problem</p></li>
+<li><p class="sd-card-text">examples:</p>
+<ul>
+<li><p class="sd-card-text">brachistochrone for minimum time,…</p></li>
+<li><p class="sd-card-text">catenary, i.e. static solution of wire and cables with neglibile bending stiffness</p></li>
+<li><p class="sd-card-text">isoperimetric inequality, i.e. circle is the plane closed curve with given perimeter enclosing the largest area</p></li>
+</ul>
+</li>
+<li><p class="sd-card-text">sensitivity of results to parameters. Some interesting sensitivity, both in time and trasnformed domains</p>
+<ul>
+<li><p class="sd-card-text">characteristics of a system:</p>
+<ul>
+<li><p class="sd-card-text">equilibria</p></li>
+<li><p class="sd-card-text">eigenvalues</p></li>
+<li><p class="sd-card-text">…</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p class="sd-card-text">optimal control methods</p></li>
+</ul>
+</div>
+</details><div class="section" id="lagrange-equations">
+<span id="calculus-variations-lagrange"></span><h2><span class="section-number">11.1. </span>Lagrange equations<a class="headerlink" href="#lagrange-equations" title="Permalink to this heading">#</a></h2>
+<p>Given the functional <span class="math notranslate nohighlight">\(S\)</span>, with arguments a function <span class="math notranslate nohighlight">\(q(t)\)</span> and the independent variable <span class="math notranslate nohighlight">\(t\)</span>,</p>
 <div class="math notranslate nohighlight">
 \[S[q(t),t] = \int_{t=t_0}^{t_1} L(\dot{q}(t), \, q(t), \, t) \, dt\]</div>
-<p>its variation reads</p>
+<p>its variation w.r.t. the function <span class="math notranslate nohighlight">\(q(t)\)</span> reads</p>
 <div class="math notranslate nohighlight">
 \[\delta S[q(t), t] = \lim_{\varepsilon \rightarrow 0} \frac{1}{\varepsilon} \left( S[q(t)+\varepsilon w(t), \, t] - S[q(t),\, t]\right)\]</div>
+<p>where the function <span class="math notranslate nohighlight">\(w(t)\)</span> is arbitrary, among those satisfying the constraint of the problems: as an example here, if the function <span class="math notranslate nohighlight">\(q(t)\)</span> has prescribed values <span class="math notranslate nohighlight">\(q^*\)</span> for some values of the independent variable, <span class="math notranslate nohighlight">\(t^*\)</span>, the variation <span class="math notranslate nohighlight">\(w(t)\)</span> of the function <span class="math notranslate nohighlight">\(q(t)\)</span> is zero there, <span class="math notranslate nohighlight">\(w(t^*)\)</span> so that the variated function <span class="math notranslate nohighlight">\(q(t) + \varepsilon w(t)\)</span> satisfies the constraint as well, i.e. <span class="math notranslate nohighlight">\(q(t^*) + \varepsilon w(t^*) = q^*\)</span>.</p>
+<p><strong>Variation involves only small changes of function arguments</strong>, since these ones are the elements that can be effectively changed, while the independent variable is not.</p>
+<p>Direct computation of the variation gives</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
 \delta S[q(t), t]
   &amp; = \lim_{\varepsilon \rightarrow 0} \frac{1}{\varepsilon} \left( S[q(t)+\varepsilon w(t), \, t] - S[q(t),\, t]\right) = \\
+  &amp; = \lim_{\varepsilon \rightarrow 0} \frac{1}{\varepsilon} \left( \int_{t = t_0}^{t_1}  L(\dot{q}(t)+\varepsilon w(t), \, q(t)+\varepsilon w(t), \, t) - \int_{t=t_0}^{t_1}  L(\dot{q}(t), \, q(t), \, t) \, dt \right) = \\
   &amp; = \lim_{\varepsilon \rightarrow 0} \frac{1}{\varepsilon} \int_{t = t_0}^{t_1} \left( L(\dot{q}(t)+\varepsilon w(t), \, q(t)+\varepsilon w(t), \, t) - L(\dot{q}(t), \, q(t), \, t) \right) \, dt = \\
   &amp; = \lim_{\varepsilon \rightarrow 0} \frac{1}{\varepsilon} \int_{t = t_0}^{t_1} \left\{ L(\dot{q}(t), \, q(t), \, t) + \varepsilon \left[ \frac{\partial L}{\partial \dot{q}} \dot{w}(t) + \frac{\partial L}{\partial q} w(t) \right] + o(\varepsilon) - L(\dot{q}(t), \, q(t), \, t) \right\} \, dt = \\
   &amp; = \lim_{\varepsilon \rightarrow 0} \frac{1}{\varepsilon} \int_{t = t_0}^{t_1} \left\{ \varepsilon \left[ \frac{\partial L}{\partial \dot{q}} \dot{w}(t) + \frac{\partial L}{\partial q} w(t) \right] + o(\varepsilon) \right\} \, dt = \\
   &amp; = \int_{t = t_0}^{t_1} \left\{ \frac{\partial L}{\partial \dot{q}} \dot{w}(t) + \frac{\partial L}{\partial q} w(t) \right\} \, dt = \\
   &amp; = \left.\left[ w(t) \frac{\partial L}{\partial \dot{q}} \right]\right|_{t=t_0}^{t_1} + \int_{t = t_0}^{t_1} \left\{ - \dfrac{d}{dt} \left( \frac{\partial L}{\partial \dot{q}} \right) + \frac{\partial L}{\partial q} \right\} w(t) \, dt \ .
 \end{aligned}\end{split}\]</div>
-<p>If <span class="math notranslate nohighlight">\(q(t_0)\)</span>, <span class="math notranslate nohighlight">\(q(t_1)\)</span> are prescribed, then <span class="math notranslate nohighlight">\(w(t_0) = w(t_1) = 0\)</span> and thus</p>
+<p>The solution depends on the boundary conditions at the extreme points <span class="math notranslate nohighlight">\(t_0\)</span>, <span class="math notranslate nohighlight">\(t_1\)</span>. <strong>If</strong> the value of the function <span class="math notranslate nohighlight">\(q(t)\)</span> is prescribed in <span class="math notranslate nohighlight">\(t_0\)</span> and <span class="math notranslate nohighlight">\(t_1\)</span>, <span class="math notranslate nohighlight">\(q(t_0) = q_0\)</span>, <span class="math notranslate nohighlight">\(q(t_1) = q_1\)</span>, then its variation is zero, <span class="math notranslate nohighlight">\(w(t_0) = w(t_1) = 0\)</span>, for the reason that has been discussed above. The variation of the functional with prescribed boundary values of the argument function thus reads</p>
 <div class="math notranslate nohighlight">
 \[\delta S[q(t), t] = \int_{t = t_0}^{t_1} \left\{ - \dfrac{d}{dt} \left( \frac{\partial L}{\partial \dot{q}} \right) + \frac{\partial L}{\partial q} \right\} \delta q(t) \, dt \ ,\]</div>
-<p>having called <span class="math notranslate nohighlight">\(w(t) = \delta q(t)\)</span> to stress that is the variation of function <span class="math notranslate nohighlight">\(q(t)\)</span>.</p>
-<p><strong>Stationary conditions, <span class="math notranslate nohighlight">\(\delta S = 0\)</span>.</strong> Stationary condition for <span class="math notranslate nohighlight">\(\forall \delta q(t)\)</span> implies Lagrange equation,</p>
+<p>having called <span class="math notranslate nohighlight">\(w(t) =: \delta q(t)\)</span> to stress that is the variation of function <span class="math notranslate nohighlight">\(q(t)\)</span>. This notation - it’s just notation, it has no special properties - could be useful if the functional depends on several arguments.</p>
+<p><strong>Stationary conditions, <span class="math notranslate nohighlight">\(\delta S = 0\)</span>.</strong> Stationary condition of the functional <span class="math notranslate nohighlight">\(S\)</span> implies that <span class="math notranslate nohighlight">\(\delta S = 0\)</span> for all the possible variations of the argument function, <span class="math notranslate nohighlight">\(\forall \delta q(t)\)</span>. This condition implies that the integrand is identically zero, i.e. <strong>Lagrange equations</strong>,</p>
 <div class="math notranslate nohighlight">
-\[\frac{d}{dt}\left( \frac{\partial L}{\partial \dot{q}} \right) - \frac{\partial L}{\partial q} = 0 \ .\]</div>
-<div class="section" id="higher-order-derivatives">
-<h2><span class="section-number">11.1. </span>Higher-order derivatives<a class="headerlink" href="#higher-order-derivatives" title="Permalink to this heading">#</a></h2>
-<p><strong>Method 1.</strong> If the Lagrangian function <span class="math notranslate nohighlight">\(L\)</span> depends on higher order derivatives,</p>
+\[\frac{d}{dt}\left( \frac{\partial L}{\partial \dot{q}} \right) - \frac{\partial L}{\partial q} = 0 \ ,\]</div>
+<!-- (calculus-variations:lagrange:high-order-der)=  -->
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Higher-order derivatives<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><strong>Method 1.</strong> If the Lagrangian function <span class="math notranslate nohighlight">\(L\)</span> depends on higher order derivatives,</p>
 <div class="math notranslate nohighlight">
 \[L \left(q^{(n)}(t), \, q^{(n-1)}(t), \, \dots, \, q'(t), \, q(t), \, t \right)\]</div>
-<p>it’s possible to recast the problem defining the <span class="math notranslate nohighlight">\(n\)</span>-dimensional function, <span class="math notranslate nohighlight">\(\mathbf{q}(t)\)</span>,</p>
+<p class="sd-card-text">it’s possible to recast the problem defining the <span class="math notranslate nohighlight">\(n\)</span>-dimensional function, <span class="math notranslate nohighlight">\(\mathbf{q}(t)\)</span>,</p>
 <div class="math notranslate nohighlight">
 \[\mathbf{q}(t) = \left( q^0(t), q^1(t), \dots, q^{n-1}(t) \right) := \left(q(t), q'(t), \dots, q^{(n-1)}(t) \right) \ .\]</div>
-<p>With some abuse of notation in <span class="math notranslate nohighlight">\(L\)</span>, the functional <span class="math notranslate nohighlight">\(S\)</span> can be recasted as</p>
+<p class="sd-card-text">With some abuse of notation in <span class="math notranslate nohighlight">\(L\)</span>, the functional <span class="math notranslate nohighlight">\(S\)</span> can be recasted as</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
   S[q(t),t] 
   &amp; = \int_{t=t_0}^{t_1} L(q^{(n)}(t), \, \dots, \, q(t), \, t) \, dt = \\
   &amp; = \int_{t=t_0}^{t_1} L(\dot{\mathbf{q}}(t), \, \mathbf{q}(t), \, t) \, dt \ .
 \end{aligned}\end{split}\]</div>
-<p><strong>todo</strong> <em>Add constraints on components of <span class="math notranslate nohighlight">\(\mathbf{q}(t)\)</span></em></p>
-<p>Repeating the computation, the variation of the functional reads</p>
+<p class="sd-card-text"><strong>todo</strong> <em>Add constraints on components of <span class="math notranslate nohighlight">\(\mathbf{q}(t)\)</span>?</em></p>
+<p class="sd-card-text">Repeating the computation, the variation of the functional reads</p>
 <div class="math notranslate nohighlight">
 \[\delta S[\mathbf{q}(t), t] = \left.\left[ \delta \mathbf{q}^T(t) \frac{\partial L}{\partial \dot{\mathbf{q}}} \right]\right|_{t=t_0}^{t_1} + \int_{t = t_0}^{t_1} \delta \mathbf{q}^T(t) \, \left\{ - \dfrac{d}{dt} \left( \frac{\partial L}{\partial \dot{\mathbf{q}}} \right) + \frac{\partial L}{\partial \mathbf{q}} \right\} \, dt \ .\]</div>
-<p><strong>Method 2.</strong></p>
+<p class="sd-card-text"><strong>Method 2.</strong> …</p>
 <!--
 
 (not exponents but indices of components!), so that
 
 $$\dfrac{d}{dt} \mathbf{q}(t) = \frac{d}{dt} \left(q(t), q'(t), \dots, q^{(n-1)}(t) \right) =  \left(q'(t), q''(t), \dots, q^{(n)}(t) \right) $$
 -->
+</div>
+</details><div class="section" id="euler-beltrami-equation">
+<span id="calculus-variations-euler-beltrami"></span><h3><span class="section-number">11.1.1. </span>Euler-Beltrami equation<a class="headerlink" href="#euler-beltrami-equation" title="Permalink to this heading">#</a></h3>
+<p>If the Lagrangian function <span class="math notranslate nohighlight">\(L\)</span> is not an explicit function of the independent variable, <span class="math notranslate nohighlight">\(L(q'(x),q(x))\)</span>, Euler-Berltrami equation follows from the derivative of the Lagrangian,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \frac{d L}{dx} 
+  &amp; = \frac{\partial L}{\partial q'} q''(x) + \frac{\partial L}{\partial q} q' = \\
+  &amp; = \frac{\partial L}{\partial q'} q'' + \dfrac{d}{dx} \left( \frac{\partial L}{\partial q'} \right) q' = \\
+  &amp; = \dfrac{d}{dx} \left( \frac{\partial L}{\partial q'} q' \right) \ ,
+\end{aligned}\end{split}\]</div>
+<p>and thus</p>
+<div class="math notranslate nohighlight">
+\[
+\dfrac{d}{dx} \left[ L - q' \dfrac{\partial L}{\partial q'} \right] = 0
+\qquad \rightarrow \qquad
+L - q' \dfrac{\partial L}{\partial q'} = C \quad \text{const.}
+\]</div>
+<p><strong>Note 1.</strong> While Lagrange equations are a set of <span class="math notranslate nohighlight">\(N\)</span> equations if the functional depends on <span class="math notranslate nohighlight">\(N\)</span> argument functions <span class="math notranslate nohighlight">\(q_k(t)\)</span>, <span class="math notranslate nohighlight">\(k=1:N\)</span>, Euler-Beltrami equation is an equation only. Indeed for multiple argument functions</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \frac{d L}{dx} 
+  &amp; = \frac{\partial L}{\partial q'_k} q''_k(x) + \frac{\partial L}{\partial q_k} q'_k = \\
+  &amp; = \frac{\partial L}{\partial q'_k} q''_k + \dfrac{d}{dx} \left( \frac{\partial L}{\partial q'_k} \right) q'_k 
+    = \dfrac{d}{dx} \left( \frac{\partial L}{\partial q'_k} q'_k \right) \ ,
+\end{aligned}\end{split}\]</div>
+<p>where Einstein’s summation notation of repeated index is used. Euler-Beltrami thus reads</p>
+<div class="math notranslate nohighlight">
+\[L(q_l'(x),q_l(x)) - q'_k(x) \frac{\partial L}{\partial q'_k}(q'_l(x), q_l(x)) = C \  .\]</div>
+<p><strong>Note 2.</strong> If the Lagrangian function is an explicit function of the independent variable <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(L(q'(x), q(x), x)\)</span>, it’s not hard to realize that  the derivative of the Lagrangian function, along with the use of the Lagrange equation, gives</p>
+<div class="math notranslate nohighlight">
+\[\dfrac{d}{dx} \left[ L - q' \dfrac{\partial L}{\partial q'} \right] = \dfrac{\partial L}{\partial x} \ .\]</div>
+<div class="proof example admonition" id="example-0">
+<p class="admonition-title"><span class="caption-number">Example 11.1 </span> (Euler-Beltrami with <span class="math notranslate nohighlight">\(L(q'(x),q(x),x)\)</span>, Hamiltonian, energy and E.Noether)</p>
+<div class="example-content section" id="proof-content">
+<p>Euler-Beltrami equation shows that if <span class="math notranslate nohighlight">\(L(q'(x), q(x))\)</span>, thus <span class="math notranslate nohighlight">\(L - q' \partial_{q'} L\)</span> is constant, (or an integral of motion in dynamics). In analytical mechanics (<a class="reference external" href="https://basics2022.github.io/bbooks-physics-mechanics/ch/lagrange.html">Lagrange mechanics</a>, <a class="reference external" href="https://basics2022.github.io/bbooks-physics-mechanics/ch/hamilton.html">Hamiltonian mechanics</a>), Lagrangian and Hamiltonian functions of a system read</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  L(\dot{q}_k(t), q_k(t), t) &amp; = T(\dot{q},q,t) + U(q,t) \\
+  H(p,q,t) &amp; := p_k \dot{q}_k - L = \dot{q}_k \frac{\partial L}{\partial \dot{q}^k} - L \ ,
+\end{aligned}\end{split}\]</div>
+<p>having used the common definition of the generalized momenta <span class="math notranslate nohighlight">\(p_k := \frac{\partial L}{\partial \dot{q}^k}\)</span>. It should be immediate to realize that the Hamiltonian is just the quantity appearing in Euler-Beltrami equation (or in its “modified version” if <span class="math notranslate nohighlight">\(\partial_t L \ne 0\)</span>), and thus</p>
+<div class="math notranslate nohighlight">
+\[\dfrac{d H}{d t} = \dfrac{\partial L}{\partial t} \ .\]</div>
+<p>In mechanics, if <span class="math notranslate nohighlight">\(\partial_t L = 0\)</span>, the Hamiltonian is a constant of motion. In this case, it can be prove that the Hamiltonian is equal to the eneergy of the system.</p>
+</div>
+</div><p><strong>Classical examples.</strong></p>
+<div class="proof example admonition" id="example-1">
+<p class="admonition-title"><span class="caption-number">Example 11.2 </span> (Brachistochrone)</p>
+<div class="example-content section" id="proof-content">
+</div>
+</div><div class="proof example admonition" id="example-2">
+<p class="admonition-title"><span class="caption-number">Example 11.3 </span> (Catenary)</p>
+<div class="example-content section" id="proof-content">
+</div>
+</div><div class="proof example admonition" id="example-3">
+<p class="admonition-title"><span class="caption-number">Example 11.4 </span> (Isoperimetric problem)</p>
+<div class="example-content section" id="proof-content">
+</div>
+</div></div>
 </div>
 </div>
 
@@ -502,7 +632,10 @@ $$\dfrac{d}{dt} \mathbf{q}(t) = \frac{d}{dt} \left(q(t), q'(t), \dots, q^{(n-1)}
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#higher-order-derivatives">11.1. Higher-order derivatives</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lagrange-equations">11.1. Lagrange equations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#euler-beltrami-equation">11.1.1. Euler-Beltrami equation</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
