@@ -75,15 +75,6 @@ const thebe_selector_output = ".output, .cell_output"
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPXX63Z3XR"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-JPXX63Z3XR');
-</script>
-
   
   
   <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
@@ -556,6 +547,40 @@ L - q' \dfrac{\partial L}{\partial q'} = C \quad \text{const.}
 <div class="proof example admonition" id="example-1">
 <p class="admonition-title"><span class="caption-number">Example 11.2 </span> (Brachistochrone)</p>
 <div class="example-content section" id="proof-content">
+<p>Find the trajectory…</p>
+<ul class="simple">
+<li><p>Elementary length: <span class="math notranslate nohighlight">\(ds = v \, dt\)</span></p></li>
+<li><p>Energy: <span class="math notranslate nohighlight">\(E(y) = \frac{1}{2} m v^2 - m g y + C\)</span>. Setting <span class="math notranslate nohighlight">\(E = 0\)</span> at starting point, from rest, at <span class="math notranslate nohighlight">\(y_0 = 0\)</span>, it implies <span class="math notranslate nohighlight">\(C=0\)</span>; thus <span class="math notranslate nohighlight">\(v = \sqrt{2gy}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(x(s), \, y(s)\)</span>,</p></li>
+<li><p><span class="math notranslate nohighlight">\(ds = \sqrt{dx^2 + dy^2} = \sqrt{1+y'^2(x)} \, dx\)</span></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[T = \int_{t_0}^{t_1} \, dt = \int_{s_0}^{s_1} \frac{ds}{v} = \int_{x_0}^{x_1} \frac{\sqrt{1+y'^2(x)}}{\sqrt{2gy(x)}} \, dx\]</div>
+<p>The Lagrangian doesn’t explicitly depend on <span class="math notranslate nohighlight">\(x\)</span>, thus Euler-Beltrami equation can be used. Partial derivative of the Lagrangian function w.r.t. <span class="math notranslate nohighlight">\(q'\)</span> reads</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial L}{\partial y'} = ... = \frac{1}{\sqrt{2 g y} \sqrt{1+y'^2}} y' \ ,\]</div>
+<p>and thus Euler-Beltrami equation reads</p>
+<div class="math notranslate nohighlight">
+\[C = L - q' \frac{\partial L}{\partial y'} = \frac{ 1 + y'^2 - y'^2}{\sqrt{2 g y} \sqrt{1+y'^2}} = \frac{1}{\sqrt{2 g y} \sqrt{1+y'^2}}\]</div>
+<p>Squaring <span class="math notranslate nohighlight">\(2 g C^2 = \frac{1}{y(1+y'^2)}\)</span>, it’s possible to write</p>
+<div class="math notranslate nohighlight">
+\[y(x) = \frac{1}{2gC^2(1+y'^2(x))} \ ,\]</div>
+<p>Making the substitution <span class="math notranslate nohighlight">\(y(x)' = A \sin ( A \theta (x) )\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  y(x)  &amp; = \frac{1}{2gC^2} \frac{1}{1+A^2 \sin^2 (A\theta(x))} \\
+  y'(x) &amp; = \frac{1}{2gC^2} \frac{-2 A^3 \sin(A \theta) \cos (A \theta)}{(1+A^2 \sin^2 (A\theta(x)))^2} \theta'(x)
+\end{aligned}\end{split}\]</div>
+<p>Comparing the two expressions of <span class="math notranslate nohighlight">\(y'(x)\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  &amp; A \sin (A \theta) = - \frac{1}{gC^2} \frac{A^3 \sin(A \theta) \cos (A \theta)}{\left[1+A^2 \sin^2 (A\theta(x))\right]^2} \theta'(x) \\
+  &amp; A = - \frac{1}{gC^2} \frac{A^3 \cos (A \theta)}{\left[ 1+A^2 \sin^2 (A\theta(x)) \right]^2} \theta'(x) \\
+  &amp; 1 = - \frac{1}{gC^2} \frac{A^2 \cos (A \theta)}{\left[ 1+A^2 \sin^2 (A\theta(x)) \right]^2} \theta'(x) \\
+  &amp; 1 = - \frac{1}{gC^2} \frac{1}{\left[ 1+A^2 \sin^2 (A\theta(x)) \right]^2} \dfrac{d}{dx} \left( A \sin(A\theta) \right) \\
+  &amp; - \frac{1}{k} dx =  \dfrac{du}{(1+u^2)^2}  \\
+  &amp; - \frac{1}{k} (x-x_0) = \frac{1}{2} \left.\left( \dfrac{u}{u^2+1} + \text{atan}(u) \right)\right|_{u_0}^{u} \\
+\end{aligned}\end{split}\]</div>
 </div>
 </div><div class="proof example admonition" id="example-2">
 <p class="admonition-title"><span class="caption-number">Example 11.3 </span> (Catenary)</p>

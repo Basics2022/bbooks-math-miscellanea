@@ -160,12 +160,61 @@ In mechanics, if $\partial_t L = 0$, the Hamiltonian is a constant of motion. In
 
 **Classical examples.**
 ```{prf:example} Brachistochrone
+
+Find the trajectory...
+
+- Elementary length: $ds = v \, dt$
+- Energy: $E(y) = \frac{1}{2} m v^2 - m g y + C$. Setting $E = 0$ at starting point, from rest, at $y_0 = 0$, it implies $C=0$; thus $v = \sqrt{2gy}$
+- $x(s), \, y(s)$,
+- $ds = \sqrt{dx^2 + dy^2} = \sqrt{1+y'^2(x)} \, dx$
+
+$$T = \int_{t_0}^{t_1} \, dt = \int_{s_0}^{s_1} \frac{ds}{v} = \int_{x_0}^{x_1} \frac{\sqrt{1+y'^2(x)}}{\sqrt{2gy(x)}} \, dx$$
+
+The Lagrangian doesn't explicitly depend on $x$, thus Euler-Beltrami equation can be used. Partial derivative of the Lagrangian function w.r.t. $q'$ reads
+
+$$\frac{\partial L}{\partial y'} = ... = \frac{1}{\sqrt{2 g y} \sqrt{1+y'^2}} y' \ ,$$
+
+and thus Euler-Beltrami equation reads
+
+$$C = L - q' \frac{\partial L}{\partial y'} = \frac{ 1 + y'^2 - y'^2}{\sqrt{2 g y} \sqrt{1+y'^2}} = \frac{1}{\sqrt{2 g y} \sqrt{1+y'^2}}$$
+
+Squaring $2 g C^2 = \frac{1}{y(1+y'^2)}$, it's possible to write
+
+$$y(x) = \frac{1}{2gC^2(1+y'^2(x))} \ ,$$
+
+Making the substitution $y(x)' = A \sin ( A \theta (x) )$
+
+$$\begin{aligned}
+  y(x)  & = \frac{1}{2gC^2} \frac{1}{1+A^2 \sin^2 (A\theta(x))} \\
+  y'(x) & = \frac{1}{2gC^2} \frac{-2 A^3 \sin(A \theta) \cos (A \theta)}{(1+A^2 \sin^2 (A\theta(x)))^2} \theta'(x)
+\end{aligned}$$
+
+Comparing the two expressions of $y'(x)$
+
+$$\begin{aligned}
+  & A \sin (A \theta) = - \frac{1}{gC^2} \frac{A^3 \sin(A \theta) \cos (A \theta)}{\left[1+A^2 \sin^2 (A\theta(x))\right]^2} \theta'(x) \\
+  & A = - \frac{1}{gC^2} \frac{A^3 \cos (A \theta)}{\left[ 1+A^2 \sin^2 (A\theta(x)) \right]^2} \theta'(x) \\
+  & 1 = - \frac{1}{gC^2} \frac{A^2 \cos (A \theta)}{\left[ 1+A^2 \sin^2 (A\theta(x)) \right]^2} \theta'(x) \\
+  & 1 = - \frac{1}{gC^2} \frac{1}{\left[ 1+A^2 \sin^2 (A\theta(x)) \right]^2} \dfrac{d}{dx} \left( A \sin(A\theta) \right) \\
+  & - \frac{1}{k} dx =  \dfrac{du}{(1+u^2)^2}  \\
+  & - \frac{1}{k} (x-x_0) = \frac{1}{2} \left.\left( \dfrac{u}{u^2+1} + \text{atan}(u) \right)\right|_{u_0}^{u} \\
+\end{aligned}$$
+
+
 ```
 
 ```{prf:example} Catenary
+
+
+
+
 ```
 
 ```{prf:example} Isoperimetric problem
+
+
+
+
 ```
 
 
