@@ -98,7 +98,7 @@ $$\begin{aligned}
   & := \int_{t=0^-}^{+\infty} e^{\mathbf{A} t} e^{-s t} \, dt = \\
   & = \int_{t=0^-}^{+\infty} e^{(-s\mathbf{I} + \mathbf{A}) t} \, dt = \\
   & = (-s\mathbf{I} + \mathbf{A})^{-1} \left.e^{(-s\mathbf{I} + \mathbf{A}) t}\right|_{t=0^-}^{+\infty} = \\
-  & = (- s \mathbf{I} + \mathbf{A})^{-1} \ ,
+  & = (s \mathbf{I} - \mathbf{A})^{-1} \ ,
 \end{aligned}$$
 
 for all the values of $s$ for which $-s\mathbf{I} + \mathbf{A}$ is asymptotically stable, i.e. has all the eignevalues (thus, assuming that the matrix $\mathbf{A}$ can be diagonalizable. What happens if not? Exploit other matrix decompositions to draw conclusions) with negative real parts, and thus for all the values of $s > \max \text{re}\{ s_k(\mathbf{A}) \}$, as it's shown in {prf:ref}`matrix-stability-spectrum`
