@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Matematica per l’università &#8212; basics - math</title>
+    <title>(Not so) Mathematics Basics &#8212; basics - math</title>
   
   
   
@@ -68,10 +68,19 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="_static/favicon.svg"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="1. Introduction to multi-variable calculus" href="ch/multivariable/intro.html" />
+    <link rel="next" title="1. Matrices" href="ch/linear-algebra/matrices.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPXX63Z3XR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-JPXX63Z3XR');
+</script>
+
   
   
   <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
@@ -162,57 +171,66 @@ const thebe_selector_output = ".output, .cell_output"
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Multivariable Calculus</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Linear Algebra</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="ch/multivariable/intro.html">1. Introduction to multi-variable calculus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/linear-algebra/matrices.html">1. Matrices</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="ch/linear-algebra/matrix-factorization.html">2. Matrix factorizations</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="ch/linear-algebra/svd.html">2.1. Singular Value Decomposition</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ch/linear-algebra/linear-systems.html">3. Linear Systems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Multivariable Calculus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ch/multivariable/intro.html">4. Introduction to multi-variable calculus</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Differential Geometry</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="ch/differential-geometry/intro.html">2. Introduction to Differential Geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/differential-geometry/intro.html">5. Introduction to Differential Geometry</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Vector and Tensor Algebra and Calculus</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="ch/tensor-algebra-calculus/algebra.html">3. Tensor Algebra</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="ch/tensor-algebra-calculus/calculus-euclidean.html">4. Tensor Calculus in Euclidean Spaces</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="ch/tensor-algebra-calculus/calculus-euclidean-cartesian.html">4.5. Tensor Calculus in Euclidean Spaces - Cartesian coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
-<li class="toctree-l2"><a class="reference internal" href="ch/tensor-algebra-calculus/calculus-euclidean-cylindrical.html">4.6. Tensor Calculus in Euclidean Spaces - cylindrical coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
-<li class="toctree-l2"><a class="reference internal" href="ch/tensor-algebra-calculus/calculus-euclidean-spherical.html">4.7. Tensor Calculus in Euclidean Spaces - Spehrical coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/tensor-algebra-calculus/algebra.html">6. Tensor Algebra</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="ch/tensor-algebra-calculus/calculus-euclidean.html">7. Tensor Calculus in Euclidean Spaces</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="ch/tensor-algebra-calculus/calculus-euclidean-cartesian.html">7.5. Tensor Calculus in Euclidean Spaces - Cartesian coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch/tensor-algebra-calculus/calculus-euclidean-cylindrical.html">7.6. Tensor Calculus in Euclidean Spaces - cylindrical coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch/tensor-algebra-calculus/calculus-euclidean-spherical.html">7.7. Tensor Calculus in Euclidean Spaces - Spehrical coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="ch/tensor-algebra-calculus/time-derivative-of-integrals.html">5. Time derivative of integrals over moving domains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/tensor-algebra-calculus/time-derivative-of-integrals.html">8. Time derivative of integrals over moving domains</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Functional Analysis</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="ch/functional-analysis/intro.html">6. Introduction to Functional Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch/functional-analysis/dirac-delta.html">7. Distributions (or generalized functions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/functional-analysis/intro.html">9. Introduction to Functional Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/functional-analysis/dirac-delta.html">10. Distributions (or generalized functions)</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Complex Calculus</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="ch/complex/analysis.html">8. Complex Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch/complex/laplace.html">9. Laplace Transform</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="ch/complex/fourier.html">10. Fourier Transforms</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="ch/complex/fourier-transforms.html">10.3. Relations between Fourier transforms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/complex/analysis.html">11. Complex Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/complex/laplace.html">12. Laplace Transform</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="ch/complex/fourier.html">13. Fourier Transforms</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="ch/complex/fourier-transforms.html">13.3. Relations between Fourier transforms</a></li>
 </ul>
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Calculus of Variations</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="ch/calculus-variations/intro.html">11. Introduction to Calculus of Variations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/calculus-variations/intro.html">14. Introduction to Calculus of Variations</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Ordinary Differential Equations</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="ch/ode/intro.html">12. Introduction to Ordinary Differential Equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch/ode/lti.html">13. Linear Time-Invariant Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/ode/intro.html">15. Introduction to Ordinary Differential Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/ode/lti.html">16. Linear Time-Invariant Systems</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Partial Differential Equations</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="ch/pde/intro.html">14. Introduction to Partial Differential Equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch/pde/elliptic.html">15. Elliptic equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch/pde/parabolic.html">16. Parabolic equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch/pde/hyperbolic.html">17. Hyperbolic problems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch/pde/nc.html">18. Navier-Cauchy equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch/pde/ns.html">19. Navier-Stokes equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch/pde/ale.html">20. Arbitrary Lagrangian-Eulerian description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/pde/intro.html">17. Introduction to Partial Differential Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/pde/elliptic.html">18. Elliptic equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/pde/parabolic.html">19. Parabolic equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/pde/hyperbolic.html">20. Hyperbolic problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/pde/nc.html">21. Navier-Cauchy equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/pde/ns.html">22. Navier-Stokes equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/pde/ale.html">23. Arbitrary Lagrangian-Eulerian description</a></li>
 </ul>
 
     </div>
@@ -349,7 +367,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Matematica per l’università</h1>
+    <h1>(Not so) Mathematics Basics</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -363,30 +381,35 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="matematica-per-l-universita">
-<h1>Matematica per l’università<a class="headerlink" href="#matematica-per-l-universita" title="Permalink to this heading">#</a></h1>
-<p><strong>Argomenti.</strong></p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="not-so-mathematics-basics">
+<h1>(Not so) Mathematics Basics<a class="headerlink" href="#not-so-mathematics-basics" title="Permalink to this heading">#</a></h1>
+<p>This material is part of the <a class="reference external" href="https://basics2022.github.io/bbooks"><strong>basics-books project</strong></a>. It is also available as a <a class="reference download internal" download="" href="_downloads/c563dd6b869263565ace01e935916696/book.pdf"><span class="xref download myst">.pdf document</span></a>.</p>
+<p><strong>Contents.</strong></p>
 <ul class="simple">
-<li><p><strong>Calcolo</strong></p>
-<ul>
-<li><p>Calcolo multivariabile e calcolo vettoriale in spazi euclidei 2D e 3D</p></li>
-<li><p>Algebra lineare e multilineare su spazi con prodotto interno</p></li>
-<li><p>Calcolo lineare e multilineare su spazi con prodotto interno</p></li>
+<li><p><strong>Linear Algebra.</strong> …, matrix factorization,…; basics of lots of numerical methods; <strong>Vector and Tensor Algebra</strong> provides the mathematical framework for manipulating vectors and tensors, the mathematical objects meant to represent <strong>absolute quantities</strong> - invariant under coordinate transformations - fundamental in geometry and physics.</p></li>
+<li><p><strong>Multivariable Calculus</strong> provides the tools for working with continuous functions of many variables; <strong>Differential Geometry</strong> studies smooth curves, surfaces, volumes (and manifolds in general), within the framework of a Riemann structure, providing a metric to define distances, angles, curvatures and other geometric properties; <strong>Vector and Tensor Calculus</strong> studies vector and tensor fields defined on a manifold, along with their differentiation and integration, and thus being essential for a mature approach to geometry and physics;</p></li>
+<li><p><strong>Functional analysis</strong> and <strong>Complex Calculus</strong> (complex analysis, transforms,…)</p></li>
+<li><p>ODEs</p></li>
+<li><p>PDEs</p></li>
+<li><p>Calculus of Variations: theoretical background; Lagrange multiplier method for constraints; sensitivty; gradient-based methods,…</p></li>
+<li><p>Optimization</p></li>
 </ul>
-</li>
-<li><p><strong>Geometria</strong></p>
-<ul>
-<li><p>Geometria differenziale</p></li>
-</ul>
-</li>
-<li><p><strong>Calcolo delle variazioni</strong> (qui e/o nella scuola superiore?)</p></li>
-<li><p><strong>Calcolo complesso</strong></p>
-<ul>
-<li><p>Analisi complessa</p></li>
-<li><p><strong>Teoria delle trasformate</strong>: Fourier, Laplace</p></li>
-</ul>
-</li>
-</ul>
+<!--
+**Argomenti.**
+
+- **Calcolo**
+  - Calcolo multivariabile e calcolo vettoriale in spazi euclidei 2D e 3D
+  - Algebra lineare e multilineare su spazi con prodotto interno
+  - Calcolo lineare e multilineare su spazi con prodotto interno
+- **Geometria**
+  - Geometria differenziale
+- **Calcolo delle variazioni** (qui e/o nella scuola superiore?)
+- **Calcolo complesso**
+  - Analisi complessa
+  - **Teoria delle trasformate**: Fourier, Laplace
+-->
+<div class="toctree-wrapper compound">
+</div>
 <div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
@@ -436,11 +459,11 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="right-next"
-       href="ch/multivariable/intro.html"
+       href="ch/linear-algebra/matrices.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">1. </span>Introduction to multi-variable calculus</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Matrices</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

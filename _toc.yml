@@ -4,6 +4,15 @@
 format: jb-book
 root: intro
 parts:
+- caption: Linear Algebra
+  numbered: True
+  chapters:
+  - file: ch/linear-algebra/intro
+  - file: ch/linear-algebra/matrices
+  - file: ch/linear-algebra/matrix-factorization
+    sections:
+    - file: ch/linear-algebra/svd
+  - file: ch/linear-algebra/linear-systems
 - caption: Multivariable Calculus
   numbered: True
   chapters:
@@ -55,6 +64,10 @@ parts:
   - file: ch/pde/nc
   - file: ch/pde/ns
   - file: ch/pde/ale
+  - file: ch/pde/numerics
+    sections:
+    - file: ch/pde/fem
+    - file: ch/pde/fvm
 # - file: ch/pde/weak
 # - file: ch/pde/fem
 

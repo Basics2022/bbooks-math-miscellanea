@@ -66,7 +66,7 @@
 % Set up styles of URL: it should be placed after hyperref.
 \urlstyle{same}
 
-\addto\captionsenglish{\renewcommand{\contentsname}{Multivariable Calculus}}
+\addto\captionsenglish{\renewcommand{\contentsname}{Linear Algebra}}
 
 \usepackage{sphinxmessages}
 
@@ -85,7 +85,7 @@
         
 
 \title{basics - math}
-\date{Mar 22, 2025}
+\date{Mar 31, 2025}
 \release{}
 \author{basics}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -102,55 +102,324 @@
 
 
 \sphinxAtStartPar
-\sphinxstylestrong{Argomenti.}
+This material is part of the \sphinxhref{https://basics2022.github.io/bbooks}{\sphinxstylestrong{basics\sphinxhyphen{}books project}}. It is also available as a \DUrole{xref,download,myst}{.pdf document}.
+
+\sphinxAtStartPar
+\sphinxstylestrong{Contents.}
 \begin{itemize}
 \item {} 
 \sphinxAtStartPar
-\sphinxstylestrong{Calcolo}
+\sphinxstylestrong{Linear Algebra.} …, matrix factorization,…; basics of lots of numerical methods; \sphinxstylestrong{Vector and Tensor Algebra} provides the mathematical framework for manipulating vectors and tensors, the mathematical objects meant to represent \sphinxstylestrong{absolute quantities} \sphinxhyphen{} invariant under coordinate transformations \sphinxhyphen{} fundamental in geometry and physics.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Multivariable Calculus} provides the tools for working with continuous functions of many variables; \sphinxstylestrong{Differential Geometry} studies smooth curves, surfaces, volumes (and manifolds in general), within the framework of a Riemann structure, providing a metric to define distances, angles, curvatures and other geometric properties; \sphinxstylestrong{Vector and Tensor Calculus} studies vector and tensor fields defined on a manifold, along with their differentiation and integration, and thus being essential for a mature approach to geometry and physics;
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Functional analysis} and \sphinxstylestrong{Complex Calculus} (complex analysis, transforms,…)
+
+\item {} 
+\sphinxAtStartPar
+ODEs
+
+\item {} 
+\sphinxAtStartPar
+PDEs
+
+\item {} 
+\sphinxAtStartPar
+Calculus of Variations: theoretical background; Lagrange multiplier method for constraints; sensitivty; gradient\sphinxhyphen{}based methods,…
+
+\item {} 
+\sphinxAtStartPar
+Optimization
+
+\end{itemize}
+
+
+
+\sphinxstepscope
+
+
+\part{Linear Algebra}
+
+\sphinxstepscope
+
+
+\chapter{Matrices}
+\label{\detokenize{ch/linear-algebra/matrices:matrices}}\label{\detokenize{ch/linear-algebra/matrices:math-linear-algebra-matrix}}\label{\detokenize{ch/linear-algebra/matrices::doc}}
+\sphinxAtStartPar
+\(\mathbf{A} \in \mathbb{K}^{m,n} \) with usually \(\mathbb{K}^{m,n} = \mathbb{R}^{m,n}\) or \(\mathbb{C}^{m,n}\)
+
+\sphinxAtStartPar
+\sphinxstylestrong{Hermitian matrix.} The Hermitian matrix \(\mathbf{A}^*\) of a matrix \(\mathbf{A}\) is the transpose and complex conjugate matrix (if \(\mathbb{K} = \mathbb{C}\)),
+\begin{equation*}
+\begin{split}[\mathbf{A}^*]_{ij} = A^*_{ji} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+with the notation of \(a^*\) for the complex conjugate of a numerical quantity.
+
+
+\section{Subspaces}
+\label{\detokenize{ch/linear-algebra/matrices:subspaces}}\label{\detokenize{ch/linear-algebra/matrices:math-linear-algebra-matrix-subspaces}}
+
+\subsection{Range, Image}
+\label{\detokenize{ch/linear-algebra/matrices:range-image}}\label{\detokenize{ch/linear-algebra/matrices:math-linear-algebra-matrix-subspaces-range}}\begin{equation*}
+\begin{split}R(\mathbf{A}) = \left\{ \mathbf{y} \in \mathbb{K}^m \ | \ \exists \mathbf{x} \in \mathbb{K}^m \ , \text{ s.t. } \mathbf{A} \mathbf{x} = \mathbf{y} \right\}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+The range of a matrix \(\mathbf{A}\) is the linear space built on the columns of \(\mathbf{A}\), since the operation \(\mathbf{A} \mathbf{x}\) represents nothing but a linear combination of the columns of matrix.
+
+
+\subsection{Null, Kernel}
+\label{\detokenize{ch/linear-algebra/matrices:null-kernel}}\label{\detokenize{ch/linear-algebra/matrices:math-linear-algebra-matrix-subspaces-null}}\begin{equation*}
+\begin{split}K(\mathbf{A}) = \left\{ \mathbf{x} \in \mathbb{K}^n \ | \ \mathbf{A} \mathbf{x} = \mathbf{0} \right\}\end{split}
+\end{equation*}
+
+\section{Theorem}
+\label{\detokenize{ch/linear-algebra/matrices:theorem}}\label{\detokenize{ch/linear-algebra/matrices:math-linear-algebra-thms}}
+
+\subsection{Orthogonality of \protect\(R(\mathbf{A})\protect\) and \protect\(K(\mathbf{A^*})\protect\)}
+\label{\detokenize{ch/linear-algebra/matrices:orthogonality-of-r-mathbf-a-and-k-mathbf-a}}\label{\detokenize{ch/linear-algebra/matrices:math-linear-algebra-thms-raperpkah}}
+\sphinxAtStartPar
+The following holds,
+\begin{equation*}
+\begin{split}R(\mathbf{A}) \perp K(\mathbf{A^*}) \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+meaning that \(\forall \mathbf{u} \in R(\mathbf{A})\) and \(\forall \mathbf{v} \in K(\mathbf{A}^*)\), \(\mathbf{u}^* \mathbf{v} = 0\).
+\subsubsection*{Proof.}
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{u} & = \mathbf{A} \mathbf{x} \\
+  \mathbf{0} & = \mathbf{A}^* \mathbf{v} 
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and thus, premultiplication by \(\mathbf{x}^*\) of the second relation gives
+\begin{equation*}
+\begin{split}0 = \mathbf{x}^* \mathbf{0} = \underbrace{\mathbf{x}^* \mathbf{A}^*}_{=(\mathbf{A}  \mathbf{x})^* = \mathbf{u}^*} \mathbf{v} = \mathbf{u}^* \mathbf{v} \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+This theorem becomes quite useful, e.g. for constrained linear systems and projections… (e.g. N\sphinxhyphen{}S, or other constrained linear systems…)
+
+\sphinxAtStartPar
+\sphinxstylestrong{todo} add links
+
+\sphinxstepscope
+
+
+\chapter{Matrix factorizations}
+\label{\detokenize{ch/linear-algebra/matrix-factorization:matrix-factorizations}}\label{\detokenize{ch/linear-algebra/matrix-factorization:math-matrix-factorization}}\label{\detokenize{ch/linear-algebra/matrix-factorization::doc}}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Singular Value Decomposition (SVD)}
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Spectral decomposition} Eigenvalues, eigenvectors; Jordan canonical formula…
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{QR}
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{LU}
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Schur}
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Cholesky} Symmetric positive definite matrices have Choleski decomposition,
+\begin{equation*}
+\begin{split}\mathbf{M} = \mathbf{L} \mathbf{L}^* \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+with \(\mathbf{L}\) lower triangular matrix. And thus quite easy to “invert”, for solving linear systems.
+
+\end{itemize}
+
+\sphinxstepscope
+
+
+\section{Singular Value Decomposition}
+\label{\detokenize{ch/linear-algebra/svd:singular-value-decomposition}}\label{\detokenize{ch/linear-algebra/svd:math-svd}}\label{\detokenize{ch/linear-algebra/svd::doc}}
+\sphinxAtStartPar
+Singular value decomposition of a matrix \(\mathbf{A} \in \mathbb{C}^{m,n}\)
+\begin{equation*}
+\begin{split}\mathbf{A}_{(m,n)} = \text{(SVD)} = \mathbf{U}_{(m,m)} \mathbf{S}_{(m,n)} \mathbf{V}^*_{(n,n)}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+with \(\mathbf{U}^* \mathbf{U} = \mathbf{I}_{(m,m)}\), and \(\mathbf{V}^* \mathbf{V} = \mathbf{I}_{(n,n)}\), \(\mathbf{S} = \text{diag}\{ \sigma_i \}\), \(\sigma_i \ge 0\).
+
+\sphinxAtStartPar
+Exploiting the definition of matrix product, the SVD of matrix A can be written as
+\begin{equation*}
+\begin{split}\mathbf{A} = \sum_{i = \min(m,n)} \sigma_i \mathbf{u}_i \mathbf{v}^*_i \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+see also economic decomposition below.
+
+
+\subsection{Properties}
+\label{\detokenize{ch/linear-algebra/svd:properties}}\label{\detokenize{ch/linear-algebra/svd:math-svd-properties}}
+\sphinxAtStartPar
+\sphinxstylestrong{Relation with {\hyperref[\detokenize{ch/linear-algebra/matrices:math-linear-algebra-matrix-subspaces-range}]{\sphinxcrossref{\DUrole{std,std-ref}{range}}}} and {\hyperref[\detokenize{ch/linear-algebra/matrices:math-linear-algebra-matrix-subspaces-null}]{\sphinxcrossref{\DUrole{std,std-ref}{kernel}}}} the matrix.}
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \text{R}(\mathbf{A})   & = \{ \mathbf{u}_i | \sigma_i > 0 \} \\
+  \text{K}(\mathbf{A})   & = \{ \mathbf{v}_i | \sigma_i = 0 \} \\
+  \text{R}(\mathbf{A}^*) & = \{ \mathbf{v}_i | \sigma_i > 0 \} \\
+  \text{K}(\mathbf{A}^*) & = \{ \mathbf{u}_i | \sigma_i = 0\} \\
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+It’s immediate to prove {\hyperref[\detokenize{ch/linear-algebra/matrices:math-linear-algebra-thms-raperpkah}]{\sphinxcrossref{\DUrole{std,std-ref}{\(\text{R}(\mathbf{A}) \perp \text{K}(\mathbf{A^*})\)}}}}.
+
+\sphinxAtStartPar
+\sphinxstylestrong{Full or economic decomposition.} In general the \(\mathbf{S}\) of the full decompsition in not square.
+\begin{equation*}
+\begin{split}\mathbf{A} = \text{(SVD)} = \mathbf{U}_{(m,m)} \mathbf{S}_{(m,n)} \mathbf{V}^*_{(n,n)} = \mathbf{U}^e_{(m,k)} \mathbf{S}^e_{(k,k)} \mathbf{V}^{e *}_{(k,n)} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+with \(k = \min(m,n)\).
+
+
+\subsection{Applications}
+\label{\detokenize{ch/linear-algebra/svd:applications}}\label{\detokenize{ch/linear-algebra/svd:math-svd-applications}}
+
+\subsubsection{Solution of under\sphinxhyphen{}determined linear systems}
+\label{\detokenize{ch/linear-algebra/svd:solution-of-under-determined-linear-systems}}
+
+\subsubsection{Norms and optimization}
+\label{\detokenize{ch/linear-algebra/svd:norms-and-optimization}}
+\sphinxAtStartPar
+If \(L^2\)\sphinxhyphen{}norm is used for vector norms, see {\hyperref[\detokenize{ch/linear-algebra/svd:svd-optimization-norm}]{\sphinxcrossref{Example 2.1.1}}}
+\begin{equation*}
+\begin{split}\text{Find } \max_{||\mathbf{x}||=1} ||\mathbf{A} \mathbf{x}||^2\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\mathbf{x}^* \mathbf{A}^* \mathbf{A} \mathbf{x} = \mathbf{x}^* \mathbf{V} \mathbf{S}^* \underbrace{\mathbf{U}^* \mathbf{U}}_{\mathbf{I}} \mathbf{S} \underbrace{\mathbf{V}^* \mathbf{x}}_{\mathbf{z}}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and \(\mathbf{z} = \mathbf{V}^* \mathbf{x}\) is unitary as well (since \(1= \mathbf{x}^* \mathbf{x} = \mathbf{z}^* \mathbf{V}^* \mathbf{V} \mathbf{z} = \mathbf{z}^* \mathbf{z} \)).
+
+\sphinxAtStartPar
+After defining \(\mathbf{S}_2 := \mathbf{S}^* \mathbf{S}\), the problem thus becomes
+\begin{equation*}
+\begin{split}\text{Find} \max_{||\mathbf{z}|| = 1} \mathbf{z}^* \mathbf{S}_2 \mathbf{z}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Manipulating the objective function as \(\sum_{i} \sigma_i^2 |z_i|^2 \), the constraint optimization problem has global maximum \(\sigma_1^2\) (sorted singular values from the largest to the smalles) when \(\mathbf{z}_1 = (1,0,0,\dots,0)^T\). Going back to the original variable, optimal condition
 \begin{itemize}
 \item {} 
 \sphinxAtStartPar
-Calcolo multivariabile e calcolo vettoriale in spazi euclidei 2D e 3D
+is achieved for \(\mathbf{x}_1 = \mathbf{v}_1\);
 
 \item {} 
 \sphinxAtStartPar
-Algebra lineare e multilineare su spazi con prodotto interno
+has value \(\max_{||\mathbf{x}||=1}||\mathbf{A}\mathbf{x}|| = \sigma_1^2\)
 
 \item {} 
 \sphinxAtStartPar
-Calcolo lineare e multilineare su spazi con prodotto interno
-
+and the response of the system is \(\mathbf{y}_1 = \sigma_1 \mathbf{u}_1\) as
+\begin{equation*}
+\begin{split}\begin{aligned}
+    \mathbf{y}_1
+    := \mathbf{A} \mathbf{x}_1 
+    = \mathbf{U} \mathbf{S} \mathbf{V}^* \mathbf{v}_1 
+    = \sum_{k} \left( \sigma_k \mathbf{u}_k \mathbf{v}_k^* \right) \mathbf{v}_1 
+    = \sigma_1 \mathbf{u}_1 \ .
+  \end{aligned}\end{split}
+\end{equation*}
 \end{itemize}
+\label{ch/linear-algebra/svd:svd-optimization-norm}
+\begin{sphinxadmonition}{note}{Example 2.1.1 (Other norms \sphinxhyphen{} variations of the \protect\(L^2\protect\)\sphinxhyphen{}norm)}
+
+
+
+\sphinxAtStartPar
+This kind of problem may results as the discrete counterpart of a continuous problem, as an example from \DUrole{xref,myst}{finite element methods}, where \(\mathbf{x}\), \(\mathbf{y}\) contain the coefficients of the basis functions. In this case, the discrete counterpart of the continous norm\sphinxhyphen{}measure of the continuous fields may involve a “mass matrix” (symmetric, definite positive \sphinxhyphen{} and thus with Choloeski factorization…),
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \int_{\Omega_x} |x(\vec{r})|^2 d \vec{r} & \simeq \mathbf{x}^* \mathbf{M}_x \mathbf{x} \\
+  \int_{\Omega_y} |y(\vec{r})|^2 d \vec{r} & \simeq \mathbf{y}^* \mathbf{M}_y \mathbf{y}
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Continuous and discrete optimization problems are
+\begin{equation*}
+\begin{split}\text{Find } \max_{|x(\vec{r})|_{L^2(\Omega_x)}=1} |y|^2_{L^2(\Omega_y)} \end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\text{Find } \max_{\mathbf{x}^*\mathbf{M}_x  \mathbf{x}=1} \mathbf{x}^* \mathbf{A}^* \mathbf{M}_y \mathbf{A} \mathbf{x} \end{split}
+\end{equation*}
+\sphinxAtStartPar
+with the relation \(\mathbf{y} = \mathbf{A} \mathbf{x}\) between the discrete input and output.
+
+\sphinxAtStartPar
+This problem can be easily (and efficiently?) recast to the standard form of the problem, using {\hyperref[\detokenize{ch/linear-algebra/matrix-factorization:math-matrix-factorization}]{\sphinxcrossref{\DUrole{std,std-ref}{Cholesky decomposition}}}} of matrix \(\mathbf{M}_x = \mathbf{L}_x \mathbf{L}_x^*\), with the definition of the variable \(\mathbf{z} = \mathbf{L}_x^* \mathbf{x}\)
+\begin{equation*}
+\begin{split}\text{Find } \max_{||\mathbf{z}||=1} \mathbf{z}^* \mathbf{L}_x^{-1} \mathbf{A}^* \mathbf{L}_y \mathbf{L}_y^* \mathbf{A} \mathbf{L}_x^{-*} \mathbf{z} \end{split}
+\end{equation*}
+\sphinxAtStartPar
+This problem can be efficiently solved with iterative algorithms to compute the SVD of the matrix \(\widetilde{\mathbf{A}} := \mathbf{L}_y^* \mathbf{A} \mathbf{L}_x^{-*}\), that doesn’t need the expensive full inversion of a matrix but only its action on a vector (instead of evaluating the inverse, a linear system \sphinxhyphen{} here triangular! Easier to solve \sphinxhyphen{} can be efficiently solved). Algorithms like \sphinxstylestrong{Arnoldi algorithm} evaluates the largest eigenvalues or singular values(if no options to set other goals) and the corresponding eigenvectors and singular vectors, alternating \sphinxstylestrong{power iterations} and \sphinxstylestrong{orthogonalization}. Here power iteration to evaluate the action of the matrix \(\widetilde{\mathbf{A}} = \mathbf{L}_y^* \mathbf{A}\mathbf{L}_x^{-*}\) on a generic vector \(\mathbf{z}\) is made of the following steps:
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+solution of the linear system \(\mathbf{L}^*_x \mathbf{a} = \mathbf{z}\) \(\rightarrow \ \mathbf{a} = \dots\)
 
 \item {} 
 \sphinxAtStartPar
-\sphinxstylestrong{Geometria}
-\begin{itemize}
-\item {} 
-\sphinxAtStartPar
-Geometria differenziale
-
-\end{itemize}
+matrix\sphinxhyphen{}vector multiplication \(\mathbf{b} = \mathbf{A} \mathbf{a}\)
 
 \item {} 
 \sphinxAtStartPar
-\sphinxstylestrong{Calcolo delle variazioni} (qui e/o nella scuola superiore?)
+matrix\sphinxhyphen{}vector multiplication \(\mathbf{c} = \mathbf{L}^*_y \mathbf{b}\)
 
-\item {} 
+\end{enumerate}
+
 \sphinxAtStartPar
-\sphinxstylestrong{Calcolo complesso}
-\begin{itemize}
-\item {} 
+Once the SVD is solved, with \(\mathbf{z}_1 = \mathbf{v}_1\)
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{x}_1 & = \mathbf{L}_x^{-*} \mathbf{v}_1 \\
+  \mathbf{y}_1 & = \mathbf{A} \mathbf{x}_1 = \sigma_1 \mathbf{L}_y^{-*} \mathbf{u}_1 \\
+\end{aligned}\end{split}
+\end{equation*}\end{sphinxadmonition}
+
+\sphinxstepscope
+
+
+\chapter{Linear Systems}
+\label{\detokenize{ch/linear-algebra/linear-systems:linear-systems}}\label{\detokenize{ch/linear-algebra/linear-systems:math-linear-algebra-linear-sys}}\label{\detokenize{ch/linear-algebra/linear-systems::doc}}
 \sphinxAtStartPar
-Analisi complessa
-
-\item {} 
+The linear system
+\begin{equation*}
+\begin{split}\mathbf{A} \mathbf{x} = \mathbf{b}\end{split}
+\end{equation*}
 \sphinxAtStartPar
-\sphinxstylestrong{Teoria delle trasformate}: Fourier, Laplace
+with \(\mathbf{A} \in \mathbb{R}^{m,n}\), \(\mathbf{x} \in \mathbb{R}^n\), \(\mathbf{b} \in \mathbb{R}^m\) has solution if there exists (at least) a vector \(\widetilde{\mathbf{x}}\) whose product with \(\mathbf{A}\) gives \(\mathbf{b}\).
 
-\end{itemize}
+\sphinxAtStartPar
+\sphinxstylestrong{Condition for the existence of a solution.}
+A solution exists if \(\mathbf{b}\) belongs to the {\hyperref[\detokenize{ch/linear-algebra/matrices:math-linear-algebra-matrix-subspaces-range}]{\sphinxcrossref{\DUrole{std,std-ref}{range of \(\mathbf{A}\)}}}}.
 
-\end{itemize}
+\sphinxAtStartPar
+\sphinxstylestrong{Uniqueness of a solution.} If a solution \(\widetilde{\mathbf{x}}\) exists, it’s unique if the {\hyperref[\detokenize{ch/linear-algebra/matrices:math-linear-algebra-matrix-subspaces-null}]{\sphinxcrossref{\DUrole{std,std-ref}{kernel of \(\mathbf{A}\)}}}} is empty, \(K(\mathbf{A}) = \emptyset\). If the kernel is not empty,
+\begin{equation*}
+\begin{split}\mathbf{b} = \mathbf{A}(\widetilde{\mathbf{x}} + \mathbf{u}) =  \mathbf{A}\widetilde{\mathbf{x}} + \underbrace{\mathbf{A} \mathbf{u}}_{=\mathbf{0}} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+for \(\forall \mathbf{u} \in K(\mathbf{A})\), and thus an infinite number of solutions exists. Given a vector basis of the kernel \(\mathbf{K}(\mathbf{A})\), where \(\text{dim}\left( K(\mathbf{A}) \right) = n_K\), \(\{ \mathbf{u}_1, \dots, \mathbf{u}_{n_K} \}\), the general solution has \(n_K\) “degrees of arbitrarieness”, since the general solution of the problem is
+\begin{equation*}
+\begin{split}\widetilde{\mathbf{x}} + \sum_{i = 1}^{n_K} a_i \mathbf{u}_i = \widetilde{\mathbf{x}} + \mathbf{U} \mathbf{a} \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{todo} treat under\sphinxhyphen{}, det\sphinxhyphen{}, over\sphinxhyphen{}determined lin sys
 
 \sphinxstepscope
 
@@ -373,12 +642,12 @@ so that
 
 \section{Basis}
 \label{\detokenize{ch/tensor-algebra-calculus/algebra:basis}}\label{ch/tensor-algebra-calculus/algebra:definition-0}
-\begin{sphinxadmonition}{note}{Definition 3.1.1 (Basis)}
+\begin{sphinxadmonition}{note}{Definition 6.1.1 (Basis)}
 
 
 \end{sphinxadmonition}
 \label{ch/tensor-algebra-calculus/algebra:definition-1}
-\begin{sphinxadmonition}{note}{Definition 3.1.2 (Reciprocal basis)}
+\begin{sphinxadmonition}{note}{Definition 6.1.2 (Reciprocal basis)}
 
 
 
@@ -438,7 +707,7 @@ In \(E^3\),
 \end{equation*}
 \end{itemize}
 \label{ch/tensor-algebra-calculus/calculus-euclidean:definition-0}
-\begin{sphinxadmonition}{note}{Definition 4.1.1 (Regular parametrization)}
+\begin{sphinxadmonition}{note}{Definition 7.1.1 (Regular parametrization)}
 
 
 
@@ -449,7 +718,7 @@ If \(\frac{\partial \vec{r}}{\partial q^a} \ne 0\).
 
 \subsection{Natural basis}
 \label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:natural-basis}}\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean:tensor-calculus-coordinates-natural-basis}}\label{ch/tensor-algebra-calculus/calculus-euclidean:definition-1}
-\begin{sphinxadmonition}{note}{Definition 4.1.2 (Natural basis)}
+\begin{sphinxadmonition}{note}{Definition 7.1.2 (Natural basis)}
 
 
 
@@ -459,7 +728,7 @@ Vectors of natural basis
 \begin{split}\vec{b}_a := \frac{\partial \vec{r}}{\partial q^a}\end{split}
 \end{equation*}\end{sphinxadmonition}
 \label{ch/tensor-algebra-calculus/calculus-euclidean:definition-2}
-\begin{sphinxadmonition}{note}{Definition 4.1.3 (Reciprocal basis (\sphinxstylestrong{todo} move to Tensor Algebra))}
+\begin{sphinxadmonition}{note}{Definition 7.1.3 (Reciprocal basis (\sphinxstylestrong{todo} move to Tensor Algebra))}
 
 
 
@@ -472,7 +741,7 @@ Given a basis \(\{ \vec{b}_a \}_{a}\), its reciprocal basis the set of vector \(
 being \(\delta_a^b\) Kronecker delta.
 \end{sphinxadmonition}
 \label{ch/tensor-algebra-calculus/calculus-euclidean:definition-3}
-\begin{sphinxadmonition}{note}{Definition 4.1.4 (Christoffel symbols)}
+\begin{sphinxadmonition}{note}{Definition 7.1.4 (Christoffel symbols)}
 
 
 
@@ -546,7 +815,7 @@ The gradient is the differential operator is the first\sphinxhyphen{}order diffe
 \sphinxAtStartPar
 \sphinxstylestrong{Examples.} …
 \label{ch/tensor-algebra-calculus/calculus-euclidean:example-4}
-\begin{sphinxadmonition}{note}{Example 4.3.1 (Gradient of a scalar field \sphinxhyphen{} with general coordinates \protect\(q^{a}\protect\))}
+\begin{sphinxadmonition}{note}{Example 7.3.1 (Gradient of a scalar field \sphinxhyphen{} with general coordinates \protect\(q^{a}\protect\))}
 
 
 
@@ -556,7 +825,7 @@ Applying the definition \eqref{equation:ch/tensor-algebra-calculus/calculus-eucl
 \begin{split}\nabla F = \vec{b}^a \dfrac{\partial F}{\partial q^a}\end{split}
 \end{equation*}\end{sphinxadmonition}
 \label{ch/tensor-algebra-calculus/calculus-euclidean:example-5}
-\begin{sphinxadmonition}{note}{Example 4.3.2 (Gradient of a vector field \sphinxhyphen{} with general coordinates \protect\(q^{a}\protect\))}
+\begin{sphinxadmonition}{note}{Example 7.3.2 (Gradient of a vector field \sphinxhyphen{} with general coordinates \protect\(q^{a}\protect\))}
 
 
 
@@ -572,7 +841,7 @@ Applying the definition \eqref{equation:ch/tensor-algebra-calculus/calculus-eucl
 \end{aligned}\end{split}
 \end{equation*}\end{sphinxadmonition}
 \label{ch/tensor-algebra-calculus/calculus-euclidean:example-6}
-\begin{sphinxadmonition}{note}{Example 4.3.3 (Gradient of a \protect\(2^{nd}\protect\)\sphinxhyphen{}order tensor field \sphinxhyphen{} with general coordinates \protect\(q^{a}\protect\))}
+\begin{sphinxadmonition}{note}{Example 7.3.3 (Gradient of a \protect\(2^{nd}\protect\)\sphinxhyphen{}order tensor field \sphinxhyphen{} with general coordinates \protect\(q^{a}\protect\))}
 
 
 
@@ -599,7 +868,7 @@ Divergence opearator is a first\sphinxhyphen{}order differential operator that c
 \sphinxAtStartPar
 It takes a tensor field \(F(\vec{r})\) of order \(r \ge 1\) and gives a tensor field \(\nabla \cdot F(\vec{r})\) of order \(r-1 \ge 0\).
 \label{ch/tensor-algebra-calculus/calculus-euclidean:example-7}
-\begin{sphinxadmonition}{note}{Example 4.3.4 (Divergence of a vector field \sphinxhyphen{} with general coordiantes \protect\(q^{a}\protect\))}
+\begin{sphinxadmonition}{note}{Example 7.3.4 (Divergence of a vector field \sphinxhyphen{} with general coordiantes \protect\(q^{a}\protect\))}
 
 
 
@@ -614,7 +883,7 @@ Applying contraction to the gradient of a vector field, it readily follows,
 \end{aligned}\end{split}
 \end{equation*}\end{sphinxadmonition}
 \label{ch/tensor-algebra-calculus/calculus-euclidean:example-8}
-\begin{sphinxadmonition}{note}{Example 4.3.5 (Divergence of a \protect\(2^{nd}\protect\)\sphinxhyphen{}order tensor field \sphinxhyphen{} with general coordiantes \protect\(q^{a}\protect\))}
+\begin{sphinxadmonition}{note}{Example 7.3.5 (Divergence of a \protect\(2^{nd}\protect\)\sphinxhyphen{}order tensor field \sphinxhyphen{} with general coordiantes \protect\(q^{a}\protect\))}
 
 
 
@@ -637,7 +906,7 @@ Laplacian operator is second\sphinxhyphen{}order differential operator that can 
 \begin{equation*}
 \begin{split}\Delta F = \nabla^2 F = \nabla \cdot \nabla F \ .\end{split}
 \end{equation*}\label{ch/tensor-algebra-calculus/calculus-euclidean:example-9}
-\begin{sphinxadmonition}{note}{Example 4.3.6 (Laplacian of a scalar field \sphinxhyphen{} with general coordinates \protect\(q^a\protect\))}
+\begin{sphinxadmonition}{note}{Example 7.3.6 (Laplacian of a scalar field \sphinxhyphen{} with general coordinates \protect\(q^a\protect\))}
 
 
 \begin{equation*}
@@ -654,7 +923,7 @@ Laplacian operator is second\sphinxhyphen{}order differential operator that can 
 \end{split}
 \end{equation*}\end{sphinxadmonition}
 \label{ch/tensor-algebra-calculus/calculus-euclidean:example-10}
-\begin{sphinxadmonition}{note}{Example 4.3.7 (Laplacian of a vector field \sphinxhyphen{} with general coordinates \protect\(q^a\protect\))}
+\begin{sphinxadmonition}{note}{Example 7.3.7 (Laplacian of a vector field \sphinxhyphen{} with general coordinates \protect\(q^a\protect\))}
 
 
 \begin{equation*}
@@ -842,14 +1111,14 @@ Cartesian coordinates in Euclidean spaces are a very special coordinate system, 
 
 \subsubsection{Gradient}
 \label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean-cartesian:gradient}}\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean-cartesian:tensor-calculus-cartesian-differential-operators-gradient}}\label{ch/tensor-algebra-calculus/calculus-euclidean-cartesian:example-0}
-\begin{sphinxadmonition}{note}{Example 4.5.1 (Gradient of a scalar field)}
+\begin{sphinxadmonition}{note}{Example 7.5.1 (Gradient of a scalar field)}
 
 
 \begin{equation*}
 \begin{split}\nabla F = \hat{x} \, \partial_x F + \hat{y} \, \partial_y F + \hat{z} \, \partial_z F_z\end{split}
 \end{equation*}\end{sphinxadmonition}
 \label{ch/tensor-algebra-calculus/calculus-euclidean-cartesian:example-1}
-\begin{sphinxadmonition}{note}{Example 4.5.2 (Gradient of a vector field)}
+\begin{sphinxadmonition}{note}{Example 7.5.2 (Gradient of a vector field)}
 
 
 \begin{equation*}
@@ -862,7 +1131,7 @@ Cartesian coordinates in Euclidean spaces are a very special coordinate system, 
 \end{aligned}\end{split}
 \end{equation*}\end{sphinxadmonition}
 \label{ch/tensor-algebra-calculus/calculus-euclidean-cartesian:example-2}
-\begin{sphinxadmonition}{note}{Example 4.5.3 (Gradient of a \protect\(2^{nd}\protect\)\sphinxhyphen{}order tensor field)}
+\begin{sphinxadmonition}{note}{Example 7.5.3 (Gradient of a \protect\(2^{nd}\protect\)\sphinxhyphen{}order tensor field)}
 
 
 \end{sphinxadmonition}
@@ -873,7 +1142,7 @@ Cartesian coordinates in Euclidean spaces are a very special coordinate system, 
 
 \subsubsection{Divergence}
 \label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean-cartesian:divergence}}\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean-cartesian:tensor-calculus-cartesian-differential-operators-divergence}}\label{ch/tensor-algebra-calculus/calculus-euclidean-cartesian:example-3}
-\begin{sphinxadmonition}{note}{Example 4.5.4 (Divergence of a vector field)}
+\begin{sphinxadmonition}{note}{Example 7.5.4 (Divergence of a vector field)}
 
 
 \begin{equation*}
@@ -884,7 +1153,7 @@ Cartesian coordinates in Euclidean spaces are a very special coordinate system, 
 \end{aligned}\end{split}
 \end{equation*}\end{sphinxadmonition}
 \label{ch/tensor-algebra-calculus/calculus-euclidean-cartesian:example-4}
-\begin{sphinxadmonition}{note}{Example 4.5.5 (Divergence of a \protect\(2^{nd}\protect\)\sphinxhyphen{}order tensor field)}
+\begin{sphinxadmonition}{note}{Example 7.5.5 (Divergence of a \protect\(2^{nd}\protect\)\sphinxhyphen{}order tensor field)}
 
 
 \begin{equation*}
@@ -901,14 +1170,14 @@ Cartesian coordinates in Euclidean spaces are a very special coordinate system, 
 
 \subsubsection{Laplacian}
 \label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean-cartesian:laplacian}}\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean-cartesian:tensor-calculus-cartesian-differential-operators-laplacian}}\label{ch/tensor-algebra-calculus/calculus-euclidean-cartesian:example-5}
-\begin{sphinxadmonition}{note}{Example 4.5.6 (Laplacian of a scalar field)}
+\begin{sphinxadmonition}{note}{Example 7.5.6 (Laplacian of a scalar field)}
 
 
 \begin{equation*}
 \begin{split}\nabla^2 F = \partial_{xx} F + \partial_{yy} F + \partial_{zz} F\end{split}
 \end{equation*}\end{sphinxadmonition}
 \label{ch/tensor-algebra-calculus/calculus-euclidean-cartesian:example-6}
-\begin{sphinxadmonition}{note}{Example 4.5.7 (Laplacian of a vector field)}
+\begin{sphinxadmonition}{note}{Example 7.5.7 (Laplacian of a vector field)}
 
 
 \end{sphinxadmonition}
@@ -1002,7 +1271,7 @@ so that non\sphinxhyphen{}zero Christoffel symbols of a cylindrical coordinate s
 
 \subsubsection{Gradient}
 \label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean-cylindrical:gradient}}\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean-cylindrical:tensor-calculus-cylindrical-differential-operators-gradient}}\label{ch/tensor-algebra-calculus/calculus-euclidean-cylindrical:example-0}
-\begin{sphinxadmonition}{note}{Example 4.6.1 (Gradient of a scalar field)}
+\begin{sphinxadmonition}{note}{Example 7.6.1 (Gradient of a scalar field)}
 
 
 \begin{equation*}
@@ -1016,7 +1285,7 @@ so that non\sphinxhyphen{}zero Christoffel symbols of a cylindrical coordinate s
 \end{aligned}\end{split}
 \end{equation*}\end{sphinxadmonition}
 \label{ch/tensor-algebra-calculus/calculus-euclidean-cylindrical:example-1}
-\begin{sphinxadmonition}{note}{Example 4.6.2 (Gradient of a vector field)}
+\begin{sphinxadmonition}{note}{Example 7.6.2 (Gradient of a vector field)}
 
 
 
@@ -1047,7 +1316,7 @@ so that non\sphinxhyphen{}zero Christoffel symbols of a cylindrical coordinate s
 \end{aligned}\end{split}
 \end{equation*}\end{sphinxadmonition}
 \label{ch/tensor-algebra-calculus/calculus-euclidean-cylindrical:example-2}
-\begin{sphinxadmonition}{note}{Example 4.6.3 (Gradient of a \protect\(2^{nd}\protect\)\sphinxhyphen{}order tensor field)}
+\begin{sphinxadmonition}{note}{Example 7.6.3 (Gradient of a \protect\(2^{nd}\protect\)\sphinxhyphen{}order tensor field)}
 
 
 \end{sphinxadmonition}
@@ -1058,7 +1327,7 @@ so that non\sphinxhyphen{}zero Christoffel symbols of a cylindrical coordinate s
 
 \subsubsection{Divergence}
 \label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean-cylindrical:divergence}}\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean-cylindrical:tensor-calculus-cylindrical-differential-operators-divergence}}\label{ch/tensor-algebra-calculus/calculus-euclidean-cylindrical:example-3}
-\begin{sphinxadmonition}{note}{Example 4.6.4 (Divergence of a vector field)}
+\begin{sphinxadmonition}{note}{Example 7.6.4 (Divergence of a vector field)}
 
 
 \begin{equation*}
@@ -1069,7 +1338,7 @@ so that non\sphinxhyphen{}zero Christoffel symbols of a cylindrical coordinate s
 \end{aligned}\end{split}
 \end{equation*}\end{sphinxadmonition}
 \label{ch/tensor-algebra-calculus/calculus-euclidean-cylindrical:example-4}
-\begin{sphinxadmonition}{note}{Example 4.6.5 (Divergence of a \protect\(2^{nd}\protect\)\sphinxhyphen{}order tensor field)}
+\begin{sphinxadmonition}{note}{Example 7.6.5 (Divergence of a \protect\(2^{nd}\protect\)\sphinxhyphen{}order tensor field)}
 
 
 \end{sphinxadmonition}
@@ -1077,12 +1346,12 @@ so that non\sphinxhyphen{}zero Christoffel symbols of a cylindrical coordinate s
 
 \subsubsection{Laplacian}
 \label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean-cylindrical:laplacian}}\label{ch/tensor-algebra-calculus/calculus-euclidean-cylindrical:example-5}
-\begin{sphinxadmonition}{note}{Example 4.6.6 (Laplacian of a scalar field)}
+\begin{sphinxadmonition}{note}{Example 7.6.6 (Laplacian of a scalar field)}
 
 
 \end{sphinxadmonition}
 \label{ch/tensor-algebra-calculus/calculus-euclidean-cylindrical:example-6}
-\begin{sphinxadmonition}{note}{Example 4.6.7 (Laplacian of a vector field)}
+\begin{sphinxadmonition}{note}{Example 7.6.7 (Laplacian of a vector field)}
 
 
 \end{sphinxadmonition}
@@ -1106,17 +1375,17 @@ Using spherical coordinates \((q^1, q^2, q^3) = (r, \phi, \theta)\) and spherica
 
 \subsubsection{Gradient}
 \label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean-spherical:gradient}}\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean-spherical:tensor-calculus-spherical-differential-operators-gradient}}\label{ch/tensor-algebra-calculus/calculus-euclidean-spherical:example-0}
-\begin{sphinxadmonition}{note}{Example 4.7.1 (Gradient of a scalar field)}
+\begin{sphinxadmonition}{note}{Example 7.7.1 (Gradient of a scalar field)}
 
 
 \end{sphinxadmonition}
 \label{ch/tensor-algebra-calculus/calculus-euclidean-spherical:example-1}
-\begin{sphinxadmonition}{note}{Example 4.7.2 (Gradient of a vector field)}
+\begin{sphinxadmonition}{note}{Example 7.7.2 (Gradient of a vector field)}
 
 
 \end{sphinxadmonition}
 \label{ch/tensor-algebra-calculus/calculus-euclidean-spherical:example-2}
-\begin{sphinxadmonition}{note}{Example 4.7.3 (Gradient of a \protect\(2^{nd}\protect\)\sphinxhyphen{}order tensor field)}
+\begin{sphinxadmonition}{note}{Example 7.7.3 (Gradient of a \protect\(2^{nd}\protect\)\sphinxhyphen{}order tensor field)}
 
 
 \end{sphinxadmonition}
@@ -1127,12 +1396,12 @@ Using spherical coordinates \((q^1, q^2, q^3) = (r, \phi, \theta)\) and spherica
 
 \subsubsection{Divergence}
 \label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean-spherical:divergence}}\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean-spherical:tensor-calculus-spherical-differential-operators-divergence}}\label{ch/tensor-algebra-calculus/calculus-euclidean-spherical:example-3}
-\begin{sphinxadmonition}{note}{Example 4.7.4 (Divergence of a vector field)}
+\begin{sphinxadmonition}{note}{Example 7.7.4 (Divergence of a vector field)}
 
 
 \end{sphinxadmonition}
 \label{ch/tensor-algebra-calculus/calculus-euclidean-spherical:example-4}
-\begin{sphinxadmonition}{note}{Example 4.7.5 (Divergence of a \protect\(2^{nd}\protect\)\sphinxhyphen{}order tensor field)}
+\begin{sphinxadmonition}{note}{Example 7.7.5 (Divergence of a \protect\(2^{nd}\protect\)\sphinxhyphen{}order tensor field)}
 
 
 \end{sphinxadmonition}
@@ -1140,12 +1409,12 @@ Using spherical coordinates \((q^1, q^2, q^3) = (r, \phi, \theta)\) and spherica
 
 \subsubsection{Laplacian}
 \label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean-spherical:laplacian}}\label{\detokenize{ch/tensor-algebra-calculus/calculus-euclidean-spherical:tensor-calculus-spherical-differential-operators-laplacian}}\label{ch/tensor-algebra-calculus/calculus-euclidean-spherical:example-5}
-\begin{sphinxadmonition}{note}{Example 4.7.6 (Laplacian of a scalar field)}
+\begin{sphinxadmonition}{note}{Example 7.7.6 (Laplacian of a scalar field)}
 
 
 \end{sphinxadmonition}
 \label{ch/tensor-algebra-calculus/calculus-euclidean-spherical:example-6}
-\begin{sphinxadmonition}{note}{Example 4.7.7 (Laplacian of a vector field)}
+\begin{sphinxadmonition}{note}{Example 7.7.7 (Laplacian of a vector field)}
 
 
 \end{sphinxadmonition}
@@ -1414,7 +1683,7 @@ Given a line \(\gamma \in \mathbb{C}\), whose parametric form is \(z(s)\), with 
 
 \section{Holomorphic Functions \sphinxhyphen{} Analytic Functions}
 \label{\detokenize{ch/complex/analysis:holomorphic-functions-analytic-functions}}\label{\detokenize{ch/complex/analysis:complex-analysis-holo-fun}}\label{ch/complex/analysis:definition-0}
-\begin{sphinxadmonition}{note}{Definition 8.2.1}
+\begin{sphinxadmonition}{note}{Definition 11.2.1}
 
 
 
@@ -1512,7 +1781,7 @@ Since \(z^n\) is analytic everywhere (\sphinxstylestrong{todo} \sphinxstyleempha
 
 \section{Meromorphic functions}
 \label{\detokenize{ch/complex/analysis:meromorphic-functions}}\label{\detokenize{ch/complex/analysis:complex-analysis-mero-fun}}\label{ch/complex/analysis:definition-1}
-\begin{sphinxadmonition}{note}{Definition 8.4.1}
+\begin{sphinxadmonition}{note}{Definition 11.4.1}
 
 
 
@@ -1523,7 +1792,7 @@ A meromorphic function in a domain is a function holomorphic everywhere except f
 
 \subsection{Singularities}
 \label{\detokenize{ch/complex/analysis:singularities}}\label{\detokenize{ch/complex/analysis:complex-analysis-singularities}}\label{ch/complex/analysis:definition-2}
-\begin{sphinxadmonition}{note}{Definition 8.4.2 (Pole)}
+\begin{sphinxadmonition}{note}{Definition 11.4.2 (Pole)}
 
 
 
@@ -1539,7 +1808,7 @@ with \(\phi(z)\) holomorphic in \(\phi(a) \ne 0\)
 \sphinxAtStartPar
 \sphinxstylestrong{Examples.} …
 \label{ch/complex/analysis:definition-3}
-\begin{sphinxadmonition}{note}{Definition 8.4.3 (Branch)}
+\begin{sphinxadmonition}{note}{Definition 11.4.3 (Branch)}
 
 
 \end{sphinxadmonition}
@@ -1547,7 +1816,7 @@ with \(\phi(z)\) holomorphic in \(\phi(a) \ne 0\)
 \sphinxAtStartPar
 \sphinxstylestrong{Examples.} \(f(z) = z^{\frac{1}{2}}\)
 \label{ch/complex/analysis:definition-4}
-\begin{sphinxadmonition}{note}{Definition 8.4.4 (Removable singularities)}
+\begin{sphinxadmonition}{note}{Definition 11.4.4 (Removable singularities)}
 
 
 \end{sphinxadmonition}
@@ -1600,7 +1869,7 @@ Proof readily follows using the {\hyperref[\detokenize{ch/complex/analysis:compl
 
 \subsection{Residues}
 \label{\detokenize{ch/complex/analysis:residues}}\label{\detokenize{ch/complex/analysis:complex-analysis-mero-fun-residues}}\label{ch/complex/analysis:definition-5}
-\begin{sphinxadmonition}{note}{Definition 8.4.5 (Residue)}
+\begin{sphinxadmonition}{note}{Definition 11.4.5 (Residue)}
 
 
 
@@ -1679,7 +1948,7 @@ and then letting \(z \rightarrow a\), so that only the term with \(m-n+1 = 0\) s
 
 \subsection{Residue Theorem}
 \label{\detokenize{ch/complex/analysis:residue-theorem}}\label{\detokenize{ch/complex/analysis:complex-analysis-mero-fun-residues-thm}}\label{ch/complex/analysis:theorem-6}
-\begin{sphinxadmonition}{note}{Theorem 8.4.1 (Residue Theorem)}
+\begin{sphinxadmonition}{note}{Theorem 11.4.1 (Residue Theorem)}
 
 
 
@@ -1889,7 +2158,7 @@ For a \(T\)\sphinxhyphen{}periodic function,
 \begin{split}g(t) \sim \frac{a_0}{2} + \sum_{n=1}^{+\infty} \left[ a_n \, \cos\left( n \frac{2\pi}{T} t \right) + b_n \, \sin\left( n \frac{2 \pi }{T} t \right) \right] \ ,\end{split}
 \end{equation*}
 \sphinxAtStartPar
-\sphinxstylestrong{todo} Prove it with properties of integrals of \(\sin\) and \(\cos\) over \(t \in \left[ 0, T \right]\); prove convergene to average value at jumps
+\sphinxstylestrong{todo} Prove it with properties of integrals of \(\sin\) and \(\cos\) over \(t \in \left[ 0, T \right]\); prove convergence to average value at jumps
 
 \sphinxAtStartPar
 The exponential form reads
@@ -2147,7 +2416,7 @@ i.e. equals the periodic sum of the Fourier of the original function, with perio
 \sphinxAtStartPar
 From this last sentence and from the {\hyperref[\detokenize{ch/complex/fourier-transforms:complex-fourier-useful-properties-symmetry}]{\sphinxcrossref{\DUrole{std,std-ref}{symmetry properties of Fourier transform}}}}, \sphinxstylestrong{Nyquist\sphinxhyphen{}Shannon sampling theorem} follows seamlessly.
 \label{ch/complex/fourier-transforms:theorem-0}
-\begin{sphinxadmonition}{note}{Theorem 10.3.1 (Nyquist\sphinxhyphen{}Shannon sampling theorem)}
+\begin{sphinxadmonition}{note}{Theorem 13.3.1 (Nyquist\sphinxhyphen{}Shannon sampling theorem)}
 
 
 
@@ -2252,18 +2521,124 @@ and thus the Fourier series of Dirac comb \(\text{III}_T(t)\) reads
 \chapter{Introduction to Calculus of Variations}
 \label{\detokenize{ch/calculus-variations/intro:introduction-to-calculus-of-variations}}\label{\detokenize{ch/calculus-variations/intro:calculus-variations-intro}}\label{\detokenize{ch/calculus-variations/intro::doc}}
 \sphinxAtStartPar
-Given the functional \(S\),
+Calculus of variation deals with variations \sphinxhyphen{} i.e. “small changes” \sphinxhyphen{} of functions and functionals.
+
+\sphinxAtStartPar
+The meaning of the term functional may vary on the subfield of interest. In the field of calculus of variation, a \sphinxstylestrong{functional} can be defined as a function of function, i.e. a function whose argument is another function.
+\subsubsection*{Fields and applications}
+
+\sphinxAtStartPar
+Fields and applications related to calculus of variations (give some examples below):
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+gradient\sphinxhyphen{}based techniques like some methods in:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+optimization, either free or constrained (via Lagrange multiplier methods)
+
+\item {} 
+\sphinxAtStartPar
+sensitivity
+
+\end{itemize}
+
+\item {} 
+\sphinxAtStartPar
+classical mechanics and physics in general:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+analytical mechanics: \sphinxhref{https://basics2022.github.io/bbooks-physics-mechanics/ch/lagrange.html}{Lagrangian formulation} and \sphinxhref{https://basics2022.github.io/bbooks-physics-mechanics/ch/hamilton.html}{Hamiltonian formulation} of classical mechanics
+
+\end{itemize}
+
+\item {} 
+\sphinxAtStartPar
+…
+
+\end{itemize}
+\subsubsection*{Examples}
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Lagrange equations for general problem
+
+\item {} 
+\sphinxAtStartPar
+examples:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+brachistochrone for minimum time,…
+
+\item {} 
+\sphinxAtStartPar
+catenary, i.e. static solution of wire and cables with neglibile bending stiffness
+
+\item {} 
+\sphinxAtStartPar
+isoperimetric inequality, i.e. circle is the plane closed curve with given perimeter enclosing the largest area
+
+\end{itemize}
+
+\item {} 
+\sphinxAtStartPar
+sensitivity of results to parameters. Some interesting sensitivity, both in time and trasnformed domains
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+characteristics of a system:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+equilibria
+
+\item {} 
+\sphinxAtStartPar
+eigenvalues
+
+\item {} 
+\sphinxAtStartPar
+…
+
+\end{itemize}
+
+\end{itemize}
+
+\item {} 
+\sphinxAtStartPar
+optimal control methods
+
+\end{itemize}
+
+
+\section{Lagrange equations}
+\label{\detokenize{ch/calculus-variations/intro:lagrange-equations}}\label{\detokenize{ch/calculus-variations/intro:calculus-variations-lagrange}}
+\sphinxAtStartPar
+Given the functional \(S\), with arguments a function \(q(t)\) and the independent variable \(t\),
 \begin{equation*}
 \begin{split}S[q(t),t] = \int_{t=t_0}^{t_1} L(\dot{q}(t), \, q(t), \, t) \, dt\end{split}
 \end{equation*}
 \sphinxAtStartPar
-its variation reads
+its variation w.r.t. the function \(q(t)\) reads
 \begin{equation*}
 \begin{split}\delta S[q(t), t] = \lim_{\varepsilon \rightarrow 0} \frac{1}{\varepsilon} \left( S[q(t)+\varepsilon w(t), \, t] - S[q(t),\, t]\right)\end{split}
-\end{equation*}\begin{equation*}
+\end{equation*}
+\sphinxAtStartPar
+where the function \(w(t)\) is arbitrary, among those satisfying the constraint of the problems: as an example here, if the function \(q(t)\) has prescribed values \(q^*\) for some values of the independent variable, \(t^*\), the variation \(w(t)\) of the function \(q(t)\) is zero there, \(w(t^*)\) so that the variated function \(q(t) + \varepsilon w(t)\) satisfies the constraint as well, i.e. \(q(t^*) + \varepsilon w(t^*) = q^*\).
+
+\sphinxAtStartPar
+\sphinxstylestrong{Variation involves only small changes of function arguments}, since these ones are the elements that can be effectively changed, while the independent variable is not.
+
+\sphinxAtStartPar
+Direct computation of the variation gives
+\begin{equation*}
 \begin{split}\begin{aligned}
 \delta S[q(t), t]
   & = \lim_{\varepsilon \rightarrow 0} \frac{1}{\varepsilon} \left( S[q(t)+\varepsilon w(t), \, t] - S[q(t),\, t]\right) = \\
+  & = \lim_{\varepsilon \rightarrow 0} \frac{1}{\varepsilon} \left( \int_{t = t_0}^{t_1}  L(\dot{q}(t)+\varepsilon w(t), \, q(t)+\varepsilon w(t), \, t) - \int_{t=t_0}^{t_1}  L(\dot{q}(t), \, q(t), \, t) \, dt \right) = \\
   & = \lim_{\varepsilon \rightarrow 0} \frac{1}{\varepsilon} \int_{t = t_0}^{t_1} \left( L(\dot{q}(t)+\varepsilon w(t), \, q(t)+\varepsilon w(t), \, t) - L(\dot{q}(t), \, q(t), \, t) \right) \, dt = \\
   & = \lim_{\varepsilon \rightarrow 0} \frac{1}{\varepsilon} \int_{t = t_0}^{t_1} \left\{ L(\dot{q}(t), \, q(t), \, t) + \varepsilon \left[ \frac{\partial L}{\partial \dot{q}} \dot{w}(t) + \frac{\partial L}{\partial q} w(t) \right] + o(\varepsilon) - L(\dot{q}(t), \, q(t), \, t) \right\} \, dt = \\
   & = \lim_{\varepsilon \rightarrow 0} \frac{1}{\varepsilon} \int_{t = t_0}^{t_1} \left\{ \varepsilon \left[ \frac{\partial L}{\partial \dot{q}} \dot{w}(t) + \frac{\partial L}{\partial q} w(t) \right] + o(\varepsilon) \right\} \, dt = \\
@@ -2272,21 +2647,21 @@ its variation reads
 \end{aligned}\end{split}
 \end{equation*}
 \sphinxAtStartPar
-If \(q(t_0)\), \(q(t_1)\) are prescribed, then \(w(t_0) = w(t_1) = 0\) and thus
+The solution depends on the boundary conditions at the extreme points \(t_0\), \(t_1\). \sphinxstylestrong{If} the value of the function \(q(t)\) is prescribed in \(t_0\) and \(t_1\), \(q(t_0) = q_0\), \(q(t_1) = q_1\), then its variation is zero, \(w(t_0) = w(t_1) = 0\), for the reason that has been discussed above. The variation of the functional with prescribed boundary values of the argument function thus reads
 \begin{equation*}
 \begin{split}\delta S[q(t), t] = \int_{t = t_0}^{t_1} \left\{ - \dfrac{d}{dt} \left( \frac{\partial L}{\partial \dot{q}} \right) + \frac{\partial L}{\partial q} \right\} \delta q(t) \, dt \ ,\end{split}
 \end{equation*}
 \sphinxAtStartPar
-having called \(w(t) = \delta q(t)\) to stress that is the variation of function \(q(t)\).
+having called \(w(t) =: \delta q(t)\) to stress that is the variation of function \(q(t)\). This notation \sphinxhyphen{} it’s just notation, it has no special properties \sphinxhyphen{} could be useful if the functional depends on several arguments.
 
 \sphinxAtStartPar
-\sphinxstylestrong{Stationary conditions, \(\delta S = 0\).} Stationary condition for \(\forall \delta q(t)\) implies Lagrange equation,
+\sphinxstylestrong{Stationary conditions, \(\delta S = 0\).} Stationary condition of the functional \(S\) implies that \(\delta S = 0\) for all the possible variations of the argument function, \(\forall \delta q(t)\). This condition implies that the integrand is identically zero, i.e. \sphinxstylestrong{Lagrange equations},
 \begin{equation*}
-\begin{split}\frac{d}{dt}\left( \frac{\partial L}{\partial \dot{q}} \right) - \frac{\partial L}{\partial q} = 0 \ .\end{split}
+\begin{split}\frac{d}{dt}\left( \frac{\partial L}{\partial \dot{q}} \right) - \frac{\partial L}{\partial q} = 0 \ ,\end{split}
 \end{equation*}
 
-\section{Higher\sphinxhyphen{}order derivatives}
-\label{\detokenize{ch/calculus-variations/intro:higher-order-derivatives}}
+\subsubsection*{Higher\sphinxhyphen{}order derivatives}
+
 \sphinxAtStartPar
 \sphinxstylestrong{Method 1.} If the Lagrangian function \(L\) depends on higher order derivatives,
 \begin{equation*}
@@ -2307,7 +2682,7 @@ With some abuse of notation in \(L\), the functional \(S\) can be recasted as
 \end{aligned}\end{split}
 \end{equation*}
 \sphinxAtStartPar
-\sphinxstylestrong{todo} \sphinxstyleemphasis{Add constraints on components of \(\mathbf{q}(t)\)}
+\sphinxstylestrong{todo} \sphinxstyleemphasis{Add constraints on components of \(\mathbf{q}(t)\)?}
 
 \sphinxAtStartPar
 Repeating the computation, the variation of the functional reads
@@ -2315,9 +2690,131 @@ Repeating the computation, the variation of the functional reads
 \begin{split}\delta S[\mathbf{q}(t), t] = \left.\left[ \delta \mathbf{q}^T(t) \frac{\partial L}{\partial \dot{\mathbf{q}}} \right]\right|_{t=t_0}^{t_1} + \int_{t = t_0}^{t_1} \delta \mathbf{q}^T(t) \, \left\{ - \dfrac{d}{dt} \left( \frac{\partial L}{\partial \dot{\mathbf{q}}} \right) + \frac{\partial L}{\partial \mathbf{q}} \right\} \, dt \ .\end{split}
 \end{equation*}
 \sphinxAtStartPar
-\sphinxstylestrong{Method 2.}
+\sphinxstylestrong{Method 2.} …
 
 
+
+
+\subsection{Euler\sphinxhyphen{}Beltrami equation}
+\label{\detokenize{ch/calculus-variations/intro:euler-beltrami-equation}}\label{\detokenize{ch/calculus-variations/intro:calculus-variations-euler-beltrami}}
+\sphinxAtStartPar
+If the Lagrangian function \(L\) is not an explicit function of the independent variable, \(L(q'(x),q(x))\), Euler\sphinxhyphen{}Berltrami equation follows from the derivative of the Lagrangian,
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \frac{d L}{dx} 
+  & = \frac{\partial L}{\partial q'} q''(x) + \frac{\partial L}{\partial q} q' = \\
+  & = \frac{\partial L}{\partial q'} q'' + \dfrac{d}{dx} \left( \frac{\partial L}{\partial q'} \right) q' = \\
+  & = \dfrac{d}{dx} \left( \frac{\partial L}{\partial q'} q' \right) \ ,
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and thus
+\begin{equation*}
+\begin{split}
+\dfrac{d}{dx} \left[ L - q' \dfrac{\partial L}{\partial q'} \right] = 0
+\qquad \rightarrow \qquad
+L - q' \dfrac{\partial L}{\partial q'} = C \quad \text{const.}
+\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Note 1.} While Lagrange equations are a set of \(N\) equations if the functional depends on \(N\) argument functions \(q_k(t)\), \(k=1:N\), Euler\sphinxhyphen{}Beltrami equation is an equation only. Indeed for multiple argument functions
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \frac{d L}{dx} 
+  & = \frac{\partial L}{\partial q'_k} q''_k(x) + \frac{\partial L}{\partial q_k} q'_k = \\
+  & = \frac{\partial L}{\partial q'_k} q''_k + \dfrac{d}{dx} \left( \frac{\partial L}{\partial q'_k} \right) q'_k 
+    = \dfrac{d}{dx} \left( \frac{\partial L}{\partial q'_k} q'_k \right) \ ,
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+where Einstein’s summation notation of repeated index is used. Euler\sphinxhyphen{}Beltrami thus reads
+\begin{equation*}
+\begin{split}L(q_l'(x),q_l(x)) - q'_k(x) \frac{\partial L}{\partial q'_k}(q'_l(x), q_l(x)) = C \  .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Note 2.} If the Lagrangian function is an explicit function of the independent variable \(x\), \(L(q'(x), q(x), x)\), it’s not hard to realize that  the derivative of the Lagrangian function, along with the use of the Lagrange equation, gives
+\begin{equation*}
+\begin{split}\dfrac{d}{dx} \left[ L - q' \dfrac{\partial L}{\partial q'} \right] = \dfrac{\partial L}{\partial x} \ .\end{split}
+\end{equation*}\label{ch/calculus-variations/intro:example-0}
+\begin{sphinxadmonition}{note}{Example 14.1.1 (Euler\sphinxhyphen{}Beltrami with \protect\(L(q'(x),q(x),x)\protect\), Hamiltonian, energy and E.Noether)}
+
+
+
+\sphinxAtStartPar
+Euler\sphinxhyphen{}Beltrami equation shows that if \(L(q'(x), q(x))\), thus \(L - q' \partial_{q'} L\) is constant, (or an integral of motion in dynamics). In analytical mechanics (\sphinxhref{https://basics2022.github.io/bbooks-physics-mechanics/ch/lagrange.html}{Lagrange mechanics}, \sphinxhref{https://basics2022.github.io/bbooks-physics-mechanics/ch/hamilton.html}{Hamiltonian mechanics}), Lagrangian and Hamiltonian functions of a system read
+\begin{equation*}
+\begin{split}\begin{aligned}
+  L(\dot{q}_k(t), q_k(t), t) & = T(\dot{q},q,t) + U(q,t) \\
+  H(p,q,t) & := p_k \dot{q}_k - L = \dot{q}_k \frac{\partial L}{\partial \dot{q}^k} - L \ ,
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+having used the common definition of the generalized momenta \(p_k := \frac{\partial L}{\partial \dot{q}^k}\). It should be immediate to realize that the Hamiltonian is just the quantity appearing in Euler\sphinxhyphen{}Beltrami equation (or in its “modified version” if \(\partial_t L \ne 0\)), and thus
+\begin{equation*}
+\begin{split}\dfrac{d H}{d t} = \dfrac{\partial L}{\partial t} \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+In mechanics, if \(\partial_t L = 0\), the Hamiltonian is a constant of motion. In this case, it can be prove that the Hamiltonian is equal to the eneergy of the system.
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Classical examples.}
+\label{ch/calculus-variations/intro:example-1}
+\begin{sphinxadmonition}{note}{Example 14.1.2 (Brachistochrone)}
+
+
+
+\sphinxAtStartPar
+Find the trajectory…
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Elementary length: \(ds = v \, dt\)
+
+\item {} 
+\sphinxAtStartPar
+Energy: \(E(y) = \frac{1}{2} m v^2 - m g y + C\). Setting \(E = 0\) at starting point, from rest, at \(y_0 = 0\), it implies \(C=0\); thus \(v = \sqrt{2gy}\)
+
+\item {} 
+\sphinxAtStartPar
+\(x(s), \, y(s)\),
+
+\item {} 
+\sphinxAtStartPar
+\(ds = \sqrt{dx^2 + dy^2} = \sqrt{1+y'^2(x)} \, dx\)
+
+\end{itemize}
+\begin{equation*}
+\begin{split}T = \int_{t_0}^{t_1} \, dt = \int_{s_0}^{s_1} \frac{ds}{v} = \int_{x_0}^{x_1} \frac{\sqrt{1+y'^2(x)}}{\sqrt{2gy(x)}} \, dx\end{split}
+\end{equation*}
+\sphinxAtStartPar
+The Lagrangian doesn’t explicitly depend on \(x\), thus Euler\sphinxhyphen{}Beltrami equation can be used. Partial derivative of the Lagrangian function w.r.t. \(q'\) reads
+\begin{equation*}
+\begin{split}\frac{\partial L}{\partial y'} = ... = \frac{1}{\sqrt{2 g y} \sqrt{1+y'^2}} y' \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and thus Euler\sphinxhyphen{}Beltrami equation reads
+\begin{equation*}
+\begin{split}C = L - q' \frac{\partial L}{\partial y'} = \frac{ 1 + y'^2 - y'^2}{\sqrt{2 g y} \sqrt{1+y'^2}} = \frac{1}{\sqrt{2 g y} \sqrt{1+y'^2}}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Squaring \(2 g C^2 = \frac{1}{y(1+y'^2)}\), it’s possible to write
+\begin{equation*}
+\begin{split}y(x) = \frac{1}{2gC^2(1+y'^2(x))} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Making the substitution \(y(x)' = \dots\)
+\end{sphinxadmonition}
+\label{ch/calculus-variations/intro:example-2}
+\begin{sphinxadmonition}{note}{Example 14.1.3 (Catenary)}
+
+
+\end{sphinxadmonition}
+\label{ch/calculus-variations/intro:example-3}
+\begin{sphinxadmonition}{note}{Example 14.1.4 (Isoperimetric problem)}
+
+
+\end{sphinxadmonition}
 
 \sphinxstepscope
 
@@ -2444,9 +2941,9 @@ Assuming it’s possible swap derivative operator and summation (when?), it’s 
 \end{aligned}\end{split}
 \end{equation*}
 \sphinxAtStartPar
-for all the values of \(s\) for which \(-s\mathbf{I} + \mathbf{A}\) is asymptotically stable, i.e. has all the eignevalues (thus, assuming that the matrix \(\mathbf{A}\) can be diagonalizable. What happens if not? Exploit other matrix decompositions to draw conclusions) with negative real parts, and thus for all the values of \(s > \max \text{re}\{ s_k(\mathbf{A}) \}\), as it’s shown in {\hyperref[\detokenize{ch/ode/lti:matrix-stability-spectrum}]{\sphinxcrossref{Example 13.2.1}}}
+for all the values of \(s\) for which \(-s\mathbf{I} + \mathbf{A}\) is asymptotically stable, i.e. has all the eignevalues (thus, assuming that the matrix \(\mathbf{A}\) can be diagonalizable. What happens if not? Exploit other matrix decompositions to draw conclusions) with negative real parts, and thus for all the values of \(s > \max \text{re}\{ s_k(\mathbf{A}) \}\), as it’s shown in {\hyperref[\detokenize{ch/ode/lti:matrix-stability-spectrum}]{\sphinxcrossref{Example 16.2.1}}}
 \label{ch/ode/lti:matrix-stability-spectrum}
-\begin{sphinxadmonition}{note}{Example 13.2.1 (Asymptotic stability of a matrix \protect\(\ \mathbf{A}\protect\))}
+\begin{sphinxadmonition}{note}{Example 16.2.1 (Asymptotic stability of a matrix \protect\(\ \mathbf{A}\protect\))}
 
 
 
@@ -2906,7 +3403,7 @@ the solution is in the \(S_i\) region is
 \begin{equation*}
 \begin{split}u_i(x,t) = \sum_{\lambda_k > \frac{x}{t}} R_{ik} q_{a,k} +  \sum_{\lambda_k < \frac{x}{t}} R_{ik} q_{b,k}\end{split}
 \end{equation*}\label{ch/pde/hyperbolic:example-0}
-\begin{sphinxadmonition}{note}{Example 17.3.1 (Linear(ized) P\sphinxhyphen{}system)}
+\begin{sphinxadmonition}{note}{Example 20.3.1 (Linear(ized) P\sphinxhyphen{}system)}
 
 
 
@@ -2944,17 +3441,17 @@ The linear(ized) P\sphinxhyphen{}system around a uniform reference state \(\over
 Subsonic: the two families of characteristic lines have opposite direction; supersonic: the two families of characteristic lines have the same direction.
 \end{sphinxadmonition}
 \label{ch/pde/hyperbolic:example-1}
-\begin{sphinxadmonition}{note}{Example 17.3.2 (Linearized shallow water equations)}
+\begin{sphinxadmonition}{note}{Example 20.3.2 (Linearized shallow water equations)}
 
 
 \end{sphinxadmonition}
 \label{ch/pde/hyperbolic:example-2}
-\begin{sphinxadmonition}{note}{Example 17.3.3 (Linearized Euler equations (acoustics))}
+\begin{sphinxadmonition}{note}{Example 20.3.3 (Linearized Euler equations (acoustics))}
 
 
 \end{sphinxadmonition}
 \label{ch/pde/hyperbolic:example-3}
-\begin{sphinxadmonition}{note}{Example 17.3.4 (Wave equation)}
+\begin{sphinxadmonition}{note}{Example 20.3.4 (Wave equation)}
 
 
 
@@ -3049,7 +3546,7 @@ Different descritpions of integral problem,
   & = \partial_t u_i + \partial_{x_k} u_m \partial_{u_m} F_{ki} (u_l) = \\
 \end{aligned}\end{split}
 \end{equation*}\label{ch/pde/hyperbolic:example-4}
-\begin{sphinxadmonition}{note}{Example 17.5.1 (P\sphinxhyphen{}system in 1\sphinxhyphen{}dimensional domain)}
+\begin{sphinxadmonition}{note}{Example 20.5.1 (P\sphinxhyphen{}system in 1\sphinxhyphen{}dimensional domain)}
 
 
 \begin{equation*}
@@ -3083,7 +3580,7 @@ with \(\partial_x P = a^2 \partial_x \rho\),
 \end{aligned}\end{split}
 \end{equation*}\end{sphinxadmonition}
 \label{ch/pde/hyperbolic:example-5}
-\begin{sphinxadmonition}{note}{Example 17.5.2 (Euler equations in 1\sphinxhyphen{}dimensional domain)}
+\begin{sphinxadmonition}{note}{Example 20.5.2 (Euler equations in 1\sphinxhyphen{}dimensional domain)}
 
 
 
@@ -3199,7 +3696,7 @@ being
 \begin{split}\mathbf{L} = \dots \end{split}
 \end{equation*}\end{sphinxadmonition}
 \label{ch/pde/hyperbolic:example-6}
-\begin{sphinxadmonition}{note}{Example 17.5.3 (Shallow water equation in \protect\(1\protect\)\sphinxhyphen{}dimensional domain)}
+\begin{sphinxadmonition}{note}{Example 20.5.3 (Shallow water equation in \protect\(1\protect\)\sphinxhyphen{}dimensional domain)}
 
 
 
@@ -3273,7 +3770,7 @@ and integration in \(z\)\sphinxhyphen{}direction \sphinxstylestrong{todo} Explic
 \begin{split}0 = |\mathbf{A}(\mathbf{u}) - s^2 \mathbf{I}| = -s \left( 2 u - s \right) + u^2 - g \eta = (s-u)^2 - g  \eta \ .\end{split}
 \end{equation*}\end{sphinxadmonition}
 \label{ch/pde/hyperbolic:example-7}
-\begin{sphinxadmonition}{note}{Example 17.5.4 (P\sphinxhyphen{}system in n\sphinxhyphen{}dimensional domain)}
+\begin{sphinxadmonition}{note}{Example 20.5.4 (P\sphinxhyphen{}system in n\sphinxhyphen{}dimensional domain)}
 
 
 \begin{itemize}
@@ -3293,7 +3790,7 @@ Physical variables: e.g. \((\rho, \vec{u})\), \((P, \vec{u})\),…
 \end{cases}\end{split}
 \end{equation*}\end{sphinxadmonition}
 \label{ch/pde/hyperbolic:example-8}
-\begin{sphinxadmonition}{note}{Example 17.5.5 (Euler system in n\sphinxhyphen{}dimensional domain)}
+\begin{sphinxadmonition}{note}{Example 20.5.5 (Euler system in n\sphinxhyphen{}dimensional domain)}
 
 
 \begin{itemize}
@@ -3322,7 +3819,7 @@ where \(\Pi\) represents the pressure field as a function of the conservative va
 and \(P\) the pressure field expressed by the \sphinxstylestrong{equation of state of the fluid} as a function of density and internal energy per unit mass as the pair of independent variables determining the thermodynamic state.
 \end{sphinxadmonition}
 \label{ch/pde/hyperbolic:example-9}
-\begin{sphinxadmonition}{note}{Example 17.5.6 (Shallow water equations in 2\sphinxhyphen{}dimensional domain)}
+\begin{sphinxadmonition}{note}{Example 20.5.6 (Shallow water equations in 2\sphinxhyphen{}dimensional domain)}
 
 
 \begin{equation*}
@@ -3645,6 +4142,9 @@ Rules for derivatives of composite functions allows to write the differential w.
 \indexspace
 \bigletter{matrix\sphinxhyphen{}stability\sphinxhyphen{}spectrum}
 \item\relax\sphinxstyleindexentry{matrix\sphinxhyphen{}stability\sphinxhyphen{}spectrum}\sphinxstyleindexextra{ch/ode/lti}\sphinxstyleindexpageref{ch/ode/lti:\detokenize{matrix-stability-spectrum}}
+\indexspace
+\bigletter{svd\sphinxhyphen{}optimization\sphinxhyphen{}norm}
+\item\relax\sphinxstyleindexentry{svd\sphinxhyphen{}optimization\sphinxhyphen{}norm}\sphinxstyleindexextra{ch/linear\sphinxhyphen{}algebra/svd}\sphinxstyleindexpageref{ch/linear-algebra/svd:\detokenize{svd-optimization-norm}}
 \indexspace
 \bigletter{theorem\sphinxhyphen{}0}
 \item\relax\sphinxstyleindexentry{theorem\sphinxhyphen{}0}\sphinxstyleindexextra{ch/complex/fourier\sphinxhyphen{}transforms}\sphinxstyleindexpageref{ch/complex/fourier-transforms:\detokenize{theorem-0}}
