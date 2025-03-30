@@ -182,24 +182,7 @@ Squaring $2 g C^2 = \frac{1}{y(1+y'^2)}$, it's possible to write
 
 $$y(x) = \frac{1}{2gC^2(1+y'^2(x))} \ ,$$
 
-Making the substitution $y(x)' = A \sin ( A \theta (x) )$
-
-$$\begin{aligned}
-  y(x)  & = \frac{1}{2gC^2} \frac{1}{1+A^2 \sin^2 (A\theta(x))} \\
-  y'(x) & = \frac{1}{2gC^2} \frac{-2 A^3 \sin(A \theta) \cos (A \theta)}{(1+A^2 \sin^2 (A\theta(x)))^2} \theta'(x)
-\end{aligned}$$
-
-Comparing the two expressions of $y'(x)$
-
-$$\begin{aligned}
-  & A \sin (A \theta) = - \frac{1}{gC^2} \frac{A^3 \sin(A \theta) \cos (A \theta)}{\left[1+A^2 \sin^2 (A\theta(x))\right]^2} \theta'(x) \\
-  & A = - \frac{1}{gC^2} \frac{A^3 \cos (A \theta)}{\left[ 1+A^2 \sin^2 (A\theta(x)) \right]^2} \theta'(x) \\
-  & 1 = - \frac{1}{gC^2} \frac{A^2 \cos (A \theta)}{\left[ 1+A^2 \sin^2 (A\theta(x)) \right]^2} \theta'(x) \\
-  & 1 = - \frac{1}{gC^2} \frac{1}{\left[ 1+A^2 \sin^2 (A\theta(x)) \right]^2} \dfrac{d}{dx} \left( A \sin(A\theta) \right) \\
-  & - \frac{1}{k} dx =  \dfrac{du}{(1+u^2)^2}  \\
-  & - \frac{1}{k} (x-x_0) = \frac{1}{2} \left.\left( \dfrac{u}{u^2+1} + \text{atan}(u) \right)\right|_{u_0}^{u} \\
-\end{aligned}$$
-
+Making the substitution $y(x)' = \dots$
 
 ```
 

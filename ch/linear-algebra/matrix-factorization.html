@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Calcolo lineare su spazi con prodotto interno &#8212; basics - math</title>
+    <title>2. Matrix factorizations &#8212; basics - math</title>
   
   
   
@@ -64,10 +64,14 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/old/linear-calculus';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/linear-algebra/matrix-factorization';</script>
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="2.1. Singular Value Decomposition" href="svd.html" />
+    <link rel="prev" title="1. Matrices" href="matrices.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -171,13 +175,13 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Linear Algebra</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../linear-algebra/matrices.html">1. Matrices</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../linear-algebra/matrix-factorization.html">2. Matrix factorizations</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../linear-algebra/svd.html">2.1. Singular Value Decomposition</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="matrices.html">1. Matrices</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">2. Matrix factorizations</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="svd.html">2.1. Singular Value Decomposition</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../linear-algebra/linear-systems.html">3. Linear Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linear-systems.html">3. Linear Systems</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Multivariable Calculus</span></p>
 <ul class="nav bd-sidenav">
@@ -284,7 +288,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/ch/old/linear-calculus.md" target="_blank"
+      <li><a href="../../_sources/ch/linear-algebra/matrix-factorization.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -366,7 +370,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Calcolo lineare su spazi con prodotto interno</h1>
+    <h1>Matrix factorizations</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -380,8 +384,22 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="calcolo-lineare-su-spazi-con-prodotto-interno">
-<span id="calculus-linear-calculus"></span><h1>Calcolo lineare su spazi con prodotto interno<a class="headerlink" href="#calcolo-lineare-su-spazi-con-prodotto-interno" title="Permalink to this heading">#</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="matrix-factorizations">
+<span id="math-matrix-factorization"></span><h1><span class="section-number">2. </span>Matrix factorizations<a class="headerlink" href="#matrix-factorizations" title="Permalink to this heading">#</a></h1>
+<ul>
+<li><p><strong>Singular Value Decomposition (SVD)</strong></p></li>
+<li><p><strong>Spectral decomposition</strong> Eigenvalues, eigenvectors; Jordan canonical formula…</p></li>
+<li><p><strong>QR</strong></p></li>
+<li><p><strong>LU</strong></p></li>
+<li><p><strong>Schur</strong></p></li>
+<li><p><strong>Cholesky</strong> Symmetric positive definite matrices have Choleski decomposition,</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{M} = \mathbf{L} \mathbf{L}^* \ ,\]</div>
+<p>with <span class="math notranslate nohighlight">\(\mathbf{L}\)</span> lower triangular matrix. And thus quite easy to “invert”, for solving linear systems.</p>
+</li>
+</ul>
+<div class="toctree-wrapper compound">
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -397,7 +415,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./ch/old"
+            path: "./ch/linear-algebra"
         },
         predefinedOutput: true
     }
@@ -414,6 +432,24 @@ document.write(`
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="matrices.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Matrices</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="svd.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">2.1. </span>Singular Value Decomposition</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
