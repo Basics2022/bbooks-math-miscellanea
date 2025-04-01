@@ -238,6 +238,15 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="ch/pde/ns.html">22. Navier-Stokes equations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ch/pde/ale.html">23. Arbitrary Lagrangian-Eulerian description</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Numerical Methods for PDEs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="ch/pde/numerics.html">24. Introduction to numerical methods for PDEs</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="ch/pde/fem.html">24.1. Finite Element Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch/pde/fvm.html">24.2. Finite Volume Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch/pde/bem.html">24.3. Boundary Element Method</a></li>
+</ul>
+</li>
+</ul>
 
     </div>
 </nav></div>
@@ -360,7 +369,11 @@ document.write(`
    <a href="#cap-example-7"><strong>example-7</strong></a> | 
    <a href="#cap-example-8"><strong>example-8</strong></a> | 
    <a href="#cap-example-9"><strong>example-9</strong></a> | 
+   <a href="#cap-fvm:property:conservation"><strong>fvm:property:conservation</strong></a> | 
    <a href="#cap-matrix-stability-spectrum"><strong>matrix-stability-spectrum</strong></a> | 
+   <a href="#cap-pde:ex:fdm"><strong>pde:ex:fdm</strong></a> | 
+   <a href="#cap-pde:ex:fem"><strong>pde:ex:fem</strong></a> | 
+   <a href="#cap-pde:ex:fvm"><strong>pde:ex:fvm</strong></a> | 
    <a href="#cap-svd-optimization-norm"><strong>svd-optimization-norm</strong></a> | 
    <a href="#cap-theorem-0"><strong>theorem-0</strong></a> | 
    <a href="#cap-theorem-6"><strong>theorem-6</strong></a>
@@ -504,12 +517,44 @@ document.write(`
        <a href="ch/tensor-algebra-calculus/calculus-euclidean.html#example-9"><code class="xref">example-9</code></a> <em>(ch/tensor-algebra-calculus/calculus-euclidean)</em></td><td>
        <em>example</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-fvm:property:conservation"><td></td><td>
+       <strong>fvm:property:conservation</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch/pde/fvm.html#fvm:property:conservation"><code class="xref">fvm:property:conservation</code></a> <em>(ch/pde/fvm)</em></td><td>
+       <em>property</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-matrix-stability-spectrum"><td></td><td>
        <strong>matrix-stability-spectrum</strong></td><td></td></tr>
      <tr>
        <td></td>
        <td>
        <a href="ch/ode/lti.html#matrix-stability-spectrum"><code class="xref">matrix-stability-spectrum</code></a> <em>(ch/ode/lti)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-pde:ex:fdm"><td></td><td>
+       <strong>pde:ex:fdm</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch/pde/numerics.html#pde:ex:fdm"><code class="xref">pde:ex:fdm</code></a> <em>(ch/pde/numerics)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-pde:ex:fem"><td></td><td>
+       <strong>pde:ex:fem</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch/pde/numerics.html#pde:ex:fem"><code class="xref">pde:ex:fem</code></a> <em>(ch/pde/numerics)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-pde:ex:fvm"><td></td><td>
+       <strong>pde:ex:fvm</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch/pde/numerics.html#pde:ex:fvm"><code class="xref">pde:ex:fvm</code></a> <em>(ch/pde/numerics)</em></td><td>
        <em>example</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-svd-optimization-norm"><td></td><td>
