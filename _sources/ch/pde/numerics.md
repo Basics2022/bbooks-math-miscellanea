@@ -125,7 +125,7 @@ A common choice uses the same functions both as test and base functions, $\psi_i
 
 ```
 
-The differential problem in strong form can be recast as a boundary element problem exploiting the properties of Green's functions $G(\vec{r}; \vec{r}_0)$
+The differential problem in strong form can be recast as a boundary element problem exploiting the properties of Green's functions $G(\vec{r}; \vec{r}_0)$. The expression of [Green's function $G(\vec{r}, \vec{r}_0)$](math:green-function) is known for some problems of interest like Poisson equation, Helmholtz equation or wave equation. Exploiting the properties of Green's function and integration by parts, the integral buondary problem is derived as follow
 
 $$\begin{aligned}
   E(\vec{r}_0) u(\vec{r}_0) 
@@ -139,15 +139,20 @@ $$\begin{aligned}
       + \int_{\vec{r} \in V} G(\vec{r}; \vec{r}_0) f(\vec{r}) \, dV \ .
 \end{aligned}$$
 
+It must be paid attention that the integrals may be singular and may produce discontintuities in the fields across the surface $\partial V$ (*so what's the value of a field in presence of a discontinuity?...virtual singularities, regularization close to the singularities...one way to correctly interpret them is via Cauchy principal value... evaluating some integrals in a check-point just inside or outside the domain may make the value of the function $E(\vec{r}_0)$ change, but the integral involving $\hat{n} \cdot \nabla G$ - related to the solid angle seen by the check-point of the surface - changes accordingly and keep the sum of these two terms constant=*.
+
+
 The value of the unknown function or the flux $\hat{n} \cdot \nabla u$ are known on the Dirichlet and Neumann regions of the boundary respectively, and so the integro-differential problem becomes
 
 $$E(\vec{r}_0) u(\vec{r}_0) + \int_{S_N} u \hat{n} \cdot \nabla G \, dS - \int_{S_D} G \, \hat{n} \cdot \nabla u \, dS = \int_{S_D} g \hat{n} \cdot \nabla G \, dS - \int_{S_N} G h \, dS + \int_{\vec{r} \in V} G f \, dV$$
 
-The unknown function on is approximated on the boundary $\partial V$ of the domain as a $N$-finite dimensional approximation, as an example
+The unknown function is approximated on the boundary of the domain $\partial V$ as an $N$-dimensional approximation, as an example
 
 $$u(\vec{r}) = \sum_{j} \phi_j(\vec{r}) u_j \qquad , \qquad \vec{r} \in \partial V \ ,$$
 
-and the integro-differential equation is evaluated in $N$ different points $\vec{r}_{0,i}$ in order to get a $N,N$ linear equation in the 
+and the integro-differential equation is evaluated in $N$ different points $\vec{r}_{0,i}$ in order to get a $N,N$ linear equation in the amplitudes $u_j$ of the base functions,
+
+$$\left[\mathbf{E} + \mathbf{D}_N + \mathbf{S}_D \right] \mathbf{u} = \mathbf{D}_D \mathbf{g} + \mathbf{S}_N \mathbf{h} + \mathbf{S}_V \mathbf{f} \ .$$
 
 
 

@@ -244,6 +244,10 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Boundary Methods for PDEs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="bem-poisson-helmholtz-waves.html">25. Green’s function method</a></li>
+</ul>
 
     </div>
 </nav></div>
@@ -496,7 +500,7 @@ FVM is <strong>conservative</strong> as it evaluate flux at interfaces and then 
 \[K_{ij} u_j = f_i \qquad , \qquad \mathbf{K} \mathbf{u} = \mathbf{f} \ .\]</div>
 <p>A common choice uses the same functions both as test and base functions, <span class="math notranslate nohighlight">\(\psi_i(\vec{r}) = \phi_i(\vec{r})\)</span>.</p>
 </div>
-</div><p>The differential problem in strong form can be recast as a boundary element problem exploiting the properties of Green’s functions <span class="math notranslate nohighlight">\(G(\vec{r}; \vec{r}_0)\)</span></p>
+</div><p>The differential problem in strong form can be recast as a boundary element problem exploiting the properties of Green’s functions <span class="math notranslate nohighlight">\(G(\vec{r}; \vec{r}_0)\)</span>. The expression of <a class="reference internal" href="bem-poisson-helmholtz-waves.html#math-green-function"><span class="std std-ref">Green’s function <span class="math notranslate nohighlight">\(G(\vec{r}, \vec{r}_0)\)</span></span></a> is known for some problems of interest like Poisson equation, Helmholtz equation or wave equation. Exploiting the properties of Green’s function and integration by parts, the integral buondary problem is derived as follow</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
   E(\vec{r}_0) u(\vec{r}_0) 
@@ -509,13 +513,16 @@ FVM is <strong>conservative</strong> as it evaluate flux at interfaces and then 
       + \oint_{\vec{r} \in \partial V} G(\vec{r};\vec{r}_0) \hat{n}(\vec{r}) \cdot \nabla u(\vec{r}) \, dS
       + \int_{\vec{r} \in V} G(\vec{r}; \vec{r}_0) f(\vec{r}) \, dV \ .
 \end{aligned}\end{split}\]</div>
+<p>It must be paid attention that the integrals may be singular and may produce discontintuities in the fields across the surface <span class="math notranslate nohighlight">\(\partial V\)</span> (<em>so what’s the value of a field in presence of a discontinuity?…virtual singularities, regularization close to the singularities…one way to correctly interpret them is via Cauchy principal value… evaluating some integrals in a check-point just inside or outside the domain may make the value of the function <span class="math notranslate nohighlight">\(E(\vec{r}_0)\)</span> change, but the integral involving <span class="math notranslate nohighlight">\(\hat{n} \cdot \nabla G\)</span> - related to the solid angle seen by the check-point of the surface - changes accordingly and keep the sum of these two terms constant=</em>.</p>
 <p>The value of the unknown function or the flux <span class="math notranslate nohighlight">\(\hat{n} \cdot \nabla u\)</span> are known on the Dirichlet and Neumann regions of the boundary respectively, and so the integro-differential problem becomes</p>
 <div class="math notranslate nohighlight">
 \[E(\vec{r}_0) u(\vec{r}_0) + \int_{S_N} u \hat{n} \cdot \nabla G \, dS - \int_{S_D} G \, \hat{n} \cdot \nabla u \, dS = \int_{S_D} g \hat{n} \cdot \nabla G \, dS - \int_{S_N} G h \, dS + \int_{\vec{r} \in V} G f \, dV\]</div>
-<p>The unknown function on is approximated on the boundary <span class="math notranslate nohighlight">\(\partial V\)</span> of the domain as a <span class="math notranslate nohighlight">\(N\)</span>-finite dimensional approximation, as an example</p>
+<p>The unknown function is approximated on the boundary of the domain <span class="math notranslate nohighlight">\(\partial V\)</span> as an <span class="math notranslate nohighlight">\(N\)</span>-dimensional approximation, as an example</p>
 <div class="math notranslate nohighlight">
 \[u(\vec{r}) = \sum_{j} \phi_j(\vec{r}) u_j \qquad , \qquad \vec{r} \in \partial V \ ,\]</div>
-<p>and the integro-differential equation is evaluated in <span class="math notranslate nohighlight">\(N\)</span> different points <span class="math notranslate nohighlight">\(\vec{r}_{0,i}\)</span> in order to get a <span class="math notranslate nohighlight">\(N,N\)</span> linear equation in the</p>
+<p>and the integro-differential equation is evaluated in <span class="math notranslate nohighlight">\(N\)</span> different points <span class="math notranslate nohighlight">\(\vec{r}_{0,i}\)</span> in order to get a <span class="math notranslate nohighlight">\(N,N\)</span> linear equation in the amplitudes <span class="math notranslate nohighlight">\(u_j\)</span> of the base functions,</p>
+<div class="math notranslate nohighlight">
+\[\left[\mathbf{E} + \mathbf{D}_N + \mathbf{S}_D \right] \mathbf{u} = \mathbf{D}_D \mathbf{g} + \mathbf{S}_N \mathbf{h} + \mathbf{S}_V \mathbf{f} \ .\]</div>
 <div class="toctree-wrapper compound">
 </div>
 </div>
