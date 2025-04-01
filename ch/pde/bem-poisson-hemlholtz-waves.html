@@ -1,0 +1,733 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Green’s function method &#8212; basics - math</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/style.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/pde/bem-poisson-hemlholtz-waves';</script>
+    <link rel="shortcut icon" href="../../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPXX63Z3XR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-JPXX63Z3XR');
+</script>
+
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.svg" class="logo__image only-light" alt="basics - math - Home"/>
+    <script>document.write(`<img src="../../_static/logo-dark.svg" class="logo__image only-dark" alt="basics - math - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Linear Algebra</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../linear-algebra/matrices.html">1. Matrices</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../linear-algebra/matrix-factorization.html">2. Matrix factorizations</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../linear-algebra/svd.html">2.1. Singular Value Decomposition</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../linear-algebra/linear-systems.html">3. Linear Systems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Multivariable Calculus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../multivariable/intro.html">4. Introduction to multi-variable calculus</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Differential Geometry</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../differential-geometry/intro.html">5. Introduction to Differential Geometry</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Vector and Tensor Algebra and Calculus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/algebra.html">6. Tensor Algebra</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean.html">7. Tensor Calculus in Euclidean Spaces</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean-cartesian.html">7.5. Tensor Calculus in Euclidean Spaces - Cartesian coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean-cylindrical.html">7.6. Tensor Calculus in Euclidean Spaces - cylindrical coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean-spherical.html">7.7. Tensor Calculus in Euclidean Spaces - Spehrical coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/time-derivative-of-integrals.html">8. Time derivative of integrals over moving domains</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Functional Analysis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../functional-analysis/intro.html">9. Introduction to Functional Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functional-analysis/dirac-delta.html">10. Distributions (or generalized functions)</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Complex Calculus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../complex/analysis.html">11. Complex Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../complex/laplace.html">12. Laplace Transform</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../complex/fourier.html">13. Fourier Transforms</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../complex/fourier-transforms.html">13.3. Relations between Fourier transforms</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Calculus of Variations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../calculus-variations/intro.html">14. Introduction to Calculus of Variations</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Ordinary Differential Equations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ode/intro.html">15. Introduction to Ordinary Differential Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ode/lti.html">16. Linear Time-Invariant Systems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Partial Differential Equations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">17. Introduction to Partial Differential Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="elliptic.html">18. Elliptic equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parabolic.html">19. Parabolic equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hyperbolic.html">20. Hyperbolic problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nc.html">21. Navier-Cauchy equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ns.html">22. Navier-Stokes equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ale.html">23. Arbitrary Lagrangian-Eulerian description</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Numerical Methods for PDEs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="numerics.html">24. Introduction to numerical methods for PDEs</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="fem.html">24.1. Finite Element Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fvm.html">24.2. Finite Volume Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bem.html">24.3. Boundary Element Method</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/ch/pde/bem-poisson-hemlholtz-waves.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Green’s function method</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#poisson-equation">Poisson equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#helmholtz-equation">Helmholtz equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wave-equation">Wave equation</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="sd-container-fluid sd-sphinx-override sd-p-0 sd-mt-2 sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-2 sd-gx-2 sd-gy-1 docutils">
+<div class="sd-col sd-d-flex-row sd-align-minor-center docutils">
+<div class="sd-container-fluid sd-sphinx-override docutils">
+<div class="sd-row sd-row-cols-2 sd-row-cols-xs-2 sd-row-cols-sm-3 sd-row-cols-md-3 sd-row-cols-lg-3 sd-gx-3 sd-gy-1 docutils">
+<div class="sd-col sd-col-auto sd-d-flex-row sd-align-minor-center docutils">
+<p class="sd-p-0 sd-m-0">basics</p>
+</div>
+<div class="sd-col sd-col-auto sd-d-flex-row sd-align-minor-center docutils">
+<p class="sd-p-0 sd-m-0"><span class="sd-pr-2"><svg version="1.1" width="16.0px" height="16.0px" class="sd-octicon sd-octicon-calendar" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M4.75 0a.75.75 0 01.75.75V2h5V.75a.75.75 0 011.5 0V2h1.25c.966 0 1.75.784 1.75 1.75v10.5A1.75 1.75 0 0113.25 16H2.75A1.75 1.75 0 011 14.25V3.75C1 2.784 1.784 2 2.75 2H4V.75A.75.75 0 014.75 0zm0 3.5h8.5a.25.25 0 01.25.25V6h-11V3.75a.25.25 0 01.25-.25h2zm-2.25 4v6.75c0 .138.112.25.25.25h10.5a.25.25 0 00.25-.25V7.5h-11z"></path></svg></span>Apr 01, 2025</p>
+</div>
+<div class="sd-col sd-col-auto sd-d-flex-row sd-align-minor-center docutils">
+<p class="sd-p-0 sd-m-0"><span class="sd-pr-2"><svg version="1.1" width="16.0px" height="16.0px" class="sd-octicon sd-octicon-clock" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M1.5 8a6.5 6.5 0 1113 0 6.5 6.5 0 01-13 0zM8 0a8 8 0 100 16A8 8 0 008 0zm.5 4.75a.75.75 0 00-1.5 0v3.5a.75.75 0 00.471.696l2.5 1a.75.75 0 00.557-1.392L8.5 7.742V4.75z"></path></svg></span>1 min read</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="green-s-function-method">
+<span id="classical-electromagnetism-green-function"></span><h1>Green’s function method<a class="headerlink" href="#green-s-function-method" title="Permalink to this heading">#</a></h1>
+<div class="section" id="poisson-equation">
+<h2>Poisson equation<a class="headerlink" href="#poisson-equation" title="Permalink to this heading">#</a></h2>
+<p>General Poisson’s problem</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{cases}
+  - \nabla^2 \mathbf{u}(\mathbf{r}, t) = \mathbf{f}(\mathbf{r},t) \\
+  \text{+ b.c.}
+\end{cases}\end{split}\]</div>
+<p>with common boundary conditions</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{cases}
+\mathbf{u} = \mathbf{g} &amp; \quad \text{on $S_D$} \\
+\hat{\mathbf{n}} \cdot \nabla \mathbf{u} = \mathbf{h} &amp; \quad \text{on $S_N$}
+\end{cases}\end{split}\]</div>
+<p>over Dirichlet and Neumann regions of the boundary.</p>
+<p>Poisson’s problem for Green’s function, in infinite domain</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+  - \nabla_{\mathbf{r}}^2 G(\mathbf{r}; \mathbf{r}_0) = \delta(\mathbf{r} - \mathbf{r}_0) \\
+\end{split}\]</div>
+<p>Green’s function method</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  E(\mathbf{r}_0, t) u_i(\mathbf{r}_0, t) 
+  &amp; =   \int_{\mathbf{r} \in \Omega} u_i(\mathbf{r},t) \delta(\mathbf{r}-\mathbf{r}_0) = \\
+  &amp; = - \int_{\mathbf{r} \in \Omega} u_i(\mathbf{r},t) \nabla_{\mathbf{r}}^2 G(\mathbf{r}-\mathbf{r}_0) = \\
+  &amp; = - \int_{\mathbf{r} \in \Omega} \nabla_{\mathbf{r}} \cdot ( u_i \nabla_{\mathbf{r}} G - G \nabla_{\mathbf{r}} u_i) - \int_{\mathbf{r} \in \Omega} G \nabla^2 u_i= \\
+  &amp; = - \oint_{\mathbf{r} \in \partial \Omega} \hat{\mathbf{n}} \cdot ( u_i \nabla_{\mathbf{r}} G - G \nabla_{\mathbf{r}} u_i) + \int_{\mathbf{r} \in \Omega} G(\mathbf{r}-\mathbf{r}_0) f_i(\mathbf{r}, t) . \\
+\end{aligned}\end{split}\]</div>
+<p>An integro-differential boundary problem can be written using boundary conditions. As an example, using Dirichlet and Neumann boundary conditions, the integro-differential problem reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+&amp;  E(\mathbf{r}_0, t) \mathbf{u}(\mathbf{r}_0, t) 
++ \int_{\mathbf{r} \in S_N} \mathbf{u}(\mathbf{r},t) \, \hat{\mathbf{n}} \cdot \nabla_{\mathbf{r}} G(\mathbf{r}-\mathbf{r}_0)
+- \int_{\mathbf{r} \in S_D} G(\mathbf{r}-\mathbf{r}_0) \, \hat{\mathbf{n}} \cdot \nabla_{\mathbf{r}} \mathbf{u}(\mathbf{r},t) = \\ 
+&amp; =
+- \int_{\mathbf{r} \in S_D} \mathbf{g}(\mathbf{r},t) \, \hat{\mathbf{n}} \cdot \nabla_{\mathbf{r}} G(\mathbf{r}-\mathbf{r}_0)
++ \int_{\mathbf{r} \in S_N} G(\mathbf{r}-\mathbf{r}_0) \, \mathbf{h}(\mathbf{r},t)  
++ \int_{\mathbf{r} \in \Omega} G(\mathbf{r}-\mathbf{r}_0) \, \mathbf{f}(\mathbf{r}, t) . \\
+\end{aligned}\end{split}\]</div>
+<p>Green’s function of the Poisson-Laplace equation reads</p>
+<div class="math notranslate nohighlight">
+\[G(\mathbf{r};\mathbf{r}_0) = \frac{1}{4 \pi} \frac{1}{\left| \mathbf{r}-\mathbf{r}_0 \right|} \ .\]</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Green’s function of the Laplace equation<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[-\nabla^2 G = 0 \qquad \text{for $\mathbf{r} \ne \mathbf{r}_0$}\]</div>
+<p class="sd-card-text">Solutions with spherical symmetry,</p>
+<div class="math notranslate nohighlight">
+\[0 = \nabla^2 G = \frac{1}{r^2} \left( r^2 G' \right)'
+\quad \rightarrow \quad
+G'(r) = \frac{A}{r^2} \quad \rightarrow \quad G(r) = - \frac{A}{r} + B
+\]</div>
+<p class="sd-card-text">Choosing <span class="math notranslate nohighlight">\(B = 0\)</span> s.t. <span class="math notranslate nohighlight">\(G(r) \rightarrow 0\)</span> as <span class="math notranslate nohighlight">\(r \rightarrow \infty\)</span>, and integrating over a sphere centered in <span class="math notranslate nohighlight">\(r=0\)</span> to get <span class="math notranslate nohighlight">\(A = -\frac{1}{4 \pi}\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[1 = \int_{V} \delta(r) = - \int_{V} \nabla^2 G = - \oint_{\partial V} \hat{\mathbf{n}} \cdot \nabla G
+= -\oint_{\partial V} \hat{\mathbf{r}} \cdot \hat{\mathbf{r}} \frac{A}{r^2} = - 4 \pi \, A \]</div>
+</div>
+</details></div>
+<div class="section" id="helmholtz-equation">
+<h2>Helmholtz equation<a class="headerlink" href="#helmholtz-equation" title="Permalink to this heading">#</a></h2>
+<p><strong>todo</strong> from Fourier to Laplace trasnform in the first lines of this section</p>
+<p>A Helmholtz’s equation can be thouoght as the time Fourier transform of a wave equation,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{cases}
+  \dfrac{1}{c^2} \partial_{tt} \mathbf{u}(\mathbf{r},t) - \nabla^2 \mathbf{u}(\mathbf{r},t) = \mathbf{f}(\mathbf{r},t) \\
+  \text{+ b.c.} \\
+  \text{+ i.c.} \ ,
+\end{cases}\end{split}\]</div>
+<p>Fourier transform in time of field <span class="math notranslate nohighlight">\(\mathbf{u}(\mathbf{r},t)\)</span> reads</p>
+<div class="math notranslate nohighlight">
+\[\tilde{\mathbf{u}}(\mathbf{r}, \omega) = \mathscr{F}\{ \mathbf{u}(\mathbf{r},t) \} = \int_{t=-\infty}^{+\infty} \mathbf{u}(\mathbf{r},t) e^{-i \omega t} \, d \omega\]</div>
+<p>and, if <span class="math notranslate nohighlight">\(\mathbf{u}(\mathbf{r},t)\)</span> is compact in time, Fourier transform of its time partial derivatives read</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathscr{F}\{ \dot{\mathbf{u}}(\mathbf{r},t) \} 
+  &amp; = \int_{t=-\infty}^{+\infty} \dot{\mathbf{u}}(\mathbf{r},t) e^{-i \omega t} \, d \omega = \\
+  &amp; = \mathbf{u}(\mathbf{r},t) e^{-i \omega t} \big|_{t=-\infty}^{+\infty} + i \omega \int_{t=-\infty}^{+\infty} \mathbf{u}(\mathbf{r},t) e^{-i \omega t} \, d \omega = \\
+  &amp; = i \omega \mathscr{F}\{  \mathbf{u}(\mathbf{r},t) \}
+\end{aligned}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\mathscr{F}\{ \partial_t^n \mathbf{u}(\mathbf{r},t) \} = (i \omega)^n \tilde{\mathbf{u}} \ .\]</div>
+<p>The differential problem in the transformed domain thus reads</p>
+<div class="math notranslate nohighlight">
+\[- \frac{\omega^2}{c^2} \tilde{\mathbf{u}} - \nabla^2 \tilde{\mathbf{u}} = \tilde{\mathbf{f}}\]</div>
+<p>Green’s function of Helmholtz’e equation reads</p>
+<div class="math notranslate nohighlight">
+\[G(\mathbf{r}, s) =
+  \alpha^+ \frac{e^{ \frac{s|\mathbf{r} - \mathbf{r}_0|}{c}}}{|\mathbf{r} - \mathbf{r}_0|} +
+  \alpha^- \frac{e^{-\frac{s|\mathbf{r} - \mathbf{r}_0|}{c}}}{|\mathbf{r} - \mathbf{r}_0|}
+\]</div>
+<p>with <span class="math notranslate nohighlight">\(\alpha^+ + \alpha^- = \frac{1}{4 \pi}\)</span>.</p>
+<p>Being the Laplace transform,</p>
+<div class="math notranslate nohighlight">
+\[\mathscr{L}\{ f(t) \} = \int_{t=0^-}^{+\infty} f(t) e^{-st} dt \ ,\]</div>
+<p>the Laplace transform of a causal function with time delay <span class="math notranslate nohighlight">\(\tau \ge 0\)</span> reads</p>
+<div class="math notranslate nohighlight">
+\[\mathscr{L}\{ f(t-\tau) \} = \int_{t=0^-}^{+\infty} f(t-\tau) e^{-st} dt = \int_{z = - \tau}^{+\infty} f(z) e^{-s(z+\tau)} \, dz = e^{-s\tau} \, \int_{z = 0}^{+\infty} f(z) e^{-s z} \, dz = e^{-s \tau} \, \mathscr{L}\{ f(t) \}\]</div>
+<p>having used causality <span class="math notranslate nohighlight">\(f(t) = 0\)</span> for <span class="math notranslate nohighlight">\(t &lt; 0\)</span>. Laplace transform of Dirac’s delta <span class="math notranslate nohighlight">\(\delta(t)\)</span> reads</p>
+<div class="math notranslate nohighlight">
+\[\mathscr{L}\{ \delta(t) \} = \int_{t=0^-}^{+\infty} \delta(t) \, dt = 1 \ ,\]</div>
+<p>so that <span class="math notranslate nohighlight">\(e^{-s \tau} = e^{- s \tau} \, 1 = \mathscr{L}\{ \delta(t-\tau) \}\)</span>.</p>
+<p>Thus, Green’s function for the wave equation reads</p>
+<div class="math notranslate nohighlight">
+\[G(\mathbf{r},t; \mathbf{r}_0, t_0) = 
+  \alpha^+ \frac{ \delta \left( t - t_0 + \frac{|\mathbf{r}-\mathbf{r}_0|}{c} \right)}{|\mathbf{r} - \mathbf{r}_0|} +
+  \alpha^- \frac{ \delta \left( t - t_0 - \frac{|\mathbf{r}-\mathbf{r}_0|}{c} \right)}{|\mathbf{r} - \mathbf{r}_0|}
+\]</div>
+<p>If <span class="math notranslate nohighlight">\(t \ge t_0\)</span>, and <span class="math notranslate nohighlight">\(G(\mathbf{r}, t; \mathbf{r}_0, t_0)\)</span> connects the past <span class="math notranslate nohighlight">\(t_0\)</span> with the future <span class="math notranslate nohighlight">\(t\)</span>, the first term is not causal, and thus <span class="math notranslate nohighlight">\(\alpha^+ = 0\)</span> and</p>
+<div class="math notranslate nohighlight">
+\[G(\mathbf{r},t; \mathbf{r}_0, t_0) = \frac{1}{4 \pi} \frac{ \delta \left( t - t_0 - \frac{|\mathbf{r}-\mathbf{r}_0|}{c} \right)}{|\mathbf{r} - \mathbf{r}_0|} \ .\]</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Green’s function of Helmholtz’s equation<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[\frac{s^2}{c^2} G - \nabla^2 G = \delta(r)\]</div>
+<div class="math notranslate nohighlight">
+\[G(r) = \frac{\alpha e^{k r} + \beta e^{-kr}}{r}\]</div>
+<p class="sd-card-text">Proof:</p>
+<ul>
+<li><p class="sd-card-text">Gradient</p>
+<div class="math notranslate nohighlight">
+\[\nabla G(r) = \hat{\mathbf{r}} \partial_r G = \hat{\mathbf{r}} \frac{\alpha (k r - 1) e^{kr} + \beta(-k r - 1)e^{-kr}}{r^2}\]</div>
+</li>
+<li><p class="sd-card-text">Laplacian</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+    \nabla^2 G(r) &amp; = \frac{1}{r^2} \left( r^2 G'(r) \right)' = \\
+    &amp; = \frac{1}{r^2} \left(  \alpha (k r - 1) e^{kr} + \beta(-k r - 1)e^{-kr}\right)' = \\
+    &amp; = \frac{1}{r^2} \left( \alpha k e^{kr} + \alpha k^2 r  e^{kr} - \alpha k e^{kr} - \beta k e^{-kr} + \beta k^2 r e^{-kr} + \beta k e^{-kr}  \right) = \\
+    &amp; = \frac{1}{r} \left( \alpha e^{kr} + \beta e^{-kr} \right) k^2 = k^2 G(r) \ .
+  \end{aligned}\end{split}\]</div>
+<p class="sd-card-text">and thus <span class="math notranslate nohighlight">\(k^2 G(r) - \nabla^2 G = 0\)</span>, for <span class="math notranslate nohighlight">\(r \ne 0\)</span>;</p>
+</li>
+<li><p class="sd-card-text">Unity</p>
+<div class="math notranslate nohighlight">
+\[1 = \int_{V} \delta(r) = \int_V \left( k^2 G - \nabla^2 G \right) = \int_V k^2 G - \oint_{\partial V} \hat{\mathbf{n}} \cdot \nabla G \]</div>
+<p class="sd-card-text">the second term is the sum of two contributions of the form</p>
+<div class="math notranslate nohighlight">
+\[\oint_{\partial V} \hat{\mathbf{n}} \cdot \nabla G^{\pm} = \oint_{\partial V} \frac{\alpha^{\pm}(\pm k r - 1) e^{\pm k r}}{r^2} = 4 \pi \alpha^{\pm} (\pm k r - 1) e^{\pm k r}\]</div>
+<p class="sd-card-text">the first term is the sum of two contributions of the form</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+    k^2 \int_{V} G(r)
+      &amp; = k^2 \int_{V} \frac{\alpha^{\pm} e^{\pm k r}}{r} = \\
+      &amp; = k^2 \alpha^{\pm} \int_{R = 0}^{r} \int_{\phi=0}^{\pi} \int_{\theta=0}^{2 \pi} \frac{e^{\pm k R}}{R} R^2 \sin \phi \, dR \, d \phi \, d \theta = \\
+      &amp; = k^2 \alpha^{\pm} \, 4 \pi \int_{R = 0}^{r} R \, e^{\pm k R} \, dR \ .
+  \end{aligned}\end{split}\]</div>
+<p class="sd-card-text">the last integral can be evaluated with integration by parts</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+    \int_{R = 0}^{r} R \, e^{\pm k R} \, dR
+    &amp; = \left.\left[ \frac{1}{\pm k} e^{\pm k R } R \right]\right|_{R=0}^{r} \mp \frac{1}{k} \int_{R=0}^{r} e^{\pm k R} \, dR = \\
+    &amp; = \frac{1}{\pm k} e^{\pm k r } r  - \frac{1}{k^2} e^{\pm k R} + \frac{1}{k^2} = \\
+  \end{aligned}\end{split}\]</div>
+<p class="sd-card-text">Thus summing everything together,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+    1 &amp; = \alpha^+ \left[ 4 \pi k^2 \left( \frac{r}{k} e^{k r} - \frac{1}{k^2} e^{kr} + \frac{1}{k^2} \right) - 4 \pi \left( k r - 1 \right) e^{kr} \right] + \alpha^- \left[ \dots \right] = \\
+      &amp; = 4 \pi \left( \alpha^+ + \alpha^- \right) \ .
+  \end{aligned}\end{split}\]</div>
+</li>
+</ul>
+</div>
+</details></div>
+<div class="section" id="wave-equation">
+<h2>Wave equation<a class="headerlink" href="#wave-equation" title="Permalink to this heading">#</a></h2>
+<p>Wave equation general problem</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{cases}
+  \dfrac{1}{c^2} \partial_{tt} \mathbf{u}(\mathbf{r},t) - \nabla^2 \mathbf{u}(\mathbf{r},t) = \mathbf{f}(\mathbf{r},t) \\
+  \text{+ b.c.} \\
+  \text{+ i.c.} \\
+\end{cases}\end{split}\]</div>
+<p>Green’s problem of the wave equation</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{c^2} \partial_{tt} G(\mathbf{r},t;\mathbf{r}_0,t_0) - \nabla_{\mathbf{r}}^2 G(\mathbf{r},t;\mathbf{r}_0,t_0) = \delta(\mathbf{r}-\mathbf{r}_0) \delta(t-t_0)\]</div>
+<p>Integration by parts</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  E(\mathbf{r}_{\alpha}, t_{\alpha}) \mathbf{u}(\mathbf{r}_{\alpha},t_{\alpha}) &amp; = \int_{t \in T} \int_{\mathbf{r} \in V} \delta(t-t_{\alpha}) \delta(\mathbf{r}-\mathbf{r}_{\alpha}) \mathbf{u}(\mathbf{r},t) = \\
+  &amp; = \int_{t \in T} \int_{\mathbf{r} \in V} \left\{ \frac{1}{c^2} \partial_{tt} G - \nabla^2_{\mathbf{r}} G \right\} \mathbf{u} = \\
+  &amp; = \int_{t \in T} \int_{\mathbf{r} \in V} \left\{ \frac{1}{c^2} \left[ \partial_t \left( \mathbf{u} \partial_t G - G \partial_t \mathbf{u} \right) + G \partial_{tt} \mathbf{u} \right] - \nabla_{\mathbf{r}} \cdot \left( \nabla_{\mathbf{r}} G \, \mathbf{u} - G \nabla_{\mathbf{r}} \mathbf{u} \right) - G \, \nabla^2_{\mathbf{r}} \mathbf{u} \right\} = \\
+  &amp; = \int_{\mathbf{r} \in V} \frac{1}{c^2} \left[ \mathbf{u}(\mathbf{r},t) \partial_t G(\mathbf{r},t; \mathbf{r}_{\alpha},t_{\alpha}) - G(\mathbf{r},t; \mathbf{r}_{\alpha},t_{\alpha}) \partial_t \mathbf{u}(\mathbf{r},t) \right] \bigg|_{t_0}^{t_1} + \\
+  &amp; \quad + \int_{t \in T} \oint_{\mathbf{r} \in \partial V} \left\{ - \hat{\mathbf{n}}(\mathbf{r},t) \cdot \nabla_{\mathbf{r}} G(\mathbf{r},t; \mathbf{r}_{\alpha},t_{\alpha}) \, \mathbf{u}(\mathbf{r},t) + G(\mathbf{r},t; \mathbf{r}_{\alpha},t_{\alpha}) \, \hat{\mathbf{n}}(\mathbf{r},t) \cdot \nabla_{\mathbf{r}} \mathbf{u}(\mathbf{r},t) \right\} + \\
+  &amp; \quad + \int_{t \in T}  \int_{\mathbf{r} \in V} G(\mathbf{r},t; \mathbf{r}_{\alpha},t_{\alpha}) \underbrace{ \left\{ \frac{1}{c^2} \partial_{tt} \mathbf{u}(\mathbf{r},t) - \nabla^2_{\mathbf{r}} \mathbf{u}(\mathbf{r},t) \right\}}_{= \mathbf{f}(\mathbf{r},t)} \\
+\end{aligned}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+  \int_{t \in T} \int_{\mathbf{r} \in V} \frac{1}{4 \pi}\frac{\delta\left( t-t_{\alpha} + \frac{|\mathbf{r} - \mathbf{r}_{\alpha}|}{c} \right)}{|\mathbf{r} - \mathbf{r}_{\alpha}|} \, \mathbf{f}(\mathbf{r},t) 
+  &amp; = \int_{\mathbf{r} \in V \cap B_{|\mathbf{r} - \mathbf{r}_{\alpha}| \le c (t_\alpha - t)}} \frac{1}{4 \pi |\mathbf{r} - \mathbf{r}_{\alpha}|} \mathbf{f}\left(\mathbf{r}, t_{\alpha} - \frac{|\mathbf{r}-\mathbf{r}_{\alpha}|}{c}\right)
+\end{aligned}\]</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./ch/pde"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#poisson-equation">Poisson equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#helmholtz-equation">Helmholtz equation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wave-equation">Wave equation</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By basics
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
