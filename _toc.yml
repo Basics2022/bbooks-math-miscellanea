@@ -64,10 +64,14 @@ parts:
   - file: ch/pde/nc
   - file: ch/pde/ns
   - file: ch/pde/ale
+- caption: Numerical Methods for PDEs
+  numbered: True
+  chapters:
   - file: ch/pde/numerics
     sections:
     - file: ch/pde/fem
     - file: ch/pde/fvm
+    - file: ch/pde/bem
 # - file: ch/pde/weak
 # - file: ch/pde/fem
 

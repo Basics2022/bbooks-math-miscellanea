@@ -85,7 +85,7 @@
         
 
 \title{basics - math}
-\date{Mar 31, 2025}
+\date{Apr 01, 2025}
 \release{}
 \author{basics}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -342,7 +342,7 @@ and the response of the system is \(\mathbf{y}_1 = \sigma_1 \mathbf{u}_1\) as
 
 
 \sphinxAtStartPar
-This kind of problem may results as the discrete counterpart of a continuous problem, as an example from \DUrole{xref,myst}{finite element methods}, where \(\mathbf{x}\), \(\mathbf{y}\) contain the coefficients of the basis functions. In this case, the discrete counterpart of the continous norm\sphinxhyphen{}measure of the continuous fields may involve a “mass matrix” (symmetric, definite positive \sphinxhyphen{} and thus with Choloeski factorization…),
+This kind of problem may results as the discrete counterpart of a continuous problem, as an example from {\hyperref[\detokenize{ch/pde/fem:pde-fem}]{\sphinxcrossref{\DUrole{std,std-ref}{finite element methods}}}}, where \(\mathbf{x}\), \(\mathbf{y}\) contain the coefficients of the basis functions. In this case, the discrete counterpart of the continous norm\sphinxhyphen{}measure of the continuous fields may involve a “mass matrix” (symmetric, definite positive \sphinxhyphen{} and thus with Choloeski factorization…),
 \begin{equation*}
 \begin{split}\begin{aligned}
   \int_{\Omega_x} |x(\vec{r})|^2 d \vec{r} & \simeq \mathbf{x}^* \mathbf{M}_x \mathbf{x} \\
@@ -4081,6 +4081,81 @@ Rules for derivatives of composite functions allows to write the differential w.
   \rho \left[ \left.\dfrac{\partial \mathbf{u}}{\partial t}\right|_{\vec{r}_b} + \left( \vec{u} - \vec{u}_b \right) \cdot \nabla \mathbf{u} \right] & = \\
 \end{aligned}\end{split}
 \end{equation*}
+\sphinxstepscope
+
+
+\part{Numerical Methods for PDEs}
+
+\sphinxstepscope
+
+
+\chapter{Introduction to numerical methods for PDEs}
+\label{\detokenize{ch/pde/numerics:introduction-to-numerical-methods-for-pdes}}\label{\detokenize{ch/pde/numerics:pde-numerics}}\label{\detokenize{ch/pde/numerics::doc}}
+\sphinxAtStartPar
+Different numerical methods for PDEs rely on the discretization of different formulations of the continunuos problems. As an example,
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{FDM, Finite difference methods} rely on the approximation of derivatives of the \sphinxstylestrong{strong formulation} of the problem
+
+\item {} 
+\sphinxAtStartPar
+{\hyperref[\detokenize{ch/pde/fem:pde-fem}]{\sphinxcrossref{\DUrole{std,std-ref}{\sphinxstylestrong{FEM, Finite element methods}}}}} rely on a finite dimensional approximation of the \sphinxstylestrong{weak formulation} of the problem; usually the finite dimensional approximation can be interpreted as a projection of a infinite dimensional continuous problem onto a finite dimensional space, the space of the choosen finite elements
+
+\item {} 
+\sphinxAtStartPar
+{\hyperref[\detokenize{ch/pde/fvm:pde-fvm}]{\sphinxcrossref{\DUrole{std,std-ref}{\sphinxstylestrong{FVM, Finite volume methods}}}}} rely on an approximation of the \sphinxstylestrong{integral formulation} of the problem
+
+\item {} 
+\sphinxAtStartPar
+\DUrole{xref,myst}{\sphinxstylestrong{BEM, Boundary elemement methods}} rely on an approximation of a \sphinxstylestrong{boundary integral formulation} of  the problem, when it’s feasible and convenient
+
+\item {} 
+\sphinxAtStartPar
+…\sphinxstyleemphasis{spectral methods}, \sphinxstyleemphasis{spectral element methods},…
+
+\end{itemize}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Characteristics.}
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+grid: domain\sphinxhyphen{}grid\sphinxhyphen{}based, buondary\sphinxhyphen{}grid\sphinxhyphen{}based, grid\sphinxhyphen{}free methods
+
+\item {} 
+\sphinxAtStartPar
+range of interaction: short in physical space for FDV, FEM, FVM; long\sphinxhyphen{}range for boundary element methods, even though clustering techniques are available, like FMM; (usually) over the whole domain in space, short\sphinxhyphen{}range interaction in wave\sphinxhyphen{}number space for spectral methods;
+
+\end{itemize}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Pros and cons.} \sphinxstyleemphasis{More suited methods for each problems…; domain, order,…}
+
+\sphinxAtStartPar
+Let’s take Poisson equations for a scalar function \(u(\vec{r})\) to show all the possible approaches above. The \sphinxstylestrong{strong form} of a differential problem governed by Poisson equation with suitable boundary conditions,
+\begin{equation*}
+\begin{split}\begin{cases}
+  - \nabla \cdot \left( k \nabla u \right) = f(\vec{r}) \ , & \vec{r} \in \Omega \\
+  u = g(\vec{r})                                        \ , & \vec{r} \in S_{D} \\
+  \hat{n} \cdot \nabla u = h(\vec{r})                   \ , & \vec{r} \in S_{N}  \\
+\end{cases}\end{split}
+\end{equation*}
+\sphinxstepscope
+
+
+\section{Finite Element Method}
+\label{\detokenize{ch/pde/fem:finite-element-method}}\label{\detokenize{ch/pde/fem:pde-fem}}\label{\detokenize{ch/pde/fem::doc}}
+\sphinxstepscope
+
+
+\section{Finite Volume Method}
+\label{\detokenize{ch/pde/fvm:finite-volume-method}}\label{\detokenize{ch/pde/fvm:pde-fvm}}\label{\detokenize{ch/pde/fvm::doc}}
+\sphinxstepscope
+
+
+\section{Boundary Element Method}
+\label{\detokenize{ch/pde/bem:boundary-element-method}}\label{\detokenize{ch/pde/bem:pdf-bem}}\label{\detokenize{ch/pde/bem::doc}}
 
 
 
