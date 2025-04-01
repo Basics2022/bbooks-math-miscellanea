@@ -139,6 +139,10 @@ $$\begin{aligned}
       + \int_{\vec{r} \in V} G(\vec{r}; \vec{r}_0) f(\vec{r}) \, dV \ .
 \end{aligned}$$
 
+The value of the unknown function or the flux $\hat{n} \cdot \nabla u$ are known on the Dirichlet and Neumann regions of the boundary respectively, and so the integro-differential problem becomes
+
+$$E(\vec{r}_0) u(\vec{r}_0) + \int_{S_N} u \hat{n} \cdot \nabla G \, dS - \int_{S_D} G \, \hat{n} \cdot \nabla u \, dS = \int_{S_D} g \hat{n} \cdot \nabla G \, dS - \int_{S_N} G h \, dS + \int_{\vec{r} \in V} G f \, dV$$
+
 The unknown function on is approximated on the boundary $\partial V$ of the domain as a $N$-finite dimensional approximation, as an example
 
 $$u(\vec{r}) = \sum_{j} \phi_j(\vec{r}) u_j \qquad , \qquad \vec{r} \in \partial V \ ,$$

@@ -72,6 +72,10 @@ parts:
     - file: ch/pde/fem
     - file: ch/pde/fvm
     - file: ch/pde/bem
+- caption: Boundary Methods for PDEs
+  numbered: True
+  chapters:
+  - file: ch/pde/bem-poisson-helmholtz-waves
 # - file: ch/pde/weak
 # - file: ch/pde/fem
 
