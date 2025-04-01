@@ -6,7 +6,7 @@
 ```
 -->
 
-(classical-electromagnetism:green-function)=
+(math:green-function)=
 # Green's function method
 
 (classical-electromagnetism:green-function:poisson)=
