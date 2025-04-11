@@ -3,6 +3,17 @@
 
 Some freestyle in changing order of summations and integrals, and use of generalized functions here...check it!
 
+Different Fourier transforms exist, depending if the original function is:
+- time discrete/time continuous 
+- periodic/non-periodic
+
+namely,
+- FS, Fourier series: time continuous, periodic function (or finite domain, with a periodic extension)
+- FT, Fourier transform: time continuous, non-periodic function
+- DTFT, discrete-time Fourier transform: time didscrete, infinite-length sequence
+- DFT, discrete Fourier transform: time discrete, finite-length sequence (and then with a periodic extension)
+
+
 (complex:fourier:transform)=
 ## Fourier transform of integrable functions
 
@@ -55,6 +66,7 @@ $$\overline{\nu} := \frac{1}{\Delta t} \ .$$
 From this last sentence and from the [symmetry properties of Fourier transform](complex:fourier:useful-properties:symmetry), **Nyquist-Shannon sampling theorem** follows seamlessly.
 
 ```{prf:theorem} Nyquist-Shannon sampling theorem
+:label: thm-shannon-nyquist
 
 In order to **avoid aliasing** the sampling frequency must be twice the maxiumum[^shannon-max-frequency] frequency in the signal,
 

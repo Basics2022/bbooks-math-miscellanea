@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>13. Fourier Transforms &#8212; basics - math</title>
+    <title>13.1. Fourier Series &#8212; basics - math</title>
   
   
   
@@ -64,12 +64,14 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/complex/fourier';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/complex/fourier-series';</script>
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="13.1. Fourier Series" href="fourier-series.html" />
-    <link rel="prev" title="12. Laplace Transform" href="laplace.html" />
+    <link rel="next" title="13.2. Fourier Transform" href="fourier-transform.html" />
+    <link rel="prev" title="13. Fourier Transforms" href="fourier.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -209,8 +211,8 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="analysis.html">11. Complex Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="laplace.html">12. Laplace Transform</a></li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">13. Fourier Transforms</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="fourier-series.html">13.1. Fourier Series</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="fourier.html">13. Fourier Transforms</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">13.1. Fourier Series</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fourier-transform.html">13.2. Fourier Transform</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fourier-transforms.html">13.3. Relations between Fourier transforms</a></li>
 </ul>
@@ -301,7 +303,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/ch/complex/fourier.md" target="_blank"
+      <li><a href="../../_sources/ch/complex/fourier-series.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -383,7 +385,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Fourier Transforms</h1>
+    <h1>Fourier Series</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -397,33 +399,41 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="fourier-transforms">
-<span id="complex-fourier"></span><h1><span class="section-number">13. </span>Fourier Transforms<a class="headerlink" href="#fourier-transforms" title="Permalink to this heading">#</a></h1>
-<p>Fourier transforms are linear transformations of functions usually relating a physical domain of time and/or space, with a domain of frequency and/or wave-vectors.</p>
-<p>Fourier transforms can be useful in:</p>
-<ul class="simple">
-<li><p>highlighting the frequency content of functions</p></li>
-<li><p>solving problems: sometimes, it can be easier to transform a problem in frequency domain, solve it in frequency domain, and transform the solution back to the physical domain</p></li>
-</ul>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+  <div class="tex2jax_ignore mathjax_ignore section" id="fourier-series">
+<span id="complex-fourier-series"></span><h1><span class="section-number">13.1. </span>Fourier Series<a class="headerlink" href="#fourier-series" title="Permalink to this heading">#</a></h1>
+<p>For a <span class="math notranslate nohighlight">\(T\)</span>-periodic function,</p>
+<div class="math notranslate nohighlight">
+\[g(t) \sim \frac{a_0}{2} + \sum_{n=1}^{+\infty} \left[ a_n \, \cos\left( n \frac{2\pi}{T} t \right) + b_n \, \sin\left( n \frac{2 \pi }{T} t \right) \right] \ ,\]</div>
+<p><strong>todo</strong> Prove it with properties of integrals of <span class="math notranslate nohighlight">\(\sin\)</span> and <span class="math notranslate nohighlight">\(\cos\)</span> over <span class="math notranslate nohighlight">\(t \in \left[ 0, T \right]\)</span>; prove convergence to average value at jumps</p>
+<p>The exponential form reads</p>
+<div class="math notranslate nohighlight" id="equation-eq-fourier-series-exp">
+<span class="eqno">(13.1)<a class="headerlink" href="#equation-eq-fourier-series-exp" title="Permalink to this equation">#</a></span>\[g(t) \sim \sum_{n=-\infty}^{+\infty} c_n e^{i n \frac{2 \pi }{T}t} \ ,\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight" id="equation-eq-fourier-series-exp-coeff">
+<span class="eqno">(13.2)<a class="headerlink" href="#equation-eq-fourier-series-exp-coeff" title="Permalink to this equation">#</a></span>\[c_n = \frac{1}{T} \int_{t=0}^{T} f(t) \, e^{-i n \frac{2\pi}{T} t} \ .\]</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
-Contents.<div class="sd-summary-down docutils">
+Proof<div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text"><a class="reference internal" href="fourier-series.html#complex-fourier-series"><span class="std std-ref"><strong>Fourier series</strong></span></a>. Fourier series is defined for finite-domain or periodic, time-continuous functions, or - more generally - continuous functions in the physical domain.</p>
-<p class="sd-card-text"><a class="reference internal" href="fourier-transform.html#complex-fourier-transform"><span class="std std-ref"><strong>Fourier transform</strong></span></a>. Fourier transform is defined for infinite-domain non-periodic, time-continuous functions, or - more generally - continuous functions in the physical domain.</p>
-<p class="sd-card-text"><a class="reference internal" href="fourier-transforms.html#complex-fourier-transforms"><span class="std std-ref"><strong>Relations between Fourier transforms and sampling</strong></span></a>. Fourier series, Fourier transform, discrete time Fourier transform and discrete Fourier transforms are presented, and their relations discussed. Fundamental results about <strong>evenly-spaced sampling</strong> seamlessly follows, as <strong>Shannon-Nyquist theorem</strong>, <a class="reference internal" href="fourier-transforms.html#thm-shannon-nyquist">Theorem 13.1</a>, shows.</p>
+<p class="sd-card-text">Exploiting the properties of integrals of complex exponentials with <span class="math notranslate nohighlight">\(k \in \mathbb{Z}\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\int_{t=0}^{T} e^{i k \frac{2 \pi}{T} t} \, dt = 
+\begin{cases}
+\frac{1}{i k \frac{2 \pi}{T}} \left.\left[ e^{ik \frac{2\pi}{T} t} \right]\right|_{t=0}^{T} = 0 \hfill \qquad \text{if $ k \ne 0$} \\
+T \hfill \text{if $ k = 0$}
+\end{cases}
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\int_{t=0}^{T} f(t) e^{-i m \frac{2 \pi}{T} t} \, dt
+ \sim \int_{t=0}^{T} \sum_{n=-\infty}^{+\infty} c_n e^{i n \frac{2 \pi }{T}t}  e^{-i m \frac{2 \pi}{T} t}
+ \sim \sum_{n=-\infty}^{+\infty} c_n \sim \int_{t=0}^{T} e^{i (n-m) \frac{2 \pi }{T}t} 
+ \sim T \, c_m \ .
+\]</div>
 </div>
-</details><p>Different Fourier transforms exist, depending if the original function is:</p>
-<ul class="simple">
-<li><p>time discrete/time continuous</p></li>
-<li><p>periodic/non-periodic</p></li>
-</ul>
-<div class="toctree-wrapper compound">
-</div>
-</div>
+</details></div>
 
     <script type="text/x-thebe-config">
     {
@@ -456,20 +466,20 @@ Contents.<div class="sd-summary-down docutils">
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="laplace.html"
+       href="fourier.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">12. </span>Laplace Transform</p>
+        <p class="prev-next-title"><span class="section-number">13. </span>Fourier Transforms</p>
       </div>
     </a>
     <a class="right-next"
-       href="fourier-series.html"
+       href="fourier-transform.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">13.1. </span>Fourier Series</p>
+        <p class="prev-next-title"><span class="section-number">13.2. </span>Fourier Transform</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

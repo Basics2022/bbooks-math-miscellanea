@@ -44,6 +44,8 @@ parts:
   - file: ch/complex/laplace
   - file: ch/complex/fourier
     sections:
+    - file: ch/complex/fourier-series
+    - file: ch/complex/fourier-transform
     - file: ch/complex/fourier-transforms
 - caption: Calculus of Variations
   numbered: True
