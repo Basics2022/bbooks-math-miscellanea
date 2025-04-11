@@ -1,17 +1,25 @@
 (complex:fourier:transform)=
 # Fourier Transform
 
+**Contents**: [definition](complex:fourier:transform:def); [properties](complex:fourier:transform:properties); [inverse transform](complex:fourier:transform:inverse); [Plancherel's theorem](complex:fourier:transform:plancherel); [uncertainty relation](complex:fourier:transform:uncertainty)
+
+(complex:fourier:transform:def)=
+## Definition
+
+...
+
 $$\mathscr{F}\left\{ g(t) \right\}(f) := \int_{t = -\infty}^{+\infty} g(t) \, e^{-i 2 \pi f t} \, dt .$$
 
 
 (complex:fourier:transform:properties)=
 ## Properties
 
-**Linearity.**
+
+**Linearity**
 
 **[Dirac delta](functional-analysis:dirac-delta).**
 
-$$\mathscr{L}\left\{ \delta(t) \right\} = \int_{t=-\infty}^{+\infty} \delta(t) \, e^{-i 2 \pi f t} \, dt = 1 $$
+$$\mathscr{L}\left\{ \delta(t) \right\} = \int_{t=-\infty}^{+\infty} \delta(t) \, e^{-i 2 \pi f t} \, dt = 1 $$ (eq:complex:fourier:transform:properties:delta)
 
 **Time delay.**
 
@@ -136,3 +144,26 @@ $$\begin{aligned}
     
     $$\mathscr{F}\left\{ \varphi_\varepsilon \ast f \right\} = \mathscr{F}\left\{ \varphi_\varepsilon \right\} \mathscr{F}\left\{ f \right\} = \frac{1}{\varepsilon} \varepsilon 2 e^{-\frac{\varepsilon^2 \omega^2}{4 \pi}} F(\omega)$$
 -->
+
+(complex:fourier:transform:plancherel)=
+## Plancherel's theorem
+
+...assumptions...**todo**
+
+$$\int_{f=-\infty}^{+\infty} |G(f)|^2 \, df = \int_{t=-\infty}^{+\infty} |g(t)|^2 \, dt $$
+
+```{dropdown}
+:open:
+
+Using
+
+```
+
+
+(complex:fourier:transform:uncertainty)=
+## Uncertainty relation
+
+
+
+
+

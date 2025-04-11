@@ -205,7 +205,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Functional Analysis</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../functional-analysis/intro.html">9. Introduction to Functional Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../functional-analysis/dirac-delta.html">10. Distributions (or generalized functions)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functional-analysis/dirac-delta.html">10. Dirac’s delta</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Complex Calculus</span></p>
 <ul class="current nav bd-sidenav">
@@ -397,8 +397,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#properties">13.2.1. Properties</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inverse-fourier-transform">13.2.2. Inverse Fourier Transform</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition">13.2.1. Definition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#properties">13.2.2. Properties</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inverse-fourier-transform">13.2.3. Inverse Fourier Transform</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plancherel-s-theorem">13.2.4. Plancherel’s theorem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uncertainty-relation">13.2.5. Uncertainty relation</a></li>
 </ul>
             </nav>
         </div>
@@ -412,14 +415,19 @@ document.write(`
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="fourier-transform">
 <span id="complex-fourier-transform"></span><h1><span class="section-number">13.2. </span>Fourier Transform<a class="headerlink" href="#fourier-transform" title="Permalink to this heading">#</a></h1>
+<p><strong>Contents</strong>: <a class="reference internal" href="#complex-fourier-transform-def"><span class="std std-ref">definition</span></a>; <a class="reference internal" href="#complex-fourier-transform-properties"><span class="std std-ref">properties</span></a>; <a class="reference internal" href="#complex-fourier-transform-inverse"><span class="std std-ref">inverse transform</span></a>; <a class="reference internal" href="#complex-fourier-transform-plancherel"><span class="std std-ref">Plancherel’s theorem</span></a>; <a class="reference internal" href="#complex-fourier-transform-uncertainty"><span class="std std-ref">uncertainty relation</span></a></p>
+<div class="section" id="definition">
+<span id="complex-fourier-transform-def"></span><h2><span class="section-number">13.2.1. </span>Definition<a class="headerlink" href="#definition" title="Permalink to this heading">#</a></h2>
+<p>…</p>
 <div class="math notranslate nohighlight">
 \[\mathscr{F}\left\{ g(t) \right\}(f) := \int_{t = -\infty}^{+\infty} g(t) \, e^{-i 2 \pi f t} \, dt .\]</div>
+</div>
 <div class="section" id="properties">
-<span id="complex-fourier-transform-properties"></span><h2><span class="section-number">13.2.1. </span>Properties<a class="headerlink" href="#properties" title="Permalink to this heading">#</a></h2>
-<p><strong>Linearity.</strong></p>
+<span id="complex-fourier-transform-properties"></span><h2><span class="section-number">13.2.2. </span>Properties<a class="headerlink" href="#properties" title="Permalink to this heading">#</a></h2>
+<p><strong>Linearity</strong></p>
 <p><strong><a class="reference internal" href="../functional-analysis/dirac-delta.html#functional-analysis-dirac-delta"><span class="std std-ref">Dirac delta</span></a>.</strong></p>
-<div class="math notranslate nohighlight">
-\[\mathscr{L}\left\{ \delta(t) \right\} = \int_{t=-\infty}^{+\infty} \delta(t) \, e^{-i 2 \pi f t} \, dt = 1 \]</div>
+<div class="math notranslate nohighlight" id="equation-eq-complex-fourier-transform-properties-delta">
+<span class="eqno">(13.3)<a class="headerlink" href="#equation-eq-complex-fourier-transform-properties-delta" title="Permalink to this equation">#</a></span>\[\mathscr{L}\left\{ \delta(t) \right\} = \int_{t=-\infty}^{+\infty} \delta(t) \, e^{-i 2 \pi f t} \, dt = 1 \]</div>
 <p><strong>Time delay.</strong></p>
 <p><strong>Derivative.</strong></p>
 <p><strong>Integral.</strong></p>
@@ -427,7 +435,7 @@ document.write(`
 <p><strong>Final value.</strong></p>
 </div>
 <div class="section" id="inverse-fourier-transform">
-<span id="complex-fourier-transform-inverse"></span><h2><span class="section-number">13.2.2. </span>Inverse Fourier Transform<a class="headerlink" href="#inverse-fourier-transform" title="Permalink to this heading">#</a></h2>
+<span id="complex-fourier-transform-inverse"></span><h2><span class="section-number">13.2.3. </span>Inverse Fourier Transform<a class="headerlink" href="#inverse-fourier-transform" title="Permalink to this heading">#</a></h2>
 <p>Under the assumptions …<strong>todo</strong>, the inverse Fourier transform reads</p>
 <div class="math notranslate nohighlight">
 \[\mathscr{F}^{-1}\left\{ G(f) \right\}(t) := \int_{f = -\infty}^{+\infty} G(f) \, e^{i 2 \pi f t} \, df .\]</div>
@@ -546,6 +554,24 @@ Proof using dominated convergence theorem and Fubini’s lemma.<div class="sd-su
     $$\mathscr{F}\left\{ \varphi_\varepsilon \ast f \right\} = \mathscr{F}\left\{ \varphi_\varepsilon \right\} \mathscr{F}\left\{ f \right\} = \frac{1}{\varepsilon} \varepsilon 2 e^{-\frac{\varepsilon^2 \omega^2}{4 \pi}} F(\omega)$$
 -->
 </div>
+<div class="section" id="plancherel-s-theorem">
+<span id="complex-fourier-transform-plancherel"></span><h2><span class="section-number">13.2.4. </span>Plancherel’s theorem<a class="headerlink" href="#plancherel-s-theorem" title="Permalink to this heading">#</a></h2>
+<p>…assumptions…<strong>todo</strong></p>
+<div class="math notranslate nohighlight">
+\[\int_{f=-\infty}^{+\infty} |G(f)|^2 \, df = \int_{t=-\infty}^{+\infty} |g(t)|^2 \, dt \]</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-kebab-horizontal" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M6 12a2 2 0 11-4 0 2 2 0 014 0zm8 0a2 2 0 11-4 0 2 2 0 014 0zm6 2a2 2 0 100-4 2 2 0 000 4z"></path></svg><div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Using</p>
+</div>
+</details></div>
+<div class="section" id="uncertainty-relation">
+<span id="complex-fourier-transform-uncertainty"></span><h2><span class="section-number">13.2.5. </span>Uncertainty relation<a class="headerlink" href="#uncertainty-relation" title="Permalink to this heading">#</a></h2>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -611,8 +637,11 @@ Proof using dominated convergence theorem and Fubini’s lemma.<div class="sd-su
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#properties">13.2.1. Properties</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inverse-fourier-transform">13.2.2. Inverse Fourier Transform</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition">13.2.1. Definition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#properties">13.2.2. Properties</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inverse-fourier-transform">13.2.3. Inverse Fourier Transform</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plancherel-s-theorem">13.2.4. Plancherel’s theorem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uncertainty-relation">13.2.5. Uncertainty relation</a></li>
 </ul>
   </nav></div>
 
