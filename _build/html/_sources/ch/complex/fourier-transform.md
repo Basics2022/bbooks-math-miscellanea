@@ -242,7 +242,6 @@ $$\begin{aligned}
 in (2) Cauchy-Schwartz inequality,
 
 ```{dropdown} (3)
-:open:
 
 $$\begin{aligned}
   a 
