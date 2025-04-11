@@ -152,13 +152,22 @@ $$\begin{aligned}
 
 $$\int_{f=-\infty}^{+\infty} |G(f)|^2 \, df = \int_{t=-\infty}^{+\infty} |g(t)|^2 \, dt $$
 
-```{dropdown}
+```{dropdown} Proof
 :open:
 
-Using
+$$\begin{aligned}
+\int_{f=-\infty}^{+\infty} |G(f)|^2 \, df 
+& = \int_{f=-\infty}^{+\infty} G(f)^* G(f) \, df =  \\
+& = \int_{f=-\infty}^{+\infty} \left( \int_{t_1=-\infty}^{+\infty} g(t_1) e^{-i 2 \pi f t_1} dt_1 \right)^* \left( \int_{t_2=-\infty}^{+\infty} g(t_2) e^{-i 2 \pi f t_2} dt_2  \right) \, df =  \\
+& =  \int_{t_1, t_2=-\infty}^{+\infty} g^*(t_1) \, g(t_2) \, \int_{f=-\infty}^{+\infty} e^{i 2 \pi f ( t_1 - t_2 )} \, df \, dt_1 \, dt_2 =  && (1) \\
+& =  \int_{t_1, t_2=-\infty}^{+\infty} g^*(t_1) \, g(t_2) \, \delta( t_1 - t_2 ) \, dt_1 \, dt_2 = && (2) \\
+& =  \int_{t_1=-\infty}^{+\infty} g^*(t_1) \, g(t_1) \, dt_1 = && (3) \\
+& =  \int_{t_1=-\infty}^{+\infty} |g(t_1)|^2 \, dt_1 \ .
+\end{aligned}$$
+
+having used (1) the approximation {eq}`eq:dirac:fourier-transform` of Dirac's delta, and (2) property {eq}`dirac-delta:prop-2` of Dirac's delta, and (3) the expression of the absolute value of complex functions $g^*(t_1) g(t_1) = |g(t_1)|^2$.
 
 ```
-
 
 (complex:fourier:transform:uncertainty)=
 ## Uncertainty relation

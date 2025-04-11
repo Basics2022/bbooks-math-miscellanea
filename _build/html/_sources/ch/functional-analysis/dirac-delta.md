@@ -6,11 +6,11 @@ Dirac's delta $\delta(x)$ is a distribution, or generalized function, with the f
 
 1. 
 
-   $$\int_{D} \delta(x-x_0) \, dx = 1  \quad \text{if $x_0 \in D$}$$
+   $$\int_{D} \delta(x-x_0) \, dx = 1  \quad \text{if $x_0 \in D$}$$ (dirac-delta:prop-1)
 
 2. 
 
-   $$\int_{D} f(x) \delta(x-x_0) \, dx \quad \text{if $x_0 \in D$}$$
+   $$\int_{D} f(x) \delta(x-x_0) \, dx \quad \text{if $x_0 \in D$}$$ (dirac-delta:prop-2)
 
 for $\forall f(x)$ "regular" **todo** *what does regular mean?*
 

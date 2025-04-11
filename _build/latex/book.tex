@@ -85,7 +85,7 @@
         
 
 \title{basics - math}
-\date{Apr 01, 2025}
+\date{Apr 11, 2025}
 \release{}
 \author{basics}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -1476,43 +1476,35 @@ Banach and Hilbert spaces
 \sphinxstepscope
 
 
-\chapter{Distributions (or generalized functions)}
-\label{\detokenize{ch/functional-analysis/dirac-delta:distributions-or-generalized-functions}}\label{\detokenize{ch/functional-analysis/dirac-delta:functional-analysis-distributions}}\label{\detokenize{ch/functional-analysis/dirac-delta::doc}}
-\sphinxAtStartPar
-…
-
-
-\section{Dirac’s delta}
-\label{\detokenize{ch/functional-analysis/dirac-delta:dirac-s-delta}}\label{\detokenize{ch/functional-analysis/dirac-delta:functional-analysis-dirac-delta}}
+\chapter{Dirac’s delta}
+\label{\detokenize{ch/functional-analysis/dirac-delta:dirac-s-delta}}\label{\detokenize{ch/functional-analysis/dirac-delta:functional-analysis-dirac-delta}}\label{\detokenize{ch/functional-analysis/dirac-delta::doc}}
 \sphinxAtStartPar
 Dirac’s delta \(\delta(x)\) is a distribution, or generalized function, with the following properties
 \begin{enumerate}
 \sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
 \item {} 
 \end{enumerate}
-\begin{equation*}
+\begin{equation}\label{equation:ch/functional-analysis/dirac-delta:dirac-delta:prop-1}
 \begin{split}\int_{D} \delta(x-x_0) \, dx = 1  \quad \text{if $x_0 \in D$}\end{split}
-\end{equation*}\begin{enumerate}
+\end{equation}\begin{enumerate}
 \sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
 \setcounter{enumi}{1}
 \item {} 
 \end{enumerate}
-\begin{equation*}
+\begin{equation}\label{equation:ch/functional-analysis/dirac-delta:dirac-delta:prop-2}
 \begin{split}\int_{D} f(x) \delta(x-x_0) \, dx \quad \text{if $x_0 \in D$}\end{split}
-\end{equation*}
+\end{equation}
 \sphinxAtStartPar
 for \(\forall f(x)\) “regular” \sphinxstylestrong{todo} \sphinxstyleemphasis{what does regular mean?}
 
 
-\subsection{Dirac’s delta in terms of regular functions}
-\label{\detokenize{ch/functional-analysis/dirac-delta:dirac-s-delta-in-terms-of-regular-functions}}
-\sphinxAtStartPar
-\sphinxstylestrong{Approximations …}
-\begin{equation*}
+\section{Dirac’s delta in terms of regular functions}
+\label{\detokenize{ch/functional-analysis/dirac-delta:dirac-s-delta-in-terms-of-regular-functions}}\label{\detokenize{ch/functional-analysis/dirac-delta:functional-analysis-dirac-delta-approximations}}
+
+\subsection{Piece\sphinxhyphen{}wise constant}
+\label{\detokenize{ch/functional-analysis/dirac-delta:piece-wise-constant}}\label{\detokenize{ch/functional-analysis/dirac-delta:functional-analysis-dirac-delta-approximations-box}}\begin{equation*}
 \begin{split}\delta(x) \sim r_{\varepsilon}(x) = \begin{cases} \frac{1}{\varepsilon} & x \in \left[-\frac{\varepsilon}{2}, \frac{\varepsilon}{2} \right] \\ 0 & \text{otherwise} \end{cases}\end{split}
-\end{equation*}
-\sphinxAtStartPar
-as
+\end{equation*}\subsubsection*{Properties \sphinxhyphen{} proof.}
 \begin{enumerate}
 \sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
 \item {} 
@@ -1536,11 +1528,12 @@ with \(\xi \in \left[x_0-\frac{\varepsilon}{2}, x_0+\frac{\varepsilon}{2}\right]
 \begin{split}\int_{x=-\infty}^{\infty} r_{\varepsilon}(x-x_0) f(x) \, dx \rightarrow f(x_0) \end{split}
 \end{equation*}
 \end{enumerate}
-\begin{equation*}
+
+
+\subsection{Piecewise\sphinxhyphen{}linear}
+\label{\detokenize{ch/functional-analysis/dirac-delta:piecewise-linear}}\label{\detokenize{ch/functional-analysis/dirac-delta:functional-analysis-dirac-delta-approximations-hat}}\begin{equation*}
 \begin{split}\delta(x) \sim t_{\varepsilon}(x) = \begin{cases} \frac{2}{\varepsilon} \left( 1 - \frac{2 |x|}{\varepsilon} \right) & x \in \left[-\frac{\varepsilon}{2}, \frac{\varepsilon}{2} \right] \\ 0 & \text{otherwise} \end{cases}\end{split}
-\end{equation*}
-\sphinxAtStartPar
-as
+\end{equation*}\subsubsection*{Properties \sphinxhyphen{} proof}
 \begin{enumerate}
 \sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
 \item {} 
@@ -1573,13 +1566,17 @@ As \(\varepsilon \rightarrow 0\)
 \end{equation*}
 \end{enumerate}
 
+
+\subsection{Gaussian approximation}
+\label{\detokenize{ch/functional-analysis/dirac-delta:gaussian-approximation}}\label{\detokenize{ch/functional-analysis/dirac-delta:functional-analysis-dirac-delta-approximations-gaussian}}
 \sphinxAtStartPar
-\sphinxstylestrong{Approximation 1.} For \(\alpha \rightarrow +\infty\),
+For \(\alpha \rightarrow +\infty\),
 \begin{equation*}
 \begin{split}\varphi_{\alpha}(x) = \sqrt{\frac{\alpha}{\pi}}e^{-\alpha x^2} \sim \delta(x)\end{split}
-\end{equation*}
+\end{equation*}\subsubsection*{Properties \sphinxhyphen{} proof}
+
 \sphinxAtStartPar
-Fourier transform of \(\varphi_{\alpha}(x)\) reads
+{\hyperref[\detokenize{ch/complex/fourier-transform:complex-fourier-transform}]{\sphinxcrossref{\DUrole{std,std-ref}{Fourier transform}}}} of \(\varphi_{\alpha}(x)\) reads
 \begin{equation*}
 \begin{split}\begin{aligned}
  \mathscr{F}\{ \varphi_{\alpha}(x) \}(k)
@@ -1595,15 +1592,21 @@ for \(\alpha \rightarrow +\infty\),
 \begin{split}\mathscr{F}\{ \varphi_{\alpha}(x) \}(k) \rightarrow 1\end{split}
 \end{equation*}
 \sphinxAtStartPar
-and thus \(\varphi_\alpha(x) \rightarrow \delta(x)\) for \(\alpha \rightarrow +\infty\).
+Fourier transform of Dirac’s delta is \(1\), as shown in \eqref{equation:ch/complex/fourier-transform:eq:complex:fourier:transform:properties:delta}, thus \(\varphi_\alpha(x) \rightarrow \delta(x)\) for \(\alpha \rightarrow +\infty\).
 
+
+\subsection{Fourier anti\sphinxhyphen{}transform}
+\label{\detokenize{ch/functional-analysis/dirac-delta:fourier-anti-transform}}\label{\detokenize{ch/functional-analysis/dirac-delta:functional-analysis-dirac-delta-approximations-fourier-transform}}
 \sphinxAtStartPar
-\sphinxstylestrong{Approximation 2.} For \(a \rightarrow +\infty\)
-\begin{equation*}
-\begin{split}\frac{1}{2 \pi} \int_{k=-2\pi a}^{2 \pi a} e^{i k x} \, dk = \int_{y=-a}^{+a} e^{i 2 \pi y x} \, dy \sim \delta(x)\end{split}
-\end{equation*}
+For \(a \rightarrow + \infty\),
+\begin{equation}\label{equation:ch/functional-analysis/dirac-delta:eq:dirac:fourier-transform}
+\begin{split}\delta(x) \sim  \int_{y=-a}^{+a} e^{i 2 \pi y x} \, dy = \frac{1}{2 \pi} \int_{k=-2\pi a}^{2 \pi a} e^{i k x} \, dk \ ,\end{split}
+\end{equation}
 \sphinxAtStartPar
 or
+\begin{equation*}
+\begin{split}\delta \sim 2 \int_{y=0}^{a} \cos(2 \pi y x) \, dy \ .\end{split}
+\end{equation*}\subsubsection*{Proof of the equilvanece}
 \begin{equation*}
 \begin{split}\begin{aligned}
   \delta(x)
@@ -1611,23 +1614,57 @@ or
   & = \int_{y=-a}^{+a} e^{i 2 \pi y x} \, dy = \dots = \int_{y = 0}^{a} (e^{i 2 \pi y x} + e^{i 2 \pi y x}) \, dy = 2 \int_{y=0}^{a} \cos(2 \pi y x) \, dy \ .
 \end{aligned}\end{split}
 \end{equation*}
+
+\subsection{\protect\(\text{sinc}(x)\protect\) approximation}
+\label{\detokenize{ch/functional-analysis/dirac-delta:text-sinc-x-approximation}}\label{\detokenize{ch/functional-analysis/dirac-delta:id1}}
 \sphinxAtStartPar
-\sphinxstylestrong{Approximation 3.} For \(a \rightarrow +\infty\)
+For \(a \rightarrow +\infty\)
 \begin{equation*}
-\begin{split}\frac{\sin(2 \pi x a)}{\pi x} \sim \delta(x)\end{split}
-\end{equation*}
+\begin{split}\delta(x) \sim \frac{\sin(2 \pi x a)}{\pi x}\end{split}
+\end{equation*}\subsubsection*{Proof}
+
 \sphinxAtStartPar
-Directly follows from integral of approximation 2,
+Directly follows from integral of the approximation \eqref{equation:ch/functional-analysis/dirac-delta:eq:dirac:fourier-transform}
 \begin{equation*}
 \begin{split}\int_{y=-a}^{+a} e^{i 2 \pi y x} \, dy = \frac{1}{i 2 \pi x} \left. e^{i 2 \pi y x}\right|_{y=-a}^{+a} = \frac{1}{\pi x} \frac{e^{i 2 \pi a x} - e^{-i 2 \pi a x}}{2 i} = \frac{\sin(2 \pi x a)}{\pi x}\end{split}
 \end{equation*}
+
+\subsection{Fourier series}
+\label{\detokenize{ch/functional-analysis/dirac-delta:fourier-series}}\label{\detokenize{ch/functional-analysis/dirac-delta:functional-analysis-dirac-delta-approximations-fourier-series}}
 \sphinxAtStartPar
-\sphinxstylestrong{Approximation 4.} For \(x \in [-\pi, \pi]\), and \(N \rightarrow +\infty\)
+For \(x \in [-\pi, \pi]\), and \(N \rightarrow +\infty\), {\hyperref[\detokenize{ch/complex/fourier-series:complex-fourier-series}]{\sphinxcrossref{\DUrole{std,std-ref}{Fourier series}}}} of Dirac’s delta (train with period \(2\pi\)) reads
 \begin{equation*}
-\begin{split}\frac{1}{2\pi}\sum_{n=-N}^{N} e^{i n x} = \frac{1}{2 \pi} \frac{\sin\left(\left(N+\frac{1}{2}\right)x\right)}{\sin\left( \frac{x}{2} \right)} \sim \delta(x)\end{split}
+\begin{split}\delta(x) \sim \frac{1}{2\pi}\sum_{n=-N}^{N} e^{i n x} = \frac{1}{2 \pi} \frac{\sin\left(\left(N+\frac{1}{2}\right)x\right)}{\sin\left( \frac{x}{2} \right)}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+or the \(T\)\sphinxhyphen{}periodic Dirac’s delta train,
+\begin{equation*}
+\begin{split}\delta(x) \sim \frac{1}{T}\sum_{n=-N}^{N} e^{i n \frac{2\pi}{T} x} \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{todo} \sphinxstyleemphasis{Write the proof of the last expression, using the relation between complex exponentials and cosine and sine}
+\subsubsection*{Proof}
+
+\sphinxAtStartPar
+Coefficients of the Fourier series of Dirac’s delta (train with period \(T = 2 \pi\)) are evaluated using the expression \eqref{equation:ch/complex/fourier-series:eq:fourier-series:exp:coeff}
+\begin{equation*}
+\begin{split}c_n = \frac{1}{2 \pi} \int_{-\pi}^{\pi} \delta(t) e^{-i n \frac{2\pi}{2 \pi}t} = \frac{1}{2\pi} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and thus the complex Fourier series \eqref{equation:ch/complex/fourier-series:eq:fourier-series:exp} of Dirac’s delta reads
+\begin{equation*}
+\begin{split}\delta(x) \sim \sum_{n=-\infty}^{+\infty} c_n e^{i n \frac{2\pi}{T}x} = \frac{1}{2 \pi} \sum_{n=-\infty}^{+\infty} e^{i n x}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Obs.} here, integration interval \([-\pi,\pi]\) to “avoid troubles” with Dirac’s delta on the extreme points of the interval (it would give \(1/2\) and \(1/2\) contributions on both extremes…)
+
+\sphinxAtStartPar
+It’s possible to write the \(T\)\sphinxhyphen{}periodic Dirac’s delta train as
+\begin{equation*}
+\begin{split}\delta(x) \sim \sum_{n=-\infty}^{+\infty} c_n e^{i n \frac{2\pi}{T}x} = \frac{1}{T} \sum_{n=-\infty}^{+\infty} e^{i n \frac{2\pi}{T} x}\end{split}
 \end{equation*}
 
-\phantomsection\label{\detokenize{ch/functional-analysis/dirac-delta:integral-e-x2}}\subsubsection*{Integral \protect\(I = \int_{-\infty}^{+\infty} e^{-\alpha x^2} \, dx\protect\)}
+\phantomsection\label{\detokenize{ch/functional-analysis/dirac-delta:integral-e-x2}}\subsubsection*{Integral \protect\(\ I = \int_{-\infty}^{+\infty} e^{-\alpha x^2} \, dx\protect\)}
 \begin{equation*}
 \begin{split}\begin{aligned}
   I^2 
@@ -2130,28 +2167,51 @@ provided that \(\lim_{s \rightarrow 0} \lim_{t \rightarrow +\infty} e^{-s t} f(t
 
 
 \chapter{Fourier Transforms}
-\label{\detokenize{ch/complex/fourier:fourier-transforms}}\label{\detokenize{ch/complex/fourier:complex-fourier}}\label{\detokenize{ch/complex/fourier::doc}}\begin{itemize}
+\label{\detokenize{ch/complex/fourier:fourier-transforms}}\label{\detokenize{ch/complex/fourier:complex-fourier}}\label{\detokenize{ch/complex/fourier::doc}}
+\sphinxAtStartPar
+Fourier transforms are linear transformations of functions usually relating a physical domain of time and/or space, with a domain of frequency and/or wave\sphinxhyphen{}vectors.
+
+\sphinxAtStartPar
+Fourier transforms can be useful in:
+\begin{itemize}
 \item {} 
 \sphinxAtStartPar
-Fourier series: continuous time, periodic function in time
+highlighting the frequency content of functions
 
 \item {} 
 \sphinxAtStartPar
-Fourier transform: continuous time, non\sphinxhyphen{}periodic function in time
+solving problems: sometimes, it can be easier to transform a problem in frequency domain, solve it in frequency domain, and transform the solution back to the physical domain
+
+\end{itemize}
+\subsubsection*{Contents.}
+
+\sphinxAtStartPar
+{\hyperref[\detokenize{ch/complex/fourier-series:complex-fourier-series}]{\sphinxcrossref{\DUrole{std,std-ref}{\sphinxstylestrong{Fourier series}}}}}. Fourier series is defined for finite\sphinxhyphen{}domain or periodic, time\sphinxhyphen{}continuous functions, or \sphinxhyphen{} more generally \sphinxhyphen{} continuous functions in the physical domain.
+
+\sphinxAtStartPar
+{\hyperref[\detokenize{ch/complex/fourier-transform:complex-fourier-transform}]{\sphinxcrossref{\DUrole{std,std-ref}{\sphinxstylestrong{Fourier transform}}}}}. Fourier transform is defined for infinite\sphinxhyphen{}domain non\sphinxhyphen{}periodic, time\sphinxhyphen{}continuous functions, or \sphinxhyphen{} more generally \sphinxhyphen{} continuous functions in the physical domain.
+
+\sphinxAtStartPar
+{\hyperref[\detokenize{ch/complex/fourier-transforms:complex-fourier-transforms}]{\sphinxcrossref{\DUrole{std,std-ref}{\sphinxstylestrong{Relations between Fourier transforms and sampling}}}}}. Fourier series, Fourier transform, discrete time Fourier transform and discrete Fourier transforms are presented, and their relations discussed. Fundamental results about \sphinxstylestrong{evenly\sphinxhyphen{}spaced sampling} seamlessly follows, as \sphinxstylestrong{Shannon\sphinxhyphen{}Nyquist theorem}, {\hyperref[\detokenize{ch/complex/fourier-transforms:thm-shannon-nyquist}]{\sphinxcrossref{Theorem 13.3.1}}}, shows.
+
+\sphinxAtStartPar
+Different Fourier transforms exist, depending if the original function is:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+time discrete/time continuous
 
 \item {} 
 \sphinxAtStartPar
-Discrete Fourier transform (DFT):
-
-\item {} 
-\sphinxAtStartPar
-Discrete time Fourier transform (DTFT):
+periodic/non\sphinxhyphen{}periodic
 
 \end{itemize}
 
+\sphinxstepscope
+
 
 \section{Fourier Series}
-\label{\detokenize{ch/complex/fourier:fourier-series}}\label{\detokenize{ch/complex/fourier:complex-fourier-fs}}
+\label{\detokenize{ch/complex/fourier-series:fourier-series}}\label{\detokenize{ch/complex/fourier-series:complex-fourier-series}}\label{\detokenize{ch/complex/fourier-series::doc}}
 \sphinxAtStartPar
 For a \(T\)\sphinxhyphen{}periodic function,
 \begin{equation*}
@@ -2162,12 +2222,12 @@ For a \(T\)\sphinxhyphen{}periodic function,
 
 \sphinxAtStartPar
 The exponential form reads
-\begin{equation}\label{equation:ch/complex/fourier:eq:fourier-series:exp}
+\begin{equation}\label{equation:ch/complex/fourier-series:eq:fourier-series:exp}
 \begin{split}g(t) \sim \sum_{n=-\infty}^{+\infty} c_n e^{i n \frac{2 \pi }{T}t} \ ,\end{split}
 \end{equation}
 \sphinxAtStartPar
 where
-\begin{equation}\label{equation:ch/complex/fourier:eq:fourier-series:exp:coeff}
+\begin{equation}\label{equation:ch/complex/fourier-series:eq:fourier-series:exp:coeff}
 \begin{split}c_n = \frac{1}{T} \int_{t=0}^{T} f(t) \, e^{-i n \frac{2\pi}{T} t} \ .\end{split}
 \end{equation}\subsubsection*{Proof}
 
@@ -2176,8 +2236,8 @@ Exploiting the properties of integrals of complex exponentials with \(k \in \mat
 \begin{equation*}
 \begin{split}\int_{t=0}^{T} e^{i k \frac{2 \pi}{T} t} \, dt = 
 \begin{cases}
-\frac{1}{i k \frac{2 \pi}{T}} \left.\left[ e^{ik \frac{2\pi}{T} t} \right]\right|_{t=0}^{T} = 0 \hfill \qquad \text{if $ k \ne 0$} \\
-T \hfill \text{if $ k = 0$}
+\frac{1}{i k \frac{2 \pi}{T}} \left.\left[ e^{ik \frac{2\pi}{T} t} \right]\right|_{t=0}^{T} = 0 & \hfill \qquad \text{if $ k \ne 0$} \\
+T & \hfill \text{if $ k = 0$}
 \end{cases}
 \end{split}
 \end{equation*}\begin{equation*}
@@ -2187,22 +2247,33 @@ T \hfill \text{if $ k = 0$}
  \sim T \, c_m \ .
 \end{split}
 \end{equation*}
+\sphinxstepscope
+
 
 \section{Fourier Transform}
-\label{\detokenize{ch/complex/fourier:fourier-transform}}\label{\detokenize{ch/complex/fourier:complex-fourier-ft}}\begin{equation*}
+\label{\detokenize{ch/complex/fourier-transform:fourier-transform}}\label{\detokenize{ch/complex/fourier-transform:complex-fourier-transform}}\label{\detokenize{ch/complex/fourier-transform::doc}}
+\sphinxAtStartPar
+\sphinxstylestrong{Contents}: {\hyperref[\detokenize{ch/complex/fourier-transform:complex-fourier-transform-def}]{\sphinxcrossref{\DUrole{std,std-ref}{definition}}}}; {\hyperref[\detokenize{ch/complex/fourier-transform:complex-fourier-transform-properties}]{\sphinxcrossref{\DUrole{std,std-ref}{properties}}}}; {\hyperref[\detokenize{ch/complex/fourier-transform:complex-fourier-transform-inverse}]{\sphinxcrossref{\DUrole{std,std-ref}{inverse transform}}}}; {\hyperref[\detokenize{ch/complex/fourier-transform:complex-fourier-transform-plancherel}]{\sphinxcrossref{\DUrole{std,std-ref}{Plancherel’s theorem}}}}; {\hyperref[\detokenize{ch/complex/fourier-transform:complex-fourier-transform-uncertainty}]{\sphinxcrossref{\DUrole{std,std-ref}{uncertainty relation}}}}
+
+
+\subsection{Definition}
+\label{\detokenize{ch/complex/fourier-transform:definition}}\label{\detokenize{ch/complex/fourier-transform:complex-fourier-transform-def}}
+\sphinxAtStartPar
+…
+\begin{equation*}
 \begin{split}\mathscr{F}\left\{ g(t) \right\}(f) := \int_{t = -\infty}^{+\infty} g(t) \, e^{-i 2 \pi f t} \, dt .\end{split}
 \end{equation*}
 
 \subsection{Properties}
-\label{\detokenize{ch/complex/fourier:properties}}
+\label{\detokenize{ch/complex/fourier-transform:properties}}\label{\detokenize{ch/complex/fourier-transform:complex-fourier-transform-properties}}
 \sphinxAtStartPar
-\sphinxstylestrong{Linearity.}
+\sphinxstylestrong{Linearity}
 
 \sphinxAtStartPar
 \sphinxstylestrong{{\hyperref[\detokenize{ch/functional-analysis/dirac-delta:functional-analysis-dirac-delta}]{\sphinxcrossref{\DUrole{std,std-ref}{Dirac delta}}}}.}
-\begin{equation*}
+\begin{equation}\label{equation:ch/complex/fourier-transform:eq:complex:fourier:transform:properties:delta}
 \begin{split}\mathscr{L}\left\{ \delta(t) \right\} = \int_{t=-\infty}^{+\infty} \delta(t) \, e^{-i 2 \pi f t} \, dt = 1 \end{split}
-\end{equation*}
+\end{equation}
 \sphinxAtStartPar
 \sphinxstylestrong{Time delay.}
 
@@ -2220,11 +2291,12 @@ T \hfill \text{if $ k = 0$}
 
 
 \subsection{Inverse Fourier Transform}
-\label{\detokenize{ch/complex/fourier:inverse-fourier-transform}}\begin{equation*}
-\begin{split}\mathscr{F}^{-1}\left\{ G(f) \right\}(t) := \int_{f = -\infty}^{+\infty} G(f) \, e^{i 2 \pi f t} \, df .\end{split}
-\end{equation*}
+\label{\detokenize{ch/complex/fourier-transform:inverse-fourier-transform}}\label{\detokenize{ch/complex/fourier-transform:complex-fourier-transform-inverse}}
 \sphinxAtStartPar
-\sphinxstylestrong{Proof using Dirac’s delta expression.}
+Under the assumptions …\sphinxstylestrong{todo}, the inverse Fourier transform reads
+\begin{equation*}
+\begin{split}\mathscr{F}^{-1}\left\{ G(f) \right\}(t) := \int_{f = -\infty}^{+\infty} G(f) \, e^{i 2 \pi f t} \, df .\end{split}
+\end{equation*}\subsubsection*{Proof using Dirac’s delta expression.}
 \begin{equation*}
 \begin{split}\begin{aligned}
 \mathscr{F}^{-1}\left\{ G(f) \right\}(t) := \int_{f = -\infty}^{+\infty} G(f) \, e^{i 2 \pi f t} \, df 
@@ -2233,7 +2305,8 @@ T \hfill \text{if $ k = 0$}
   & = \int_{f = -\infty}^{+\infty} \int_{\tau=-\infty}^{+\infty} g(\tau) e^{i 2 \pi f (t-\tau)} \, df = \\ 
   & = \int_{\tau=-\infty}^{+\infty} g(\tau) \delta(t-\tau) \, d\tau = g(t) \ . 
 \end{aligned}\end{split}
-\end{equation*}
+\end{equation*}\subsubsection*{Proof using dominated convergence theorem and Fubini’s lemma.}
+
 \sphinxAtStartPar
 \sphinxstylestrong{Proof.} By the \sphinxstyleemphasis{dominated convergence theorem}, it follows that
 \begin{equation*}
@@ -2350,6 +2423,31 @@ As the Fourier transform \(\mathscr{F}\left\{\varphi_{\varepsilon}(t)\right\}(\o
 
 
 
+
+\subsection{Plancherel’s theorem}
+\label{\detokenize{ch/complex/fourier-transform:plancherel-s-theorem}}\label{\detokenize{ch/complex/fourier-transform:complex-fourier-transform-plancherel}}
+\sphinxAtStartPar
+…assumptions…\sphinxstylestrong{todo}
+\begin{equation*}
+\begin{split}\int_{f=-\infty}^{+\infty} |G(f)|^2 \, df = \int_{t=-\infty}^{+\infty} |g(t)|^2 \, dt \end{split}
+\end{equation*}\subsubsection*{Proof}
+\begin{equation*}
+\begin{split}\begin{aligned}
+\int_{f=-\infty}^{+\infty} |G(f)|^2 \, df 
+& = \int_{f=-\infty}^{+\infty} G(f)^* G(f) \, df =  \\
+& = \int_{f=-\infty}^{+\infty} \left( \int_{t_1=-\infty}^{+\infty} g(t_1) e^{-i 2 \pi f t_1} dt_1 \right)^* \left( \int_{t_2=-\infty}^{+\infty} g(t_2) e^{-i 2 \pi f t_2} dt_2  \right) \, df =  \\
+& =  \int_{t_1, t_2=-\infty}^{+\infty} g^*(t_1) \, g(t_2) \, \int_{f=-\infty}^{+\infty} e^{i 2 \pi f ( t_1 - t_2 )} \, df \, dt_1 \, dt_2 =  && (1) \\
+& =  \int_{t_1, t_2=-\infty}^{+\infty} g^*(t_1) \, g(t_2) \, \delta( t_1 - t_2 ) \, dt_1 \, dt_2 = && (2) \\
+& =  \int_{t_1=-\infty}^{+\infty} g^*(t_1) \, g(t_1) \, dt_1 = && (3) \\
+& =  \int_{t_1=-\infty}^{+\infty} |g(t_1)|^2 \, dt_1 \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+having used (1) the approximation \eqref{equation:ch/functional-analysis/dirac-delta:eq:dirac:fourier-transform} of Dirac’s delta, and (2) property \eqref{equation:ch/functional-analysis/dirac-delta:dirac-delta:prop-2} of Dirac’s delta, and (3) the expression of the absolute value of complex functions \(g^*(t_1) g(t_1) = |g(t_1)|^2\).
+
+
+\subsection{Uncertainty relation}
+\label{\detokenize{ch/complex/fourier-transform:uncertainty-relation}}\label{\detokenize{ch/complex/fourier-transform:complex-fourier-transform-uncertainty}}
 \sphinxstepscope
 
 
@@ -2357,6 +2455,40 @@ As the Fourier transform \(\mathscr{F}\left\{\varphi_{\varepsilon}(t)\right\}(\o
 \label{\detokenize{ch/complex/fourier-transforms:relations-between-fourier-transforms}}\label{\detokenize{ch/complex/fourier-transforms:complex-fourier-transforms}}\label{\detokenize{ch/complex/fourier-transforms::doc}}
 \sphinxAtStartPar
 Some freestyle in changing order of summations and integrals, and use of generalized functions here…check it!
+
+\sphinxAtStartPar
+Different Fourier transforms exist, depending if the original function is:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+time discrete/time continuous
+
+\item {} 
+\sphinxAtStartPar
+periodic/non\sphinxhyphen{}periodic
+
+\end{itemize}
+
+\sphinxAtStartPar
+namely,
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+FS, Fourier series: time continuous, periodic function (or finite domain, with a periodic extension)
+
+\item {} 
+\sphinxAtStartPar
+FT, Fourier transform: time continuous, non\sphinxhyphen{}periodic function
+
+\item {} 
+\sphinxAtStartPar
+DTFT, discrete\sphinxhyphen{}time Fourier transform: time didscrete, infinite\sphinxhyphen{}length sequence
+
+\item {} 
+\sphinxAtStartPar
+DFT, discrete Fourier transform: time discrete, finite\sphinxhyphen{}length sequence (and then with a periodic extension)
+
+\end{itemize}
 
 
 \subsection{Fourier transform of integrable functions}
@@ -2415,7 +2547,7 @@ i.e. equals the periodic sum of the Fourier of the original function, with perio
 \end{equation*}
 \sphinxAtStartPar
 From this last sentence and from the {\hyperref[\detokenize{ch/complex/fourier-transforms:complex-fourier-useful-properties-symmetry}]{\sphinxcrossref{\DUrole{std,std-ref}{symmetry properties of Fourier transform}}}}, \sphinxstylestrong{Nyquist\sphinxhyphen{}Shannon sampling theorem} follows seamlessly.
-\label{ch/complex/fourier-transforms:theorem-0}
+\label{ch/complex/fourier-transforms:thm-shannon-nyquist}
 \begin{sphinxadmonition}{note}{Theorem 13.3.1 (Nyquist\sphinxhyphen{}Shannon sampling theorem)}
 
 
@@ -2494,7 +2626,7 @@ Dirac comb \(\text{III}_T(t)\) is defined as a train of Dirac’s delta
 \begin{split}\text{III}_T(t) = \sum_{m=-\infty}^{+\infty} \delta(t-mT) \ .\end{split}
 \end{equation*}
 \sphinxAtStartPar
-Coefficients \eqref{equation:ch/complex/fourier:eq:fourier-series:exp:coeff} of the Fourier series \eqref{equation:ch/complex/fourier:eq:fourier-series:exp} of a \(T\)\sphinxhyphen{}periodic train of Dirac delta for \(t \in \left[-\frac{T}{2}, \frac{T}{2} \right]\), read
+Coefficients \eqref{equation:ch/complex/fourier-series:eq:fourier-series:exp:coeff} of the Fourier series \eqref{equation:ch/complex/fourier-series:eq:fourier-series:exp} of a \(T\)\sphinxhyphen{}periodic train of Dirac delta for \(t \in \left[-\frac{T}{2}, \frac{T}{2} \right]\), read
 \begin{equation*}
 \begin{split}c_n = \frac{1}{T} \int_{t=0}^{T} \delta(t) \, e^{-i n \frac{2\pi}{T} t} = \frac{1}{T} \ ,\end{split}
 \end{equation*}
@@ -4679,11 +4811,11 @@ Integration by parts
 \bigletter{svd\sphinxhyphen{}optimization\sphinxhyphen{}norm}
 \item\relax\sphinxstyleindexentry{svd\sphinxhyphen{}optimization\sphinxhyphen{}norm}\sphinxstyleindexextra{ch/linear\sphinxhyphen{}algebra/svd}\sphinxstyleindexpageref{ch/linear-algebra/svd:\detokenize{svd-optimization-norm}}
 \indexspace
-\bigletter{theorem\sphinxhyphen{}0}
-\item\relax\sphinxstyleindexentry{theorem\sphinxhyphen{}0}\sphinxstyleindexextra{ch/complex/fourier\sphinxhyphen{}transforms}\sphinxstyleindexpageref{ch/complex/fourier-transforms:\detokenize{theorem-0}}
-\indexspace
 \bigletter{theorem\sphinxhyphen{}6}
 \item\relax\sphinxstyleindexentry{theorem\sphinxhyphen{}6}\sphinxstyleindexextra{ch/complex/analysis}\sphinxstyleindexpageref{ch/complex/analysis:\detokenize{theorem-6}}
+\indexspace
+\bigletter{thm\sphinxhyphen{}shannon\sphinxhyphen{}nyquist}
+\item\relax\sphinxstyleindexentry{thm\sphinxhyphen{}shannon\sphinxhyphen{}nyquist}\sphinxstyleindexextra{ch/complex/fourier\sphinxhyphen{}transforms}\sphinxstyleindexpageref{ch/complex/fourier-transforms:\detokenize{thm-shannon-nyquist}}
 \end{sphinxtheindex}
 
 \renewcommand{\indexname}{Index}

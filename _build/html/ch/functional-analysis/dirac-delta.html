@@ -423,13 +423,13 @@ document.write(`
 <ol class="arabic simple">
 <li></li>
 </ol>
-<div class="math notranslate nohighlight">
-\[\int_{D} \delta(x-x_0) \, dx = 1  \quad \text{if $x_0 \in D$}\]</div>
+<div class="math notranslate nohighlight" id="equation-dirac-delta-prop-1">
+<span class="eqno">(10.1)<a class="headerlink" href="#equation-dirac-delta-prop-1" title="Permalink to this equation">#</a></span>\[\int_{D} \delta(x-x_0) \, dx = 1  \quad \text{if $x_0 \in D$}\]</div>
 <ol class="arabic simple" start="2">
 <li></li>
 </ol>
-<div class="math notranslate nohighlight">
-\[\int_{D} f(x) \delta(x-x_0) \, dx \quad \text{if $x_0 \in D$}\]</div>
+<div class="math notranslate nohighlight" id="equation-dirac-delta-prop-2">
+<span class="eqno">(10.2)<a class="headerlink" href="#equation-dirac-delta-prop-2" title="Permalink to this equation">#</a></span>\[\int_{D} f(x) \delta(x-x_0) \, dx \quad \text{if $x_0 \in D$}\]</div>
 <p>for <span class="math notranslate nohighlight">\(\forall f(x)\)</span> “regular” <strong>todo</strong> <em>what does regular mean?</em></p>
 <div class="section" id="dirac-s-delta-in-terms-of-regular-functions">
 <span id="functional-analysis-dirac-delta-approximations"></span><h2><span class="section-number">10.1. </span>Dirac’s delta in terms of regular functions<a class="headerlink" href="#dirac-s-delta-in-terms-of-regular-functions" title="Permalink to this heading">#</a></h2>
@@ -526,7 +526,7 @@ Properties - proof<div class="sd-summary-down docutils">
 <span id="functional-analysis-dirac-delta-approximations-fourier-transform"></span><h3><span class="section-number">10.1.4. </span>Fourier anti-transform<a class="headerlink" href="#fourier-anti-transform" title="Permalink to this heading">#</a></h3>
 <p>For <span class="math notranslate nohighlight">\(a \rightarrow + \infty\)</span>,</p>
 <div class="math notranslate nohighlight" id="equation-eq-dirac-fourier-transform">
-<span class="eqno">(10.1)<a class="headerlink" href="#equation-eq-dirac-fourier-transform" title="Permalink to this equation">#</a></span>\[\delta(x) \sim  \int_{y=-a}^{+a} e^{i 2 \pi y x} \, dy = \frac{1}{2 \pi} \int_{k=-2\pi a}^{2 \pi a} e^{i k x} \, dk \ ,\]</div>
+<span class="eqno">(10.3)<a class="headerlink" href="#equation-eq-dirac-fourier-transform" title="Permalink to this equation">#</a></span>\[\delta(x) \sim  \int_{y=-a}^{+a} e^{i 2 \pi y x} \, dy = \frac{1}{2 \pi} \int_{k=-2\pi a}^{2 \pi a} e^{i k x} \, dk \ ,\]</div>
 <p>or</p>
 <div class="math notranslate nohighlight">
 \[\delta \sim 2 \int_{y=0}^{a} \cos(2 \pi y x) \, dy \ .\]</div>
@@ -557,7 +557,7 @@ Proof<div class="sd-summary-down docutils">
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Directly follows from integral of the approximation <a class="reference internal" href="#equation-eq-dirac-fourier-transform">(10.1)</a></p>
+<p class="sd-card-text">Directly follows from integral of the approximation <a class="reference internal" href="#equation-eq-dirac-fourier-transform">(10.3)</a></p>
 <div class="math notranslate nohighlight">
 \[\int_{y=-a}^{+a} e^{i 2 \pi y x} \, dy = \frac{1}{i 2 \pi x} \left. e^{i 2 \pi y x}\right|_{y=-a}^{+a} = \frac{1}{\pi x} \frac{e^{i 2 \pi a x} - e^{-i 2 \pi a x}}{2 i} = \frac{\sin(2 \pi x a)}{\pi x}\]</div>
 </div>
