@@ -1,9 +1,6 @@
-(functional-analysis:distributions)=
-# Distributions (or generalized functions)
-...
-
 (functional-analysis:dirac-delta)=
-## Dirac's delta
+# Dirac's delta
+
 
 Dirac's delta $\delta(x)$ is a distribution, or generalized function, with the following properties
 
@@ -17,13 +14,15 @@ Dirac's delta $\delta(x)$ is a distribution, or generalized function, with the f
 
 for $\forall f(x)$ "regular" **todo** *what does regular mean?*
 
-### Dirac's delta in terms of regular functions
+(functional-analysis:dirac-delta:approximations)=
+## Dirac's delta in terms of regular functions
 
-**Approximations ...**
+(functional-analysis:dirac-delta:approximations:box)=
+### Piece-wise constant
 
 $$\delta(x) \sim r_{\varepsilon}(x) = \begin{cases} \frac{1}{\varepsilon} & x \in \left[-\frac{\varepsilon}{2}, \frac{\varepsilon}{2} \right] \\ 0 & \text{otherwise} \end{cases}$$
 
-as
+```{dropdown} Properties - proof.
 
 1. Unitariety
 
@@ -39,9 +38,14 @@ as
 
    $$\int_{x=-\infty}^{\infty} r_{\varepsilon}(x-x_0) f(x) \, dx \rightarrow f(x_0) $$
 
+```
+
+(functional-analysis:dirac-delta:approximations:hat)=
+### Piecewise-linear
+
 $$\delta(x) \sim t_{\varepsilon}(x) = \begin{cases} \frac{2}{\varepsilon} \left( 1 - \frac{2 |x|}{\varepsilon} \right) & x \in \left[-\frac{\varepsilon}{2}, \frac{\varepsilon}{2} \right] \\ 0 & \text{otherwise} \end{cases}$$
 
-as
+```{dropdown} Properties - proof
 
 1. Unitariety
 
@@ -65,11 +69,17 @@ as
 
    $$\int_{x=-\infty}^{\infty} t_{\varepsilon}(x-x_0) f(x) \, dx \rightarrow f(x_0) $$
 
-**Approximation 1.** For $\alpha \rightarrow +\infty$,
+```
+
+(functional-analysis:dirac-delta:approximations:gaussian)=
+### Gaussian approximation
+For $\alpha \rightarrow +\infty$,
 
 $$\varphi_{\alpha}(x) = \sqrt{\frac{\alpha}{\pi}}e^{-\alpha x^2} \sim \delta(x)$$
 
-Fourier transform of $\varphi_{\alpha}(x)$ reads
+```{dropdown} Properties - proof
+
+[Fourier transform](complex:fourier:transform) of $\varphi_{\alpha}(x)$ reads
 
 $$\begin{aligned}
  \mathscr{F}\{ \varphi_{\alpha}(x) \}(k)
@@ -83,13 +93,22 @@ for $\alpha \rightarrow +\infty$,
 
 $$\mathscr{F}\{ \varphi_{\alpha}(x) \}(k) \rightarrow 1$$
 
-and thus $\varphi_\alpha(x) \rightarrow \delta(x)$ for $\alpha \rightarrow +\infty$.
+Fourier transform of Dirac's delta is $1$, as shown in {eq}`eq:complex:fourier:transform:properties:delta`, thus $\varphi_\alpha(x) \rightarrow \delta(x)$ for $\alpha \rightarrow +\infty$.
 
-**Approximation 2.** For $a \rightarrow +\infty$ 
+```
 
-$$\frac{1}{2 \pi} \int_{k=-2\pi a}^{2 \pi a} e^{i k x} \, dk = \int_{y=-a}^{+a} e^{i 2 \pi y x} \, dy \sim \delta(x)$$
+(functional-analysis:dirac-delta:approximations:fourier-transform)=
+### Fourier anti-transform
+
+For $a \rightarrow + \infty$,
+
+$$\delta(x) \sim  \int_{y=-a}^{+a} e^{i 2 \pi y x} \, dy = \frac{1}{2 \pi} \int_{k=-2\pi a}^{2 \pi a} e^{i k x} \, dk \ ,$$ (eq:dirac:fourier-transform)
 
 or
+
+$$\delta \sim 2 \int_{y=0}^{a} \cos(2 \pi y x) \, dy \ .$$
+
+```{dropdown} Proof of the equilvanece
 
 $$\begin{aligned}
   \delta(x)
@@ -97,17 +116,53 @@ $$\begin{aligned}
   & = \int_{y=-a}^{+a} e^{i 2 \pi y x} \, dy = \dots = \int_{y = 0}^{a} (e^{i 2 \pi y x} + e^{i 2 \pi y x}) \, dy = 2 \int_{y=0}^{a} \cos(2 \pi y x) \, dy \ .
 \end{aligned}$$
 
-**Approximation 3.** For $a \rightarrow +\infty$ 
+```
 
-$$\frac{\sin(2 \pi x a)}{\pi x} \sim \delta(x)$$
+(functional-analysis:dirac-delta:approximations:fourier-transform)=
+### $\text{sinc}(x)$ approximation
+For $a \rightarrow +\infty$ 
 
-Directly follows from integral of approximation 2,
+$$\delta(x) \sim \frac{\sin(2 \pi x a)}{\pi x}$$
+
+```{dropdown} Proof
+
+Directly follows from integral of the approximation {eq}`eq:dirac:fourier-transform` 
 
 $$\int_{y=-a}^{+a} e^{i 2 \pi y x} \, dy = \frac{1}{i 2 \pi x} \left. e^{i 2 \pi y x}\right|_{y=-a}^{+a} = \frac{1}{\pi x} \frac{e^{i 2 \pi a x} - e^{-i 2 \pi a x}}{2 i} = \frac{\sin(2 \pi x a)}{\pi x}$$
 
-**Approximation 4.** For $x \in [-\pi, \pi]$, and $N \rightarrow +\infty$
+```
 
-$$\frac{1}{2\pi}\sum_{n=-N}^{N} e^{i n x} = \frac{1}{2 \pi} \frac{\sin\left(\left(N+\frac{1}{2}\right)x\right)}{\sin\left( \frac{x}{2} \right)} \sim \delta(x)$$
+(functional-analysis:dirac-delta:approximations:fourier-series)=
+### Fourier series
+For $x \in [-\pi, \pi]$, and $N \rightarrow +\infty$, [Fourier series](complex:fourier:series) of Dirac's delta (train with period $2\pi$) reads
+
+$$\delta(x) \sim \frac{1}{2\pi}\sum_{n=-N}^{N} e^{i n x} = \frac{1}{2 \pi} \frac{\sin\left(\left(N+\frac{1}{2}\right)x\right)}{\sin\left( \frac{x}{2} \right)}$$
+
+or the $T$-periodic Dirac's delta train,
+
+$$\delta(x) \sim \frac{1}{T}\sum_{n=-N}^{N} e^{i n \frac{2\pi}{T} x} \ .$$
+
+
+**todo** *Write the proof of the last expression, using the relation between complex exponentials and cosine and sine*
+
+```{dropdown} Proof
+
+Coefficients of the Fourier series of Dirac's delta (train with period $T = 2 \pi$) are evaluated using the expression {eq}`eq:fourier-series:exp:coeff`
+
+$$c_n = \frac{1}{2 \pi} \int_{-\pi}^{\pi} \delta(t) e^{-i n \frac{2\pi}{2 \pi}t} = \frac{1}{2\pi} \ ,$$
+
+and thus the complex Fourier series {eq}`eq:fourier-series:exp` of Dirac's delta reads
+
+$$\delta(x) \sim \sum_{n=-\infty}^{+\infty} c_n e^{i n \frac{2\pi}{T}x} = \frac{1}{2 \pi} \sum_{n=-\infty}^{+\infty} e^{i n x}$$
+
+**Obs.** here, integration interval $[-\pi,\pi]$ to "avoid troubles" with Dirac's delta on the extreme points of the interval (it would give $1/2$ and $1/2$ contributions on both extremes...)
+
+It's possible to write the $T$-periodic Dirac's delta train as
+
+$$\delta(x) \sim \sum_{n=-\infty}^{+\infty} c_n e^{i n \frac{2\pi}{T}x} = \frac{1}{T} \sum_{n=-\infty}^{+\infty} e^{i n \frac{2\pi}{T} x}$$
+
+
+```
 
 <!--
 Fourier transform reads
@@ -125,7 +180,7 @@ $$\begin{aligned}
 -->
 
 (integral:e^x2)=
-```{dropdown} Integral $I = \int_{-\infty}^{+\infty} e^{-\alpha x^2} \, dx$
+```{dropdown} Integral $\ I = \int_{-\infty}^{+\infty} e^{-\alpha x^2} \, dx$
 
 $$\begin{aligned}
   I^2 
