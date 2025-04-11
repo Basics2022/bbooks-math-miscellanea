@@ -71,7 +71,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="14. Introduction to Calculus of Variations" href="../calculus-variations/intro.html" />
-    <link rel="prev" title="13. Fourier Transforms" href="fourier.html" />
+    <link rel="prev" title="13.2. Fourier Transform" href="fourier-transform.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -212,6 +212,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="analysis.html">11. Complex Analysis</a></li>
 <li class="toctree-l1"><a class="reference internal" href="laplace.html">12. Laplace Transform</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="fourier.html">13. Fourier Transforms</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="fourier-series.html">13.1. Fourier Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fourier-transform.html">13.2. Fourier Transform</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">13.3. Relations between Fourier transforms</a></li>
 </ul>
 </li>
@@ -418,6 +420,18 @@ document.write(`
   <div class="tex2jax_ignore mathjax_ignore section" id="relations-between-fourier-transforms">
 <span id="complex-fourier-transforms"></span><h1><span class="section-number">13.3. </span>Relations between Fourier transforms<a class="headerlink" href="#relations-between-fourier-transforms" title="Permalink to this heading">#</a></h1>
 <p>Some freestyle in changing order of summations and integrals, and use of generalized functions here…check it!</p>
+<p>Different Fourier transforms exist, depending if the original function is:</p>
+<ul class="simple">
+<li><p>time discrete/time continuous</p></li>
+<li><p>periodic/non-periodic</p></li>
+</ul>
+<p>namely,</p>
+<ul class="simple">
+<li><p>FS, Fourier series: time continuous, periodic function (or finite domain, with a periodic extension)</p></li>
+<li><p>FT, Fourier transform: time continuous, non-periodic function</p></li>
+<li><p>DTFT, discrete-time Fourier transform: time didscrete, infinite-length sequence</p></li>
+<li><p>DFT, discrete Fourier transform: time discrete, finite-length sequence (and then with a periodic extension)</p></li>
+</ul>
 <div class="section" id="fourier-transform-of-integrable-functions">
 <span id="complex-fourier-transform"></span><h2><span class="section-number">13.3.1. </span>Fourier transform of integrable functions<a class="headerlink" href="#fourier-transform-of-integrable-functions" title="Permalink to this heading">#</a></h2>
 <div class="math notranslate nohighlight">
@@ -461,7 +475,7 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[\overline{\nu} := \frac{1}{\Delta t} \ .\]</div>
 <p>From this last sentence and from the <a class="reference internal" href="#complex-fourier-useful-properties-symmetry"><span class="std std-ref">symmetry properties of Fourier transform</span></a>, <strong>Nyquist-Shannon sampling theorem</strong> follows seamlessly.</p>
-<div class="proof theorem admonition" id="theorem-0">
+<div class="proof theorem admonition" id="thm-shannon-nyquist">
 <p class="admonition-title"><span class="caption-number">Theorem 13.1 </span> (Nyquist-Shannon sampling theorem)</p>
 <div class="theorem-content section" id="proof-content">
 <p>In order to <strong>avoid aliasing</strong> the sampling frequency must be twice the maxiumum<a class="footnote-reference brackets" href="#shannon-max-frequency" id="id1">1</a> frequency in the signal,</p>
@@ -513,7 +527,7 @@ or, using the relation between <span class="math notranslate nohighlight">\(\Del
 <p>Dirac comb <span class="math notranslate nohighlight">\(\text{III}_T(t)\)</span> is defined as a train of Dirac’s delta</p>
 <div class="math notranslate nohighlight">
 \[\text{III}_T(t) = \sum_{m=-\infty}^{+\infty} \delta(t-mT) \ .\]</div>
-<p>Coefficients <a class="reference internal" href="fourier.html#equation-eq-fourier-series-exp-coeff">(13.2)</a> of the Fourier series <a class="reference internal" href="fourier.html#equation-eq-fourier-series-exp">(13.1)</a> of a <span class="math notranslate nohighlight">\(T\)</span>-periodic train of Dirac delta for <span class="math notranslate nohighlight">\(t \in \left[-\frac{T}{2}, \frac{T}{2} \right]\)</span>, read</p>
+<p>Coefficients <a class="reference internal" href="fourier-series.html#equation-eq-fourier-series-exp-coeff">(13.2)</a> of the Fourier series <a class="reference internal" href="fourier-series.html#equation-eq-fourier-series-exp">(13.1)</a> of a <span class="math notranslate nohighlight">\(T\)</span>-periodic train of Dirac delta for <span class="math notranslate nohighlight">\(t \in \left[-\frac{T}{2}, \frac{T}{2} \right]\)</span>, read</p>
 <div class="math notranslate nohighlight">
 \[c_n = \frac{1}{T} \int_{t=0}^{T} \delta(t) \, e^{-i n \frac{2\pi}{T} t} = \frac{1}{T} \ ,\]</div>
 <p>and thus the Fourier series of Dirac comb <span class="math notranslate nohighlight">\(\text{III}_T(t)\)</span> reads</p>
@@ -563,12 +577,12 @@ or, using the relation between <span class="math notranslate nohighlight">\(\Del
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="fourier.html"
+       href="fourier-transform.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">13. </span>Fourier Transforms</p>
+        <p class="prev-next-title"><span class="section-number">13.2. </span>Fourier Transform</p>
       </div>
     </a>
     <a class="right-next"
