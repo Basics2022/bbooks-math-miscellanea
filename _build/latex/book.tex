@@ -1576,7 +1576,7 @@ For \(\alpha \rightarrow +\infty\),
 \end{equation*}\subsubsection*{Properties \sphinxhyphen{} proof}
 
 \sphinxAtStartPar
-{\hyperref[\detokenize{ch/complex/fourier-transforms:complex-fourier-transform}]{\sphinxcrossref{\DUrole{std,std-ref}{Fourier transform}}}} of \(\varphi_{\alpha}(x)\) reads
+{\hyperref[\detokenize{ch/complex/fourier-transform:complex-fourier-transform}]{\sphinxcrossref{\DUrole{std,std-ref}{Fourier transform}}}} of \(\varphi_{\alpha}(x)\) reads
 \begin{equation*}
 \begin{split}\begin{aligned}
  \mathscr{F}\{ \varphi_{\alpha}(x) \}(k)
@@ -2189,7 +2189,7 @@ solving problems: sometimes, it can be easier to transform a problem in frequenc
 {\hyperref[\detokenize{ch/complex/fourier-transforms:complex-fourier-series}]{\sphinxcrossref{\DUrole{std,std-ref}{\sphinxstylestrong{Fourier series}}}}}. Fourier series is defined for finite\sphinxhyphen{}domain or periodic, time\sphinxhyphen{}continuous functions, or \sphinxhyphen{} more generally \sphinxhyphen{} continuous functions in the physical domain.
 
 \sphinxAtStartPar
-{\hyperref[\detokenize{ch/complex/fourier-transforms:complex-fourier-transform}]{\sphinxcrossref{\DUrole{std,std-ref}{\sphinxstylestrong{Fourier transform}}}}}. Fourier transform is defined for infinite\sphinxhyphen{}domain non\sphinxhyphen{}periodic, time\sphinxhyphen{}continuous functions, or \sphinxhyphen{} more generally \sphinxhyphen{} continuous functions in the physical domain.
+{\hyperref[\detokenize{ch/complex/fourier-transform:complex-fourier-transform}]{\sphinxcrossref{\DUrole{std,std-ref}{\sphinxstylestrong{Fourier transform}}}}}. Fourier transform is defined for infinite\sphinxhyphen{}domain non\sphinxhyphen{}periodic, time\sphinxhyphen{}continuous functions, or \sphinxhyphen{} more generally \sphinxhyphen{} continuous functions in the physical domain.
 
 \sphinxAtStartPar
 {\hyperref[\detokenize{ch/complex/fourier-transforms:complex-fourier-transforms}]{\sphinxcrossref{\DUrole{std,std-ref}{\sphinxstylestrong{Relations between Fourier transforms and sampling}}}}}. Fourier series, Fourier transform, discrete time Fourier transform and discrete Fourier transforms are presented, and their relations discussed. Fundamental results about \sphinxstylestrong{evenly\sphinxhyphen{}spaced sampling} seamlessly follows, as \sphinxstylestrong{Shannon\sphinxhyphen{}Nyquist theorem}, {\hyperref[\detokenize{ch/complex/fourier-transforms:thm-shannon-nyquist}]{\sphinxcrossref{Theorem 13.3.1}}}, shows.
@@ -2488,7 +2488,26 @@ and thus it can be interpreted as a probability density function in frequency do
 or in terms of pulsation \(\omega = 2 \pi \, f\),
 \begin{equation*}
 \begin{split}\sigma_{t,g}^2 \sigma_{\omega,G}^2 \ge \left( \frac{1}{2} \right)^2 \ , \end{split}
-\end{equation*}\subsubsection*{Proof of the uncertainty relation}
+\end{equation*}
+\begin{sphinxadmonition}{note}{Heisenberg uncertainty relation in quantum mechanics}
+
+\sphinxAtStartPar
+Space and momentum representation of the state function \(\Psi\) are related by the transformation,
+\begin{equation*}
+\begin{split}\langle x | \Psi \rangle := \psi(x,t) = \int_{p=-\infty}^{+\infty} \psi_p(p,t) \, e^{i \frac{p}{\hbar} x} \, dp \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+as it’s shown in the section \sphinxhref{https://basics2022.github.io/bbooks-physics-modern/ch/quantum-mechanics/intro.html\#from-position-to-momentum-representation}{Quantum Mechanics:From position to momentum representation}.
+The wave number reads \(k = \frac{p}{\hbar}\). Starting from the uncertainty relation between the space coordinate \(x\) and the wave number \(k\),
+\begin{equation*}
+\begin{split}\sigma_{x} \sigma_{k} \ge  \frac{1}{2}  \ , \end{split}
+\end{equation*}
+\sphinxAtStartPar
+Heisenberg uncertainty principle for position and momentum (for the same Cartesian coordinates) reads
+\begin{equation*}
+\begin{split}\sigma_{x} \sigma_{p} \ge \frac{\hbar}{2} \ . \end{split}
+\end{equation*}\end{sphinxadmonition}
+\subsubsection*{Proof of the uncertainty relation}
 
 \sphinxAtStartPar
 Assuming zero average \(\overline{t} = 0\), \(\overline{f} = 0\) (see below for proof without this assumption)

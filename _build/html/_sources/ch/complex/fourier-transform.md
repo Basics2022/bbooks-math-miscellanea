@@ -208,6 +208,24 @@ or in terms of pulsation $\omega = 2 \pi \, f$,
 
 $$\sigma_{t,g}^2 \sigma_{\omega,G}^2 \ge \left( \frac{1}{2} \right)^2 \ , $$
 
+```{admonition} Heisenberg uncertainty relation in quantum mechanics
+:name: fourier-uncertainty-heisenberg
+
+Space and momentum representation of the state function $\Psi$ are related by the transformation,
+
+$$\langle x | \Psi \rangle := \psi(x,t) = \int_{p=-\infty}^{+\infty} \psi_p(p,t) \, e^{i \frac{p}{\hbar} x} \, dp \ ,$$
+
+as it's shown in the section [Quantum Mechanics:From position to momentum representation](https://basics2022.github.io/bbooks-physics-modern/ch/quantum-mechanics/intro.html#from-position-to-momentum-representation).
+The wave number reads $k = \frac{p}{\hbar}$. Starting from the uncertainty relation between the space coordinate $x$ and the wave number $k$,
+
+$$\sigma_{x} \sigma_{k} \ge  \frac{1}{2}  \ , $$
+
+Heisenberg uncertainty principle for position and momentum (for the same Cartesian coordinates) reads
+
+$$\sigma_{x} \sigma_{p} \ge \frac{\hbar}{2} \ . $$
+
+```
+
 ````{dropdown} Proof of the uncertainty relation
 :open:
 
