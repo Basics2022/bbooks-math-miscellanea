@@ -561,12 +561,22 @@ Proof using dominated convergence theorem and Fubini’s lemma.<div class="sd-su
 \[\int_{f=-\infty}^{+\infty} |G(f)|^2 \, df = \int_{t=-\infty}^{+\infty} |g(t)|^2 \, dt \]</div>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
 <summary class="sd-summary-title sd-card-header">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-kebab-horizontal" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M6 12a2 2 0 11-4 0 2 2 0 014 0zm8 0a2 2 0 11-4 0 2 2 0 014 0zm6 2a2 2 0 100-4 2 2 0 000 4z"></path></svg><div class="sd-summary-down docutils">
+Proof<div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Using</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+\int_{f=-\infty}^{+\infty} |G(f)|^2 \, df 
+&amp; = \int_{f=-\infty}^{+\infty} G(f)^* G(f) \, df =  \\
+&amp; = \int_{f=-\infty}^{+\infty} \left( \int_{t_1=-\infty}^{+\infty} g(t_1) e^{-i 2 \pi f t_1} dt_1 \right)^* \left( \int_{t_2=-\infty}^{+\infty} g(t_2) e^{-i 2 \pi f t_2} dt_2  \right) \, df =  \\
+&amp; =  \int_{t_1, t_2=-\infty}^{+\infty} g^*(t_1) \, g(t_2) \, \int_{f=-\infty}^{+\infty} e^{i 2 \pi f ( t_1 - t_2 )} \, df \, dt_1 \, dt_2 =  &amp;&amp; (1) \\
+&amp; =  \int_{t_1, t_2=-\infty}^{+\infty} g^*(t_1) \, g(t_2) \, \delta( t_1 - t_2 ) \, dt_1 \, dt_2 = &amp;&amp; (2) \\
+&amp; =  \int_{t_1=-\infty}^{+\infty} g^*(t_1) \, g(t_1) \, dt_1 = &amp;&amp; (3) \\
+&amp; =  \int_{t_1=-\infty}^{+\infty} |g(t_1)|^2 \, dt_1 \ .
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">having used (1) the approximation <a class="reference internal" href="../functional-analysis/dirac-delta.html#equation-eq-dirac-fourier-transform">(10.3)</a> of Dirac’s delta, and (2) property <a class="reference internal" href="../functional-analysis/dirac-delta.html#equation-dirac-delta-prop-2">(10.2)</a> of Dirac’s delta, and (3) the expression of the absolute value of complex functions <span class="math notranslate nohighlight">\(g^*(t_1) g(t_1) = |g(t_1)|^2\)</span>.</p>
 </div>
 </details></div>
 <div class="section" id="uncertainty-relation">
