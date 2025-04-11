@@ -550,7 +550,18 @@ Proof of the equilvanece<div class="sd-summary-down docutils">
 <p>For <span class="math notranslate nohighlight">\(a \rightarrow +\infty\)</span></p>
 <div class="math notranslate nohighlight">
 \[\delta(x) \sim \frac{\sin(2 \pi x a)}{\pi x}\]</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Proof<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Directly follows from integral of the approximation <a class="reference internal" href="#equation-eq-dirac-fourier-transform">(10.1)</a></p>
+<div class="math notranslate nohighlight">
+\[\int_{y=-a}^{+a} e^{i 2 \pi y x} \, dy = \frac{1}{i 2 \pi x} \left. e^{i 2 \pi y x}\right|_{y=-a}^{+a} = \frac{1}{\pi x} \frac{e^{i 2 \pi a x} - e^{-i 2 \pi a x}}{2 i} = \frac{\sin(2 \pi x a)}{\pi x}\]</div>
 </div>
+</details></div>
 <div class="section" id="fourier-series">
 <span id="functional-analysis-dirac-delta-approximations-fourier-series"></span><h3><span class="section-number">10.1.6. </span>Fourier series<a class="headerlink" href="#fourier-series" title="Permalink to this heading">#</a></h3>
 <p>For <span class="math notranslate nohighlight">\(x \in [-\pi, \pi]\)</span>, and <span class="math notranslate nohighlight">\(N \rightarrow +\infty\)</span>, <a class="reference internal" href="../complex/fourier-series.html#complex-fourier-series"><span class="std std-ref">Fourier series</span></a> of Dirac’s delta (train with period <span class="math notranslate nohighlight">\(2\pi\)</span>) reads</p>

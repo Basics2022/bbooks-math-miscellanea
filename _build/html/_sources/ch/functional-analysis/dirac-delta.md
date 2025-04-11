@@ -124,7 +124,7 @@ For $a \rightarrow +\infty$
 
 $$\delta(x) \sim \frac{\sin(2 \pi x a)}{\pi x}$$
 
-```{proof} Proof
+```{dropdown} Proof
 
 Directly follows from integral of the approximation {eq}`eq:dirac:fourier-transform` 
 
