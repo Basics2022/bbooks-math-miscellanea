@@ -150,10 +150,13 @@ $$\begin{aligned}
 
 ...assumptions...**todo**
 
-$$\int_{f=-\infty}^{+\infty} |G(f)|^2 \, df = \int_{t=-\infty}^{+\infty} |g(t)|^2 \, dt $$
+$$\int_{f=-\infty}^{+\infty} |G(f)|^2 \, df = \int_{t=-\infty}^{+\infty} |g(t)|^2 \, dt $$ (eq:fourier:transform:plancherel:magnitude)
 
-```{dropdown} Proof
-:open:
+and
+
+$$\int_{f=-\infty}^{+\infty} A^*(f) \, G(f)\, df = \int_{t=-\infty}^{+\infty} a^*(t) \, g(t) \, dt \ .$$ (eq:fourier:transform:plancherel)
+
+```{dropdown} Proof of Plancherel's thm for the magnitude
 
 $$\begin{aligned}
 \int_{f=-\infty}^{+\infty} |G(f)|^2 \, df 
@@ -169,10 +172,106 @@ having used (1) the approximation {eq}`eq:dirac:fourier-transform` of Dirac's de
 
 ```
 
+
+```{dropdown} Proof of Plancherel's thm for the product of functions
+
+$$\begin{aligned}
+\int_{f=-\infty}^{+\infty} A^*(f) \, G(f) \, df 
+& = \int_{f=-\infty}^{+\infty} G(f)^* G(f) \, df =  \\
+& = \int_{f=-\infty}^{+\infty} \left( \int_{t_1=-\infty}^{+\infty} a(t_1) e^{-i 2 \pi f t_1} dt_1 \right)^* \left( \int_{t_2=-\infty}^{+\infty} g(t_2) e^{-i 2 \pi f t_2} dt_2  \right) \, df =  \\
+& =  \int_{t_1, t_2=-\infty}^{+\infty} a^*(t_1) \, g(t_2) \, \int_{f=-\infty}^{+\infty} e^{i 2 \pi f ( t_1 - t_2 )} \, df \, dt_1 \, dt_2 =  && (1) \\
+& =  \int_{t_1, t_2=-\infty}^{+\infty} a^*(t_1) \, g(t_2) \, \delta( t_1 - t_2 ) \, dt_1 \, dt_2 = && (2) \\
+& =  \int_{t_1=-\infty}^{+\infty} a^*(t_1) \, g(t_1) \, dt_1 \ .
+\end{aligned}$$
+
+having used (1) the approximation {eq}`eq:dirac:fourier-transform` of Dirac's delta, and (2) property {eq}`dirac-delta:prop-2` of Dirac's delta.
+
+```
 (complex:fourier:transform:uncertainty)=
 ## Uncertainty relation
 
+An uncertainty relation holds linking standard deviations of a probability density function in time domain and a probability density function built with its Fourier transform. From this very same relation, [Heisenberg uncertainty relation](https://basics2022.github.io/bbooks-physics-modern/ch/quantum-mechanics/intro.html#heisenberg-uncertainty-relation) between position and momentum in [Quantum Mechanics](https://basics2022.github.io/bbooks-physics-modern/ch/quantum-mechanics/intro.html) seamlessly follows.
 
+Given a function $g(t)$ whose square of the absolute value is normalized to one, and thus it can be used as a probability density function in time domain,
+
+$$\int_{t = -\infty}^{+\infty} |g(t)|^2 \, dt =  \int_{t = -\infty}^{+\infty} g^*(t) \, g(t) \, dt = 1 \ .$$
+
+for [Plancherel's theorem](complex:fourier:transform:plancherel), the square of the magnitude of Fourier transform $G(f)$ is unitary as well,
+
+$$\int_{f = -\infty}^{+\infty} |G(f)|^2 \, df =  \int_{f = -\infty}^{+\infty} G^*(f) \, G(f) \, df = 1 \ ,$$
+
+and thus it can be interpreted as a probability density function in frequency domain. The following uncertainty relation holds
+
+$$\sigma_{t,g}^2 \sigma_{f,G}^2 \ge \left( \frac{1}{2 \pi} \frac{1}{2} \right)^2 \ , $$
+
+or in terms of pulsation $\omega = 2 \pi \, f$,
+
+$$\sigma_{t,g}^2 \sigma_{\omega,G}^2 \ge \left( \frac{1}{2} \right)^2 \ , $$
+
+````{dropdown} Proof of the uncertainty relation
+:open:
+
+Assuming zero average $\overline{t} = 0$, $\overline{f} = 0$ (see below for proof without this assumption)
+
+$$\begin{aligned}
+ \sigma_{t,g}^2 \sigma_{f,G}^2
+ & = \int_{t=-\infty}^{+\infty} \left| t \right|^2 \, g^*(t) \, g(t)  \, dt \,  \int_{f=-\infty}^{+\infty} \left| f \right|^2 \, G^*(f) \, G(f) \, df = \\
+ & = \int_{t=-\infty}^{+\infty} \left| t  \, g(t) \right|^2 \, dt \,  \int_{f=-\infty}^{+\infty} \left| f  \,  G(f)\right|^2 \, df = && (1) \\
+ & = \int_{t=-\infty}^{+\infty} \left| t  \, g(t) \right|^2 \, dt \, \int_{t=-\infty}^{+\infty} \left|  -\frac{i}{2 \pi} \, \dot{g}(t) \right|^2 \, dt \ge && (2) \\
+ & = \left| \int_{t=-\infty}^{+\infty} - t  \, g^*(t)  \frac{i}{2 \pi} \, \dot{g}(t) \, dt \right|^2 \ge && (3)  \\
+ & = \left( \frac{1}{2\pi} \right)^2 \left( \frac{1}{2} \right)^2
+\end{aligned}$$
+
+having used in
+
+```{dropdown} (1) 
+
+$$\mathscr{F}\{ \dot{g}(t) \}(f) = \int_{t=-\infty}^{+\infty} \dot{g}(t) e^{-i 2 \pi f t} \, dt = \dots = i 2 \pi \, f \, G(f) \ , $$
+$$f \, G(f) = -i \, \frac{\mathscr{F}\{ \dot{g}(t) \}}{2 \pi}$$
+
+and thus [Plancherel's theorem](complex:fourier:transform:plancherel)
+
+$$\begin{aligned}
+ \int_{f=-\infty}^{+\infty} | f \, G(f) |^2 \, df
+ & = \int_{f=-\infty}^{+\infty} \left|  -\frac{i}{2 \pi} \, \mathscr{F}\{ \dot{g}(t) \} \right|^2 \, df = \\
+ & = \int_{t=-\infty}^{+\infty} \left|  -\frac{i}{2 \pi} \, \dot{g}(t) \right|^2 \, dt
+\end{aligned}$$
+
+```
+
+in (2) Cauchy-Schwartz inequality,
+
+```{dropdown} (3)
+:open:
+
+$$\begin{aligned}
+  a 
+  & := \int_{t=-\infty}^{+\infty} t g^*(t) \dot{g}(t) \, dt = \\
+  &  = \underbrace{\left[ t \, g^*(t) \, g(t) \right]|_{-\infty}^{+\infty}}_{=0} - \int_{t=-\infty}^{+\infty} \dfrac{d}{dt} \left( t g^*(t) \right) g(t) \, dt = \\
+  & = - \int_{t=-\infty}^{+\infty}  g^*(t) \,  g(t) \, dt - \int_{t=-\infty}^{+\infty} t \dot{g}^*(t) g(t) \, dt = \\
+  & = - 1 - a^* \ .
+\end{aligned}$$
+
+$$-1 = a + a^* = 2 \, \text{re}\{a\} \ ,$$
+
+and thus
+
+$$|a|^2 \ge \text{re}\{a\}^2 = \frac{1}{4} \ .$$
+
+
+```
+
+If $\overline{t} \ne 0$, or $\overline{f} \ne 0$,
+
+$$\begin{aligned}
+ \sigma_{t,g}^2 \sigma_{f,G}^2
+ & = \int_{t=-\infty}^{+\infty} \left| t - \overline{t} \right|^2 \, g^*(t) \, g(t)  \, dt \,  \int_{f=-\infty}^{+\infty} \left| f - \overline{f} \right|^2 \, G^*(f) \, G(f) \, df = \\
+ & = \int_{t=-\infty}^{+\infty} \left| ( t - \overline{t} ) \, g(t) \right|^2 \, dt \,  \int_{f=-\infty}^{+\infty} \left| ( f - \overline{f} ) \,  G(f)\right|^2 \, df = && (1) \\
+ & = \dots \\
+\end{aligned}$$
+
+
+````
 
 
 

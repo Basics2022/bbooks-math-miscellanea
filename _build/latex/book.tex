@@ -1632,7 +1632,7 @@ Directly follows from integral of the approximation \eqref{equation:ch/functiona
 \subsection{Fourier series}
 \label{\detokenize{ch/functional-analysis/dirac-delta:fourier-series}}\label{\detokenize{ch/functional-analysis/dirac-delta:functional-analysis-dirac-delta-approximations-fourier-series}}
 \sphinxAtStartPar
-For \(x \in [-\pi, \pi]\), and \(N \rightarrow +\infty\), {\hyperref[\detokenize{ch/complex/fourier-series:complex-fourier-series}]{\sphinxcrossref{\DUrole{std,std-ref}{Fourier series}}}} of Dirac’s delta (train with period \(2\pi\)) reads
+For \(x \in [-\pi, \pi]\), and \(N \rightarrow +\infty\), {\hyperref[\detokenize{ch/complex/fourier-transforms:complex-fourier-series}]{\sphinxcrossref{\DUrole{std,std-ref}{Fourier series}}}} of Dirac’s delta (train with period \(2\pi\)) reads
 \begin{equation*}
 \begin{split}\delta(x) \sim \frac{1}{2\pi}\sum_{n=-N}^{N} e^{i n x} = \frac{1}{2 \pi} \frac{\sin\left(\left(N+\frac{1}{2}\right)x\right)}{\sin\left( \frac{x}{2} \right)}\end{split}
 \end{equation*}
@@ -2186,7 +2186,7 @@ solving problems: sometimes, it can be easier to transform a problem in frequenc
 \subsubsection*{Contents.}
 
 \sphinxAtStartPar
-{\hyperref[\detokenize{ch/complex/fourier-series:complex-fourier-series}]{\sphinxcrossref{\DUrole{std,std-ref}{\sphinxstylestrong{Fourier series}}}}}. Fourier series is defined for finite\sphinxhyphen{}domain or periodic, time\sphinxhyphen{}continuous functions, or \sphinxhyphen{} more generally \sphinxhyphen{} continuous functions in the physical domain.
+{\hyperref[\detokenize{ch/complex/fourier-transforms:complex-fourier-series}]{\sphinxcrossref{\DUrole{std,std-ref}{\sphinxstylestrong{Fourier series}}}}}. Fourier series is defined for finite\sphinxhyphen{}domain or periodic, time\sphinxhyphen{}continuous functions, or \sphinxhyphen{} more generally \sphinxhyphen{} continuous functions in the physical domain.
 
 \sphinxAtStartPar
 {\hyperref[\detokenize{ch/complex/fourier-transform:complex-fourier-transform}]{\sphinxcrossref{\DUrole{std,std-ref}{\sphinxstylestrong{Fourier transform}}}}}. Fourier transform is defined for infinite\sphinxhyphen{}domain non\sphinxhyphen{}periodic, time\sphinxhyphen{}continuous functions, or \sphinxhyphen{} more generally \sphinxhyphen{} continuous functions in the physical domain.
@@ -2428,9 +2428,14 @@ As the Fourier transform \(\mathscr{F}\left\{\varphi_{\varepsilon}(t)\right\}(\o
 \label{\detokenize{ch/complex/fourier-transform:plancherel-s-theorem}}\label{\detokenize{ch/complex/fourier-transform:complex-fourier-transform-plancherel}}
 \sphinxAtStartPar
 …assumptions…\sphinxstylestrong{todo}
-\begin{equation*}
+\begin{equation}\label{equation:ch/complex/fourier-transform:eq:fourier:transform:plancherel:magnitude}
 \begin{split}\int_{f=-\infty}^{+\infty} |G(f)|^2 \, df = \int_{t=-\infty}^{+\infty} |g(t)|^2 \, dt \end{split}
-\end{equation*}\subsubsection*{Proof}
+\end{equation}
+\sphinxAtStartPar
+and
+\begin{equation}\label{equation:ch/complex/fourier-transform:eq:fourier:transform:plancherel}
+\begin{split}\int_{f=-\infty}^{+\infty} A^*(f) \, G(f)\, df = \int_{t=-\infty}^{+\infty} a^*(t) \, g(t) \, dt \ .\end{split}
+\end{equation}\subsubsection*{Proof of Plancherel’s thm for the magnitude}
 \begin{equation*}
 \begin{split}\begin{aligned}
 \int_{f=-\infty}^{+\infty} |G(f)|^2 \, df 
@@ -2444,10 +2449,105 @@ As the Fourier transform \(\mathscr{F}\left\{\varphi_{\varepsilon}(t)\right\}(\o
 \end{equation*}
 \sphinxAtStartPar
 having used (1) the approximation \eqref{equation:ch/functional-analysis/dirac-delta:eq:dirac:fourier-transform} of Dirac’s delta, and (2) property \eqref{equation:ch/functional-analysis/dirac-delta:dirac-delta:prop-2} of Dirac’s delta, and (3) the expression of the absolute value of complex functions \(g^*(t_1) g(t_1) = |g(t_1)|^2\).
+\subsubsection*{Proof of Plancherel’s thm for the product of functions}
+\begin{equation*}
+\begin{split}\begin{aligned}
+\int_{f=-\infty}^{+\infty} A^*(f) \, G(f) \, df 
+& = \int_{f=-\infty}^{+\infty} G(f)^* G(f) \, df =  \\
+& = \int_{f=-\infty}^{+\infty} \left( \int_{t_1=-\infty}^{+\infty} a(t_1) e^{-i 2 \pi f t_1} dt_1 \right)^* \left( \int_{t_2=-\infty}^{+\infty} g(t_2) e^{-i 2 \pi f t_2} dt_2  \right) \, df =  \\
+& =  \int_{t_1, t_2=-\infty}^{+\infty} a^*(t_1) \, g(t_2) \, \int_{f=-\infty}^{+\infty} e^{i 2 \pi f ( t_1 - t_2 )} \, df \, dt_1 \, dt_2 =  && (1) \\
+& =  \int_{t_1, t_2=-\infty}^{+\infty} a^*(t_1) \, g(t_2) \, \delta( t_1 - t_2 ) \, dt_1 \, dt_2 = && (2) \\
+& =  \int_{t_1=-\infty}^{+\infty} a^*(t_1) \, g(t_1) \, dt_1 \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+having used (1) the approximation \eqref{equation:ch/functional-analysis/dirac-delta:eq:dirac:fourier-transform} of Dirac’s delta, and (2) property \eqref{equation:ch/functional-analysis/dirac-delta:dirac-delta:prop-2} of Dirac’s delta.
 
 
 \subsection{Uncertainty relation}
 \label{\detokenize{ch/complex/fourier-transform:uncertainty-relation}}\label{\detokenize{ch/complex/fourier-transform:complex-fourier-transform-uncertainty}}
+\sphinxAtStartPar
+An uncertainty relation holds linking standard deviations of a probability density function in time domain and a probability density function built with its Fourier transform. From this very same relation, \sphinxhref{https://basics2022.github.io/bbooks-physics-modern/ch/quantum-mechanics/intro.html\#heisenberg-uncertainty-relation}{Heisenberg uncertainty relation} between position and momentum in \sphinxhref{https://basics2022.github.io/bbooks-physics-modern/ch/quantum-mechanics/intro.html}{Quantum Mechanics} seamlessly follows.
+
+\sphinxAtStartPar
+Given a function \(g(t)\) whose square of the absolute value is normalized to one, and thus it can be used as a probability density function in time domain,
+\begin{equation*}
+\begin{split}\int_{t = -\infty}^{+\infty} |g(t)|^2 \, dt =  \int_{t = -\infty}^{+\infty} g^*(t) \, g(t) \, dt = 1 \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+for {\hyperref[\detokenize{ch/complex/fourier-transform:complex-fourier-transform-plancherel}]{\sphinxcrossref{\DUrole{std,std-ref}{Plancherel’s theorem}}}}, the square of the magnitude of Fourier transform \(G(f)\) is unitary as well,
+\begin{equation*}
+\begin{split}\int_{f = -\infty}^{+\infty} |G(f)|^2 \, df =  \int_{f = -\infty}^{+\infty} G^*(f) \, G(f) \, df = 1 \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and thus it can be interpreted as a probability density function in frequency domain. The following uncertainty relation holds
+\begin{equation*}
+\begin{split}\sigma_{t,g}^2 \sigma_{f,G}^2 \ge \left( \frac{1}{2 \pi} \frac{1}{2} \right)^2 \ , \end{split}
+\end{equation*}
+\sphinxAtStartPar
+or in terms of pulsation \(\omega = 2 \pi \, f\),
+\begin{equation*}
+\begin{split}\sigma_{t,g}^2 \sigma_{\omega,G}^2 \ge \left( \frac{1}{2} \right)^2 \ , \end{split}
+\end{equation*}\subsubsection*{Proof of the uncertainty relation}
+
+\sphinxAtStartPar
+Assuming zero average \(\overline{t} = 0\), \(\overline{f} = 0\) (see below for proof without this assumption)
+\begin{equation*}
+\begin{split}\begin{aligned}
+ \sigma_{t,g}^2 \sigma_{f,G}^2
+ & = \int_{t=-\infty}^{+\infty} \left| t \right|^2 \, g^*(t) \, g(t)  \, dt \,  \int_{f=-\infty}^{+\infty} \left| f \right|^2 \, G^*(f) \, G(f) \, df = \\
+ & = \int_{t=-\infty}^{+\infty} \left| t  \, g(t) \right|^2 \, dt \,  \int_{f=-\infty}^{+\infty} \left| f  \,  G(f)\right|^2 \, df = && (1) \\
+ & = \int_{t=-\infty}^{+\infty} \left| t  \, g(t) \right|^2 \, dt \, \int_{t=-\infty}^{+\infty} \left|  -\frac{i}{2 \pi} \, \dot{g}(t) \right|^2 \, dt \ge && (2) \\
+ & = \left| \int_{t=-\infty}^{+\infty} - t  \, g^*(t)  \frac{i}{2 \pi} \, \dot{g}(t) \, dt \right|^2 \ge && (3)  \\
+ & = \left( \frac{1}{2\pi} \right)^2 \left( \frac{1}{2} \right)^2
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+having used in
+\subsubsection*{(1)}
+\begin{equation*}
+\begin{split}\mathscr{F}\{ \dot{g}(t) \}(f) = \int_{t=-\infty}^{+\infty} \dot{g}(t) e^{-i 2 \pi f t} \, dt = \dots = i 2 \pi \, f \, G(f) \ , \end{split}
+\end{equation*}\begin{equation*}
+\begin{split}f \, G(f) = -i \, \frac{\mathscr{F}\{ \dot{g}(t) \}}{2 \pi}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and thus {\hyperref[\detokenize{ch/complex/fourier-transform:complex-fourier-transform-plancherel}]{\sphinxcrossref{\DUrole{std,std-ref}{Plancherel’s theorem}}}}
+\begin{equation*}
+\begin{split}\begin{aligned}
+ \int_{f=-\infty}^{+\infty} | f \, G(f) |^2 \, df
+ & = \int_{f=-\infty}^{+\infty} \left|  -\frac{i}{2 \pi} \, \mathscr{F}\{ \dot{g}(t) \} \right|^2 \, df = \\
+ & = \int_{t=-\infty}^{+\infty} \left|  -\frac{i}{2 \pi} \, \dot{g}(t) \right|^2 \, dt
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+in (2) Cauchy\sphinxhyphen{}Schwartz inequality,
+\subsubsection*{(3)}
+\begin{equation*}
+\begin{split}\begin{aligned}
+  a 
+  & := \int_{t=-\infty}^{+\infty} t g^*(t) \dot{g}(t) \, dt = \\
+  &  = \underbrace{\left[ t \, g^*(t) \, g(t) \right]|_{-\infty}^{+\infty}}_{=0} - \int_{t=-\infty}^{+\infty} \dfrac{d}{dt} \left( t g^*(t) \right) g(t) \, dt = \\
+  & = - \int_{t=-\infty}^{+\infty}  g^*(t) \,  g(t) \, dt - \int_{t=-\infty}^{+\infty} t \dot{g}^*(t) g(t) \, dt = \\
+  & = - 1 - a^* \ .
+\end{aligned}\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}-1 = a + a^* = 2 \, \text{re}\{a\} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and thus
+\begin{equation*}
+\begin{split}|a|^2 \ge \text{re}\{a\}^2 = \frac{1}{4} \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+If \(\overline{t} \ne 0\), or \(\overline{f} \ne 0\),
+\begin{equation*}
+\begin{split}\begin{aligned}
+ \sigma_{t,g}^2 \sigma_{f,G}^2
+ & = \int_{t=-\infty}^{+\infty} \left| t - \overline{t} \right|^2 \, g^*(t) \, g(t)  \, dt \,  \int_{f=-\infty}^{+\infty} \left| f - \overline{f} \right|^2 \, G^*(f) \, G(f) \, df = \\
+ & = \int_{t=-\infty}^{+\infty} \left| ( t - \overline{t} ) \, g(t) \right|^2 \, dt \,  \int_{f=-\infty}^{+\infty} \left| ( f - \overline{f} ) \,  G(f)\right|^2 \, df = && (1) \\
+ & = \dots \\
+\end{aligned}\end{split}
+\end{equation*}
 \sphinxstepscope
 
 

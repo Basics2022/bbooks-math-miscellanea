@@ -466,7 +466,7 @@ document.write(`
  &amp; = \Delta t \int_{t=-\infty}^{+\infty} f(t) \, \text{III}_{\Delta t}(t) e^{-i 2 \pi \nu t} \, dt =  \\
 \end{aligned}\end{split}\]</div>
 <div class="math notranslate nohighlight" id="equation-eq-dtft-1">
-<span class="eqno">(13.4)<a class="headerlink" href="#equation-eq-dtft-1" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+<span class="eqno">(13.6)<a class="headerlink" href="#equation-eq-dtft-1" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
  &amp; \sim \Delta t \frac{1}{\Delta t} \int_{t=-\infty}^{+\infty} f(t) \, \sum_{n=-\infty}^{+\infty} e^{i n \frac{2 \pi}{\Delta t} t} e^{-i 2 \pi \nu t} \, dt =  \\
  &amp; = \sum_{n=-\infty}^{+\infty}  \int_{t=-\infty}^{+\infty} f(t) \, e^{-i 2 \pi \left( \nu - n \overline{\nu} \right) t} \, dt =  \\
  &amp; = \sum_{n=-\infty}^{+\infty} F\left(\nu - n \overline{\nu} \right) = \text{DTFT}(f(t); \Delta t) \ ,
@@ -484,7 +484,7 @@ document.write(`
 </div>
 </div><p><strong>todo</strong> check alternative expressions if using the definition of train of impulses instead of the Fourier series of Dirac’s comb.</p>
 <div class="math notranslate nohighlight" id="equation-eq-dtft-2">
-<span class="eqno">(13.5)<a class="headerlink" href="#equation-eq-dtft-2" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+<span class="eqno">(13.7)<a class="headerlink" href="#equation-eq-dtft-2" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
  &amp; = \Delta t \int_{t=-\infty}^{+\infty} f(t) \sum_{k=-\infty}^{+\infty} \delta(t - k \Delta t) \, e^{-i 2 \pi \nu t} \, dt = \\
  &amp; = \Delta t \sum_{k=-\infty}^{+\infty} f(k \Delta t)  e^{-i 2 \pi \nu k \Delta t} = \text{DTFT}\left( f(t); \Delta t \right) 
 \end{aligned}\end{split}\]</div>
