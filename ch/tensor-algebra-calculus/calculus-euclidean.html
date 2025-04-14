@@ -426,9 +426,10 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#theorems">7.4.4. Theorems</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-theorem">7.4.4.1. Gradient theorem</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#divergence-theorem">7.4.4.2. Divergence theorem</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#curl-theorem">7.4.4.3. Curl theorem</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#two-useful-lemmas">7.4.4.1. Two useful lemmas</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-theorem">7.4.4.2. Gradient theorem</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#divergence-theorem">7.4.4.3. Divergence theorem</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#curl-theorem">7.4.4.4. Curl theorem</a></li>
 </ul>
 </li>
 </ul>
@@ -739,21 +740,243 @@ Given a regular parametrization of the curve <span class="math notranslate nohig
 </div>
 <div class="section" id="theorems">
 <span id="tensor-calculus-integrals-theorems"></span><h3><span class="section-number">7.4.4. </span>Theorems<a class="headerlink" href="#theorems" title="Permalink to this heading">#</a></h3>
+<div class="section" id="two-useful-lemmas">
+<h4><span class="section-number">7.4.4.1. </span>Two useful lemmas<a class="headerlink" href="#two-useful-lemmas" title="Permalink to this heading">#</a></h4>
+<p>Il prossimo lemma è alla base dei più rinomati teoremi della divergenza e del gradiente:
+la dimostrazione di questi due teoremi si basa su un facile uso ripetuto di questo lemma.
+Data la facilità di questo lemma e la sua frequente applicazione nella scrittura di bilanci e
+in generale di integrazione per parti, è molto conveniente ricordarsi questo semplice risultato.</p>
+<div class="proof theorem admonition" id="lemma-1">
+<p class="admonition-title"><span class="caption-number">Theorem 7.1 </span> (Lemma 1.)</p>
+<div class="theorem-content section" id="proof-content">
+<p>Sotto le ipotesi del teorema di Green nel piano,</p>
+<div class="math notranslate nohighlight">
+\[
+  \int_V \frac{\partial A}{\partial x_i} = \oint_S A n_i
+\]</div>
+</div>
+</div><!--
+\begin{minipage}{0.4\textwidth}
+\begin{center}
+\includegraphics[width=0.95\textwidth]{./fig/Div}
+\end{center}
+\end{minipage}
+-->
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Proof<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Si segue un ragionamento molto simile a quello utilizzato per la dimostrazione del <a class="reference internal" href="../multivariable/intro.html#multivariable-calculus-green-lemma"><span class="std std-ref">lemma di Green nel piano</span></a>.
+Per <span class="math notranslate nohighlight">\({\partial A}/{\partial z}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+\int_V \frac{\partial A}{\partial z} = &amp;
+\int_R \int_{z = f_1(x,y)}^{z = f_2(x,y)} \frac{\partial A}{\partial z} dz dx dy = \\
+= &amp; \int_R [A(x,y,f_2(x,y)) - A(x,y,f_1(x,y))] dx dy %=  &amp; (dx dy = dR = \mathbf{\hat{z}} \cdot \mathbf{\hat{n}} dS) \\
+\end{aligned}
+\end{split}\]</div>
+<p class="sd-card-text">Il passaggio più complicato è nel passare dall’integrale in <span class="math notranslate nohighlight">\((x,y) \in R\)</span> all’integrale sulla superficie <span class="math notranslate nohighlight">\(S\)</span>, bordo del
+volume <span class="math notranslate nohighlight">\(V\)</span>: l’elemento infinitesimo <span class="math notranslate nohighlight">\(dR\)</span> di
+area nel piano-xy è uguale a <span class="math notranslate nohighlight">\(dR = dx dy\)</span>; il disegno e la dimostrazione fanno riferimento a un volume \textit{semplice}
+(come nel caso di lemma di Green nel piano, è possibile generalizzare i risultati ottenuti per domini di forma generica):
+è possibile suddividere la superfice <span class="math notranslate nohighlight">\(S\)</span> nelle due ``semisuperfici’’ <span class="math notranslate nohighlight">\(S^+: z = f_2(x,y)\)</span> e <span class="math notranslate nohighlight">\(S^- z = f_1(x,y)\)</span> tali che
+<span class="math notranslate nohighlight">\(S^+ \cup S^- = S\)</span> e che la normale, uscente dal volume,
+abbia componente in z positiva e negativa rispettivamente (<span class="math notranslate nohighlight">\(S^+ : \mathbf{\hat{n}}\cdot\mathbf{\hat{z}}&gt;0\)</span>, <span class="math notranslate nohighlight">\(S^- : \mathbf{\hat{n}}
+ \cdot\mathbf{\hat{z}}&lt;0\)</span>).
+La superficie elementare <span class="math notranslate nohighlight">\(dR\)</span> è inoltre la proiezione dell’elemento di superficie <span class="math notranslate nohighlight">\(dS\)</span> sul piano-xy: in generale <span class="math notranslate nohighlight">\(dS\)</span> non sarà
+parallela al piano-xy e quindi sarà maggiore di <span class="math notranslate nohighlight">\(dR\)</span>. Non è difficile dimostrare che</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+ dx dy = dR =
+ \begin{cases}
+   dS \mathbf{\hat{z}} \cdot \mathbf{\hat{n}}  &amp; \text{su $S^+$} \\
+  - dS \mathbf{\hat{z}} \cdot \mathbf{\hat{n}}  &amp; \text{su $S^-$} \\
+ \end{cases}
+\end{split}\]</div>
+<p class="sd-card-text">Si può quindi ora continuare nella dimostrazione</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+ &amp; \int_R [A(x,y,f_2(x,y)) - A(x,y,f_1(x,y))] dx dy =   \\
+ &amp; \quad = \int_{S^+} A \mathbf{\hat{n}} \cdot\mathbf{\hat{z}} dS + \int_{S^-} A \mathbf{\hat{n}} \cdot\mathbf{\hat{z}} dS = \\
+ &amp; \quad =  \oint_S A \mathbf{\hat{z}} \cdot \mathbf{\hat{n}} dS = \\
+ &amp; \quad =  \oint_S A n_z dS
+\end{aligned}
+\end{split}\]</div>
+</div>
+</details><p>Come il lemma precedente è alla base della dimostrazione dei teoremi di gradiente e divergenza,
+il lemma successivo è alla base della dimostrazione del teorema del rotore.</p>
+<div class="proof theorem admonition" id="lemma-2">
+<p class="admonition-title"><span class="caption-number">Theorem 7.2 </span> (Lemma 2.)</p>
+<div class="theorem-content section" id="proof-content">
+<p>Sotto le ipotesi del teorema di Green nel piano.</p>
+<div class="math notranslate nohighlight">
+\[
+  \int_S [\mathbf{\nabla} \times (A \mathbf{\hat{e}_i})] \cdot \mathbf{\hat{n}} = \oint_{\gamma} A dx_i
+\]</div>
+<!--
+&
+\begin{minipage}{0.4\textwidth}
+\begin{center}
+  \includegraphics[width=0.95\textwidth]{./fig/Rot}
+\end{center}
+\end{minipage}
+\end{tabular}
+%-->
+</div>
+</div><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Proof<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Per <span class="math notranslate nohighlight">\(A\mathbf{\hat{e}_x}\)</span>, <span class="math notranslate nohighlight">\({\nabla} \times (A \mathbf{\hat{e}_x}) =
+{\partial A}/{\partial z} \mathbf{\hat{e}_y} - {\partial A}/{\partial y} \mathbf{\hat{e}_z}\)</span>.
+Si scrive la superficie S in forma parametrica come: <span class="math notranslate nohighlight">\(\mathbf{r} = x\mathbf{\hat{e}_x} +
+y\mathbf{\hat{e}_y} + z(x,y)\mathbf{\hat{e}_z}\)</span>. Il vettore <span class="math notranslate nohighlight">\({\partial \mathbf{r}}/{\partial y} \mathbf{\hat{e}_y} +
+{\partial z}/{\partial y} \mathbf{\hat{e}_z} \)</span> è parallelo alla
+superficie S e quindi perpendicolare alla normale <span class="math notranslate nohighlight">\(\mathbf{\hat{n}}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+0 = \mathbf{\hat{n}} \cdot \displaystyle \left(\mathbf{\hat{e}_y} +
+\frac{\partial z}{\partial y} \mathbf{\hat{e}_z} \right) \\
+\end{aligned}
+\end{split}\]</div>
+<p class="sd-card-text">Scrivendo  <span class="math notranslate nohighlight">\([\mathbf{\nabla} \times (A \mathbf{\hat{e}_x})] \cdot \mathbf{\hat{n}}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+ [\mathbf{\nabla} \times (A \mathbf{\hat{e}_x})] \cdot \mathbf{\hat{n}} =
+  \frac{\partial A}{\partial z} \mathbf{\hat{e}_y} \cdot \mathbf{\hat{n}}
+   - \frac{\partial A}{\partial y} \mathbf{\hat{e}_z}\cdot \mathbf{\hat{n}} =
+  - \displaystyle\left[ \frac{\partial A}{\partial z} \frac{\partial z}{\partial y} +
+  \frac{\partial A}{\partial y}  \right] \mathbf{\hat{e}_z}\cdot \mathbf{\hat{n}}
+\]</div>
+<p class="sd-card-text">Se si riconosce <span class="math notranslate nohighlight">\(\frac{\partial A(x,y,z(x,y))}{\partial y} = \frac{\partial A}{\partial z} \frac{\partial z}{\partial y} +
+  \frac{\partial A}{\partial y}\)</span>, si può scrivere:</p>
+<div class="math notranslate nohighlight">
+\[
+ \int_S [\mathbf{\nabla} \times (A \mathbf{\hat{e}_x})] \cdot \mathbf{\hat{n}} =
+ - \int_S \frac{\partial A}{\partial y} \underbrace{\mathbf{\hat{e}_z}\cdot \mathbf{\hat{n}} dS}_{dR = dx dy} =
+ - \int_R \frac{\partial A}{\partial y} dx dy = \int_\gamma A dx
+\]</div>
+</div>
+</details></div>
 <div class="section" id="gradient-theorem">
-<span id="tensor-calculus-integrals-theorems-gradient"></span><h4><span class="section-number">7.4.4.1. </span>Gradient theorem<a class="headerlink" href="#gradient-theorem" title="Permalink to this heading">#</a></h4>
+<span id="tensor-calculus-integrals-theorems-gradient"></span><h4><span class="section-number">7.4.4.2. </span>Gradient theorem<a class="headerlink" href="#gradient-theorem" title="Permalink to this heading">#</a></h4>
+<p>…<strong>todo</strong> <em>assumptions</em>…</p>
 <div class="math notranslate nohighlight">
 \[\int_{V} \nabla f = \oint_{\partial V} f \hat{n}\]</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Proof for simple domains <span class="math notranslate nohighlight">\(\ V\)</span><div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">This result immediately follows from Lemma 1 <a class="reference internal" href="#lemma-1">Theorem 7.1</a></p>
+<div class="math notranslate nohighlight">
+\[\oint_{\partial V} f \hat{n} = \hat{x}_i  \oint_{\partial V} f n_i = \hat{x}_i \int_{V} \partial_i f =  \int_{V} \hat{x}_i \partial_i f = \int_{V} \nabla \vec{f} \ , \]</div>
+<p class="sd-card-text">having (1) exploited the freedom to put unit vectors of the Cartesian basis inside the integrals, as they’re unifrom - constant in space -, and (2) recognized the expression of the <a class="reference internal" href="calculus-euclidean-cartesian.html#tensor-calculus-cartesian-differential-operators-gradient"><span class="std std-ref">gradient of a scalar field expressed using Cartesian coordinates</span></a>, as shown in <a class="reference internal" href="calculus-euclidean-cartesian.html#cartesian:gradient:scalar">Example 7.8</a>.</p>
+<!--
+Here the surface integral is evaluated using Cartesian coordinates, and each component is computed separately.
+The surface integral of the $z$-component can be written as the contribution of an upper and a lower surface, having splitted the surface $\partial V$ is splitted in an upper and lower surface depending on the sign of the projection of the local unit normal vector $\hat{n}$ with the unit vector $\hat{z}$ associated with the $z$-coordinate of a set of Cartesian coordinates $x,y,z$. Each elementary contribution of this pair of surface, can be parametrized using $x, y$ coordinates, and the 
+
+$$\begin{aligned}
+  \hat{z} \cdot \oint_S f \hat{n} = \oint_{S} f n_z 
+  & = \int_{S_z^+} f n_z + \int_{S_z^-} f n_z = \\
+  & = \int_{\Omega_{x,y}} \big( f(x,y,z^+(x,y)) - f(x,y,z^-(x,y)) \big) dx dy = && (1) \\
+  & = \int_{\Omega_{x,y}} \int_{z={z^-(x,y)}}^{z^+(x,y)} \dfrac{\partial}{\partial z} f(x,y,z) \, dz \, dx \, dy = && (2) \\
+  & = \int_{\vec{r} \in V} \dfrac{\partial}{\partial z} f(x,y,z) \ .
+\end{aligned}$$
+
+having (1) recognized the integral in $z$ between the lower and upper surfaces $z^-(x,y)$, $z^+(x,y)$, and the volume integral evaluated with a parametrization with Cartesian coordinates. 
+
+Repeating the same process for $x$ and $y$ coordinates the desired result is proved, explicitly
+
+$$\begin{aligned}
+  \oint_{\partial V} f \hat{n}
+  & = \hat{x} \hat{x} \cdot \oint_{\partial V} f \hat{n} +  \hat{y} \hat{y} \cdot \oint_{\partial V} f \hat{n} + \hat{z} \hat{z} \cdot \oint_{\partial V} f \hat{n} = \\
+  & = \hat{x} \int_V \partial_x f +  \hat{y} \int_V \partial_y f + \hat{z} \int_V \partial_z f = && (1) \\
+  & = \int_V \left( \hat{x} \partial_x f +  \hat{y} \partial_y f + \hat{z}  \partial_z f \right) = \int_V \nabla f && (2) \ ,
+\end{aligned}$$
+
+having (1) exploited the freedom to put unit vectors of the Cartesian basis inside the integrals, as they're unifrom - constant in space -, and (2) recognized the expression of the [gradient of a scalar field expressed using Cartesian coordinates](tensor:calculus:cartesian:differential-operators:gradient), as shown in {prf:ref}`cartesian:gradient:scalar`.
+-->
 </div>
+</details></div>
 <div class="section" id="divergence-theorem">
-<span id="tensor-calculus-integrals-theorems-divergence"></span><h4><span class="section-number">7.4.4.2. </span>Divergence theorem<a class="headerlink" href="#divergence-theorem" title="Permalink to this heading">#</a></h4>
+<span id="tensor-calculus-integrals-theorems-divergence"></span><h4><span class="section-number">7.4.4.3. </span>Divergence theorem<a class="headerlink" href="#divergence-theorem" title="Permalink to this heading">#</a></h4>
+<p>…<strong>todo</strong> <em>assumptions</em>…</p>
 <div class="math notranslate nohighlight">
 \[\int_{V} \nabla \cdot \vec{f} = \oint_{\partial V} \vec{f} \cdot \hat{n}\]</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Proof<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">This result immediately follows from Lemma 1 <a class="reference internal" href="#lemma-1">Theorem 7.1</a></p>
+<div class="math notranslate nohighlight">
+\[\oint_{\partial V} \vec{f} \cdot \hat{n} =  \oint_{\partial V} f_i n_i = \int_{V} \partial_i f_i =  \int_{V} \nabla  \cdot \vec{f} \ , \]</div>
+<p class="sd-card-text">having (1) exploited the freedom to put unit vectors of the Cartesian basis inside the integrals, as they’re unifrom - constant in space -, and (2) recognized the expression of the <a class="reference internal" href="calculus-euclidean-cartesian.html#tensor-calculus-cartesian-differential-operators-divergence"><span class="std std-ref">divergence of a vector field expressed using Cartesian coordinates</span></a>, as shown in <a class="reference internal" href="calculus-euclidean-cartesian.html#cartesian:divergence:vector">Example 7.11</a>.</p>
+<!--
+Using Cartesian coordinates to write the scalar product 
+
+$$\vec{f} \cdot \hat{n} = f_x n_x + f_y n_y + f_z n_z \ ,$$
+
+and repeating the same procedure used in the proof of the [gradient theorem](tensor:calculus:integrals:theorems:gradient) for each term in the sum, the proof immediately follows
+
+$$\begin{aligned}
+  \oint_{\partial V} \vec{f} \cdot \hat{n} 
+  & =  \oint_{\partial V} \big( f_x n_x + f_y n_y + f_z n_z  \big) = \\
+  & =  \int_{V} \big( \partial_x f_x + \partial_y f_y + \partial_z f_z \big) = \int_V \nabla \cdot \vec{f} \ .
+\end{aligned}$$
+
+having recognized the expression of the [divergence of a vector field expressed using Cartesian coordinates](tensor:calculus:cartesian:differential-operators:divergence), as shown in {prf:ref}`cartesian:divergence:vector`.
+-->
 </div>
+</details></div>
 <div class="section" id="curl-theorem">
-<span id="tensor-calculus-integrals-theorems-curl"></span><h4><span class="section-number">7.4.4.3. </span>Curl theorem<a class="headerlink" href="#curl-theorem" title="Permalink to this heading">#</a></h4>
+<span id="tensor-calculus-integrals-theorems-curl"></span><h4><span class="section-number">7.4.4.4. </span>Curl theorem<a class="headerlink" href="#curl-theorem" title="Permalink to this heading">#</a></h4>
+<p>…<strong>todo</strong> <em>assumptions</em>…</p>
 <div class="math notranslate nohighlight">
 \[\int_{S} \left[ \nabla \times \vec{f} \right] \cdot \hat{n} = \oint_{\partial S} \vec{f} \cdot \hat{t}\]</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Proof<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">This proof seamlessly follows from Lemma <a class="reference internal" href="#lemma-2">Theorem 7.2</a>, applied to all the Cartesian contributions of the vector field</p>
+<div class="math notranslate nohighlight">
+\[\vec{f} = f_x \hat{x} + f_y \hat{y} + f_z \hat{z} \ ,\]</div>
+<p class="sd-card-text">as</p>
+<div class="math notranslate nohighlight">
+\[\int_S \left( \nabla \times \vec{f} \right) \cdot \hat{n} = \int_S \left( \nabla \times f_i \hat{x}_i \right) \cdot \hat{n} = \oint_{\partial S} f_i t_i = \oint_{\partial S} \vec{f} \cdot \hat{t} \ .\]</div>
+<!--
+is performed using Cartesian coordinates, and evaluating the curl of each component of the vector field 
+
+$$\vec{f} = f_x \hat{x} + f_y \hat{y} + f_z \hat{z} \ ,$$
+
+at a time and exploting linearity to put together these results. Let's evaluate the surface integral for a vector field $f_z \hat{z}$
+
+$$\begin{aligned}
+  \int_S \hat{n} \cdot \left( \nabla \times ( f_z \hat{z} ) \right) 
+  & = \int_S \left( n_x \hat{x} + n_y \hat{y} + n_z \hat{z} \right) \cdot \left( \hat{x} \partial_y f_z - \hat{y} \partial_x f_z \right) =  \\
+  & = \int_S \left( n_x \partial_y f_z - n_y \partial_x f_z \right) = && (1) \\
+  & = \int_{\Omega_{yz}} \partial_y f_z \, dy \, dz - \int_{\Omega_{xz}} \partial_x f_z  \, dx \, dz = && (2) \\
+  & = \int_{\partial \Omega_{yz}} f_z \, dz + \int_{\partial \Omega_{xz}} f_z \, dz
+\end{aligned}$$
+-->
 </div>
+</details></div>
 </div>
 </div>
 <div class="toctree-wrapper compound">
@@ -852,9 +1075,10 @@ Given a regular parametrization of the curve <span class="math notranslate nohig
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#theorems">7.4.4. Theorems</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-theorem">7.4.4.1. Gradient theorem</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#divergence-theorem">7.4.4.2. Divergence theorem</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#curl-theorem">7.4.4.3. Curl theorem</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#two-useful-lemmas">7.4.4.1. Two useful lemmas</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-theorem">7.4.4.2. Gradient theorem</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#divergence-theorem">7.4.4.3. Divergence theorem</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#curl-theorem">7.4.4.4. Curl theorem</a></li>
 </ul>
 </li>
 </ul>
