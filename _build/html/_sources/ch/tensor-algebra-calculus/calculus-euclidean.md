@@ -333,18 +333,249 @@ $$\int_{\vec{r} \in V} F(\vec{r}) |d V| = \int_{(q^1,q^2,q^3) \in Q} F(\vec{r}(q
 (tensor:calculus:integrals:theorems)=
 ### Theorems
 
+#### Two useful lemmas
+
+Il prossimo lemma è alla base dei più rinomati teoremi della divergenza e del gradiente:
+ la dimostrazione di questi due teoremi si basa su un facile uso ripetuto di questo lemma.
+ Data la facilità di questo lemma e la sua frequente applicazione nella scrittura di bilanci e
+ in generale di integrazione per parti, è molto conveniente ricordarsi questo semplice risultato.
+
+```{prf:theorem} Lemma 1.
+:label: lemma-1
+
+Sotto le ipotesi del teorema di Green nel piano,
+
+$$
+  \int_V \frac{\partial A}{\partial x_i} = \oint_S A n_i
+$$
+
+```
+<!--
+\begin{minipage}{0.4\textwidth}
+\begin{center}
+\includegraphics[width=0.95\textwidth]{./fig/Div}
+\end{center}
+\end{minipage}
+-->
+
+```{dropdown} Proof
+Si segue un ragionamento molto simile a quello utilizzato per la dimostrazione del [lemma di Green nel piano](multivariable-calculus:green-lemma).
+  Per ${\partial A}/{\partial z}$:
+
+$$\begin{aligned}
+\int_V \frac{\partial A}{\partial z} = &
+\int_R \int_{z = f_1(x,y)}^{z = f_2(x,y)} \frac{\partial A}{\partial z} dz dx dy = \\
+= & \int_R [A(x,y,f_2(x,y)) - A(x,y,f_1(x,y))] dx dy %=  & (dx dy = dR = \mathbf{\hat{z}} \cdot \mathbf{\hat{n}} dS) \\
+\end{aligned}
+$$
+ 
+Il passaggio più complicato è nel passare dall'integrale in $(x,y) \in R$ all'integrale sulla superficie $S$, bordo del
+ volume $V$: l'elemento infinitesimo $dR$ di
+ area nel piano-xy è uguale a $dR = dx dy$; il disegno e la dimostrazione fanno riferimento a un volume \textit{semplice}
+ (come nel caso di lemma di Green nel piano, è possibile generalizzare i risultati ottenuti per domini di forma generica):
+ è possibile suddividere la superfice $S$ nelle due ``semisuperfici'' $S^+: z = f_2(x,y)$ e $S^- z = f_1(x,y)$ tali che
+ $S^+ \cup S^- = S$ e che la normale, uscente dal volume,
+ abbia componente in z positiva e negativa rispettivamente ($S^+ : \mathbf{\hat{n}}\cdot\mathbf{\hat{z}}>0$, $S^- : \mathbf{\hat{n}}
+ \cdot\mathbf{\hat{z}}<0$).
+La superficie elementare $dR$ è inoltre la proiezione dell'elemento di superficie $dS$ sul piano-xy: in generale $dS$ non sarà
+ parallela al piano-xy e quindi sarà maggiore di $dR$. Non è difficile dimostrare che
+
+$$
+ dx dy = dR =
+ \begin{cases}
+   dS \mathbf{\hat{z}} \cdot \mathbf{\hat{n}}  & \text{su $S^+$} \\
+  - dS \mathbf{\hat{z}} \cdot \mathbf{\hat{n}}  & \text{su $S^-$} \\
+ \end{cases}
+$$
+
+Si può quindi ora continuare nella dimostrazione
+
+$$
+\begin{aligned}
+ & \int_R [A(x,y,f_2(x,y)) - A(x,y,f_1(x,y))] dx dy =   \\
+ & \quad = \int_{S^+} A \mathbf{\hat{n}} \cdot\mathbf{\hat{z}} dS + \int_{S^-} A \mathbf{\hat{n}} \cdot\mathbf{\hat{z}} dS = \\
+ & \quad =  \oint_S A \mathbf{\hat{z}} \cdot \mathbf{\hat{n}} dS = \\
+ & \quad =  \oint_S A n_z dS
+\end{aligned}
+$$
+
+```
+Come il lemma precedente è alla base della dimostrazione dei teoremi di gradiente e divergenza,
+ il lemma successivo è alla base della dimostrazione del teorema del rotore.
+
+
+```{prf:theorem} Lemma 2.
+:label: lemma-2
+
+Sotto le ipotesi del teorema di Green nel piano.
+
+$$
+  \int_S [\mathbf{\nabla} \times (A \mathbf{\hat{e}_i})] \cdot \mathbf{\hat{n}} = \oint_{\gamma} A dx_i
+$$
+<!--
+&
+\begin{minipage}{0.4\textwidth}
+\begin{center}
+  \includegraphics[width=0.95\textwidth]{./fig/Rot}
+\end{center}
+\end{minipage}
+\end{tabular}
+%-->
+```
+
+
+```{dropdown} Proof
+ Per $A\mathbf{\hat{e}_x}$, ${\nabla} \times (A \mathbf{\hat{e}_x}) =
+{\partial A}/{\partial z} \mathbf{\hat{e}_y} - {\partial A}/{\partial y} \mathbf{\hat{e}_z}$.
+Si scrive la superficie S in forma parametrica come: $\mathbf{r} = x\mathbf{\hat{e}_x} +
+y\mathbf{\hat{e}_y} + z(x,y)\mathbf{\hat{e}_z}$. Il vettore ${\partial \mathbf{r}}/{\partial y} \mathbf{\hat{e}_y} +
+{\partial z}/{\partial y} \mathbf{\hat{e}_z} $ è parallelo alla
+superficie S e quindi perpendicolare alla normale $\mathbf{\hat{n}}$:
+
+$$
+\begin{aligned}
+0 = \mathbf{\hat{n}} \cdot \displaystyle \left(\mathbf{\hat{e}_y} +
+\frac{\partial z}{\partial y} \mathbf{\hat{e}_z} \right) \\
+\end{aligned}
+$$
+
+Scrivendo  $[\mathbf{\nabla} \times (A \mathbf{\hat{e}_x})] \cdot \mathbf{\hat{n}}$:
+
+$$
+ [\mathbf{\nabla} \times (A \mathbf{\hat{e}_x})] \cdot \mathbf{\hat{n}} =
+  \frac{\partial A}{\partial z} \mathbf{\hat{e}_y} \cdot \mathbf{\hat{n}}
+   - \frac{\partial A}{\partial y} \mathbf{\hat{e}_z}\cdot \mathbf{\hat{n}} =
+  - \displaystyle\left[ \frac{\partial A}{\partial z} \frac{\partial z}{\partial y} +
+  \frac{\partial A}{\partial y}  \right] \mathbf{\hat{e}_z}\cdot \mathbf{\hat{n}}
+$$
+
+Se si riconosce $\frac{\partial A(x,y,z(x,y))}{\partial y} = \frac{\partial A}{\partial z} \frac{\partial z}{\partial y} +
+  \frac{\partial A}{\partial y}$, si può scrivere:
+
+$$
+ \int_S [\mathbf{\nabla} \times (A \mathbf{\hat{e}_x})] \cdot \mathbf{\hat{n}} =
+ - \int_S \frac{\partial A}{\partial y} \underbrace{\mathbf{\hat{e}_z}\cdot \mathbf{\hat{n}} dS}_{dR = dx dy} =
+ - \int_R \frac{\partial A}{\partial y} dx dy = \int_\gamma A dx
+$$
+
+```
+
+
+
+
 (tensor:calculus:integrals:theorems:gradient)=
 #### Gradient theorem
 
+...**todo** *assumptions*...
+
 $$\int_{V} \nabla f = \oint_{\partial V} f \hat{n}$$
+
+```{dropdown} Proof for simple domains $\ V$
+:open:
+
+This result immediately follows from Lemma 1 {prf:ref}`lemma-1`
+
+$$\oint_{\partial V} f \hat{n} = \hat{x}_i  \oint_{\partial V} f n_i = \hat{x}_i \int_{V} \partial_i f =  \int_{V} \hat{x}_i \partial_i f = \int_{V} \nabla \vec{f} \ , $$
+
+having (1) exploited the freedom to put unit vectors of the Cartesian basis inside the integrals, as they're unifrom - constant in space -, and (2) recognized the expression of the [gradient of a scalar field expressed using Cartesian coordinates](tensor:calculus:cartesian:differential-operators:gradient), as shown in {prf:ref}`cartesian:gradient:scalar`.
+
+<!--
+Here the surface integral is evaluated using Cartesian coordinates, and each component is computed separately.
+The surface integral of the $z$-component can be written as the contribution of an upper and a lower surface, having splitted the surface $\partial V$ is splitted in an upper and lower surface depending on the sign of the projection of the local unit normal vector $\hat{n}$ with the unit vector $\hat{z}$ associated with the $z$-coordinate of a set of Cartesian coordinates $x,y,z$. Each elementary contribution of this pair of surface, can be parametrized using $x, y$ coordinates, and the 
+
+$$\begin{aligned}
+  \hat{z} \cdot \oint_S f \hat{n} = \oint_{S} f n_z 
+  & = \int_{S_z^+} f n_z + \int_{S_z^-} f n_z = \\
+  & = \int_{\Omega_{x,y}} \big( f(x,y,z^+(x,y)) - f(x,y,z^-(x,y)) \big) dx dy = && (1) \\
+  & = \int_{\Omega_{x,y}} \int_{z={z^-(x,y)}}^{z^+(x,y)} \dfrac{\partial}{\partial z} f(x,y,z) \, dz \, dx \, dy = && (2) \\
+  & = \int_{\vec{r} \in V} \dfrac{\partial}{\partial z} f(x,y,z) \ .
+\end{aligned}$$
+
+having (1) recognized the integral in $z$ between the lower and upper surfaces $z^-(x,y)$, $z^+(x,y)$, and the volume integral evaluated with a parametrization with Cartesian coordinates. 
+
+Repeating the same process for $x$ and $y$ coordinates the desired result is proved, explicitly
+
+$$\begin{aligned}
+  \oint_{\partial V} f \hat{n}
+  & = \hat{x} \hat{x} \cdot \oint_{\partial V} f \hat{n} +  \hat{y} \hat{y} \cdot \oint_{\partial V} f \hat{n} + \hat{z} \hat{z} \cdot \oint_{\partial V} f \hat{n} = \\
+  & = \hat{x} \int_V \partial_x f +  \hat{y} \int_V \partial_y f + \hat{z} \int_V \partial_z f = && (1) \\
+  & = \int_V \left( \hat{x} \partial_x f +  \hat{y} \partial_y f + \hat{z}  \partial_z f \right) = \int_V \nabla f && (2) \ ,
+\end{aligned}$$
+
+having (1) exploited the freedom to put unit vectors of the Cartesian basis inside the integrals, as they're unifrom - constant in space -, and (2) recognized the expression of the [gradient of a scalar field expressed using Cartesian coordinates](tensor:calculus:cartesian:differential-operators:gradient), as shown in {prf:ref}`cartesian:gradient:scalar`.
+-->
+
+```
 
 (tensor:calculus:integrals:theorems:divergence)=
 #### Divergence theorem
 
+...**todo** *assumptions*...
+
 $$\int_{V} \nabla \cdot \vec{f} = \oint_{\partial V} \vec{f} \cdot \hat{n}$$
+
+```{dropdown} Proof
+:open:
+
+This result immediately follows from Lemma 1 {prf:ref}`lemma-1`
+
+$$\oint_{\partial V} \vec{f} \cdot \hat{n} =  \oint_{\partial V} f_i n_i = \int_{V} \partial_i f_i =  \int_{V} \nabla  \cdot \vec{f} \ , $$
+
+having (1) exploited the freedom to put unit vectors of the Cartesian basis inside the integrals, as they're unifrom - constant in space -, and (2) recognized the expression of the [divergence of a vector field expressed using Cartesian coordinates](tensor:calculus:cartesian:differential-operators:divergence), as shown in {prf:ref}`cartesian:divergence:vector`.
+
+<!--
+Using Cartesian coordinates to write the scalar product 
+
+$$\vec{f} \cdot \hat{n} = f_x n_x + f_y n_y + f_z n_z \ ,$$
+
+and repeating the same procedure used in the proof of the [gradient theorem](tensor:calculus:integrals:theorems:gradient) for each term in the sum, the proof immediately follows
+
+$$\begin{aligned}
+  \oint_{\partial V} \vec{f} \cdot \hat{n} 
+  & =  \oint_{\partial V} \big( f_x n_x + f_y n_y + f_z n_z  \big) = \\
+  & =  \int_{V} \big( \partial_x f_x + \partial_y f_y + \partial_z f_z \big) = \int_V \nabla \cdot \vec{f} \ .
+\end{aligned}$$
+
+having recognized the expression of the [divergence of a vector field expressed using Cartesian coordinates](tensor:calculus:cartesian:differential-operators:divergence), as shown in {prf:ref}`cartesian:divergence:vector`.
+-->
+
+```
 
 (tensor:calculus:integrals:theorems:curl)=
 #### Curl theorem
 
+...**todo** *assumptions*...
+
 $$\int_{S} \left[ \nabla \times \vec{f} \right] \cdot \hat{n} = \oint_{\partial S} \vec{f} \cdot \hat{t}$$
+
+```{dropdown} Proof
+:open:
+
+This proof seamlessly follows from Lemma {prf:ref}`lemma-2`, applied to all the Cartesian contributions of the vector field
+
+$$\vec{f} = f_x \hat{x} + f_y \hat{y} + f_z \hat{z} \ ,$$
+
+as
+
+$$\int_S \left( \nabla \times \vec{f} \right) \cdot \hat{n} = \int_S \left( \nabla \times f_i \hat{x}_i \right) \cdot \hat{n} = \oint_{\partial S} f_i t_i = \oint_{\partial S} \vec{f} \cdot \hat{t} \ .$$
+
+
+
+<!--
+is performed using Cartesian coordinates, and evaluating the curl of each component of the vector field 
+
+$$\vec{f} = f_x \hat{x} + f_y \hat{y} + f_z \hat{z} \ ,$$
+
+at a time and exploting linearity to put together these results. Let's evaluate the surface integral for a vector field $f_z \hat{z}$
+
+$$\begin{aligned}
+  \int_S \hat{n} \cdot \left( \nabla \times ( f_z \hat{z} ) \right) 
+  & = \int_S \left( n_x \hat{x} + n_y \hat{y} + n_z \hat{z} \right) \cdot \left( \hat{x} \partial_y f_z - \hat{y} \partial_x f_z \right) =  \\
+  & = \int_S \left( n_x \partial_y f_z - n_y \partial_x f_z \right) = && (1) \\
+  & = \int_{\Omega_{yz}} \partial_y f_z \, dy \, dz - \int_{\Omega_{xz}} \partial_x f_z  \, dx \, dz = && (2) \\
+  & = \int_{\partial \Omega_{yz}} f_z \, dz + \int_{\partial \Omega_{xz}} f_z \, dz
+\end{aligned}$$
+-->
+
+```
 

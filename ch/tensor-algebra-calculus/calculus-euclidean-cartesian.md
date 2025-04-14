@@ -24,12 +24,12 @@ $$\Gamma_{ab}^c = 0 \qquad , \qquad \forall a,b,c = 1:3 \ .$$
 (tensor:calculus:cartesian:differential-operators)=
 ## Differential operators
 (tensor:calculus:cartesian:differential-operators:gradient)=
-
 ### Gradient
-(tensor:calculus:cartesian:differential-operators:directional-der)=
+<!-- (tensor:calculus:cartesian:differential-operators:directional-der)= -->
 
 ```{prf:example} Gradient of a scalar field
 :class: dropdown
+:label: cartesian:gradient:scalar
 
 $$\nabla F = \hat{x} \, \partial_x F + \hat{y} \, \partial_y F + \hat{z} \, \partial_z F_z$$
 
@@ -54,6 +54,7 @@ $$\begin{aligned}
 ### Divergence
 ```{prf:example} Divergence of a vector field
 :class: dropdown
+:label: cartesian:divergence:vector
 
 $$\begin{aligned}
  \nabla \cdot F 

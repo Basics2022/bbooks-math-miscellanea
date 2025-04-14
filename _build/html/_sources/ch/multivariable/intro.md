@@ -34,6 +34,13 @@ $$\begin{aligned}
   & = - \oint_{\partial S} F(x,y) dx 
 \end{aligned}$$
 
+```{dropdown} Proof for generic domain
+:open:
+
+**todo**
+
+```
+
 In a simple domain in  $y$, so that the closed contour $\partial S$ is delimited by the curves $x=X_1(y)$, $x=X_2(y) > X_1(y)$ for $y \in [y_1, y_2]$,
 
 $$\begin{aligned}
