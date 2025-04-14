@@ -414,45 +414,79 @@ document.write(`
   <div class="tex2jax_ignore mathjax_ignore section" id="time-derivative-of-integrals-over-moving-domains">
 <span id="tensor-calculus-time-derivative-of-integrals"></span><h1><span class="section-number">8. </span>Time derivative of integrals over moving domains<a class="headerlink" href="#time-derivative-of-integrals-over-moving-domains" title="Permalink to this heading">#</a></h1>
 <p>Some results about time derivatives over moving domains are collected here.</p>
+<p>Link to <a class="reference external" href="https://basics.altervista.org/test/Math/time_derivatives_of_integrals/time_derivatives_of_integrals.html">hand-written notes</a>.</p>
 <div class="section" id="volume-density">
 <span id="tensor-calculus-time-derivative-of-integrals-volume-density"></span><h2><span class="section-number">8.1. </span>Volume density<a class="headerlink" href="#volume-density" title="Permalink to this heading">#</a></h2>
 <p><strong>Reynolds transport theorem.</strong>
 Given a volume <span class="math notranslate nohighlight">\(V(t)\)</span> with boundary <span class="math notranslate nohighlight">\(\partial V(t)\)</span>, whose points <span class="math notranslate nohighlight">\(\vec{r} \in \partial V(t)\)</span> have velocity <span class="math notranslate nohighlight">\(\vec{v}_b\)</span>,</p>
 <div class="math notranslate nohighlight">
 \[\dfrac{d}{dt} \int_{V(t)} f = \int_{V(t)} \dfrac{\partial f}{\partial t} + \oint_{\partial V(t)} f \vec{v}_b \cdot \hat{n} \ .\]</div>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
 <summary class="sd-summary-title sd-card-header">
 “Proof”<div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \dfrac{d}{dt} \int_{v(t)} f(\vec{r}, t) \, dt 
+  &amp; = \lim_{\Delta t \rightarrow 0 } \frac{1}{\Delta t} \left[ \int_{v(t+\Delta t)} f(\vec{r}, t+\Delta t) - \int_{v(t)} f(\vec{r}, t)  \right] = \\
+  &amp; = \lim_{\Delta t \rightarrow 0 } \frac{1}{\Delta t} \left[ \int_{v(t)} \big\{ f(\vec{r}, t+\Delta t) - f(\vec{r}, t) \big\} + \int_{\Delta v(t;\Delta t)} f(\vec{r}, t) \right] = \\
+  &amp; = \lim_{\Delta t \rightarrow 0 } \frac{1}{\Delta t} \left[ \int_{v(t)} \left\{ \Delta t \,  \dfrac{ \partial f}{\partial t}( \vec{r}, t) + o(\Delta t) \right\} + \oint_{\partial v(t)} \left\{ \Delta t \, \vec{v}_b \cdot \hat{n} \, f(\vec{r}, t) + o(\Delta t) \right\} \right] = \\
+  &amp; = \int_{v(t)} \dfrac{\partial f}{\partial t} + \oint_{\partial v(t)} f \vec{v}_b \cdot \hat{n} \ .
+\end{aligned}\end{split}\]</div>
 </div>
 </details></div>
 <div class="section" id="flux-across-a-surface">
 <span id="tensor-calculus-time-derivative-of-integrals-flux"></span><h2><span class="section-number">8.2. </span>Flux across a surface<a class="headerlink" href="#flux-across-a-surface" title="Permalink to this heading">#</a></h2>
 <div class="math notranslate nohighlight">
 \[\frac{d}{dt} \int_{S(t)} \vec{f} \cdot \hat{n} = \int_{S(t)} \frac{\partial \vec{f}}{\partial t} \cdot \hat{n} + \int_{S(t)} \nabla \cdot \vec{f} \,\, \vec{v}_b \cdot \hat{n} - \int_{\partial S(t)} \vec{v}_b \times \vec{f} \cdot \hat{t} \]</div>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
 <summary class="sd-summary-title sd-card-header">
 “Proof”<div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \dfrac{d}{dt} \int_{s(t)} \vec{f}(\vec{r}, t) \cdot \hat{n} \, dt 
+  &amp; = \lim_{\Delta t \rightarrow 0 } \frac{1}{\Delta t} \left[ \int_{s(t+\Delta t)} \vec{f}(\vec{r}, t+\Delta t) \cdot \hat{n}(\vec{r}, t+\Delta t) - \int_{s(t)} f(\vec{r}, t) \cdot \hat{n}(\vec{r}, t) \right] = \\
+  &amp; = \lim_{\Delta t \rightarrow 0 } \frac{1}{\Delta t} \left[ \int_{s(t+\Delta t)} \vec{f}(\vec{r}, t+\Delta t) \cdot \hat{n}(\vec{r}, t+\Delta t) - \int_{s(t)} f(\vec{r}, t) \cdot \hat{n}(\vec{r}, t) \right. + \\
+  &amp; \left. \qquad \qquad - \int_{s(t)} \vec{f}(\vec{r}, t + \Delta t) \cdot \hat{n}(\vec{r}, t) + \int_{s(t)} \vec{f}(\vec{r}, t + \Delta t) \cdot \hat{n}(\vec{r}, t) \right] = \\
+  &amp; = \lim_{\Delta t \rightarrow 0} \dfrac{1}{\Delta t} \left[ \int_{s(t)} \Delta t \dfrac{\partial \vec{f}}{\partial t} \cdot \hat{n} + o(\Delta t)  + \oint_{\partial \Delta v(t;\Delta t)} \vec{f} \cdot \hat{n} - \oint_{\partial s(t)} \Delta t \vec{f} \cdot \hat{t} \times \vec{v}_b \right]= \\
+  &amp; = \int_{s(t)} \dfrac{\partial \vec{f}}{\partial t} \cdot \hat{n} + \int_{s} \nabla \cdot \vec{f} \, \vec{v}_b \cdot \hat{n} - \oint_{\partial s(t)} \vec{v}_b \times \vec{f} \cdot \hat{t} \ .
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">having used</p>
+<div class="math notranslate nohighlight">
+\[\oint_{\partial \Delta v(t;\Delta t)} \vec{f} \cdot \hat{n} = \int_{\Delta v} \nabla \cdot \vec{f} = \Delta t \int_{s} \nabla \cdot \vec{f} \, \hat{n} \cdot \vec{v}_b + o(\Delta t)\]</div>
 </div>
 </details></div>
 <div class="section" id="work-line-integral-along-a-line">
 <span id="tensor-calculus-time-derivative-of-integrals-work"></span><h2><span class="section-number">8.3. </span>Work line integral along a line<a class="headerlink" href="#work-line-integral-along-a-line" title="Permalink to this heading">#</a></h2>
 <div class="math notranslate nohighlight">
 \[\frac{d}{dt} \int_{\ell(t)} \vec{f} \cdot \hat{t} =  \int_{\ell(t)} \frac{\partial \vec{f}}{\partial t} \cdot \hat{t} + \int_{\ell(t)} \nabla \times \vec{f} \cdot \vec{v}_b \times \hat{t} + \vec{f}_B \cdot \vec{v}_B - \vec{f}_A \cdot \vec{v}_A \]</div>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
 <summary class="sd-summary-title sd-card-header">
 “Proof”<div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \dfrac{d}{dt} \int_{\ell(t)} \vec{f}(\vec{r}, t) \cdot \hat{t}(\vec{r},t) \, dt 
+  &amp; = \lim_{\Delta t \rightarrow 0 } \frac{1}{\Delta t} \left[ \int_{\ell(t+\Delta t)} \vec{f}(\vec{r}, t+\Delta t) \cdot \hat{t}(\vec{r}, t+\Delta t) - \int_{\ell(t)} \vec{f}(\vec{r}, t) \cdot \hat{t}(\vec{r}, t) \right] = \\
+  &amp; = \lim_{\Delta t \rightarrow 0 } \frac{1}{\Delta t} \left[ \int_{\ell(t+\Delta t)} \vec{f}(\vec{r}, t+\Delta t) \cdot \hat{t}(\vec{r}, t+\Delta t) - \int_{\ell(t)} f(\vec{r}, t) \cdot \hat{t}(\vec{r}, t) \right. + \\
+  &amp; \left. \qquad \qquad - \int_{\ell(t)} \vec{f}(\vec{r}, t + \Delta t) \cdot \hat{t}(\vec{r}, t) + \int_{\ell(t)} \vec{f}(\vec{r}, t + \Delta t) \cdot \hat{t}(\vec{r}, t) \right] = \\
+  &amp; = \lim_{\Delta t \rightarrow 0 } \frac{1}{\Delta t} \left[ \int_{\ell(t+\Delta t)} \Delta t \, \dfrac{\partial \vec{f}}{\partial t}(\vec{r}, t+\Delta t) \cdot \hat{t}(\vec{r}, t+\Delta t) + \right. \\
+  &amp; \left. \qquad \qquad + \oint_{\partial \Delta s(t)} f(\vec{r}, t) \cdot \hat{t}(\vec{r}, t) - \Delta t \vec{f}_A \cdot \vec{v}_A + \Delta t \vec{f}_B \cdot \vec{v}_B + o(\Delta t) \right] =  \\
+  &amp; = \int_{\ell(t)} \frac{\partial \vec{f}}{\partial t} \cdot \hat{t} + \int_{\ell(t)} \nabla \times \vec{f} \cdot \vec{v}_b \times \hat{t} + \vec{f}_B \cdot \vec{v}_B - \vec{f}_A \cdot \vec{v}_A  \ .
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">having used</p>
+<div class="math notranslate nohighlight">
+\[\oint_{\partial \Delta s(t;\Delta t)} \vec{f} \cdot \hat{t} = \int_{\Delta s} \hat{n} \cdot \nabla \times \vec{f} = \Delta t \int_{\ell} \nabla \times \vec{f} \cdot \hat{v}_b \times \vec{t} + o(\Delta t)\]</div>
 </div>
 </details></div>
 </div>
