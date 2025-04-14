@@ -1,7 +1,9 @@
 (tensor:calculus:time-derivative-of-integrals)=
 # Time derivative of integrals over moving domains
 
-Some results about time derivatives over moving domains are collected here. 
+Some results about time derivatives of integrals over moving domains are collected here. These results are useful for writing balance equations of physical quantities in integral form over arbitrary domains, like:
+- integral form of balance equations in continuum mechanics, see [Continuum Mechanics](https://basics2022.github.io/bbooks-physics-continuum-mechanics/intro.html):[Governing Equations](https://basics2022.github.io/bbooks-physics-continuum-mechanics/ch/continuum/governing-equations.html):[Integral balance equations for arbitrary domains](https://basics2022.github.io/bbooks-physics-continuum-mechanics/ch/continuum/balance-primary-integral.html#integral-balance-equations-for-arbitrary-domains-arbitrary-description)
+- integral form of Maxwell's equations governing classical electromagnetism, see [Electromagnetism](https://basics2022.github.io/bbooks-physics-electromagnetism/intro.html):[Principles of Classical Electromagnetism](https://basics2022.github.io/bbooks-physics-electromagnetism/ch/principles.html):[derivation of balance equations for arbitary volume, starting from equations for a control volume](https://basics2022.github.io/bbooks-physics-electromagnetism/ch/principles.html#principles-in-integral-form-electromagnetic-equations-and-galilean-relativity)
 
 
 Link to [hand-written notes](https://basics.altervista.org/test/Math/time_derivatives_of_integrals/time_derivatives_of_integrals.html).
@@ -66,7 +68,8 @@ $$\begin{aligned}
   & = \lim_{\Delta t \rightarrow 0 } \frac{1}{\Delta t} \left[ \int_{\ell(t+\Delta t)} \vec{f}(\vec{r}, t+\Delta t) \cdot \hat{t}(\vec{r}, t+\Delta t) - \int_{\ell(t)} f(\vec{r}, t) \cdot \hat{t}(\vec{r}, t) \right. + \\
   & \left. \qquad \qquad - \int_{\ell(t)} \vec{f}(\vec{r}, t + \Delta t) \cdot \hat{t}(\vec{r}, t) + \int_{\ell(t)} \vec{f}(\vec{r}, t + \Delta t) \cdot \hat{t}(\vec{r}, t) \right] = \\
   & = \lim_{\Delta t \rightarrow 0 } \frac{1}{\Delta t} \left[ \int_{\ell(t+\Delta t)} \Delta t \, \dfrac{\partial \vec{f}}{\partial t}(\vec{r}, t+\Delta t) \cdot \hat{t}(\vec{r}, t+\Delta t) + \right. \\
-  & \left. \qquad \qquad + \oint_{\partial \Delta s(t)} f(\vec{r}, t) \cdot \hat{t}(\vec{r}, t) - \Delta t \vec{f}_A \cdot \vec{v}_A + \Delta t \vec{f}_B \cdot \vec{v}_B + o(\Delta t) \right] \\
+  & \left. \qquad \qquad + \oint_{\partial \Delta s(t)} f(\vec{r}, t) \cdot \hat{t}(\vec{r}, t) - \Delta t \vec{f}_A \cdot \vec{v}_A + \Delta t \vec{f}_B \cdot \vec{v}_B + o(\Delta t) \right] =  \\
+  & = \int_{\ell(t)} \frac{\partial \vec{f}}{\partial t} \cdot \hat{t} + \int_{\ell(t)} \nabla \times \vec{f} \cdot \vec{v}_b \times \hat{t} + \vec{f}_B \cdot \vec{v}_B - \vec{f}_A \cdot \vec{v}_A  \ .
 \end{aligned}$$
 
 

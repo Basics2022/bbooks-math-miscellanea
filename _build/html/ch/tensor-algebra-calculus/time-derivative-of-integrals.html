@@ -75,6 +75,15 @@ const thebe_selector_output = ".output, .cell_output"
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPXX63Z3XR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-JPXX63Z3XR');
+</script>
+
   
   
   <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
@@ -404,7 +413,11 @@ document.write(`
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="time-derivative-of-integrals-over-moving-domains">
 <span id="tensor-calculus-time-derivative-of-integrals"></span><h1><span class="section-number">8. </span>Time derivative of integrals over moving domains<a class="headerlink" href="#time-derivative-of-integrals-over-moving-domains" title="Permalink to this heading">#</a></h1>
-<p>Some results about time derivatives over moving domains are collected here.</p>
+<p>Some results about time derivatives of integrals over moving domains are collected here. These results are useful for writing balance equations of physical quantities in integral form over arbitrary domains, like:</p>
+<ul class="simple">
+<li><p>integral form of balance equations in continuum mechanics, see <a class="reference external" href="https://basics2022.github.io/bbooks-physics-continuum-mechanics/intro.html">Continuum Mechanics</a>:<a class="reference external" href="https://basics2022.github.io/bbooks-physics-continuum-mechanics/ch/continuum/governing-equations.html">Governing Equations</a>:<a class="reference external" href="https://basics2022.github.io/bbooks-physics-continuum-mechanics/ch/continuum/balance-primary-integral.html#integral-balance-equations-for-arbitrary-domains-arbitrary-description">Integral balance equations for arbitrary domains</a></p></li>
+<li><p>integral form of Maxwell’s equations governing classical electromagnetism, see <a class="reference external" href="https://basics2022.github.io/bbooks-physics-electromagnetism/intro.html">Electromagnetism</a>:<a class="reference external" href="https://basics2022.github.io/bbooks-physics-electromagnetism/ch/principles.html">Principles of Classical Electromagnetism</a>:<a class="reference external" href="https://basics2022.github.io/bbooks-physics-electromagnetism/ch/principles.html#principles-in-integral-form-electromagnetic-equations-and-galilean-relativity">derivation of balance equations for arbitary volume, starting from equations for a control volume</a></p></li>
+</ul>
 <p>Link to <a class="reference external" href="https://basics.altervista.org/test/Math/time_derivatives_of_integrals/time_derivatives_of_integrals.html">hand-written notes</a>.</p>
 <div class="section" id="volume-density">
 <span id="tensor-calculus-time-derivative-of-integrals-volume-density"></span><h2><span class="section-number">8.1. </span>Volume density<a class="headerlink" href="#volume-density" title="Permalink to this heading">#</a></h2>
@@ -472,7 +485,8 @@ Given a volume <span class="math notranslate nohighlight">\(V(t)\)</span> with b
   &amp; = \lim_{\Delta t \rightarrow 0 } \frac{1}{\Delta t} \left[ \int_{\ell(t+\Delta t)} \vec{f}(\vec{r}, t+\Delta t) \cdot \hat{t}(\vec{r}, t+\Delta t) - \int_{\ell(t)} f(\vec{r}, t) \cdot \hat{t}(\vec{r}, t) \right. + \\
   &amp; \left. \qquad \qquad - \int_{\ell(t)} \vec{f}(\vec{r}, t + \Delta t) \cdot \hat{t}(\vec{r}, t) + \int_{\ell(t)} \vec{f}(\vec{r}, t + \Delta t) \cdot \hat{t}(\vec{r}, t) \right] = \\
   &amp; = \lim_{\Delta t \rightarrow 0 } \frac{1}{\Delta t} \left[ \int_{\ell(t+\Delta t)} \Delta t \, \dfrac{\partial \vec{f}}{\partial t}(\vec{r}, t+\Delta t) \cdot \hat{t}(\vec{r}, t+\Delta t) + \right. \\
-  &amp; \left. \qquad \qquad + \oint_{\partial \Delta s(t)} f(\vec{r}, t) \cdot \hat{t}(\vec{r}, t) - \Delta t \vec{f}_A \cdot \vec{v}_A + \Delta t \vec{f}_B \cdot \vec{v}_B + o(\Delta t) \right] \\
+  &amp; \left. \qquad \qquad + \oint_{\partial \Delta s(t)} f(\vec{r}, t) \cdot \hat{t}(\vec{r}, t) - \Delta t \vec{f}_A \cdot \vec{v}_A + \Delta t \vec{f}_B \cdot \vec{v}_B + o(\Delta t) \right] =  \\
+  &amp; = \int_{\ell(t)} \frac{\partial \vec{f}}{\partial t} \cdot \hat{t} + \int_{\ell(t)} \nabla \times \vec{f} \cdot \vec{v}_b \times \hat{t} + \vec{f}_B \cdot \vec{v}_B - \vec{f}_A \cdot \vec{v}_A  \ .
 \end{aligned}\end{split}\]</div>
 <p class="sd-card-text">having used</p>
 <div class="math notranslate nohighlight">
