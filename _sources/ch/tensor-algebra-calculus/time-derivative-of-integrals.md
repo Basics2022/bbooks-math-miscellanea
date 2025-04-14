@@ -1,7 +1,9 @@
 (tensor:calculus:time-derivative-of-integrals)=
 # Time derivative of integrals over moving domains
 
-Some results about time derivatives over moving domains are collected here. 
+Some results about time derivatives of integrals over moving domains are collected here. These results are useful for writing balance equations of physical quantities in integral form over arbitrary domains, like:
+- integral form of balance equations in continuum mechanics, see [Continuum Mechanics](https://basics2022.github.io/bbooks-physics-continuum-mechanics/intro.html):[Governing Equations](https://basics2022.github.io/bbooks-physics-continuum-mechanics/ch/continuum/governing-equations.html):[Integral balance equations for arbitrary domains](https://basics2022.github.io/bbooks-physics-continuum-mechanics/ch/continuum/balance-primary-integral.html#integral-balance-equations-for-arbitrary-domains-arbitrary-description)
+- integral form of Maxwell's equations governing classical electromagnetism, see [derivation of balance equations for arbitary volume, starting from equations for a control volume](https://basics2022.github.io/bbooks-physics-electromagnetism/ch/principles.html#principles-in-integral-form-electromagnetic-equations-and-galilean-relativity)
 
 
 Link to [hand-written notes](https://basics.altervista.org/test/Math/time_derivatives_of_integrals/time_derivatives_of_integrals.html).
