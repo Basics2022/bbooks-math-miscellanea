@@ -742,61 +742,47 @@ Given a regular parametrization of the curve <span class="math notranslate nohig
 <span id="tensor-calculus-integrals-theorems"></span><h3><span class="section-number">7.4.4. </span>Theorems<a class="headerlink" href="#theorems" title="Permalink to this heading">#</a></h3>
 <div class="section" id="two-useful-lemmas">
 <h4><span class="section-number">7.4.4.1. </span>Two useful lemmas<a class="headerlink" href="#two-useful-lemmas" title="Permalink to this heading">#</a></h4>
-<p>Il prossimo lemma è alla base dei più rinomati <a class="reference internal" href="#tensor-calculus-integrals-theorems-divergence"><span class="std std-ref">teorema della divergenza</span></a> e <a class="reference internal" href="#tensor-calculus-integrals-theorems-gradient"><span class="std std-ref">teorema del gradiente</span></a>:
-la dimostrazione di questi due teoremi si basa su un facile uso ripetuto di questo lemma.
-Data la facilità di questo lemma e la sua frequente applicazione nella scrittura di bilanci e
-in generale di integrazione per parti, è molto conveniente ricordarsi questo semplice risultato.</p>
+<p>The next lemma forms the foundation of the well-known <a class="reference internal" href="#tensor-calculus-integrals-theorems-divergence"><span class="std std-ref">divergence theorem</span></a> and <a class="reference internal" href="#tensor-calculus-integrals-theorems-gradient"><span class="std std-ref">gradient theorem</span></a>:<br />
+the proof of these two theorems is based on a straightforward repeated use of this lemma.<br />
+Given how simple this lemma is and how frequently it is applied in writing balances and, more generally, in integration by parts, it is very convenient to remember this simple result.</p>
 <div class="proof theorem admonition" id="lemma-1">
 <p class="admonition-title"><span class="caption-number">Theorem 7.1 </span> (Lemma 1.)</p>
 <div class="theorem-content section" id="proof-content">
-<p>Sotto le ipotesi del <a class="reference internal" href="../multivariable/intro.html#multivariable-calculus-green-lemma"><span class="std std-ref">lemma di Green nel piano</span></a>,</p>
+<p>Under the assumptions of <a class="reference internal" href="../multivariable/intro.html#multivariable-calculus-green-lemma"><span class="std std-ref">Green’s lemma in the plane</span></a>,</p>
 <div class="math notranslate nohighlight">
 \[
   \int_V \frac{\partial A}{\partial x_i} = \oint_S A n_i
 \]</div>
 </div>
-</div><!--
-\begin{minipage}{0.4\textwidth}
-\begin{center}
-\includegraphics[width=0.95\textwidth]{./fig/Div}
-\end{center}
-\end{minipage}
--->
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+</div><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Proof<div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Si segue un ragionamento molto simile a quello utilizzato per la dimostrazione del <a class="reference internal" href="../multivariable/intro.html#multivariable-calculus-green-lemma"><span class="std std-ref">lemma di Green nel piano</span></a>.
-Per <span class="math notranslate nohighlight">\({\partial A}/{\partial z}\)</span>:</p>
+<p class="sd-card-text">The reasoning closely follows the one used for the proof of <a class="reference internal" href="../multivariable/intro.html#multivariable-calculus-green-lemma"><span class="std std-ref">Green’s lemma in the plane</span></a>.<br />
+For <span class="math notranslate nohighlight">\({\partial A}/{\partial z}\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
 \int_V \frac{\partial A}{\partial z} = &amp;
 \int_R \int_{z = f_1(x,y)}^{z = f_2(x,y)} \frac{\partial A}{\partial z} dz dx dy = \\
-= &amp; \int_R [A(x,y,f_2(x,y)) - A(x,y,f_1(x,y))] dx dy %=  &amp; (dx dy = dR = \mathbf{\hat{z}} \cdot \mathbf{\hat{n}} dS) \\
+= &amp; \int_R [A(x,y,f_2(x,y)) - A(x,y,f_1(x,y))] dx dy
 \end{aligned}
 \end{split}\]</div>
-<p class="sd-card-text">Il passaggio più complicato è nel passare dall’integrale in <span class="math notranslate nohighlight">\((x,y) \in R\)</span> all’integrale sulla superficie <span class="math notranslate nohighlight">\(S\)</span>, bordo del
-volume <span class="math notranslate nohighlight">\(V\)</span>: l’elemento infinitesimo <span class="math notranslate nohighlight">\(dR\)</span> di
-area nel piano-xy è uguale a <span class="math notranslate nohighlight">\(dR = dx dy\)</span>; il disegno e la dimostrazione fanno riferimento a un volume \textit{semplice}
-(come nel caso di lemma di Green nel piano, è possibile generalizzare i risultati ottenuti per domini di forma generica):
-è possibile suddividere la superfice <span class="math notranslate nohighlight">\(S\)</span> nelle due ``semisuperfici’’ <span class="math notranslate nohighlight">\(S^+: z = f_2(x,y)\)</span> e <span class="math notranslate nohighlight">\(S^- z = f_1(x,y)\)</span> tali che
-<span class="math notranslate nohighlight">\(S^+ \cup S^- = S\)</span> e che la normale, uscente dal volume,
-abbia componente in z positiva e negativa rispettivamente (<span class="math notranslate nohighlight">\(S^+ : \mathbf{\hat{n}}\cdot\mathbf{\hat{z}}&gt;0\)</span>, <span class="math notranslate nohighlight">\(S^- : \mathbf{\hat{n}}
- \cdot\mathbf{\hat{z}}&lt;0\)</span>).
-La superficie elementare <span class="math notranslate nohighlight">\(dR\)</span> è inoltre la proiezione dell’elemento di superficie <span class="math notranslate nohighlight">\(dS\)</span> sul piano-xy: in generale <span class="math notranslate nohighlight">\(dS\)</span> non sarà
-parallela al piano-xy e quindi sarà maggiore di <span class="math notranslate nohighlight">\(dR\)</span>. Non è difficile dimostrare che</p>
+<p class="sd-card-text">The most complex step is transitioning from the integral over <span class="math notranslate nohighlight">\((x,y) \in R\)</span> to the surface integral over <span class="math notranslate nohighlight">\(S\)</span>, the boundary of volume <span class="math notranslate nohighlight">\(V\)</span>: the infinitesimal area element <span class="math notranslate nohighlight">\(dR\)</span> in the xy-plane is equal to <span class="math notranslate nohighlight">\(dR = dx dy\)</span>; the drawing and the proof refer to a <em>simple</em> volume (as in the case of Green’s lemma in the plane, the results can be generalized to domains of arbitrary shape).<br />
+It is possible to divide the surface <span class="math notranslate nohighlight">\(S\)</span> into two “halves” <span class="math notranslate nohighlight">\(S^+: z = f_2(x,y)\)</span> and <span class="math notranslate nohighlight">\(S^-: z = f_1(x,y)\)</span> such that<br />
+<span class="math notranslate nohighlight">\(S^+ \cup S^- = S\)</span>, and the outward normal has positive and negative z-components respectively (<span class="math notranslate nohighlight">\(S^+: \mathbf{\hat{n}}\cdot\mathbf{\hat{z}}&gt;0\)</span>, <span class="math notranslate nohighlight">\(S^-: \mathbf{\hat{n}} \cdot\mathbf{\hat{z}}&lt;0\)</span>).<br />
+The surface element <span class="math notranslate nohighlight">\(dR\)</span> is also the projection of the surface element <span class="math notranslate nohighlight">\(dS\)</span> onto the xy-plane: in general, <span class="math notranslate nohighlight">\(dS\)</span> will not be parallel to the xy-plane and thus will be larger than <span class="math notranslate nohighlight">\(dR\)</span>. It’s not difficult to show that:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
  dx dy = dR =
  \begin{cases}
-   dS \mathbf{\hat{z}} \cdot \mathbf{\hat{n}}  &amp; \text{su $S^+$} \\
-  - dS \mathbf{\hat{z}} \cdot \mathbf{\hat{n}}  &amp; \text{su $S^-$} \\
+   dS \mathbf{\hat{z}} \cdot \mathbf{\hat{n}}  &amp; \text{on $S^+$} \\
+  - dS \mathbf{\hat{z}} \cdot \mathbf{\hat{n}}  &amp; \text{on $S^-$} \\
  \end{cases}
 \end{split}\]</div>
-<p class="sd-card-text">Si può quindi ora continuare nella dimostrazione</p>
+<p class="sd-card-text">We can now continue the proof:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{aligned}
@@ -807,25 +793,16 @@ parallela al piano-xy e quindi sarà maggiore di <span class="math notranslate n
 \end{aligned}
 \end{split}\]</div>
 </div>
-</details><p>Come il lemma precedente è alla base della dimostrazione del <a class="reference internal" href="#tensor-calculus-integrals-theorems-gradient"><span class="std std-ref">teorema del gradiente</span></a> e del <a class="reference internal" href="#tensor-calculus-integrals-theorems-divergence"><span class="std std-ref">teorema della divergenza</span></a>,
-il lemma successivo è alla base della dimostrazione del <a class="reference internal" href="#tensor-calculus-integrals-theorems-curl"><span class="std std-ref">teorema del rotore</span></a>.</p>
+</details><p>Just as the previous lemma forms the basis for the proof of the <a class="reference internal" href="#tensor-calculus-integrals-theorems-gradient"><span class="std std-ref">gradient theorem</span></a> and the <a class="reference internal" href="#tensor-calculus-integrals-theorems-divergence"><span class="std std-ref">divergence theorem</span></a>,<br />
+the following lemma forms the basis for the proof of the <a class="reference internal" href="#tensor-calculus-integrals-theorems-curl"><span class="std std-ref">curl theorem</span></a>.</p>
 <div class="proof theorem admonition" id="lemma-2">
 <p class="admonition-title"><span class="caption-number">Theorem 7.2 </span> (Lemma 2.)</p>
 <div class="theorem-content section" id="proof-content">
-<p>Sotto le ipotesi del <a class="reference internal" href="../multivariable/intro.html#multivariable-calculus-green-lemma"><span class="std std-ref">lemma di Green nel piano</span></a>,</p>
+<p>Under the assumptions of <a class="reference internal" href="../multivariable/intro.html#multivariable-calculus-green-lemma"><span class="std std-ref">Green’s lemma in the plane</span></a>,</p>
 <div class="math notranslate nohighlight">
 \[
   \int_S [\mathbf{\nabla} \times (A \mathbf{\hat{e}_i})] \cdot \mathbf{\hat{n}} = \oint_{\gamma} A dx_i
 \]</div>
-<!--
-&
-\begin{minipage}{0.4\textwidth}
-\begin{center}
-  \includegraphics[width=0.95\textwidth]{./fig/Rot}
-\end{center}
-\end{minipage}
-\end{tabular}
-%-->
 </div>
 </div><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
@@ -834,30 +811,29 @@ Proof<div class="sd-summary-down docutils">
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Per <span class="math notranslate nohighlight">\(A\mathbf{\hat{e}_x}\)</span>, <span class="math notranslate nohighlight">\({\nabla} \times (A \mathbf{\hat{e}_x}) =
+<p class="sd-card-text">For <span class="math notranslate nohighlight">\(A\mathbf{\hat{e}_x}\)</span>, we have <span class="math notranslate nohighlight">\({\nabla} \times (A \mathbf{\hat{e}_x}) =
 {\partial A}/{\partial z} \mathbf{\hat{e}_y} - {\partial A}/{\partial y} \mathbf{\hat{e}_z}\)</span>.
-Si scrive la superficie S in forma parametrica come: <span class="math notranslate nohighlight">\(\mathbf{r} = x\mathbf{\hat{e}_x} +
-y\mathbf{\hat{e}_y} + z(x,y)\mathbf{\hat{e}_z}\)</span>. Il vettore <span class="math notranslate nohighlight">\({\partial \mathbf{r}}/{\partial y} \mathbf{\hat{e}_y} +
-{\partial z}/{\partial y} \mathbf{\hat{e}_z} \)</span> è parallelo alla
-superficie S e quindi perpendicolare alla normale <span class="math notranslate nohighlight">\(\mathbf{\hat{n}}\)</span>:</p>
+The surface <span class="math notranslate nohighlight">\(S\)</span> is written in parametric form as: <span class="math notranslate nohighlight">\(\mathbf{r} = x\mathbf{\hat{e}_x} +
+y\mathbf{\hat{e}_y} + z(x,y)\mathbf{\hat{e}_z}\)</span>. The vector <span class="math notranslate nohighlight">\({\partial \mathbf{r}}/{\partial y} = \mathbf{\hat{e}_y} +
+{\partial z}/{\partial y} \mathbf{\hat{e}_z} \)</span> is tangent to the surface <span class="math notranslate nohighlight">\(S\)</span> and hence perpendicular to the normal <span class="math notranslate nohighlight">\(\mathbf{\hat{n}}\)</span>:</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}
+\[
 \begin{aligned}
-0 = \mathbf{\hat{n}} \cdot \displaystyle \left(\mathbf{\hat{e}_y} +
-\frac{\partial z}{\partial y} \mathbf{\hat{e}_z} \right) \\
+0 = \mathbf{\hat{n}} \cdot \left(\mathbf{\hat{e}_y} +
+\frac{\partial z}{\partial y} \mathbf{\hat{e}_z} \right)
 \end{aligned}
-\end{split}\]</div>
-<p class="sd-card-text">Scrivendo  <span class="math notranslate nohighlight">\([\mathbf{\nabla} \times (A \mathbf{\hat{e}_x})] \cdot \mathbf{\hat{n}}\)</span>:</p>
+\]</div>
+<p class="sd-card-text">Now writing <span class="math notranslate nohighlight">\([\mathbf{\nabla} \times (A \mathbf{\hat{e}_x})] \cdot \mathbf{\hat{n}}\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
  [\mathbf{\nabla} \times (A \mathbf{\hat{e}_x})] \cdot \mathbf{\hat{n}} =
   \frac{\partial A}{\partial z} \mathbf{\hat{e}_y} \cdot \mathbf{\hat{n}}
    - \frac{\partial A}{\partial y} \mathbf{\hat{e}_z}\cdot \mathbf{\hat{n}} =
-  - \displaystyle\left[ \frac{\partial A}{\partial z} \frac{\partial z}{\partial y} +
+  - \left[ \frac{\partial A}{\partial z} \frac{\partial z}{\partial y} +
   \frac{\partial A}{\partial y}  \right] \mathbf{\hat{e}_z}\cdot \mathbf{\hat{n}}
 \]</div>
-<p class="sd-card-text">Se si riconosce <span class="math notranslate nohighlight">\(\frac{\partial A(x,y,z(x,y))}{\partial y} = \frac{\partial A}{\partial z} \frac{\partial z}{\partial y} +
-  \frac{\partial A}{\partial y}\)</span>, si può scrivere:</p>
+<p class="sd-card-text">Recognizing that <span class="math notranslate nohighlight">\(\frac{\partial A(x,y,z(x,y))}{\partial y} = \frac{\partial A}{\partial z} \frac{\partial z}{\partial y} +
+  \frac{\partial A}{\partial y}\)</span>, we can write:</p>
 <div class="math notranslate nohighlight">
 \[
  \int_S [\mathbf{\nabla} \times (A \mathbf{\hat{e}_x})] \cdot \mathbf{\hat{n}} =
