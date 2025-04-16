@@ -334,45 +334,61 @@ $$\int_{\vec{r} \in V} F(\vec{r}) |d V| = \int_{(q^1,q^2,q^3) \in Q} F(\vec{r}(q
 ### Theorems
 
 #### Two useful lemmas
-The next lemma forms the foundation of the well-known [divergence theorem](tensor:calculus:integrals:theorems:divergence) and [gradient theorem](tensor:calculus:integrals:theorems:gradient):  
-the proof of these two theorems is based on a straightforward repeated use of this lemma.  
-Given how simple this lemma is and how frequently it is applied in writing balances and, more generally, in integration by parts, it is very convenient to remember this simple result.
+
+Il prossimo lemma è alla base dei più rinomati [teorema della divergenza](tensor:calculus:integrals:theorems:divergence) e [teorema del gradiente](tensor:calculus:integrals:theorems:gradient):
+ la dimostrazione di questi due teoremi si basa su un facile uso ripetuto di questo lemma.
+ Data la facilità di questo lemma e la sua frequente applicazione nella scrittura di bilanci e
+ in generale di integrazione per parti, è molto conveniente ricordarsi questo semplice risultato.
 
 ```{prf:theorem} Lemma 1.
 :label: lemma-1
 
-Under the assumptions of [Green's lemma in the plane](multivariable-calculus:green-lemma),
+Sotto le ipotesi del [lemma di Green nel piano](multivariable-calculus:green-lemma),
 
 $$
   \int_V \frac{\partial A}{\partial x_i} = \oint_S A n_i
 $$
+
 ```
+<!--
+\begin{minipage}{0.4\textwidth}
+\begin{center}
+\includegraphics[width=0.95\textwidth]{./fig/Div}
+\end{center}
+\end{minipage}
+-->
 
 ```{dropdown} Proof
-The reasoning closely follows the one used for the proof of [Green's lemma in the plane](multivariable-calculus:green-lemma).  
-For ${\partial A}/{\partial z}$:
+Si segue un ragionamento molto simile a quello utilizzato per la dimostrazione del [lemma di Green nel piano](multivariable-calculus:green-lemma).
+  Per ${\partial A}/{\partial z}$:
 
 $$\begin{aligned}
 \int_V \frac{\partial A}{\partial z} = &
 \int_R \int_{z = f_1(x,y)}^{z = f_2(x,y)} \frac{\partial A}{\partial z} dz dx dy = \\
-= & \int_R [A(x,y,f_2(x,y)) - A(x,y,f_1(x,y))] dx dy
+= & \int_R [A(x,y,f_2(x,y)) - A(x,y,f_1(x,y))] dx dy %=  & (dx dy = dR = \mathbf{\hat{z}} \cdot \mathbf{\hat{n}} dS) \\
 \end{aligned}
 $$
-
-The most complex step is transitioning from the integral over $(x,y) \in R$ to the surface integral over $S$, the boundary of volume $V$: the infinitesimal area element $dR$ in the xy-plane is equal to $dR = dx dy$; the drawing and the proof refer to a *simple* volume (as in the case of Green's lemma in the plane, the results can be generalized to domains of arbitrary shape).  
-It is possible to divide the surface $S$ into two "halves" $S^+: z = f_2(x,y)$ and $S^-: z = f_1(x,y)$ such that  
-$S^+ \cup S^- = S$, and the outward normal has positive and negative z-components respectively ($S^+: \mathbf{\hat{n}}\cdot\mathbf{\hat{z}}>0$, $S^-: \mathbf{\hat{n}} \cdot\mathbf{\hat{z}}<0$).  
-The surface element $dR$ is also the projection of the surface element $dS$ onto the xy-plane: in general, $dS$ will not be parallel to the xy-plane and thus will be larger than $dR$. It's not difficult to show that:
+ 
+Il passaggio più complicato è nel passare dall'integrale in $(x,y) \in R$ all'integrale sulla superficie $S$, bordo del
+ volume $V$: l'elemento infinitesimo $dR$ di
+ area nel piano-xy è uguale a $dR = dx dy$; il disegno e la dimostrazione fanno riferimento a un volume \textit{semplice}
+ (come nel caso di lemma di Green nel piano, è possibile generalizzare i risultati ottenuti per domini di forma generica):
+ è possibile suddividere la superfice $S$ nelle due ``semisuperfici'' $S^+: z = f_2(x,y)$ e $S^- z = f_1(x,y)$ tali che
+ $S^+ \cup S^- = S$ e che la normale, uscente dal volume,
+ abbia componente in z positiva e negativa rispettivamente ($S^+ : \mathbf{\hat{n}}\cdot\mathbf{\hat{z}}>0$, $S^- : \mathbf{\hat{n}}
+ \cdot\mathbf{\hat{z}}<0$).
+La superficie elementare $dR$ è inoltre la proiezione dell'elemento di superficie $dS$ sul piano-xy: in generale $dS$ non sarà
+ parallela al piano-xy e quindi sarà maggiore di $dR$. Non è difficile dimostrare che
 
 $$
  dx dy = dR =
  \begin{cases}
-   dS \mathbf{\hat{z}} \cdot \mathbf{\hat{n}}  & \text{on $S^+$} \\
-  - dS \mathbf{\hat{z}} \cdot \mathbf{\hat{n}}  & \text{on $S^-$} \\
+   dS \mathbf{\hat{z}} \cdot \mathbf{\hat{n}}  & \text{su $S^+$} \\
+  - dS \mathbf{\hat{z}} \cdot \mathbf{\hat{n}}  & \text{su $S^-$} \\
  \end{cases}
 $$
 
-We can now continue the proof:
+Si può quindi ora continuare nella dimostrazione
 
 $$
 \begin{aligned}
@@ -382,53 +398,66 @@ $$
  & \quad =  \oint_S A n_z dS
 \end{aligned}
 $$
-```
 
-Just as the previous lemma forms the basis for the proof of the [gradient theorem](tensor:calculus:integrals:theorems:gradient) and the [divergence theorem](tensor:calculus:integrals:theorems:divergence),  
-the following lemma forms the basis for the proof of the [curl theorem](tensor:calculus:integrals:theorems:curl).
+```
+Come il lemma precedente è alla base della dimostrazione del [teorema del gradiente](tensor:calculus:integrals:theorems:gradient) e del [teorema della divergenza](tensor:calculus:integrals:theorems:divergence),
+ il lemma successivo è alla base della dimostrazione del [teorema del rotore](tensor:calculus:integrals:theorems:curl).
+
 
 ```{prf:theorem} Lemma 2.
 :label: lemma-2
 
-Under the assumptions of [Green's lemma in the plane](multivariable-calculus:green-lemma),
+Sotto le ipotesi del [lemma di Green nel piano](multivariable-calculus:green-lemma),
 
 $$
   \int_S [\mathbf{\nabla} \times (A \mathbf{\hat{e}_i})] \cdot \mathbf{\hat{n}} = \oint_{\gamma} A dx_i
 $$
+<!--
+&
+\begin{minipage}{0.4\textwidth}
+\begin{center}
+  \includegraphics[width=0.95\textwidth]{./fig/Rot}
+\end{center}
+\end{minipage}
+\end{tabular}
+%-->
 ```
 
+
 ```{dropdown} Proof
-For $A\mathbf{\hat{e}_x}$, we have ${\nabla} \times (A \mathbf{\hat{e}_x}) =
+ Per $A\mathbf{\hat{e}_x}$, ${\nabla} \times (A \mathbf{\hat{e}_x}) =
 {\partial A}/{\partial z} \mathbf{\hat{e}_y} - {\partial A}/{\partial y} \mathbf{\hat{e}_z}$.
-The surface $S$ is written in parametric form as: $\mathbf{r} = x\mathbf{\hat{e}_x} +
-y\mathbf{\hat{e}_y} + z(x,y)\mathbf{\hat{e}_z}$. The vector ${\partial \mathbf{r}}/{\partial y} = \mathbf{\hat{e}_y} +
-{\partial z}/{\partial y} \mathbf{\hat{e}_z} $ is tangent to the surface $S$ and hence perpendicular to the normal $\mathbf{\hat{n}}$:
+Si scrive la superficie S in forma parametrica come: $\mathbf{r} = x\mathbf{\hat{e}_x} +
+y\mathbf{\hat{e}_y} + z(x,y)\mathbf{\hat{e}_z}$. Il vettore ${\partial \mathbf{r}}/{\partial y} \mathbf{\hat{e}_y} +
+{\partial z}/{\partial y} \mathbf{\hat{e}_z} $ è parallelo alla
+superficie S e quindi perpendicolare alla normale $\mathbf{\hat{n}}$:
 
 $$
 \begin{aligned}
-0 = \mathbf{\hat{n}} \cdot \left(\mathbf{\hat{e}_y} +
-\frac{\partial z}{\partial y} \mathbf{\hat{e}_z} \right)
+0 = \mathbf{\hat{n}} \cdot \displaystyle \left(\mathbf{\hat{e}_y} +
+\frac{\partial z}{\partial y} \mathbf{\hat{e}_z} \right) \\
 \end{aligned}
 $$
 
-Now writing $[\mathbf{\nabla} \times (A \mathbf{\hat{e}_x})] \cdot \mathbf{\hat{n}}$:
+Scrivendo  $[\mathbf{\nabla} \times (A \mathbf{\hat{e}_x})] \cdot \mathbf{\hat{n}}$:
 
 $$
  [\mathbf{\nabla} \times (A \mathbf{\hat{e}_x})] \cdot \mathbf{\hat{n}} =
   \frac{\partial A}{\partial z} \mathbf{\hat{e}_y} \cdot \mathbf{\hat{n}}
    - \frac{\partial A}{\partial y} \mathbf{\hat{e}_z}\cdot \mathbf{\hat{n}} =
-  - \left[ \frac{\partial A}{\partial z} \frac{\partial z}{\partial y} +
+  - \displaystyle\left[ \frac{\partial A}{\partial z} \frac{\partial z}{\partial y} +
   \frac{\partial A}{\partial y}  \right] \mathbf{\hat{e}_z}\cdot \mathbf{\hat{n}}
 $$
 
-Recognizing that $\frac{\partial A(x,y,z(x,y))}{\partial y} = \frac{\partial A}{\partial z} \frac{\partial z}{\partial y} +
-  \frac{\partial A}{\partial y}$, we can write:
+Se si riconosce $\frac{\partial A(x,y,z(x,y))}{\partial y} = \frac{\partial A}{\partial z} \frac{\partial z}{\partial y} +
+  \frac{\partial A}{\partial y}$, si può scrivere:
 
 $$
  \int_S [\mathbf{\nabla} \times (A \mathbf{\hat{e}_x})] \cdot \mathbf{\hat{n}} =
  - \int_S \frac{\partial A}{\partial y} \underbrace{\mathbf{\hat{e}_z}\cdot \mathbf{\hat{n}} dS}_{dR = dx dy} =
  - \int_R \frac{\partial A}{\partial y} dx dy = \int_\gamma A dx
 $$
+
 ```
 
 
