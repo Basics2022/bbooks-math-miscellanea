@@ -335,7 +335,7 @@ $$\int_{\vec{r} \in V} F(\vec{r}) |d V| = \int_{(q^1,q^2,q^3) \in Q} F(\vec{r}(q
 
 #### Two useful lemmas
 
-Il prossimo lemma è alla base dei più rinomati teoremi della divergenza e del gradiente:
+Il prossimo lemma è alla base dei più rinomati [teorema della divergenza](tensor:calculus:integrals:theorems:divergence) e [teorema del gradiente](tensor:calculus:integrals:theorems:gradient):
  la dimostrazione di questi due teoremi si basa su un facile uso ripetuto di questo lemma.
  Data la facilità di questo lemma e la sua frequente applicazione nella scrittura di bilanci e
  in generale di integrazione per parti, è molto conveniente ricordarsi questo semplice risultato.
@@ -343,7 +343,7 @@ Il prossimo lemma è alla base dei più rinomati teoremi della divergenza e del 
 ```{prf:theorem} Lemma 1.
 :label: lemma-1
 
-Sotto le ipotesi del teorema di Green nel piano,
+Sotto le ipotesi del [lemma di Green nel piano](multivariable-calculus:green-lemma),
 
 $$
   \int_V \frac{\partial A}{\partial x_i} = \oint_S A n_i
@@ -400,14 +400,14 @@ $$
 $$
 
 ```
-Come il lemma precedente è alla base della dimostrazione dei teoremi di gradiente e divergenza,
- il lemma successivo è alla base della dimostrazione del teorema del rotore.
+Come il lemma precedente è alla base della dimostrazione del [teorema del gradiente](tensor:calculus:integrals:theorems:gradient) e del [teorema della divergenza](tensor:calculus:integrals:theorems:divergence),
+ il lemma successivo è alla base della dimostrazione del [teorema del rotore](tensor:calculus:integrals:theorems:curl).
 
 
 ```{prf:theorem} Lemma 2.
 :label: lemma-2
 
-Sotto le ipotesi del teorema di Green nel piano.
+Sotto le ipotesi del [lemma di Green nel piano](multivariable-calculus:green-lemma),
 
 $$
   \int_S [\mathbf{\nabla} \times (A \mathbf{\hat{e}_i})] \cdot \mathbf{\hat{n}} = \oint_{\gamma} A dx_i
