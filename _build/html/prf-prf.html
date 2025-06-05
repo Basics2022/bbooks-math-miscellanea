@@ -78,15 +78,6 @@ const thebe_selector_output = ".output, .cell_output"
 
 
   </head>
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPXX63Z3XR"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-JPXX63Z3XR');
-</script>
-
   
   
   <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
@@ -181,7 +172,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="ch/linear-algebra/matrices.html">1. Matrices</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="ch/linear-algebra/matrix-factorization.html">2. Matrix factorizations</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="ch/linear-algebra/svd.html">2.1. Singular Value Decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch/linear-algebra/svd.html">2.3. Singular Value Decomposition</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="ch/linear-algebra/linear-systems.html">3. Linear Systems</a></li>
@@ -253,6 +244,13 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Boundary Methods for PDEs</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="ch/pde/bem-poisson-helmholtz-waves.html">26. Green’s function method</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reinforcement Learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ch/rl/intro.html">27. Introduction to Reinforcement Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/rl/mdp.html">28. Markov Processes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/rl/mdp_sol_dp_lp.html">29. Methods of solution of MPD: DP and LP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/rl/mdp_sol_rl.html">30. Methods of solution of MPD: RL</a></li>
 </ul>
 
     </div>
@@ -361,12 +359,14 @@ document.write(`
    <div class="modindex-jumpbox">
    <a href="#cap-cartesian:divergence:vector"><strong>cartesian:divergence:vector</strong></a> | 
    <a href="#cap-cartesian:gradient:scalar"><strong>cartesian:gradient:scalar</strong></a> | 
+   <a href="#cap-def:optimal-value-fcns"><strong>def:optimal-value-fcns</strong></a> | 
+   <a href="#cap-def:stoch-process"><strong>def:stoch-process</strong></a> | 
    <a href="#cap-definition-0"><strong>definition-0</strong></a> | 
    <a href="#cap-definition-1"><strong>definition-1</strong></a> | 
    <a href="#cap-definition-2"><strong>definition-2</strong></a> | 
    <a href="#cap-definition-3"><strong>definition-3</strong></a> | 
-   <a href="#cap-definition-4"><strong>definition-4</strong></a> | 
-   <a href="#cap-definition-5"><strong>definition-5</strong></a> | 
+   <a href="#cap-definition-6"><strong>definition-6</strong></a> | 
+   <a href="#cap-definition-7"><strong>definition-7</strong></a> | 
    <a href="#cap-example-0"><strong>example-0</strong></a> | 
    <a href="#cap-example-1"><strong>example-1</strong></a> | 
    <a href="#cap-example-10"><strong>example-10</strong></a> | 
@@ -374,7 +374,6 @@ document.write(`
    <a href="#cap-example-3"><strong>example-3</strong></a> | 
    <a href="#cap-example-4"><strong>example-4</strong></a> | 
    <a href="#cap-example-5"><strong>example-5</strong></a> | 
-   <a href="#cap-example-6"><strong>example-6</strong></a> | 
    <a href="#cap-example-7"><strong>example-7</strong></a> | 
    <a href="#cap-example-8"><strong>example-8</strong></a> | 
    <a href="#cap-example-9"><strong>example-9</strong></a> | 
@@ -386,8 +385,11 @@ document.write(`
    <a href="#cap-pde:ex:fem"><strong>pde:ex:fem</strong></a> | 
    <a href="#cap-pde:ex:fvm"><strong>pde:ex:fvm</strong></a> | 
    <a href="#cap-svd-optimization-norm"><strong>svd-optimization-norm</strong></a> | 
+   <a href="#cap-theorem-0"><strong>theorem-0</strong></a> | 
+   <a href="#cap-theorem-2"><strong>theorem-2</strong></a> | 
    <a href="#cap-theorem-6"><strong>theorem-6</strong></a> | 
-   <a href="#cap-thm-shannon-nyquist"><strong>thm-shannon-nyquist</strong></a>
+   <a href="#cap-thm-shannon-nyquist"><strong>thm-shannon-nyquist</strong></a> | 
+   <a href="#cap-thm:pi"><strong>thm:pi</strong></a>
    </div>
 
    <table class="indextable modindextable">
@@ -408,12 +410,28 @@ document.write(`
        <a href="ch/tensor-algebra-calculus/calculus-euclidean-cartesian.html#cartesian:gradient:scalar"><code class="xref">cartesian:gradient:scalar</code></a> <em>(ch/tensor-algebra-calculus/calculus-euclidean-cartesian)</em></td><td>
        <em>example</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-def:optimal-value-fcns"><td></td><td>
+       <strong>def:optimal-value-fcns</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch/rl/mdp.html#def:optimal-value-fcns"><code class="xref">def:optimal-value-fcns</code></a> <em>(ch/rl/mdp)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-def:stoch-process"><td></td><td>
+       <strong>def:stoch-process</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch/rl/mdp.html#def:stoch-process"><code class="xref">def:stoch-process</code></a> <em>(ch/rl/mdp)</em></td><td>
+       <em>definition</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-definition-0"><td></td><td>
        <strong>definition-0</strong></td><td></td></tr>
      <tr>
        <td></td>
        <td>
-       <a href="ch/tensor-algebra-calculus/calculus-euclidean.html#definition-0"><code class="xref">definition-0</code></a> <em>(ch/tensor-algebra-calculus/calculus-euclidean)</em></td><td>
+       <a href="ch/tensor-algebra-calculus/algebra.html#definition-0"><code class="xref">definition-0</code></a> <em>(ch/tensor-algebra-calculus/algebra)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-definition-1"><td></td><td>
@@ -421,7 +439,7 @@ document.write(`
      <tr>
        <td></td>
        <td>
-       <a href="ch/tensor-algebra-calculus/calculus-euclidean.html#definition-1"><code class="xref">definition-1</code></a> <em>(ch/tensor-algebra-calculus/calculus-euclidean)</em></td><td>
+       <a href="ch/tensor-algebra-calculus/algebra.html#definition-1"><code class="xref">definition-1</code></a> <em>(ch/tensor-algebra-calculus/algebra)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-definition-2"><td></td><td>
@@ -429,7 +447,7 @@ document.write(`
      <tr>
        <td></td>
        <td>
-       <a href="ch/tensor-algebra-calculus/calculus-euclidean.html#definition-2"><code class="xref">definition-2</code></a> <em>(ch/tensor-algebra-calculus/calculus-euclidean)</em></td><td>
+       <a href="ch/tensor-algebra-calculus/algebra.html#definition-2"><code class="xref">definition-2</code></a> <em>(ch/tensor-algebra-calculus/algebra)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-definition-3"><td></td><td>
@@ -437,23 +455,23 @@ document.write(`
      <tr>
        <td></td>
        <td>
-       <a href="ch/tensor-algebra-calculus/calculus-euclidean.html#definition-3"><code class="xref">definition-3</code></a> <em>(ch/tensor-algebra-calculus/calculus-euclidean)</em></td><td>
+       <a href="ch/tensor-algebra-calculus/algebra.html#definition-3"><code class="xref">definition-3</code></a> <em>(ch/tensor-algebra-calculus/algebra)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
-     <tr class="cap" id="cap-definition-4"><td></td><td>
-       <strong>definition-4</strong></td><td></td></tr>
+     <tr class="cap" id="cap-definition-6"><td></td><td>
+       <strong>definition-6</strong></td><td></td></tr>
      <tr>
        <td></td>
        <td>
-       <a href="ch/complex/analysis.html#definition-4"><code class="xref">definition-4</code></a> <em>(ch/complex/analysis)</em></td><td>
+       <a href="ch/tensor-algebra-calculus/algebra.html#definition-6"><code class="xref">definition-6</code></a> <em>(ch/tensor-algebra-calculus/algebra)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
-     <tr class="cap" id="cap-definition-5"><td></td><td>
-       <strong>definition-5</strong></td><td></td></tr>
+     <tr class="cap" id="cap-definition-7"><td></td><td>
+       <strong>definition-7</strong></td><td></td></tr>
      <tr>
        <td></td>
        <td>
-       <a href="ch/complex/analysis.html#definition-5"><code class="xref">definition-5</code></a> <em>(ch/complex/analysis)</em></td><td>
+       <a href="ch/tensor-algebra-calculus/algebra.html#definition-7"><code class="xref">definition-7</code></a> <em>(ch/tensor-algebra-calculus/algebra)</em></td><td>
        <em>definition</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-example-0"><td></td><td>
@@ -501,7 +519,7 @@ document.write(`
      <tr>
        <td></td>
        <td>
-       <a href="ch/tensor-algebra-calculus/calculus-euclidean.html#example-4"><code class="xref">example-4</code></a> <em>(ch/tensor-algebra-calculus/calculus-euclidean)</em></td><td>
+       <a href="ch/tensor-algebra-calculus/algebra.html#example-4"><code class="xref">example-4</code></a> <em>(ch/tensor-algebra-calculus/algebra)</em></td><td>
        <em>example</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-example-5"><td></td><td>
@@ -509,15 +527,7 @@ document.write(`
      <tr>
        <td></td>
        <td>
-       <a href="ch/tensor-algebra-calculus/calculus-euclidean.html#example-5"><code class="xref">example-5</code></a> <em>(ch/tensor-algebra-calculus/calculus-euclidean)</em></td><td>
-       <em>example</em></td></tr>
-     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
-     <tr class="cap" id="cap-example-6"><td></td><td>
-       <strong>example-6</strong></td><td></td></tr>
-     <tr>
-       <td></td>
-       <td>
-       <a href="ch/tensor-algebra-calculus/calculus-euclidean.html#example-6"><code class="xref">example-6</code></a> <em>(ch/tensor-algebra-calculus/calculus-euclidean)</em></td><td>
+       <a href="ch/tensor-algebra-calculus/algebra.html#example-5"><code class="xref">example-5</code></a> <em>(ch/tensor-algebra-calculus/algebra)</em></td><td>
        <em>example</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-example-7"><td></td><td>
@@ -608,6 +618,22 @@ document.write(`
        <a href="ch/linear-algebra/svd.html#svd-optimization-norm"><code class="xref">svd-optimization-norm</code></a> <em>(ch/linear-algebra/svd)</em></td><td>
        <em>example</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-theorem-0"><td></td><td>
+       <strong>theorem-0</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch/rl/mdp_sol_rl.html#theorem-0"><code class="xref">theorem-0</code></a> <em>(ch/rl/mdp_sol_rl)</em></td><td>
+       <em>theorem</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-theorem-2"><td></td><td>
+       <strong>theorem-2</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch/rl/mdp.html#theorem-2"><code class="xref">theorem-2</code></a> <em>(ch/rl/mdp)</em></td><td>
+       <em>theorem</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-theorem-6"><td></td><td>
        <strong>theorem-6</strong></td><td></td></tr>
      <tr>
@@ -622,6 +648,14 @@ document.write(`
        <td></td>
        <td>
        <a href="ch/complex/fourier-transforms.html#thm-shannon-nyquist"><code class="xref">thm-shannon-nyquist</code></a> <em>(ch/complex/fourier-transforms)</em></td><td>
+       <em>theorem</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-thm:pi"><td></td><td>
+       <strong>thm:pi</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch/rl/mdp_sol_dp_lp.html#thm:pi"><code class="xref">thm:pi</code></a> <em>(ch/rl/mdp_sol_dp_lp)</em></td><td>
        <em>theorem</em></td></tr>
    </table>
 

@@ -79,6 +79,14 @@ parts:
   numbered: True
   chapters:
   - file: ch/pde/bem-poisson-helmholtz-waves
+- caption: Reinforcement Learning
+  numbered: True
+  chapters:
+  - file: ch/rl/intro
+  - file: ch/rl/mdp
+  - file: ch/rl/mdp_sol_dp_lp
+  - file: ch/rl/mdp_sol_rl
+
 # - file: ch/pde/weak
 # - file: ch/pde/fem
 
