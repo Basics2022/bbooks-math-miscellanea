@@ -187,7 +187,7 @@ And for the policy improvement theorem {prf:ref}`thm:pi`, $V^{\pi'}(s) \ge V(s)$
 
    $$\begin{aligned}
      N(s_t, a_t) & \ \leftarrow \ N(s_t, a_t) + 1 \\
-     Q(s_t, a_t) & \ \leftarrow \ Q(s_t, a_t) + \frac{1}{N(s_t, a_t) (v_t - Q(s_t, a_t))}
+     Q(s_t, a_t) & \ \leftarrow \ Q(s_t, a_t) + \frac{1}{N(s_t, a_t)} (v_t - Q(s_t, a_t))
    \end{aligned}$$
 
 - improve policy with $\varepsilon$-greedy method over action-value function $Q$,
@@ -218,7 +218,7 @@ And for the policy improvement theorem {prf:ref}`thm:pi`, $V^{\pi'}(s) \ge V(s)$
 
   $$Q(s,a) \ \leftarrow \ Q(s,a) + \alpha \left( r + \gamma \max_{a'} Q(s',a') - Q(s,a) \right)$$
 
-(rl:mdp:sol:rl:ac)
+(rl:mdp:sol:rl:ac)=
 ## Actor-Critic
 
 **todo**
