@@ -252,8 +252,8 @@ For a MDP,
 
 ```
 
-```{admonition} Property: optimal state-value and action-value functions
-:name: prop:optimal-v-q
+```{prf:property} Property: optimal state-value and action-value functions
+:label: prop:optimal-v-q
 
 $$V^*(s) = \max_a Q^{*}(s,a)$$ (eq:optimality-condition)
 
@@ -262,7 +262,7 @@ $$V^*(s) = \max_a Q^{*}(s,a)$$ (eq:optimality-condition)
 ```
 
 **Bellman optimality equations.**
-Using the property {ref}`prop:optimal-v-q` and the expression of action-value function in {eq}`eq:bellman:q:exp`
+Using {prf:ref}`prop:optimal-v-q` and the expression of action-value function in {eq}`eq:bellman:q:exp`
 
 $$\begin{aligned}
   V^{*}(s) 

@@ -135,6 +135,9 @@ $$\begin{aligned}
  
    $$\pi'(s) = \text{argmax}_{a \in A} Q(s,a) \ .$$
 
+(rl:mdp:sol:rl:control:mc)=
+### MC control
+
 ```{note} Generalized policy iteration with MC evaluation
 
 MC evaluation is model-free. To keep a model-free control task, a model-free policy improvement is required, like greedy policy improvement over $Q(s,a)$.
@@ -184,7 +187,7 @@ And for the policy improvement theorem {prf:ref}`thm:pi`, $V^{\pi'}(s) \ge V(s)$
 
    $$\begin{aligned}
      N(s_t, a_t) & \ \leftarrow \ N(s_t, a_t) + 1 \\
-     Q(s_t, a_t) & \ \leftarrow \ Q(s_t, a_t) + \frac{1}{N(s_t, a_t) (v_t - Q(s_t, a_t))}
+     Q(s_t, a_t) & \ \leftarrow \ Q(s_t, a_t) + \frac{1}{N(s_t, a_t)} (v_t - Q(s_t, a_t))
    \end{aligned}$$
 
 - improve policy with $\varepsilon$-greedy method over action-value function $Q$,
@@ -193,4 +196,35 @@ And for the policy improvement theorem {prf:ref}`thm:pi`, $V^{\pi'}(s) \ge V(s)$
     \varepsilon & \ \leftarrow \ \frac{1}{k} \\
     \pi & \ \leftarrow \ \varepsilon-\text{greedy}(Q) \\
   \end{aligned}$$
+
+(rl:mdp:sol:rl:control:td)=
+### TD control
+
+- (+): online, from incomplete episodes, lower variance
+- use TD instead of MC for policy evaluation, **SARSA**:
+
+  $$Q(s,a) \ \leftarrow \ Q(s,a) + \alpha \left( r + \gamma Q(s',a') - Q(s,a) \right)$$
+
+...
+
+**Variations.** SARSA$(\lambda)$,...
+
+```{note} SARSA is on-policy
+```
+
+### Off-policy learning
+
+**Q-learning**, is off-policy as $a'$ is not taken from $\pi$
+
+  $$Q(s,a) \ \leftarrow \ Q(s,a) + \alpha \left( r + \gamma \max_{a'} Q(s',a') - Q(s,a) \right)$$
+
+(rl:mdp:sol:rl:ac)=
+## Actor-Critic
+
+**todo**
+
+## Learning and planning
+- Model-free RL: no model; **learn** policy and/or value function from real experience
+- Model-based RL: learn a model from real experience; **plan** policy and/or value function from simulated experience
+- Dyna: leanr a model from real experience; **learn and plan** a policy and/or value function from real and simulated experience
 

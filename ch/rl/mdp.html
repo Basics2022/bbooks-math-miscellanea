@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>28. Markov Processes &#8212; basics - math</title>
+    <title>29. Markov Processes &#8212; basics - math</title>
   
   
   
@@ -70,11 +70,20 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="29. Methods of solution of MPD: DP and LP" href="mdp_sol_dp_lp.html" />
-    <link rel="prev" title="27. Introduction to Reinforcement Learning" href="intro.html" />
+    <link rel="next" title="30. Methods of solution of MPD: DP and LP" href="mdp_sol_dp_lp.html" />
+    <link rel="prev" title="28. Introduction to Reinforcement Learning" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPXX63Z3XR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-JPXX63Z3XR');
+</script>
+
   
   
   <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
@@ -242,12 +251,17 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../pde/bem-poisson-helmholtz-waves.html">26. Green’s function method</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Optimization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../optimization/intro.html">27. Optimization</a></li>
+</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Reinforcement Learning</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="intro.html">27. Introduction to Reinforcement Learning</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">28. Markov Processes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mdp_sol_dp_lp.html">29. Methods of solution of MPD: DP and LP</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mdp_sol_rl.html">30. Methods of solution of MPD: RL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">28. Introduction to Reinforcement Learning</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">29. Markov Processes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mdp_sol_dp_lp.html">30. Methods of solution of MPD: DP and LP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mdp_sol_rl.html">31. Methods of solution of MPD: RL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mdp_large_continuous.html">32. Large or Continuous MDPs</a></li>
 </ul>
 
     </div>
@@ -396,13 +410,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#markov-reward-processes">28.1. Markov Reward Processes</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bellman-equation-for-v-s">28.1.1. Bellman Equation for <span class="math notranslate nohighlight">\(V(s)\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#markov-reward-processes">29.1. Markov Reward Processes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bellman-equation-for-v-s">29.1.1. Bellman Equation for <span class="math notranslate nohighlight">\(V(s)\)</span></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#markov-decision-processes">28.2. Markov Decision Processes</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#policies">28.2.1. Policies</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bellman-equations">28.2.2. Bellman Equations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#markov-decision-processes">29.2. Markov Decision Processes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#policies">29.2.1. Policies</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bellman-equations">29.2.2. Bellman Equations</a></li>
 </ul>
 </li>
 </ul>
@@ -417,15 +431,15 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="markov-processes">
-<span id="rl-mdp"></span><h1><span class="section-number">28. </span>Markov Processes<a class="headerlink" href="#markov-processes" title="Permalink to this heading">#</a></h1>
+<span id="rl-mdp"></span><h1><span class="section-number">29. </span>Markov Processes<a class="headerlink" href="#markov-processes" title="Permalink to this heading">#</a></h1>
 <div class="proof definition admonition" id="def:stoch-process">
-<p class="admonition-title"><span class="caption-number">Definition 28.1 </span> (Stochastic process)</p>
+<p class="admonition-title"><span class="caption-number">Definition 29.1 </span> (Stochastic process)</p>
 <div class="definition-content section" id="proof-content">
 <p>A stochastic process is as collection of random variables <span class="math notranslate nohighlight">\(X(t)\)</span> defined on a common probability space <span class="math notranslate nohighlight">\((\Omega, \mathcal{F}, P)\)</span>, indexed by some set <span class="math notranslate nohighlight">\(T\)</span>, with outcomes in a measurable space <span class="math notranslate nohighlight">\((S, \Sigma)\)</span>,</p>
 <div class="math notranslate nohighlight">
 \[\left\{ X(t): t \in T \right\} \ .\]</div>
 </div>
-</div><p>Markov process is a memomry-less stochastic process (see def <a class="reference internal" href="#def:stoch-process">Definition 28.1</a>). For discrete-time Markov processes, state at time <span class="math notranslate nohighlight">\(n\)</span> only depends on state at time <span class="math notranslate nohighlight">\(n-1\)</span></p>
+</div><p>Markov process is a memomry-less stochastic process (see def <a class="reference internal" href="#def:stoch-process">Definition 29.1</a>). For discrete-time Markov processes, state at time <span class="math notranslate nohighlight">\(n\)</span> only depends on state at time <span class="math notranslate nohighlight">\(n-1\)</span></p>
 <div class="math notranslate nohighlight">
 \[\langle S, P, \mu \rangle\]</div>
 <p>with</p>
@@ -484,7 +498,7 @@ Proof<div class="sd-summary-down docutils">
 <p><strong>Fundamental matrix</strong></p>
 <p><strong>Other definitions</strong>: mixing rate, spectral gap</p>
 <div class="section" id="markov-reward-processes">
-<h2><span class="section-number">28.1. </span>Markov Reward Processes<a class="headerlink" href="#markov-reward-processes" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">29.1. </span>Markov Reward Processes<a class="headerlink" href="#markov-reward-processes" title="Permalink to this heading">#</a></h2>
 <div class="math notranslate nohighlight">
 \[\langle S, P, R, \gamma, \mu \rangle\]</div>
 <p>with</p>
@@ -510,7 +524,7 @@ Proof<div class="sd-summary-down docutils">
 <div class="math notranslate nohighlight">
 \[V(s) := \mathbb{E}\left[ v_t | s_t = s  \right]\]</div>
 <div class="section" id="bellman-equation-for-v-s">
-<h3><span class="section-number">28.1.1. </span>Bellman Equation for <span class="math notranslate nohighlight">\(V(s)\)</span><a class="headerlink" href="#bellman-equation-for-v-s" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">29.1.1. </span>Bellman Equation for <span class="math notranslate nohighlight">\(V(s)\)</span><a class="headerlink" href="#bellman-equation-for-v-s" title="Permalink to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
   V(s) 
@@ -535,7 +549,7 @@ Proof<div class="sd-summary-down docutils">
 </div>
 </div>
 <div class="section" id="markov-decision-processes">
-<h2><span class="section-number">28.2. </span>Markov Decision Processes<a class="headerlink" href="#markov-decision-processes" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">29.2. </span>Markov Decision Processes<a class="headerlink" href="#markov-decision-processes" title="Permalink to this heading">#</a></h2>
 <div class="math notranslate nohighlight">
 \[\langle S, A, P, R, \gamma, \mu \rangle\]</div>
 <p>with</p>
@@ -545,7 +559,7 @@ Proof<div class="sd-summary-down docutils">
 <li><p><span class="math notranslate nohighlight">\(R\)</span> reward function, <span class="math notranslate nohighlight">\(R(s,a) = \mathbb{E}\left[ r | s, a \right]\)</span></p></li>
 </ul>
 <div class="section" id="policies">
-<h3><span class="section-number">28.2.1. </span>Policies<a class="headerlink" href="#policies" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">29.2.1. </span>Policies<a class="headerlink" href="#policies" title="Permalink to this heading">#</a></h3>
 <p>A policy is a distribution over actions, given the initial state</p>
 <div class="math notranslate nohighlight">
 \[\pi(a|s) = P(a|s)\]</div>
@@ -573,10 +587,10 @@ Proof<div class="sd-summary-down docutils">
 </ul>
 </div>
 <div class="section" id="bellman-equations">
-<h3><span class="section-number">28.2.2. </span>Bellman Equations<a class="headerlink" href="#bellman-equations" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">29.2.2. </span>Bellman Equations<a class="headerlink" href="#bellman-equations" title="Permalink to this heading">#</a></h3>
 <p><strong>Bellman expectation equations.</strong> Bellman expectation equation for the state-value function <span class="math notranslate nohighlight">\(V^{\pi}(s)\)</span> reads</p>
 <div class="math notranslate nohighlight" id="equation-eq-bellman-v-exp">
-<span class="eqno">(28.1)<a class="headerlink" href="#equation-eq-bellman-v-exp" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+<span class="eqno">(29.1)<a class="headerlink" href="#equation-eq-bellman-v-exp" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
   V^{\pi}(s) 
   &amp;:= \mathbb{E}_{\pi} \left[ v_t | s_t = s \right] = \\
   &amp; = \mathbb{E}_{\pi} \left[ \left. r_{t+1} + \gamma \sum_{k=0}^{+\infty} \gamma^{k} r_{t+2+k} \right| s_t = s \right] = \\
@@ -588,7 +602,7 @@ Proof<div class="sd-summary-down docutils">
 \end{aligned}\end{split}\]</div>
 <p>Bellman expectation equation for the action-value function <span class="math notranslate nohighlight">\(Q^{\pi}(s)\)</span> reads</p>
 <div class="math notranslate nohighlight" id="equation-eq-bellman-q-exp">
-<span class="eqno">(28.2)<a class="headerlink" href="#equation-eq-bellman-q-exp" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+<span class="eqno">(29.2)<a class="headerlink" href="#equation-eq-bellman-q-exp" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
   Q^{\pi}(s,a)
   &amp;:= \mathbb{E}_{\pi} \left[ v_t | s_t = s, a_t = a \right] = \\
   &amp; = \mathbb{E} \left[ r_{t+1} | s_t = s, a_t = a \right] + \gamma \mathbb{E}_{\pi} \left[ \left. v_{t+1} \right| s_t = s, a_t = a \right] = \\
@@ -600,7 +614,7 @@ Proof<div class="sd-summary-down docutils">
 <p><strong>Bellman expectation operators</strong> <strong>todo</strong></p>
 <p><strong>Optimal value functions, and optimal policies</strong></p>
 <div class="proof definition admonition" id="def:optimal-value-fcns">
-<p class="admonition-title"><span class="caption-number">Definition 28.2 </span> (Optimal value functions)</p>
+<p class="admonition-title"><span class="caption-number">Definition 29.2 </span> (Optimal value functions)</p>
 <div class="definition-content section" id="proof-content">
 <p>Optimal state-value function <span class="math notranslate nohighlight">\(V^*(s)\)</span> is defined as</p>
 <div class="math notranslate nohighlight">
@@ -614,7 +628,7 @@ Proof<div class="sd-summary-down docutils">
 <div class="math notranslate nohighlight">
 \[\pi \ge \pi' \ \text{if} \ V^{\pi}(s) \ge V^{\pi'} \, \forall s \in S \ .\]</div>
 <div class="proof theorem admonition" id="theorem-2">
-<p class="admonition-title"><span class="caption-number">Theorem 28.1 </span> (Optimal policies)</p>
+<p class="admonition-title"><span class="caption-number">Theorem 29.1 </span> (Optimal policies)</p>
 <div class="theorem-content section" id="proof-content">
 <p>For a MDP,</p>
 <ul>
@@ -644,14 +658,15 @@ Proof<div class="sd-summary-down docutils">
 </summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text"><strong>todo</strong></p>
 </div>
-</details><div class="admonition-property-optimal-state-value-and-action-value-functions admonition" id="prop-optimal-v-q">
-<p class="admonition-title">Property: optimal state-value and action-value functions</p>
+</details><div class="proof property admonition" id="prop:optimal-v-q">
+<p class="admonition-title"><span class="caption-number">Property 29.1 </span> (Property: optimal state-value and action-value functions)</p>
+<div class="property-content section" id="proof-content">
 <div class="math notranslate nohighlight" id="equation-eq-optimality-condition">
-<span class="eqno">(28.3)<a class="headerlink" href="#equation-eq-optimality-condition" title="Permalink to this equation">#</a></span>\[V^*(s) = \max_a Q^{*}(s,a)\]</div>
+<span class="eqno">(29.3)<a class="headerlink" href="#equation-eq-optimality-condition" title="Permalink to this equation">#</a></span>\[V^*(s) = \max_a Q^{*}(s,a)\]</div>
 <p><strong>todo</strong> <em>Prove it!</em></p>
 </div>
-<p><strong>Bellman optimality equations.</strong>
-Using the property <span class="xref std std-ref">prop:optimal-v-q</span> and the expression of action-value function in <a class="reference internal" href="#equation-eq-bellman-q-exp">(28.2)</a></p>
+</div><p><strong>Bellman optimality equations.</strong>
+Using <a class="reference internal" href="#prop:optimal-v-q">Property 29.1</a> and the expression of action-value function in <a class="reference internal" href="#equation-eq-bellman-q-exp">(29.2)</a></p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
   V^{*}(s) 
@@ -729,7 +744,7 @@ Using the property <span class="xref std std-ref">prop:optimal-v-q</span> and th
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">27. </span>Introduction to Reinforcement Learning</p>
+        <p class="prev-next-title"><span class="section-number">28. </span>Introduction to Reinforcement Learning</p>
       </div>
     </a>
     <a class="right-next"
@@ -737,7 +752,7 @@ Using the property <span class="xref std std-ref">prop:optimal-v-q</span> and th
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">29. </span>Methods of solution of MPD: DP and LP</p>
+        <p class="prev-next-title"><span class="section-number">30. </span>Methods of solution of MPD: DP and LP</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -756,13 +771,13 @@ Using the property <span class="xref std std-ref">prop:optimal-v-q</span> and th
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#markov-reward-processes">28.1. Markov Reward Processes</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bellman-equation-for-v-s">28.1.1. Bellman Equation for <span class="math notranslate nohighlight">\(V(s)\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#markov-reward-processes">29.1. Markov Reward Processes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bellman-equation-for-v-s">29.1.1. Bellman Equation for <span class="math notranslate nohighlight">\(V(s)\)</span></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#markov-decision-processes">28.2. Markov Decision Processes</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#policies">28.2.1. Policies</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bellman-equations">28.2.2. Bellman Equations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#markov-decision-processes">29.2. Markov Decision Processes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#policies">29.2.1. Policies</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bellman-equations">29.2.2. Bellman Equations</a></li>
 </ul>
 </li>
 </ul>

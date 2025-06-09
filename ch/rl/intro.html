@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>27. Introduction to Reinforcement Learning &#8212; basics - math</title>
+    <title>28. Introduction to Reinforcement Learning &#8212; basics - math</title>
   
   
   
@@ -68,11 +68,20 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="28. Markov Processes" href="mdp.html" />
-    <link rel="prev" title="26. Green’s function method" href="../pde/bem-poisson-helmholtz-waves.html" />
+    <link rel="next" title="29. Markov Processes" href="mdp.html" />
+    <link rel="prev" title="27. Optimization" href="../optimization/intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPXX63Z3XR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-JPXX63Z3XR');
+</script>
+
   
   
   <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
@@ -167,7 +176,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../linear-algebra/matrices.html">1. Matrices</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../linear-algebra/matrix-factorization.html">2. Matrix factorizations</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../linear-algebra/svd.html">2.1. Singular Value Decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linear-algebra/svd.html">2.3. Singular Value Decomposition</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../linear-algebra/linear-systems.html">3. Linear Systems</a></li>
@@ -240,10 +249,17 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../pde/bem-poisson-helmholtz-waves.html">26. Green’s function method</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Optimization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../optimization/intro.html">27. Optimization</a></li>
+</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Reinforcement Learning</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">27. Introduction to Reinforcement Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mdp.html">28. Markov Processes</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">28. Introduction to Reinforcement Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mdp.html">29. Markov Processes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mdp_sol_dp_lp.html">30. Methods of solution of MPD: DP and LP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mdp_sol_rl.html">31. Methods of solution of MPD: RL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mdp_large_continuous.html">32. Large or Continuous MDPs</a></li>
 </ul>
 
     </div>
@@ -395,7 +411,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="introduction-to-reinforcement-learning">
-<span id="rl-intro"></span><h1><span class="section-number">27. </span>Introduction to Reinforcement Learning<a class="headerlink" href="#introduction-to-reinforcement-learning" title="Permalink to this heading">#</a></h1>
+<span id="rl-intro"></span><h1><span class="section-number">28. </span>Introduction to Reinforcement Learning<a class="headerlink" href="#introduction-to-reinforcement-learning" title="Permalink to this heading">#</a></h1>
 </div>
 
     <script type="text/x-thebe-config">
@@ -429,12 +445,12 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../pde/bem-poisson-helmholtz-waves.html"
+       href="../optimization/intro.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">26. </span>Green’s function method</p>
+        <p class="prev-next-title"><span class="section-number">27. </span>Optimization</p>
       </div>
     </a>
     <a class="right-next"
@@ -442,7 +458,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">28. </span>Markov Processes</p>
+        <p class="prev-next-title"><span class="section-number">29. </span>Markov Processes</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

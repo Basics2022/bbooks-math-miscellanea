@@ -78,6 +78,15 @@ const thebe_selector_output = ".output, .cell_output"
 
 
   </head>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPXX63Z3XR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-JPXX63Z3XR');
+</script>
+
   
   
   <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
@@ -245,12 +254,17 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="ch/pde/bem-poisson-helmholtz-waves.html">26. Green’s function method</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Optimization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ch/optimization/intro.html">27. Optimization</a></li>
+</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Reinforcement Learning</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="ch/rl/intro.html">27. Introduction to Reinforcement Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch/rl/mdp.html">28. Markov Processes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch/rl/mdp_sol_dp_lp.html">29. Methods of solution of MPD: DP and LP</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch/rl/mdp_sol_rl.html">30. Methods of solution of MPD: RL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/rl/intro.html">28. Introduction to Reinforcement Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/rl/mdp.html">29. Markov Processes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/rl/mdp_sol_dp_lp.html">30. Methods of solution of MPD: DP and LP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/rl/mdp_sol_rl.html">31. Methods of solution of MPD: RL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/rl/mdp_large_continuous.html">32. Large or Continuous MDPs</a></li>
 </ul>
 
     </div>
@@ -384,6 +398,7 @@ document.write(`
    <a href="#cap-pde:ex:fdm"><strong>pde:ex:fdm</strong></a> | 
    <a href="#cap-pde:ex:fem"><strong>pde:ex:fem</strong></a> | 
    <a href="#cap-pde:ex:fvm"><strong>pde:ex:fvm</strong></a> | 
+   <a href="#cap-prop:optimal-v-q"><strong>prop:optimal-v-q</strong></a> | 
    <a href="#cap-svd-optimization-norm"><strong>svd-optimization-norm</strong></a> | 
    <a href="#cap-theorem-0"><strong>theorem-0</strong></a> | 
    <a href="#cap-theorem-2"><strong>theorem-2</strong></a> | 
@@ -609,6 +624,14 @@ document.write(`
        <td>
        <a href="ch/pde/numerics.html#pde:ex:fvm"><code class="xref">pde:ex:fvm</code></a> <em>(ch/pde/numerics)</em></td><td>
        <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-prop:optimal-v-q"><td></td><td>
+       <strong>prop:optimal-v-q</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch/rl/mdp.html#prop:optimal-v-q"><code class="xref">prop:optimal-v-q</code></a> <em>(ch/rl/mdp)</em></td><td>
+       <em>property</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-svd-optimization-norm"><td></td><td>
        <strong>svd-optimization-norm</strong></td><td></td></tr>
