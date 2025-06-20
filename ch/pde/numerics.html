@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>25. Introduction to numerical methods for PDEs &#8212; basics - math</title>
+    <title>27. Introduction to numerical methods for PDEs &#8212; basics - math</title>
   
   
   
@@ -70,8 +70,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="25.1. Finite Element Method" href="fem.html" />
-    <link rel="prev" title="24. Arbitrary Lagrangian-Eulerian description" href="ale.html" />
+    <link rel="next" title="27.1. Finite Element Method" href="fem.html" />
+    <link rel="prev" title="26. Arbitrary Lagrangian-Eulerian description" href="ale.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -176,80 +176,94 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Linear Algebra</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../linear-algebra/matrices.html">1. Matrices</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../linear-algebra/matrix-factorization.html">2. Matrix factorizations</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../linear-algebra/svd.html">2.1. Singular Value Decomposition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linear-algebra/intro.html">1. Introduction to Linear Algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linear-algebra/matrices.html">2. Matrices</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../linear-algebra/matrix-factorization.html">3. Matrix factorizations</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../linear-algebra/svd.html">3.3. Singular Value Decomposition</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../linear-algebra/linear-systems.html">3. Linear Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linear-algebra/linear-systems.html">4. Linear Systems</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Multivariable Calculus</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../multivariable/intro.html">4. Introduction to multi-variable calculus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../multivariable/intro.html">5. Introduction to multi-variable calculus</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Differential Geometry</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../differential-geometry/intro.html">5. Introduction to Differential Geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../differential-geometry/intro.html">6. Introduction to Differential Geometry</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Vector and Tensor Algebra and Calculus</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/algebra.html">6. Tensor Algebra</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean.html">7. Tensor Calculus in Euclidean Spaces</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean-cartesian.html">7.5. Tensor Calculus in Euclidean Spaces - Cartesian coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean-cylindrical.html">7.6. Tensor Calculus in Euclidean Spaces - cylindrical coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean-spherical.html">7.7. Tensor Calculus in Euclidean Spaces - Spehrical coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/algebra.html">7. Tensor Algebra</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean.html">8. Tensor Calculus in Euclidean Spaces</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean-cartesian.html">8.5. Tensor Calculus in Euclidean Spaces - Cartesian coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean-cylindrical.html">8.6. Tensor Calculus in Euclidean Spaces - cylindrical coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean-spherical.html">8.7. Tensor Calculus in Euclidean Spaces - Spehrical coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/time-derivative-of-integrals.html">8. Time derivative of integrals over moving domains</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/calculus-identities.html">9. Calculus identities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/time-derivative-of-integrals.html">9. Time derivative of integrals over moving domains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/calculus-identities.html">10. Calculus identities</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Functional Analysis</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../functional-analysis/intro.html">10. Introduction to Functional Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../functional-analysis/dirac-delta.html">11. Dirac’s delta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functional-analysis/intro.html">11. Introduction to Functional Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functional-analysis/dirac-delta.html">12. Dirac’s delta</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Complex Calculus</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../complex/analysis.html">12. Complex Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../complex/laplace.html">13. Laplace Transform</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../complex/fourier.html">14. Fourier Transforms</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../complex/fourier-series.html">14.1. Fourier Series</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../complex/fourier-transform.html">14.2. Fourier Transform</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../complex/fourier-transforms.html">14.3. Relations between Fourier transforms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../complex/analysis.html">13. Complex Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../complex/laplace.html">14. Laplace Transform</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../complex/fourier.html">15. Fourier Transforms</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../complex/fourier-series.html">15.1. Fourier Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../complex/fourier-transform.html">15.2. Fourier Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../complex/fourier-transforms.html">15.3. Relations between Fourier transforms</a></li>
 </ul>
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Calculus of Variations</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../calculus-variations/intro.html">15. Introduction to Calculus of Variations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../calculus-variations/intro.html">16. Introduction to Calculus of Variations</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Ordinary Differential Equations</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../ode/intro.html">16. Introduction to Ordinary Differential Equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ode/lti.html">17. Linear Time-Invariant Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ode/intro.html">17. Introduction to Ordinary Differential Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ode/lti.html">18. Linear Time-Invariant Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ode/lti-response.html">19. LTI system response</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Partial Differential Equations</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="intro.html">18. Introduction to Partial Differential Equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="elliptic.html">19. Elliptic equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="parabolic.html">20. Parabolic equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hyperbolic.html">21. Hyperbolic problems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="nc.html">22. Navier-Cauchy equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ns.html">23. Navier-Stokes equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ale.html">24. Arbitrary Lagrangian-Eulerian description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">20. Introduction to Partial Differential Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="elliptic.html">21. Elliptic equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parabolic.html">22. Parabolic equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hyperbolic.html">23. Hyperbolic problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nc.html">24. Navier-Cauchy equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ns.html">25. Navier-Stokes equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ale.html">26. Arbitrary Lagrangian-Eulerian description</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Numerical Methods for PDEs</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">25. Introduction to numerical methods for PDEs</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="fem.html">25.1. Finite Element Method</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fvm.html">25.2. Finite Volume Method</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bem.html">25.3. Boundary Element Method</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">27. Introduction to numerical methods for PDEs</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="fem.html">27.1. Finite Element Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fvm.html">27.2. Finite Volume Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bem.html">27.3. Boundary Element Method</a></li>
 </ul>
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Boundary Methods for PDEs</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="bem-poisson-helmholtz-waves.html">26. Green’s function method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bem-poisson-helmholtz-waves.html">28. Green’s function method</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Optimization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../optimization/intro.html">29. Optimization</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reinforcement Learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../rl/intro.html">30. Introduction to Reinforcement Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp.html">31. Markov Processes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_sol_dp_lp.html">32. Methods of solution of MPD: DP and LP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_sol_rl.html">33. Methods of solution of MPD: RL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_large_continuous.html">34. Large or Continuous MDPs</a></li>
 </ul>
 
     </div>
@@ -401,7 +415,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="introduction-to-numerical-methods-for-pdes">
-<span id="pde-numerics"></span><h1><span class="section-number">25. </span>Introduction to numerical methods for PDEs<a class="headerlink" href="#introduction-to-numerical-methods-for-pdes" title="Permalink to this heading">#</a></h1>
+<span id="pde-numerics"></span><h1><span class="section-number">27. </span>Introduction to numerical methods for PDEs<a class="headerlink" href="#introduction-to-numerical-methods-for-pdes" title="Permalink to this heading">#</a></h1>
 <p>Different numerical methods for PDEs rely on the discretization of different formulations of the continunuos problems. As an example,</p>
 <ul class="simple">
 <li><p><strong>FDM, Finite difference methods</strong> rely on the approximation of derivatives of the <strong>strong formulation</strong> of the problem</p></li>
@@ -420,18 +434,18 @@ document.write(`
 <p>The problem of interest can be interpreted as the problem of finding the temperature field <span class="math notranslate nohighlight">\(u(\vec{r})\)</span> during steady heat conduction in the domain <span class="math notranslate nohighlight">\(\Omega\)</span>, with distributed volume heat source <span class="math notranslate nohighlight">\(f(\vec{r})\)</span>. Fourier’s law assume that condcution heat flux is proportional to the gradient of the temperature, <span class="math notranslate nohighlight">\(\vec{q} = - k \nabla u\)</span>. Temperature is prescribed, <span class="math notranslate nohighlight">\(u = g\)</span> on the region of the boundary <span class="math notranslate nohighlight">\(S_D\)</span>, while the heat flux is prescribed  <span class="math notranslate nohighlight">\(\hat{n} \cdot \vec{q} = h\)</span> on the region of the boundary <span class="math notranslate nohighlight">\(S_N\)</span>.</p>
 <p>The <strong>integral formulation</strong> of the problem for all the boundary reads</p>
 <div class="math notranslate nohighlight" id="equation-eq-example-pde-poisson-integral">
-<span class="eqno">(25.1)<a class="headerlink" href="#equation-eq-example-pde-poisson-integral" title="Permalink to this equation">#</a></span>\[0 = - \oint_{\partial \Omega} \hat{n} \cdot \vec{q} + \int_{\Omega} f \ .\]</div>
+<span class="eqno">(27.1)<a class="headerlink" href="#equation-eq-example-pde-poisson-integral" title="Permalink to this equation">#</a></span>\[0 = - \oint_{\partial \Omega} \hat{n} \cdot \vec{q} + \int_{\Omega} f \ .\]</div>
 <div class="proof example admonition" id="pde:ex:fvm">
-<p class="admonition-title"><span class="caption-number">Example 25.1 </span> (Finite volume methods)</p>
+<p class="admonition-title"><span class="caption-number">Example 27.1 </span> (Finite volume methods)</p>
 <div class="example-content section" id="proof-content">
-<p>Finite volume methods rely on a tassellation of the domain <span class="math notranslate nohighlight">\(\Omega = \cup_k \Omega_k\)</span>, to write and solve the integral balance equation <a class="reference internal" href="#equation-eq-example-pde-poisson-integral">(25.1)</a> for all the elemantary domain <span class="math notranslate nohighlight">\(\Omega_k\)</span>.</p>
+<p>Finite volume methods rely on a tassellation of the domain <span class="math notranslate nohighlight">\(\Omega = \cup_k \Omega_k\)</span>, to write and solve the integral balance equation <a class="reference internal" href="#equation-eq-example-pde-poisson-integral">(27.1)</a> for all the elemantary domain <span class="math notranslate nohighlight">\(\Omega_k\)</span>.</p>
 <div class="math notranslate nohighlight" id="equation-eq-example-pde-poisson-integral-elementary">
-<span class="eqno">(25.2)<a class="headerlink" href="#equation-eq-example-pde-poisson-integral-elementary" title="Permalink to this equation">#</a></span>\[0 = - \oint_{\partial \Omega_k} \hat{n} \cdot \vec{q} + \int_{\Omega_k} f \ .\]</div>
-<p>evaluating volume integrals with the internal variables of the cell <span class="math notranslate nohighlight">\(\Omega_k\)</span>, and boundary flux with the variables of the cell <span class="math notranslate nohighlight">\(\Omega_k\)</span> and the neighbouring cells <span class="math notranslate nohighlight">\(\Omega_i \in B_k\)</span>. Introducing the definition of numerical flux <span class="math notranslate nohighlight">\(F_{ik}(u_i, u_k)\)</span> at the interface between a generic discrete version of the balance equation  <a class="reference internal" href="#equation-eq-example-pde-poisson-integral-elementary">(25.2)</a> for the <span class="math notranslate nohighlight">\(k^{th}\)</span> element becomes</p>
+<span class="eqno">(27.2)<a class="headerlink" href="#equation-eq-example-pde-poisson-integral-elementary" title="Permalink to this equation">#</a></span>\[0 = - \oint_{\partial \Omega_k} \hat{n} \cdot \vec{q} + \int_{\Omega_k} f \ .\]</div>
+<p>evaluating volume integrals with the internal variables of the cell <span class="math notranslate nohighlight">\(\Omega_k\)</span>, and boundary flux with the variables of the cell <span class="math notranslate nohighlight">\(\Omega_k\)</span> and the neighbouring cells <span class="math notranslate nohighlight">\(\Omega_i \in B_k\)</span>. Introducing the definition of numerical flux <span class="math notranslate nohighlight">\(F_{ik}(u_i, u_k)\)</span> at the interface between a generic discrete version of the balance equation  <a class="reference internal" href="#equation-eq-example-pde-poisson-integral-elementary">(27.2)</a> for the <span class="math notranslate nohighlight">\(k^{th}\)</span> element becomes</p>
 <div class="math notranslate nohighlight">
 \[0 = - \sum_{\Omega_i \in B_k} F_{ik}(u_i, u_k) + S_k(u_k) \ .\]</div>
 <p>Different numerical methods differs in the evaluation of fluxes and sources.
-FVM is <strong>conservative</strong> as it evaluate flux at interfaces and then distribute it to neighoring cells, see <a class="reference internal" href="fvm.html#fvm:property:conservation">Property 25.1</a>. A rough elementwise-uniform variable with jump at interfaces and diffusive flux,</p>
+FVM is <strong>conservative</strong> as it evaluate flux at interfaces and then distribute it to neighoring cells, see <a class="reference internal" href="fvm.html#fvm:property:conservation">Property 27.1</a>. A rough elementwise-uniform variable with jump at interfaces and diffusive flux,</p>
 <div class="math notranslate nohighlight">
 \[F_{ik} = - A_{ik} \, k \, \frac{u_i - u_k}{d_{ik}} \ ,\]</div>
 <p>with <span class="math notranslate nohighlight">\(d_{ik}\)</span> equal to the distance of the centers of elements <span class="math notranslate nohighlight">\(i\)</span> and <span class="math notranslate nohighlight">\(k\)</span>, leads to the balance equation for the internal volume <span class="math notranslate nohighlight">\(\Omega_k\)</span>,</p>
@@ -441,7 +455,7 @@ FVM is <strong>conservative</strong> as it evaluate flux at interfaces and then 
 <p>For regular cubic mesh, <span class="math notranslate nohighlight">\(A_{ik} = \Delta x\)</span>, <span class="math notranslate nohighlight">\(d_{ik} = \Delta x\)</span>, <span class="math notranslate nohighlight">\(V_k = \Delta x\)</span>, and thus the equations for internal elements become</p>
 <div class="math notranslate nohighlight">
 \[0 = k \sum_{i \in \Omega_k} \frac{u_i - u_k}{\Delta x^2} + f_k \ ,\]</div>
-<p>where the summation is exactly equal to the center-difference stencil for the Laplacian, used in finite difference method <a class="reference internal" href="#pde:ex:fdm">Example 25.2</a>.</p>
+<p>where the summation is exactly equal to the center-difference stencil for the Laplacian, used in finite difference method <a class="reference internal" href="#pde:ex:fdm">Example 27.2</a>.</p>
 </div>
 </div><p><strong>If fields are regular enough</strong> to apply Stokes’ theorem, it’s possible to derive differential problem from the integral formulation,</p>
 <div class="math notranslate nohighlight">
@@ -459,7 +473,7 @@ FVM is <strong>conservative</strong> as it evaluate flux at interfaces and then 
 \end{cases}\end{split}\]</div>
 <p>only holds in regions of the domain where the functions involved are continuous and differentiable, i.e. everything written in the problem is not meaningful, i.e. at least it exists.</p>
 <div class="proof example admonition" id="pde:ex:fdm">
-<p class="admonition-title"><span class="caption-number">Example 25.2 </span> (Finite difference methods)</p>
+<p class="admonition-title"><span class="caption-number">Example 27.2 </span> (Finite difference methods)</p>
 <div class="example-content section" id="proof-content">
 <p>Finite different method approximates the strong form of the problem, building a stencil to evaluate an approximation of the Laplacian. On a cubic regular grid (<span class="math notranslate nohighlight">\(\Delta x = \Delta y = \Delta z\)</span>), the Laplacian van be evaluated with a 7-point stencil</p>
 <div class="math notranslate nohighlight">
@@ -470,7 +484,7 @@ FVM is <strong>conservative</strong> as it evaluate flux at interfaces and then 
   &amp; = \dfrac{1}{\Delta x^2} \left[ - 6 u_{i,j,k} + u_{i+1,j,k} + u_{i-1,j,k} + u_{i,j+1,k} + u_{i,j-1,k} + u_{i,j,k+1} + u_{i,j,k-1} \right] = \\
   &amp; = \dfrac{1}{\Delta x^2} \sum_{i \in B_k} (u_i - u_k)
 \end{aligned}\end{split}\]</div>
-<p>and it’s equal to the same expression already provided for the rough finite volume method with regular grid, in <a class="reference internal" href="#pde:ex:fvm">Example 25.1</a></p>
+<p>and it’s equal to the same expression already provided for the rough finite volume method with regular grid, in <a class="reference internal" href="#pde:ex:fvm">Example 27.1</a></p>
 </div>
 </div><p>Starting from strong formulation of the differential problem, the <strong>weak formulation</strong> of the problem is derived:</p>
 <ul class="simple">
@@ -488,7 +502,7 @@ FVM is <strong>conservative</strong> as it evaluate flux at interfaces and then 
 \[\int_{V} k \nabla w \cdot \nabla u = \int_V w f + \int_{S_N} w h \ , \quad \forall w\]</div>
 <p>compatible with essential boundary conditions.</p>
 <div class="proof example admonition" id="pde:ex:fem">
-<p class="admonition-title"><span class="caption-number">Example 25.3 </span> (Finite element methods)</p>
+<p class="admonition-title"><span class="caption-number">Example 27.3 </span> (Finite element methods)</p>
 <div class="example-content section" id="proof-content">
 <p>Finite element methods build an <span class="math notranslate nohighlight">\(N\)</span>-dimensional systems:</p>
 <ul class="simple">
@@ -566,7 +580,7 @@ FVM is <strong>conservative</strong> as it evaluate flux at interfaces and then 
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">24. </span>Arbitrary Lagrangian-Eulerian description</p>
+        <p class="prev-next-title"><span class="section-number">26. </span>Arbitrary Lagrangian-Eulerian description</p>
       </div>
     </a>
     <a class="right-next"
@@ -574,7 +588,7 @@ FVM is <strong>conservative</strong> as it evaluate flux at interfaces and then 
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">25.1. </span>Finite Element Method</p>
+        <p class="prev-next-title"><span class="section-number">27.1. </span>Finite Element Method</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

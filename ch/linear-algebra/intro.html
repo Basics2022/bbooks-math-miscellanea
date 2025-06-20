@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>17. Introduction to Ordinary Differential Equations &#8212; basics - math</title>
+    <title>1. Introduction to Linear Algebra &#8212; basics - math</title>
   
   
   
@@ -64,12 +64,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/ode/intro';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/linear-algebra/intro';</script>
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="18. Linear Time-Invariant Systems" href="lti.html" />
-    <link rel="prev" title="16. Introduction to Calculus of Variations" href="../calculus-variations/intro.html" />
+    <link rel="next" title="2. Matrices" href="matrices.html" />
+    <link rel="prev" title="(Not so) Mathematics Basics" href="../../intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -173,14 +173,14 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Linear Algebra</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../linear-algebra/intro.html">1. Introduction to Linear Algebra</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../linear-algebra/matrices.html">2. Matrices</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../linear-algebra/matrix-factorization.html">3. Matrix factorizations</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../linear-algebra/svd.html">3.3. Singular Value Decomposition</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Introduction to Linear Algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrices.html">2. Matrices</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="matrix-factorization.html">3. Matrix factorizations</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="svd.html">3.3. Singular Value Decomposition</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../linear-algebra/linear-systems.html">4. Linear Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linear-systems.html">4. Linear Systems</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Multivariable Calculus</span></p>
 <ul class="nav bd-sidenav">
@@ -223,10 +223,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../calculus-variations/intro.html">16. Introduction to Calculus of Variations</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Ordinary Differential Equations</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">17. Introduction to Ordinary Differential Equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lti.html">18. Linear Time-Invariant Systems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lti-response.html">19. LTI system response</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ode/intro.html">17. Introduction to Ordinary Differential Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ode/lti.html">18. Linear Time-Invariant Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ode/lti-response.html">19. LTI system response</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Partial Differential Equations</span></p>
 <ul class="nav bd-sidenav">
@@ -316,7 +316,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/ch/ode/intro.md" target="_blank"
+      <li><a href="../../_sources/ch/linear-algebra/intro.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -398,7 +398,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Introduction to Ordinary Differential Equations</h1>
+    <h1>Introduction to Linear Algebra</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -412,8 +412,22 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="introduction-to-ordinary-differential-equations">
-<span id="ode"></span><h1><span class="section-number">17. </span>Introduction to Ordinary Differential Equations<a class="headerlink" href="#introduction-to-ordinary-differential-equations" title="Permalink to this heading">#</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="introduction-to-linear-algebra">
+<span id="math-linear-algebra-intro"></span><h1><span class="section-number">1. </span>Introduction to Linear Algebra<a class="headerlink" href="#introduction-to-linear-algebra" title="Permalink to this heading">#</a></h1>
+<ul class="simple">
+<li><p>Matrices:</p>
+<ul>
+<li><p>properties</p></li>
+<li><p>representation of linear transformations</p></li>
+<li><p>factorizations</p></li>
+<li><p>linear systems</p></li>
+</ul>
+</li>
+</ul>
+<p>todo:</p>
+<ul class="simple">
+<li><p>existence of solution of equilibria of LTI and their stability, in <a class="reference internal" href="../ode/lti-response.html#ode-lti-response-equilibria"><span class="std std-ref">LTI:Equilibria</span></a> and in <a class="reference internal" href="../ode/lti-response.html#ode-lti-response-stability"><span class="std std-ref">LTI:Stability</span></a></p></li>
+</ul>
 </div>
 
     <script type="text/x-thebe-config">
@@ -429,7 +443,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./ch/ode"
+            path: "./ch/linear-algebra"
         },
         predefinedOutput: true
     }
@@ -447,20 +461,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../calculus-variations/intro.html"
+       href="../../intro.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">16. </span>Introduction to Calculus of Variations</p>
+        <p class="prev-next-title">(Not so) Mathematics Basics</p>
       </div>
     </a>
     <a class="right-next"
-       href="lti.html"
+       href="matrices.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">18. </span>Linear Time-Invariant Systems</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Matrices</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
