@@ -57,15 +57,16 @@ $$\begin{aligned}
 Performing inverse Laplace transform allows to go back to time domain (just use Laplace inverse transform of a matrix exponential, and the formula {eq}`laplace:convolution` for Laplace transform of convolution).
 
 
+(ode:lti:impulsive-force)=
 ## Impulsive force
-The effect of an impulsive force at time $t=0$ is equivalent to an instantaneous change in the initial state, from time $0^-$ before the impulse to time $0^+$ after the impulse. Splitting the input $\mathbf{u}(t)$ as the sum of impulsive input and regular input,
+The effect of an impulsive force $\mathbf{u}_{\delta} \delta(t)$ at time $t=0$ is equivalent to an instantaneous change in the initial state, $\Delta \mathbf{x}_0 = \mathbf{B} \mathbf{u}_{\delta}$, from time $0^-$ before the impulse to time $0^+$ after the impulse. Splitting the input $\mathbf{u}(t)$ as the sum of impulsive input and regular input,
 
 $$\begin{aligned}
   \mathbf{u}(t) & = \mathbf{u}_r(t) + \mathbf{u}_\delta \delta(t) \\
   \hat{\mathbf{u}}(s) & = \hat{\mathbf{u}}_r(s) + \mathbf{u}_\delta \\
 \end{aligned}$$
 
-the solution in time and Laplace domain reads
+the solution in **time domain** reads
 
 $$\begin{aligned}
   \mathbf{x}(t)
@@ -74,6 +75,8 @@ $$\begin{aligned}
   \mathbf{y}(t)
   & = \mathbf{C} e^{\mathbf{A}t} \left( \mathbf{x}_0 + \mathbf{B} \mathbf{u}_\delta \right) + \int_{\tau=0^-}^{t} \mathbf{C} e^{\mathbf{A}(t-\tau)} \mathbf{B} \mathbf{u}_r (\tau) \, d \tau + \mathbf{D} \mathbf{u}_r(t) + \mathbf{D} \mathbf{u}_\delta(t) \\
 \end{aligned}$$
+
+while in **Laplace domain** reads
 
 $$
   \hat{\mathbf{x}}(s) & = (s\mathbf{I} - \mathbf{A})^{-1} \mathbf{B} \hat{\mathbf{u}}_r(s) + (s\mathbf{I} - \mathbf{A})^{-1} \left( \mathbf{x}_0 + \mathbf{B} \mathbf{u}_\delta \right) \\

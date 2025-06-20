@@ -31,6 +31,29 @@ $$\mathscr{L}\left\{ \delta(t) \right\} = \int_{t=-\infty}^{+\infty} \delta(t) \
 
 **Final value.**
 
+```{prf:property} Transform of convolution
+:label: transform:fourier:convolution
+
+$$\mathscr{F}\left\{ a \ast b (t)  \right\}(f) = \mathscr{F}\left\{ a(t) \right\}(f) \, \mathscr{F}\left\{ b(t) \right\}(f)$$
+
+
+```
+```{dropdown} Proof.
+
+$$\begin{aligned}
+  \mathscr{F}\left\{ a \ast b (t)  \right\}(f)
+  & = \int_{t = -\infty}^{+\infty} \int_{\tau=-\infty}^{+\infty} a(\tau) b(t - \tau) \, d \tau \, e^{-i 2 \pi f t} \, d t = && (1) \\
+  & = \int_{\tau=-\infty}^{+\infty} a(\tau) \, e^{-i 2 \pi f \tau} \, d \tau \, \int_{z = -\infty}^{+\infty} b(z) \, e^{-i 2 \pi f z} = \\
+  & = \mathscr{F}\{ a(t) \}(f) \, \mathscr{F}\{ b(t) \} (f) \ ,
+\end{aligned}$$
+
+having used $(1)$ transformation of coordinates $(z, \tau) = (t - \tau, \tau)$ with unit Jacobian
+
+$$\dfrac{\partial(z, \tau)}{\partial(t, \tau)} = \left|\begin{matrix} 1 & - 1 \\ 0 & 1 \end{matrix}\right| = 1 \ .$$
+
+```
+
+
 (complex:fourier:transform:inverse)=
 ## Inverse Fourier Transform
 

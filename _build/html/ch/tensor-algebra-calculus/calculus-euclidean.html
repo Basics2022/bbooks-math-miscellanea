@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>7. Tensor Calculus in Euclidean Spaces &#8212; basics - math</title>
+    <title>8. Tensor Calculus in Euclidean Spaces &#8212; basics - math</title>
   
   
   
@@ -70,20 +70,11 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="7.5. Tensor Calculus in Euclidean Spaces - Cartesian coordinates in \(E^3\)" href="calculus-euclidean-cartesian.html" />
-    <link rel="prev" title="6. Tensor Algebra" href="algebra.html" />
+    <link rel="next" title="8.5. Tensor Calculus in Euclidean Spaces - Cartesian coordinates in \(E^3\)" href="calculus-euclidean-cartesian.html" />
+    <link rel="prev" title="7. Tensor Algebra" href="algebra.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPXX63Z3XR"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-JPXX63Z3XR');
-</script>
-
   
   
   <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
@@ -176,79 +167,94 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Linear Algebra</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../linear-algebra/matrices.html">1. Matrices</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../linear-algebra/matrix-factorization.html">2. Matrix factorizations</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../linear-algebra/svd.html">2.1. Singular Value Decomposition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linear-algebra/intro.html">1. Introduction to Linear Algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linear-algebra/matrices.html">2. Matrices</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../linear-algebra/matrix-factorization.html">3. Matrix factorizations</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../linear-algebra/svd.html">3.3. Singular Value Decomposition</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../linear-algebra/linear-systems.html">3. Linear Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linear-algebra/linear-systems.html">4. Linear Systems</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Multivariable Calculus</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../multivariable/intro.html">4. Introduction to multi-variable calculus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../multivariable/intro.html">5. Introduction to multi-variable calculus</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Differential Geometry</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../differential-geometry/intro.html">5. Introduction to Differential Geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../differential-geometry/intro.html">6. Introduction to Differential Geometry</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Vector and Tensor Algebra and Calculus</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="algebra.html">6. Tensor Algebra</a></li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">7. Tensor Calculus in Euclidean Spaces</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="calculus-euclidean-cartesian.html">7.5. Tensor Calculus in Euclidean Spaces - Cartesian coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
-<li class="toctree-l2"><a class="reference internal" href="calculus-euclidean-cylindrical.html">7.6. Tensor Calculus in Euclidean Spaces - cylindrical coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
-<li class="toctree-l2"><a class="reference internal" href="calculus-euclidean-spherical.html">7.7. Tensor Calculus in Euclidean Spaces - Spehrical coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="algebra.html">7. Tensor Algebra</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">8. Tensor Calculus in Euclidean Spaces</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="calculus-euclidean-cartesian.html">8.5. Tensor Calculus in Euclidean Spaces - Cartesian coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="calculus-euclidean-cylindrical.html">8.6. Tensor Calculus in Euclidean Spaces - cylindrical coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="calculus-euclidean-spherical.html">8.7. Tensor Calculus in Euclidean Spaces - Spehrical coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="time-derivative-of-integrals.html">8. Time derivative of integrals over moving domains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="time-derivative-of-integrals.html">9. Time derivative of integrals over moving domains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calculus-identities.html">10. Calculus identities</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Functional Analysis</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../functional-analysis/intro.html">9. Introduction to Functional Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../functional-analysis/dirac-delta.html">10. Dirac’s delta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functional-analysis/intro.html">11. Introduction to Functional Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functional-analysis/dirac-delta.html">12. Dirac’s delta</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Complex Calculus</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../complex/analysis.html">11. Complex Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../complex/laplace.html">12. Laplace Transform</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../complex/fourier.html">13. Fourier Transforms</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../complex/fourier-series.html">13.1. Fourier Series</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../complex/fourier-transform.html">13.2. Fourier Transform</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../complex/fourier-transforms.html">13.3. Relations between Fourier transforms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../complex/analysis.html">13. Complex Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../complex/laplace.html">14. Laplace Transform</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../complex/fourier.html">15. Fourier Transforms</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../complex/fourier-series.html">15.1. Fourier Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../complex/fourier-transform.html">15.2. Fourier Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../complex/fourier-transforms.html">15.3. Relations between Fourier transforms</a></li>
 </ul>
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Calculus of Variations</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../calculus-variations/intro.html">14. Introduction to Calculus of Variations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../calculus-variations/intro.html">16. Introduction to Calculus of Variations</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Ordinary Differential Equations</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../ode/intro.html">15. Introduction to Ordinary Differential Equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ode/lti.html">16. Linear Time-Invariant Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ode/intro.html">17. Introduction to Ordinary Differential Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ode/lti.html">18. Linear Time-Invariant Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ode/lti-response.html">19. LTI system response</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Partial Differential Equations</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../pde/intro.html">17. Introduction to Partial Differential Equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pde/elliptic.html">18. Elliptic equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pde/parabolic.html">19. Parabolic equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pde/hyperbolic.html">20. Hyperbolic problems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pde/nc.html">21. Navier-Cauchy equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pde/ns.html">22. Navier-Stokes equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pde/ale.html">23. Arbitrary Lagrangian-Eulerian description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/intro.html">20. Introduction to Partial Differential Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/elliptic.html">21. Elliptic equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/parabolic.html">22. Parabolic equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/hyperbolic.html">23. Hyperbolic problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/nc.html">24. Navier-Cauchy equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/ns.html">25. Navier-Stokes equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/ale.html">26. Arbitrary Lagrangian-Eulerian description</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Numerical Methods for PDEs</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/numerics.html">24. Introduction to numerical methods for PDEs</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../pde/fem.html">24.1. Finite Element Method</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/fvm.html">24.2. Finite Volume Method</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/bem.html">24.3. Boundary Element Method</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/numerics.html">27. Introduction to numerical methods for PDEs</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pde/fem.html">27.1. Finite Element Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/fvm.html">27.2. Finite Volume Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/bem.html">27.3. Boundary Element Method</a></li>
 </ul>
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Boundary Methods for PDEs</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../pde/bem-poisson-helmholtz-waves.html">25. Green’s function method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/bem-poisson-helmholtz-waves.html">28. Green’s function method</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Optimization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../optimization/intro.html">29. Optimization</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reinforcement Learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../rl/intro.html">30. Introduction to Reinforcement Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp.html">31. Markov Processes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_sol_dp_lp.html">32. Methods of solution of MPD: DP and LP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_sol_rl.html">33. Methods of solution of MPD: RL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_large_continuous.html">34. Large or Continuous MDPs</a></li>
 </ul>
 
     </div>
@@ -397,39 +403,39 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coordinates">7.1. Coordinates</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#natural-basis">7.1.1. Natural basis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coordinates">8.1. Coordinates</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#natural-basis">8.1.1. Natural basis</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fields">7.2. Fields</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differential-operators">7.3. Differential operators</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#directional-derivative">7.3.1. Directional derivative</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient">7.3.2. Gradient</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#divergence">7.3.3. Divergence</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#laplacian">7.3.4. Laplacian</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#curl">7.3.5. Curl</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fields">8.2. Fields</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differential-operators">8.3. Differential operators</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#directional-derivative">8.3.1. Directional derivative</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient">8.3.2. Gradient</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#divergence">8.3.3. Divergence</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#laplacian">8.3.4. Laplacian</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#curl">8.3.5. Curl</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integrals-in-e-d-d-le-3">7.4. Integrals in <span class="math notranslate nohighlight">\(E^d\)</span>, <span class="math notranslate nohighlight">\(d \le 3\)</span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#line-integrals">7.4.1. Line integrals</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#density">7.4.1.1. Density</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#work">7.4.1.2. Work</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integrals-in-e-d-d-le-3">8.4. Integrals in <span class="math notranslate nohighlight">\(E^d\)</span>, <span class="math notranslate nohighlight">\(d \le 3\)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#line-integrals">8.4.1. Line integrals</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#density">8.4.1.1. Density</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#work">8.4.1.2. Work</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#surface-integrals">7.4.2. Surface integrals</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tensor-calculus-integrals-surface-density">7.4.2.1. Density</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#flux">7.4.2.2. Flux</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#surface-integrals">8.4.2. Surface integrals</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tensor-calculus-integrals-surface-density">8.4.2.1. Density</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#flux">8.4.2.2. Flux</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#volume">7.4.3. Volume</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tensor-calculus-integrals-volume-density">7.4.3.1. Density</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#volume">8.4.3. Volume</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tensor-calculus-integrals-volume-density">8.4.3.1. Density</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#theorems">7.4.4. Theorems</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#two-useful-lemmas">7.4.4.1. Two useful lemmas</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-theorem">7.4.4.2. Gradient theorem</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#divergence-theorem">7.4.4.3. Divergence theorem</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#curl-theorem">7.4.4.4. Curl theorem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#theorems">8.4.4. Theorems</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#two-useful-lemmas">8.4.4.1. Two useful lemmas</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-theorem">8.4.4.2. Gradient theorem</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#divergence-theorem">8.4.4.3. Divergence theorem</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#curl-theorem">8.4.4.4. Curl theorem</a></li>
 </ul>
 </li>
 </ul>
@@ -446,11 +452,11 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="tensor-calculus-in-euclidean-spaces">
-<span id="tensor-calculus"></span><h1><span class="section-number">7. </span>Tensor Calculus in Euclidean Spaces<a class="headerlink" href="#tensor-calculus-in-euclidean-spaces" title="Permalink to this heading">#</a></h1>
+<span id="tensor-calculus"></span><h1><span class="section-number">8. </span>Tensor Calculus in Euclidean Spaces<a class="headerlink" href="#tensor-calculus-in-euclidean-spaces" title="Permalink to this heading">#</a></h1>
 <p>This section deals with tensor calculus in Euclidean space or on manifolds embedded in Euclidean spaces, focusing on <span class="math notranslate nohighlight">\(d\)</span>-dimensional spaces with <span class="math notranslate nohighlight">\(d \le 3\)</span>, with <em>inner product</em>.</p>
 <p>This section may rely on results of <a class="reference internal" href="../differential-geometry/intro.html#differential-geometry-intro"><span class="std std-ref">differential geometry</span></a>.</p>
 <div class="section" id="coordinates">
-<span id="tensor-calculus-coordinates"></span><h2><span class="section-number">7.1. </span>Coordinates<a class="headerlink" href="#coordinates" title="Permalink to this heading">#</a></h2>
+<span id="tensor-calculus-coordinates"></span><h2><span class="section-number">8.1. </span>Coordinates<a class="headerlink" href="#coordinates" title="Permalink to this heading">#</a></h2>
 <p>A set of parameters <span class="math notranslate nohighlight">\(\{q^a\}_{a=1:d}\)</span> to represent vector (or point) in space,</p>
 <div class="math notranslate nohighlight">
 \[\vec{r}(q^a)\]</div>
@@ -467,21 +473,21 @@ document.write(`
 </li>
 </ul>
 <div class="proof definition admonition" id="definition-0">
-<p class="admonition-title"><span class="caption-number">Definition 7.1 </span> (Regular parametrization)</p>
+<p class="admonition-title"><span class="caption-number">Definition 8.1 </span> (Regular parametrization)</p>
 <div class="definition-content section" id="proof-content">
 <p>If <span class="math notranslate nohighlight">\(\frac{\partial \vec{r}}{\partial q^a} \ne 0\)</span>.</p>
 </div>
 </div><div class="section" id="natural-basis">
-<span id="tensor-calculus-coordinates-natural-basis"></span><h3><span class="section-number">7.1.1. </span>Natural basis<a class="headerlink" href="#natural-basis" title="Permalink to this heading">#</a></h3>
+<span id="tensor-calculus-coordinates-natural-basis"></span><h3><span class="section-number">8.1.1. </span>Natural basis<a class="headerlink" href="#natural-basis" title="Permalink to this heading">#</a></h3>
 <div class="proof definition admonition" id="definition-1">
-<p class="admonition-title"><span class="caption-number">Definition 7.2 </span> (Natural basis)</p>
+<p class="admonition-title"><span class="caption-number">Definition 8.2 </span> (Natural basis)</p>
 <div class="definition-content section" id="proof-content">
 <p>Vectors of natural basis</p>
 <div class="math notranslate nohighlight">
 \[\vec{b}_a := \frac{\partial \vec{r}}{\partial q^a}\]</div>
 </div>
 </div><div class="proof definition admonition" id="definition-2">
-<p class="admonition-title"><span class="caption-number">Definition 7.3 </span> (Reciprocal basis (<strong>todo</strong> move to <a class="reference internal" href="algebra.html#tensor-algebra"><span class="std std-ref">Tensor Algebra</span></a>))</p>
+<p class="admonition-title"><span class="caption-number">Definition 8.3 </span> (Reciprocal basis (<strong>todo</strong> move to <a class="reference internal" href="algebra.html#tensor-algebra"><span class="std std-ref">Tensor Algebra</span></a>))</p>
 <div class="definition-content section" id="proof-content">
 <p>Given a basis <span class="math notranslate nohighlight">\(\{ \vec{b}_a \}_{a}\)</span>, its reciprocal basis the set of vector <span class="math notranslate nohighlight">\(\{ \vec{b}^b \}_b\)</span> defined as</p>
 <div class="math notranslate nohighlight">
@@ -489,11 +495,11 @@ document.write(`
 <p>being <span class="math notranslate nohighlight">\(\delta_a^b\)</span> Kronecker delta.</p>
 </div>
 </div><div class="proof definition admonition" id="definition-3">
-<p class="admonition-title"><span class="caption-number">Definition 7.4 </span> (Christoffel symbols)</p>
+<p class="admonition-title"><span class="caption-number">Definition 8.4 </span> (Christoffel symbols)</p>
 <div class="definition-content section" id="proof-content">
 <p>Christoffel symbols (of the <span class="math notranslate nohighlight">\(2^{nd}\)</span> kind) are defined as the components of the partial derivatives of the vectors of a natural basis w.r.t. the coordinates referred to the natural basis itself,</p>
 <div class="math notranslate nohighlight" id="equation-def-christoffel-2">
-<span class="eqno">(7.1)<a class="headerlink" href="#equation-def-christoffel-2" title="Permalink to this equation">#</a></span>\[\dfrac{\partial \vec{b}_a}{\partial q^b} = \Gamma_{ab}^c \, \vec{b}_c\]</div>
+<span class="eqno">(8.1)<a class="headerlink" href="#equation-def-christoffel-2" title="Permalink to this equation">#</a></span>\[\dfrac{\partial \vec{b}_a}{\partial q^b} = \Gamma_{ab}^c \, \vec{b}_c\]</div>
 </div>
 </div><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
@@ -515,13 +521,13 @@ Properties of Christoffel symbols<div class="sd-summary-down docutils">
 </details></div>
 </div>
 <div class="section" id="fields">
-<span id="tensor-calculus-fields"></span><h2><span class="section-number">7.2. </span>Fields<a class="headerlink" href="#fields" title="Permalink to this heading">#</a></h2>
+<span id="tensor-calculus-fields"></span><h2><span class="section-number">8.2. </span>Fields<a class="headerlink" href="#fields" title="Permalink to this heading">#</a></h2>
 <p>Function of the points in space <span class="math notranslate nohighlight">\(F: E^d \rightarrow V^r\)</span>, being <span class="math notranslate nohighlight">\(V^r\)</span> a space of tensors of order <span class="math notranslate nohighlight">\(r\)</span>.</p>
 </div>
 <div class="section" id="differential-operators">
-<span id="tensor-calculus-differential-operators"></span><h2><span class="section-number">7.3. </span>Differential operators<a class="headerlink" href="#differential-operators" title="Permalink to this heading">#</a></h2>
+<span id="tensor-calculus-differential-operators"></span><h2><span class="section-number">8.3. </span>Differential operators<a class="headerlink" href="#differential-operators" title="Permalink to this heading">#</a></h2>
 <div class="section" id="directional-derivative">
-<span id="tensor-calculus-differential-operators-directional-derivative"></span><h3><span class="section-number">7.3.1. </span>Directional derivative<a class="headerlink" href="#directional-derivative" title="Permalink to this heading">#</a></h3>
+<span id="tensor-calculus-differential-operators-directional-derivative"></span><h3><span class="section-number">8.3.1. </span>Directional derivative<a class="headerlink" href="#directional-derivative" title="Permalink to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[F(\vec{r}) = F\left(\vec{r}\left(q^a\right)\right) = f(q^a)\]</div>
 <div class="math notranslate nohighlight">
@@ -545,22 +551,22 @@ Properties of Christoffel symbols<div class="sd-summary-down docutils">
 \end{aligned}\end{split}\]</div>
 </div>
 <div class="section" id="gradient">
-<span id="tensor-calculus-differential-operators-gradient"></span><h3><span class="section-number">7.3.2. </span>Gradient<a class="headerlink" href="#gradient" title="Permalink to this heading">#</a></h3>
+<span id="tensor-calculus-differential-operators-gradient"></span><h3><span class="section-number">8.3.2. </span>Gradient<a class="headerlink" href="#gradient" title="Permalink to this heading">#</a></h3>
 <p>The gradient is the differential operator is the first-order differential operator appearing in the definition of the directional derivative, <span class="math notranslate nohighlight">\(\nabla F(\vec{r})\)</span>. It takes a tensor field <span class="math notranslate nohighlight">\(F(\vec{r})\)</span> of order <span class="math notranslate nohighlight">\(r\)</span> and gives a tensor field <span class="math notranslate nohighlight">\(\nabla F(\vec{r})\)</span> of order <span class="math notranslate nohighlight">\(r+1\)</span>. Given a set of coordinates <span class="math notranslate nohighlight">\(\{q^a\}_{a=1:d}\)</span>, the gradient can be written using the reciprocal basis of the natural basis as</p>
 <div class="math notranslate nohighlight" id="equation-def-grad-q">
-<span class="eqno">(7.2)<a class="headerlink" href="#equation-def-grad-q" title="Permalink to this equation">#</a></span>\[\nabla F(\vec{r}) = \vec{b}^b(\vec{r}) \frac{\partial F}{\partial q^b}(\vec{r})\]</div>
+<span class="eqno">(8.2)<a class="headerlink" href="#equation-def-grad-q" title="Permalink to this equation">#</a></span>\[\nabla F(\vec{r}) = \vec{b}^b(\vec{r}) \frac{\partial F}{\partial q^b}(\vec{r})\]</div>
 <p><strong>Examples.</strong> …</p>
 <div class="proof example dropdown admonition" id="example-4">
-<p class="admonition-title"><span class="caption-number">Example 7.1 </span> (Gradient of a scalar field - with general coordinates <span class="math notranslate nohighlight">\(q^{a}\)</span>)</p>
+<p class="admonition-title"><span class="caption-number">Example 8.1 </span> (Gradient of a scalar field - with general coordinates <span class="math notranslate nohighlight">\(q^{a}\)</span>)</p>
 <div class="example-content section" id="proof-content">
-<p>Applying the definition <a class="reference internal" href="#equation-def-grad-q">(7.2)</a> of gradient operator, it readily follows</p>
+<p>Applying the definition <a class="reference internal" href="#equation-def-grad-q">(8.2)</a> of gradient operator, it readily follows</p>
 <div class="math notranslate nohighlight">
 \[\nabla F = \vec{b}^a \dfrac{\partial F}{\partial q^a}\]</div>
 </div>
 </div><div class="proof example dropdown admonition" id="example-5">
-<p class="admonition-title"><span class="caption-number">Example 7.2 </span> (Gradient of a vector field - with general coordinates <span class="math notranslate nohighlight">\(q^{a}\)</span>)</p>
+<p class="admonition-title"><span class="caption-number">Example 8.2 </span> (Gradient of a vector field - with general coordinates <span class="math notranslate nohighlight">\(q^{a}\)</span>)</p>
 <div class="example-content section" id="proof-content">
-<p>Applying the definition <a class="reference internal" href="#equation-def-grad-q">(7.2)</a> of gradient operator, rule for the derivative of a product and the definition <a class="reference internal" href="#equation-def-christoffel-2">(7.1)</a> of Christoffel symbols to write derivatives of base vectors,</p>
+<p>Applying the definition <a class="reference internal" href="#equation-def-grad-q">(8.2)</a> of gradient operator, rule for the derivative of a product and the definition <a class="reference internal" href="#equation-def-christoffel-2">(8.1)</a> of Christoffel symbols to write derivatives of base vectors,</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
   \nabla F 
@@ -571,9 +577,9 @@ Properties of Christoffel symbols<div class="sd-summary-down docutils">
 \end{aligned}\end{split}\]</div>
 </div>
 </div><div class="proof example dropdown admonition" id="example-6">
-<p class="admonition-title"><span class="caption-number">Example 7.3 </span> (Gradient of a <span class="math notranslate nohighlight">\(2^{nd}\)</span>-order tensor field - with general coordinates <span class="math notranslate nohighlight">\(q^{a}\)</span>)</p>
+<p class="admonition-title"><span class="caption-number">Example 8.3 </span> (Gradient of a <span class="math notranslate nohighlight">\(2^{nd}\)</span>-order tensor field - with general coordinates <span class="math notranslate nohighlight">\(q^{a}\)</span>)</p>
 <div class="example-content section" id="proof-content">
-<p>Applying the definition <a class="reference internal" href="#equation-def-grad-q">(7.2)</a> of gradient operator, rule for the derivative of a product and the definition <a class="reference internal" href="#equation-def-christoffel-2">(7.1)</a> of Christoffel symbols to write derivatives of base vectors,</p>
+<p>Applying the definition <a class="reference internal" href="#equation-def-grad-q">(8.2)</a> of gradient operator, rule for the derivative of a product and the definition <a class="reference internal" href="#equation-def-christoffel-2">(8.1)</a> of Christoffel symbols to write derivatives of base vectors,</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
   \nabla F 
@@ -585,13 +591,13 @@ Properties of Christoffel symbols<div class="sd-summary-down docutils">
 </div>
 </div></div>
 <div class="section" id="divergence">
-<span id="tensor-calculus-differential-operators-divergence"></span><h3><span class="section-number">7.3.3. </span>Divergence<a class="headerlink" href="#divergence" title="Permalink to this heading">#</a></h3>
+<span id="tensor-calculus-differential-operators-divergence"></span><h3><span class="section-number">8.3.3. </span>Divergence<a class="headerlink" href="#divergence" title="Permalink to this heading">#</a></h3>
 <p>Divergence opearator is a first-order differential operator that can be defined as the contraction of the first two indices of the gradient,</p>
 <div class="math notranslate nohighlight">
 \[\nabla \cdot F = C_{1}^{2}\left( \nabla F \right) \ .\]</div>
 <p>It takes a tensor field <span class="math notranslate nohighlight">\(F(\vec{r})\)</span> of order <span class="math notranslate nohighlight">\(r \ge 1\)</span> and gives a tensor field <span class="math notranslate nohighlight">\(\nabla \cdot F(\vec{r})\)</span> of order <span class="math notranslate nohighlight">\(r-1 \ge 0\)</span>.</p>
 <div class="proof example dropdown admonition" id="example-7">
-<p class="admonition-title"><span class="caption-number">Example 7.4 </span> (Divergence of a vector field - with general coordiantes <span class="math notranslate nohighlight">\(q^{a}\)</span>)</p>
+<p class="admonition-title"><span class="caption-number">Example 8.4 </span> (Divergence of a vector field - with general coordiantes <span class="math notranslate nohighlight">\(q^{a}\)</span>)</p>
 <div class="example-content section" id="proof-content">
 <p>Applying contraction to the gradient of a vector field, it readily follows,</p>
 <div class="math notranslate nohighlight">
@@ -603,7 +609,7 @@ Properties of Christoffel symbols<div class="sd-summary-down docutils">
 \end{aligned}\end{split}\]</div>
 </div>
 </div><div class="proof example dropdown admonition" id="example-8">
-<p class="admonition-title"><span class="caption-number">Example 7.5 </span> (Divergence of a <span class="math notranslate nohighlight">\(2^{nd}\)</span>-order tensor field - with general coordiantes <span class="math notranslate nohighlight">\(q^{a}\)</span>)</p>
+<p class="admonition-title"><span class="caption-number">Example 8.5 </span> (Divergence of a <span class="math notranslate nohighlight">\(2^{nd}\)</span>-order tensor field - with general coordiantes <span class="math notranslate nohighlight">\(q^{a}\)</span>)</p>
 <div class="example-content section" id="proof-content">
 <p>Applying contraction to the gradient of a vector field, it readily follows,</p>
 <div class="math notranslate nohighlight">
@@ -616,12 +622,12 @@ Properties of Christoffel symbols<div class="sd-summary-down docutils">
 </div>
 </div></div>
 <div class="section" id="laplacian">
-<span id="tensor-calculus-differential-operators-laplacian"></span><h3><span class="section-number">7.3.4. </span>Laplacian<a class="headerlink" href="#laplacian" title="Permalink to this heading">#</a></h3>
+<span id="tensor-calculus-differential-operators-laplacian"></span><h3><span class="section-number">8.3.4. </span>Laplacian<a class="headerlink" href="#laplacian" title="Permalink to this heading">#</a></h3>
 <p>Laplacian operator is second-order differential operator that can be defined as the divergence of the gradient,</p>
 <div class="math notranslate nohighlight">
 \[\Delta F = \nabla^2 F = \nabla \cdot \nabla F \ .\]</div>
 <div class="proof example dropdown admonition" id="example-9">
-<p class="admonition-title"><span class="caption-number">Example 7.6 </span> (Laplacian of a scalar field - with general coordinates <span class="math notranslate nohighlight">\(q^a\)</span>)</p>
+<p class="admonition-title"><span class="caption-number">Example 8.6 </span> (Laplacian of a scalar field - with general coordinates <span class="math notranslate nohighlight">\(q^a\)</span>)</p>
 <div class="example-content section" id="proof-content">
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -637,7 +643,7 @@ Properties of Christoffel symbols<div class="sd-summary-down docutils">
 \end{split}\]</div>
 </div>
 </div><div class="proof example dropdown admonition" id="example-10">
-<p class="admonition-title"><span class="caption-number">Example 7.7 </span> (Laplacian of a vector field - with general coordinates <span class="math notranslate nohighlight">\(q^a\)</span>)</p>
+<p class="admonition-title"><span class="caption-number">Example 8.7 </span> (Laplacian of a vector field - with general coordinates <span class="math notranslate nohighlight">\(q^a\)</span>)</p>
 <div class="example-content section" id="proof-content">
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -654,15 +660,15 @@ Properties of Christoffel symbols<div class="sd-summary-down docutils">
 </div>
 </div></div>
 <div class="section" id="curl">
-<span id="tensor-calculus-differential-operators-curl"></span><h3><span class="section-number">7.3.5. </span>Curl<a class="headerlink" href="#curl" title="Permalink to this heading">#</a></h3>
+<span id="tensor-calculus-differential-operators-curl"></span><h3><span class="section-number">8.3.5. </span>Curl<a class="headerlink" href="#curl" title="Permalink to this heading">#</a></h3>
 </div>
 </div>
 <div class="section" id="integrals-in-e-d-d-le-3">
-<span id="tensor-calculus-integrals"></span><h2><span class="section-number">7.4. </span>Integrals in <span class="math notranslate nohighlight">\(E^d\)</span>, <span class="math notranslate nohighlight">\(d \le 3\)</span><a class="headerlink" href="#integrals-in-e-d-d-le-3" title="Permalink to this heading">#</a></h2>
+<span id="tensor-calculus-integrals"></span><h2><span class="section-number">8.4. </span>Integrals in <span class="math notranslate nohighlight">\(E^d\)</span>, <span class="math notranslate nohighlight">\(d \le 3\)</span><a class="headerlink" href="#integrals-in-e-d-d-le-3" title="Permalink to this heading">#</a></h2>
 <div class="section" id="line-integrals">
-<span id="tensor-calculus-integrals-line"></span><h3><span class="section-number">7.4.1. </span>Line integrals<a class="headerlink" href="#line-integrals" title="Permalink to this heading">#</a></h3>
+<span id="tensor-calculus-integrals-line"></span><h3><span class="section-number">8.4.1. </span>Line integrals<a class="headerlink" href="#line-integrals" title="Permalink to this heading">#</a></h3>
 <div class="section" id="density">
-<span id="tensor-calculus-integrals-line-density"></span><h4><span class="section-number">7.4.1.1. </span>Density<a class="headerlink" href="#density" title="Permalink to this heading">#</a></h4>
+<span id="tensor-calculus-integrals-line-density"></span><h4><span class="section-number">8.4.1.1. </span>Density<a class="headerlink" href="#density" title="Permalink to this heading">#</a></h4>
 <p>Integrals</p>
 <div class="math notranslate nohighlight">
 \[ \int_{\vec{r}\in\gamma} F(\vec{r})\]</div>
@@ -675,7 +681,7 @@ Properties of Christoffel symbols<div class="sd-summary-down docutils">
 <p>with <span class="math notranslate nohighlight">\(\vec{r}(q^1_a)\)</span>, <span class="math notranslate nohighlight">\(\vec{r}(q^1_b)\)</span> the extreme points of path <span class="math notranslate nohighlight">\(\gamma\)</span>.</p>
 </div>
 <div class="section" id="work">
-<span id="tensor-calculus-integrals-line-work"></span><h4><span class="section-number">7.4.1.2. </span>Work<a class="headerlink" href="#work" title="Permalink to this heading">#</a></h4>
+<span id="tensor-calculus-integrals-line-work"></span><h4><span class="section-number">8.4.1.2. </span>Work<a class="headerlink" href="#work" title="Permalink to this heading">#</a></h4>
 <p>Integrals</p>
 <div class="math notranslate nohighlight">
 \[\int_{\vec{r} \in \gamma} F(\vec{r}) \cdot \hat{t}(\vec{r})\]</div>
@@ -689,7 +695,7 @@ Given a regular parametrization of the curve <span class="math notranslate nohig
 </div>
 </div>
 <div class="section" id="surface-integrals">
-<span id="tensor-calculus-integrals-surface"></span><h3><span class="section-number">7.4.2. </span>Surface integrals<a class="headerlink" href="#surface-integrals" title="Permalink to this heading">#</a></h3>
+<span id="tensor-calculus-integrals-surface"></span><h3><span class="section-number">8.4.2. </span>Surface integrals<a class="headerlink" href="#surface-integrals" title="Permalink to this heading">#</a></h3>
 <p>Given two coordinates <span class="math notranslate nohighlight">\(q^1, \, q^2\)</span> describing a surface, <span class="math notranslate nohighlight">\(\vec{r}(q^1, q^2)\)</span> the elementary surface with unit normal reads</p>
 <div class="math notranslate nohighlight">
 \[\hat{n} \, dS = d \vec{r}_1 \times d \vec{r}_2 = \frac{\partial \vec{r}}{\partial q^1} \times \frac{\partial \vec{r}}{\partial q^2} \, dq^1 \, dq^2 \ ,\]</div>
@@ -697,7 +703,7 @@ Given a regular parametrization of the curve <span class="math notranslate nohig
 <div class="math notranslate nohighlight">
 \[|dS| = |\hat{n} dS| = \left| \frac{\partial \vec{r}}{\partial q^1} \times \frac{\partial \vec{r}}{\partial q^2} \, dq^1 \, dq^2  \right|\]</div>
 <div class="section" id="tensor-calculus-integrals-surface-density">
-<span id="id1"></span><h4><span class="section-number">7.4.2.1. </span>Density<a class="headerlink" href="#tensor-calculus-integrals-surface-density" title="Permalink to this heading">#</a></h4>
+<span id="id1"></span><h4><span class="section-number">8.4.2.1. </span>Density<a class="headerlink" href="#tensor-calculus-integrals-surface-density" title="Permalink to this heading">#</a></h4>
 <p>Integrals</p>
 <div class="math notranslate nohighlight">
 \[\int_{\vec{r} \in S} F(\vec{r}) \]</div>
@@ -709,7 +715,7 @@ Given a regular parametrization of the curve <span class="math notranslate nohig
 \[\int_{\vec{r} \in S} F(\vec{r}) = \int_{(q^1,q^2) \in Q^{12}} F(\vec{r}(q^1,q^2)) \left| \frac{\partial \vec{r}}{\partial q^1} \times \frac{\partial \vec{r}}{\partial q^2}  \, dq^1 \, dq^2 \right|\]</div>
 </div>
 <div class="section" id="flux">
-<span id="tensor-calculus-integrals-surface-flux"></span><h4><span class="section-number">7.4.2.2. </span>Flux<a class="headerlink" href="#flux" title="Permalink to this heading">#</a></h4>
+<span id="tensor-calculus-integrals-surface-flux"></span><h4><span class="section-number">8.4.2.2. </span>Flux<a class="headerlink" href="#flux" title="Permalink to this heading">#</a></h4>
 <p>Integrals</p>
 <div class="math notranslate nohighlight">
 \[\int_{\vec{r} \in S} \hat{n}(\vec{r}) \cdot F(\vec{r}) \]</div>
@@ -722,11 +728,11 @@ Given a regular parametrization of the curve <span class="math notranslate nohig
 </div>
 </div>
 <div class="section" id="volume">
-<span id="tensor-calculus-integrals-volume"></span><h3><span class="section-number">7.4.3. </span>Volume<a class="headerlink" href="#volume" title="Permalink to this heading">#</a></h3>
+<span id="tensor-calculus-integrals-volume"></span><h3><span class="section-number">8.4.3. </span>Volume<a class="headerlink" href="#volume" title="Permalink to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[dV = \frac{\partial \vec{r}}{\partial q^1} \cdot \frac{\partial \vec{r}}{\partial q^2} \times \frac{\partial \vec{r}}{\partial q^3} \, dq^1 \, dq^2 \, d q^3 \ . \]</div>
 <div class="section" id="tensor-calculus-integrals-volume-density">
-<span id="id2"></span><h4><span class="section-number">7.4.3.1. </span>Density<a class="headerlink" href="#tensor-calculus-integrals-volume-density" title="Permalink to this heading">#</a></h4>
+<span id="id2"></span><h4><span class="section-number">8.4.3.1. </span>Density<a class="headerlink" href="#tensor-calculus-integrals-volume-density" title="Permalink to this heading">#</a></h4>
 <p>Integrals</p>
 <div class="math notranslate nohighlight">
 \[\int_{\vec{r} \in V} F(\vec{r})\]</div>
@@ -739,14 +745,14 @@ Given a regular parametrization of the curve <span class="math notranslate nohig
 </div>
 </div>
 <div class="section" id="theorems">
-<span id="tensor-calculus-integrals-theorems"></span><h3><span class="section-number">7.4.4. </span>Theorems<a class="headerlink" href="#theorems" title="Permalink to this heading">#</a></h3>
+<span id="tensor-calculus-integrals-theorems"></span><h3><span class="section-number">8.4.4. </span>Theorems<a class="headerlink" href="#theorems" title="Permalink to this heading">#</a></h3>
 <div class="section" id="two-useful-lemmas">
-<h4><span class="section-number">7.4.4.1. </span>Two useful lemmas<a class="headerlink" href="#two-useful-lemmas" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">8.4.4.1. </span>Two useful lemmas<a class="headerlink" href="#two-useful-lemmas" title="Permalink to this heading">#</a></h4>
 <p>The next lemma forms the foundation of the well-known <a class="reference internal" href="#tensor-calculus-integrals-theorems-divergence"><span class="std std-ref">divergence theorem</span></a> and <a class="reference internal" href="#tensor-calculus-integrals-theorems-gradient"><span class="std std-ref">gradient theorem</span></a>:<br />
 the proof of these two theorems is based on a straightforward repeated use of this lemma.<br />
 Given how simple this lemma is and how frequently it is applied in writing balances and, more generally, in integration by parts, it is very convenient to remember this simple result.</p>
 <div class="proof theorem admonition" id="lemma-1">
-<p class="admonition-title"><span class="caption-number">Theorem 7.1 </span> (Lemma 1.)</p>
+<p class="admonition-title"><span class="caption-number">Theorem 8.1 </span> (Lemma 1.)</p>
 <div class="theorem-content section" id="proof-content">
 <p>Under the assumptions of <a class="reference internal" href="../multivariable/intro.html#multivariable-calculus-green-lemma"><span class="std std-ref">Green’s lemma in the plane</span></a>,</p>
 <div class="math notranslate nohighlight">
@@ -796,7 +802,7 @@ The surface element <span class="math notranslate nohighlight">\(dR\)</span> is 
 </details><p>Just as the previous lemma forms the basis for the proof of the <a class="reference internal" href="#tensor-calculus-integrals-theorems-gradient"><span class="std std-ref">gradient theorem</span></a> and the <a class="reference internal" href="#tensor-calculus-integrals-theorems-divergence"><span class="std std-ref">divergence theorem</span></a>,<br />
 the following lemma forms the basis for the proof of the <a class="reference internal" href="#tensor-calculus-integrals-theorems-curl"><span class="std std-ref">curl theorem</span></a>.</p>
 <div class="proof theorem admonition" id="lemma-2">
-<p class="admonition-title"><span class="caption-number">Theorem 7.2 </span> (Lemma 2.)</p>
+<p class="admonition-title"><span class="caption-number">Theorem 8.2 </span> (Lemma 2.)</p>
 <div class="theorem-content section" id="proof-content">
 <p>Under the assumptions of <a class="reference internal" href="../multivariable/intro.html#multivariable-calculus-green-lemma"><span class="std std-ref">Green’s lemma in the plane</span></a>,</p>
 <div class="math notranslate nohighlight">
@@ -843,7 +849,7 @@ y\mathbf{\hat{e}_y} + z(x,y)\mathbf{\hat{e}_z}\)</span>. The vector <span class=
 </div>
 </details></div>
 <div class="section" id="gradient-theorem">
-<span id="tensor-calculus-integrals-theorems-gradient"></span><h4><span class="section-number">7.4.4.2. </span>Gradient theorem<a class="headerlink" href="#gradient-theorem" title="Permalink to this heading">#</a></h4>
+<span id="tensor-calculus-integrals-theorems-gradient"></span><h4><span class="section-number">8.4.4.2. </span>Gradient theorem<a class="headerlink" href="#gradient-theorem" title="Permalink to this heading">#</a></h4>
 <p>…<strong>todo</strong> <em>assumptions</em>…</p>
 <div class="math notranslate nohighlight">
 \[\int_{V} \nabla f = \oint_{\partial V} f \hat{n}\]</div>
@@ -854,10 +860,10 @@ Proof for simple domains <span class="math notranslate nohighlight">\(\ V\)</spa
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">This result immediately follows from Lemma 1 <a class="reference internal" href="#lemma-1">Theorem 7.1</a></p>
+<p class="sd-card-text">This result immediately follows from Lemma 1 <a class="reference internal" href="#lemma-1">Theorem 8.1</a></p>
 <div class="math notranslate nohighlight">
 \[\oint_{\partial V} f \hat{n} = \hat{x}_i  \oint_{\partial V} f n_i = \hat{x}_i \int_{V} \partial_i f =  \int_{V} \hat{x}_i \partial_i f = \int_{V} \nabla \vec{f} \ , \]</div>
-<p class="sd-card-text">having (1) exploited the freedom to put unit vectors of the Cartesian basis inside the integrals, as they’re unifrom - constant in space -, and (2) recognized the expression of the <a class="reference internal" href="calculus-euclidean-cartesian.html#tensor-calculus-cartesian-differential-operators-gradient"><span class="std std-ref">gradient of a scalar field expressed using Cartesian coordinates</span></a>, as shown in <a class="reference internal" href="calculus-euclidean-cartesian.html#cartesian:gradient:scalar">Example 7.8</a>.</p>
+<p class="sd-card-text">having (1) exploited the freedom to put unit vectors of the Cartesian basis inside the integrals, as they’re unifrom - constant in space -, and (2) recognized the expression of the <a class="reference internal" href="calculus-euclidean-cartesian.html#tensor-calculus-cartesian-differential-operators-gradient"><span class="std std-ref">gradient of a scalar field expressed using Cartesian coordinates</span></a>, as shown in <a class="reference internal" href="calculus-euclidean-cartesian.html#cartesian:gradient:scalar">Example 8.8</a>.</p>
 <!--
 Here the surface integral is evaluated using Cartesian coordinates, and each component is computed separately.
 The surface integral of the $z$-component can be written as the contribution of an upper and a lower surface, having splitted the surface $\partial V$ is splitted in an upper and lower surface depending on the sign of the projection of the local unit normal vector $\hat{n}$ with the unit vector $\hat{z}$ associated with the $z$-coordinate of a set of Cartesian coordinates $x,y,z$. Each elementary contribution of this pair of surface, can be parametrized using $x, y$ coordinates, and the 
@@ -886,7 +892,7 @@ having (1) exploited the freedom to put unit vectors of the Cartesian basis insi
 </div>
 </details></div>
 <div class="section" id="divergence-theorem">
-<span id="tensor-calculus-integrals-theorems-divergence"></span><h4><span class="section-number">7.4.4.3. </span>Divergence theorem<a class="headerlink" href="#divergence-theorem" title="Permalink to this heading">#</a></h4>
+<span id="tensor-calculus-integrals-theorems-divergence"></span><h4><span class="section-number">8.4.4.3. </span>Divergence theorem<a class="headerlink" href="#divergence-theorem" title="Permalink to this heading">#</a></h4>
 <p>…<strong>todo</strong> <em>assumptions</em>…</p>
 <div class="math notranslate nohighlight">
 \[\int_{V} \nabla \cdot \vec{f} = \oint_{\partial V} \vec{f} \cdot \hat{n}\]</div>
@@ -897,10 +903,10 @@ Proof<div class="sd-summary-down docutils">
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">This result immediately follows from Lemma 1 <a class="reference internal" href="#lemma-1">Theorem 7.1</a></p>
+<p class="sd-card-text">This result immediately follows from Lemma 1 <a class="reference internal" href="#lemma-1">Theorem 8.1</a></p>
 <div class="math notranslate nohighlight">
 \[\oint_{\partial V} \vec{f} \cdot \hat{n} =  \oint_{\partial V} f_i n_i = \int_{V} \partial_i f_i =  \int_{V} \nabla  \cdot \vec{f} \ , \]</div>
-<p class="sd-card-text">having (1) exploited the freedom to put unit vectors of the Cartesian basis inside the integrals, as they’re unifrom - constant in space -, and (2) recognized the expression of the <a class="reference internal" href="calculus-euclidean-cartesian.html#tensor-calculus-cartesian-differential-operators-divergence"><span class="std std-ref">divergence of a vector field expressed using Cartesian coordinates</span></a>, as shown in <a class="reference internal" href="calculus-euclidean-cartesian.html#cartesian:divergence:vector">Example 7.11</a>.</p>
+<p class="sd-card-text">having (1) exploited the freedom to put unit vectors of the Cartesian basis inside the integrals, as they’re unifrom - constant in space -, and (2) recognized the expression of the <a class="reference internal" href="calculus-euclidean-cartesian.html#tensor-calculus-cartesian-differential-operators-divergence"><span class="std std-ref">divergence of a vector field expressed using Cartesian coordinates</span></a>, as shown in <a class="reference internal" href="calculus-euclidean-cartesian.html#cartesian:divergence:vector">Example 8.11</a>.</p>
 <!--
 Using Cartesian coordinates to write the scalar product 
 
@@ -919,7 +925,7 @@ having recognized the expression of the [divergence of a vector field expressed 
 </div>
 </details></div>
 <div class="section" id="curl-theorem">
-<span id="tensor-calculus-integrals-theorems-curl"></span><h4><span class="section-number">7.4.4.4. </span>Curl theorem<a class="headerlink" href="#curl-theorem" title="Permalink to this heading">#</a></h4>
+<span id="tensor-calculus-integrals-theorems-curl"></span><h4><span class="section-number">8.4.4.4. </span>Curl theorem<a class="headerlink" href="#curl-theorem" title="Permalink to this heading">#</a></h4>
 <p>…<strong>todo</strong> <em>assumptions</em>…</p>
 <div class="math notranslate nohighlight">
 \[\int_{S} \left[ \nabla \times \vec{f} \right] \cdot \hat{n} = \oint_{\partial S} \vec{f} \cdot \hat{t}\]</div>
@@ -930,7 +936,7 @@ Proof<div class="sd-summary-down docutils">
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">This proof seamlessly follows from Lemma <a class="reference internal" href="#lemma-2">Theorem 7.2</a>, applied to all the Cartesian contributions of the vector field</p>
+<p class="sd-card-text">This proof seamlessly follows from Lemma <a class="reference internal" href="#lemma-2">Theorem 8.2</a>, applied to all the Cartesian contributions of the vector field</p>
 <div class="math notranslate nohighlight">
 \[\vec{f} = f_x \hat{x} + f_y \hat{y} + f_z \hat{z} \ ,\]</div>
 <p class="sd-card-text">as</p>
@@ -995,7 +1001,7 @@ $$\begin{aligned}
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">6. </span>Tensor Algebra</p>
+        <p class="prev-next-title"><span class="section-number">7. </span>Tensor Algebra</p>
       </div>
     </a>
     <a class="right-next"
@@ -1003,7 +1009,7 @@ $$\begin{aligned}
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">7.5. </span>Tensor Calculus in Euclidean Spaces - Cartesian coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></p>
+        <p class="prev-next-title"><span class="section-number">8.5. </span>Tensor Calculus in Euclidean Spaces - Cartesian coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1022,39 +1028,39 @@ $$\begin{aligned}
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coordinates">7.1. Coordinates</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#natural-basis">7.1.1. Natural basis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coordinates">8.1. Coordinates</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#natural-basis">8.1.1. Natural basis</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fields">7.2. Fields</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differential-operators">7.3. Differential operators</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#directional-derivative">7.3.1. Directional derivative</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient">7.3.2. Gradient</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#divergence">7.3.3. Divergence</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#laplacian">7.3.4. Laplacian</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#curl">7.3.5. Curl</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fields">8.2. Fields</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differential-operators">8.3. Differential operators</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#directional-derivative">8.3.1. Directional derivative</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient">8.3.2. Gradient</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#divergence">8.3.3. Divergence</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#laplacian">8.3.4. Laplacian</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#curl">8.3.5. Curl</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integrals-in-e-d-d-le-3">7.4. Integrals in <span class="math notranslate nohighlight">\(E^d\)</span>, <span class="math notranslate nohighlight">\(d \le 3\)</span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#line-integrals">7.4.1. Line integrals</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#density">7.4.1.1. Density</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#work">7.4.1.2. Work</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integrals-in-e-d-d-le-3">8.4. Integrals in <span class="math notranslate nohighlight">\(E^d\)</span>, <span class="math notranslate nohighlight">\(d \le 3\)</span></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#line-integrals">8.4.1. Line integrals</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#density">8.4.1.1. Density</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#work">8.4.1.2. Work</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#surface-integrals">7.4.2. Surface integrals</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tensor-calculus-integrals-surface-density">7.4.2.1. Density</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#flux">7.4.2.2. Flux</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#surface-integrals">8.4.2. Surface integrals</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tensor-calculus-integrals-surface-density">8.4.2.1. Density</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#flux">8.4.2.2. Flux</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#volume">7.4.3. Volume</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tensor-calculus-integrals-volume-density">7.4.3.1. Density</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#volume">8.4.3. Volume</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tensor-calculus-integrals-volume-density">8.4.3.1. Density</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#theorems">7.4.4. Theorems</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#two-useful-lemmas">7.4.4.1. Two useful lemmas</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-theorem">7.4.4.2. Gradient theorem</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#divergence-theorem">7.4.4.3. Divergence theorem</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#curl-theorem">7.4.4.4. Curl theorem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#theorems">8.4.4. Theorems</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#two-useful-lemmas">8.4.4.1. Two useful lemmas</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gradient-theorem">8.4.4.2. Gradient theorem</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#divergence-theorem">8.4.4.3. Divergence theorem</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#curl-theorem">8.4.4.4. Curl theorem</a></li>
 </ul>
 </li>
 </ul>

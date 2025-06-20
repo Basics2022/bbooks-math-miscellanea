@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>2. Matrix factorizations &#8212; basics - math</title>
+    <title>3. Matrix factorizations &#8212; basics - math</title>
   
   
   
@@ -70,20 +70,11 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="2.3. Singular Value Decomposition" href="svd.html" />
-    <link rel="prev" title="1. Matrices" href="matrices.html" />
+    <link rel="next" title="3.3. Singular Value Decomposition" href="svd.html" />
+    <link rel="prev" title="2. Matrices" href="matrices.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPXX63Z3XR"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-JPXX63Z3XR');
-</script>
-
   
   
   <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
@@ -176,85 +167,94 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Linear Algebra</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="matrices.html">1. Matrices</a></li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">2. Matrix factorizations</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="svd.html">2.3. Singular Value Decomposition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">1. Introduction to Linear Algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrices.html">2. Matrices</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">3. Matrix factorizations</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="svd.html">3.3. Singular Value Decomposition</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="linear-systems.html">3. Linear Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linear-systems.html">4. Linear Systems</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Multivariable Calculus</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../multivariable/intro.html">4. Introduction to multi-variable calculus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../multivariable/intro.html">5. Introduction to multi-variable calculus</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Differential Geometry</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../differential-geometry/intro.html">5. Introduction to Differential Geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../differential-geometry/intro.html">6. Introduction to Differential Geometry</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Vector and Tensor Algebra and Calculus</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/algebra.html">6. Tensor Algebra</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean.html">7. Tensor Calculus in Euclidean Spaces</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean-cartesian.html">7.5. Tensor Calculus in Euclidean Spaces - Cartesian coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean-cylindrical.html">7.6. Tensor Calculus in Euclidean Spaces - cylindrical coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean-spherical.html">7.7. Tensor Calculus in Euclidean Spaces - Spehrical coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/algebra.html">7. Tensor Algebra</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean.html">8. Tensor Calculus in Euclidean Spaces</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean-cartesian.html">8.5. Tensor Calculus in Euclidean Spaces - Cartesian coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean-cylindrical.html">8.6. Tensor Calculus in Euclidean Spaces - cylindrical coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean-spherical.html">8.7. Tensor Calculus in Euclidean Spaces - Spehrical coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/time-derivative-of-integrals.html">8. Time derivative of integrals over moving domains</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/calculus-identities.html">9. Calculus identities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/time-derivative-of-integrals.html">9. Time derivative of integrals over moving domains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/calculus-identities.html">10. Calculus identities</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Functional Analysis</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../functional-analysis/intro.html">10. Introduction to Functional Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../functional-analysis/dirac-delta.html">11. Dirac’s delta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functional-analysis/intro.html">11. Introduction to Functional Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functional-analysis/dirac-delta.html">12. Dirac’s delta</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Complex Calculus</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../complex/analysis.html">12. Complex Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../complex/laplace.html">13. Laplace Transform</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../complex/fourier.html">14. Fourier Transforms</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../complex/fourier-series.html">14.1. Fourier Series</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../complex/fourier-transform.html">14.2. Fourier Transform</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../complex/fourier-transforms.html">14.3. Relations between Fourier transforms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../complex/analysis.html">13. Complex Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../complex/laplace.html">14. Laplace Transform</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../complex/fourier.html">15. Fourier Transforms</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../complex/fourier-series.html">15.1. Fourier Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../complex/fourier-transform.html">15.2. Fourier Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../complex/fourier-transforms.html">15.3. Relations between Fourier transforms</a></li>
 </ul>
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Calculus of Variations</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../calculus-variations/intro.html">15. Introduction to Calculus of Variations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../calculus-variations/intro.html">16. Introduction to Calculus of Variations</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Ordinary Differential Equations</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../ode/intro.html">16. Introduction to Ordinary Differential Equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ode/lti.html">17. Linear Time-Invariant Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ode/intro.html">17. Introduction to Ordinary Differential Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ode/lti.html">18. Linear Time-Invariant Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ode/lti-response.html">19. LTI system response</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Partial Differential Equations</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../pde/intro.html">18. Introduction to Partial Differential Equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pde/elliptic.html">19. Elliptic equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pde/parabolic.html">20. Parabolic equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pde/hyperbolic.html">21. Hyperbolic problems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pde/nc.html">22. Navier-Cauchy equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pde/ns.html">23. Navier-Stokes equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pde/ale.html">24. Arbitrary Lagrangian-Eulerian description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/intro.html">20. Introduction to Partial Differential Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/elliptic.html">21. Elliptic equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/parabolic.html">22. Parabolic equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/hyperbolic.html">23. Hyperbolic problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/nc.html">24. Navier-Cauchy equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/ns.html">25. Navier-Stokes equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/ale.html">26. Arbitrary Lagrangian-Eulerian description</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Numerical Methods for PDEs</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/numerics.html">25. Introduction to numerical methods for PDEs</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../pde/fem.html">25.1. Finite Element Method</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/fvm.html">25.2. Finite Volume Method</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/bem.html">25.3. Boundary Element Method</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/numerics.html">27. Introduction to numerical methods for PDEs</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pde/fem.html">27.1. Finite Element Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/fvm.html">27.2. Finite Volume Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/bem.html">27.3. Boundary Element Method</a></li>
 </ul>
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Boundary Methods for PDEs</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../pde/bem-poisson-helmholtz-waves.html">26. Green’s function method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/bem-poisson-helmholtz-waves.html">28. Green’s function method</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Optimization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../optimization/intro.html">29. Optimization</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Reinforcement Learning</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../rl/intro.html">27. Introduction to Reinforcement Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rl/mdp.html">28. Markov Processes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/intro.html">30. Introduction to Reinforcement Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp.html">31. Markov Processes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_sol_dp_lp.html">32. Methods of solution of MPD: DP and LP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_sol_rl.html">33. Methods of solution of MPD: RL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_large_continuous.html">34. Large or Continuous MDPs</a></li>
 </ul>
 
     </div>
@@ -403,8 +403,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gershgorin-circle-theorem">2.1. Gershgorin circle theorem</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spectral-radius">2.2. Spectral radius</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gershgorin-circle-theorem">3.1. Gershgorin circle theorem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spectral-radius">3.2. Spectral radius</a></li>
 </ul>
             </nav>
         </div>
@@ -417,13 +417,13 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="matrix-factorizations">
-<span id="math-matrix-factorization"></span><h1><span class="section-number">2. </span>Matrix factorizations<a class="headerlink" href="#matrix-factorizations" title="Permalink to this heading">#</a></h1>
+<span id="math-matrix-factorization"></span><h1><span class="section-number">3. </span>Matrix factorizations<a class="headerlink" href="#matrix-factorizations" title="Permalink to this heading">#</a></h1>
 <ul class="simple">
 <li><p><strong>Singular Value Decomposition (SVD)</strong></p></li>
 <li><p><strong>Spectral decomposition</strong> Eigenvalues, eigenvectors; Jordan canonical formula…</p></li>
 </ul>
 <div class="section" id="gershgorin-circle-theorem">
-<span id="math-matrix-factorization-ev-gershgorin"></span><h2><span class="section-number">2.1. </span>Gershgorin circle theorem<a class="headerlink" href="#gershgorin-circle-theorem" title="Permalink to this heading">#</a></h2>
+<span id="math-matrix-factorization-ev-gershgorin"></span><h2><span class="section-number">3.1. </span>Gershgorin circle theorem<a class="headerlink" href="#gershgorin-circle-theorem" title="Permalink to this heading">#</a></h2>
 <p>Let <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> a complex <span class="math notranslate nohighlight">\(n,n\)</span> matrix. Let <span class="math notranslate nohighlight">\(R_i = \sum_{j \ne i} |a_{ij}|\)</span>, and <span class="math notranslate nohighlight">\(D(a_{ii}, R) \subseteq \mathbb{C}\)</span> the closed disc centered at <span class="math notranslate nohighlight">\(a_{ii}\)</span> with radius <span class="math notranslate nohighlight">\(R_i\)</span> in the complex plane.</p>
 <p>Every eigenvalue of <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> lies within at least one of the Gershgorin discs <span class="math notranslate nohighlight">\(D(a_{ii}, R_i)\)</span>.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
@@ -445,7 +445,7 @@ Proof<div class="sd-summary-down docutils">
 </div>
 </details></div>
 <div class="section" id="spectral-radius">
-<span id="math-matrix-factorization-ev-spectral-radius"></span><h2><span class="section-number">2.2. </span>Spectral radius<a class="headerlink" href="#spectral-radius" title="Permalink to this heading">#</a></h2>
+<span id="math-matrix-factorization-ev-spectral-radius"></span><h2><span class="section-number">3.2. </span>Spectral radius<a class="headerlink" href="#spectral-radius" title="Permalink to this heading">#</a></h2>
 <p>Spectral radius of a matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> is defined as the maximum of the absolute value of its eigenvalues</p>
 <div class="math notranslate nohighlight">
 \[\rho(\mathbf{A}) = \max |\lambda(\mathbf{A})| \ .\]</div>
@@ -500,7 +500,7 @@ Proof<div class="sd-summary-down docutils">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">1. </span>Matrices</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>Matrices</p>
       </div>
     </a>
     <a class="right-next"
@@ -508,7 +508,7 @@ Proof<div class="sd-summary-down docutils">
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">2.3. </span>Singular Value Decomposition</p>
+        <p class="prev-next-title"><span class="section-number">3.3. </span>Singular Value Decomposition</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -527,8 +527,8 @@ Proof<div class="sd-summary-down docutils">
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gershgorin-circle-theorem">2.1. Gershgorin circle theorem</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spectral-radius">2.2. Spectral radius</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gershgorin-circle-theorem">3.1. Gershgorin circle theorem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spectral-radius">3.2. Spectral radius</a></li>
 </ul>
   </nav></div>
 
