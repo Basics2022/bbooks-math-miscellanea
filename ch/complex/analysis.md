@@ -248,6 +248,8 @@ being $\gamma$ a path in $D$, and $I(\gamma, p_n)$ the winding index of the path
 ```
 The proof readily follows extending the result for a single pole {eq}`eq:residue-thm:0` to general number of poles and general paths $\gamma$ embracing (with sign) each pole $p_n$ $I(\gamma,p_n)$ times, with the same techinques shown in section [Sum and difference of line integrals](complex:analysis:useful-int:path-independence:sum).
 
+(complex:analysis:mero-fun:cauchy-argument-principle)=
+### Cauchy argument principle
 
 ### Evaluation of integrals
 
