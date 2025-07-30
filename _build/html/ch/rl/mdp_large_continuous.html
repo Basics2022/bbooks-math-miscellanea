@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>35. Large or Continuous MDPs &#8212; basics - math</title>
+    <title>36. Large or Continuous MDPs &#8212; basics - math</title>
   
   
   
@@ -70,7 +70,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="prev" title="34. Methods of solution of MPD: RL" href="mdp_sol_rl.html" />
+    <link rel="prev" title="35. Methods of solution of MPD: RL" href="mdp_sol_rl.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -257,13 +257,20 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../optimization/intro.html">30. Optimization</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Control</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../control/intro.html">31. Introduction to control methods</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control.html">31.1. Optimal control</a></li>
+</ul>
+</li>
+</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Reinforcement Learning</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="intro.html">31. Introduction to Reinforcement Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mdp.html">32. Markov Processes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mdp_sol_dp_lp.html">33. Methods of solution of MPD: DP and LP</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mdp_sol_rl.html">34. Methods of solution of MPD: RL</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">35. Large or Continuous MDPs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">32. Introduction to Reinforcement Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mdp.html">33. Markov Processes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mdp_sol_dp_lp.html">34. Methods of solution of MPD: DP and LP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mdp_sol_rl.html">35. Methods of solution of MPD: RL</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">36. Large or Continuous MDPs</a></li>
 </ul>
 
     </div>
@@ -412,7 +419,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#value-and-policy-based-rl">35.1. Value and Policy-Based RL</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#value-and-policy-based-rl">36.1. Value and Policy-Based RL</a></li>
 </ul>
             </nav>
         </div>
@@ -425,7 +432,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="large-or-continuous-mdps">
-<span id="rl-mdp-sol-rl"></span><h1><span class="section-number">35. </span>Large or Continuous MDPs<a class="headerlink" href="#large-or-continuous-mdps" title="Permalink to this heading">#</a></h1>
+<span id="rl-mdp-sol-rl"></span><h1><span class="section-number">36. </span>Large or Continuous MDPs<a class="headerlink" href="#large-or-continuous-mdps" title="Permalink to this heading">#</a></h1>
 <p>For small-dimensional problems, value functions can be efficiently represented by arrays or look-up tables,</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
@@ -471,7 +478,7 @@ document.write(`
 \[Q(s, a; \boldsymbol{\theta}) = \boldsymbol{\phi}^T(s,a) \, \boldsymbol{\theta} \ ,\]</div>
 <p>…</p>
 <div class="section" id="value-and-policy-based-rl">
-<h2><span class="section-number">35.1. </span>Value and Policy-Based RL<a class="headerlink" href="#value-and-policy-based-rl" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">36.1. </span>Value and Policy-Based RL<a class="headerlink" href="#value-and-policy-based-rl" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>value based</p></li>
 <li><p>policy based</p></li>
@@ -517,7 +524,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">34. </span>Methods of solution of MPD: RL</p>
+        <p class="prev-next-title"><span class="section-number">35. </span>Methods of solution of MPD: RL</p>
       </div>
     </a>
 </div>
@@ -535,7 +542,7 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#value-and-policy-based-rl">35.1. Value and Policy-Based RL</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#value-and-policy-based-rl">36.1. Value and Policy-Based RL</a></li>
 </ul>
   </nav></div>
 

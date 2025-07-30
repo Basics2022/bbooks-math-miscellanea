@@ -85,6 +85,12 @@ parts:
   numbered: True
   chapters:
   - file: ch/optimization/intro
+- caption: Control
+  numbered: True
+  chapters:
+  - file: ch/control/intro
+    sections:
+    - file: ch/control/optimal-control
 - caption: Reinforcement Learning
   numbered: True
   chapters:
