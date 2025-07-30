@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>32. Introduction to Reinforcement Learning &#8212; basics - math</title>
+    <title>31. Introduction to control methods &#8212; basics - math</title>
   
   
   
@@ -64,12 +64,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/rl/intro';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/control/intro';</script>
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="33. Markov Processes" href="mdp.html" />
-    <link rel="prev" title="31.1. Optimal control" href="../control/optimal-control.html" />
+    <link rel="next" title="31.1. Optimal control" href="optimal-control.html" />
+    <link rel="prev" title="30. Optimization" href="../optimization/intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -257,19 +257,19 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../optimization/intro.html">30. Optimization</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Control</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../control/intro.html">31. Introduction to control methods</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control.html">31.1. Optimal control</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">31. Introduction to control methods</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="optimal-control.html">31.1. Optimal control</a></li>
 </ul>
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Reinforcement Learning</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">32. Introduction to Reinforcement Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mdp.html">33. Markov Processes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mdp_sol_dp_lp.html">34. Methods of solution of MPD: DP and LP</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mdp_sol_rl.html">35. Methods of solution of MPD: RL</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mdp_large_continuous.html">36. Large or Continuous MDPs</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../rl/intro.html">32. Introduction to Reinforcement Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp.html">33. Markov Processes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_sol_dp_lp.html">34. Methods of solution of MPD: DP and LP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_sol_rl.html">35. Methods of solution of MPD: RL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_large_continuous.html">36. Large or Continuous MDPs</a></li>
 </ul>
 
     </div>
@@ -324,7 +324,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/ch/rl/intro.md" target="_blank"
+      <li><a href="../../_sources/ch/control/intro.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -406,7 +406,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Introduction to Reinforcement Learning</h1>
+    <h1>Introduction to control methods</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -420,8 +420,21 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="introduction-to-reinforcement-learning">
-<span id="rl-intro"></span><h1><span class="section-number">32. </span>Introduction to Reinforcement Learning<a class="headerlink" href="#introduction-to-reinforcement-learning" title="Permalink to this heading">#</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="introduction-to-control-methods">
+<span id="control"></span><h1><span class="section-number">31. </span>Introduction to control methods<a class="headerlink" href="#introduction-to-control-methods" title="Permalink to this heading">#</a></h1>
+<p><strong>Domain.</strong></p>
+<ul class="simple">
+<li><p>Frequency domain for linear systems: root locus, Nyquist and Bode criteria,…</p></li>
+<li><p>Time domain: <a class="reference internal" href="optimal-control.html#control-optimal"><span class="std std-ref">optimal control</span></a>, robust optimal control,…</p></li>
+</ul>
+<p><strong>Full-state, partial-state feedback.</strong></p>
+<ul class="simple">
+<li><p>Full-state feedback: the complete state of the system can be observed and used for the feedback</p></li>
+<li><p>Partial-state feedback</p></li>
+</ul>
+<p><strong>Observers</strong>, e.g. <a class="reference internal" href="observer.html#control-observer-kalman"><span class="std std-ref">Kalman filter</span></a>, tries to estimate the state of a system from its output. Later, this estimatio can be used for feedback.</p>
+<div class="toctree-wrapper compound">
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -437,7 +450,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./ch/rl"
+            path: "./ch/control"
         },
         predefinedOutput: true
     }
@@ -455,20 +468,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../control/optimal-control.html"
+       href="../optimization/intro.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">31.1. </span>Optimal control</p>
+        <p class="prev-next-title"><span class="section-number">30. </span>Optimization</p>
       </div>
     </a>
     <a class="right-next"
-       href="mdp.html"
+       href="optimal-control.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">33. </span>Markov Processes</p>
+        <p class="prev-next-title"><span class="section-number">31.1. </span>Optimal control</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

@@ -261,13 +261,20 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="ch/optimization/intro.html">30. Optimization</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Control</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="ch/control/intro.html">31. Introduction to control methods</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="ch/control/optimal-control.html">31.1. Optimal control</a></li>
+</ul>
+</li>
+</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Reinforcement Learning</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="ch/rl/intro.html">31. Introduction to Reinforcement Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch/rl/mdp.html">32. Markov Processes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch/rl/mdp_sol_dp_lp.html">33. Methods of solution of MPD: DP and LP</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch/rl/mdp_sol_rl.html">34. Methods of solution of MPD: RL</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch/rl/mdp_large_continuous.html">35. Large or Continuous MDPs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/rl/intro.html">32. Introduction to Reinforcement Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/rl/mdp.html">33. Markov Processes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/rl/mdp_sol_dp_lp.html">34. Methods of solution of MPD: DP and LP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/rl/mdp_sol_rl.html">35. Methods of solution of MPD: RL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/rl/mdp_large_continuous.html">36. Large or Continuous MDPs</a></li>
 </ul>
 
     </div>
@@ -376,6 +383,7 @@ document.write(`
    <div class="modindex-jumpbox">
    <a href="#cap-cartesian:divergence:vector"><strong>cartesian:divergence:vector</strong></a> | 
    <a href="#cap-cartesian:gradient:scalar"><strong>cartesian:gradient:scalar</strong></a> | 
+   <a href="#cap-control-optimal-riccati"><strong>control-optimal-riccati</strong></a> | 
    <a href="#cap-def:optimal-value-fcns"><strong>def:optimal-value-fcns</strong></a> | 
    <a href="#cap-def:stoch-process"><strong>def:stoch-process</strong></a> | 
    <a href="#cap-definition-0"><strong>definition-0</strong></a> | 
@@ -386,7 +394,6 @@ document.write(`
    <a href="#cap-definition-5"><strong>definition-5</strong></a> | 
    <a href="#cap-definition-6"><strong>definition-6</strong></a> | 
    <a href="#cap-definition-7"><strong>definition-7</strong></a> | 
-   <a href="#cap-example-0"><strong>example-0</strong></a> | 
    <a href="#cap-example-1"><strong>example-1</strong></a> | 
    <a href="#cap-example-10"><strong>example-10</strong></a> | 
    <a href="#cap-example-2"><strong>example-2</strong></a> | 
@@ -400,6 +407,7 @@ document.write(`
    <a href="#cap-lemma-1"><strong>lemma-1</strong></a> | 
    <a href="#cap-lemma-2"><strong>lemma-2</strong></a> | 
    <a href="#cap-matrix-stability-spectrum"><strong>matrix-stability-spectrum</strong></a> | 
+   <a href="#cap-optimization:hessian:extreme"><strong>optimization:hessian:extreme</strong></a> | 
    <a href="#cap-pde:ex:fdm"><strong>pde:ex:fdm</strong></a> | 
    <a href="#cap-pde:ex:fem"><strong>pde:ex:fem</strong></a> | 
    <a href="#cap-pde:ex:fvm"><strong>pde:ex:fvm</strong></a> | 
@@ -430,6 +438,14 @@ document.write(`
        <td></td>
        <td>
        <a href="ch/tensor-algebra-calculus/calculus-euclidean-cartesian.html#cartesian:gradient:scalar"><code class="xref">cartesian:gradient:scalar</code></a> <em>(ch/tensor-algebra-calculus/calculus-euclidean-cartesian)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-control-optimal-riccati"><td></td><td>
+       <strong>control-optimal-riccati</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch/control/optimal-control.html#control-optimal-riccati"><code class="xref">control-optimal-riccati</code></a> <em>(ch/control/optimal-control)</em></td><td>
        <em>example</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-def:optimal-value-fcns"><td></td><td>
@@ -511,14 +527,6 @@ document.write(`
        <td>
        <a href="ch/tensor-algebra-calculus/algebra.html#definition-7"><code class="xref">definition-7</code></a> <em>(ch/tensor-algebra-calculus/algebra)</em></td><td>
        <em>definition</em></td></tr>
-     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
-     <tr class="cap" id="cap-example-0"><td></td><td>
-       <strong>example-0</strong></td><td></td></tr>
-     <tr>
-       <td></td>
-       <td>
-       <a href="ch/ode/lti-stability-and-feedback.html#example-0"><code class="xref">example-0</code></a> <em>(ch/ode/lti-stability-and-feedback)</em></td><td>
-       <em>example</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-example-1"><td></td><td>
        <strong>example-1</strong></td><td></td></tr>
@@ -622,6 +630,14 @@ document.write(`
        <td></td>
        <td>
        <a href="ch/ode/lti.html#matrix-stability-spectrum"><code class="xref">matrix-stability-spectrum</code></a> <em>(ch/ode/lti)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-optimization:hessian:extreme"><td></td><td>
+       <strong>optimization:hessian:extreme</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch/optimization/intro.html#optimization:hessian:extreme"><code class="xref">optimization:hessian:extreme</code></a> <em>(ch/optimization/intro)</em></td><td>
        <em>example</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-pde:ex:fdm"><td></td><td>
