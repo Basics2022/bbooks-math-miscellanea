@@ -150,8 +150,52 @@ $$\begin{aligned}
   & = \dfrac{\partial F_r}{\partial r} + \dfrac{\partial}{\partial \theta}\left( \frac{F_\theta}{r} \right) + \frac{F_\theta}{r} + \dfrac{\partial F_z}{\partial z} \ .
 \end{aligned}$$
 ```
-```{prf:example} Divergence of a $2^{nd}$-order tensor field
-:class: dropdown
+
+```{dropdown} Divergence of a $\ 2^{nd}$-order tensor field
+:open:
+<!--:class: dropdown-->
+
+Using the general formula of the divergence of a $2^{nd}$-order tensor field (see {ref}`tensor:calculus:differential-operators:divergence`)
+
+$$\begin{aligned}
+  \nabla \cdot \left( F^{bc} \vec{b}_b \otimes \vec{b}_c \right)
+  & = C_{1}^{2} \left( \nabla F \right) = \\
+  & = \vec{b}_c \, \left[ \dfrac{\partial F^{ac}}{\partial q^a} + \Gamma_{ad}^a \, F^{dc} + \Gamma^{c}_{ad} \, F^{ad}  \right] 
+\end{aligned}$$
+
+the contravariant components in the natural basis induced by cylindrical coordinates of the divergence of a second order tensor reads
+
+$$\begin{aligned}
+  \nabla \cdot \mathbb{F} & = \\
+  & = \vec{b}_1 \left[ \dfrac{\partial F^{11}}{\partial q^{1}} + \dfrac{\partial F^{21}}{\partial q^{2}} + \dfrac{\partial F^{31}}{\partial q^{3}} + \Gamma_{21}^{2} F^{11} + \Gamma_{22}^{1} F^{22}  \right] + \\
+  & + \vec{b}_2 \left[ \dfrac{\partial F^{12}}{\partial q^{1}} + \dfrac{\partial F^{22}}{\partial q^{2}} + \dfrac{\partial F^{32}}{\partial q^{3}} + \Gamma_{21}^{2} F^{12} + \Gamma_{21}^{2} F^{12} + \Gamma_{21}^2 F^{21} \right] + \\
+  & + \vec{b}_3 \left[ \dfrac{\partial F^{13}}{\partial q^{1}} + \dfrac{\partial F^{23}}{\partial q^{2}} + \dfrac{\partial F^{33}}{\partial q^{3}} + \Gamma_{21}^{2} F^{13} \right] = \\
+  & = \vec{b}_1 \left[ \dfrac{\partial F^{11}}{\partial q^{1}} + \dfrac{\partial F^{21}}{\partial q^{2}} + \dfrac{\partial F^{31}}{\partial q^{3}} + \dfrac{1}{q^1} F^{11} - q^{1} F^{22}  \right] + \\
+  & + \vec{b}_2 \left[ \dfrac{\partial F^{12}}{\partial q^{1}} + \dfrac{\partial F^{22}}{\partial q^{2}} + \dfrac{\partial F^{32}}{\partial q^{3}} + \dfrac{2}{q^1} F^{12} + \dfrac{1}{q^1} F^{21} \right] + \\
+  & + \vec{b}_3 \left[ \dfrac{\partial F^{13}}{\partial q^{1}} + \dfrac{\partial F^{23}}{\partial q^{2}} + \dfrac{\partial F^{33}}{\partial q^{3}} + \dfrac{1}{q^1} F^{13} \right] \ .
+\end{aligned}$$
+
+Next, it's easy to exploit the definition of the coordinates $\left( q^1, q^2, q^3 \right) = \left( r, \theta, z  \right)$ and the relation between natural and physical basis and components to get
+
+$$\begin{aligned}
+  \nabla \cdot \mathbb{F} & = \\
+  & = \hat{r} \left[ \dfrac{\partial \left( F^{rr} \right)}{\partial r} + \dfrac{\partial \left( \frac{1}{r} F^{\theta r} \right)}{\partial \theta} + \dfrac{\partial F^{z r}}{\partial z} + \dfrac{1}{r} F^{rr} - r \dfrac{1}{r^2} F^{\theta \theta}  \right] + \\
+  & + r \hat{\theta} \left[ \dfrac{\partial \left( \frac{1}{r} F^{r \theta} \right)}{\partial r} + \dfrac{1}{r} \dfrac{\partial \left(\frac{1}{r} F^{\theta \theta} \right)}{\partial \theta} + \dfrac{\partial F^{z \theta}}{\partial z} + \dfrac{2}{r} \frac{1}{r} F^{r \theta} + \dfrac{1}{r} \dfrac{1}{r} F^{\theta r} \right] + \\
+  & + \hat{z} \left[ \dfrac{\partial F^{r z}}{\partial r} + \dfrac{\partial \left( \frac{1}{r} F^{\theta z} \right)}{\partial \theta} + \dfrac{\partial F^{zz}}{\partial z} + \dfrac{1}{r} F^{rz} \right] \ .
+\end{aligned}$$
+
+or, after few algebraic manipulations,
+
+$$\begin{aligned}
+  \nabla \cdot \mathbb{F} & = \\
+  & = \hat{r} \left[ \dfrac{\partial  F^{rr} }{\partial r} +  \dfrac{1}{r} \dfrac{\partial F^{\theta r} }{\partial \theta} + \dfrac{\partial F^{z r}}{\partial z} + \dfrac{1}{r} F^{rr} - \dfrac{1}{r} F^{\theta \theta}  \right] + \\
+  & + \hat{\theta} \left[ \dfrac{\partial F^{r \theta} }{\partial r} + \dfrac{1}{r} \dfrac{\partial F^{\theta \theta} }{\partial \theta} + \dfrac{\partial F^{z \theta}}{\partial z} + \dfrac{1}{r} F^{r \theta} + \dfrac{1}{r} F^{\theta r} \right] + \\
+  & + \hat{z} \left[ \dfrac{\partial F^{r z}}{\partial r} + \dfrac{1}{r} \dfrac{\partial F^{\theta z} }{\partial \theta} + \dfrac{\partial F^{zz}}{\partial z} + \dfrac{1}{r} F^{rz} \right] \ .
+\end{aligned}$$
+
+
+
+
 ```
 ### Laplacian
 ```{prf:example} Laplacian of a scalar field
