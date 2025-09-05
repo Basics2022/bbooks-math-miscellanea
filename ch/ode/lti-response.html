@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>19. LTI system response &#8212; basics - math</title>
+    <title>20. LTI system response &#8212; basics - math</title>
   
   
   
@@ -70,8 +70,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="20. Introduction to Partial Differential Equations" href="../pde/intro.html" />
-    <link rel="prev" title="18. Linear Time-Invariant Systems" href="lti.html" />
+    <link rel="next" title="21. LTI: stability and feedback" href="lti-stability-and-feedback.html" />
+    <link rel="prev" title="19. Linear Time-Invariant Systems" href="lti.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -183,87 +183,99 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../linear-algebra/linear-systems.html">4. Linear Systems</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../linear-algebra/spectral.html">5. Spectral decomposition</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../linear-algebra/spectral-sensitivity.html">5.1. Sensitivity of spectral decomposition</a></li>
+</ul>
+</li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Multivariable Calculus</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../multivariable/intro.html">5. Introduction to multi-variable calculus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../multivariable/intro.html">6. Introduction to multi-variable calculus</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Differential Geometry</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../differential-geometry/intro.html">6. Introduction to Differential Geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../differential-geometry/intro.html">7. Introduction to Differential Geometry</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Vector and Tensor Algebra and Calculus</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/algebra.html">7. Tensor Algebra</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean.html">8. Tensor Calculus in Euclidean Spaces</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean-cartesian.html">8.5. Tensor Calculus in Euclidean Spaces - Cartesian coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean-cylindrical.html">8.6. Tensor Calculus in Euclidean Spaces - cylindrical coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean-spherical.html">8.7. Tensor Calculus in Euclidean Spaces - Spehrical coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/algebra.html">8. Tensor Algebra</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean.html">9. Tensor Calculus in Euclidean Spaces</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean-cartesian.html">9.5. Tensor Calculus in Euclidean Spaces - Cartesian coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean-cylindrical.html">9.6. Tensor Calculus in Euclidean Spaces - cylindrical coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean-spherical.html">9.7. Tensor Calculus in Euclidean Spaces - Spehrical coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/time-derivative-of-integrals.html">9. Time derivative of integrals over moving domains</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/calculus-identities.html">10. Calculus identities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/time-derivative-of-integrals.html">10. Time derivative of integrals over moving domains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/calculus-identities.html">11. Calculus identities</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Functional Analysis</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../functional-analysis/intro.html">11. Introduction to Functional Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../functional-analysis/dirac-delta.html">12. Dirac’s delta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functional-analysis/intro.html">12. Introduction to Functional Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functional-analysis/dirac-delta.html">13. Dirac’s delta</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Complex Calculus</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../complex/analysis.html">13. Complex Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../complex/laplace.html">14. Laplace Transform</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../complex/fourier.html">15. Fourier Transforms</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../complex/fourier-series.html">15.1. Fourier Series</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../complex/fourier-transform.html">15.2. Fourier Transform</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../complex/fourier-transforms.html">15.3. Relations between Fourier transforms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../complex/analysis.html">14. Complex Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../complex/laplace.html">15. Laplace Transform</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../complex/fourier.html">16. Fourier Transforms</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../complex/fourier-series.html">16.1. Fourier Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../complex/fourier-transform.html">16.2. Fourier Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../complex/fourier-transforms.html">16.3. Relations between Fourier transforms</a></li>
 </ul>
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Calculus of Variations</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../calculus-variations/intro.html">16. Introduction to Calculus of Variations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../calculus-variations/intro.html">17. Introduction to Calculus of Variations</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Ordinary Differential Equations</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="intro.html">17. Introduction to Ordinary Differential Equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lti.html">18. Linear Time-Invariant Systems</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">19. LTI system response</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">18. Introduction to Ordinary Differential Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lti.html">19. Linear Time-Invariant Systems</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">20. LTI system response</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lti-stability-and-feedback.html">21. LTI: stability and feedback</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Partial Differential Equations</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../pde/intro.html">20. Introduction to Partial Differential Equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pde/elliptic.html">21. Elliptic equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pde/parabolic.html">22. Parabolic equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pde/hyperbolic.html">23. Hyperbolic problems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pde/nc.html">24. Navier-Cauchy equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pde/ns.html">25. Navier-Stokes equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pde/ale.html">26. Arbitrary Lagrangian-Eulerian description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/intro.html">22. Introduction to Partial Differential Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/elliptic.html">23. Elliptic equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/parabolic.html">24. Parabolic equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/hyperbolic.html">25. Hyperbolic problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/nc.html">26. Navier-Cauchy equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/ns.html">27. Navier-Stokes equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/ale.html">28. Arbitrary Lagrangian-Eulerian description</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Numerical Methods for PDEs</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/numerics.html">27. Introduction to numerical methods for PDEs</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../pde/fem.html">27.1. Finite Element Method</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/fvm.html">27.2. Finite Volume Method</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/bem.html">27.3. Boundary Element Method</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/numerics.html">29. Introduction to numerical methods for PDEs</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pde/fem.html">29.1. Finite Element Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/fvm.html">29.2. Finite Volume Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/bem.html">29.3. Boundary Element Method</a></li>
 </ul>
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Boundary Methods for PDEs</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../pde/bem-poisson-helmholtz-waves.html">28. Green’s function method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/bem-poisson-helmholtz-waves.html">30. Green’s function method</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Optimization</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../optimization/intro.html">29. Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../optimization/intro.html">31. Optimization</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Control</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../control/intro.html">32. Introduction to control methods</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control.html">32.1. Optimal control</a></li>
+</ul>
+</li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Reinforcement Learning</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../rl/intro.html">30. Introduction to Reinforcement Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rl/mdp.html">31. Markov Processes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_sol_dp_lp.html">32. Methods of solution of MPD: DP and LP</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_sol_rl.html">33. Methods of solution of MPD: RL</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_large_continuous.html">34. Large or Continuous MDPs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/intro.html">33. Introduction to Reinforcement Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp.html">34. Markov Processes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_sol_dp_lp.html">35. Methods of solution of MPD: DP and LP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_sol_rl.html">36. Methods of solution of MPD: RL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_large_continuous.html">37. Large or Continuous MDPs</a></li>
 </ul>
 
     </div>
@@ -412,19 +424,19 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lti">19.1. LTI</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#response-of-lti-systems">19.2. Response of LTI systems</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equilibria">19.3. Equilibria</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stability">19.4. Stability</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#response-to-integrable-input-and-laplace-transform">19.5. Response to integrable input - and Laplace transform</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#response-to-periodic-input-of-stable-systems-and-fourier-transform">19.6. Response to periodic input of stable systems - and Fourier transform</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#response-to-stochastic-input-of-stable-systems">19.7. Response to stochastic input of stable systems</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions">19.7.1. Assumptions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expected-value">19.7.2. Expected value</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lti">20.1. LTI</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#response-of-lti-systems">20.2. Response of LTI systems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equilibria">20.3. Equilibria</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stability">20.4. Stability</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#response-to-integrable-input-and-laplace-transform">20.5. Response to integrable input - and Laplace transform</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#response-to-periodic-input-of-stable-systems-and-fourier-transform">20.6. Response to periodic input of stable systems - and Fourier transform</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#response-to-stochastic-input-of-stable-systems">20.7. Response to stochastic input of stable systems</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions">20.7.1. Assumptions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expected-value">20.7.2. Expected value</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-of-response-of-lti-in-fourier-domain">19.8. Analysis of response of LTI in Fourier domain</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stationary-ergodic-processes">19.8.1. Stationary Ergodic processes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-of-response-of-lti-in-fourier-domain">20.8. Analysis of response of LTI in Fourier domain</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stationary-ergodic-processes">20.8.1. Stationary Ergodic processes</a></li>
 </ul>
 </li>
 </ul>
@@ -439,7 +451,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="lti-system-response">
-<span id="ode-lti-response"></span><h1><span class="section-number">19. </span>LTI system response<a class="headerlink" href="#lti-system-response" title="Permalink to this heading">#</a></h1>
+<span id="ode-lti-response"></span><h1><span class="section-number">20. </span>LTI system response<a class="headerlink" href="#lti-system-response" title="Permalink to this heading">#</a></h1>
 <p>Usually the response of LTI to 3 different input are studied</p>
 <ul class="simple">
 <li><p>integrable input, being response to non-zero initial condition equivalent to an impulsive force at time <span class="math notranslate nohighlight">\(t = 0\)</span>, see <a class="reference internal" href="lti.html#ode-lti-impulsive-force"><span class="std std-ref">equivalence impulsive force - istantanteous change of state</span></a></p></li>
@@ -447,7 +459,7 @@ document.write(`
 <li><p>stochastic input</p></li>
 </ul>
 <div class="section" id="lti">
-<h2><span class="section-number">19.1. </span>LTI<a class="headerlink" href="#lti" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">20.1. </span>LTI<a class="headerlink" href="#lti" title="Permalink to this heading">#</a></h2>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{cases}
   \dot{\mathbf{x}} = \mathbf{A} \mathbf{x} + \mathbf{B} \mathbf{u} \\
@@ -456,10 +468,10 @@ document.write(`
 <p>with initial conditions, <span class="math notranslate nohighlight">\(\mathbb{x}(0) = \mathbf{x}_0\)</span>.</p>
 </div>
 <div class="section" id="response-of-lti-systems">
-<span id="ode-lti-response-general"></span><h2><span class="section-number">19.2. </span>Response of LTI systems<a class="headerlink" href="#response-of-lti-systems" title="Permalink to this heading">#</a></h2>
+<span id="ode-lti-response-general"></span><h2><span class="section-number">20.2. </span>Response of LTI systems<a class="headerlink" href="#response-of-lti-systems" title="Permalink to this heading">#</a></h2>
 <p>The response of a LTI can be written as the sum of a free and forced response.</p>
 <div class="math notranslate nohighlight" id="equation-eq-lagrange-formula">
-<span class="eqno">(19.1)<a class="headerlink" href="#equation-eq-lagrange-formula" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+<span class="eqno">(20.1)<a class="headerlink" href="#equation-eq-lagrange-formula" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
   \mathbf{x}(t) &amp; = e^{\mathbf{A} t} \mathbf{x}_0 + \int_{\tau=0}^{t} e^{\mathbf{A}(t-\tau)} \mathbf{B} \mathbf{u}(\tau) \, d \tau \\
   \mathbf{y}(t) &amp; = \mathbf{C} \, e^{\mathbf{A} t} \mathbf{x}_0 + \int_{\tau=0}^{t} \mathbf{C} e^{\mathbf{A}(t-\tau)} \mathbf{B} \mathbf{u}(\tau) \, d \tau + \mathbf{D} \mathbf{u}(t) \\
 \end{aligned}\end{split}\]</div>
@@ -480,25 +492,25 @@ Proof<div class="sd-summary-down docutils">
   \mathbf{H}_x(t) &amp; := e^{\mathbf{A} t} \mathbf{B} \\
   \mathbf{H}  (t) &amp; := \mathbf{C} e^{\mathbf{A} t} \mathbf{B} + \mathbf{D} \delta(t) \\
 \end{aligned}\end{split}\]</div>
-<p>are defined <strong>impulse response functions</strong> for the state <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> and the output <span class="math notranslate nohighlight">\(\mathbf{y}\)</span>, as they determine with the evolution of the state and the output of a system with zero initial condition <span class="math notranslate nohighlight">\(\mathbf{x}_0 = \mathbf{0}\)</span> as a consequence of a impulsive force <span class="math notranslate nohighlight">\(\mathbf{u}_{\delta}(t) = \mathbf{u} \delta(t)\)</span>. Using Lagrange formula <a class="reference internal" href="#equation-eq-lagrange-formula">(19.1)</a></p>
+<p>are defined <strong>impulse response functions</strong> for the state <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> and the output <span class="math notranslate nohighlight">\(\mathbf{y}\)</span>, as they determine with the evolution of the state and the output of a system with zero initial condition <span class="math notranslate nohighlight">\(\mathbf{x}_0 = \mathbf{0}\)</span> as a consequence of a impulsive force <span class="math notranslate nohighlight">\(\mathbf{u}_{\delta}(t) = \mathbf{u} \delta(t)\)</span>. Using Lagrange formula <a class="reference internal" href="#equation-eq-lagrange-formula">(20.1)</a></p>
 <div class="math notranslate nohighlight" id="equation-eq-lagrange-formula-impulse">
-<span class="eqno">(19.2)<a class="headerlink" href="#equation-eq-lagrange-formula-impulse" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+<span class="eqno">(20.2)<a class="headerlink" href="#equation-eq-lagrange-formula-impulse" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
   \mathbf{x}(t) &amp; = e^{\mathbf{A}t} \mathbf{B} \mathbf{u} &amp;&amp; = \mathbf{H}_x(t) \mathbf{u} \\ 
   \mathbf{y}(t) &amp; = \left[ \mathbf{C} e^{\mathbf{A}t} \mathbf{B} + \mathbf{D} \delta(t) \right] \mathbf{u} &amp;&amp; = \mathbf{H}(t) \mathbf{u} \\
 \end{aligned}\end{split}\]</div>
 </div>
 <div class="tip admonition">
 <p class="admonition-title">Convolution</p>
-<p>Integral in Lagrange formula <a class="reference internal" href="#equation-eq-lagrange-formula">(19.1)</a> is the convolution of the impulse response function and the input. Changing the integration variable <span class="math notranslate nohighlight">\(z = t - \tau\)</span>, <span class="math notranslate nohighlight">\(d\tau = - dz\)</span>, <span class="math notranslate nohighlight">\(\tau = 0: \, z = t\)</span>, <span class="math notranslate nohighlight">\(\tau = t, \ z = 0\)</span> (and going back from <span class="math notranslate nohighlight">\(z\)</span> to <span class="math notranslate nohighlight">\(\tau\)</span> as the symbol for the dummy integration variable), it’s possible to swap the arguments of the impulsive force and the forcing,</p>
+<p>Integral in Lagrange formula <a class="reference internal" href="#equation-eq-lagrange-formula">(20.1)</a> is the convolution of the impulse response function and the input. Changing the integration variable <span class="math notranslate nohighlight">\(z = t - \tau\)</span>, <span class="math notranslate nohighlight">\(d\tau = - dz\)</span>, <span class="math notranslate nohighlight">\(\tau = 0: \, z = t\)</span>, <span class="math notranslate nohighlight">\(\tau = t, \ z = 0\)</span> (and going back from <span class="math notranslate nohighlight">\(z\)</span> to <span class="math notranslate nohighlight">\(\tau\)</span> as the symbol for the dummy integration variable), it’s possible to swap the arguments of the impulsive force and the forcing,</p>
 <div class="math notranslate nohighlight" id="equation-eq-lagrange-convol">
-<span class="eqno">(19.3)<a class="headerlink" href="#equation-eq-lagrange-convol" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+<span class="eqno">(20.3)<a class="headerlink" href="#equation-eq-lagrange-convol" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
   \mathbf{x}(t) &amp; = e^{\mathbf{A} t} \mathbf{x}_0 + \int_{\tau=0}^{t} \mathbf{H}_x(\tau) \mathbf{u}(t-\tau) \, d \tau \\
   \mathbf{y}(t) &amp; = \mathbf{C} \, e^{\mathbf{A} t} \mathbf{x}_0 + \int_{\tau=0}^{t} \mathbf{H}(\tau) \mathbf{u}(t-\tau) \, d \tau \\
 \end{aligned}\end{split}\]</div>
 </div>
 <div class="tip admonition">
 <p class="admonition-title">Linear but not time-invariant</p>
-<p><strong>todo</strong> <em>The response of linear system, but not time-invariant can be written with the same expression used by Lagrange fomrula <a class="reference internal" href="#equation-eq-lagrange-formula">(19.1)</a>, with <span class="math notranslate nohighlight">\(\mathbf{H}(t)\)</span> not equal to …, but solution of the ODE…</em></p>
+<p><strong>todo</strong> <em>The response of linear system, but not time-invariant can be written with the same expression used by Lagrange fomrula <a class="reference internal" href="#equation-eq-lagrange-formula">(20.1)</a>, with <span class="math notranslate nohighlight">\(\mathbf{H}(t)\)</span> not equal to …, but solution of the ODE…</em></p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
   \boldsymbol{\Phi} \left( \dot{\mathbf{x}} - \mathbf{A}\mathbf{x} \right) &amp; = \boldsymbol{\Phi} \mathbf{B} \mathbf{u} \\
@@ -511,7 +523,7 @@ Proof<div class="sd-summary-down docutils">
 </div>
 </div>
 <div class="section" id="equilibria">
-<span id="ode-lti-response-equilibria"></span><h2><span class="section-number">19.3. </span>Equilibria<a class="headerlink" href="#equilibria" title="Permalink to this heading">#</a></h2>
+<span id="ode-lti-response-equilibria"></span><h2><span class="section-number">20.3. </span>Equilibria<a class="headerlink" href="#equilibria" title="Permalink to this heading">#</a></h2>
 <p>Equilibrium solution of a ODE is a stationary solution, independent from time, <span class="math notranslate nohighlight">\(\dot{\overline{\mathbf{x}}} = \mathbf{0}\)</span>. With a steady forcing <span class="math notranslate nohighlight">\(\overline{\mathbf{u}}\)</span>,</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{cases}
@@ -522,7 +534,7 @@ Proof<div class="sd-summary-down docutils">
 <p><strong>If <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> is singular</strong>…<strong>todo</strong> <em>rely on <a class="reference internal" href="../linear-algebra/intro.html#math-linear-algebra-intro"><span class="std std-ref">Linear algebra</span></a></em></p>
 </div>
 <div class="section" id="stability">
-<span id="ode-lti-response-stability"></span><h2><span class="section-number">19.4. </span>Stability<a class="headerlink" href="#stability" title="Permalink to this heading">#</a></h2>
+<span id="ode-lti-response-stability"></span><h2><span class="section-number">20.4. </span>Stability<a class="headerlink" href="#stability" title="Permalink to this heading">#</a></h2>
 <p><strong>Asymptotic stability to initial perturbations.</strong> A system is stable under perturbation of initial conditions if the free response goes to zero as <span class="math notranslate nohighlight">\(t \rightarrow + \infty\)</span>,</p>
 <div class="math notranslate nohighlight">
 \[\lim_{t \rightarrow +\infty} \mathbf{x}_{free}(t) = \mathbf{0} \ .\]</div>
@@ -531,30 +543,30 @@ Proof<div class="sd-summary-down docutils">
 <p><strong>todo</strong>  <em>rely on <a class="reference internal" href="../linear-algebra/intro.html#math-linear-algebra-intro"><span class="std std-ref">Linear algebra</span></a></em></p>
 </div>
 <div class="section" id="response-to-integrable-input-and-laplace-transform">
-<span id="ode-lti-response-laplace"></span><h2><span class="section-number">19.5. </span>Response to integrable input - and Laplace transform<a class="headerlink" href="#response-to-integrable-input-and-laplace-transform" title="Permalink to this heading">#</a></h2>
+<span id="ode-lti-response-laplace"></span><h2><span class="section-number">20.5. </span>Response to integrable input - and Laplace transform<a class="headerlink" href="#response-to-integrable-input-and-laplace-transform" title="Permalink to this heading">#</a></h2>
 <div class="math notranslate nohighlight" id="equation-eq-lagrange-formula-laplace">
-<span class="eqno">(19.4)<a class="headerlink" href="#equation-eq-lagrange-formula-laplace" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+<span class="eqno">(20.4)<a class="headerlink" href="#equation-eq-lagrange-formula-laplace" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
   \mathbf{x}(s) &amp; = \left(s \mathbf{I} - \mathbf{A} \right)^{-1} \mathbf{x}_0 + \mathbf{H}_x(s) \mathbf{u}(s) \\
   \mathbf{y}(s) &amp; = \mathbf{C} \, \left( s \mathbf{I} - \mathbf{A} \right)^{-1} \mathbf{x}_0 + \mathbf{H}(s) \mathbf{u}(s)
 \end{aligned}\end{split}\]</div>
 </div>
 <div class="section" id="response-to-periodic-input-of-stable-systems-and-fourier-transform">
-<span id="ode-lti-response-periodic"></span><h2><span class="section-number">19.6. </span>Response to periodic input of stable systems - and Fourier transform<a class="headerlink" href="#response-to-periodic-input-of-stable-systems-and-fourier-transform" title="Permalink to this heading">#</a></h2>
+<span id="ode-lti-response-periodic"></span><h2><span class="section-number">20.6. </span>Response to periodic input of stable systems - and Fourier transform<a class="headerlink" href="#response-to-periodic-input-of-stable-systems-and-fourier-transform" title="Permalink to this heading">#</a></h2>
 <p>Forced response to periodic input of an stable system can be represented in Fourier domain replacing <span class="math notranslate nohighlight">\(s\)</span> with <span class="math notranslate nohighlight">\(j \omega\)</span> (and dropping <span class="math notranslate nohighlight">\(j\)</span> once it’s clear we’re dealing with Fourier analysis)</p>
 <div class="math notranslate nohighlight" id="equation-eq-lagrange-formula-fourier">
-<span class="eqno">(19.5)<a class="headerlink" href="#equation-eq-lagrange-formula-fourier" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+<span class="eqno">(20.5)<a class="headerlink" href="#equation-eq-lagrange-formula-fourier" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
   \mathbf{x}(\omega) &amp; = \mathbf{H}_x(\omega) \ \mathbf{u}(\omega) \\
   \mathbf{y}(\omega) &amp; = \mathbf{H}  (\omega) \ \mathbf{u}(\omega)
 \end{aligned}\end{split}\]</div>
 </div>
 <div class="section" id="response-to-stochastic-input-of-stable-systems">
-<span id="ode-lti-response-stochastic"></span><h2><span class="section-number">19.7. </span>Response to stochastic input of stable systems<a class="headerlink" href="#response-to-stochastic-input-of-stable-systems" title="Permalink to this heading">#</a></h2>
+<span id="ode-lti-response-stochastic"></span><h2><span class="section-number">20.7. </span>Response to stochastic input of stable systems<a class="headerlink" href="#response-to-stochastic-input-of-stable-systems" title="Permalink to this heading">#</a></h2>
 <div class="section" id="assumptions">
-<h3><span class="section-number">19.7.1. </span>Assumptions<a class="headerlink" href="#assumptions" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">20.7.1. </span>Assumptions<a class="headerlink" href="#assumptions" title="Permalink to this heading">#</a></h3>
 <p>…</p>
 </div>
 <div class="section" id="expected-value">
-<h3><span class="section-number">19.7.2. </span>Expected value<a class="headerlink" href="#expected-value" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">20.7.2. </span>Expected value<a class="headerlink" href="#expected-value" title="Permalink to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[\boldsymbol{\mu}_{\mathbf{x}}(t) := \mathbb{E}[ \mathbf{x}(t) ]\]</div>
 <p>Taking expected value of LTI equations</p>
@@ -575,7 +587,7 @@ Proof<div class="sd-summary-down docutils">
 </div>
 </div>
 <div class="section" id="analysis-of-response-of-lti-in-fourier-domain">
-<h2><span class="section-number">19.8. </span>Analysis of response of LTI in Fourier domain<a class="headerlink" href="#analysis-of-response-of-lti-in-fourier-domain" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">20.8. </span>Analysis of response of LTI in Fourier domain<a class="headerlink" href="#analysis-of-response-of-lti-in-fourier-domain" title="Permalink to this heading">#</a></h2>
 <p><strong>Energy or power.</strong> For</p>
 <ul class="simple">
 <li><p>time integrable signals: don’t average in time; energy</p></li>
@@ -596,7 +608,7 @@ Proof<div class="sd-summary-down docutils">
 \end{aligned}\end{split}\]</div>
 </div>
 <div class="section" id="stationary-ergodic-processes">
-<h3><span class="section-number">19.8.1. </span>Stationary Ergodic processes<a class="headerlink" href="#stationary-ergodic-processes" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">20.8.1. </span>Stationary Ergodic processes<a class="headerlink" href="#stationary-ergodic-processes" title="Permalink to this heading">#</a></h3>
 <p><strong>Auto-correlation</strong></p>
 <div class="math notranslate nohighlight">
 \[\mathbf{R}_{XX}(t_1, t_2) = \mathbb{E}\left[ \mathbf{X}_{t_1} \, \mathbf{X}_{t_2}^* \right]\]</div>
@@ -637,7 +649,7 @@ Autocorrelation and PSD of infinite-time processes<div class="sd-summary-down do
   &amp; = \mathscr{F}[ \mathbf{R}_{YY}(\tau) ](f) = \\ 
   &amp; = \int_{\tau = -\infty}^{+\infty} \mathbb{E} \left[ \mathbf{y}(t) \mathbf{y}^*(t+\tau) \right]  \, e^{-i 2 \pi f \tau} \, d \tau \ .
 \end{aligned}\end{split}\]</div>
-<p class="sd-card-text">For asymptotically stable systems subject to periodic forcing, response to non-homogenoeus initial conditions vanishes while the forced response can be written either in Fourier or in time domain, exploiting the property of the transform of convolution <a class="reference internal" href="../complex/fourier-transform.html#transform:fourier:convolution">Property 15.1</a>, as</p>
+<p class="sd-card-text">For asymptotically stable systems subject to periodic forcing, response to non-homogenoeus initial conditions vanishes while the forced response can be written either in Fourier or in time domain, exploiting the property of the transform of convolution <a class="reference internal" href="../complex/fourier-transform.html#transform:fourier:convolution">Property 16.1</a>, as</p>
 <div class="math notranslate nohighlight">
 \[\begin{aligned}
   \mathbf{y}(f) = \mathbf{H}(f) \, \mathbf{u}(f) \qquad , \qquad
@@ -726,15 +738,15 @@ $$\begin{aligned}
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">18. </span>Linear Time-Invariant Systems</p>
+        <p class="prev-next-title"><span class="section-number">19. </span>Linear Time-Invariant Systems</p>
       </div>
     </a>
     <a class="right-next"
-       href="../pde/intro.html"
+       href="lti-stability-and-feedback.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">20. </span>Introduction to Partial Differential Equations</p>
+        <p class="prev-next-title"><span class="section-number">21. </span>LTI: stability and feedback</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -753,19 +765,19 @@ $$\begin{aligned}
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lti">19.1. LTI</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#response-of-lti-systems">19.2. Response of LTI systems</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equilibria">19.3. Equilibria</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stability">19.4. Stability</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#response-to-integrable-input-and-laplace-transform">19.5. Response to integrable input - and Laplace transform</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#response-to-periodic-input-of-stable-systems-and-fourier-transform">19.6. Response to periodic input of stable systems - and Fourier transform</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#response-to-stochastic-input-of-stable-systems">19.7. Response to stochastic input of stable systems</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions">19.7.1. Assumptions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expected-value">19.7.2. Expected value</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lti">20.1. LTI</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#response-of-lti-systems">20.2. Response of LTI systems</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equilibria">20.3. Equilibria</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stability">20.4. Stability</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#response-to-integrable-input-and-laplace-transform">20.5. Response to integrable input - and Laplace transform</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#response-to-periodic-input-of-stable-systems-and-fourier-transform">20.6. Response to periodic input of stable systems - and Fourier transform</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#response-to-stochastic-input-of-stable-systems">20.7. Response to stochastic input of stable systems</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assumptions">20.7.1. Assumptions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#expected-value">20.7.2. Expected value</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-of-response-of-lti-in-fourier-domain">19.8. Analysis of response of LTI in Fourier domain</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stationary-ergodic-processes">19.8.1. Stationary Ergodic processes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-of-response-of-lti-in-fourier-domain">20.8. Analysis of response of LTI in Fourier domain</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stationary-ergodic-processes">20.8.1. Stationary Ergodic processes</a></li>
 </ul>
 </li>
 </ul>

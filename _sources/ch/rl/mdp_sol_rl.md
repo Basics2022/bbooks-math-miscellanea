@@ -145,7 +145,7 @@ MC evaluation is model-free. To keep a model-free control task, a model-free pol
 ```
 
 (rl:mdp:sol:rl:control:improv:eps-greedy)=
-### $\varepsilon$-greedy policy improvement
+### $\epsilon$-greedy policy improvement <!-- $\varepsilon$-greedy policy improvement -->
 
 $$
 \pi(a|s) = \left\{
