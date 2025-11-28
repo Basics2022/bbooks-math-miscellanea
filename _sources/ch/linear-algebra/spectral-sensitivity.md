@@ -196,14 +196,30 @@ $$\left\{ \begin{aligned}
 and thus
 
 $$\begin{aligned}
-  \widetilde{\mathbf{u}_{i/p}}
+  \widetilde{\mathbf{u}}_{i/p}
   & = \mathbf{U}_{\notin i} \text{diag} \left\{ \dfrac{1}{ s_{j \notin i} - s_i } \right\} \mathbf{V}_{\notin i}^* \mathbf{b}_i  = \\
   & = \mathbf{U}_{\notin i} \text{diag} \left\{ \dfrac{1}{ s_{j \notin i} - s_i } \right\} \mathbf{V}_{\notin i}^* (- ( \mathbf{A}_{/p} - s_{i/p} \mathbf{B} - s_i \mathbf{B}_{/p}) \mathbf{u}_i)  = \\
   & = \mathbf{U}_{\notin i} \text{diag} \left\{ \dfrac{1}{ s_{j \notin i} - s_i } \right\} \mathbf{V}_{\notin i}^* (- ( \mathbf{A}_{/p} - s_i \mathbf{B}_{/p}) \mathbf{u}_i)  = \\
-  & = \sum_{j \notin i} \mathbf{v}_{j}^* ( - \mathbf{A}_{/p} + s_i \mathbf{B}_{/p}) \mathbf{u}_i \, \text{diag} \left\{ \dfrac{1}{ s_{j} - s_i } \right\}  \mathbf{u}_{j} \ .
+  & = \sum_{j \notin i} \dfrac{ \mathbf{v}_{j}^* ( - \mathbf{A}_{/p} + s_i \mathbf{B}_{/p}) \mathbf{u}_i }{ s_{j} - s_i } \mathbf{u}_{j} \ .
 \end{aligned}$$
 
 ```
+
+```{dropdown} Some algebra with components
+:open:
+
+$$\begin{aligned}
+  u^{i}_{a/p}
+  & = \sum_{b \ne i} u_{a}^{(b)} \delta_{bc} D^{(c)} v^{(c) \ *}_d b^{(i)}_d = \\
+  & = \sum_{b \ne i} u_{a}^{(b)} \delta_{bc} D^{(c)} v^{(c) \ *}_d M_{de} u^{(i)}_e = \\
+  & = \sum_{b \ne i} u_{a}^{(b)} D^{(b)} v^{(b) \ *}_d M_{de} u^{(i)}_e = \\
+  & = \sum_{b \ne i} C^{b,i} u_{a}^{(b)} \ ,
+\end{aligned}$$
+
+with $C^{b,i} = D^{(b)} v^{(b) \ *}_d M_{de/p} u^{(i)}_e = \frac{\mathbf{v}^*_b \mathbf{M} \mathbf{u}_i}{s_b - s_i}$, and $\mathbf{M} = - \mathbf{A}_{/p} + s_i \mathbf{B}_{/p}$.
+
+```
+
 
 (math:spectral:sensitivity:second-order)=
 ## Generalized eigenvalue problem (second order)
