@@ -132,7 +132,7 @@ Kernel of $\mathbf{A}^* - s_i^* \mathbf{B}^*$ is spanned by the left eigenvector
 $$\begin{aligned}
   \mathbf{v}_i^* \mathbf{b}_i 
   & = - \mathbf{v}_i^* \left(  \mathbf{A}_{/p} - s_{i/p} \mathbf{B} - s_i \mathbf{B}_{/p}) \mathbf{u}_i \right) = \\
-  & = - \mathbf{v}_i^* \left(  \mathbf{A}_{/p} - s_i \mathbf{B}_{/p}) \mathbf{u}_i \right) + \mathbf{v}_i \left( \mathbf{A}_{/p} - s_i \mathbf{B}_{/p} \right) \mathbf{u}_i  \underbrace{\mathbf{v}_i^* \mathbf{B} \mathbf{u}_i}_{ = 1} = \\
+  & = - \mathbf{v}_i^* \left(  \mathbf{A}_{/p} - s_i \mathbf{B}_{/p}) \mathbf{u}_i \right) + \mathbf{v}_i^* \left( \mathbf{A}_{/p} - s_i \mathbf{B}_{/p} \right) \mathbf{u}_i  \underbrace{\mathbf{v}_i^* \mathbf{B} \mathbf{u}_i}_{ = 1} = \\
   & = 0 \ ,
 \end{aligned}$$
 
