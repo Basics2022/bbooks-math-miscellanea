@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>7. Introduction to Differential Geometry &#8212; basics - math</title>
+    <title>5. Spectral decomposition &#8212; basics - math</title>
   
   
   
@@ -66,24 +66,15 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/differential-geometry/intro';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/linear-algebra/spectral';</script>
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="8. Tensor Algebra" href="../tensor-algebra-calculus/algebra.html" />
-    <link rel="prev" title="6. Introduction to multi-variable calculus" href="../multivariable/intro.html" />
+    <link rel="next" title="5.1. Sensitivity of spectral decomposition" href="spectral-sensitivity.html" />
+    <link rel="prev" title="4. Linear Systems" href="linear-systems.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPXX63Z3XR"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-JPXX63Z3XR');
-</script>
-
   
   
   <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
@@ -175,16 +166,16 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Linear Algebra</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../linear-algebra/intro.html">1. Introduction to Linear Algebra</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../linear-algebra/matrices.html">2. Matrices</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../linear-algebra/matrix-factorization.html">3. Matrix factorizations</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../linear-algebra/svd.html">3.3. Singular Value Decomposition</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">1. Introduction to Linear Algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrices.html">2. Matrices</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="matrix-factorization.html">3. Matrix factorizations</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="svd.html">3.3. Singular Value Decomposition</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../linear-algebra/linear-systems.html">4. Linear Systems</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../linear-algebra/spectral.html">5. Spectral decomposition</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../linear-algebra/spectral-sensitivity.html">5.1. Sensitivity of spectral decomposition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linear-systems.html">4. Linear Systems</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">5. Spectral decomposition</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="spectral-sensitivity.html">5.1. Sensitivity of spectral decomposition</a></li>
 </ul>
 </li>
 </ul>
@@ -193,8 +184,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../multivariable/intro.html">6. Introduction to multi-variable calculus</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Differential Geometry</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">7. Introduction to Differential Geometry</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../differential-geometry/intro.html">7. Introduction to Differential Geometry</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Vector and Tensor Algebra and Calculus</span></p>
 <ul class="nav bd-sidenav">
@@ -330,7 +321,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/ch/differential-geometry/intro.md" target="_blank"
+      <li><a href="../../_sources/ch/linear-algebra/spectral.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -401,9 +392,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -414,23 +403,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Introduction to Differential Geometry</h1>
+    <h1>Spectral decomposition</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differential-geometry-in-e-3">7.1. Differential geometry in <span class="math notranslate nohighlight">\(E^3\)</span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#curves">7.1.1. Curves</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#surfaces">7.1.2. Surfaces</a></li>
-</ul>
-</li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -440,96 +417,28 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="introduction-to-differential-geometry">
-<span id="differential-geometry-intro"></span><h1><span class="section-number">7. </span>Introduction to Differential Geometry<a class="headerlink" href="#introduction-to-differential-geometry" title="Permalink to this heading">#</a></h1>
-<div class="section" id="differential-geometry-in-e-3">
-<h2><span class="section-number">7.1. </span>Differential geometry in <span class="math notranslate nohighlight">\(E^3\)</span><a class="headerlink" href="#differential-geometry-in-e-3" title="Permalink to this heading">#</a></h2>
-<div class="section" id="curves">
-<h3><span class="section-number">7.1.1. </span>Curves<a class="headerlink" href="#curves" title="Permalink to this heading">#</a></h3>
-<p>Parametric representation of curve in 3-dimensional (Euclidean) space <span class="math notranslate nohighlight">\(E^3\)</span></p>
-<div class="math notranslate nohighlight">
-\[\vec{r}(q)\]</div>
-<p><strong>Differential, <span class="math notranslate nohighlight">\(d \vec{r}\)</span>.</strong></p>
-<div class="math notranslate nohighlight">
-\[d \vec{r}(q) = \vec{r}'(q) \, d q \ .\]</div>
-<p><strong>Arc-length parameter, <span class="math notranslate nohighlight">\(s\)</span>.</strong> So that <span class="math notranslate nohighlight">\(d s = |d \vec{r}(s)|\)</span> and thus</p>
-<div class="math notranslate nohighlight">
-\[|d \vec{r}(s)| = |\vec{r}'(s)| \, |d s| \qquad \rightarrow \qquad |\vec{r}'(s)| = 1 \qquad \rightarrow \qquad \vec{r}'(s) = \hat{t}(s) \ .\]</div>
-<p><strong>Frenet basis.</strong> Using arc-length parameter, Frenet basis is naturally defined as the set <span class="math notranslate nohighlight">\(\{ \hat{t}, \hat{n}, \hat{b} \}\)</span>:</p>
-<ul class="simple">
-<li><p>tangent unit vector, <span class="math notranslate nohighlight">\(\hat{t}(s) = \vec{r}'(s)\)</span>,</p></li>
-<li><p>normal unit vector, <span class="math notranslate nohighlight">\(\hat{r}''(s) = \hat{t}'(s) =: \kappa(s) \, \hat{n}(s) \)</span>, with <span class="math notranslate nohighlight">\(\kappa(s)\)</span> local curvature</p></li>
-<li><p>binormal unit vector, <span class="math notranslate nohighlight">\(\hat{b}(s) = \hat{t}(s) \times \hat{n}(s)\)</span></p></li>
-</ul>
-<p>Using a general parameter, <span class="math notranslate nohighlight">\(t\)</span>, with some abuse of notation <span class="math notranslate nohighlight">\(\vec{r}(t) = \vec{r}(s(t))\)</span> and indicating <span class="math notranslate nohighlight">\(\dot{()} = \frac{d}{dt}\)</span>,</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\dot{\vec{r}} = \frac{d s}{d t} \frac{d \vec{r}}{d s} = \dot{s} \hat{t}\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(\ddot{\vec{r}} = \dfrac{d}{dt} \dot{\vec{r}} = \dfrac{d}{dt} \left( \dot{s} \hat{t} \right) = \ddot{s} \hat{t} + \dfrac{ds}{dt} \dfrac{d}{ds} \hat{t} = \ddot{s} \hat{t} + \dot{s}^2 \kappa \, \hat{n}\)</span></p></li>
-</ul>
-<p><strong>Osculator circle.</strong> Circle with <span class="math notranslate nohighlight">\(R(s) = \frac{1}{\kappa(s)}\)</span>, in plane orthogonal to <span class="math notranslate nohighlight">\(\hat{b}(s)\)</span>, passing through <span class="math notranslate nohighlight">\(\vec{r}(s)\)</span>, and thus center in <span class="math notranslate nohighlight">\(\vec{r}_C(s) = \vec{r}(s) + \hat{n} R(s)\)</span>. Its parametric representation using its arc-length parameter <span class="math notranslate nohighlight">\(p\)</span>, with <span class="math notranslate nohighlight">\(\vec{r}(p=0) = \vec{r}(s)\)</span> reads</p>
-<div class="math notranslate nohighlight">
-\[\vec{r}(p) = \vec{r}_C(s) + R(s) \left[ - \cos \left(\frac{p}{R(s)} \right) \hat{n}(s) + \sin \left(\frac{p}{R(s)}  \right)\hat{t}(s) \right] \ .\]</div>
-<p>Its first and second order derivatives w.r.t. the arc-length <span class="math notranslate nohighlight">\(p\)</span> evaluated in <span class="math notranslate nohighlight">\(p=0\)</span>, i.e. <span class="math notranslate nohighlight">\(\vec{r} = \vec{r}(s)\)</span> read:</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="spectral-decomposition">
+<span id="math-spectral"></span><h1><span class="section-number">5. </span>Spectral decomposition<a class="headerlink" href="#spectral-decomposition" title="Permalink to this heading">#</a></h1>
 <ul>
-<li><p>first derivative in <span class="math notranslate nohighlight">\(p=0\)</span>,</p>
+<li><p><strong>Introduction.</strong> What’s spectral (or eigenvalue) decomposition? Arbitrarieness. When is it possible? Special matrices. Properties and theorems (Cayley-Hamilton)</p>
 <div class="math notranslate nohighlight">
-\[\left.\hat{t}(p)\right|_{p=0} = \left.\vec{r}'(p)\right|_{p=0} = \left.  \left[ \sin \left(\frac{p}{R(s)} \right) \hat{n}(s) + \cos \left(\frac{p}{R(s)}  \right)\hat{t}(s) \right] \right|_{p=0} = \hat{t}(s) \ ,\]</div>
-<p>i.e. the osculator circle has the same tangent as the curve in the point.</p>
+\[\mathbf{A} \mathbf{u}_i = s_i \mathbf{u}_i\]</div>
 </li>
-<li><p>second derivative in <span class="math notranslate nohighlight">\(p=0\)</span>,</p>
+<li><p><strong>Generalized spectral decompositions.</strong> Generalized spectral decomposition of first order systems; generalized spectral deocmposition of second order systems<a class="footnote-reference brackets" href="#nd-order-underdamped" id="id1">1</a></p>
 <div class="math notranslate nohighlight">
-\[\left. \kappa(p) \hat{n}(p)\right|_{p=0} = \left.\vec{r}''(p)\right|_{p=0} = \frac{1}{R(s)} \left.  \left[ \cos \left(\frac{p}{R(s)} \right) \hat{n}(s) - \sin \left(\frac{p}{R(s)}  \right)\hat{t}(s) \right] \right|_{p=0} = \frac{1}{R(s)}\hat{n}(s) = \kappa(s) \hat{n}(s) \ ,\]</div>
-<p>i.e. the osculator circle has the same normal vector and curvature as the curve in the point.</p>
+\[\mathbf{A} \mathbf{u}_i = s_i \mathbf{B} \mathbf{u}_i\]</div>
+<div class="math notranslate nohighlight">
+\[\left[ s_i^2 \mathbf{M}  + s_i \mathbf{C} + \mathbf{K} \right] \mathbf{u}_i = \mathbf{0} \ .\]</div>
 </li>
+<li><p><strong>Sensitivity of spectral decomposition.</strong> …</p></li>
 </ul>
-</div>
-<div class="section" id="surfaces">
-<h3><span class="section-number">7.1.2. </span>Surfaces<a class="headerlink" href="#surfaces" title="Permalink to this heading">#</a></h3>
-<div class="math notranslate nohighlight">
-\[\vec{r}(q^1, q^2)\]</div>
-<div class="math notranslate nohighlight">
-\[d \vec{r} =
-  \frac{\partial \vec{r}}{\partial q^1} \, d q^1 + \frac{\partial \vec{r}}{\partial q^2} \, d q^2 =
-  \vec{b}_1 \, d q^1 + \vec{b}_2 \, d q^2
-\]</div>
-<p>A third vector <span class="math notranslate nohighlight">\(\vec{b}_3 := \hat{n}\)</span> can be defined so that <span class="math notranslate nohighlight">\(|\hat{n}| = 1\)</span> and <span class="math notranslate nohighlight">\(\hat{n} \cdot \vec{b}_{i} = 0\)</span>, <span class="math notranslate nohighlight">\(i=1:2\)</span>. For <span class="math notranslate nohighlight">\(i=1:2\)</span>, <span class="math notranslate nohighlight">\(k=1:2\)</span></p>
-<div class="math notranslate nohighlight">
-\[\frac{\partial \vec{b}_i}{\partial q^j} = \Gamma_{ij}^k \vec{b}_k = \Gamma_{ij}^1 \vec{b}_1 + \Gamma_{ij}^2 \vec{b}_2 + \Gamma_{ij}^3 \vec{b}_3\]</div>
-<p>so that</p>
-<div class="math notranslate nohighlight">
-\[\Gamma_{ij}^{k} = \vec{b}^k \cdot \frac{\partial \vec{b}_i}{\partial q^j}\]</div>
-<p><strong>Normal vector.</strong></p>
-<div class="math notranslate nohighlight">
-\[\vec{n}(q^1, q^2) = \frac{\partial \vec{r}}{\partial q^1}(q^1, q^2) \times \frac{\partial \vec{r}}{\partial q^2}(q^1, q^2) = \vec{b}_1(q^1, q^2) \times \vec{b}_2(q^1, q^2)\]</div>
-<p><strong>Tangent plane.</strong></p>
-<div class="math notranslate nohighlight">
-\[(\vec{r} - \vec{r}(q^1, q^2)) \cdot \vec{n}(q^1, q^2) = 0\]</div>
-<p><strong>Length of elementary segment.</strong></p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-|d \vec{r}|^2 
-  &amp; = d \vec{r} \cdot d \vec{r} = \\
-  &amp; = \left( \vec{b}_1 \, d q^1 + \vec{b}_2 \, d q^2 \right) \cdot \left( \vec{b}_1 \, d q^1 + \vec{b}_2 \, d q^2 \right) = \\
-  &amp; = g_{11} \, dq^1 \, dq^1 + g_{12} \, dq^1 \, dq^2 + g_{21} \, dq^2 \, dq^1 + g_{22} \, dq^2 \, d q^2 = g_{ij} \, dq^i \, dq^j 
-\end{aligned}\end{split}\]</div>
-<p><strong>Second order approximation.</strong></p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  \vec{r}(q^1 + d q^1, q^2 + d q^2) 
-  &amp; = \vec{r}(q_1, q_2) + \frac{\partial \vec{r}}{\partial q^i} \, dq^i + \frac{\partial^2 \vec{r}}{\partial q^i \partial q^j} \, dq^i \, dq^j = \\
-  &amp; = \vec{r}(q_1, q_2) + \vec{b}_{i} \, dq^i + \vec{b}_k \Gamma^{k}_{ij} \, dq^i \, dq^j +  \hat{n} \, \Gamma^{3}_{ij} \, dq^i \, dq^j 
-\end{aligned}\end{split}\]</div>
-<p>so that</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-\left[ \vec{r}(q^1 + d q^1, q^2 + d q^2) - \vec{r}(q^1, q^2) \right] \cdot \hat{n} 
- &amp; = \Gamma^3_{ij} \, d q^i \, dq^j = \\
- &amp; = \hat{n} \cdot \frac{\partial^2 \vec{r}}{\partial q^i \partial q^j} \, d q^i \, dq^j = \\
- &amp; = \hat{n} \cdot \frac{\partial^2 \vec{r}}{\partial q^i \partial q^j} \, \vec{b}^i \cdot \vec{b}_k d q^k \, \vec{b}^j \cdot \vec{b}_l dq^l = \\
- &amp; = \underbrace{d q^k \vec{b}_k}_{d \vec{r}} \cdot \left[ \hat{n} \cdot \frac{\partial^2 \vec{r}}{\partial q^i \partial q^j}  \vec{b}^i \otimes \vec{b}^j \right] \cdot \underbrace{d q^l \vec{b}_l}_{d\vec{r}}
-\end{aligned}\end{split}\]</div>
-<p><strong>Curvature tensor.</strong></p>
-</div>
+<hr class="footnotes docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="nd-order-underdamped"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>It’s likely that mainly underdamped systems with simultaneously diagonalizable matrices will be treated, as this kind of systems often arises in structural dynamics of elastic structures with small structural damping.</p>
+</dd>
+</dl>
+<div class="toctree-wrapper compound">
 </div>
 </div>
 
@@ -546,7 +455,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./ch/differential-geometry"
+            path: "./ch/linear-algebra"
         },
         predefinedOutput: true
     }
@@ -564,20 +473,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../multivariable/intro.html"
+       href="linear-systems.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">6. </span>Introduction to multi-variable calculus</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Linear Systems</p>
       </div>
     </a>
     <a class="right-next"
-       href="../tensor-algebra-calculus/algebra.html"
+       href="spectral-sensitivity.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">8. </span>Tensor Algebra</p>
+        <p class="prev-next-title"><span class="section-number">5.1. </span>Sensitivity of spectral decomposition</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -587,24 +496,6 @@ document.write(`
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differential-geometry-in-e-3">7.1. Differential geometry in <span class="math notranslate nohighlight">\(E^3\)</span></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#curves">7.1.1. Curves</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#surfaces">7.1.2. Surfaces</a></li>
-</ul>
-</li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>

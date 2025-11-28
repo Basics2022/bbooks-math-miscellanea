@@ -33,12 +33,12 @@ $$\widetilde{J}(\mathbf{x}, \mathbf{u}; \boldsymbol{\lambda}) = \int_{t=0}^{+\in
 
 with given initial conditions $\mathbf{x}(0) = \mathbf{x}_0$, so that $\delta \mathbf{x}_0 = \mathbf{0}$.
 
-Using [calculus of variations](calculus-variations:intro), the variations of the cost function w.r.t. $\mathbf{x}$, $\mathbf{u}$, \boldsymbol{\lambda}$ read
+Using [calculus of variations](calculus-variations:intro), the variations of the cost function w.r.t. $\mathbf{x}$, $\mathbf{u}$, $\boldsymbol{\lambda}$ read
 
 $$\begin{aligned}
- \delta_\mathbf{x}           : & \quad  \mathbf{Q} \mathbf{x} + \mathbf{S} \mathbf{u} + \dot{\boldsymbol{\lambda}} + \mathbf{A}^T \boldsymbol{\lambda} = \mathbf{0} \\
- \delta_\mathbf{u}           : & \quad  \mathbf{S}^T \mathbf{x} + \mathbf{R} \mathbf{u} + \mathbf{B}^T \boldsymbol{\lambda} = \mathbf{0} \\
- \delta_\boldsymbol{\lambda} : & \quad  \dot{\mathbf{x}} - \mathbf{A} \mathbf{x} - \mathbf{B} \mathbf{u} = \mathbf{0} \\
+ \delta_{\mathbf{x}}           : & \quad  \mathbf{Q} \mathbf{x} + \mathbf{S} \mathbf{u} + \dot{\boldsymbol{\lambda}} + \mathbf{A}^T \boldsymbol{\lambda} = \mathbf{0} \\
+ \delta_{\mathbf{u}}           : & \quad  \mathbf{S}^T \mathbf{x} + \mathbf{R} \mathbf{u} + \mathbf{B}^T \boldsymbol{\lambda} = \mathbf{0} \\
+ \delta_{\boldsymbol{\lambda}} : & \quad  \dot{\mathbf{x}} - \mathbf{A} \mathbf{x} - \mathbf{B} \mathbf{u} = \mathbf{0} \\
 \end{aligned}$$
 
 From the variation w.r.t. $\mathbf{u}$, since $\mathbf{R} > 0$ and thus innvertible,

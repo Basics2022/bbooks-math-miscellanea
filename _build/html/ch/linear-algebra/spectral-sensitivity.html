@@ -1,0 +1,763 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>5.1. Sensitivity of spectral decomposition &#8212; basics - math</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/style.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/linear-algebra/spectral-sensitivity';</script>
+    <link rel="shortcut icon" href="../../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="6. Introduction to multi-variable calculus" href="../multivariable/intro.html" />
+    <link rel="prev" title="5. Spectral decomposition" href="spectral.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.svg" class="logo__image only-light" alt="basics - math - Home"/>
+    <script>document.write(`<img src="../../_static/logo-dark.svg" class="logo__image only-dark" alt="basics - math - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Linear Algebra</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">1. Introduction to Linear Algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrices.html">2. Matrices</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="matrix-factorization.html">3. Matrix factorizations</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="svd.html">3.3. Singular Value Decomposition</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="linear-systems.html">4. Linear Systems</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="spectral.html">5. Spectral decomposition</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">5.1. Sensitivity of spectral decomposition</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Multivariable Calculus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../multivariable/intro.html">6. Introduction to multi-variable calculus</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Differential Geometry</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../differential-geometry/intro.html">7. Introduction to Differential Geometry</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Vector and Tensor Algebra and Calculus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/algebra.html">8. Tensor Algebra</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean.html">9. Tensor Calculus in Euclidean Spaces</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean-cartesian.html">9.5. Tensor Calculus in Euclidean Spaces - Cartesian coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean-cylindrical.html">9.6. Tensor Calculus in Euclidean Spaces - cylindrical coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean-spherical.html">9.7. Tensor Calculus in Euclidean Spaces - Spehrical coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/time-derivative-of-integrals.html">10. Time derivative of integrals over moving domains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/calculus-identities.html">11. Calculus identities</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Functional Analysis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../functional-analysis/intro.html">12. Introduction to Functional Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functional-analysis/dirac-delta.html">13. Dirac’s delta</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Complex Calculus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../complex/analysis.html">14. Complex Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../complex/laplace.html">15. Laplace Transform</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../complex/fourier.html">16. Fourier Transforms</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../complex/fourier-series.html">16.1. Fourier Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../complex/fourier-transform.html">16.2. Fourier Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../complex/fourier-transforms.html">16.3. Relations between Fourier transforms</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Calculus of Variations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../calculus-variations/intro.html">17. Introduction to Calculus of Variations</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Ordinary Differential Equations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ode/intro.html">18. Introduction to Ordinary Differential Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ode/lti.html">19. Linear Time-Invariant Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ode/lti-response.html">20. LTI system response</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ode/lti-stability-and-feedback.html">21. LTI: stability and feedback</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Partial Differential Equations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../pde/intro.html">22. Introduction to Partial Differential Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/elliptic.html">23. Elliptic equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/parabolic.html">24. Parabolic equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/hyperbolic.html">25. Hyperbolic problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/nc.html">26. Navier-Cauchy equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/ns.html">27. Navier-Stokes equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/ale.html">28. Arbitrary Lagrangian-Eulerian description</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Numerical Methods for PDEs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/numerics.html">29. Introduction to numerical methods for PDEs</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pde/fem.html">29.1. Finite Element Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/fvm.html">29.2. Finite Volume Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/bem.html">29.3. Boundary Element Method</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Boundary Methods for PDEs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../pde/bem-poisson-helmholtz-waves.html">30. Green’s function method</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Optimization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../optimization/intro.html">31. Optimization</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Control</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../control/intro.html">32. Introduction to control methods</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control.html">32.1. Optimal control</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reinforcement Learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../rl/intro.html">33. Introduction to Reinforcement Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp.html">34. Markov Processes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_sol_dp_lp.html">35. Methods of solution of MPD: DP and LP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_sol_rl.html">36. Methods of solution of MPD: RL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_large_continuous.html">37. Large or Continuous MDPs</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/ch/linear-algebra/spectral-sensitivity.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Sensitivity of spectral decomposition</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generalized-eigenvalue-problem-first-order">5.1.1. Generalized eigenvalue problem (first order)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#right-and-left-eigenvalue-problem">5.1.1.1. Right and left eigenvalue problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sensitivity-of-eigenvalue">5.1.1.2. Sensitivity of eigenvalue</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sensitivity-of-eigenvector">5.1.1.3. Sensitivity of eigenvector</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generalized-eigenvalue-problem-second-order">5.1.2. Generalized eigenvalue problem (second order)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">5.1.2.1. Right and left eigenvalue problem</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="tex2jax_ignore mathjax_ignore section" id="sensitivity-of-spectral-decomposition">
+<span id="math-spectral-sensitivity"></span><h1><span class="section-number">5.1. </span>Sensitivity of spectral decomposition<a class="headerlink" href="#sensitivity-of-spectral-decomposition" title="Permalink to this heading">#</a></h1>
+<p>Matrices involved in a eigenvalue problem can be function of some parameters <span class="math notranslate nohighlight">\(p\)</span>. Sensitivity analysis evaluates first-order changes<a class="footnote-reference brackets" href="#first-order-taylor" id="id1">1</a> of eigenvalues and eigenvectors following a increment of the parameter <span class="math notranslate nohighlight">\(p = \overline{p} + \Delta p\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  s_i(p) &amp; = s_i(\overline{p}) + \Delta p \, s_{i/p} (\overline{p}) + o(\Delta p) \\
+  \mathbf{u}_i(p) &amp; = \mathbf{u}_i(\overline{p}) + \Delta p \, \mathbf{u}_{i/p} (\overline{p}) + o(\Delta p) \ .
+\end{aligned}\end{split}\]</div>
+<p>Here the terms <span class="math notranslate nohighlight">\(s_{i/p}(\overline{p})\)</span> and <span class="math notranslate nohighlight">\(\mathbf{u}_{i/p}(\overline{p})\)</span> are the <strong>sensitivity</strong> of the <span class="math notranslate nohighlight">\(i^{th}\)</span> eigenvalue and eigenvector respectively w.r.t. to an increment <span class="math notranslate nohighlight">\(\Delta p\)</span> of the variable <span class="math notranslate nohighlight">\(p\)</span>, starting from the reference configuration determined by the value <span class="math notranslate nohighlight">\(\overline{p}\)</span> of the parameter.</p>
+<p><strong>Rank of sensitivity.</strong> Sensitivity of eigenvalue to a scalar parameter is a scalar quantity. Sensitivity of eivenvector to a scalar parameter is a vector quantity. If the parameter <span class="math notranslate nohighlight">\(\mathbf{p}\)</span> is a vector quantity, sensitivity of eigenvalue w.r.t. <span class="math notranslate nohighlight">\(\mathbf{p}\)</span> is a vector quantity, and sensitivity of eigenvector w.r.t. <span class="math notranslate nohighlight">\(\mathbf{p}\)</span> is a matrix (or tensor, sometimes…) quantity.</p>
+<div class="section" id="generalized-eigenvalue-problem-first-order">
+<span id="math-spectral-sensitivity-first-order"></span><h2><span class="section-number">5.1.1. </span>Generalized eigenvalue problem (first order)<a class="headerlink" href="#generalized-eigenvalue-problem-first-order" title="Permalink to this heading">#</a></h2>
+<p>Sensitivity of eigenvalue and right eigenvector to a parameter <span class="math notranslate nohighlight">\(p\)</span> of matrices <span class="math notranslate nohighlight">\(\mathbf{A}(p)\)</span>, <span class="math notranslate nohighlight">\(\mathbf{B}(p)\)</span> read</p>
+<div class="math notranslate nohighlight" id="equation-eq-eig-sens-first-eigenvalue">
+<span class="eqno">(5.1)<a class="headerlink" href="#equation-eq-eig-sens-first-eigenvalue" title="Permalink to this equation">#</a></span>\[s_{i/p} = \mathbf{w}_i^* \left( \mathbf{A}_{/p} - s_i \mathbf{B}_{/p} \right) \mathbf{u}_i \]</div>
+<div class="math notranslate nohighlight">
+\[\mathbf{u}_{i/p} = \sum_{a \notin \{i\}} \mathbf{w}_a^* \left( - \mathbf{A}_{/p} + s_i \mathbf{B} \right) \mathbf{u}_i \dfrac{1}{s_a - s_i} \mathbf{u}_a \ ,\]</div>
+<p>having exploited normalization condition <span class="math notranslate nohighlight">\(\mathbf{w}_i^* \mathbf{B} \mathbf{u}_i = 1\)</span>, being <span class="math notranslate nohighlight">\(\mathbf{u}_i\)</span> and <span class="math notranslate nohighlight">\(\mathbf{w}_i\)</span> the<a class="footnote-reference brackets" href="#multiple-ev" id="id2">2</a> right and left eigenvectors associated with eigenvalue <span class="math notranslate nohighlight">\(s_i\)</span>.</p>
+<div class="section" id="right-and-left-eigenvalue-problem">
+<span id="math-spectral-sensitivity-first-order-right-left"></span><h3><span class="section-number">5.1.1.1. </span>Right and left eigenvalue problem<a class="headerlink" href="#right-and-left-eigenvalue-problem" title="Permalink to this heading">#</a></h3>
+<p>Right and left eigenvalue problems are defined as</p>
+<div class="math notranslate nohighlight" id="equation-eq-eig-right-left">
+<span class="eqno">(5.2)<a class="headerlink" href="#equation-eq-eig-right-left" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+  \mathbf{A} \mathbf{u}_i &amp; = s_i \mathbf{B} \mathbf{u}_i \\
+  \mathbf{v}_j^* \mathbf{A} &amp; = s_j \mathbf{v}_j^* \mathbf{B} \\
+\end{aligned}\end{split}\]</div>
+<div class="proof property admonition" id="property-0">
+<p class="admonition-title"><span class="caption-number">Property 5.1 </span> (Eigenvalues of the right and left spectral problems)</p>
+<div class="property-content section" id="proof-content">
+<p>Left and right eigenvalue problems have the same set of eigenvalues.</p>
+</div>
+</div><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Proof<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><strong>todo</strong></p>
+</div>
+</details><div class="proof property admonition" id="property-1">
+<p class="admonition-title"><span class="caption-number">Property 5.2 </span> (Orthogonality conditions of right and left spectral problems)</p>
+<div class="property-content section" id="proof-content">
+<p>Left and right eigenvectors associated with different eigenvalues are orthogonal w.r.t. the matrices of the system, i.e.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathbf{v}_j^* \mathbf{B} \mathbf{u}_i &amp; = b^{(i)} \delta_{ij} \\
+  \mathbf{v}_j^* \mathbf{A} \mathbf{u}_i &amp; = a^{(i)} \delta_{ij} \ ,
+\end{aligned}\end{split}\]</div>
+<p>with <span class="math notranslate nohighlight">\(a^{(i)} = s_i b^{(i)}\)</span>. Parameters <span class="math notranslate nohighlight">\(a^{(i)}\)</span>, <span class="math notranslate nohighlight">\(b^{(i)}\)</span> are not uniquely determined, and one of them (or their combination) can be used in a <strong>normalization condition</strong> removing arbitrarieness of eigenvectors to a multiplicative factor.</p>
+</div>
+</div><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Proof<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Starting from the left and right eigenvalue problems <a class="reference internal" href="#equation-eq-eig-right-left">(5.2)</a> for two different eigenvalues <span class="math notranslate nohighlight">\(s_i \ne s_j\)</span>, and multiplying (on the left) the right eigenvalue problem by <span class="math notranslate nohighlight">\(\mathbf{v}_j^*\)</span> and multiplying (on the right) the left eigenvalue problem by <span class="math notranslate nohighlight">\(\mathbf{u}_i\)</span></p>
+<div class="math notranslate nohighlight" id="equation-eq-eig-right-left-ortho-1">
+<span class="eqno">(5.3)<a class="headerlink" href="#equation-eq-eig-right-left-ortho-1" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+  \mathbf{v}_j^* \mathbf{A} \mathbf{u}_i &amp; = s_i \mathbf{v}_j^* \mathbf{B} \mathbf{u}_i \\
+  \mathbf{v}_j^* \mathbf{A} \mathbf{u}_i &amp; = s_j \mathbf{v}_j^* \mathbf{B} \mathbf{u}_i \\
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">and subracting the two equations</p>
+<div class="math notranslate nohighlight">
+\[0 = (s_i - s_j) \mathbf{v}_j^* \mathbf{B} \mathbf{u}_i\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-eig-right-left-ortho-b">
+<span class="eqno">(5.4)<a class="headerlink" href="#equation-eq-eig-right-left-ortho-b" title="Permalink to this equation">#</a></span>\[\rightarrow \qquad 0 = \mathbf{v}_j^* \mathbf{B} \mathbf{u}_i \quad \text{ if $s_i \ne s_j$} \ ,\]</div>
+<p class="sd-card-text">as the left-hand-side terms are the same, and <span class="math notranslate nohighlight">\(s_i \ne s_j\)</span>. As <a class="reference internal" href="#equation-eq-eig-right-left-ortho-b">(5.4)</a> holds, from <a class="reference internal" href="#equation-eq-eig-right-left-ortho-1">(5.3)</a> it also follows that</p>
+<div class="math notranslate nohighlight" id="equation-eq-eig-right-left-ortho-a">
+<span class="eqno">(5.5)<a class="headerlink" href="#equation-eq-eig-right-left-ortho-a" title="Permalink to this equation">#</a></span>\[\rightarrow \qquad 0 = \mathbf{v}_j^* \mathbf{A} \mathbf{u}_i \quad \text{ if $s_i \ne s_j$} \ .\]</div>
+<p class="sd-card-text">These relations don’t hold for left and right eigenvectors associated with the same eigenvalues, and thus these conditions can be used as normalization conditions.</p>
+</div>
+</details></div>
+<div class="section" id="sensitivity-of-eigenvalue">
+<h3><span class="section-number">5.1.1.2. </span>Sensitivity of eigenvalue<a class="headerlink" href="#sensitivity-of-eigenvalue" title="Permalink to this heading">#</a></h3>
+<p>The derivative w.r.t. parameter <span class="math notranslate nohighlight">\(p\)</span> of the right eigenvalue problem</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{A}(p) \mathbf{u}_i(p) = s_i(p) \mathbf{B}(p) \mathbf{u}_i(p) \ ,\]</div>
+<p>reads</p>
+<div class="math notranslate nohighlight">
+\[0 = ( \mathbf{A}_{/p} - s_{i/p} \mathbf{B} - s_i \mathbf{B}_{/p}) \mathbf{u}_i + (\mathbf{A} - s_i \mathbf{B} ) \mathbf{u}_{i/p} \ .\]</div>
+<p>Multiplying on the left by the left eigenvector <span class="math notranslate nohighlight">\(\mathbf{w}_i\)</span>, and recalling that the left eigenvalue problem reads <span class="math notranslate nohighlight">\(0 = \mathbf{w}_i^* \left( \mathbf{A} - s_i \mathbf{B} \right)\)</span>, the last term is identically zero and</p>
+<div class="math notranslate nohighlight">
+\[0 = \mathbf{w}_i^*  ( \mathbf{A}_{/p} - s_{i/p} \mathbf{B} - s_i \mathbf{B}_{/p}) \mathbf{u}_i \ ,\]</div>
+<p>so that it’s possible to find the expression of the eigenvalue sensitivity as</p>
+<div class="math notranslate nohighlight" id="equation-eq-eig-sens-first-eval">
+<span class="eqno">(5.6)<a class="headerlink" href="#equation-eq-eig-sens-first-eval" title="Permalink to this equation">#</a></span>\[
+s_{i/p}
+  = \dfrac{\mathbf{w}_i \left( \mathbf{A}_{/p} - s_i \mathbf{B}_{/p} \right) \mathbf{u}_i}{\mathbf{w}_i^* \mathbf{B} \mathbf{u}_i} 
+  = \mathbf{w}_i \left( \mathbf{A}_{/p} - s_i \mathbf{B}_{/p} \right) \mathbf{u}_i \ ,
+\]</div>
+<p>where the last step exploits the normalization condition <span class="math notranslate nohighlight">\(\mathbf{w}_i^* \mathbf{B} \mathbf{u}_i = b^{(i)} = 1\)</span>.</p>
+</div>
+<div class="section" id="sensitivity-of-eigenvector">
+<h3><span class="section-number">5.1.1.3. </span>Sensitivity of eigenvector<a class="headerlink" href="#sensitivity-of-eigenvector" title="Permalink to this heading">#</a></h3>
+<p>The sensitivity of the eigenvector <span class="math notranslate nohighlight">\(\mathbf{u}_{i/p}\)</span> is the solution of the linear system that can be obtained from the derivative of the eigenvalue problem,</p>
+<div class="math notranslate nohighlight">
+\[(\mathbf{A} - s_i \mathbf{B} ) \mathbf{u}_{i/p} = \underbrace{- ( \mathbf{A}_{/p} - s_{i/p} \mathbf{B} - s_i \mathbf{B}_{/p}) \mathbf{u}_i}_{=:\mathbf{b}_i} \ ,\]</div>
+<p>once the sensitivity of the eigenvector <span class="math notranslate nohighlight">\(s_{i/p}\)</span> is known from expression <a class="reference internal" href="#equation-eq-eig-sens-first-eval">(5.6)</a>.</p>
+<div class="proof property admonition" id="property-2">
+<p class="admonition-title"><span class="caption-number">Property 5.3 </span> (Linear system is singular, <span class="math notranslate nohighlight">\( \text{K}(A) = \{ \mathbf{u}_i \}\)</span>)</p>
+<div class="property-content section" id="proof-content">
+<p>Linear system is singular as <span class="math notranslate nohighlight">\(s_i\)</span> is an eigenvalue of the problem, <span class="math notranslate nohighlight">\(|\mathbf{A} - s_i \mathbf{B}| = 0\)</span>, and the kernel of the matrix is the space spanned by the right eigenvectors associated with <span class="math notranslate nohighlight">\(s_i\)</span>, as</p>
+<div class="math notranslate nohighlight">
+\[\left( \mathbf{A} - s_i \mathbf{B} \right) \mathbf{u}_i = \mathbf{0} \ .\]</div>
+</div>
+</div><p>As the matrix of the linear system is singular, the linear system has <strong>no solution if</strong> the right-hand side is not in the range of the matrix of the system, i.e. <span class="math notranslate nohighlight">\(\mathbf{b}_i \notin \text{R}(\mathbf{A}-s_i \mathbf{B})\)</span>.</p>
+<p>Fortunately, the RHS belongs to the range of the matrix, <span class="math notranslate nohighlight">\(\mathbf{b}_i \in \text{R}(\mathbf{A}- s_i \mathbf{B})\)</span>, as it’s proved in the box below.</p>
+<div class="proof property admonition" id="property-3">
+<p class="admonition-title"><span class="caption-number">Property 5.4 </span> (<span class="math notranslate nohighlight">\(\ \mathbf{b}_i \in \text{R}(\mathbf{A} - s_i \mathbf{B})\)</span>)</p>
+<div class="property-content section" id="proof-content">
+<p>If <span class="math notranslate nohighlight">\(\mathbf{b}_i\)</span> belongs to <span class="math notranslate nohighlight">\(\text{R}(\mathbf{A} - s_i \mathbf{B})\)</span>, it’s orthogonal to <span class="math notranslate nohighlight">\(\text{K}(\mathbf{A}^* - s_i^* \mathbf{B}^*)\)</span> and viceversa, by theorem … <strong>todo</strong> add link</p>
+<p>Kernel of <span class="math notranslate nohighlight">\(\mathbf{A}^* - s_i^* \mathbf{B}^*\)</span> is spanned by the left eigenvectors <span class="math notranslate nohighlight">\(\mathbf{v}_i\)</span>. Thus, using expression of the eigenvalue sensitivity in evaluating the product</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathbf{v}_i^* \mathbf{b}_i 
+  &amp; = - \mathbf{v}_i^* \left(  \mathbf{A}_{/p} - s_{i/p} \mathbf{B} - s_i \mathbf{B}_{/p}) \mathbf{u}_i \right) = \\
+  &amp; = - \mathbf{v}_i^* \left(  \mathbf{A}_{/p} - s_i \mathbf{B}_{/p}) \mathbf{u}_i \right) + \mathbf{v}_i^* \left( \mathbf{A}_{/p} - s_i \mathbf{B}_{/p} \right) \mathbf{u}_i  \underbrace{\mathbf{v}_i^* \mathbf{B} \mathbf{u}_i}_{ = 1} = \\
+  &amp; = 0 \ ,
+\end{aligned}\end{split}\]</div>
+<p>it’s readily proved that <span class="math notranslate nohighlight">\(\mathbf{v}^*_i \mathbf{b}_i = 0\)</span>. <strong>todo</strong> treat the case where eigenvalue multiplicity is larger than 1.</p>
+</div>
+</div><p>As the singular linear system has at least a solution, it has infinite solution as the kernel of the matrix is not empty. If <span class="math notranslate nohighlight">\(\widetilde{\mathbf{u}_{/p}}\)</span> is a solution of the system, adding a linear combination of the vectors of <span class="math notranslate nohighlight">\(\text{K}(\mathbf{A} - s_i \mathbf{B}) = \{ \mathbf{u}_i \}\)</span> produces a solution as well,</p>
+<div class="math notranslate nohighlight">
+\[\widetilde{\mathbf{u}_{i/p}} + \mathbf{U}_i \boldsymbol{\beta} \ ,\]</div>
+<p>as <span class="math notranslate nohighlight">\((\mathbf{A} - s_i \mathbf{B}) \mathbf{U}_i = \mathbf{0}\)</span>, being <span class="math notranslate nohighlight">\(\mathbf{U}_i\)</span> the matrix whose columns are the right eigenvectors <span class="math notranslate nohighlight">\(\mathbf{u}_i\)</span> associated with eigenvalue <span class="math notranslate nohighlight">\(s_i\)</span>, spanning the kernel of the matrix.</p>
+<p>In order to remove this arbitrariness, it’s possible to introduce the orthogonality condition <span class="math notranslate nohighlight">\(\mathbf{V}_i^* \mathbf{B} \widetilde{\mathbf{u}_{i/p}} = \mathbf{0}\)</span>, setting the coefficients of the linear combination of the vectors of the kernel <span class="math notranslate nohighlight">\(\boldsymbol\beta = \mathbf{0}\)</span>.</p>
+<div class="proof property admonition" id="property-4">
+<p class="admonition-title"><span class="caption-number">Property 5.5 </span> (Augmented linear system)</p>
+<div class="property-content section" id="proof-content">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{bmatrix} \mathbf{A} - s_i \mathbf{B} &amp;  \mathbf{U}_i \\ \mathbf{V}_i^* \mathbf{B} &amp; \mathbf{0} \end{bmatrix}
+ \begin{bmatrix} \widetilde{\mathbf{u}_{i/p}} \\ \boldsymbol{\beta} \end{bmatrix} = \begin{bmatrix} \mathbf{b}_i \\ \mathbf{0} \end{bmatrix}
+\end{split}\]</div>
+<p>If everything goes right, the coefficients <span class="math notranslate nohighlight">\(\boldsymbol{\beta}\)</span> must be zero.</p>
+</div>
+</div><div class="proof property admonition" id="property-5">
+<p class="admonition-title"><span class="caption-number">Property 5.6 </span> (Decomposition of the soluton using the modal basis)</p>
+<div class="property-content section" id="proof-content">
+<p>Writing the solution as a linear combination of the right eigenvectors,</p>
+<div class="math notranslate nohighlight">
+\[\widetilde{\mathbf{u}_{i/p}} = \mathbf{U}_{\notin i} \boldsymbol\alpha + \mathbf{U}_i \boldsymbol\beta \ ,\]</div>
+<p>it’s possible to solve for <span class="math notranslate nohighlight">\(\boldsymbol\alpha\)</span> and for <span class="math notranslate nohighlight">\(\boldsymbol\beta\)</span> and then retrieve the solution of the underdetermined linear system. Projecting the linear system on <span class="math notranslate nohighlight">\(\mathbf{V}_{\notin i}\)</span>, and prescibing the orthogonality condition <span class="math notranslate nohighlight">\(\mathbf{V}_i^* \mathbf{B} \widetilde{\mathbf{u}_{i/p}} = \mathbf{0}\)</span> on the solution, two decoupled sets of equations for <span class="math notranslate nohighlight">\(\boldsymbol\alpha\)</span> and <span class="math notranslate nohighlight">\(\boldsymbol\beta\)</span> appears,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left\{ \begin{aligned}
+ &amp;  \mathbf{V}_{\notin i}^* \left( \mathbf{A} - s_i \mathbf{B} \right) \mathbf{U}_{\notin i} \boldsymbol\alpha = \mathbf{V}_{\notin i}^* \mathbf{b}_i \\
+ &amp; \mathbf{V}_i^* \mathbf{B} \mathbf{U}_i \boldsymbol{\beta} = \mathbf{0} \ ,
+\end{aligned}\right.\end{split}\]</div>
+<p>as <span class="math notranslate nohighlight">\(\left( \mathbf{A} - s_i \mathbf{B} \right) \mathbf{U}_i = \mathbf{0}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{V}_{i}^* \mathbf{B} \mathbf{U}_{\notin i} = \mathbf{0}\)</span>. Exploiting diagonalization properties, the system can be written as two uncoupled diagonal systems</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left\{ \begin{aligned}
+ &amp;  \text{diag} \left\{ a^{(j) \notin i} - s_i b^{(j) \notin i} \right\} \boldsymbol\alpha = \mathbf{V}_{\notin i}^* \mathbf{b}_i \\
+ &amp;  \text{diag} \left\{ b^{(i)} \right\} \boldsymbol{\beta} = \mathbf{0} \ ,
+\end{aligned}\right.\end{split}\]</div>
+<p>or, exploiting normalization condition <span class="math notranslate nohighlight">\(\mathbf{v}_i^* \mathbf{B} \mathbf{u}_i = 1\)</span>, and thus <span class="math notranslate nohighlight">\(b^{(j)} = 1\)</span> and <span class="math notranslate nohighlight">\(a^{(j)} = s_j\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left\{ \begin{aligned}
+ &amp;  \text{diag} \left\{ s_{j \notin i} - s_i \right\} \boldsymbol\alpha = \mathbf{V}_{\notin i}^* \mathbf{b}_i \\
+ &amp;  \mathbf{I} \, \boldsymbol{\beta} = \mathbf{0} \ ,
+\end{aligned}\right.\end{split}\]</div>
+<p>The solution reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left\{ \begin{aligned}
+ &amp; \boldsymbol\alpha = \text{diag} \left\{ \dfrac{1}{ s_{j \notin i} - s_i } \right\} \mathbf{V}_{\notin i}^* \mathbf{b}_i \\
+ &amp; \boldsymbol{\beta} = \mathbf{0} \ ,
+\end{aligned}\right.\end{split}\]</div>
+<p>and thus</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \widetilde{\mathbf{u}_{i/p}}
+  &amp; = \mathbf{U}_{\notin i} \text{diag} \left\{ \dfrac{1}{ s_{j \notin i} - s_i } \right\} \mathbf{V}_{\notin i}^* \mathbf{b}_i  = \\
+  &amp; = \mathbf{U}_{\notin i} \text{diag} \left\{ \dfrac{1}{ s_{j \notin i} - s_i } \right\} \mathbf{V}_{\notin i}^* (- ( \mathbf{A}_{/p} - s_{i/p} \mathbf{B} - s_i \mathbf{B}_{/p}) \mathbf{u}_i)  = \\
+  &amp; = \mathbf{U}_{\notin i} \text{diag} \left\{ \dfrac{1}{ s_{j \notin i} - s_i } \right\} \mathbf{V}_{\notin i}^* (- ( \mathbf{A}_{/p} - s_i \mathbf{B}_{/p}) \mathbf{u}_i)  = \\
+  &amp; = \sum_{j \notin i} \mathbf{v}_{j}^* ( - \mathbf{A}_{/p} + s_i \mathbf{B}_{/p}) \mathbf{u}_i \, \text{diag} \left\{ \dfrac{1}{ s_{j} - s_i } \right\}  \mathbf{u}_{j} \ .
+\end{aligned}\end{split}\]</div>
+</div>
+</div></div>
+</div>
+<div class="section" id="generalized-eigenvalue-problem-second-order">
+<span id="math-spectral-sensitivity-second-order"></span><h2><span class="section-number">5.1.2. </span>Generalized eigenvalue problem (second order)<a class="headerlink" href="#generalized-eigenvalue-problem-second-order" title="Permalink to this heading">#</a></h2>
+<div class="section" id="id3">
+<h3><span class="section-number">5.1.2.1. </span>Right and left eigenvalue problem<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+<hr class="footnotes docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="first-order-taylor"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>First order changes should be meant as derivatives w.r.t. the parameter <span class="math notranslate nohighlight">\(p\)</span>, evaluated for the reference value of <span class="math notranslate nohighlight">\(\overline{p}\)</span> that appear in a Taylor series of the quantity of interest, <span class="math notranslate nohighlight">\(s(p_i) = s(\overline{p}_i) + \Delta p_k \, \partial_{p_k} s(\overline{p}_i) + o(\Delta p_i)\)</span>.</p>
+</dd>
+<dt class="label" id="multiple-ev"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p>Eigenvalues with algebraic and geometric multiplicity larger than one, <span class="math notranslate nohighlight">\(m_i^{(a)} = m_i^{(g)} &gt; 1\)</span>, have the associated eigenvectors that spans a subspace of dimension <span class="math notranslate nohighlight">\(m_i\)</span>. In this subspace, it’s always possible to define a set of orthogonal vectors. <strong>todo</strong> write it better; refer to introduction to spectral decomposition… <strong>todo</strong> treat sensitivity to parameters of eigenvalues and eigenvectors with multiplicity larger than one…</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./ch/linear-algebra"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="spectral.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>Spectral decomposition</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../multivariable/intro.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">6. </span>Introduction to multi-variable calculus</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generalized-eigenvalue-problem-first-order">5.1.1. Generalized eigenvalue problem (first order)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#right-and-left-eigenvalue-problem">5.1.1.1. Right and left eigenvalue problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sensitivity-of-eigenvalue">5.1.1.2. Sensitivity of eigenvalue</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sensitivity-of-eigenvector">5.1.1.3. Sensitivity of eigenvector</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generalized-eigenvalue-problem-second-order">5.1.2. Generalized eigenvalue problem (second order)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">5.1.2.1. Right and left eigenvalue problem</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By basics
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

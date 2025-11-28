@@ -13,6 +13,9 @@ parts:
     sections:
     - file: ch/linear-algebra/svd
   - file: ch/linear-algebra/linear-systems
+  - file: ch/linear-algebra/spectral
+    sections:
+    - file: ch/linear-algebra/spectral-sensitivity
 - caption: Multivariable Calculus
   numbered: True
   chapters:
