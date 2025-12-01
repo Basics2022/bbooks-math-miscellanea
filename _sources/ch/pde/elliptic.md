@@ -52,3 +52,50 @@ $$\dots + \int_{S_D} w_D ( \phi - g ) \ ,$$
 
 
 ```
+
+(pde:elliptic:poisson:weaki:uniqueness)=
+### Existence and uniqueness
+
+Assuming two solutions $u_1(\mathbf{r})$, $u_2(\mathbf{r})$ exist for the Poisson problem
+
+$$\begin{cases}
+  - \nabla \cdot ( \nu \nabla u ) = f  \qquad \mathbf{r} \in V \\
+  u|_{S_D} = g \\
+  \nu \hat{n} \cdot \nabla u|_{S_N} = h
+\end{cases}$$
+
+Their difference $\delta (\mathbf{r}) := u_2(\mathbf{r}) - u_1(\mathbf{r})$ then satisfies the homogeneous problem
+
+$$\begin{cases}
+  - \nabla \cdot ( \nu \nabla \delta u ) = 0  \qquad \mathbf{r} \in V \\
+  \delta u|_{S_D} = 0 \\
+  \nu \hat{n} \cdot \nabla \delta u|_{S_N} = 0
+\end{cases}$$
+
+The norm of the gradient of the difference of the solution reads
+
+$$\begin{aligned}
+  \int_{V} \nu |\nabla \delta u|^2
+  & = \int_{V} \nu \nabla \delta u \cdot \nabla \delta u = \\
+  & = \int_{V} \nabla \cdot \left( \delta u \, \nu \nabla \delta u \right) - \int_{V} \delta u \, \underbrace{\nabla \cdot ( \nu \nabla \delta u )}_{ = 0 } = \\
+  & = \oint_{\partial V} \delta u \nu \hat{n} \cdot \nabla \delta u = \\
+  & = \int_{S_D} \underbrace{ \delta u}_{= 0} \nu \hat{n} \cdot \nabla \delta u + \int_{S_N} \delta u \underbrace{\nu \hat{n} \cdot \nabla \delta u}_{= 0} = \\
+  & = 0 \ .
+\end{aligned}$$
+
+**If** $\nu(\mathbf{r}) > 0$ for $\forall \mathbf{r} \in V$[^diffusion-coeff], it follows that
+
+$$\nabla \delta u = \nabla (u_2 - u_1) = 0 \ ,$$
+
+and thus the two solutions differs at most by an additive constant,
+
+$$u_2(\mathbf{r}) - u_1(\mathbf{r}) = c \ .$$
+
+**If** the Dirichlet boundary has non-null dimension, it forces the value of the functions to coincide on that boundary, $u_2(\mathbf{r}) = u_1(\mathbf{r})$ on $S_D$, and thus sets the value  of the additive constant $c$ to be zero, $c = 0$, and 
+
+$$u_2(\mathbf{r}) = u_1(\mathbf{r}) \ ,$$
+
+thus proving the uniqueness of the solution of the Poisson problem, with non-negative diffusion coefficient and non-zero dimension of Dirichlet boundary.
+
+[^diffusion-coeff]: As an example, this condition appears in physical systems with non-zero and positive diffusion coefficients in diffusion problems, like thermal conduction or specie diffusion via Fick's law.
+
