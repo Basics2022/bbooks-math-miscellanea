@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>15. Laplace Transform &#8212; basics - math</title>
+    <title>15.2. Applications of Laplace Transform &#8212; basics - math</title>
   
   
   
@@ -64,12 +64,14 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/complex/laplace';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/complex/laplace-applications';</script>
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="15.1. Definition and Properties" href="laplace-def-thm.html" />
-    <link rel="prev" title="14. Complex Analysis" href="analysis.html" />
+    <link rel="next" title="16. Fourier Transforms" href="fourier.html" />
+    <link rel="prev" title="15.1. Definition and Properties" href="laplace-def-thm.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -214,9 +216,9 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Complex Calculus</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="analysis.html">14. Complex Analysis</a></li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">15. Laplace Transform</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="laplace.html">15. Laplace Transform</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="laplace-def-thm.html">15.1. Definition and Properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="laplace-applications.html">15.2. Applications of Laplace Transform</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">15.2. Applications of Laplace Transform</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="fourier.html">16. Fourier Transforms</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -332,7 +334,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/ch/complex/laplace.md" target="_blank"
+      <li><a href="../../_sources/ch/complex/laplace-applications.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -403,7 +405,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -414,11 +418,22 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Laplace Transform</h1>
+    <h1>Applications of Laplace Transform</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ordinary-differential-equations">15.2.1. Ordinary differential equations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#first-order-linear-differential-equation-with-constant-coefficients">15.2.1.1. First-order linear differential equation with constant coefficients</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -428,11 +443,63 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="laplace-transform">
-<span id="complex-laplace"></span><h1><span class="section-number">15. </span>Laplace Transform<a class="headerlink" href="#laplace-transform" title="Permalink to this heading">#</a></h1>
-<p><a class="reference internal" href="laplace-def-thm.html#complex-laplace-def-thm"><span class="std std-ref"><strong>Definition of Laplace transform.</strong></span></a> Definition of Laplace transform, inverse transform, properties and theorems.</p>
-<p><a class="reference internal" href="laplace-applications.html#complex-laplace-applications"><span class="std std-ref"><strong>Applications of Laplace transform.</strong></span></a> Solution of ODEs,…</p>
-<div class="toctree-wrapper compound">
+  <div class="tex2jax_ignore mathjax_ignore section" id="applications-of-laplace-transform">
+<span id="complex-laplace-applications"></span><h1><span class="section-number">15.2. </span>Applications of Laplace Transform<a class="headerlink" href="#applications-of-laplace-transform" title="Permalink to this heading">#</a></h1>
+<div class="section" id="ordinary-differential-equations">
+<h2><span class="section-number">15.2.1. </span>Ordinary differential equations<a class="headerlink" href="#ordinary-differential-equations" title="Permalink to this heading">#</a></h2>
+<p>Exploiting the properties of transforming derivation into product by the complex variable <span class="math notranslate nohighlight">\(s\)</span>, Laplace transform can be a useful tool in solving <a class="reference internal" href="../ode/intro.html#ode"><span class="std std-ref">Ordinary differential equations</span></a>.</p>
+<p>Linear ODEs are treated in details in the section about <a class="reference internal" href="../ode/lti.html#ode-lti"><span class="std std-ref">Linear Time-Invariant Systems</span></a>.</p>
+<div class="section" id="first-order-linear-differential-equation-with-constant-coefficients">
+<h3><span class="section-number">15.2.1.1. </span>First-order linear differential equation with constant coefficients<a class="headerlink" href="#first-order-linear-differential-equation-with-constant-coefficients" title="Permalink to this heading">#</a></h3>
+<p>A Cauchy problem governed by a first-order linear differential equation with constant coefficients reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{cases}
+  \dot{u} + a u = f(t)  &amp;&amp; \text{for $t &gt; 0$} \\
+  u(0^-) = u_0 \ .
+\end{cases}\end{split}\]</div>
+<p><strong>Comments.</strong> 1) For linear differential equations with constant coefficients, a time shift is always possible to set initial conditions in <span class="math notranslate nohighlight">\(t_0 = 0\)</span>; 2) dealing with <strong>impulsive forces</strong> (more on this in <a class="reference internal" href="../ode/lti.html#ode-lti-impulsive-force"><span class="std std-ref">LTI systems: impulsive forces</span></a>), some attention needs to be paid to the time of initial conditions: if impulsive forces at <span class="math notranslate nohighlight">\(t = 0\)</span> may exist, initial conditions need to be set at <span class="math notranslate nohighlight">\(t=0^-\)</span>; the effect of the impulsive force is equivalent to a jump in initial conditions from <span class="math notranslate nohighlight">\(t=0^-\)</span> and <span class="math notranslate nohighlight">\(t=0^+\)</span>.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+General solution in time domain<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Multiplying the ODE by <span class="math notranslate nohighlight">\(e^{a t}\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[e^{a t} f(t) = e^{a t} \left( \dot{u} + a u \right) = \dfrac{d}{dt} \left( e^{at} u(t) \right)\]</div>
+<p class="sd-card-text">and integrating from <span class="math notranslate nohighlight">\(0^-\)</span> to a generic time <span class="math notranslate nohighlight">\(t\)</span> — after changing the dummy integration variable from <span class="math notranslate nohighlight">\(\tau\)</span> to <span class="math notranslate nohighlight">\(t\)</span> —</p>
+<div class="math notranslate nohighlight">
+\[e^{at} u(t) - u(0^-) = \int_{\tau = 0^-}^{t} e^{a \tau} f(\tau) d \tau \ ,\]</div>
+<p class="sd-card-text">and thus</p>
+<div class="math notranslate nohighlight">
+\[u(t) = e^{-at}  u(0^-) + \int_{\tau = 0^-}^{t} e^{-a(t- \tau)} f(\tau) d \tau \ .\]</div>
+</div>
+</details><p>The solution of the problem can be also computed using Laplace transform:</p>
+<ol class="arabic simple">
+<li><p>transforming the problem from time to Laplace domain: the differential problem with unknown <span class="math notranslate nohighlight">\(u(t)\)</span> in time is transformed into an algebraic problem <span class="math notranslate nohighlight">\(\hat{u}(s)\)</span>. Using Laplace <strong>transform of the time derivative</strong></p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[s \hat{u}(s) + u_0 + a \hat{u}(s) = \hat{f}(s) \ ,\]</div>
+<ol class="arabic simple" start="2">
+<li><p>solving the algebraic problem in Laplace domain for <span class="math notranslate nohighlight">\(\hat{u}(s)\)</span></p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\hat{u}(s) = \dfrac{1}{s + a} u_0 + \dfrac{1}{s + a} f(s) \ .\]</div>
+<ol class="arabic" start="3">
+<li><p>transforming back the solution in time domain, <span class="math notranslate nohighlight">\(u(t) = \mathscr{L}^{-1}\{ \hat{u}(s) \}\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+     u(t) &amp; = \mathscr{L}^{-1}\{ \hat{u}(s) \} (t) = \\
+          &amp; = \mathscr{L}^{-1} \left\{ \dfrac{u_0}{s + a} \right\} +  \mathscr{L}^{-1} \left\{ \dfrac{1}{s + a} \hat{f}(s) \right\} = \\
+          &amp; = e^{-at} u_0 + \int_{0^-}^{t} e^{-a(t-\tau)} f(\tau) d \tau \ ,
+   \end{aligned}\end{split}\]</div>
+<p>having used the inverse transform of the exponential <span class="math notranslate nohighlight">\(\mathscr{L}\{e^{ct}\} = \int_{t=0^-}^{+\infty} e^{ct} e^{-st} \, dt = \frac{1}{s-c}\)</span>, and the inverse transform of the convolution</p>
+<div class="math notranslate nohighlight">
+\[\hat{f}(s) \hat{g}(s) = \mathscr{L}\{ f(t) \ast g(t) \}(s) = \int_{t=0^-}^{+\infty} \left\{ \int_{\tau=0^-}^{t} f(\tau) g(t-\tau) d \tau \right\} e^{-st} dt \ .\]</div>
+</li>
+</ol>
+</div>
 </div>
 </div>
 
@@ -467,20 +534,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="analysis.html"
+       href="laplace-def-thm.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">14. </span>Complex Analysis</p>
+        <p class="prev-next-title"><span class="section-number">15.1. </span>Definition and Properties</p>
       </div>
     </a>
     <a class="right-next"
-       href="laplace-def-thm.html"
+       href="fourier.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">15.1. </span>Definition and Properties</p>
+        <p class="prev-next-title"><span class="section-number">16. </span>Fourier Transforms</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -490,6 +557,23 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ordinary-differential-equations">15.2.1. Ordinary differential equations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#first-order-linear-differential-equation-with-constant-coefficients">15.2.1.1. First-order linear differential equation with constant coefficients</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
