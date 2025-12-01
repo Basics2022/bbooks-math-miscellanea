@@ -46,6 +46,9 @@ parts:
   chapters:
   - file: ch/complex/analysis
   - file: ch/complex/laplace
+    sections:
+    - file: ch/complex/laplace-def-thm
+    - file: ch/complex/laplace-applications
   - file: ch/complex/fourier
     sections:
     - file: ch/complex/fourier-series
