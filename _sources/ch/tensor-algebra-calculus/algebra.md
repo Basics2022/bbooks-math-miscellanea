@@ -65,7 +65,7 @@ A basis is a minimal set of vectors of $\mathscr{V}$ that can represent all the 
 
 ```
 
-```{prf:defiiniiton} Dimension of a vector space
+```{prf:definition} Dimension of a vector space
 
 The dimension of a vector space $\mathscr{V}$ is the number of the elements of a basis of the space.
 
@@ -237,14 +237,40 @@ $$T^{a_1 a_2 \dots a_r} = v_{(1)}^{a_1} \, v_{(2)}^{a_2} \, \dots \, v_{(r)}^{a_
 
 ## Space of tensors
 
-```{prf:definition}
+```{prf:definition} Tensor as a multilinear map
+:label: def-tensor
+
+A rank-$r$ tensor $\mathbf{A}$ can be defined as a multilinear map, acting on $r$ vectors[^vectors-dual-space] $\mathbf{v}^{(i)} \in \mathscr{V}$, $i = 1:r$
+
+$$\mathbf{A}\left(\mathbf{v}^{(1)}, \dots, \mathbf{v}^{(r)}\right): \underbrace{\mathscr{V} \times \dots \times \mathscr{V}}_{\text{$r$ times}} \rightarrow K .$$
+
 ```
+
+[^vectors-dual-space]: This introduction has no ambition iof being the most general &mdash; and precise? &mdash; introduction to tensors: as already stated somewhere else, existence of inner product is assumed even it's not necessary for the most general treatment of tensors; moreover, no distinction is made between dual space $\mathscr{V}^*$ of covectors &mdash; space of linear forms on $V$ &mdash; and $V$ itself;...
+
+**todo** 
+
+* Tensor definition by components, and action on the vectors
+* Reference to a similar definition of a vector: a vector $\mathbf{v} \in \mathscr{V}$, vector space with inner product, is uniquely determined by the value of its scalar product $\mathbf{u} \cdot \mathbf{v}$ with every vector $\mathbf{u} \in \mathscr{V}$ or, analogously, with every vector in a set of $n$ linearly independent vectors $\left\{ \mathbf{u}^{(i)} \right\}$, $i = 1:n$, with $n= \text{dim}\left( \mathscr{V} \right)$.
+* Definition of components w.r.t. a basis
 
 ### Operations (I)
 
 #### Sum
 
+Sum of tensors with the same rank, $\mathbf{A}$, $\mathbf{B} \in \mathscr{V}$, 
+
+$$\mathbf{A} + \mathbf{B} \in \mathscr{V}^r$$
+
+**todo** Components
+
 #### Multiplication by a scalar
+
+Multiplication by a scalar $a \in K$, of a $r$-rank tensor $\mathbf{A}$, 
+
+$$a \mathbf{A} \in \mathscr{V}^r$$
+
+**todo** Components
 
 ```{admonition} Vector space of tensors
 :class: tip
