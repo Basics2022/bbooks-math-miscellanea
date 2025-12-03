@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>39. Large or Continuous MDPs &#8212; basics - math</title>
+    <title>11. Isotropic Tensors &#8212; basics - math</title>
   
   
   
@@ -66,11 +66,12 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/rl/mdp_large_continuous';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/tensor-algebra-calculus/algebra-isotropic-tensors';</script>
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="prev" title="38. Methods of solution of MPD: RL" href="mdp_sol_rl.html" />
+    <link rel="next" title="12. Time derivative of integrals over moving domains" href="time-derivative-of-integrals.html" />
+    <link rel="prev" title="10. Unitary and rotation tensors" href="algebra-rotation-tensors.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -196,18 +197,18 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../differential-geometry/intro.html">7. Introduction to Differential Geometry</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Vector and Tensor Algebra and Calculus</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/algebra.html">8. Tensor Algebra</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean.html">9. Tensor Calculus in Euclidean Spaces</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean-cartesian.html">9.5. Tensor Calculus in Euclidean Spaces - Cartesian coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean-cylindrical.html">9.6. Tensor Calculus in Euclidean Spaces - cylindrical coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean-spherical.html">9.7. Tensor Calculus in Euclidean Spaces - Spehrical coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="algebra.html">8. Tensor Algebra</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="calculus-euclidean.html">9. Tensor Calculus in Euclidean Spaces</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="calculus-euclidean-cartesian.html">9.5. Tensor Calculus in Euclidean Spaces - Cartesian coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="calculus-euclidean-cylindrical.html">9.6. Tensor Calculus in Euclidean Spaces - cylindrical coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="calculus-euclidean-spherical.html">9.7. Tensor Calculus in Euclidean Spaces - Spehrical coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/algebra-rotation-tensors.html">10. Unitary and rotation tensors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/algebra-isotropic-tensors.html">11. Isotropic Tensors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/time-derivative-of-integrals.html">12. Time derivative of integrals over moving domains</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/calculus-identities.html">13. Calculus identities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="algebra-rotation-tensors.html">10. Unitary and rotation tensors</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">11. Isotropic Tensors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="time-derivative-of-integrals.html">12. Time derivative of integrals over moving domains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="calculus-identities.html">13. Calculus identities</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Functional Analysis</span></p>
 <ul class="nav bd-sidenav">
@@ -275,12 +276,12 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Reinforcement Learning</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="intro.html">35. Introduction to Reinforcement Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mdp.html">36. Markov Processes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mdp_sol_dp_lp.html">37. Methods of solution of MPD: DP and LP</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mdp_sol_rl.html">38. Methods of solution of MPD: RL</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">39. Large or Continuous MDPs</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../rl/intro.html">35. Introduction to Reinforcement Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp.html">36. Markov Processes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_sol_dp_lp.html">37. Methods of solution of MPD: DP and LP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_sol_rl.html">38. Methods of solution of MPD: RL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_large_continuous.html">39. Large or Continuous MDPs</a></li>
 </ul>
 
     </div>
@@ -335,7 +336,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/ch/rl/mdp_large_continuous.md" target="_blank"
+      <li><a href="../../_sources/ch/tensor-algebra-calculus/algebra-isotropic-tensors.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -419,7 +420,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Large or Continuous MDPs</h1>
+    <h1>Isotropic Tensors</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -429,7 +430,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#value-and-policy-based-rl">39.1. Value and Policy-Based RL</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rank-2-isotropic-tensors">11.1. Rank-<span class="math notranslate nohighlight">\(2\)</span> isotropic tensors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rank-3-isotropic-tensors">11.2. Rank-<span class="math notranslate nohighlight">\(3\)</span> isotropic tensors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rank-4-isotropic-tensors">11.3. Rank-<span class="math notranslate nohighlight">\(4\)</span> isotropic tensors</a></li>
 </ul>
             </nav>
         </div>
@@ -441,61 +444,166 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="large-or-continuous-mdps">
-<span id="rl-mdp-sol-rl"></span><h1><span class="section-number">39. </span>Large or Continuous MDPs<a class="headerlink" href="#large-or-continuous-mdps" title="Permalink to this heading">#</a></h1>
-<p>For small-dimensional problems, value functions can be efficiently represented by arrays or look-up tables,</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  V(s)   \quad &amp; \rightarrow \quad \mathbf{V} \in \mathbb{R}^{|S|} \\
-  Q(s,a) \quad &amp; \rightarrow \quad \mathbf{Q} \in \mathbb{R}^{|S| \times |A|} \\
-\end{aligned}\end{split}\]</div>
-<p>For large problems with large number of discrete states <span class="math notranslate nohighlight">\(\sim 10^{N}\)</span> (<span class="math notranslate nohighlight">\(N = 20\)</span> for backgammon, <span class="math notranslate nohighlight">\(= 10^{170}\)</span> for Go), or continuous state space, RL usually relies on <strong>function approximation</strong> of the value function,</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  V^{\pi}(s)   &amp; \sim V(s  ; \boldsymbol{\theta}) \\
-  Q^{\pi}(s,a) &amp; \sim Q(s,a; \boldsymbol{\theta}) \\
-\end{aligned}\end{split}\]</div>
-<p>Parameters <span class="math notranslate nohighlight">\(\boldsymbol{\theta}\)</span> are updated during learning. Examples of function approximators, the most suitable depend on the problem itself (ANN, Fourier/wavelets basis, polynomial, piecewise-polynomial, coarse coding,…)</p>
-<p><strong>Optimizing/minimizing mean-squared error between <span class="math notranslate nohighlight">\(V(s,\theta)\)</span> and <span class="math notranslate nohighlight">\(V^{\pi}(s)\)</span></strong></p>
-<div class="math notranslate nohighlight">
-\[L(\boldsymbol{\theta}) := \mathbb{E}_{\pi} \left[ \left( V^{\pi}(s) - V(s; \boldsymbol{\theta}) \right)^2 | s_t = s  \right]\]</div>
-<p>Gradient descent,</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  \Delta \boldsymbol{\theta} 
-  &amp; = - \frac{1}{2} \alpha \nabla_{\boldsymbol{\theta}} L(\boldsymbol{\theta}) = \\
-  &amp; = - \frac{1}{2} \alpha \nabla_{\boldsymbol{\theta}} \, \mathbb{E}_{\pi} \left[ \left( V^{\pi}(s) - V(s, \boldsymbol{\theta}) \right)^2 | s_t = s \right] = \\
-  &amp; = \alpha \, \mathbb{E}_{\pi} \big[ \left( V^{\pi}(s) - V(s, \boldsymbol{\theta}) \right) \nabla_{\boldsymbol{\theta}} V(s, \boldsymbol{\theta}) \ | \ s_t = s \big]  \ ,
-\end{aligned}\end{split}\]</div>
-<p>and the stochastic gradient decent update reads</p>
-<div class="math notranslate nohighlight">
-\[
-  \Delta \boldsymbol{\theta}
-  = \alpha \ \left( V^{\pi}(s) - V(s, \boldsymbol{\theta}) \right) \, \nabla_{\boldsymbol{\theta}} V(s, \boldsymbol{\theta})  \ .
-\]</div>
-<p>State representation with <strong>features</strong> <span class="math notranslate nohighlight">\(\boldsymbol{\phi}(s)\)</span>,</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\boldsymbol{\phi}(s) = \begin{bmatrix}  \phi_1(s) \\ \dots \\ \phi_n(s) \end{bmatrix}\end{split}\]</div>
-<p><strong>State-value function as a linear combination of features</strong></p>
-<div class="math notranslate nohighlight">
-\[V(s; \boldsymbol{\theta}) = \boldsymbol{\phi}^T(s) \, \boldsymbol{\theta} \ ,\]</div>
-<p>and the gradient of the objective function directly follows from</p>
-<div class="math notranslate nohighlight">
-\[\nabla_{\boldsymbol{\theta}} V(s; \boldsymbol{\theta}) = \boldsymbol{\phi}(s) \ .\]</div>
-<p>…</p>
-<p><strong>Action-value function as a linear combination of features</strong></p>
-<div class="math notranslate nohighlight">
-\[Q(s, a; \boldsymbol{\theta}) = \boldsymbol{\phi}^T(s,a) \, \boldsymbol{\theta} \ ,\]</div>
-<p>…</p>
-<div class="section" id="value-and-policy-based-rl">
-<h2><span class="section-number">39.1. </span>Value and Policy-Based RL<a class="headerlink" href="#value-and-policy-based-rl" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p>value based</p></li>
-<li><p>policy based</p></li>
-<li><p>actor-critic</p></li>
-</ul>
-<p>…</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="isotropic-tensors">
+<span id="tensor-algebra-isotropic-tensors"></span><h1><span class="section-number">11. </span>Isotropic Tensors<a class="headerlink" href="#isotropic-tensors" title="Permalink to this heading">#</a></h1>
+<p>This section provides the definition of isotropic tensors, the general forms of low-rank tensors (from rank-<span class="math notranslate nohighlight">\(2\)</span> to rank-<span class="math notranslate nohighlight">\(4\)</span> tensors) that may be useful in some fields of science (e.g. in continuum mechanics, in the constitutive law relating stress tensor with strain tensor in isotropic linear elastic media or stress tensor with strain velocity tensor in Newtonian fluids).</p>
+<div class="proof definition admonition" id="def-tensor-isotropic">
+<p class="admonition-title"><span class="caption-number">Definition 11.1 </span> (Isotropic tensor)</p>
+<div class="definition-content section" id="proof-content">
+<p>An isotropic tensor is …</p>
 </div>
+</div><p>The general form of the low-rank isotropic tensors in three-dimensional spaces, <span class="math notranslate nohighlight">\(\text{dim}\left( \mathscr{V} \right) = 3\)</span> is proved using the definition of a rank-<span class="math notranslate nohighlight">\(r\)</span> tensor as a multilinear map acting on <span class="math notranslate nohighlight">\(r\)</span> vectors, and exploiting the invariance of some vector operations under rotations.</p>
+<div class="section" id="rank-2-isotropic-tensors">
+<h2><span class="section-number">11.1. </span>Rank-<span class="math notranslate nohighlight">\(2\)</span> isotropic tensors<a class="headerlink" href="#rank-2-isotropic-tensors" title="Permalink to this heading">#</a></h2>
+<p>The most general rank-<span class="math notranslate nohighlight">\(2\)</span> isotropic tensor is a scalar multiple of the identity tensor, <span class="math notranslate nohighlight">\(\mathbf{A} = a \mathbf{I}\)</span>.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Proof<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The action of a rank-<span class="math notranslate nohighlight">\(2\)</span> isotropic tensor in <span class="math notranslate nohighlight">\(\mathscr{V}\)</span> on every pair of vectors <span class="math notranslate nohighlight">\(\mathbf{u}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> can be a function of <span class="math notranslate nohighlight">\(\mathbf{u} \cdot \mathbf{v}\)</span> only, i.e. the only vector operation:</p>
+<ul class="simple">
+<li><p class="sd-card-text">producing a scalar</p></li>
+<li><p class="sd-card-text">invariant under rotations</p></li>
+<li><p class="sd-card-text">involving the two vectors <span class="math notranslate nohighlight">\(\mathbf{u}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> (i.e. the tensor is a multilinear map, <span class="math notranslate nohighlight">\(\mathbf{A}(\mathbf{u}, \mathbf{v})\)</span>)</p></li>
+</ul>
+<p class="sd-card-text">Now, using coordinates, the general expression of the isotropic tensor is retrieved comparing the expression built under the isotropic assumption,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathbf{A}(\mathbf{u}, \mathbf{v}) 
+  &amp; = a \mathbf{u} \cdot \mathbf{v} = \\
+  &amp; = a \left( u^i \mathbf{b}_i \right) \cdot \left( v^j \mathbf{b}_j \right) = \\
+  &amp; = a u^i v^j g_{ij}
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">with the general expression of the action of the stress tensor on the vectors <span class="math notranslate nohighlight">\(\mathbf{u}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{v}\)</span></p>
+<div class="math notranslate nohighlight">
+\[\mathbf{A}(\mathbf{u}, \mathbf{v}) = A_{ij} \mathbf{b}^i \mathbf{b}^j \left( u^k \mathbf{b}_k, v^l \mathbf{b}_l \right) = A_{ij} \delta^i_k \delta^j_l u^k v^l = A_{ij} u^i v^j \ ,\]</div>
+<p class="sd-card-text">so that the <em>covariant components</em> read</p>
+<div class="math notranslate nohighlight">
+\[A_{ij} = a g_{ij}\]</div>
+<p class="sd-card-text">and the tensor can be written as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathbf{A} 
+  = A_{ij} \mathbf{b}^i \mathbf{b}^j 
+  &amp; = a g_{ij}\mathbf{b}^i\mathbf{b}^j = \\
+  &amp; = a \mathbf{b}^i\mathbf{b}_i = a \delta_i^j \mathbf{b}^i \mathbf{b}_j = \\
+  &amp; = a g^{ij} \mathbf{b}_j \mathbf{b}_i = a g^{ij} \mathbf{b}_i \mathbf{b}_j \ .
+\end{aligned}\end{split}\]</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Components of the identity tensor<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The identity tensor can be defined as a rank-<span class="math notranslate nohighlight">\(2\)</span> tensor whose dot product with any arbitrary <span class="math notranslate nohighlight">\(\mathbf{v} \in \mathbf{V}\)</span> gives</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{I} \cdot \mathbf{v} = \mathbf{v} \ .\]</div>
+<p class="sd-card-text">The identity tensor can be written using any vector basis <span class="math notranslate nohighlight">\(\{ \mathbf{b}_i \}_i\)</span>, and its reciprocal <span class="math notranslate nohighlight">\(\{ \mathbf{b}^j \}\)</span> as</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{I} = \mathbf{b}_i \mathbf{b}^i = \mathbf{b}^i \mathbf{b}_i = g_{ij} \mathbf{b}^i \mathbf{b}^j = g^{ij} \mathbf{b}_i \mathbf{b}_j \ ,\]</div>
+<p class="sd-card-text">as it’s immediate to prove by direct computation</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathbf{b}_i \mathbf{b}^i \cdot \mathbf{v} &amp; = \mathbf{b}_i \mathbf{b}^i \cdot \left( v^k \mathbf{b}_k \right) = \mathbf{b}_i \delta^i_k v^k = v^i \mathbf{b}_i = \mathbf{v} \\
+  \mathbf{b}^i \mathbf{b}_i \cdot \mathbf{v} &amp; = \mathbf{b}^i \mathbf{b}_i \cdot \left( v_k \mathbf{b}^k \right) = \mathbf{b}^i \delta_i^k v_k = v_i \mathbf{b}^i = \mathbf{v} \\
+  g_{ij} \mathbf{b}^i \mathbf{b}^j \cdot \mathbf{v} &amp; = g_{ij} \mathbf{b}^i \mathbf{b}^j \cdot \left( v^k \mathbf{b}_k \right) = \mathbf{b}^i \delta^j_k v^k g_{ij} = \mathbf{b}^i \underbrace{v^k g_{ik}}_{=v_i} = \mathbf{v}  \\
+  g^{ij} \mathbf{b}_i \mathbf{b}_j \cdot \mathbf{v} &amp; = g^{ij} \mathbf{b}_i \mathbf{b}_j \cdot \left( v_k \mathbf{b}^k \right) = \mathbf{b}_i \delta_j^k v_k g^{ij} = \mathbf{b}_i \underbrace{v_k g^{ik}}_{=v^i} = \mathbf{v}  \\
+\end{aligned}\end{split}\]</div>
+</div>
+</details></div>
+<div class="section" id="rank-3-isotropic-tensors">
+<h2><span class="section-number">11.2. </span>Rank-<span class="math notranslate nohighlight">\(3\)</span> isotropic tensors<a class="headerlink" href="#rank-3-isotropic-tensors" title="Permalink to this heading">#</a></h2>
+</div>
+<div class="section" id="rank-4-isotropic-tensors">
+<h2><span class="section-number">11.3. </span>Rank-<span class="math notranslate nohighlight">\(4\)</span> isotropic tensors<a class="headerlink" href="#rank-4-isotropic-tensors" title="Permalink to this heading">#</a></h2>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Proof<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The action of a rank-<span class="math notranslate nohighlight">\(4\)</span> isotropic tensor in <span class="math notranslate nohighlight">\(\mathscr{V}\)</span> on every set of 4 vectors <span class="math notranslate nohighlight">\(\mathbf{u}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{v}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{w}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> can be a function of the products of scalar products</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  &amp; \mathbf{u} \cdot \mathbf{v} \, \mathbf{w} \cdot \mathbf{x} \\
+  &amp; \mathbf{u} \cdot \mathbf{w} \, \mathbf{v} \cdot \mathbf{x} \\
+  &amp; \mathbf{u} \cdot \mathbf{x} \, \mathbf{v} \cdot \mathbf{w} \ ,
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">i.e. any possible combinations through scalar products of different vectors</p>
+<ul class="simple">
+<li><p class="sd-card-text">producing a scalar</p></li>
+<li><p class="sd-card-text">invariant under rotations</p></li>
+<li><p class="sd-card-text">involving all the 4 vectors <span class="math notranslate nohighlight">\(\mathbf{u}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{v}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{w}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> (i.e. the tensor is a multilinear map, <span class="math notranslate nohighlight">\(\mathbf{A}(\mathbf{u}, \mathbf{v}, \mathbf{w}, \mathbf{x})\)</span>)</p></li>
+</ul>
+<p class="sd-card-text">Now, using coordinates, the general expression of the isotropic tensor is retrieved comparing the expression built under the isotropic assumption,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathbf{A}(\mathbf{u}, \mathbf{v}) 
+  &amp; = a \mathbf{u} \cdot \mathbf{v} \, \mathbf{w} \cdot \mathbf{x}
+    + b \mathbf{u} \cdot \mathbf{w} \, \mathbf{v} \cdot \mathbf{x}
+    + c \mathbf{u} \cdot \mathbf{x} \, \mathbf{v} \cdot \mathbf{w} = \\
+  &amp; = a \, g_{ij} g_{kl} u^i v^j w^k x^l
+    + b \, g_{ij} g_{kl} u^i w^j v^k x^l
+    + c \, g_{ij} g_{kl} x^i v^j v^k w^l = \\
+  &amp; = \left( a \ g_{ij} g_{kl} + b \ g_{ik} g_{jl} + c \ g_{il} g_{jk} \right) u^i v^j w^k x^l \ ,
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">with the general expression of the action of the stress tensor on the vectors <span class="math notranslate nohighlight">\(\mathbf{u}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{v}\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+\mathbf{A}(\mathbf{u}, \mathbf{v})
+&amp; = A_{ijkl} \mathbf{b}^i \mathbf{b}^j \mathbf{b}^k \mathbf{b}^l \left( u^m \mathbf{b}_m, v^n \mathbf{b}_n,  u^p \mathbf{b}_p, v^q \mathbf{b}_q \right) = \\
+&amp; = A_{ijkl} \delta^i_m \delta^j_n \delta^k_p \delta^l_q u^m v^n w^p x^q = A_{ijkl} u^i v^j w^k x^l \ ,
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">so that the <em>covariant components</em> read</p>
+<div class="math notranslate nohighlight">
+\[A_{ijkl} = a \ g_{ij} g_{kl} + b \ g_{ik} g_{jl} + c \ g_{il} g_{jk} \ ,\]</div>
+<p class="sd-card-text">and the tensor can be written as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathbf{A} 
+  = A_{ijkl} \mathbf{b}^i \mathbf{b}^j \mathbf{b}^k \mathbf{b}^l
+  &amp; = \left(  a \ g_{ij} g_{kl} + b \ g_{ik} g_{jl} + c \ g_{il} g_{jk} \right) \mathbf{b}^i \mathbf{b}^j \mathbf{b}^k \mathbf{b}^l = \\
+\end{aligned}\end{split}\]</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Linear isotropic relation between two rank-<span class="math notranslate nohighlight">\(2 \ \)</span> tensors<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[\mathbf{A} = \mathbf{Q} : \mathbf{B}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathbf{Q} : \mathbf{B} 
+  &amp; = \left( Q_{ijkl} \mathbf{b}^i \mathbf{b}^j \mathbf{b}^k \mathbf{b}^l \right) : \left( B^{mn} \mathbf{b}_m \mathbf{b}_n  \right) = \\
+  &amp; = Q_{ijkl} B^{kl} \mathbf{b}^i \mathbf{b}^j = \\
+  &amp; = \left( a \, g_{ij} g_{kl}    + b \, g_{ik} g_{jl} + c \, g_{il} g_{jk} \right) B^{kl} \mathbf{b}^i \mathbf{b}^j = \\
+  &amp; = \left( a \, g_{ij} B_l^{\ l} + b \, B_{ij}        + c \, B_{ji} \right) \mathbf{b}^i \mathbf{b}^j = \\ 
+  &amp; = \left( a \, g_{ij} B_l^{\ l} + b \, B_{ij}        + c \, B_{ji} \right) \mathbf{b}^i \mathbf{b}^j = \\ 
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">depends on the three constant <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, <span class="math notranslate nohighlight">\(c\)</span> of the isotropic tensor.</p>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Linear isotropic relation between two symmetric rank-<span class="math notranslate nohighlight">\(2 \ \)</span> tensors<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">If <span class="math notranslate nohighlight">\(B_{ij} = B_{ji}\)</span>, the double-dot product becomes</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{A} = \mathbf{Q} : \mathbf{B} = \left( a \, g_{ij} B_l^{\ l} + d \, B_{ij} \right) \mathbf{b}^i \mathbf{b}^j \ ,\]</div>
+<p class="sd-card-text">depends only on two constants <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(d\)</span>, having defined <span class="math notranslate nohighlight">\(d = b + c\)</span>.</p>
+</div>
+</details></div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -511,7 +619,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./ch/rl"
+            path: "./ch/tensor-algebra-calculus"
         },
         predefinedOutput: true
     }
@@ -529,13 +637,22 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="mdp_sol_rl.html"
+       href="algebra-rotation-tensors.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">38. </span>Methods of solution of MPD: RL</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>Unitary and rotation tensors</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="time-derivative-of-integrals.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">12. </span>Time derivative of integrals over moving domains</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -552,7 +669,9 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#value-and-policy-based-rl">39.1. Value and Policy-Based RL</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rank-2-isotropic-tensors">11.1. Rank-<span class="math notranslate nohighlight">\(2\)</span> isotropic tensors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rank-3-isotropic-tensors">11.2. Rank-<span class="math notranslate nohighlight">\(3\)</span> isotropic tensors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rank-4-isotropic-tensors">11.3. Rank-<span class="math notranslate nohighlight">\(4\)</span> isotropic tensors</a></li>
 </ul>
   </nav></div>
 

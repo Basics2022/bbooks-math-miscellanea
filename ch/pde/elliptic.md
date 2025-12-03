@@ -64,7 +64,7 @@ $$\begin{cases}
   \nu \hat{n} \cdot \nabla u|_{S_N} = h
 \end{cases}$$
 
-Their difference $\delta (\mathbf{r}) := u_2(\mathbf{r}) - u_1(\mathbf{r})$ then satisfies the homogeneous problem
+Their difference $\delta u (\mathbf{r}) := u_2(\mathbf{r}) - u_1(\mathbf{r})$ then satisfies the homogeneous problem
 
 $$\begin{cases}
   - \nabla \cdot ( \nu \nabla \delta u ) = 0  \qquad \mathbf{r} \in V \\
@@ -78,8 +78,8 @@ $$\begin{aligned}
   \int_{V} \nu |\nabla \delta u|^2
   & = \int_{V} \nu \nabla \delta u \cdot \nabla \delta u = \\
   & = \int_{V} \nabla \cdot \left( \delta u \, \nu \nabla \delta u \right) - \int_{V} \delta u \, \underbrace{\nabla \cdot ( \nu \nabla \delta u )}_{ = 0 } = \\
-  & = \oint_{\partial V} \delta u \nu \hat{n} \cdot \nabla \delta u = \\
-  & = \int_{S_D} \underbrace{ \delta u}_{= 0} \nu \hat{n} \cdot \nabla \delta u + \int_{S_N} \delta u \underbrace{\nu \hat{n} \cdot \nabla \delta u}_{= 0} = \\
+  & = \oint_{\partial V} \delta u \, \nu \hat{n} \cdot \nabla \delta u = \\
+  & = \int_{S_D} \underbrace{ \delta u}_{ \delta u|_{S_D} = 0} \nu \hat{n} \cdot \nabla \delta u + \int_{S_N} \delta u \underbrace{\nu \hat{n} \cdot \nabla \delta u}_{\nu \hat{n} \cdot \nabla \delta u|_{S_N} = 0} = \\
   & = 0 \ .
 \end{aligned}$$
 
