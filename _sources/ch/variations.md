@@ -1,2 +1,0 @@
-(variations)=
-# Calcolo delle variazioni
