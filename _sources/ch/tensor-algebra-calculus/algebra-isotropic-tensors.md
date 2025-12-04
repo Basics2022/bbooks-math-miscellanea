@@ -53,7 +53,6 @@ $$\begin{aligned}
 ```
 
 ```{dropdown} Components of the identity tensor
-:open:
 
 The identity tensor can be defined as a rank-$2$ tensor whose dot product with any arbitrary $\mathbf{v} \in \mathbf{V}$ gives
 
@@ -75,6 +74,12 @@ $$\begin{aligned}
 ```
 
 ## Rank-$3$ isotropic tensors
+
+**todo**
+
+* Invariant object: $\mathbf{u} \times \mathbf{v} \cdot \mathbf{w}$
+* Retrieve components, to find Levi-Civita symbols
+* Discuss invariance under rotation and symmetry (pseudo-tensor)
 
 ## Rank-$4$ isotropic tensors
 
@@ -129,8 +134,17 @@ $$\begin{aligned}
 
 ```
 
+The most general liner isotropic relation between two rank-$2$ tensors reads $\mathbf{A}$, $\mathbf{B}$
+
+$$\begin{aligned}
+  \mathbf{A} 
+  & = a \, \text{tr}\left( \mathbf{B} \right) \mathbf{I} + b \, \mathbf{B} + c \, \mathbf{B}^T \\
+  & = a \, \text{tr}\left( \mathbf{B} \right) \mathbf{I} + \widetilde{b} \, \mathbf{B}^s + \widetilde{c} \, \mathbf{B}^a \ ,
+\end{aligned}$$
+
+being $\mathbf{B}^s = \frac{1}{2} \left( \mathbf{B} + \mathbf{B}^T \right)$, and $\mathbf{B}^a = \frac{1}{2} \left( \mathbf{B} - \mathbf{B}^T \right)$ the symmetric and the anti-symmetric parts of the tensor $\mathbf{B}$ respectively.
+
 ```{dropdown} Linear isotropic relation between two rank-$2 \ $ tensors
-:open:
 
 $$\mathbf{A} = \mathbf{Q} : \mathbf{B}$$
 
@@ -147,14 +161,20 @@ depends on the three constant $a$, $b$, $c$ of the isotropic tensor.
 
 ```
 
+The most general liner isotropic relation between two symmetric rank-$2$ tensors reads $\mathbf{A}$, $\mathbf{B}$
+
+$$\mathbf{A} = a \, \text{tr}\left( \mathbf{B} \right) \mathbf{I} + \widetilde{b} \, \mathbf{B} \ ,$$
+
+as the anti-symmetric part of a symmetric tensor is identically zero.
+
+
 ```{dropdown} Linear isotropic relation between two symmetric rank-$2 \ $ tensors
-:open:
 
 If $B_{ij} = B_{ji}$, the double-dot product becomes
 
 $$\mathbf{A} = \mathbf{Q} : \mathbf{B} = \left( a \, g_{ij} B_l^{\ l} + d \, B_{ij} \right) \mathbf{b}^i \mathbf{b}^j \ ,$$
 
- depends only on two constants $a$, $d$, having defined $d = b + c$.
+ depends only on two constants $a$, $d$, having defined $d = b + c$. This is a common condition in continuum mechanics, where some constitutive law links two symmetric rank-$2$ tensors, like the stress and strain tensors for linear elastic media, or the stress and strain velocity tensors for Newtonian fluids.
 
 
 ```
