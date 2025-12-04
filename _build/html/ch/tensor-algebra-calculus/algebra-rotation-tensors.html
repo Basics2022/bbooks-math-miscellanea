@@ -64,6 +64,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'ch/tensor-algebra-calculus/algebra-rotation-tensors';</script>
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -406,7 +408,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -422,6 +426,14 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#invariant-operations-under-rotations-and-unitary-transformations">11.1. Invariant operations under rotations and unitary transformations</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -436,6 +448,33 @@ document.write(`
 <p>Some notes in the introduction to classical mechanics: <a class="reference external" href="https://basics2022.github.io/bbooks-physics-mechanics/ch/kinematics-rotations-tensors.html">Rotations: Tensor formalism for rotations</a>.</p>
 <p><strong>todo</strong> Move the mathematical treatment here?</p>
 <p><strong>todo</strong> Discuss vector operations that are invariant under 3-dimensional rotation and other unitary tensor applications (i.e. reflections). These properties are useful to prove the general expression of <a class="reference internal" href="algebra-isotropic-tensors.html#tensor-algebra-isotropic-tensors"><span class="std std-ref">isotropic tensors</span></a>.</p>
+<div class="section" id="invariant-operations-under-rotations-and-unitary-transformations">
+<h2><span class="section-number">11.1. </span>Invariant operations under rotations and unitary transformations<a class="headerlink" href="#invariant-operations-under-rotations-and-unitary-transformations" title="Permalink to this heading">#</a></h2>
+<p>Proof that/if:</p>
+<ul>
+<li><p>the only independent invariant operations producing a scalar with <strong>two</strong> vectors <span class="math notranslate nohighlight">\(\mathbf{u}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> are</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+     &amp; \mathbf{u} \cdot \mathbf{u} = |\mathbf{u}|^2 \\
+     &amp; \mathbf{v} \cdot \mathbf{v} = |\mathbf{v}|^2 \\
+     &amp; \mathbf{u} \cdot \mathbf{v}
+   \end{aligned}\end{split}\]</div>
+</li>
+<li><p>the only independent invariant operations producing a scalar with <strong>three</strong> vectors <span class="math notranslate nohighlight">\(\mathbf{u}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{v}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> are</p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+     &amp; \mathbf{u} \times \mathbf{v} \cdot \mathbf{w}
+   \end{aligned}\]</div>
+</li>
+<li><p>the only independent invariant operations producing a scalar with <strong>four</strong> vectors <span class="math notranslate nohighlight">\(\{ \mathbf{u}^{(i)} \}_{i=1:4}\)</span> are</p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+     \mathbf{u}^{(k_1)} \cdot \mathbf{u}^{(k_2)} \ \mathbf{u}^{(k_3)} \cdot \mathbf{u}^{(k_4)} \ ,
+   \end{aligned}\]</div>
+<p>with every index <span class="math notranslate nohighlight">\(k_j\)</span> independently ranging from <span class="math notranslate nohighlight">\(1\)</span> to <span class="math notranslate nohighlight">\(4\)</span>.</p>
+</li>
+</ul>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -492,6 +531,20 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#invariant-operations-under-rotations-and-unitary-transformations">11.1. Invariant operations under rotations and unitary transformations</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

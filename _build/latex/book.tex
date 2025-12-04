@@ -85,7 +85,7 @@
         
 
 \title{basics - math}
-\date{Nov 28, 2025}
+\date{Dec 04, 2025}
 \release{}
 \author{basics}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -102,7 +102,7 @@
 
 
 \sphinxAtStartPar
-This material is part of the \sphinxhref{https://basics2022.github.io/bbooks}{\sphinxstylestrong{basics\sphinxhyphen{}books project}}. It is also available as a \DUrole{xref,download,myst}{.pdf document}.
+This material is part of the \sphinxhref{https://basics2022.github.io/bbooks}{\sphinxstylestrong{basics\sphinxhyphen{}books project}}. It is also available as a \DUrole{xref,myst}{.pdf document}.
 
 
 
@@ -778,13 +778,25 @@ The solution reads
 and thus
 \begin{equation*}
 \begin{split}\begin{aligned}
-  \widetilde{\mathbf{u}_{i/p}}
+  \widetilde{\mathbf{u}}_{i/p}
   & = \mathbf{U}_{\notin i} \text{diag} \left\{ \dfrac{1}{ s_{j \notin i} - s_i } \right\} \mathbf{V}_{\notin i}^* \mathbf{b}_i  = \\
   & = \mathbf{U}_{\notin i} \text{diag} \left\{ \dfrac{1}{ s_{j \notin i} - s_i } \right\} \mathbf{V}_{\notin i}^* (- ( \mathbf{A}_{/p} - s_{i/p} \mathbf{B} - s_i \mathbf{B}_{/p}) \mathbf{u}_i)  = \\
   & = \mathbf{U}_{\notin i} \text{diag} \left\{ \dfrac{1}{ s_{j \notin i} - s_i } \right\} \mathbf{V}_{\notin i}^* (- ( \mathbf{A}_{/p} - s_i \mathbf{B}_{/p}) \mathbf{u}_i)  = \\
-  & = \sum_{j \notin i} \mathbf{v}_{j}^* ( - \mathbf{A}_{/p} + s_i \mathbf{B}_{/p}) \mathbf{u}_i \, \text{diag} \left\{ \dfrac{1}{ s_{j} - s_i } \right\}  \mathbf{u}_{j} \ .
+  & = \sum_{j \notin i} \dfrac{ \mathbf{v}_{j}^* ( - \mathbf{A}_{/p} + s_i \mathbf{B}_{/p}) \mathbf{u}_i }{ s_{j} - s_i } \mathbf{u}_{j} \ .
 \end{aligned}\end{split}
 \end{equation*}\end{sphinxadmonition}
+\subsubsection*{Some algebra with components}
+\begin{equation*}
+\begin{split}\begin{aligned}
+  u^{i}_{a/p}
+  & = \sum_{b \ne i} u_{a}^{(b)} \delta_{bc} D^{(c)} v^{(c) \ *}_d b^{(i)}_d = \\
+  & = \sum_{b \ne i} u_{a}^{(b)} \delta_{bc} D^{(c)} v^{(c) \ *}_d M_{de} u^{(i)}_e = \\
+  & = \sum_{b \ne i} u_{a}^{(b)} D^{(b)} v^{(b) \ *}_d M_{de} u^{(i)}_e = \\
+  & = \sum_{b \ne i} C^{b,i} u_{a}^{(b)} \ ,
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+with \(C^{b,i} = D^{(b)} v^{(b) \ *}_d M_{de/p} u^{(i)}_e = \frac{\mathbf{v}^*_b \mathbf{M} \mathbf{u}_i}{s_b - s_i}\), and \(\mathbf{M} = - \mathbf{A}_{/p} + s_i \mathbf{B}_{/p}\).
 
 
 \subsection{Generalized eigenvalue problem (second order)}
@@ -1122,7 +1134,15 @@ with the following properties: \sphinxstylestrong{todo}
 A basis is a minimal set of vectors of \(\mathscr{V}\) that can represent all the elements of \(\mathscr{V}\).
 \end{sphinxadmonition}
 \label{ch/tensor-algebra-calculus/algebra:definition-2}
-\begin{sphinxadmonition}{note}{Definition 8.1.3 (Reciprocal basis)}
+\begin{sphinxadmonition}{note}{Definition 8.1.3 (Dimension of a vector space)}
+
+
+
+\sphinxAtStartPar
+The dimension of a vector space \(\mathscr{V}\) is the number of the elements of a basis of the space.
+\end{sphinxadmonition}
+\label{ch/tensor-algebra-calculus/algebra:definition-3}
+\begin{sphinxadmonition}{note}{Definition 8.1.4 (Reciprocal basis)}
 
 
 
@@ -1131,8 +1151,8 @@ In a inner product space, the reciprocal basis of a given basis \(\{ \mathbf{b}_
 \begin{equation*}
 \begin{split}\mathbf{b}^b \cdot \mathbf{b}_a = \delta_a^b \ .\end{split}
 \end{equation*}\end{sphinxadmonition}
-\label{ch/tensor-algebra-calculus/algebra:definition-3}
-\begin{sphinxadmonition}{note}{Definition 8.1.4 (“Metric tensor”)}
+\label{ch/tensor-algebra-calculus/algebra:definition-4}
+\begin{sphinxadmonition}{note}{Definition 8.1.5 (“Metric tensor”)}
 
 
 \begin{equation*}
@@ -1222,12 +1242,12 @@ The rule of transformation between different basis can be interpreted using dot 
 \sphinxAtStartPar
 Interpreting the indices of the transformation matrix as the indices of rows and columns of a 2x2 matrix, transformation of components involves the transpose of the inverse matrix, as the indices \(a\), \(b\) are swapped.
 \end{sphinxadmonition}
-\label{ch/tensor-algebra-calculus/algebra:example-4}
+\label{ch/tensor-algebra-calculus/algebra:example-5}
 \begin{sphinxadmonition}{note}{Example 8.1.1}
 
 
 \end{sphinxadmonition}
-\label{ch/tensor-algebra-calculus/algebra:example-5}
+\label{ch/tensor-algebra-calculus/algebra:example-6}
 \begin{sphinxadmonition}{note}{Example 8.1.2 (Rotation)}
 
 
@@ -1300,21 +1320,63 @@ The result of the tensor product of \(r\) vectors is a rank\sphinxhyphen{}\(r\) 
 \end{equation*}
 
 \section{Space of tensors}
-\label{\detokenize{ch/tensor-algebra-calculus/algebra:space-of-tensors}}\label{ch/tensor-algebra-calculus/algebra:definition-6}
-\begin{sphinxadmonition}{note}{Definition 8.2.1}
+\label{\detokenize{ch/tensor-algebra-calculus/algebra:space-of-tensors}}\label{ch/tensor-algebra-calculus/algebra:def-tensor}
+\begin{sphinxadmonition}{note}{Definition 8.2.1 (Tensor as a multilinear map)}
 
 
-\end{sphinxadmonition}
+
+\sphinxAtStartPar
+A rank\sphinxhyphen{}\(r\) tensor \(\mathbf{A}\) can be defined as a multilinear map, acting on \(r\) vectors%
+\begin{footnote}[1]\sphinxAtStartFootnote
+This introduction has no ambition iof being the most general — and precise? — introduction to tensors: as already stated somewhere else, existence of inner product is assumed even it’s not necessary for the most general treatment of tensors; moreover, no distinction is made between dual space \(\mathscr{V}^*\) of covectors — space of linear forms on \(V\) — and \(V\) itself;…
+%
+\end{footnote} \(\mathbf{v}^{(i)} \in \mathscr{V}\), \(i = 1:r\)
+\begin{equation*}
+\begin{split}\mathbf{A}\left(\mathbf{v}^{(1)}, \dots, \mathbf{v}^{(r)}\right): \underbrace{\mathscr{V} \times \dots \times \mathscr{V}}_{\text{$r$ times}} \rightarrow K .\end{split}
+\end{equation*}\end{sphinxadmonition}
+
+\sphinxAtStartPar
+\sphinxstylestrong{todo}
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Tensor definition by components, and action on the vectors
+
+\item {} 
+\sphinxAtStartPar
+Reference to a similar definition of a vector: a vector \(\mathbf{v} \in \mathscr{V}\), vector space with inner product, is uniquely determined by the value of its scalar product \(\mathbf{u} \cdot \mathbf{v}\) with every vector \(\mathbf{u} \in \mathscr{V}\) or, analogously, with every vector in a set of \(n\) linearly independent vectors \(\left\{ \mathbf{u}^{(i)} \right\}\), \(i = 1:n\), with \(n= \text{dim}\left( \mathscr{V} \right)\).
+
+\item {} 
+\sphinxAtStartPar
+Definition of components w.r.t. a basis
+
+\end{itemize}
 
 
 \subsection{Operations (I)}
-\label{\detokenize{ch/tensor-algebra-calculus/algebra:id2}}
-
-\subsubsection{Sum}
 \label{\detokenize{ch/tensor-algebra-calculus/algebra:id3}}
 
-\subsubsection{Multiplication by a scalar}
+\subsubsection{Sum}
 \label{\detokenize{ch/tensor-algebra-calculus/algebra:id4}}
+\sphinxAtStartPar
+Sum of tensors with the same rank, \(\mathbf{A}\), \(\mathbf{B} \in \mathscr{V}\),
+\begin{equation*}
+\begin{split}\mathbf{A} + \mathbf{B} \in \mathscr{V}^r\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{todo} Components
+
+
+\subsubsection{Multiplication by a scalar}
+\label{\detokenize{ch/tensor-algebra-calculus/algebra:id5}}
+\sphinxAtStartPar
+Multiplication by a scalar \(a \in K\), of a \(r\)\sphinxhyphen{}rank tensor \(\mathbf{A}\),
+\begin{equation*}
+\begin{split}a \mathbf{A} \in \mathscr{V}^r\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{todo} Components
+
 \begin{sphinxadmonition}{note}{Vector space of tensors}
 
 \sphinxAtStartPar
@@ -1344,7 +1406,7 @@ The set of tensors of a given rank with the operations of sum and multiplication
 with
 \begin{equation}\label{equation:ch/tensor-algebra-calculus/algebra:eq:tensor:comp-transf}
 \begin{split}\widetilde{A}^{j_1 \dots j_p} = A^{i_1 \dots i_p} T_{i_1}^{j_1} \dots  T_{i_p}^{j_p} \ .\end{split}
-\end{equation}\label{ch/tensor-algebra-calculus/algebra:definition-7}
+\end{equation}\label{ch/tensor-algebra-calculus/algebra:definition-8}
 \begin{sphinxadmonition}{note}{Definition 8.2.2 (Classical definition of a tensor)}
 
 
@@ -1408,9 +1470,13 @@ Contraction of a pair of index of a \(p\)\sphinxhyphen{}rank tensor \(\mathbf{A}
 \end{equation*}
 
 \subsection{Exterior product}
-\label{\detokenize{ch/tensor-algebra-calculus/algebra:id5}}
+\label{\detokenize{ch/tensor-algebra-calculus/algebra:id6}}
 \sphinxAtStartPar
 Generalization of the vector product
+
+
+\bigskip\hrule\bigskip
+
 
 \sphinxstepscope
 
@@ -2362,6 +2428,332 @@ Using spherical coordinates \((q^1, q^2, q^3) = (r, \phi, \theta)\) and spherica
 \sphinxstepscope
 
 
+\chapter{Tensor Invariants}
+\label{\detokenize{ch/tensor-algebra-calculus/tensor-invariants:tensor-invariants}}\label{\detokenize{ch/tensor-algebra-calculus/tensor-invariants:tensor-algebra-invariants}}\label{\detokenize{ch/tensor-algebra-calculus/tensor-invariants::doc}}
+
+\section{Rank\sphinxhyphen{}\protect\(2\protect\) tensors}
+\label{\detokenize{ch/tensor-algebra-calculus/tensor-invariants:rank-2-tensors}}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Characteristic polynomial (\sphinxstyleemphasis{this definition needs that determinant exists})
+\begin{equation*}
+\begin{split}0 = \text{det}\left( \mathbf{A} - s \mathbf{I} \right) \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstyleemphasis{Using a unit normal basis} (\sphinxstylestrong{todo} generalization required?)
+\begin{equation*}
+\begin{split}\begin{aligned}
+   0 
+   & = \left|\begin{matrix}
+     A_{11} - s & A_{12}     & A_{13}     \\
+     A_{21}     & A_{22} - s & A_{23}     \\
+     A_{31}     & A_{32}     & A_{33} - s
+   \end{matrix}\right|
+   = - s^3 + s^2 I_1 - s I_2 + I_3 \ ,
+   \end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+with
+\begin{equation*}
+\begin{split}\begin{aligned}
+     I_1 & = \text{tr}(\mathbf{A}) = A_{11} + A_{22} + A_{33} \\
+     I_2 & = \dfrac{1}{2} \left( \text{tr}(\mathbf{A})^2 - \text{tr}(\mathbf{A}^2) \right) = \dots = A_{11} A_{22} + A_{11} A_{33} + A_{22} A_{33} - A_{31} A_{13} - A_{12} A_{21} - A_{32} A_{23} \\
+     I_3 & = \text{det}(\mathbf{A}) = \dots \\
+   \end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+The coefficients of the characteristic polynomial are invariant under transformation of coordinates (\sphinxstylestrong{todo} here only referring to Cartesian basis, and thus orthogonal transformations?)
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Trace}…
+
+\item {} 
+\sphinxAtStartPar
+Determinant…
+
+\end{itemize}
+
+\sphinxstepscope
+
+
+\chapter{Unitary and rotation tensors}
+\label{\detokenize{ch/tensor-algebra-calculus/algebra-rotation-tensors:unitary-and-rotation-tensors}}\label{\detokenize{ch/tensor-algebra-calculus/algebra-rotation-tensors:tensor-algebra-unitary-tensors}}\label{\detokenize{ch/tensor-algebra-calculus/algebra-rotation-tensors::doc}}
+\sphinxAtStartPar
+Some notes in the introduction to classical mechanics: \sphinxhref{https://basics2022.github.io/bbooks-physics-mechanics/ch/kinematics-rotations-tensors.html}{Rotations: Tensor formalism for rotations}.
+
+\sphinxAtStartPar
+\sphinxstylestrong{todo} Move the mathematical treatment here?
+
+\sphinxAtStartPar
+\sphinxstylestrong{todo} Discuss vector operations that are invariant under 3\sphinxhyphen{}dimensional rotation and other unitary tensor applications (i.e. reflections). These properties are useful to prove the general expression of {\hyperref[\detokenize{ch/tensor-algebra-calculus/algebra-isotropic-tensors:tensor-algebra-isotropic-tensors}]{\sphinxcrossref{\DUrole{std,std-ref}{isotropic tensors}}}}.
+
+
+\section{Invariant operations under rotations and unitary transformations}
+\label{\detokenize{ch/tensor-algebra-calculus/algebra-rotation-tensors:invariant-operations-under-rotations-and-unitary-transformations}}
+\sphinxAtStartPar
+Proof that/if:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+the only independent invariant operations producing a scalar with \sphinxstylestrong{two} vectors \(\mathbf{u}\), \(\mathbf{v}\) are
+\begin{equation*}
+\begin{split}\begin{aligned}
+     & \mathbf{u} \cdot \mathbf{u} = |\mathbf{u}|^2 \\
+     & \mathbf{v} \cdot \mathbf{v} = |\mathbf{v}|^2 \\
+     & \mathbf{u} \cdot \mathbf{v}
+   \end{aligned}\end{split}
+\end{equation*}
+\item {} 
+\sphinxAtStartPar
+the only independent invariant operations producing a scalar with \sphinxstylestrong{three} vectors \(\mathbf{u}\), \(\mathbf{v}\), \(\mathbf{w}\) are
+\begin{equation*}
+\begin{split}\begin{aligned}
+     & \mathbf{u} \times \mathbf{v} \cdot \mathbf{w}
+   \end{aligned}\end{split}
+\end{equation*}
+\item {} 
+\sphinxAtStartPar
+the only independent invariant operations producing a scalar with \sphinxstylestrong{four} vectors \(\{ \mathbf{u}^{(i)} \}_{i=1:4}\) are
+\begin{equation*}
+\begin{split}\begin{aligned}
+     \mathbf{u}^{(k_1)} \cdot \mathbf{u}^{(k_2)} \ \mathbf{u}^{(k_3)} \cdot \mathbf{u}^{(k_4)} \ ,
+   \end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+with every index \(k_j\) independently ranging from \(1\) to \(4\).
+
+\end{itemize}
+
+\sphinxstepscope
+
+
+\chapter{Isotropic Tensors}
+\label{\detokenize{ch/tensor-algebra-calculus/algebra-isotropic-tensors:isotropic-tensors}}\label{\detokenize{ch/tensor-algebra-calculus/algebra-isotropic-tensors:tensor-algebra-isotropic-tensors}}\label{\detokenize{ch/tensor-algebra-calculus/algebra-isotropic-tensors::doc}}
+\sphinxAtStartPar
+This section provides the definition of isotropic tensors, the general forms of low\sphinxhyphen{}rank tensors (from rank\sphinxhyphen{}\(2\) to rank\sphinxhyphen{}\(4\) tensors) that may be useful in some fields of science (e.g. in continuum mechanics, in the constitutive law relating stress tensor with strain tensor in isotropic linear elastic media or stress tensor with strain velocity tensor in Newtonian fluids).
+\label{ch/tensor-algebra-calculus/algebra-isotropic-tensors:def-tensor-isotropic}
+\begin{sphinxadmonition}{note}{Definition 12.1 (Isotropic tensor)}
+
+
+
+\sphinxAtStartPar
+An isotropic tensor is …
+\end{sphinxadmonition}
+
+\sphinxAtStartPar
+The general form of the low\sphinxhyphen{}rank isotropic tensors in three\sphinxhyphen{}dimensional spaces, \(\text{dim}\left( \mathscr{V} \right) = 3\) is proved using the definition of a rank\sphinxhyphen{}\(r\) tensor as a multilinear map acting on \(r\) vectors, and exploiting the invariance of some vector operations under rotations.
+
+
+\section{Rank\sphinxhyphen{}\protect\(2\protect\) isotropic tensors}
+\label{\detokenize{ch/tensor-algebra-calculus/algebra-isotropic-tensors:rank-2-isotropic-tensors}}
+\sphinxAtStartPar
+The most general rank\sphinxhyphen{}\(2\) isotropic tensor is a scalar multiple of the identity tensor, \(\mathbf{A} = a \mathbf{I}\).
+\subsubsection*{Proof}
+
+\sphinxAtStartPar
+The action of a rank\sphinxhyphen{}\(2\) isotropic tensor in \(\mathscr{V}\) on every pair of vectors \(\mathbf{u}\), \(\mathbf{v}\) can be a function of \(\mathbf{u} \cdot \mathbf{v}\) only, i.e. the only vector operation:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+producing a scalar
+
+\item {} 
+\sphinxAtStartPar
+invariant under rotations
+
+\item {} 
+\sphinxAtStartPar
+involving the two vectors \(\mathbf{u}\), \(\mathbf{v}\) (i.e. the tensor is a multilinear map, \(\mathbf{A}(\mathbf{u}, \mathbf{v})\))
+
+\end{itemize}
+
+\sphinxAtStartPar
+Now, using coordinates, the general expression of the isotropic tensor is retrieved comparing the expression built under the isotropic assumption,
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{A}(\mathbf{u}, \mathbf{v}) 
+  & = a \mathbf{u} \cdot \mathbf{v} = \\
+  & = a \left( u^i \mathbf{b}_i \right) \cdot \left( v^j \mathbf{b}_j \right) = \\
+  & = a u^i v^j g_{ij}
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+with the general expression of the action of the stress tensor on the vectors \(\mathbf{u}\), \(\mathbf{v}\)
+\begin{equation*}
+\begin{split}\mathbf{A}(\mathbf{u}, \mathbf{v}) = A_{ij} \mathbf{b}^i \mathbf{b}^j \left( u^k \mathbf{b}_k, v^l \mathbf{b}_l \right) = A_{ij} \delta^i_k \delta^j_l u^k v^l = A_{ij} u^i v^j \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+so that the \sphinxstyleemphasis{covariant components} read
+\begin{equation*}
+\begin{split}A_{ij} = a g_{ij}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and the tensor can be written as
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{A} 
+  = A_{ij} \mathbf{b}^i \mathbf{b}^j 
+  & = a g_{ij}\mathbf{b}^i\mathbf{b}^j = \\
+  & = a \mathbf{b}^i\mathbf{b}_i = a \delta_i^j \mathbf{b}^i \mathbf{b}_j = \\
+  & = a g^{ij} \mathbf{b}_j \mathbf{b}_i = a g^{ij} \mathbf{b}_i \mathbf{b}_j \ .
+\end{aligned}\end{split}
+\end{equation*}\subsubsection*{Components of the identity tensor}
+
+\sphinxAtStartPar
+The identity tensor can be defined as a rank\sphinxhyphen{}\(2\) tensor whose dot product with any arbitrary \(\mathbf{v} \in \mathbf{V}\) gives
+\begin{equation*}
+\begin{split}\mathbf{I} \cdot \mathbf{v} = \mathbf{v} \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+The identity tensor can be written using any vector basis \(\{ \mathbf{b}_i \}_i\), and its reciprocal \(\{ \mathbf{b}^j \}\) as
+\begin{equation*}
+\begin{split}\mathbf{I} = \mathbf{b}_i \mathbf{b}^i = \mathbf{b}^i \mathbf{b}_i = g_{ij} \mathbf{b}^i \mathbf{b}^j = g^{ij} \mathbf{b}_i \mathbf{b}_j \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+as it’s immediate to prove by direct computation
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{b}_i \mathbf{b}^i \cdot \mathbf{v} & = \mathbf{b}_i \mathbf{b}^i \cdot \left( v^k \mathbf{b}_k \right) = \mathbf{b}_i \delta^i_k v^k = v^i \mathbf{b}_i = \mathbf{v} \\
+  \mathbf{b}^i \mathbf{b}_i \cdot \mathbf{v} & = \mathbf{b}^i \mathbf{b}_i \cdot \left( v_k \mathbf{b}^k \right) = \mathbf{b}^i \delta_i^k v_k = v_i \mathbf{b}^i = \mathbf{v} \\
+  g_{ij} \mathbf{b}^i \mathbf{b}^j \cdot \mathbf{v} & = g_{ij} \mathbf{b}^i \mathbf{b}^j \cdot \left( v^k \mathbf{b}_k \right) = \mathbf{b}^i \delta^j_k v^k g_{ij} = \mathbf{b}^i \underbrace{v^k g_{ik}}_{=v_i} = \mathbf{v}  \\
+  g^{ij} \mathbf{b}_i \mathbf{b}_j \cdot \mathbf{v} & = g^{ij} \mathbf{b}_i \mathbf{b}_j \cdot \left( v_k \mathbf{b}^k \right) = \mathbf{b}_i \delta_j^k v_k g^{ij} = \mathbf{b}_i \underbrace{v_k g^{ik}}_{=v^i} = \mathbf{v}  \\
+\end{aligned}\end{split}
+\end{equation*}
+
+\section{Rank\sphinxhyphen{}\protect\(3\protect\) isotropic tensors}
+\label{\detokenize{ch/tensor-algebra-calculus/algebra-isotropic-tensors:rank-3-isotropic-tensors}}
+\sphinxAtStartPar
+\sphinxstylestrong{todo}
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Invariant object: \(\mathbf{u} \times \mathbf{v} \cdot \mathbf{w}\)
+
+\item {} 
+\sphinxAtStartPar
+Retrieve components, to find Levi\sphinxhyphen{}Civita symbols
+
+\item {} 
+\sphinxAtStartPar
+Discuss invariance under rotation and symmetry (pseudo\sphinxhyphen{}tensor)
+
+\end{itemize}
+
+
+\section{Rank\sphinxhyphen{}\protect\(4\protect\) isotropic tensors}
+\label{\detokenize{ch/tensor-algebra-calculus/algebra-isotropic-tensors:rank-4-isotropic-tensors}}\subsubsection*{Proof}
+
+\sphinxAtStartPar
+The action of a rank\sphinxhyphen{}\(4\) isotropic tensor in \(\mathscr{V}\) on every set of 4 vectors \(\mathbf{u}\), \(\mathbf{v}\), \(\mathbf{w}\), \(\mathbf{x}\) can be a function of the products of scalar products
+\begin{equation*}
+\begin{split}\begin{aligned}
+  & \mathbf{u} \cdot \mathbf{v} \, \mathbf{w} \cdot \mathbf{x} \\
+  & \mathbf{u} \cdot \mathbf{w} \, \mathbf{v} \cdot \mathbf{x} \\
+  & \mathbf{u} \cdot \mathbf{x} \, \mathbf{v} \cdot \mathbf{w} \ ,
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+i.e. any possible combinations through scalar products of different vectors
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+producing a scalar
+
+\item {} 
+\sphinxAtStartPar
+invariant under rotations
+
+\item {} 
+\sphinxAtStartPar
+involving all the 4 vectors \(\mathbf{u}\), \(\mathbf{v}\), \(\mathbf{w}\), \(\mathbf{x}\) (i.e. the tensor is a multilinear map, \(\mathbf{A}(\mathbf{u}, \mathbf{v}, \mathbf{w}, \mathbf{x})\))
+
+\end{itemize}
+
+\sphinxAtStartPar
+Now, using coordinates, the general expression of the isotropic tensor is retrieved comparing the expression built under the isotropic assumption,
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{A}(\mathbf{u}, \mathbf{v}) 
+  & = a \mathbf{u} \cdot \mathbf{v} \, \mathbf{w} \cdot \mathbf{x}
+    + b \mathbf{u} \cdot \mathbf{w} \, \mathbf{v} \cdot \mathbf{x}
+    + c \mathbf{u} \cdot \mathbf{x} \, \mathbf{v} \cdot \mathbf{w} = \\
+  & = a \, g_{ij} g_{kl} u^i v^j w^k x^l
+    + b \, g_{ij} g_{kl} u^i w^j v^k x^l
+    + c \, g_{ij} g_{kl} x^i v^j v^k w^l = \\
+  & = \left( a \ g_{ij} g_{kl} + b \ g_{ik} g_{jl} + c \ g_{il} g_{jk} \right) u^i v^j w^k x^l \ ,
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+with the general expression of the action of the stress tensor on the vectors \(\mathbf{u}\), \(\mathbf{v}\)
+\begin{equation*}
+\begin{split}\begin{aligned}
+\mathbf{A}(\mathbf{u}, \mathbf{v})
+& = A_{ijkl} \mathbf{b}^i \mathbf{b}^j \mathbf{b}^k \mathbf{b}^l \left( u^m \mathbf{b}_m, v^n \mathbf{b}_n,  u^p \mathbf{b}_p, v^q \mathbf{b}_q \right) = \\
+& = A_{ijkl} \delta^i_m \delta^j_n \delta^k_p \delta^l_q u^m v^n w^p x^q = A_{ijkl} u^i v^j w^k x^l \ ,
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+so that the \sphinxstyleemphasis{covariant components} read
+\begin{equation*}
+\begin{split}A_{ijkl} = a \ g_{ij} g_{kl} + b \ g_{ik} g_{jl} + c \ g_{il} g_{jk} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and the tensor can be written as
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{A} 
+  = A_{ijkl} \mathbf{b}^i \mathbf{b}^j \mathbf{b}^k \mathbf{b}^l
+  & = \left(  a \ g_{ij} g_{kl} + b \ g_{ik} g_{jl} + c \ g_{il} g_{jk} \right) \mathbf{b}^i \mathbf{b}^j \mathbf{b}^k \mathbf{b}^l = \\
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+The most general liner isotropic relation between two rank\sphinxhyphen{}\(2\) tensors reads \(\mathbf{A}\), \(\mathbf{B}\)
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{A} 
+  & = a \, \text{tr}\left( \mathbf{B} \right) \mathbf{I} + b \, \mathbf{B} + c \, \mathbf{B}^T \\
+  & = a \, \text{tr}\left( \mathbf{B} \right) \mathbf{I} + \widetilde{b} \, \mathbf{B}^s + \widetilde{c} \, \mathbf{B}^a \ ,
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+being \(\mathbf{B}^s = \frac{1}{2} \left( \mathbf{B} + \mathbf{B}^T \right)\), and \(\mathbf{B}^a = \frac{1}{2} \left( \mathbf{B} - \mathbf{B}^T \right)\) the symmetric and the anti\sphinxhyphen{}symmetric parts of the tensor \(\mathbf{B}\) respectively.
+\subsubsection*{Linear isotropic relation between two rank\sphinxhyphen{}\protect\(2 \ \protect\) tensors}
+\begin{equation*}
+\begin{split}\mathbf{A} = \mathbf{Q} : \mathbf{B}\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{Q} : \mathbf{B} 
+  & = \left( Q_{ijkl} \mathbf{b}^i \mathbf{b}^j \mathbf{b}^k \mathbf{b}^l \right) : \left( B^{mn} \mathbf{b}_m \mathbf{b}_n  \right) = \\
+  & = Q_{ijkl} B^{kl} \mathbf{b}^i \mathbf{b}^j = \\
+  & = \left( a \, g_{ij} g_{kl}    + b \, g_{ik} g_{jl} + c \, g_{il} g_{jk} \right) B^{kl} \mathbf{b}^i \mathbf{b}^j = \\
+  & = \left( a \, g_{ij} B_l^{\ l} + b \, B_{ij}        + c \, B_{ji} \right) \mathbf{b}^i \mathbf{b}^j = \\ 
+  & = \left( a \, g_{ij} B_l^{\ l} + b \, B_{ij}        + c \, B_{ji} \right) \mathbf{b}^i \mathbf{b}^j = \\ 
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+depends on the three constant \(a\), \(b\), \(c\) of the isotropic tensor.
+
+\sphinxAtStartPar
+The most general liner isotropic relation between two symmetric rank\sphinxhyphen{}\(2\) tensors reads \(\mathbf{A}\), \(\mathbf{B}\)
+\begin{equation*}
+\begin{split}\mathbf{A} = a \, \text{tr}\left( \mathbf{B} \right) \mathbf{I} + \widetilde{b} \, \mathbf{B} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+as the anti\sphinxhyphen{}symmetric part of a symmetric tensor is identically zero.
+\subsubsection*{Linear isotropic relation between two symmetric rank\sphinxhyphen{}\protect\(2 \ \protect\) tensors}
+
+\sphinxAtStartPar
+If \(B_{ij} = B_{ji}\), the double\sphinxhyphen{}dot product becomes
+\begin{equation*}
+\begin{split}\mathbf{A} = \mathbf{Q} : \mathbf{B} = \left( a \, g_{ij} B_l^{\ l} + d \, B_{ij} \right) \mathbf{b}^i \mathbf{b}^j \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+depends only on two constants \(a\), \(d\), having defined \(d = b + c\). This is a common condition in continuum mechanics, where some constitutive law links two symmetric rank\sphinxhyphen{}\(2\) tensors, like the stress and strain tensors for linear elastic media, or the stress and strain velocity tensors for Newtonian fluids.
+
+\sphinxstepscope
+
+
 \chapter{Time derivative of integrals over moving domains}
 \label{\detokenize{ch/tensor-algebra-calculus/time-derivative-of-integrals:time-derivative-of-integrals-over-moving-domains}}\label{\detokenize{ch/tensor-algebra-calculus/time-derivative-of-integrals:tensor-calculus-time-derivative-of-integrals}}\label{\detokenize{ch/tensor-algebra-calculus/time-derivative-of-integrals::doc}}
 \sphinxAtStartPar
@@ -2740,7 +3132,7 @@ Given a line \(\gamma \in \mathbb{C}\), whose parametric form is \(z(s)\), with 
 
 \section{Holomorphic Functions \sphinxhyphen{} Analytic Functions}
 \label{\detokenize{ch/complex/analysis:holomorphic-functions-analytic-functions}}\label{\detokenize{ch/complex/analysis:complex-analysis-holo-fun}}\label{ch/complex/analysis:definition-0}
-\begin{sphinxadmonition}{note}{Definition 14.2.1}
+\begin{sphinxadmonition}{note}{Definition 17.2.1}
 
 
 
@@ -2838,7 +3230,7 @@ Since \(z^n\) is analytic everywhere (\sphinxstylestrong{todo} \sphinxstyleempha
 
 \section{Meromorphic functions}
 \label{\detokenize{ch/complex/analysis:meromorphic-functions}}\label{\detokenize{ch/complex/analysis:complex-analysis-mero-fun}}\label{ch/complex/analysis:definition-1}
-\begin{sphinxadmonition}{note}{Definition 14.4.1}
+\begin{sphinxadmonition}{note}{Definition 17.4.1}
 
 
 
@@ -2849,7 +3241,7 @@ A meromorphic function in a domain is a function holomorphic everywhere except f
 
 \subsection{Singularities}
 \label{\detokenize{ch/complex/analysis:singularities}}\label{\detokenize{ch/complex/analysis:complex-analysis-singularities}}\label{ch/complex/analysis:definition-2}
-\begin{sphinxadmonition}{note}{Definition 14.4.2 (Pole)}
+\begin{sphinxadmonition}{note}{Definition 17.4.2 (Pole)}
 
 
 
@@ -2865,7 +3257,7 @@ with \(\phi(z)\) holomorphic in \(\phi(a) \ne 0\)
 \sphinxAtStartPar
 \sphinxstylestrong{Examples.} …
 \label{ch/complex/analysis:definition-3}
-\begin{sphinxadmonition}{note}{Definition 14.4.3 (Branch)}
+\begin{sphinxadmonition}{note}{Definition 17.4.3 (Branch)}
 
 
 \end{sphinxadmonition}
@@ -2873,7 +3265,7 @@ with \(\phi(z)\) holomorphic in \(\phi(a) \ne 0\)
 \sphinxAtStartPar
 \sphinxstylestrong{Examples.} \(f(z) = z^{\frac{1}{2}}\)
 \label{ch/complex/analysis:definition-4}
-\begin{sphinxadmonition}{note}{Definition 14.4.4 (Removable singularities)}
+\begin{sphinxadmonition}{note}{Definition 17.4.4 (Removable singularities)}
 
 
 \end{sphinxadmonition}
@@ -2926,7 +3318,7 @@ Proof readily follows using the {\hyperref[\detokenize{ch/complex/analysis:compl
 
 \subsection{Residues}
 \label{\detokenize{ch/complex/analysis:residues}}\label{\detokenize{ch/complex/analysis:complex-analysis-mero-fun-residues}}\label{ch/complex/analysis:definition-5}
-\begin{sphinxadmonition}{note}{Definition 14.4.5 (Residue)}
+\begin{sphinxadmonition}{note}{Definition 17.4.5 (Residue)}
 
 
 
@@ -3005,7 +3397,7 @@ and then letting \(z \rightarrow a\), so that only the term with \(m-n+1 = 0\) s
 
 \subsection{Residue Theorem}
 \label{\detokenize{ch/complex/analysis:residue-theorem}}\label{\detokenize{ch/complex/analysis:complex-analysis-mero-fun-residues-thm}}\label{ch/complex/analysis:theorem-6}
-\begin{sphinxadmonition}{note}{Theorem 14.4.1 (Residue Theorem)}
+\begin{sphinxadmonition}{note}{Theorem 17.4.1 (Residue Theorem)}
 
 
 
@@ -3062,17 +3454,31 @@ having used the transform of {\hyperref[\detokenize{ch/functional-analysis/dirac
 
 
 \chapter{Laplace Transform}
-\label{\detokenize{ch/complex/laplace:laplace-transform}}\label{\detokenize{ch/complex/laplace:complex-laplace}}\label{\detokenize{ch/complex/laplace::doc}}\begin{equation*}
+\label{\detokenize{ch/complex/laplace:laplace-transform}}\label{\detokenize{ch/complex/laplace:complex-laplace}}\label{\detokenize{ch/complex/laplace::doc}}
+\sphinxAtStartPar
+{\hyperref[\detokenize{ch/complex/laplace-def-thm:complex-laplace-def-thm}]{\sphinxcrossref{\DUrole{std,std-ref}{\sphinxstylestrong{Definition of Laplace transform.}}}}} Definition of Laplace transform, inverse transform, properties and theorems.
+
+\sphinxAtStartPar
+{\hyperref[\detokenize{ch/complex/laplace-applications:complex-laplace-applications}]{\sphinxcrossref{\DUrole{std,std-ref}{\sphinxstylestrong{Applications of Laplace transform.}}}}} Solution of ODEs,…
+
+\sphinxstepscope
+
+
+\section{Definition and Properties}
+\label{\detokenize{ch/complex/laplace-def-thm:definition-and-properties}}\label{\detokenize{ch/complex/laplace-def-thm:complex-laplace-def-thm}}\label{\detokenize{ch/complex/laplace-def-thm::doc}}
+
+\subsection{Definition of Lapalce transform}
+\label{\detokenize{ch/complex/laplace-def-thm:definition-of-lapalce-transform}}\begin{equation*}
 \begin{split}\mathscr{L}\left\{ f(t) \right\}(s) := \int_{t=0^-}^{+\infty} e^{-st} f(t) \, dt = F(s) \ .\end{split}
 \end{equation*}
 
-\section{Inverse transform}
-\label{\detokenize{ch/complex/laplace:inverse-transform}}\begin{equation*}
+\subsection{Inverse transform}
+\label{\detokenize{ch/complex/laplace-def-thm:inverse-transform}}\begin{equation*}
 \begin{split}f(t) = \mathscr{L}^{-1}\left\{ F(s) \right\} = \dots\end{split}
 \end{equation*}
 
-\section{Properties}
-\label{\detokenize{ch/complex/laplace:properties}}
+\subsection{Properties}
+\label{\detokenize{ch/complex/laplace-def-thm:properties}}
 \sphinxAtStartPar
 \sphinxstylestrong{Linearity.}
 \begin{equation*}
@@ -3131,7 +3537,7 @@ provided that \(\int_{\tau=0^-}^{0} f(\tau) d \tau = 0\) and \(\lim_{t \rightarr
 
 \sphinxAtStartPar
 \sphinxstylestrong{Convolution.}
-\begin{equation}\label{equation:ch/complex/laplace:laplace:convolution}
+\begin{equation}\label{equation:ch/complex/laplace-def-thm:laplace:convolution}
 \begin{split}\begin{aligned}
   \mathscr{L}\left\{ f(t) \ast g(t) \right\} 
   & = \int_{t=0^-}^{+\infty} \int_{\tau=-\infty}^{+\infty} f(t-\tau) g(\tau) \, d \tau \, e^{-s t }\, dt = && (1) \\
@@ -3189,6 +3595,91 @@ provided that \(\lim_{s \rightarrow 0} \lim_{t \rightarrow +\infty} e^{-s t} f(t
 \sphinxstepscope
 
 
+\section{Applications of Laplace Transform}
+\label{\detokenize{ch/complex/laplace-applications:applications-of-laplace-transform}}\label{\detokenize{ch/complex/laplace-applications:complex-laplace-applications}}\label{\detokenize{ch/complex/laplace-applications::doc}}
+
+\subsection{Ordinary differential equations}
+\label{\detokenize{ch/complex/laplace-applications:ordinary-differential-equations}}
+\sphinxAtStartPar
+Exploiting the properties of transforming derivation into product by the complex variable \(s\), Laplace transform can be a useful tool in solving {\hyperref[\detokenize{ch/ode/intro:ode}]{\sphinxcrossref{\DUrole{std,std-ref}{Ordinary differential equations}}}}.
+
+\sphinxAtStartPar
+Linear ODEs are treated in details in the section about {\hyperref[\detokenize{ch/ode/lti:ode-lti}]{\sphinxcrossref{\DUrole{std,std-ref}{Linear Time\sphinxhyphen{}Invariant Systems}}}}.
+
+
+\subsubsection{First\sphinxhyphen{}order linear differential equation with constant coefficients}
+\label{\detokenize{ch/complex/laplace-applications:first-order-linear-differential-equation-with-constant-coefficients}}
+\sphinxAtStartPar
+A Cauchy problem governed by a first\sphinxhyphen{}order linear differential equation with constant coefficients reads
+\begin{equation*}
+\begin{split}\begin{cases}
+  \dot{u} + a u = f(t)  && \text{for $t > 0$} \\
+  u(0^-) = u_0 \ .
+\end{cases}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Comments.} 1) For linear differential equations with constant coefficients, a time shift is always possible to set initial conditions in \(t_0 = 0\); 2) dealing with \sphinxstylestrong{impulsive forces} (more on this in {\hyperref[\detokenize{ch/ode/lti:ode-lti-impulsive-force}]{\sphinxcrossref{\DUrole{std,std-ref}{LTI systems: impulsive forces}}}}), some attention needs to be paid to the time of initial conditions: if impulsive forces at \(t = 0\) may exist, initial conditions need to be set at \(t=0^-\); the effect of the impulsive force is equivalent to a jump in initial conditions from \(t=0^-\) and \(t=0^+\).
+\subsubsection*{General solution in time domain}
+
+\sphinxAtStartPar
+Multiplying the ODE by \(e^{a t}\),
+\begin{equation*}
+\begin{split}e^{a t} f(t) = e^{a t} \left( \dot{u} + a u \right) = \dfrac{d}{dt} \left( e^{at} u(t) \right)\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and integrating from \(0^-\) to a generic time \(t\) — after changing the dummy integration variable from \(\tau\) to \(t\) —
+\begin{equation*}
+\begin{split}e^{at} u(t) - u(0^-) = \int_{\tau = 0^-}^{t} e^{a \tau} f(\tau) d \tau \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and thus
+\begin{equation*}
+\begin{split}u(t) = e^{-at}  u(0^-) + \int_{\tau = 0^-}^{t} e^{-a(t- \tau)} f(\tau) d \tau \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+The solution of the problem can be also computed using Laplace transform:
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+transforming the problem from time to Laplace domain: the differential problem with unknown \(u(t)\) in time is transformed into an algebraic problem \(\hat{u}(s)\). Using Laplace \sphinxstylestrong{transform of the time derivative}
+
+\end{enumerate}
+\begin{equation*}
+\begin{split}s \hat{u}(s) + u_0 + a \hat{u}(s) = \hat{f}(s) \ ,\end{split}
+\end{equation*}\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\setcounter{enumi}{1}
+\item {} 
+\sphinxAtStartPar
+solving the algebraic problem in Laplace domain for \(\hat{u}(s)\)
+
+\end{enumerate}
+\begin{equation*}
+\begin{split}\hat{u}(s) = \dfrac{1}{s + a} u_0 + \dfrac{1}{s + a} f(s) \ .\end{split}
+\end{equation*}\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\setcounter{enumi}{2}
+\item {} 
+\sphinxAtStartPar
+transforming back the solution in time domain, \(u(t) = \mathscr{L}^{-1}\{ \hat{u}(s) \}\),
+\begin{equation*}
+\begin{split}\begin{aligned}
+     u(t) & = \mathscr{L}^{-1}\{ \hat{u}(s) \} (t) = \\
+          & = \mathscr{L}^{-1} \left\{ \dfrac{u_0}{s + a} \right\} +  \mathscr{L}^{-1} \left\{ \dfrac{1}{s + a} \hat{f}(s) \right\} = \\
+          & = e^{-at} u_0 + \int_{0^-}^{t} e^{-a(t-\tau)} f(\tau) d \tau \ ,
+   \end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+having used the inverse transform of the exponential \(\mathscr{L}\{e^{ct}\} = \int_{t=0^-}^{+\infty} e^{ct} e^{-st} \, dt = \frac{1}{s-c}\), and the inverse transform of the convolution
+\begin{equation*}
+\begin{split}\hat{f}(s) \hat{g}(s) = \mathscr{L}\{ f(t) \ast g(t) \}(s) = \int_{t=0^-}^{+\infty} \left\{ \int_{\tau=0^-}^{t} f(\tau) g(t-\tau) d \tau \right\} e^{-st} dt \ .\end{split}
+\end{equation*}
+\end{enumerate}
+
+\sphinxstepscope
+
+
 \chapter{Fourier Transforms}
 \label{\detokenize{ch/complex/fourier:fourier-transforms}}\label{\detokenize{ch/complex/fourier:complex-fourier}}\label{\detokenize{ch/complex/fourier::doc}}
 \sphinxAtStartPar
@@ -3215,7 +3706,7 @@ solving problems: sometimes, it can be easier to transform a problem in frequenc
 {\hyperref[\detokenize{ch/complex/fourier-transforms:complex-fourier-transform}]{\sphinxcrossref{\DUrole{std,std-ref}{\sphinxstylestrong{Fourier transform}}}}}. Fourier transform is defined for infinite\sphinxhyphen{}domain non\sphinxhyphen{}periodic, time\sphinxhyphen{}continuous functions, or \sphinxhyphen{} more generally \sphinxhyphen{} continuous functions in the physical domain.
 
 \sphinxAtStartPar
-{\hyperref[\detokenize{ch/complex/fourier-transforms:complex-fourier-transforms}]{\sphinxcrossref{\DUrole{std,std-ref}{\sphinxstylestrong{Relations between Fourier transforms and sampling}}}}}. Fourier series, Fourier transform, discrete time Fourier transform and discrete Fourier transforms are presented, and their relations discussed. Fundamental results about \sphinxstylestrong{evenly\sphinxhyphen{}spaced sampling} seamlessly follows, as \sphinxstylestrong{Shannon\sphinxhyphen{}Nyquist theorem}, {\hyperref[\detokenize{ch/complex/fourier-transforms:thm-shannon-nyquist}]{\sphinxcrossref{Theorem 16.3.1}}}, shows.
+{\hyperref[\detokenize{ch/complex/fourier-transforms:complex-fourier-transforms}]{\sphinxcrossref{\DUrole{std,std-ref}{\sphinxstylestrong{Relations between Fourier transforms and sampling}}}}}. Fourier series, Fourier transform, discrete time Fourier transform and discrete Fourier transforms are presented, and their relations discussed. Fundamental results about \sphinxstylestrong{evenly\sphinxhyphen{}spaced sampling} seamlessly follows, as \sphinxstylestrong{Shannon\sphinxhyphen{}Nyquist theorem}, {\hyperref[\detokenize{ch/complex/fourier-transforms:thm-shannon-nyquist}]{\sphinxcrossref{Theorem 19.3.1}}}, shows.
 
 \sphinxAtStartPar
 Different Fourier transforms exist, depending if the original function is:
@@ -3312,7 +3803,7 @@ T & \hfill \text{if $ k = 0$}
 \sphinxAtStartPar
 \sphinxstylestrong{Final value.}
 \label{ch/complex/fourier-transform:transform:fourier:convolution}
-\begin{sphinxadmonition}{note}{Property 16.2.1 (Transform of convolution)}
+\begin{sphinxadmonition}{note}{Property 19.2.1 (Transform of convolution)}
 
 
 \begin{equation*}
@@ -3710,7 +4201,7 @@ i.e. equals the periodic sum of the Fourier of the original function, with perio
 \sphinxAtStartPar
 From this last sentence and from the {\hyperref[\detokenize{ch/complex/fourier-transforms:complex-fourier-useful-properties-symmetry}]{\sphinxcrossref{\DUrole{std,std-ref}{symmetry properties of Fourier transform}}}}, \sphinxstylestrong{Nyquist\sphinxhyphen{}Shannon sampling theorem} follows seamlessly.
 \label{ch/complex/fourier-transforms:thm-shannon-nyquist}
-\begin{sphinxadmonition}{note}{Theorem 16.3.1 (Nyquist\sphinxhyphen{}Shannon sampling theorem)}
+\begin{sphinxadmonition}{note}{Theorem 19.3.1 (Nyquist\sphinxhyphen{}Shannon sampling theorem)}
 
 
 
@@ -4030,7 +4521,7 @@ where Einstein’s summation notation of repeated index is used. Euler\sphinxhyp
 \begin{equation*}
 \begin{split}\dfrac{d}{dx} \left[ L - q' \dfrac{\partial L}{\partial q'} \right] = \dfrac{\partial L}{\partial x} \ .\end{split}
 \end{equation*}\label{ch/calculus-variations/intro:example-0}
-\begin{sphinxadmonition}{note}{Example 17.1.1 (Euler\sphinxhyphen{}Beltrami with \protect\(L(q'(x),q(x),x)\protect\), Hamiltonian, energy and E.Noether)}
+\begin{sphinxadmonition}{note}{Example 20.1.1 (Euler\sphinxhyphen{}Beltrami with \protect\(L(q'(x),q(x),x)\protect\), Hamiltonian, energy and E.Noether)}
 
 
 
@@ -4054,7 +4545,7 @@ In mechanics, if \(\partial_t L = 0\), the Hamiltonian is a constant of motion. 
 \sphinxAtStartPar
 \sphinxstylestrong{Classical examples.}
 \label{ch/calculus-variations/intro:example-1}
-\begin{sphinxadmonition}{note}{Example 17.1.2 (Brachistochrone)}
+\begin{sphinxadmonition}{note}{Example 20.1.2 (Brachistochrone)}
 
 
 
@@ -4100,12 +4591,12 @@ Squaring \(2 g C^2 = \frac{1}{y(1+y'^2)}\), it’s possible to write
 Making the substitution \(y(x)' = \dots\)
 \end{sphinxadmonition}
 \label{ch/calculus-variations/intro:example-2}
-\begin{sphinxadmonition}{note}{Example 17.1.3 (Catenary)}
+\begin{sphinxadmonition}{note}{Example 20.1.3 (Catenary)}
 
 
 \end{sphinxadmonition}
 \label{ch/calculus-variations/intro:example-3}
-\begin{sphinxadmonition}{note}{Example 17.1.4 (Isoperimetric problem)}
+\begin{sphinxadmonition}{note}{Example 20.1.4 (Isoperimetric problem)}
 
 
 \end{sphinxadmonition}
@@ -4181,7 +4672,7 @@ The {\hyperref[\detokenize{ch/complex/laplace:complex-laplace}]{\sphinxcrossref{
 \end{aligned}\end{split}
 \end{equation*}
 \sphinxAtStartPar
-Performing inverse Laplace transform allows to go back to time domain (just use Laplace inverse transform of a matrix exponential, and the formula \eqref{equation:ch/complex/laplace:laplace:convolution} for Laplace transform of convolution).
+Performing inverse Laplace transform allows to go back to time domain (just use Laplace inverse transform of a matrix exponential, and the formula \eqref{equation:ch/complex/laplace-def-thm:laplace:convolution} for Laplace transform of convolution).
 
 
 \section{Impulsive force}
@@ -4238,9 +4729,9 @@ Assuming it’s possible swap derivative operator and summation (when?), it’s 
 \end{aligned}\end{split}
 \end{equation*}
 \sphinxAtStartPar
-for all the values of \(s\) for which \(-s\mathbf{I} + \mathbf{A}\) is asymptotically stable, i.e. has all the eignevalues (thus, assuming that the matrix \(\mathbf{A}\) can be diagonalizable. What happens if not? Exploit other matrix decompositions to draw conclusions) with negative real parts, and thus for all the values of \(s > \max \text{re}\{ s_k(\mathbf{A}) \}\), as it’s shown in {\hyperref[\detokenize{ch/ode/lti:matrix-stability-spectrum}]{\sphinxcrossref{Example 19.2.1}}}
+for all the values of \(s\) for which \(-s\mathbf{I} + \mathbf{A}\) is asymptotically stable, i.e. has all the eignevalues (thus, assuming that the matrix \(\mathbf{A}\) can be diagonalizable. What happens if not? Exploit other matrix decompositions to draw conclusions) with negative real parts, and thus for all the values of \(s > \max \text{re}\{ s_k(\mathbf{A}) \}\), as it’s shown in {\hyperref[\detokenize{ch/ode/lti:matrix-stability-spectrum}]{\sphinxcrossref{Example 22.2.1}}}
 \label{ch/ode/lti:matrix-stability-spectrum}
-\begin{sphinxadmonition}{note}{Example 19.2.1 (Asymptotic stability of a matrix \protect\(\ \mathbf{A}\protect\))}
+\begin{sphinxadmonition}{note}{Example 22.2.1 (Asymptotic stability of a matrix \protect\(\ \mathbf{A}\protect\))}
 
 
 
@@ -4534,7 +5025,7 @@ Using average over time as an approximation of the probability average
 \end{aligned}\end{split}
 \end{equation*}
 \sphinxAtStartPar
-For asymptotically stable systems subject to periodic forcing, response to non\sphinxhyphen{}homogenoeus initial conditions vanishes while the forced response can be written either in Fourier or in time domain, exploiting the property of the transform of convolution {\hyperref[\detokenize{ch/complex/fourier-transform:transform:fourier:convolution}]{\sphinxcrossref{Property 16.2.1}}}, as
+For asymptotically stable systems subject to periodic forcing, response to non\sphinxhyphen{}homogenoeus initial conditions vanishes while the forced response can be written either in Fourier or in time domain, exploiting the property of the transform of convolution {\hyperref[\detokenize{ch/complex/fourier-transform:transform:fourier:convolution}]{\sphinxcrossref{Property 19.2.1}}}, as
 \begin{equation*}
 \begin{split}\begin{aligned}
   \mathbf{y}(f) = \mathbf{H}(f) \, \mathbf{u}(f) \qquad , \qquad
@@ -4599,7 +5090,7 @@ while for a pole \(p_d\) with multiplicity \(m_d> 1\) all the terms \(\propto \f
 \begin{equation*}
 \begin{split}G(s) = \sum_{d=1}^{N} \dfrac{A_d}{(p_d-s)^{e_d}} \ , \end{split}
 \end{equation*}\label{ch/ode/lti-stability-and-feedback:example-0}
-\begin{sphinxadmonition}{note}{Example 21.1.1 (Sum of partial fractions of a TF with poles with multiplicity \protect\(> 1\protect\))}
+\begin{sphinxadmonition}{note}{Example 24.1.1 (Sum of partial fractions of a TF with poles with multiplicity \protect\(> 1\protect\))}
 
 
 
@@ -4684,7 +5175,7 @@ The poles of the closed loop systems are the zeros of the function \(1 + G(s)\).
 \sphinxAtStartPar
 in order to have \(Z = 0\), i.e. the diagram of \(1+G(s)\) must perform \(N\) counter\sphinxhyphen{}clockwise loops around \(0+i0\) equal to the number of its poles with positive real parts. As the poles of \(1+ G(s)\) are the same as the poles of \(G(s)\), it’s possible to formulate Nyquist criterion looking at \(G(s)\), as
 \label{ch/ode/lti-stability-and-feedback:theorem-1}
-\begin{sphinxadmonition}{note}{Theorem 21.2.1 (Nyquist criterion)}
+\begin{sphinxadmonition}{note}{Theorem 24.2.1 (Nyquist criterion)}
 
 
 
@@ -4695,7 +5186,7 @@ In order for the closed\sphinxhyphen{}loop system to be asymptotically stable, t
 
 \subsection{Bode stability criterion for minimal phase systems}
 \label{\detokenize{ch/ode/lti-stability-and-feedback:bode-stability-criterion-for-minimal-phase-systems}}\label{ch/ode/lti-stability-and-feedback:definition-2}
-\begin{sphinxadmonition}{note}{Definition 21.2.1 (Minimal phase systems)}
+\begin{sphinxadmonition}{note}{Definition 24.2.1 (Minimal phase systems)}
 
 
 \end{sphinxadmonition}
@@ -4957,6 +5448,65 @@ and \(\phi = g\), for \(\vec{r} \in S_D\).
 \sphinxAtStartPar
 …
 
+
+\subsection{Existence and uniqueness}
+\label{\detokenize{ch/pde/elliptic:existence-and-uniqueness}}\label{\detokenize{ch/pde/elliptic:pde-elliptic-poisson-weaki-uniqueness}}
+\sphinxAtStartPar
+Assuming two solutions \(u_1(\mathbf{r})\), \(u_2(\mathbf{r})\) exist for the Poisson problem
+\begin{equation*}
+\begin{split}\begin{cases}
+  - \nabla \cdot ( \nu \nabla u ) = f  \qquad \mathbf{r} \in V \\
+  u|_{S_D} = g \\
+  \nu \hat{n} \cdot \nabla u|_{S_N} = h
+\end{cases}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Their difference \(\delta u (\mathbf{r}) := u_2(\mathbf{r}) - u_1(\mathbf{r})\) then satisfies the homogeneous problem
+\begin{equation*}
+\begin{split}\begin{cases}
+  - \nabla \cdot ( \nu \nabla \delta u ) = 0  \qquad \mathbf{r} \in V \\
+  \delta u|_{S_D} = 0 \\
+  \nu \hat{n} \cdot \nabla \delta u|_{S_N} = 0
+\end{cases}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+The norm of the gradient of the difference of the solution reads
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \int_{V} \nu |\nabla \delta u|^2
+  & = \int_{V} \nu \nabla \delta u \cdot \nabla \delta u = \\
+  & = \int_{V} \nabla \cdot \left( \delta u \, \nu \nabla \delta u \right) - \int_{V} \delta u \, \underbrace{\nabla \cdot ( \nu \nabla \delta u )}_{ = 0 } = \\
+  & = \oint_{\partial V} \delta u \, \nu \hat{n} \cdot \nabla \delta u = \\
+  & = \int_{S_D} \underbrace{ \delta u}_{ \delta u|_{S_D} = 0} \nu \hat{n} \cdot \nabla \delta u + \int_{S_N} \delta u \underbrace{\nu \hat{n} \cdot \nabla \delta u}_{\nu \hat{n} \cdot \nabla \delta u|_{S_N} = 0} = \\
+  & = 0 \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{If} \(\nu(\mathbf{r}) > 0\) for \(\forall \mathbf{r} \in V\)%
+\begin{footnote}[1]\sphinxAtStartFootnote
+As an example, this condition appears in physical systems with non\sphinxhyphen{}zero and positive diffusion coefficients in diffusion problems, like thermal conduction or specie diffusion via Fick’s law.
+%
+\end{footnote}, it follows that
+\begin{equation*}
+\begin{split}\nabla \delta u = \nabla (u_2 - u_1) = 0 \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and thus the two solutions differs at most by an additive constant,
+\begin{equation*}
+\begin{split}u_2(\mathbf{r}) - u_1(\mathbf{r}) = c \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{If} the Dirichlet boundary has non\sphinxhyphen{}null dimension, it forces the value of the functions to coincide on that boundary, \(u_2(\mathbf{r}) = u_1(\mathbf{r})\) on \(S_D\), and thus sets the value  of the additive constant \(c\) to be zero, \(c = 0\), and
+\begin{equation*}
+\begin{split}u_2(\mathbf{r}) = u_1(\mathbf{r}) \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+thus proving the uniqueness of the solution of the Poisson problem, with non\sphinxhyphen{}negative diffusion coefficient and non\sphinxhyphen{}zero dimension of Dirichlet boundary.
+
+
+\bigskip\hrule\bigskip
+
+
 \sphinxstepscope
 
 
@@ -5145,7 +5695,7 @@ the solution is in the \(S_i\) region is
 \begin{equation*}
 \begin{split}u_i(x,t) = \sum_{\lambda_k > \frac{x}{t}} R_{ik} q_{a,k} +  \sum_{\lambda_k < \frac{x}{t}} R_{ik} q_{b,k}\end{split}
 \end{equation*}\label{ch/pde/hyperbolic:example-0}
-\begin{sphinxadmonition}{note}{Example 25.3.1 (Linear(ized) P\sphinxhyphen{}system)}
+\begin{sphinxadmonition}{note}{Example 28.3.1 (Linear(ized) P\sphinxhyphen{}system)}
 
 
 
@@ -5183,17 +5733,17 @@ The linear(ized) P\sphinxhyphen{}system around a uniform reference state \(\over
 Subsonic: the two families of characteristic lines have opposite direction; supersonic: the two families of characteristic lines have the same direction.
 \end{sphinxadmonition}
 \label{ch/pde/hyperbolic:example-1}
-\begin{sphinxadmonition}{note}{Example 25.3.2 (Linearized shallow water equations)}
+\begin{sphinxadmonition}{note}{Example 28.3.2 (Linearized shallow water equations)}
 
 
 \end{sphinxadmonition}
 \label{ch/pde/hyperbolic:example-2}
-\begin{sphinxadmonition}{note}{Example 25.3.3 (Linearized Euler equations (acoustics))}
+\begin{sphinxadmonition}{note}{Example 28.3.3 (Linearized Euler equations (acoustics))}
 
 
 \end{sphinxadmonition}
 \label{ch/pde/hyperbolic:example-3}
-\begin{sphinxadmonition}{note}{Example 25.3.4 (Wave equation)}
+\begin{sphinxadmonition}{note}{Example 28.3.4 (Wave equation)}
 
 
 
@@ -5288,7 +5838,7 @@ Different descritpions of integral problem,
   & = \partial_t u_i + \partial_{x_k} u_m \partial_{u_m} F_{ki} (u_l) = \\
 \end{aligned}\end{split}
 \end{equation*}\label{ch/pde/hyperbolic:example-4}
-\begin{sphinxadmonition}{note}{Example 25.5.1 (P\sphinxhyphen{}system in 1\sphinxhyphen{}dimensional domain)}
+\begin{sphinxadmonition}{note}{Example 28.5.1 (P\sphinxhyphen{}system in 1\sphinxhyphen{}dimensional domain)}
 
 
 \begin{equation*}
@@ -5322,7 +5872,7 @@ with \(\partial_x P = a^2 \partial_x \rho\),
 \end{aligned}\end{split}
 \end{equation*}\end{sphinxadmonition}
 \label{ch/pde/hyperbolic:example-5}
-\begin{sphinxadmonition}{note}{Example 25.5.2 (Euler equations in 1\sphinxhyphen{}dimensional domain)}
+\begin{sphinxadmonition}{note}{Example 28.5.2 (Euler equations in 1\sphinxhyphen{}dimensional domain)}
 
 
 
@@ -5438,7 +5988,7 @@ being
 \begin{split}\mathbf{L} = \dots \end{split}
 \end{equation*}\end{sphinxadmonition}
 \label{ch/pde/hyperbolic:example-6}
-\begin{sphinxadmonition}{note}{Example 25.5.3 (Shallow water equation in \protect\(1\protect\)\sphinxhyphen{}dimensional domain)}
+\begin{sphinxadmonition}{note}{Example 28.5.3 (Shallow water equation in \protect\(1\protect\)\sphinxhyphen{}dimensional domain)}
 
 
 
@@ -5512,7 +6062,7 @@ and integration in \(z\)\sphinxhyphen{}direction \sphinxstylestrong{todo} Explic
 \begin{split}0 = |\mathbf{A}(\mathbf{u}) - s^2 \mathbf{I}| = -s \left( 2 u - s \right) + u^2 - g \eta = (s-u)^2 - g  \eta \ .\end{split}
 \end{equation*}\end{sphinxadmonition}
 \label{ch/pde/hyperbolic:example-7}
-\begin{sphinxadmonition}{note}{Example 25.5.4 (P\sphinxhyphen{}system in n\sphinxhyphen{}dimensional domain)}
+\begin{sphinxadmonition}{note}{Example 28.5.4 (P\sphinxhyphen{}system in n\sphinxhyphen{}dimensional domain)}
 
 
 \begin{itemize}
@@ -5532,7 +6082,7 @@ Physical variables: e.g. \((\rho, \vec{u})\), \((P, \vec{u})\),…
 \end{cases}\end{split}
 \end{equation*}\end{sphinxadmonition}
 \label{ch/pde/hyperbolic:example-8}
-\begin{sphinxadmonition}{note}{Example 25.5.5 (Euler system in n\sphinxhyphen{}dimensional domain)}
+\begin{sphinxadmonition}{note}{Example 28.5.5 (Euler system in n\sphinxhyphen{}dimensional domain)}
 
 
 \begin{itemize}
@@ -5561,7 +6111,7 @@ where \(\Pi\) represents the pressure field as a function of the conservative va
 and \(P\) the pressure field expressed by the \sphinxstylestrong{equation of state of the fluid} as a function of density and internal energy per unit mass as the pair of independent variables determining the thermodynamic state.
 \end{sphinxadmonition}
 \label{ch/pde/hyperbolic:example-9}
-\begin{sphinxadmonition}{note}{Example 25.5.6 (Shallow water equations in 2\sphinxhyphen{}dimensional domain)}
+\begin{sphinxadmonition}{note}{Example 28.5.6 (Shallow water equations in 2\sphinxhyphen{}dimensional domain)}
 
 
 \begin{equation*}
@@ -5885,7 +6435,7 @@ The \sphinxstylestrong{integral formulation} of the problem for all the boundary
 \begin{equation}\label{equation:ch/pde/numerics:eq:example:pde:poisson:integral}
 \begin{split}0 = - \oint_{\partial \Omega} \hat{n} \cdot \vec{q} + \int_{\Omega} f \ .\end{split}
 \end{equation}\label{ch/pde/numerics:pde:ex:fvm}
-\begin{sphinxadmonition}{note}{Example 29.1 (Finite volume methods)}
+\begin{sphinxadmonition}{note}{Example 32.1 (Finite volume methods)}
 
 
 
@@ -5901,7 +6451,7 @@ evaluating volume integrals with the internal variables of the cell \(\Omega_k\)
 \end{equation*}
 \sphinxAtStartPar
 Different numerical methods differs in the evaluation of fluxes and sources.
-FVM is \sphinxstylestrong{conservative} as it evaluate flux at interfaces and then distribute it to neighoring cells, see {\hyperref[\detokenize{ch/pde/fvm:fvm:property:conservation}]{\sphinxcrossref{Property 29.2.1}}}. A rough elementwise\sphinxhyphen{}uniform variable with jump at interfaces and diffusive flux,
+FVM is \sphinxstylestrong{conservative} as it evaluate flux at interfaces and then distribute it to neighoring cells, see {\hyperref[\detokenize{ch/pde/fvm:fvm:property:conservation}]{\sphinxcrossref{Property 32.2.1}}}. A rough elementwise\sphinxhyphen{}uniform variable with jump at interfaces and diffusive flux,
 \begin{equation*}
 \begin{split}F_{ik} = - A_{ik} \, k \, \frac{u_i - u_k}{d_{ik}} \ ,\end{split}
 \end{equation*}
@@ -5919,7 +6469,7 @@ For regular cubic mesh, \(A_{ik} = \Delta x\), \(d_{ik} = \Delta x\), \(V_k = \D
 \begin{split}0 = k \sum_{i \in \Omega_k} \frac{u_i - u_k}{\Delta x^2} + f_k \ ,\end{split}
 \end{equation*}
 \sphinxAtStartPar
-where the summation is exactly equal to the center\sphinxhyphen{}difference stencil for the Laplacian, used in finite difference method {\hyperref[\detokenize{ch/pde/numerics:pde:ex:fdm}]{\sphinxcrossref{Example 29.2}}}.
+where the summation is exactly equal to the center\sphinxhyphen{}difference stencil for the Laplacian, used in finite difference method {\hyperref[\detokenize{ch/pde/numerics:pde:ex:fdm}]{\sphinxcrossref{Example 32.2}}}.
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
@@ -5943,7 +6493,7 @@ Exploiting the arbitrariety of the volume \(V\), the \sphinxstylestrong{strong f
 \sphinxAtStartPar
 only holds in regions of the domain where the functions involved are continuous and differentiable, i.e. everything written in the problem is not meaningful, i.e. at least it exists.
 \label{ch/pde/numerics:pde:ex:fdm}
-\begin{sphinxadmonition}{note}{Example 29.2 (Finite difference methods)}
+\begin{sphinxadmonition}{note}{Example 32.2 (Finite difference methods)}
 
 
 
@@ -5959,7 +6509,7 @@ Finite different method approximates the strong form of the problem, building a 
 \end{aligned}\end{split}
 \end{equation*}
 \sphinxAtStartPar
-and it’s equal to the same expression already provided for the rough finite volume method with regular grid, in {\hyperref[\detokenize{ch/pde/numerics:pde:ex:fvm}]{\sphinxcrossref{Example 29.1}}}
+and it’s equal to the same expression already provided for the rough finite volume method with regular grid, in {\hyperref[\detokenize{ch/pde/numerics:pde:ex:fvm}]{\sphinxcrossref{Example 32.1}}}
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
@@ -5989,7 +6539,7 @@ Using a test function \(w(\vec{r})\) equal to zero on the boundary where essenti
 \sphinxAtStartPar
 compatible with essential boundary conditions.
 \label{ch/pde/numerics:pde:ex:fem}
-\begin{sphinxadmonition}{note}{Example 29.3 (Finite element methods)}
+\begin{sphinxadmonition}{note}{Example 32.3 (Finite element methods)}
 
 
 
@@ -6063,7 +6613,7 @@ and the integro\sphinxhyphen{}differential equation is evaluated in \(N\) differ
 
 \section{Finite Volume Method}
 \label{\detokenize{ch/pde/fvm:finite-volume-method}}\label{\detokenize{ch/pde/fvm:pde-fvm}}\label{\detokenize{ch/pde/fvm::doc}}\label{ch/pde/fvm:fvm:property:conservation}
-\begin{sphinxadmonition}{note}{Property 29.2.1}
+\begin{sphinxadmonition}{note}{Property 32.2.1}
 
 
 
@@ -6400,9 +6950,9 @@ minimum: if the Hessian evalauted in \(\mathbf{x}^*\) is definite positive,
 \end{itemize}
 
 \sphinxAtStartPar
-Here the formalism \(\partial_{\mathbf{x} \mathbf{x}} f(\mathbf{x}^*) < 0\) indicates that the Hessian matrix is negative definite, see {\hyperref[\detokenize{ch/optimization/intro:optimization:hessian:extreme}]{\sphinxcrossref{Example 31.1.1}}}.
+Here the formalism \(\partial_{\mathbf{x} \mathbf{x}} f(\mathbf{x}^*) < 0\) indicates that the Hessian matrix is negative definite, see {\hyperref[\detokenize{ch/optimization/intro:optimization:hessian:extreme}]{\sphinxcrossref{Example 34.1.1}}}.
 \label{ch/optimization/intro:optimization:hessian:extreme}
-\begin{sphinxadmonition}{note}{Example 31.1.1 (Positive/negative definite Hessian)}
+\begin{sphinxadmonition}{note}{Example 34.1.1 (Positive/negative definite Hessian)}
 
 
 
@@ -6563,7 +7113,7 @@ and comparing the two different expressions of \(\dot{\boldsymbol{\lambda}}\), i
 \begin{split}\dot{\mathbf{P}} + \mathbf{P} \widetilde{\mathbf{A}} + \widetilde{\mathbf{A}}^T \mathbf{P} - \mathbf{P} \mathbf{B} \mathbf{R}^{-1} \mathbf{B}^T \mathbf{P} + \widetilde{\mathbf{Q}} = \mathbf{0} \ ,\end{split}
 \end{equation*}
 \sphinxAtStartPar
-where \(\widetilde{\mathbf{A}} = \mathbf{A} - \mathbf{B} \mathbf{R}^{-1} \mathbf{S}^T \) and \(\widetilde{\mathbf{Q}} = \mathbf{Q} - \mathbf{S} \mathbf{R}^{-1} \mathbf{S}^T\). Riccati equation is a non\sphinxhyphen{}linear dynamical matrix equation in \(\mathbf{P}\). Algorithms for computing the solution of dynamical and algebraic equation exists, see {\hyperref[\detokenize{ch/control/optimal-control:control-optimal-riccati}]{\sphinxcrossref{Example 32.1.1}}}.
+where \(\widetilde{\mathbf{A}} = \mathbf{A} - \mathbf{B} \mathbf{R}^{-1} \mathbf{S}^T \) and \(\widetilde{\mathbf{Q}} = \mathbf{Q} - \mathbf{S} \mathbf{R}^{-1} \mathbf{S}^T\). Riccati equation is a non\sphinxhyphen{}linear dynamical matrix equation in \(\mathbf{P}\). Algorithms for computing the solution of dynamical and algebraic equation exists, see {\hyperref[\detokenize{ch/control/optimal-control:control-optimal-riccati}]{\sphinxcrossref{Example 35.1.1}}}.
 
 
 
@@ -6580,7 +7130,7 @@ For infinite\sphinxhyphen{}horizone, the algebraic equation (ARE) for the steady
 \sphinxAtStartPar
 with \(\mathbf{G} = \mathbf{R}^{-1} \left( \mathbf{S}^T + \mathbf{B}^T \mathbf{P} \right)\).
 \label{ch/control/optimal-control:control-optimal-riccati}
-\begin{sphinxadmonition}{note}{Example 32.1.1 (Solution of Riccati equation)}
+\begin{sphinxadmonition}{note}{Example 35.1.1 (Solution of Riccati equation)}
 
 
 
@@ -6616,7 +7166,7 @@ with \(\mathbf{G} = \mathbf{R}^{-1} \left( \mathbf{S}^T + \mathbf{B}^T \mathbf{P
 
 \chapter{Markov Processes}
 \label{\detokenize{ch/rl/mdp:markov-processes}}\label{\detokenize{ch/rl/mdp:rl-mdp}}\label{\detokenize{ch/rl/mdp::doc}}\label{ch/rl/mdp:def:stoch-process}
-\begin{sphinxadmonition}{note}{Definition 34.1 (Stochastic process)}
+\begin{sphinxadmonition}{note}{Definition 37.1 (Stochastic process)}
 
 
 
@@ -6627,7 +7177,7 @@ A stochastic process is as collection of random variables \(X(t)\) defined on a 
 \end{equation*}\end{sphinxadmonition}
 
 \sphinxAtStartPar
-Markov process is a memomry\sphinxhyphen{}less stochastic process (see def {\hyperref[\detokenize{ch/rl/mdp:def:stoch-process}]{\sphinxcrossref{Definition 34.1}}}). For discrete\sphinxhyphen{}time Markov processes, state at time \(n\) only depends on state at time \(n-1\)
+Markov process is a memomry\sphinxhyphen{}less stochastic process (see def {\hyperref[\detokenize{ch/rl/mdp:def:stoch-process}]{\sphinxcrossref{Definition 37.1}}}). For discrete\sphinxhyphen{}time Markov processes, state at time \(n\) only depends on state at time \(n-1\)
 \begin{equation*}
 \begin{split}\langle S, P, \mu \rangle\end{split}
 \end{equation*}
@@ -6929,7 +7479,7 @@ Bellman expectation equation for the action\sphinxhyphen{}value function \(Q^{\p
 \sphinxAtStartPar
 \sphinxstylestrong{Optimal value functions, and optimal policies}
 \label{ch/rl/mdp:def:optimal-value-fcns}
-\begin{sphinxadmonition}{note}{Definition 34.2.1 (Optimal value functions)}
+\begin{sphinxadmonition}{note}{Definition 37.2.1 (Optimal value functions)}
 
 
 
@@ -6952,7 +7502,7 @@ Valus functions define a partial ordering of policies,
 \begin{equation*}
 \begin{split}\pi \ge \pi' \ \text{if} \ V^{\pi}(s) \ge V^{\pi'} \, \forall s \in S \ .\end{split}
 \end{equation*}\label{ch/rl/mdp:theorem-2}
-\begin{sphinxadmonition}{note}{Theorem 34.2.1 (Optimal policies)}
+\begin{sphinxadmonition}{note}{Theorem 37.2.1 (Optimal policies)}
 
 
 
@@ -6988,7 +7538,7 @@ a deterministic optimal policy exists, and it’s found optimizing action\sphinx
 \sphinxAtStartPar
 \sphinxstylestrong{todo}
 \label{ch/rl/mdp:prop:optimal-v-q}
-\begin{sphinxadmonition}{note}{Property 34.2.1 (Property: optimal state\sphinxhyphen{}value and action\sphinxhyphen{}value functions)}
+\begin{sphinxadmonition}{note}{Property 37.2.1 (Property: optimal state\sphinxhyphen{}value and action\sphinxhyphen{}value functions)}
 
 
 \begin{equation}\label{equation:ch/rl/mdp:eq:optimality-condition}
@@ -7000,7 +7550,7 @@ a deterministic optimal policy exists, and it’s found optimizing action\sphinx
 
 \sphinxAtStartPar
 \sphinxstylestrong{Bellman optimality equations.}
-Using {\hyperref[\detokenize{ch/rl/mdp:prop:optimal-v-q}]{\sphinxcrossref{Property 34.2.1}}} and the expression of action\sphinxhyphen{}value function in \eqref{equation:ch/rl/mdp:eq:bellman:q:exp}
+Using {\hyperref[\detokenize{ch/rl/mdp:prop:optimal-v-q}]{\sphinxcrossref{Property 37.2.1}}} and the expression of action\sphinxhyphen{}value function in \eqref{equation:ch/rl/mdp:eq:bellman:q:exp}
 \begin{equation*}
 \begin{split}\begin{aligned}
   V^{*}(s) 
@@ -7167,7 +7717,7 @@ and it “improves the value function” (which value function?) of any state,
 \sphinxAtStartPar
 In stochastic optimization, usually {\hyperref[\detokenize{ch/rl/mdp_sol_rl:rl-mdp-sol-rl-control-improv-eps-greedy}]{\sphinxcrossref{\DUrole{std,std-ref}{\(\varepsilon\)\sphinxhyphen{}greedy improvement}}}} is introduced to improve \sphinxstylestrong{exploration} and try to avoid converging to local optimum.
 \label{ch/rl/mdp_sol_dp_lp:thm:pi}
-\begin{sphinxadmonition}{note}{Theorem 35.2.1 (Policy improvement theorem)}
+\begin{sphinxadmonition}{note}{Theorem 38.2.1 (Policy improvement theorem)}
 
 
 
@@ -7560,7 +8110,7 @@ MC evaluation is model\sphinxhyphen{}free. To keep a model\sphinxhyphen{}free co
 \right.
 \end{split}
 \end{equation*}\label{ch/rl/mdp_sol_rl:theorem-0}
-\begin{sphinxadmonition}{note}{Theorem 36.2.1 (\protect\(\varepsilon\protect\)\sphinxhyphen{}greedy Policy Improvement)}
+\begin{sphinxadmonition}{note}{Theorem 39.2.1 (\protect\(\varepsilon\protect\)\sphinxhyphen{}greedy Policy Improvement)}
 
 
 
@@ -7580,7 +8130,7 @@ For …, the \(\varepsilon\)\sphinxhyphen{}greedy policy \(\pi'\) w.r.t. \(Q^{\p
 \end{equation*}
 \sphinxAtStartPar
 having used in \((1)\) …
-And for the policy improvement theorem {\hyperref[\detokenize{ch/rl/mdp_sol_dp_lp:thm:pi}]{\sphinxcrossref{Theorem 35.2.1}}}, \(V^{\pi'}(s) \ge V(s)\). \sphinxstylestrong{todo} \sphinxstyleemphasis{Check it!}
+And for the policy improvement theorem {\hyperref[\detokenize{ch/rl/mdp_sol_dp_lp:thm:pi}]{\sphinxcrossref{Theorem 38.2.1}}}, \(V^{\pi'}(s) \ge V(s)\). \sphinxstylestrong{todo} \sphinxstyleemphasis{Check it!}
 
 \sphinxAtStartPar
 \sphinxstylestrong{GLIE (Greedy in the Limit of Infinite Exploration)} …
@@ -7779,6 +8329,12 @@ actor\sphinxhyphen{}critic
 \bigletter{control\sphinxhyphen{}optimal\sphinxhyphen{}riccati}
 \item\relax\sphinxstyleindexentry{control\sphinxhyphen{}optimal\sphinxhyphen{}riccati}\sphinxstyleindexextra{ch/control/optimal\sphinxhyphen{}control}\sphinxstyleindexpageref{ch/control/optimal-control:\detokenize{control-optimal-riccati}}
 \indexspace
+\bigletter{def\sphinxhyphen{}tensor}
+\item\relax\sphinxstyleindexentry{def\sphinxhyphen{}tensor}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/algebra}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/algebra:\detokenize{def-tensor}}
+\indexspace
+\bigletter{def\sphinxhyphen{}tensor\sphinxhyphen{}isotropic}
+\item\relax\sphinxstyleindexentry{def\sphinxhyphen{}tensor\sphinxhyphen{}isotropic}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/algebra\sphinxhyphen{}isotropic\sphinxhyphen{}tensors}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/algebra-isotropic-tensors:\detokenize{def-tensor-isotropic}}
+\indexspace
 \bigletter{def:optimal\sphinxhyphen{}value\sphinxhyphen{}fcns}
 \item\relax\sphinxstyleindexentry{def:optimal\sphinxhyphen{}value\sphinxhyphen{}fcns}\sphinxstyleindexextra{ch/rl/mdp}\sphinxstyleindexpageref{ch/rl/mdp:\detokenize{def:optimal-value-fcns}}
 \indexspace
@@ -7798,16 +8354,13 @@ actor\sphinxhyphen{}critic
 \item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}3}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/calculus\sphinxhyphen{}euclidean}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/calculus-euclidean:\detokenize{definition-3}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}4}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}4}\sphinxstyleindexextra{ch/complex/analysis}\sphinxstyleindexpageref{ch/complex/analysis:\detokenize{definition-4}}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}4}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/algebra}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/algebra:\detokenize{definition-4}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}5}
 \item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}5}\sphinxstyleindexextra{ch/complex/analysis}\sphinxstyleindexpageref{ch/complex/analysis:\detokenize{definition-5}}
 \indexspace
-\bigletter{definition\sphinxhyphen{}6}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}6}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/algebra}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/algebra:\detokenize{definition-6}}
-\indexspace
-\bigletter{definition\sphinxhyphen{}7}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}7}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/algebra}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/algebra:\detokenize{definition-7}}
+\bigletter{definition\sphinxhyphen{}8}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}8}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/algebra}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/algebra:\detokenize{definition-8}}
 \indexspace
 \bigletter{example\sphinxhyphen{}0}
 \item\relax\sphinxstyleindexentry{example\sphinxhyphen{}0}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/calculus\sphinxhyphen{}euclidean\sphinxhyphen{}spherical}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/calculus-euclidean-spherical:\detokenize{example-0}}
