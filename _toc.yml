@@ -82,10 +82,11 @@ parts:
   numbered: True
   chapters:
   - file: ch/pde/numerics
+  - file: ch/pde/fem
     sections:
-    - file: ch/pde/fem
-    - file: ch/pde/fvm
-    - file: ch/pde/bem
+    - file: ch/pde/fem-poisson-1d
+  - file: ch/pde/fvm  
+  - file: ch/pde/bem  
 - caption: Boundary Methods for PDEs
   numbered: True
   chapters:

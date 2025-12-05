@@ -85,7 +85,7 @@
         
 
 \title{basics - math}
-\date{Dec 04, 2025}
+\date{Dec 05, 2025}
 \release{}
 \author{basics}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -102,7 +102,7 @@
 
 
 \sphinxAtStartPar
-This material is part of the \sphinxhref{https://basics2022.github.io/bbooks}{\sphinxstylestrong{basics\sphinxhyphen{}books project}}. It is also available as a \DUrole{xref,myst}{.pdf document}.
+This material is part of the \sphinxhref{https://basics2022.github.io/bbooks}{\sphinxstylestrong{basics\sphinxhyphen{}books project}}. It is also available as a \DUrole{xref,download,myst}{.pdf document}.
 
 
 
@@ -6451,7 +6451,7 @@ evaluating volume integrals with the internal variables of the cell \(\Omega_k\)
 \end{equation*}
 \sphinxAtStartPar
 Different numerical methods differs in the evaluation of fluxes and sources.
-FVM is \sphinxstylestrong{conservative} as it evaluate flux at interfaces and then distribute it to neighoring cells, see {\hyperref[\detokenize{ch/pde/fvm:fvm:property:conservation}]{\sphinxcrossref{Property 32.2.1}}}. A rough elementwise\sphinxhyphen{}uniform variable with jump at interfaces and diffusive flux,
+FVM is \sphinxstylestrong{conservative} as it evaluate flux at interfaces and then distribute it to neighoring cells, see {\hyperref[\detokenize{ch/pde/fvm:fvm:property:conservation}]{\sphinxcrossref{Property 34.1}}}. A rough elementwise\sphinxhyphen{}uniform variable with jump at interfaces and diffusive flux,
 \begin{equation*}
 \begin{split}F_{ik} = - A_{ik} \, k \, \frac{u_i - u_k}{d_{ik}} \ ,\end{split}
 \end{equation*}
@@ -6606,14 +6606,292 @@ and the integro\sphinxhyphen{}differential equation is evaluated in \(N\) differ
 \sphinxstepscope
 
 
-\section{Finite Element Method}
-\label{\detokenize{ch/pde/fem:finite-element-method}}\label{\detokenize{ch/pde/fem:pde-fem}}\label{\detokenize{ch/pde/fem::doc}}
+\chapter{Finite Element Method}
+\label{\detokenize{ch/pde/fem:finite-element-method}}\label{\detokenize{ch/pde/fem:pde-fem}}\label{\detokenize{ch/pde/fem::doc}}\subsubsection*{Examples}
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxhref{https://basics2022.github.io/bbooks-physics-continuum-mechanics/ch/solids/small-displacements-fem-beams.html}{Structural mechanics of linear beam structures}
+
+\item {} 
+\sphinxAtStartPar
+{\hyperref[\detokenize{ch/pde/fem-poisson-1d:pde-fem-poisson-1d}]{\sphinxcrossref{\DUrole{std,std-ref}{Poisson equation, 1D}}}}
+
+\end{itemize}
+
 \sphinxstepscope
 
 
-\section{Finite Volume Method}
+\section{1\sphinxhyphen{}dimensional Poisson equation}
+\label{\detokenize{ch/pde/fem-poisson-1d:dimensional-poisson-equation}}\label{\detokenize{ch/pde/fem-poisson-1d:pde-fem-poisson-1d}}\label{\detokenize{ch/pde/fem-poisson-1d::doc}}
+
+\subsection{Strong form of the problem}
+\label{\detokenize{ch/pde/fem-poisson-1d:strong-form-of-the-problem}}\begin{equation*}
+\begin{split}
+  -\left( \nu u'(x) \right)' = f(x) \quad , \qquad x \in [a, b] 
+\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Supplied with proper boundary conditions. As an example,
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Dirichlet boundary conditions: \(u(\overline{x}) = \overline{u}\)
+
+\item {} 
+\sphinxAtStartPar
+Neumann boundary conditions: \(\nu u'(\overline{x}) = \overline{q}\)
+
+\item {} 
+\sphinxAtStartPar
+Robin boundary conditions: \(a u(\overline{x}) + b u'(\overline{x}) = c\)
+
+\end{itemize}
+
+
+\subsection{Weak form of the problem}
+\label{\detokenize{ch/pde/fem-poisson-1d:weak-form-of-the-problem}}
+\sphinxAtStartPar
+For \(\forall w(x) \in \mathscr{H}^1([a,b])\)%
+\begin{footnote}[1]\sphinxAtStartFootnote
+Which functional space? It would be nice to be as more precise as possible, without introducing too many “unnecessary” complications. Without going into details, 1) everything appears in the weak form should exists for the functions of that space: here, the functions must have \(L^2\)\sphinxhyphen{}integrable first\sphinxhyphen{}order derivative; 2) some results exist when test and unkwown functions belong to the same space: so, some “special” treatment of essential boundary conditions (on Dirichlet boundaries) is required.
+%
+\end{footnote} ,
+\begin{equation*}
+\begin{split}\begin{aligned}
+  0 
+  & = \int_{x=a}^b w(x) \left\{ - \left( \nu u'(x) \right)' - f(x) \right\} =  \\
+  & = \int_{x=a}^b  w'(x) \nu u'(x) \, dx - \int_{x=a}^b w(x) f(x) \, dx - \left.\left[ w(x) \nu u(x) \right]\right|_{x=a}^b
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Boundary conditions…
+
+
+\subsubsection{Poisson equation with Dirichlet boundary conditions}
+\label{\detokenize{ch/pde/fem-poisson-1d:poisson-equation-with-dirichlet-boundary-conditions}}
+\sphinxAtStartPar
+By definition, test functions are identically zero on Dirichlet boundary conditions \(\left.w\right|_{S_D} = 0\).
+
+\sphinxAtStartPar
+Thus the weak form becomes
+\begin{equation*}
+\begin{split}
+ \int_{x=a}^b  w'(x) \nu u'(x) \, dx = \int_{x=a}^b w(x) f(x) \, dx \ ,
+\end{split}
+\end{equation*}
+\sphinxAtStartPar
+along with the essential boundary conditions \(u(a) = u_a\), \(u(b) = u_b\).
+
+
+\paragraph{Finite element method}
+\label{\detokenize{ch/pde/fem-poisson-1d:finite-element-method}}
+\sphinxAtStartPar
+\sphinxstylestrong{Discretization of the domain.} The domain \([a,b] =: \Omega\), is divided into elements \(\Omega_i\) s.t.
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \cup_i \Omega_i        & = \Omega \\
+  \Omega_i \cap \Omega_j & = \emptyset \quad i \ne j
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Exploiting additive property of integrals on the union of domains, integrals of the weak form become summation of integrals on the individual elements
+\begin{equation*}
+\begin{split}\int_{\Omega} \dots = \sum_i \int_{\Omega_i} \dots \end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Choice of the base functions.} \sphinxstyleemphasis{Lagrangian base functions} (\(\phi_i(x_j) = \delta_{ij}\), \(\phi_i(x) = 0\), if \(x \notin B(x_i)\))
+\begin{equation*}
+\begin{split}u(x) = \sum_i \phi_i(x) u_i \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Definition on a reference element \(\xi \in [-1, 1]\) and then change of coordinates between “physical” and reference space to evaluate integrals.
+
+\sphinxAtStartPar
+Here, as the maximum order of the derivatives involved in the problem is 1, test functions must be piecewise\sphinxhyphen{}\sphinxstyleemphasis{linear} (or better, first degree polynomial) at least, in order to avoid numerically setting to zero some terms in the equation only due to poor approximation (here the term \(\int_{x=a}^{b} w'(x) \nu u'(x) dx\) would be zero with piecewise\sphinxhyphen{}constant test functions).
+
+\sphinxAtStartPar
+First degree\sphinxhyphen{}polynomial Lagrangian base functions on the reference elements are
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \widetilde{\varphi}_1(\xi) & = \dfrac{1}{2} \left( 1 - \xi \right) \\
+  \widetilde{\varphi}_2(\xi) & = \dfrac{1}{2} \left( 1 + \xi \right) \\
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Evaluation of integrals.} Polynomials functions are exactly evaluated using Gaussian integration, i.e. with a linear combination of the values of the function on a set of Gaussian nodes \sphinxstyleemphasis{x\_g}
+
+\sphinxAtStartPar
+…
+
+\sphinxAtStartPar
+\sphinxstylestrong{Analytical exact integration for first degree\sphinxhyphen{}polynomial.} The coordinate transformation%
+\begin{footnote}[2]\sphinxAtStartFootnote
+Here, the transformation between physical and reference space is iso\sphinxhyphen{}parametric, as it uses the same base functions as those used for function approximations, \(x(\xi) = a_i \widetilde{\phi}(\xi) + b_i \widetilde{\phi}(\xi)\).
+%
+\end{footnote}
+\begin{equation*}
+\begin{split}x = a_i \dfrac{1 - \xi}{2} + b_i \frac{1+\xi}{2} = \frac{a_i + b_i}{2} + \xi \frac{\ell_i}{2} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+transforms the reference element into physical elements: e.g. \(x(\xi=-1) = a_i\), \(x(\xi=1) = b_i\). The Jacobian of this transformation is constant over the element,
+\begin{equation*}
+\begin{split}\frac{d x}{d \xi} = \frac{\ell_i}{2} \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+On the element \(i\),
+\begin{equation*}
+\begin{split}\begin{aligned}
+  K_{i, 11} 
+  & = \int_{x=a_i}^{b_i} \frac{d\phi_1}{dx}(x) \frac{d\phi_1}{dx}(x) \, dx = \\
+  & = \int_{\xi=-1}^{\xi=1} \dfrac{d \xi}{d x} \frac{d \widetilde{\phi}_1}{d \xi} \dfrac{d \xi}{d x} \frac{d \widetilde{\phi}_1}{d \xi} \frac{dx}{d \xi} d \xi = \\
+  & = \int_{\xi=-1}^{\xi=1} \left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right) d \xi \frac{2}{\ell_i}
+    = \frac{1}{\ell_i} \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Analogously,
+\begin{equation*}
+\begin{split}\begin{aligned}
+  K_{i, 11} & = K_{i, 22} =   \frac{1}{\ell_i} \\
+  K_{i, 12} & = K_{i, 21} = - \frac{1}{\ell_i}
+\end{aligned}\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\begin{aligned}
+  M_{i,11} 
+  & = \int_{x=a_i}^{b_i} \phi_1(x) \phi_1(x) dx = \\
+  & = \int_{\xi=-1}^{1} \varphi_1(\xi) \varphi_1(\xi) \frac{dx}{d \xi} d \xi = \\
+  & = \int_{\xi=-1}^{1} \left[ \frac{1}{2} \left( 1 - \xi \right) \right]^2 d \xi \frac{\ell_i}{2} = \\
+  & = \frac{\ell_i}{8} \left( 2 + \frac{2}{3} \right) = \frac{1}{3}\ell_i \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and analogously
+\begin{equation*}
+\begin{split}\begin{aligned}
+  M_{i,11} & = M_{i,22} = \frac{\ell_i}{3} \\
+  M_{i,12} & = M_{i,21} = \frac{\ell_i}{6} \\
+\end{aligned}\end{split}
+\end{equation*}
+\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
+
+\begin{sphinxuseclass}{cell_input}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k}{as} \PYG{n+nn}{np}
+\PYG{k+kn}{import} \PYG{n+nn}{scipy} \PYG{k}{as} \PYG{n+nn}{sp}
+
+\PYG{k+kn}{import} \PYG{n+nn}{matplotlib}\PYG{n+nn}{.}\PYG{n+nn}{pyplot} \PYG{k}{as} \PYG{n+nn}{plt}
+
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Domain}
+\PYG{n}{a}\PYG{p}{,} \PYG{n}{b} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{1}
+\PYG{n}{l} \PYG{o}{=} \PYG{n}{b} \PYG{o}{\PYGZhy{}} \PYG{n}{a}
+
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Physical properties}
+\PYG{n}{nu} \PYG{o}{=} \PYG{l+m+mf}{.01}
+\PYG{n}{u\PYGZus{}dir} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[} \PYG{l+m+mf}{.0}\PYG{p}{,} \PYG{l+m+mf}{.0} \PYG{p}{]}\PYG{p}{)}
+\PYG{n}{f} \PYG{o}{=} \PYG{l+m+mf}{1.}
+
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Discretization}
+\PYG{n}{nel} \PYG{o}{=} \PYG{l+m+mi}{10}            \PYG{c+c1}{\PYGZsh{} n.of elements}
+\PYG{n}{nnodes} \PYG{o}{=} \PYG{n}{nel} \PYG{o}{+} \PYG{l+m+mi}{1}
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Dirichlet boundaries}
+\PYG{n}{i\PYGZus{}dir} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{nel} \PYG{p}{]}\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Volume forcing contribution}
+\PYG{n}{fv} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{ones}\PYG{p}{(}\PYG{n}{nel}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{)} \PYG{o}{*} \PYG{n}{f}
+
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Node coordinates array, rr, and element\PYGZhy{}node connectivity array, ee}
+\PYG{n}{rr} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{linspace}\PYG{p}{(}\PYG{n}{a}\PYG{p}{,}\PYG{n}{b}\PYG{p}{,} \PYG{n}{nel}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{)}
+\PYG{n}{ee} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[}\PYG{p}{[}\PYG{n}{i}\PYG{p}{,} \PYG{n}{i}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{n}{nel}\PYG{p}{)}\PYG{p}{]}\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Size of the elements}
+\PYG{n}{e\PYGZus{}vol} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[} \PYG{n}{rr}\PYG{p}{[}\PYG{n}{ee}\PYG{p}{[}\PYG{n}{i}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{]} \PYG{o}{\PYGZhy{}} \PYG{n}{rr}\PYG{p}{[}\PYG{n}{ee}\PYG{p}{[}\PYG{n}{i}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{]} \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{n}{nel}\PYG{p}{)} \PYG{p}{]}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Assembling stiffenss and mass matrix}
+\PYG{n}{ki} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{concatenate}\PYG{p}{(}\PYG{p}{[}\PYG{p}{[}\PYG{n}{ee}\PYG{p}{[}\PYG{n}{i}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{,} \PYG{n}{ee}\PYG{p}{[}\PYG{n}{i}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{,} \PYG{n}{ee}\PYG{p}{[}\PYG{n}{i}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{,} \PYG{n}{ee}\PYG{p}{[}\PYG{n}{i}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{]} \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{n}{nel}\PYG{p}{)}\PYG{p}{]}\PYG{p}{)}
+\PYG{n}{kj} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{concatenate}\PYG{p}{(}\PYG{p}{[}\PYG{p}{[}\PYG{n}{ee}\PYG{p}{[}\PYG{n}{i}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{,} \PYG{n}{ee}\PYG{p}{[}\PYG{n}{i}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{,} \PYG{n}{ee}\PYG{p}{[}\PYG{n}{i}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{,} \PYG{n}{ee}\PYG{p}{[}\PYG{n}{i}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{]} \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{n}{nel}\PYG{p}{)}\PYG{p}{]}\PYG{p}{)}
+\PYG{n}{ke} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{concatenate}\PYG{p}{(}\PYG{p}{[}\PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[}\PYG{l+m+mf}{1.}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{1.}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{1.}\PYG{p}{,} \PYG{l+m+mf}{1.}\PYG{p}{,}\PYG{p}{]}\PYG{p}{)}\PYG{o}{/}\PYG{n}{e\PYGZus{}vol}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{n}{nel}\PYG{p}{)}\PYG{p}{]}\PYG{p}{)}
+
+\PYG{n}{mi} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{concatenate}\PYG{p}{(}\PYG{p}{[}\PYG{p}{[}\PYG{n}{ee}\PYG{p}{[}\PYG{n}{i}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{,} \PYG{n}{ee}\PYG{p}{[}\PYG{n}{i}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{,} \PYG{n}{ee}\PYG{p}{[}\PYG{n}{i}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{,} \PYG{n}{ee}\PYG{p}{[}\PYG{n}{i}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{]} \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{n}{nel}\PYG{p}{)}\PYG{p}{]}\PYG{p}{)}
+\PYG{n}{mj} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{concatenate}\PYG{p}{(}\PYG{p}{[}\PYG{p}{[}\PYG{n}{ee}\PYG{p}{[}\PYG{n}{i}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{,} \PYG{n}{ee}\PYG{p}{[}\PYG{n}{i}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{,} \PYG{n}{ee}\PYG{p}{[}\PYG{n}{i}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{,} \PYG{n}{ee}\PYG{p}{[}\PYG{n}{i}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{]} \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{n}{nel}\PYG{p}{)}\PYG{p}{]}\PYG{p}{)}
+\PYG{n}{me} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{concatenate}\PYG{p}{(}\PYG{p}{[}\PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[}\PYG{l+m+mf}{2.}\PYG{p}{,} \PYG{l+m+mf}{1.}\PYG{p}{,} \PYG{l+m+mf}{1.}\PYG{p}{,} \PYG{l+m+mf}{2.}\PYG{p}{,}\PYG{p}{]}\PYG{p}{)}\PYG{o}{*}\PYG{n}{e\PYGZus{}vol}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{/}\PYG{l+m+mf}{6.} \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{n}{nel}\PYG{p}{)}\PYG{p}{]}\PYG{p}{)}
+
+\PYG{n}{K} \PYG{o}{=} \PYG{n}{sp}\PYG{o}{.}\PYG{n}{sparse}\PYG{o}{.}\PYG{n}{coo\PYGZus{}array}\PYG{p}{(}\PYG{p}{(}\PYG{n}{ke}\PYG{p}{,} \PYG{p}{(}\PYG{n}{ki}\PYG{p}{,} \PYG{n}{kj}\PYG{p}{)}\PYG{p}{)}\PYG{p}{,}\PYG{p}{)}
+\PYG{n}{M} \PYG{o}{=} \PYG{n}{sp}\PYG{o}{.}\PYG{n}{sparse}\PYG{o}{.}\PYG{n}{coo\PYGZus{}array}\PYG{p}{(}\PYG{p}{(}\PYG{n}{me}\PYG{p}{,} \PYG{p}{(}\PYG{n}{mi}\PYG{p}{,} \PYG{n}{mj}\PYG{p}{)}\PYG{p}{)}\PYG{p}{,}\PYG{p}{)}
+
+\PYG{n}{F} \PYG{o}{=} \PYG{n}{M} \PYG{o}{@} \PYG{n}{fv}
+
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Boundary conditions}
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Method 1. Slicing matrices}
+\PYG{c+c1}{\PYGZsh{} K u = f}
+\PYG{c+c1}{\PYGZsh{} [ Kuu  Kud ] [ uu ] = [ fu ]}
+\PYG{c+c1}{\PYGZsh{} [ Kdu  Kdd ] [ ud ]   [ fd ]}
+\PYG{c+c1}{\PYGZsh{} with known: ud, fu; unknown: uu, fd found solving the problem}
+\PYG{c+c1}{\PYGZsh{} Kuu * uu = fuu \PYGZhy{} Kud * ud  \PYGZhy{}\PYGZgt{} uu = ...}
+\PYG{c+c1}{\PYGZsh{} fd = Kdu * uu + Kdd * ud}
+\PYG{n}{iD} \PYG{o}{=} \PYG{n}{i\PYGZus{}dir}\PYG{o}{.}\PYG{n}{copy}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{iU} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{n+nb}{list}\PYG{p}{(}\PYG{n+nb}{set}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{n}{nnodes}\PYG{p}{)}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{n+nb}{set}\PYG{p}{(}\PYG{n}{iD}\PYG{p}{)}\PYG{p}{)}\PYG{p}{)}
+\PYG{n}{ud} \PYG{o}{=} \PYG{n}{u\PYGZus{}dir}\PYG{o}{.}\PYG{n}{copy}\PYG{p}{(}\PYG{p}{)}
+
+\PYG{n}{Kuu} \PYG{o}{=} \PYG{p}{(}\PYG{n}{K}\PYG{o}{.}\PYG{n}{tocsc}\PYG{p}{(}\PYG{p}{)}\PYG{p}{[}\PYG{p}{:}\PYG{p}{,}\PYG{n}{iU}\PYG{p}{]}\PYG{p}{)}\PYG{o}{.}\PYG{n}{tocsr}\PYG{p}{(}\PYG{p}{)}\PYG{p}{[}\PYG{n}{iU}\PYG{p}{,}\PYG{p}{:}\PYG{p}{]}
+\PYG{n}{Kud} \PYG{o}{=} \PYG{p}{(}\PYG{n}{K}\PYG{o}{.}\PYG{n}{tocsc}\PYG{p}{(}\PYG{p}{)}\PYG{p}{[}\PYG{p}{:}\PYG{p}{,}\PYG{n}{iD}\PYG{p}{]}\PYG{p}{)}\PYG{o}{.}\PYG{n}{tocsr}\PYG{p}{(}\PYG{p}{)}\PYG{p}{[}\PYG{n}{iU}\PYG{p}{,}\PYG{p}{:}\PYG{p}{]}
+\PYG{n}{Kdu} \PYG{o}{=} \PYG{p}{(}\PYG{n}{K}\PYG{o}{.}\PYG{n}{tocsc}\PYG{p}{(}\PYG{p}{)}\PYG{p}{[}\PYG{p}{:}\PYG{p}{,}\PYG{n}{iU}\PYG{p}{]}\PYG{p}{)}\PYG{o}{.}\PYG{n}{tocsr}\PYG{p}{(}\PYG{p}{)}\PYG{p}{[}\PYG{n}{iD}\PYG{p}{,}\PYG{p}{:}\PYG{p}{]}
+\PYG{n}{Kdd} \PYG{o}{=} \PYG{p}{(}\PYG{n}{K}\PYG{o}{.}\PYG{n}{tocsc}\PYG{p}{(}\PYG{p}{)}\PYG{p}{[}\PYG{p}{:}\PYG{p}{,}\PYG{n}{iD}\PYG{p}{]}\PYG{p}{)}\PYG{o}{.}\PYG{n}{tocsr}\PYG{p}{(}\PYG{p}{)}\PYG{p}{[}\PYG{n}{iD}\PYG{p}{,}\PYG{p}{:}\PYG{p}{]}
+
+\PYG{n}{fu} \PYG{o}{=} \PYG{n}{F}\PYG{p}{[}\PYG{n}{iU}\PYG{p}{]}
+
+\PYG{c+c1}{\PYGZsh{} print(Kuu.todense())}
+\PYG{c+c1}{\PYGZsh{} print(Kud.todense())}
+\PYG{c+c1}{\PYGZsh{} print(Kud@uD)}
+
+\PYG{n}{uu} \PYG{o}{=} \PYG{n}{sp}\PYG{o}{.}\PYG{n}{sparse}\PYG{o}{.}\PYG{n}{linalg}\PYG{o}{.}\PYG{n}{spsolve}\PYG{p}{(}\PYG{n}{Kuu}\PYG{p}{,} \PYG{n}{fu} \PYG{o}{\PYGZhy{}} \PYG{n}{Kud} \PYG{o}{@} \PYG{n}{ud} \PYG{p}{)}
+\PYG{n}{fd} \PYG{o}{=} \PYG{n}{Kdu} \PYG{o}{@} \PYG{n}{uu} \PYG{o}{+} \PYG{n}{Kdd} \PYG{o}{@} \PYG{n}{ud}
+
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Re\PYGZhy{}assemble the solution}
+\PYG{n}{u} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{zeros}\PYG{p}{(}\PYG{n}{nnodes}\PYG{p}{)}\PYG{p}{;}  \PYG{n}{u}\PYG{p}{[}\PYG{n}{iU}\PYG{p}{]} \PYG{o}{=} \PYG{n}{uu}\PYG{p}{;}  \PYG{n}{u}\PYG{p}{[}\PYG{n}{iD}\PYG{p}{]} \PYG{o}{=} \PYG{n}{ud}
+\PYG{n}{f} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{zeros}\PYG{p}{(}\PYG{n}{nnodes}\PYG{p}{)}\PYG{p}{;}  \PYG{n}{f}\PYG{p}{[}\PYG{n}{iU}\PYG{p}{]} \PYG{o}{=} \PYG{n}{fu}\PYG{p}{;}  \PYG{n}{f}\PYG{p}{[}\PYG{n}{iD}\PYG{p}{]} \PYG{o}{=} \PYG{n}{fd}
+\PYG{c+c1}{\PYGZsh{} print(\PYGZdq{}uu: \PYGZbs{}n\PYGZdq{}, uu)}
+\PYG{c+c1}{\PYGZsh{} print(\PYGZdq{}Fd: \PYGZbs{}n\PYGZdq{}, fd)}
+
+\PYG{n}{fig}\PYG{p}{,} \PYG{n}{ax} \PYG{o}{=} \PYG{n}{plt}\PYG{o}{.}\PYG{n}{subplots}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{n}{figsize}\PYG{o}{=}\PYG{p}{(}\PYG{l+m+mi}{10}\PYG{p}{,} \PYG{l+m+mi}{5}\PYG{p}{)}\PYG{p}{)}
+\PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{rr}\PYG{p}{,} \PYG{n}{u}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZhy{}o}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{u(x)}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{.}\PYG{n}{legend}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{.}\PYG{n}{grid}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{.}\PYG{n}{set\PYGZus{}title}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+se}{\PYGZbs{}\PYGZsq{}}\PYG{l+s+s1}{Displacement}\PYG{l+s+se}{\PYGZbs{}\PYGZsq{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{.}\PYG{n}{set\PYGZus{}xlabel}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{x}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{.}\PYG{n}{set\PYGZus{}ylabel}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{u(x)}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{rr}\PYG{p}{,} \PYG{n}{f}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZhy{}o}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{f(x)}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{.}\PYG{n}{legend}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{.}\PYG{n}{grid}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{.}\PYG{n}{set\PYGZus{}title}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+se}{\PYGZbs{}\PYGZsq{}}\PYG{l+s+s1}{Force}\PYG{l+s+se}{\PYGZbs{}\PYGZsq{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{.}\PYG{n}{set\PYGZus{}xlabel}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{x}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{.}\PYG{n}{set\PYGZus{}ylabel}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{f(x)}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Method 2. Augmented system}
+\PYG{c+c1}{\PYGZsh{} ...}
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimInput}
+\begin{sphinxVerbatimOutput}
+
+\begin{sphinxuseclass}{cell_output}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+Text(0, 0.5, \PYGZsq{}f(x)\PYGZsq{})
+\end{sphinxVerbatim}
+
+\noindent\sphinxincludegraphics{{8624c5e21196d9f6867cf31d68157e8eb8bb4f678ed71dfe805fc43bb6a56f93}.png}
+
+\end{sphinxuseclass}\end{sphinxVerbatimOutput}
+
+\end{sphinxuseclass}
+
+\bigskip\hrule\bigskip
+
+
+\sphinxstepscope
+
+
+\chapter{Finite Volume Method}
 \label{\detokenize{ch/pde/fvm:finite-volume-method}}\label{\detokenize{ch/pde/fvm:pde-fvm}}\label{\detokenize{ch/pde/fvm::doc}}\label{ch/pde/fvm:fvm:property:conservation}
-\begin{sphinxadmonition}{note}{Property 32.2.1}
+\begin{sphinxadmonition}{note}{Property 34.1}
 
 
 
@@ -6624,7 +6902,7 @@ Evaluate flux on interfaces between cells, and distribute between neighboring ce
 \sphinxstepscope
 
 
-\section{Boundary Element Method}
+\chapter{Boundary Element Method}
 \label{\detokenize{ch/pde/bem:boundary-element-method}}\label{\detokenize{ch/pde/bem:pdf-bem}}\label{\detokenize{ch/pde/bem::doc}}
 \sphinxstepscope
 
@@ -6950,9 +7228,9 @@ minimum: if the Hessian evalauted in \(\mathbf{x}^*\) is definite positive,
 \end{itemize}
 
 \sphinxAtStartPar
-Here the formalism \(\partial_{\mathbf{x} \mathbf{x}} f(\mathbf{x}^*) < 0\) indicates that the Hessian matrix is negative definite, see {\hyperref[\detokenize{ch/optimization/intro:optimization:hessian:extreme}]{\sphinxcrossref{Example 34.1.1}}}.
+Here the formalism \(\partial_{\mathbf{x} \mathbf{x}} f(\mathbf{x}^*) < 0\) indicates that the Hessian matrix is negative definite, see {\hyperref[\detokenize{ch/optimization/intro:optimization:hessian:extreme}]{\sphinxcrossref{Example 37.1.1}}}.
 \label{ch/optimization/intro:optimization:hessian:extreme}
-\begin{sphinxadmonition}{note}{Example 34.1.1 (Positive/negative definite Hessian)}
+\begin{sphinxadmonition}{note}{Example 37.1.1 (Positive/negative definite Hessian)}
 
 
 
@@ -7113,7 +7391,7 @@ and comparing the two different expressions of \(\dot{\boldsymbol{\lambda}}\), i
 \begin{split}\dot{\mathbf{P}} + \mathbf{P} \widetilde{\mathbf{A}} + \widetilde{\mathbf{A}}^T \mathbf{P} - \mathbf{P} \mathbf{B} \mathbf{R}^{-1} \mathbf{B}^T \mathbf{P} + \widetilde{\mathbf{Q}} = \mathbf{0} \ ,\end{split}
 \end{equation*}
 \sphinxAtStartPar
-where \(\widetilde{\mathbf{A}} = \mathbf{A} - \mathbf{B} \mathbf{R}^{-1} \mathbf{S}^T \) and \(\widetilde{\mathbf{Q}} = \mathbf{Q} - \mathbf{S} \mathbf{R}^{-1} \mathbf{S}^T\). Riccati equation is a non\sphinxhyphen{}linear dynamical matrix equation in \(\mathbf{P}\). Algorithms for computing the solution of dynamical and algebraic equation exists, see {\hyperref[\detokenize{ch/control/optimal-control:control-optimal-riccati}]{\sphinxcrossref{Example 35.1.1}}}.
+where \(\widetilde{\mathbf{A}} = \mathbf{A} - \mathbf{B} \mathbf{R}^{-1} \mathbf{S}^T \) and \(\widetilde{\mathbf{Q}} = \mathbf{Q} - \mathbf{S} \mathbf{R}^{-1} \mathbf{S}^T\). Riccati equation is a non\sphinxhyphen{}linear dynamical matrix equation in \(\mathbf{P}\). Algorithms for computing the solution of dynamical and algebraic equation exists, see {\hyperref[\detokenize{ch/control/optimal-control:control-optimal-riccati}]{\sphinxcrossref{Example 38.1.1}}}.
 
 
 
@@ -7130,7 +7408,7 @@ For infinite\sphinxhyphen{}horizone, the algebraic equation (ARE) for the steady
 \sphinxAtStartPar
 with \(\mathbf{G} = \mathbf{R}^{-1} \left( \mathbf{S}^T + \mathbf{B}^T \mathbf{P} \right)\).
 \label{ch/control/optimal-control:control-optimal-riccati}
-\begin{sphinxadmonition}{note}{Example 35.1.1 (Solution of Riccati equation)}
+\begin{sphinxadmonition}{note}{Example 38.1.1 (Solution of Riccati equation)}
 
 
 
@@ -7166,7 +7444,7 @@ with \(\mathbf{G} = \mathbf{R}^{-1} \left( \mathbf{S}^T + \mathbf{B}^T \mathbf{P
 
 \chapter{Markov Processes}
 \label{\detokenize{ch/rl/mdp:markov-processes}}\label{\detokenize{ch/rl/mdp:rl-mdp}}\label{\detokenize{ch/rl/mdp::doc}}\label{ch/rl/mdp:def:stoch-process}
-\begin{sphinxadmonition}{note}{Definition 37.1 (Stochastic process)}
+\begin{sphinxadmonition}{note}{Definition 40.1 (Stochastic process)}
 
 
 
@@ -7177,7 +7455,7 @@ A stochastic process is as collection of random variables \(X(t)\) defined on a 
 \end{equation*}\end{sphinxadmonition}
 
 \sphinxAtStartPar
-Markov process is a memomry\sphinxhyphen{}less stochastic process (see def {\hyperref[\detokenize{ch/rl/mdp:def:stoch-process}]{\sphinxcrossref{Definition 37.1}}}). For discrete\sphinxhyphen{}time Markov processes, state at time \(n\) only depends on state at time \(n-1\)
+Markov process is a memomry\sphinxhyphen{}less stochastic process (see def {\hyperref[\detokenize{ch/rl/mdp:def:stoch-process}]{\sphinxcrossref{Definition 40.1}}}). For discrete\sphinxhyphen{}time Markov processes, state at time \(n\) only depends on state at time \(n-1\)
 \begin{equation*}
 \begin{split}\langle S, P, \mu \rangle\end{split}
 \end{equation*}
@@ -7479,7 +7757,7 @@ Bellman expectation equation for the action\sphinxhyphen{}value function \(Q^{\p
 \sphinxAtStartPar
 \sphinxstylestrong{Optimal value functions, and optimal policies}
 \label{ch/rl/mdp:def:optimal-value-fcns}
-\begin{sphinxadmonition}{note}{Definition 37.2.1 (Optimal value functions)}
+\begin{sphinxadmonition}{note}{Definition 40.2.1 (Optimal value functions)}
 
 
 
@@ -7502,7 +7780,7 @@ Valus functions define a partial ordering of policies,
 \begin{equation*}
 \begin{split}\pi \ge \pi' \ \text{if} \ V^{\pi}(s) \ge V^{\pi'} \, \forall s \in S \ .\end{split}
 \end{equation*}\label{ch/rl/mdp:theorem-2}
-\begin{sphinxadmonition}{note}{Theorem 37.2.1 (Optimal policies)}
+\begin{sphinxadmonition}{note}{Theorem 40.2.1 (Optimal policies)}
 
 
 
@@ -7538,7 +7816,7 @@ a deterministic optimal policy exists, and it’s found optimizing action\sphinx
 \sphinxAtStartPar
 \sphinxstylestrong{todo}
 \label{ch/rl/mdp:prop:optimal-v-q}
-\begin{sphinxadmonition}{note}{Property 37.2.1 (Property: optimal state\sphinxhyphen{}value and action\sphinxhyphen{}value functions)}
+\begin{sphinxadmonition}{note}{Property 40.2.1 (Property: optimal state\sphinxhyphen{}value and action\sphinxhyphen{}value functions)}
 
 
 \begin{equation}\label{equation:ch/rl/mdp:eq:optimality-condition}
@@ -7550,7 +7828,7 @@ a deterministic optimal policy exists, and it’s found optimizing action\sphinx
 
 \sphinxAtStartPar
 \sphinxstylestrong{Bellman optimality equations.}
-Using {\hyperref[\detokenize{ch/rl/mdp:prop:optimal-v-q}]{\sphinxcrossref{Property 37.2.1}}} and the expression of action\sphinxhyphen{}value function in \eqref{equation:ch/rl/mdp:eq:bellman:q:exp}
+Using {\hyperref[\detokenize{ch/rl/mdp:prop:optimal-v-q}]{\sphinxcrossref{Property 40.2.1}}} and the expression of action\sphinxhyphen{}value function in \eqref{equation:ch/rl/mdp:eq:bellman:q:exp}
 \begin{equation*}
 \begin{split}\begin{aligned}
   V^{*}(s) 
@@ -7717,7 +7995,7 @@ and it “improves the value function” (which value function?) of any state,
 \sphinxAtStartPar
 In stochastic optimization, usually {\hyperref[\detokenize{ch/rl/mdp_sol_rl:rl-mdp-sol-rl-control-improv-eps-greedy}]{\sphinxcrossref{\DUrole{std,std-ref}{\(\varepsilon\)\sphinxhyphen{}greedy improvement}}}} is introduced to improve \sphinxstylestrong{exploration} and try to avoid converging to local optimum.
 \label{ch/rl/mdp_sol_dp_lp:thm:pi}
-\begin{sphinxadmonition}{note}{Theorem 38.2.1 (Policy improvement theorem)}
+\begin{sphinxadmonition}{note}{Theorem 41.2.1 (Policy improvement theorem)}
 
 
 
@@ -8110,7 +8388,7 @@ MC evaluation is model\sphinxhyphen{}free. To keep a model\sphinxhyphen{}free co
 \right.
 \end{split}
 \end{equation*}\label{ch/rl/mdp_sol_rl:theorem-0}
-\begin{sphinxadmonition}{note}{Theorem 39.2.1 (\protect\(\varepsilon\protect\)\sphinxhyphen{}greedy Policy Improvement)}
+\begin{sphinxadmonition}{note}{Theorem 42.2.1 (\protect\(\varepsilon\protect\)\sphinxhyphen{}greedy Policy Improvement)}
 
 
 
@@ -8130,7 +8408,7 @@ For …, the \(\varepsilon\)\sphinxhyphen{}greedy policy \(\pi'\) w.r.t. \(Q^{\p
 \end{equation*}
 \sphinxAtStartPar
 having used in \((1)\) …
-And for the policy improvement theorem {\hyperref[\detokenize{ch/rl/mdp_sol_dp_lp:thm:pi}]{\sphinxcrossref{Theorem 38.2.1}}}, \(V^{\pi'}(s) \ge V(s)\). \sphinxstylestrong{todo} \sphinxstyleemphasis{Check it!}
+And for the policy improvement theorem {\hyperref[\detokenize{ch/rl/mdp_sol_dp_lp:thm:pi}]{\sphinxcrossref{Theorem 41.2.1}}}, \(V^{\pi'}(s) \ge V(s)\). \sphinxstylestrong{todo} \sphinxstyleemphasis{Check it!}
 
 \sphinxAtStartPar
 \sphinxstylestrong{GLIE (Greedy in the Limit of Infinite Exploration)} …
