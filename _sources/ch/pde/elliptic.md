@@ -16,6 +16,18 @@ $$\begin{aligned}
   & a \phi(\vec{r}) + \nu \hat{n} \cdot \nabla \phi(\vec{r}) = b(\vec{r}) && \vec{r} \in S_R && \text{Robin b.c.} \\
 \end{aligned}$$
 
+```{dropdown} Numerical methods
+:open:
+
+1-dimensional Poisson equation:
+* [Finite Element Methods](pde:fem:poisson-1d)
+* Finite Volume Methods
+* *Finite Difference Methods*
+* *Boundary Element Methods*
+* *Spectral Methods* and *Spectral Element Methods*
+
+```
+
 (pde:elliptic:poisson:weak)=
 ### Weak formulation
 
