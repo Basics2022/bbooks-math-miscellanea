@@ -21,7 +21,7 @@ $$\begin{aligned}
 
 1-dimensional Poisson equation:
 * [Finite Element Methods](pde:fem:poisson-1d)
-* Finite Volume Methods
+* [Finite Volume Methods](pde:fvm:poisson-1d)
 * *Finite Difference Methods*
 * *Boundary Element Methods*
 * *Spectral Methods* and *Spectral Element Methods*
