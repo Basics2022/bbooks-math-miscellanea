@@ -260,7 +260,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">33.1. 1-dimensional Poisson equation</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="fvm.html">34. Finite Volume Method</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="fvm.html">34. Finite Volume Method</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="fvm-poisson-1d.html">34.1. 1-dimensional Poisson equation</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="bem.html">35. Boundary Element Method</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Boundary Methods for PDEs</span></p>
@@ -273,7 +276,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Control</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../control/intro.html">38. Introduction to control methods</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../control/intro.html">38. Introduction to control methods</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../control/optimal-control.html">38.1. Optimal control</a></li>
 </ul>
 </li>
@@ -532,6 +535,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-form-of-the-problem">33.1.2. Weak form of the problem</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#poisson-equation-with-dirichlet-boundary-conditions">33.1.2.1. Poisson equation with Dirichlet boundary conditions</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#finite-element-method">33.1.2.1.1. Finite element method</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#slicing-the-linear-system">33.1.2.1.2. Slicing the linear system</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#augmenting-the-linear-system">33.1.2.1.3. Augmenting the linear system</a></li>
 </ul>
 </li>
 </ul>
@@ -694,6 +699,9 @@ document.write(`
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="slicing-the-linear-system">
+<h4><span class="section-number">33.1.2.1.2. </span>Slicing the linear system<a class="headerlink" href="#slicing-the-linear-system" title="Permalink to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&gt; Apply essential boundary conditions, solve the linear system and retrieve the solution</span>
@@ -759,9 +767,13 @@ document.write(`
 </div>
 </div>
 </div>
-<div class="math notranslate nohighlight">
-\[-\left(\nu \, u'(x) \right)' = f(x) \ , \quad x \in [a,b]\]</div>
-<p><strong>Some comments and todos.</strong></p>
+</div>
+<div class="section" id="augmenting-the-linear-system">
+<h4><span class="section-number">33.1.2.1.3. </span>Augmenting the linear system<a class="headerlink" href="#augmenting-the-linear-system" title="Permalink to this heading">#</a></h4>
+<p>See discussion at the end of the <a class="reference internal" href="fvm-poisson-1d.html#pde-fvm-poisson-1d"><span class="std std-ref">script implementing a basic finite volume method solution of 1-dimensional Poisson equation</span></a>.</p>
+<!--
+$$-\left(\nu \, u'(x) \right)' = f(x) \ , \quad x \in [a,b]$$
+--><p><strong>Some comments and todos.</strong></p>
 <ul class="simple">
 <li><p><strong>Convergence analysis.</strong> It’s possible to evaluate both convergence with the dimension of the elements and/or the degree of the polynomial base functions. The <em>exact solution</em> can be easily computed analytically via direct integration for simple distribution of load <span class="math notranslate nohighlight">\(f(x)\)</span>, and uniform <span class="math notranslate nohighlight">\(\nu\)</span></p></li>
 <li><p><strong>Result discussion.</strong> “Force” contribution on Dirichlet boundary conditions involves both the node contribution to distributed load and the “constraint reaction”. As an example, with a domain of size <span class="math notranslate nohighlight">\(\ell\)</span> and uniform force distribution <span class="math notranslate nohighlight">\(f\)</span>, with <span class="math notranslate nohighlight">\(u(0) = u(\ell) = 0\)</span>, by <em>symmetry</em> and <em>global equilibrium</em> the force at boundaries are <span class="math notranslate nohighlight">\(-\frac{1}{2} q \ell = - \frac{1}{2}\)</span>. With the modelling choices done, the contribution of the uniform distributed load on an element on any of its nodes is <span class="math notranslate nohighlight">\(\frac{1}{2} q \ell_i = \frac{1}{2} q \frac{\ell}{n_{el}}\)</span>. Here with <span class="math notranslate nohighlight">\(n_{el} = 20\)</span>, this elementary contribution is <span class="math notranslate nohighlight">\(\frac{1}{40} = .025\)</span>: thus, the nodal contribution of internal nodes is twice (contribution from two neighboring elements) this value <span class="math notranslate nohighlight">\(.05\)</span>, and the force on each Dirichlet boundary is <span class="math notranslate nohighlight">\(-\frac{1}{2} + \frac{1}{40} = - 0.475\)</span>.</p></li>
@@ -848,6 +860,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-form-of-the-problem">33.1.2. Weak form of the problem</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#poisson-equation-with-dirichlet-boundary-conditions">33.1.2.1. Poisson equation with Dirichlet boundary conditions</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#finite-element-method">33.1.2.1.1. Finite element method</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#slicing-the-linear-system">33.1.2.1.2. Slicing the linear system</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#augmenting-the-linear-system">33.1.2.1.3. Augmenting the linear system</a></li>
 </ul>
 </li>
 </ul>
