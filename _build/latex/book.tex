@@ -85,7 +85,7 @@
         
 
 \title{basics - math}
-\date{Dec 05, 2025}
+\date{Dec 08, 2025}
 \release{}
 \author{basics}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -5408,7 +5408,33 @@ with proper boundary conditions on \(\partial V\). As an example, tipical bounda
   & \nu \hat{n} \cdot \nabla \phi(\vec{r}) = h(\vec{r}) && \vec{r} \in S_N && \text{natural - Neumann b.c.}  \\
   & a \phi(\vec{r}) + \nu \hat{n} \cdot \nabla \phi(\vec{r}) = b(\vec{r}) && \vec{r} \in S_R && \text{Robin b.c.} \\
 \end{aligned}\end{split}
-\end{equation*}
+\end{equation*}\subsubsection*{Numerical methods}
+
+\sphinxAtStartPar
+1\sphinxhyphen{}dimensional Poisson equation:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+{\hyperref[\detokenize{ch/pde/fem-poisson-1d:pde-fem-poisson-1d}]{\sphinxcrossref{\DUrole{std,std-ref}{Finite Element Methods}}}}
+
+\item {} 
+\sphinxAtStartPar
+{\hyperref[\detokenize{ch/pde/fvm-poisson-1d:pde-fvm-poisson-1d}]{\sphinxcrossref{\DUrole{std,std-ref}{Finite Volume Methods}}}}
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleemphasis{Finite Difference Methods}
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleemphasis{Boundary Element Methods}
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleemphasis{Spectral Methods} and \sphinxstyleemphasis{Spectral Element Methods}
+
+\end{itemize}
+
 
 \subsection{Weak formulation}
 \label{\detokenize{ch/pde/elliptic:weak-formulation}}\label{\detokenize{ch/pde/elliptic:pde-elliptic-poisson-weak}}
@@ -6700,7 +6726,7 @@ Exploiting additive property of integrals on the union of domains, integrals of 
 \begin{split}\int_{\Omega} \dots = \sum_i \int_{\Omega_i} \dots \end{split}
 \end{equation*}
 \sphinxAtStartPar
-\sphinxstylestrong{Choice of the base functions.} \sphinxstyleemphasis{Lagrangian base functions} (\(\phi_i(x_j) = \delta_{ij}\), \(\phi_i(x) = 0\), if \(x \notin B(x_i)\))
+\sphinxstylestrong{Choice of the base functions.} \sphinxstyleemphasis{Lagrangian base functions} (1) \(\phi_i(x_j) = \delta_{ij}\), 2) \(\phi_i(x) = 0\), if \(x \notin B(x_i)\); 3) \(\sum_i \phi_i(x) = 1\), \(\forall x \in \Omega\))
 \begin{equation*}
 \begin{split}u(x) = \sum_i \phi_i(x) u_i \ .\end{split}
 \end{equation*}
@@ -6727,7 +6753,7 @@ First degree\sphinxhyphen{}polynomial Lagrangian base functions on the reference
 \sphinxAtStartPar
 \sphinxstylestrong{Analytical exact integration for first degree\sphinxhyphen{}polynomial.} The coordinate transformation%
 \begin{footnote}[2]\sphinxAtStartFootnote
-Here, the transformation between physical and reference space is iso\sphinxhyphen{}parametric, as it uses the same base functions as those used for function approximations, \(x(\xi) = a_i \widetilde{\phi}(\xi) + b_i \widetilde{\phi}(\xi)\).
+Here, the transformation between physical and reference space is iso\sphinxhyphen{}parametric, as it uses the same base functions as those used for function approximations, \(x(\xi) = a_i \widetilde{\phi}_1(\xi) + b_i \widetilde{\phi}_2(\xi)\).
 %
 \end{footnote}
 \begin{equation*}
@@ -6787,39 +6813,60 @@ and analogously
 \PYG{n}{l} \PYG{o}{=} \PYG{n}{b} \PYG{o}{\PYGZhy{}} \PYG{n}{a}
 
 \PYG{c+c1}{\PYGZsh{}\PYGZgt{} Physical properties}
-\PYG{n}{nu} \PYG{o}{=} \PYG{l+m+mf}{.01}
-\PYG{n}{u\PYGZus{}dir} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[} \PYG{l+m+mf}{.0}\PYG{p}{,} \PYG{l+m+mf}{.0} \PYG{p}{]}\PYG{p}{)}
+\PYG{n}{nu} \PYG{o}{=} \PYG{l+m+mf}{.01}                       \PYG{c+c1}{\PYGZsh{} Diffusion coefficient}
 \PYG{n}{f} \PYG{o}{=} \PYG{l+m+mf}{1.}
 
 \PYG{c+c1}{\PYGZsh{}\PYGZgt{} Discretization}
-\PYG{n}{nel} \PYG{o}{=} \PYG{l+m+mi}{10}            \PYG{c+c1}{\PYGZsh{} n.of elements}
+\PYG{n}{nel} \PYG{o}{=} \PYG{l+m+mi}{20}            \PYG{c+c1}{\PYGZsh{} n.of elements}
 \PYG{n}{nnodes} \PYG{o}{=} \PYG{n}{nel} \PYG{o}{+} \PYG{l+m+mi}{1}
 \PYG{c+c1}{\PYGZsh{}\PYGZgt{} Dirichlet boundaries}
-\PYG{n}{i\PYGZus{}dir} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{nel} \PYG{p}{]}\PYG{p}{)}
+\PYG{n}{i\PYGZus{}dir} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{nel} \PYG{p}{]}\PYG{p}{)}   \PYG{c+c1}{\PYGZsh{} Global idx of nodes on Dirichlet boundaries}
+\PYG{n}{u\PYGZus{}dir} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[} \PYG{l+m+mf}{.0}\PYG{p}{,} \PYG{l+m+mf}{.0} \PYG{p}{]}\PYG{p}{)}   \PYG{c+c1}{\PYGZsh{} Value of the solution at nodes on Dir. boundaries}
+
 \PYG{c+c1}{\PYGZsh{}\PYGZgt{} Volume forcing contribution}
-\PYG{n}{fv} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{ones}\PYG{p}{(}\PYG{n}{nel}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{)} \PYG{o}{*} \PYG{n}{f}
+\PYG{n}{f\PYGZus{}nodal} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{ones}\PYG{p}{(}\PYG{n}{nel}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{)} \PYG{o}{*} \PYG{n}{f}   \PYG{c+c1}{\PYGZsh{} Nodal values f(x\PYGZus{}i) of volume forcing, here uniform f(x) = f}
 
 \PYG{c+c1}{\PYGZsh{}\PYGZgt{} Node coordinates array, rr, and element\PYGZhy{}node connectivity array, ee}
 \PYG{n}{rr} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{linspace}\PYG{p}{(}\PYG{n}{a}\PYG{p}{,}\PYG{n}{b}\PYG{p}{,} \PYG{n}{nel}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{)}
 \PYG{n}{ee} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[}\PYG{p}{[}\PYG{n}{i}\PYG{p}{,} \PYG{n}{i}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{n}{nel}\PYG{p}{)}\PYG{p}{]}\PYG{p}{)}
 \PYG{c+c1}{\PYGZsh{}\PYGZgt{} Size of the elements}
 \PYG{n}{e\PYGZus{}vol} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[} \PYG{n}{rr}\PYG{p}{[}\PYG{n}{ee}\PYG{p}{[}\PYG{n}{i}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{]} \PYG{o}{\PYGZhy{}} \PYG{n}{rr}\PYG{p}{[}\PYG{n}{ee}\PYG{p}{[}\PYG{n}{i}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{]} \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{n}{nel}\PYG{p}{)} \PYG{p}{]}\PYG{p}{)}
+\end{sphinxVerbatim}
 
-\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Assembling stiffenss and mass matrix}
+\end{sphinxuseclass}\end{sphinxVerbatimInput}
+
+\end{sphinxuseclass}
+\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
+
+\begin{sphinxuseclass}{cell_input}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Assembling stiffenss matrix, mass matrix, and forcing term}
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Stiffness matrix}
 \PYG{n}{ki} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{concatenate}\PYG{p}{(}\PYG{p}{[}\PYG{p}{[}\PYG{n}{ee}\PYG{p}{[}\PYG{n}{i}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{,} \PYG{n}{ee}\PYG{p}{[}\PYG{n}{i}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{,} \PYG{n}{ee}\PYG{p}{[}\PYG{n}{i}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{,} \PYG{n}{ee}\PYG{p}{[}\PYG{n}{i}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{]} \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{n}{nel}\PYG{p}{)}\PYG{p}{]}\PYG{p}{)}
 \PYG{n}{kj} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{concatenate}\PYG{p}{(}\PYG{p}{[}\PYG{p}{[}\PYG{n}{ee}\PYG{p}{[}\PYG{n}{i}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{,} \PYG{n}{ee}\PYG{p}{[}\PYG{n}{i}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{,} \PYG{n}{ee}\PYG{p}{[}\PYG{n}{i}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{,} \PYG{n}{ee}\PYG{p}{[}\PYG{n}{i}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{]} \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{n}{nel}\PYG{p}{)}\PYG{p}{]}\PYG{p}{)}
-\PYG{n}{ke} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{concatenate}\PYG{p}{(}\PYG{p}{[}\PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[}\PYG{l+m+mf}{1.}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{1.}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{1.}\PYG{p}{,} \PYG{l+m+mf}{1.}\PYG{p}{,}\PYG{p}{]}\PYG{p}{)}\PYG{o}{/}\PYG{n}{e\PYGZus{}vol}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{n}{nel}\PYG{p}{)}\PYG{p}{]}\PYG{p}{)}
+\PYG{n}{ke} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{concatenate}\PYG{p}{(}\PYG{p}{[}\PYG{n}{nu} \PYG{o}{*} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[}\PYG{l+m+mf}{1.}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{1.}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{1.}\PYG{p}{,} \PYG{l+m+mf}{1.}\PYG{p}{,}\PYG{p}{]}\PYG{p}{)}\PYG{o}{/}\PYG{n}{e\PYGZus{}vol}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]} \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{n}{nel}\PYG{p}{)}\PYG{p}{]}\PYG{p}{)}
+\PYG{n}{K} \PYG{o}{=} \PYG{n}{sp}\PYG{o}{.}\PYG{n}{sparse}\PYG{o}{.}\PYG{n}{coo\PYGZus{}array}\PYG{p}{(}\PYG{p}{(}\PYG{n}{ke}\PYG{p}{,} \PYG{p}{(}\PYG{n}{ki}\PYG{p}{,} \PYG{n}{kj}\PYG{p}{)}\PYG{p}{)}\PYG{p}{,}\PYG{p}{)}
 
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Mass matrix, here used for integration of the volume force}
 \PYG{n}{mi} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{concatenate}\PYG{p}{(}\PYG{p}{[}\PYG{p}{[}\PYG{n}{ee}\PYG{p}{[}\PYG{n}{i}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{,} \PYG{n}{ee}\PYG{p}{[}\PYG{n}{i}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{,} \PYG{n}{ee}\PYG{p}{[}\PYG{n}{i}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{,} \PYG{n}{ee}\PYG{p}{[}\PYG{n}{i}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{]} \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{n}{nel}\PYG{p}{)}\PYG{p}{]}\PYG{p}{)}
 \PYG{n}{mj} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{concatenate}\PYG{p}{(}\PYG{p}{[}\PYG{p}{[}\PYG{n}{ee}\PYG{p}{[}\PYG{n}{i}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{,} \PYG{n}{ee}\PYG{p}{[}\PYG{n}{i}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{,} \PYG{n}{ee}\PYG{p}{[}\PYG{n}{i}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{,} \PYG{n}{ee}\PYG{p}{[}\PYG{n}{i}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{]} \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{n}{nel}\PYG{p}{)}\PYG{p}{]}\PYG{p}{)}
 \PYG{n}{me} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{concatenate}\PYG{p}{(}\PYG{p}{[}\PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[}\PYG{l+m+mf}{2.}\PYG{p}{,} \PYG{l+m+mf}{1.}\PYG{p}{,} \PYG{l+m+mf}{1.}\PYG{p}{,} \PYG{l+m+mf}{2.}\PYG{p}{,}\PYG{p}{]}\PYG{p}{)}\PYG{o}{*}\PYG{n}{e\PYGZus{}vol}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{/}\PYG{l+m+mf}{6.} \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{n}{nel}\PYG{p}{)}\PYG{p}{]}\PYG{p}{)}
-
-\PYG{n}{K} \PYG{o}{=} \PYG{n}{sp}\PYG{o}{.}\PYG{n}{sparse}\PYG{o}{.}\PYG{n}{coo\PYGZus{}array}\PYG{p}{(}\PYG{p}{(}\PYG{n}{ke}\PYG{p}{,} \PYG{p}{(}\PYG{n}{ki}\PYG{p}{,} \PYG{n}{kj}\PYG{p}{)}\PYG{p}{)}\PYG{p}{,}\PYG{p}{)}
 \PYG{n}{M} \PYG{o}{=} \PYG{n}{sp}\PYG{o}{.}\PYG{n}{sparse}\PYG{o}{.}\PYG{n}{coo\PYGZus{}array}\PYG{p}{(}\PYG{p}{(}\PYG{n}{me}\PYG{p}{,} \PYG{p}{(}\PYG{n}{mi}\PYG{p}{,} \PYG{n}{mj}\PYG{p}{)}\PYG{p}{)}\PYG{p}{,}\PYG{p}{)}
 
-\PYG{n}{F} \PYG{o}{=} \PYG{n}{M} \PYG{o}{@} \PYG{n}{fv}
+\PYG{n}{F} \PYG{o}{=} \PYG{n}{M} \PYG{o}{@} \PYG{n}{f\PYGZus{}nodal}   \PYG{c+c1}{\PYGZsh{} Volume force}
+\end{sphinxVerbatim}
 
-\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Boundary conditions}
+\end{sphinxuseclass}\end{sphinxVerbatimInput}
+
+\end{sphinxuseclass}
+
+\paragraph{Slicing the linear system}
+\label{\detokenize{ch/pde/fem-poisson-1d:slicing-the-linear-system}}
+\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
+
+\begin{sphinxuseclass}{cell_input}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Apply essential boundary conditions, solve the linear system and retrieve the solution}
 \PYG{c+c1}{\PYGZsh{}\PYGZgt{} Method 1. Slicing matrices}
 \PYG{c+c1}{\PYGZsh{} K u = f}
 \PYG{c+c1}{\PYGZsh{} [ Kuu  Kud ] [ uu ] = [ fu ]}
@@ -6831,17 +6878,16 @@ and analogously
 \PYG{n}{iU} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{n+nb}{list}\PYG{p}{(}\PYG{n+nb}{set}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{n}{nnodes}\PYG{p}{)}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{n+nb}{set}\PYG{p}{(}\PYG{n}{iD}\PYG{p}{)}\PYG{p}{)}\PYG{p}{)}
 \PYG{n}{ud} \PYG{o}{=} \PYG{n}{u\PYGZus{}dir}\PYG{o}{.}\PYG{n}{copy}\PYG{p}{(}\PYG{p}{)}
 
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Slice stiffness matrix}
 \PYG{n}{Kuu} \PYG{o}{=} \PYG{p}{(}\PYG{n}{K}\PYG{o}{.}\PYG{n}{tocsc}\PYG{p}{(}\PYG{p}{)}\PYG{p}{[}\PYG{p}{:}\PYG{p}{,}\PYG{n}{iU}\PYG{p}{]}\PYG{p}{)}\PYG{o}{.}\PYG{n}{tocsr}\PYG{p}{(}\PYG{p}{)}\PYG{p}{[}\PYG{n}{iU}\PYG{p}{,}\PYG{p}{:}\PYG{p}{]}
 \PYG{n}{Kud} \PYG{o}{=} \PYG{p}{(}\PYG{n}{K}\PYG{o}{.}\PYG{n}{tocsc}\PYG{p}{(}\PYG{p}{)}\PYG{p}{[}\PYG{p}{:}\PYG{p}{,}\PYG{n}{iD}\PYG{p}{]}\PYG{p}{)}\PYG{o}{.}\PYG{n}{tocsr}\PYG{p}{(}\PYG{p}{)}\PYG{p}{[}\PYG{n}{iU}\PYG{p}{,}\PYG{p}{:}\PYG{p}{]}
 \PYG{n}{Kdu} \PYG{o}{=} \PYG{p}{(}\PYG{n}{K}\PYG{o}{.}\PYG{n}{tocsc}\PYG{p}{(}\PYG{p}{)}\PYG{p}{[}\PYG{p}{:}\PYG{p}{,}\PYG{n}{iU}\PYG{p}{]}\PYG{p}{)}\PYG{o}{.}\PYG{n}{tocsr}\PYG{p}{(}\PYG{p}{)}\PYG{p}{[}\PYG{n}{iD}\PYG{p}{,}\PYG{p}{:}\PYG{p}{]}
 \PYG{n}{Kdd} \PYG{o}{=} \PYG{p}{(}\PYG{n}{K}\PYG{o}{.}\PYG{n}{tocsc}\PYG{p}{(}\PYG{p}{)}\PYG{p}{[}\PYG{p}{:}\PYG{p}{,}\PYG{n}{iD}\PYG{p}{]}\PYG{p}{)}\PYG{o}{.}\PYG{n}{tocsr}\PYG{p}{(}\PYG{p}{)}\PYG{p}{[}\PYG{n}{iD}\PYG{p}{,}\PYG{p}{:}\PYG{p}{]}
 
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Slice forcing}
 \PYG{n}{fu} \PYG{o}{=} \PYG{n}{F}\PYG{p}{[}\PYG{n}{iU}\PYG{p}{]}
 
-\PYG{c+c1}{\PYGZsh{} print(Kuu.todense())}
-\PYG{c+c1}{\PYGZsh{} print(Kud.todense())}
-\PYG{c+c1}{\PYGZsh{} print(Kud@uD)}
-
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Solve the linear system}
 \PYG{n}{uu} \PYG{o}{=} \PYG{n}{sp}\PYG{o}{.}\PYG{n}{sparse}\PYG{o}{.}\PYG{n}{linalg}\PYG{o}{.}\PYG{n}{spsolve}\PYG{p}{(}\PYG{n}{Kuu}\PYG{p}{,} \PYG{n}{fu} \PYG{o}{\PYGZhy{}} \PYG{n}{Kud} \PYG{o}{@} \PYG{n}{ud} \PYG{p}{)}
 \PYG{n}{fd} \PYG{o}{=} \PYG{n}{Kdu} \PYG{o}{@} \PYG{n}{uu} \PYG{o}{+} \PYG{n}{Kdd} \PYG{o}{@} \PYG{n}{ud}
 
@@ -6851,6 +6897,7 @@ and analogously
 \PYG{c+c1}{\PYGZsh{} print(\PYGZdq{}uu: \PYGZbs{}n\PYGZdq{}, uu)}
 \PYG{c+c1}{\PYGZsh{} print(\PYGZdq{}Fd: \PYGZbs{}n\PYGZdq{}, fd)}
 
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Plot some results}
 \PYG{n}{fig}\PYG{p}{,} \PYG{n}{ax} \PYG{o}{=} \PYG{n}{plt}\PYG{o}{.}\PYG{n}{subplots}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{n}{figsize}\PYG{o}{=}\PYG{p}{(}\PYG{l+m+mi}{10}\PYG{p}{,} \PYG{l+m+mi}{5}\PYG{p}{)}\PYG{p}{)}
 \PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{rr}\PYG{p}{,} \PYG{n}{u}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZhy{}o}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{u(x)}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
 \PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{.}\PYG{n}{legend}\PYG{p}{(}\PYG{p}{)}
@@ -6864,9 +6911,6 @@ and analogously
 \PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{.}\PYG{n}{set\PYGZus{}title}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+se}{\PYGZbs{}\PYGZsq{}}\PYG{l+s+s1}{Force}\PYG{l+s+se}{\PYGZbs{}\PYGZsq{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
 \PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{.}\PYG{n}{set\PYGZus{}xlabel}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{x}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
 \PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{.}\PYG{n}{set\PYGZus{}ylabel}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{f(x)}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
-
-\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Method 2. Augmented system}
-\PYG{c+c1}{\PYGZsh{} ...}
 \end{sphinxVerbatim}
 
 \end{sphinxuseclass}\end{sphinxVerbatimInput}
@@ -6877,11 +6921,47 @@ and analogously
 Text(0, 0.5, \PYGZsq{}f(x)\PYGZsq{})
 \end{sphinxVerbatim}
 
-\noindent\sphinxincludegraphics{{8624c5e21196d9f6867cf31d68157e8eb8bb4f678ed71dfe805fc43bb6a56f93}.png}
+\noindent\sphinxincludegraphics{{8a3da01e8d89f3eee1bb1bd39d2382539cd64ef7ff5cc1eaac915f9a94dd79ab}.png}
 
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
 
 \end{sphinxuseclass}
+\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
+
+\begin{sphinxuseclass}{cell_input}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Method 2. Augmented system}
+\PYG{c+c1}{\PYGZsh{} ...}
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimInput}
+
+\end{sphinxuseclass}
+
+\paragraph{Augmenting the linear system}
+\label{\detokenize{ch/pde/fem-poisson-1d:augmenting-the-linear-system}}
+\sphinxAtStartPar
+See discussion at the end of the {\hyperref[\detokenize{ch/pde/fvm-poisson-1d:pde-fvm-poisson-1d}]{\sphinxcrossref{\DUrole{std,std-ref}{script implementing a basic finite volume method solution of 1\sphinxhyphen{}dimensional Poisson equation}}}}.
+
+
+
+\sphinxAtStartPar
+\sphinxstylestrong{Some comments and todos.}
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Convergence analysis.} It’s possible to evaluate both convergence with the dimension of the elements and/or the degree of the polynomial base functions. The \sphinxstyleemphasis{exact solution} can be easily computed analytically via direct integration for simple distribution of load \(f(x)\), and uniform \(\nu\)
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Result discussion.} “Force” contribution on Dirichlet boundary conditions involves both the node contribution to distributed load and the “constraint reaction”. As an example, with a domain of size \(\ell\) and uniform force distribution \(f\), with \(u(0) = u(\ell) = 0\), by \sphinxstyleemphasis{symmetry} and \sphinxstyleemphasis{global equilibrium} the force at boundaries are \(-\frac{1}{2} q \ell = - \frac{1}{2}\). With the modelling choices done, the contribution of the uniform distributed load on an element on any of its nodes is \(\frac{1}{2} q \ell_i = \frac{1}{2} q \frac{\ell}{n_{el}}\). Here with \(n_{el} = 20\), this elementary contribution is \(\frac{1}{40} = .025\): thus, the nodal contribution of internal nodes is twice (contribution from two neighboring elements) this value \(.05\), and the force on each Dirichlet boundary is \(-\frac{1}{2} + \frac{1}{40} = - 0.475\).
+
+\item {} 
+\sphinxAtStartPar
+Try to set different values of Dirichlet boundary conditions, u\_dir
+
+\end{itemize}
+
 
 \bigskip\hrule\bigskip
 
@@ -6898,6 +6978,289 @@ Text(0, 0.5, \PYGZsq{}f(x)\PYGZsq{})
 \sphinxAtStartPar
 Evaluate flux on interfaces between cells, and distribute between neighboring cells.
 \end{sphinxadmonition}
+
+\sphinxstepscope
+
+
+\section{1\sphinxhyphen{}dimensional Poisson equation}
+\label{\detokenize{ch/pde/fvm-poisson-1d:dimensional-poisson-equation}}\label{\detokenize{ch/pde/fvm-poisson-1d:pde-fvm-poisson-1d}}\label{\detokenize{ch/pde/fvm-poisson-1d::doc}}
+
+\subsection{Integral form of the problem}
+\label{\detokenize{ch/pde/fvm-poisson-1d:integral-form-of-the-problem}}
+\sphinxAtStartPar
+The integral form of a Poisson problem reads, \sphinxstylestrong{for every} \(V \in \Omega\),
+\begin{equation*}
+\begin{split}- \oint_{\partial V} \hat{\mathbf{n}} \cdot \left( \nu \nabla u \right) = \int_{V} f \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+supplied with proper boundary conditions. As an example,
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Dirichlet boundary conditions: \(u(\overline{x}) = \overline{u}\)
+
+\item {} 
+\sphinxAtStartPar
+Neumann boundary conditions: \(\nu \hat{\mathbf{n}} \cdot \nabla u(\overline{x}) = \overline{q}\)
+
+\item {} 
+\sphinxAtStartPar
+Robin boundary conditions: \(a u(\overline{x}) + b u'(\overline{x}) = c\)
+
+\end{itemize}
+
+\sphinxAtStartPar
+\sphinxstyleemphasis{The multi\sphinxhyphen{}dimensional set may be useful also for 1\sphinxhyphen{}dimensional domains, to avoid confusions with signs}
+
+
+\subsection{Domain, volume forcing and boundary conditions}
+\label{\detokenize{ch/pde/fvm-poisson-1d:domain-volume-forcing-and-boundary-conditions}}
+\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
+
+\begin{sphinxuseclass}{cell_input}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k}{as} \PYG{n+nn}{np}
+\PYG{k+kn}{import} \PYG{n+nn}{scipy} \PYG{k}{as} \PYG{n+nn}{sp}
+
+\PYG{k+kn}{import} \PYG{n+nn}{matplotlib}\PYG{n+nn}{.}\PYG{n+nn}{pyplot} \PYG{k}{as} \PYG{n+nn}{plt}
+
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Domain}
+\PYG{n}{a}\PYG{p}{,} \PYG{n}{b} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{1}
+\PYG{n}{l} \PYG{o}{=} \PYG{n}{b} \PYG{o}{\PYGZhy{}} \PYG{n}{a}
+
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Physical properties}
+\PYG{n}{nu} \PYG{o}{=} \PYG{l+m+mf}{.01}                       \PYG{c+c1}{\PYGZsh{} Diffusion coefficient}
+\PYG{n}{f} \PYG{o}{=} \PYG{l+m+mf}{1.}
+
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Discretization}
+\PYG{n}{nel} \PYG{o}{=} \PYG{l+m+mi}{10}            \PYG{c+c1}{\PYGZsh{} n.of elements}
+\PYG{n}{nnodes} \PYG{o}{=} \PYG{n}{nel} \PYG{o}{+} \PYG{l+m+mi}{1}    \PYG{c+c1}{\PYGZsh{} n.of nodes}
+\PYG{n}{nvol} \PYG{o}{=} \PYG{n}{nnodes}       \PYG{c+c1}{\PYGZsh{} n.finite volumes (node\PYGZhy{}centered FVM)}
+
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Dirichlet boundaries}
+\PYG{n}{i\PYGZus{}dir} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{nvol}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{)}   \PYG{c+c1}{\PYGZsh{} Global idx of nodes on Dirichlet boundaries}
+\PYG{n}{u\PYGZus{}dir} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[} \PYG{l+m+mf}{.0}\PYG{p}{,} \PYG{l+m+mf}{.0} \PYG{p}{]}\PYG{p}{)}   \PYG{c+c1}{\PYGZsh{} Value of the solution at nodes on Dir. boundaries}
+
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Volume forcing contribution}
+\PYG{n}{f\PYGZus{}nodal} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{ones}\PYG{p}{(}\PYG{n}{nel}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{)} \PYG{o}{*} \PYG{n}{f}   \PYG{c+c1}{\PYGZsh{} Nodal values f(x\PYGZus{}i) of volume forcing, here uniform f(x) = f}
+
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Node centered FVM}
+\PYG{n}{rr\PYGZus{}n} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{linspace}\PYG{p}{(}\PYG{n}{a}\PYG{p}{,}\PYG{n}{b}\PYG{p}{,} \PYG{n}{nel}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{)}       \PYG{c+c1}{\PYGZsh{} node coordinates (center of the node\PYGZhy{}centered FVs) }
+\PYG{n}{rr\PYGZus{}i} \PYG{o}{=} \PYG{l+m+mf}{.5} \PYG{o}{*} \PYG{p}{(} \PYG{n}{rr\PYGZus{}n}\PYG{p}{[}\PYG{p}{:}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{o}{+} \PYG{n}{rr\PYGZus{}n}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{:}\PYG{p}{]} \PYG{p}{)} \PYG{c+c1}{\PYGZsh{} coords of the inner cell interface}
+\PYG{n}{rr\PYGZus{}b} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[} \PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{rr\PYGZus{}n}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{\PYGZhy{}}\PYG{n}{rr\PYGZus{}n}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{rr\PYGZus{}n}\PYG{p}{[}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{\PYGZhy{}}\PYG{n}{rr\PYGZus{}n}\PYG{p}{[}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{2}\PYG{p}{]} \PYG{p}{]}\PYG{p}{)}  \PYG{c+c1}{\PYGZsh{} coords of the boundaries}
+
+\PYG{n}{vols} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}
+     \PYG{p}{[} \PYG{n}{np}\PYG{o}{.}\PYG{n}{abs}\PYG{p}{(}\PYG{n}{rr\PYGZus{}i}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{\PYGZhy{}}\PYG{n}{rr\PYGZus{}n}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{)} \PYG{p}{]} \PYG{o}{+} \PYGZbs{}
+       \PYG{n+nb}{list}\PYG{p}{(} \PYG{n}{np}\PYG{o}{.}\PYG{n}{abs}\PYG{p}{(}\PYG{n}{rr\PYGZus{}i}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{:}\PYG{p}{]} \PYG{o}{\PYGZhy{}} \PYG{n}{rr\PYGZus{}i}\PYG{p}{[}\PYG{p}{:}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{)} \PYG{p}{)} \PYG{o}{+} \PYGZbs{}
+     \PYG{p}{[} \PYG{n}{np}\PYG{o}{.}\PYG{n}{abs}\PYG{p}{(}\PYG{n}{rr\PYGZus{}i}\PYG{p}{[}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{\PYGZhy{}}\PYG{n}{rr\PYGZus{}n}\PYG{p}{[}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{)} \PYG{p}{]}
+\PYG{p}{)}
+
+\PYG{n}{ni} \PYG{o}{=} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{rr\PYGZus{}i}\PYG{p}{)}
+\PYG{n}{nb} \PYG{o}{=} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{rr\PYGZus{}b}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Interface\PYGZhy{}volume connectivity (ni, 2) (normal dir: first element \PYGZhy{}\PYGZgt{} second element)}
+\PYG{n}{iee} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[} \PYG{p}{[}\PYG{n}{i}\PYG{p}{,} \PYG{n}{i}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{n}{ni}\PYG{p}{)} \PYG{p}{]}\PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Boundary\PYGZhy{}volume connectivity (nb) (convention, normal dir: elem \PYGZhy{}\PYGZgt{} outside)}
+\PYG{n}{bee} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{nvol}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimInput}
+
+\end{sphinxuseclass}
+
+\subsection{Discrete matheamtical problem}
+\label{\detokenize{ch/pde/fvm-poisson-1d:discrete-matheamtical-problem}}
+\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
+
+\begin{sphinxuseclass}{cell_input}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Evaluating boundary contributions}
+\PYG{c+c1}{\PYGZsh{} Here assmbling a stiffness matrix. In many FVM applications, there\PYGZsq{}s explicit time}
+\PYG{c+c1}{\PYGZsh{} dependence and explicit time integration schemes are used, so there\PYGZsq{}s no need to }
+\PYG{c+c1}{\PYGZsh{} assemble any matrix while the algorithm just rely on accumulation of flux contributions}
+\PYG{c+c1}{\PYGZsh{} \PYGZhy{}\PYGZgt{} Add a link to a script implementing time\PYGZhy{}dependent \PYGZdq{}solver\PYGZdq{} for FVM, e.g. hyperbolic problems}
+
+\PYG{n}{i\PYGZus{}flux}\PYG{p}{,} \PYG{n}{j\PYGZus{}flux}\PYG{p}{,} \PYG{n}{e\PYGZus{}flux} \PYG{o}{=} \PYG{p}{[}\PYG{p}{]}\PYG{p}{,} \PYG{p}{[}\PYG{p}{]}\PYG{p}{,} \PYG{p}{[}\PYG{p}{]}
+
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Loop over internal interface}
+\PYG{c+c1}{\PYGZsh{} accumulating and keep changing the dimension! May be very inefficient and slow}
+\PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{n}{ni}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{flux\PYGZus{}u} \PYG{o}{=} \PYG{n}{nu} \PYG{o}{/} \PYG{n}{np}\PYG{o}{.}\PYG{n}{abs}\PYG{p}{(} \PYG{n}{rr\PYGZus{}n}\PYG{p}{[} \PYG{n}{iee}\PYG{p}{[}\PYG{n}{i}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{p}{]} \PYG{o}{\PYGZhy{}} \PYG{n}{rr\PYGZus{}n}\PYG{p}{[} \PYG{n}{iee}\PYG{p}{[}\PYG{n}{i}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{]} \PYG{p}{]} \PYG{p}{)}
+    \PYG{n}{i\PYGZus{}flux} \PYG{o}{+}\PYG{o}{=} \PYG{p}{[} \PYG{n}{iee}\PYG{p}{[}\PYG{n}{i}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{,} \PYG{n}{iee}\PYG{p}{[}\PYG{n}{i}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{,} \PYG{n}{iee}\PYG{p}{[}\PYG{n}{i}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{,} \PYG{n}{iee}\PYG{p}{[}\PYG{n}{i}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{p}{]}
+    \PYG{n}{j\PYGZus{}flux} \PYG{o}{+}\PYG{o}{=} \PYG{p}{[} \PYG{n}{iee}\PYG{p}{[}\PYG{n}{i}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{,} \PYG{n}{iee}\PYG{p}{[}\PYG{n}{i}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{p}{,} \PYG{n}{iee}\PYG{p}{[}\PYG{n}{i}\PYG{p}{,}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{p}{,} \PYG{n}{iee}\PYG{p}{[}\PYG{n}{i}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{]} \PYG{p}{]}
+    \PYG{n}{e\PYGZus{}flux} \PYG{o}{+}\PYG{o}{=} \PYG{p}{[} \PYG{o}{\PYGZhy{}}\PYG{n}{flux\PYGZus{}u}\PYG{p}{,} \PYG{n}{flux\PYGZus{}u}\PYG{p}{,} \PYG{n}{flux\PYGZus{}u}\PYG{p}{,} \PYG{o}{\PYGZhy{}}\PYG{n}{flux\PYGZus{}u} \PYG{p}{]}
+
+\PYG{n}{e\PYGZus{}flux} \PYG{o}{=} \PYG{o}{\PYGZhy{}}\PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{n}{e\PYGZus{}flux}\PYG{p}{)}
+
+\PYG{n}{K} \PYG{o}{=} \PYG{n}{sp}\PYG{o}{.}\PYG{n}{sparse}\PYG{o}{.}\PYG{n}{coo\PYGZus{}array}\PYG{p}{(}\PYG{p}{(}\PYG{n}{e\PYGZus{}flux}\PYG{p}{,} \PYG{p}{(}\PYG{n}{i\PYGZus{}flux}\PYG{p}{,} \PYG{n}{j\PYGZus{}flux}\PYG{p}{)}\PYG{p}{)}\PYG{p}{,}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Volume forcing}
+\PYG{n}{F} \PYG{o}{=} \PYG{n}{vols} \PYG{o}{*} \PYG{n}{f}
+
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Loop over boundary surfaces}
+\PYG{c+c1}{\PYGZsh{} ...}
+\PYG{c+c1}{\PYGZsh{} \PYGZhy{} Neumann: add a forcing term for finite volumes with sides on Neumann boundaries}
+\PYG{c+c1}{\PYGZsh{} \PYGZhy{} Dirichlet: prescribe node value (e.g. 1) matrix slicing, 2) augmented system,...)}
+\PYG{c+c1}{\PYGZsh{} \PYGZhy{} Robin: add a forcing term depending on the unknown value of the function \PYGZhy{}\PYGZgt{} modify K matrix}
+
+\PYG{c+c1}{\PYGZsh{} ...}
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimInput}
+
+\end{sphinxuseclass}
+
+\subsection{Applying essential boundary conditions}
+\label{\detokenize{ch/pde/fvm-poisson-1d:applying-essential-boundary-conditions}}
+\sphinxAtStartPar
+The discrete counterpart of the continuous problem is a linear system that can be formally written as \(\mathbf{A} \mathbf{u} = \mathbf{f}\). So far, the essential boundary conditions on Dirichlet boundary \(S_D\) have not been prescribed yet. Essential boundary conditions can be prescribed in (at least) two ways: 1) slicing the linear system; 2) augmenting the linear system.
+
+\sphinxAtStartPar
+\sphinxstylestrong{Method 1. Slicing the linear system.} The set of nodes \((\cdot)_d\) lying on Dirichlet boundaries can be distinguished from all the remaining nodes \((\cdot)_u\), and the linear system sliced accordingly
+\begin{equation*}
+\begin{split}\begin{bmatrix} \mathbf{A}_{uu} &  \mathbf{A}_{ud} \\ \mathbf{A}_{du} & \mathbf{A}_{dd} \end{bmatrix} \begin{bmatrix} \mathbf{u}_u \\ \mathbf{u}_d \end{bmatrix} = \begin{bmatrix} \mathbf{f}_u \\ \mathbf{f}_d \end{bmatrix} \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+On \(u\)\sphinxhyphen{}nodes, forcing \(\mathbf{f}_u\) is known, while the value of the function \(u(\mathbf{x})\) is unknown, and thus \(\mathbf{u}_n\) is unknown; on the other hand, on \(d\)\sphinxhyphen{}nodes the value of the function \(u(\mathbf{x})\) is known, and so \(\mathbf{u}_d = \mathbf{u}_D\) is known, while the forcing \(\mathbf{f}_d\) is not known (as it contains both a volume contribution and a “boundary contribution” required to prescribe essential boundary conditions, as it will be more clear later, hopefully).
+
+\sphinxAtStartPar
+After slicing, the problem is solved first finding \(\mathbf{u}_u\) and then retrieving the value of \(\mathbf{f}_d\),
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{A}_{uu} \mathbf{u} & = \mathbf{f}_u - \mathbf{A}_{ud} \mathbf{u}_D \quad && \rightarrow \quad \mathbf{u}_u = \mathbf{A}_{uu}^{-1} \left( \mathbf{f}_u - \mathbf{A}_{ud} \mathbf{u}_D \right) \\
+  \mathbf{f}_d & = \mathbf{A}_{du} \mathbf{u}_u + \mathbf{A}_{dd} \mathbf{u}_D \quad && \rightarrow \quad \mathbf{f}_d = \dots
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Method 2. Augmenting the linear system.} The linear system is augmented, a) explicityl adding equations \(\mathbf{u}_d = \mathbf{u}_D\) for the essential boudary conditions, and splitting the forcing contribution on Dirichlet nodes as the sum of a known volume contribution and an unknown boundary contribution,
+\begin{equation*}
+\begin{split}\mathbf{f} = \begin{bmatrix} \mathbf{f}_u^{vol} \\ \mathbf{f}_d^{vol} + \mathbf{f}_d^D \end{bmatrix} = \begin{bmatrix} \mathbf{f}^{vol}_u \\ \mathbf{f}^{vol}_d \end{bmatrix} + \begin{bmatrix} \mathbf{0} \\ \mathbf{I} \end{bmatrix} \mathbf{f}^D_d \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Moving all the unkowns on the LHS, the augmented linear system reads
+\begin{equation*}
+\begin{split}\begin{bmatrix} \mathbf{A}_{uu} & \mathbf{A}_{ud} & \mathbf{0} \\ \mathbf{A}_{du} & \mathbf{A}_{dd} & - \mathbf{I} \\ \mathbf{0} & -\mathbf{I} & \mathbf{0} \end{bmatrix} \begin{bmatrix} \mathbf{u}_u \\ \mathbf{u}_d \\ \mathbf{f}_d^D \end{bmatrix} = \begin{bmatrix} \mathbf{f}^{vol}_u \\ \mathbf{f}^{vol}_d \\ -\mathbf{u}_D \end{bmatrix} \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+The (arbitrary) choice of the sign in the last block of equations (the ones prescribing the value of the unknown function on Dirichlet boundary) is usually chosen to preserve the symmetry of the original problem, if any.
+
+\sphinxAtStartPar
+\sphinxstylestrong{todo} \sphinxstyleemphasis{Discuss the reason why the system becomes determinate, after the application of the essential b.c.s}
+
+
+\subsubsection{Slicing the linear system}
+\label{\detokenize{ch/pde/fvm-poisson-1d:slicing-the-linear-system}}
+\sphinxAtStartPar
+Slice the linear system to prescribe the essential boundary conditions, solve the linear system, retrieve and plot the results.
+
+\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
+
+\begin{sphinxuseclass}{cell_input}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Apply essential boundary conditions, solve the linear system and retrieve the solution}
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Method 1. Slicing matrices}
+\PYG{c+c1}{\PYGZsh{} K u = f}
+\PYG{c+c1}{\PYGZsh{} [ Kuu  Kud ] [ uu ] = [ fu ]}
+\PYG{c+c1}{\PYGZsh{} [ Kdu  Kdd ] [ ud ]   [ fd ]}
+\PYG{c+c1}{\PYGZsh{} with known: ud, fu; unknown: uu, fd found solving the problem}
+\PYG{c+c1}{\PYGZsh{} Kuu * uu = fuu \PYGZhy{} Kud * ud  \PYGZhy{}\PYGZgt{} uu = ...}
+\PYG{c+c1}{\PYGZsh{} fd = Kdu * uu + Kdd * ud}
+\PYG{n}{iD} \PYG{o}{=} \PYG{n}{i\PYGZus{}dir}\PYG{o}{.}\PYG{n}{copy}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{iU} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{array}\PYG{p}{(}\PYG{n+nb}{list}\PYG{p}{(}\PYG{n+nb}{set}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{n}{nnodes}\PYG{p}{)}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{n+nb}{set}\PYG{p}{(}\PYG{n}{iD}\PYG{p}{)}\PYG{p}{)}\PYG{p}{)}
+\PYG{n}{ud} \PYG{o}{=} \PYG{n}{u\PYGZus{}dir}\PYG{o}{.}\PYG{n}{copy}\PYG{p}{(}\PYG{p}{)}
+
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{iD}\PYG{p}{)}
+\PYG{n+nb}{print}\PYG{p}{(}\PYG{n}{iU}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Slice stiffness matrix}
+\PYG{n}{Kuu} \PYG{o}{=} \PYG{p}{(}\PYG{n}{K}\PYG{o}{.}\PYG{n}{tocsc}\PYG{p}{(}\PYG{p}{)}\PYG{p}{[}\PYG{p}{:}\PYG{p}{,}\PYG{n}{iU}\PYG{p}{]}\PYG{p}{)}\PYG{o}{.}\PYG{n}{tocsr}\PYG{p}{(}\PYG{p}{)}\PYG{p}{[}\PYG{n}{iU}\PYG{p}{,}\PYG{p}{:}\PYG{p}{]}
+\PYG{n}{Kud} \PYG{o}{=} \PYG{p}{(}\PYG{n}{K}\PYG{o}{.}\PYG{n}{tocsc}\PYG{p}{(}\PYG{p}{)}\PYG{p}{[}\PYG{p}{:}\PYG{p}{,}\PYG{n}{iD}\PYG{p}{]}\PYG{p}{)}\PYG{o}{.}\PYG{n}{tocsr}\PYG{p}{(}\PYG{p}{)}\PYG{p}{[}\PYG{n}{iU}\PYG{p}{,}\PYG{p}{:}\PYG{p}{]}
+\PYG{n}{Kdu} \PYG{o}{=} \PYG{p}{(}\PYG{n}{K}\PYG{o}{.}\PYG{n}{tocsc}\PYG{p}{(}\PYG{p}{)}\PYG{p}{[}\PYG{p}{:}\PYG{p}{,}\PYG{n}{iU}\PYG{p}{]}\PYG{p}{)}\PYG{o}{.}\PYG{n}{tocsr}\PYG{p}{(}\PYG{p}{)}\PYG{p}{[}\PYG{n}{iD}\PYG{p}{,}\PYG{p}{:}\PYG{p}{]}
+\PYG{n}{Kdd} \PYG{o}{=} \PYG{p}{(}\PYG{n}{K}\PYG{o}{.}\PYG{n}{tocsc}\PYG{p}{(}\PYG{p}{)}\PYG{p}{[}\PYG{p}{:}\PYG{p}{,}\PYG{n}{iD}\PYG{p}{]}\PYG{p}{)}\PYG{o}{.}\PYG{n}{tocsr}\PYG{p}{(}\PYG{p}{)}\PYG{p}{[}\PYG{n}{iD}\PYG{p}{,}\PYG{p}{:}\PYG{p}{]}
+
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Slice forcing}
+\PYG{n}{fu} \PYG{o}{=} \PYG{n}{F}\PYG{p}{[}\PYG{n}{iU}\PYG{p}{]}
+
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Solve the linear system}
+\PYG{n}{uu} \PYG{o}{=} \PYG{n}{sp}\PYG{o}{.}\PYG{n}{sparse}\PYG{o}{.}\PYG{n}{linalg}\PYG{o}{.}\PYG{n}{spsolve}\PYG{p}{(}\PYG{n}{Kuu}\PYG{p}{,} \PYG{n}{fu} \PYG{o}{\PYGZhy{}} \PYG{n}{Kud} \PYG{o}{@} \PYG{n}{ud} \PYG{p}{)}
+\PYG{n}{fd} \PYG{o}{=} \PYG{n}{Kdu} \PYG{o}{@} \PYG{n}{uu} \PYG{o}{+} \PYG{n}{Kdd} \PYG{o}{@} \PYG{n}{ud}
+
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Re\PYGZhy{}assemble the solution}
+\PYG{n}{u} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{zeros}\PYG{p}{(}\PYG{n}{nnodes}\PYG{p}{)}\PYG{p}{;}  \PYG{n}{u}\PYG{p}{[}\PYG{n}{iU}\PYG{p}{]} \PYG{o}{=} \PYG{n}{uu}\PYG{p}{;}  \PYG{n}{u}\PYG{p}{[}\PYG{n}{iD}\PYG{p}{]} \PYG{o}{=} \PYG{n}{ud}
+\PYG{n}{f} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{zeros}\PYG{p}{(}\PYG{n}{nnodes}\PYG{p}{)}\PYG{p}{;}  \PYG{n}{f}\PYG{p}{[}\PYG{n}{iU}\PYG{p}{]} \PYG{o}{=} \PYG{n}{fu}\PYG{p}{;}  \PYG{n}{f}\PYG{p}{[}\PYG{n}{iD}\PYG{p}{]} \PYG{o}{=} \PYG{n}{fd}
+\PYG{c+c1}{\PYGZsh{} print(\PYGZdq{}uu: \PYGZbs{}n\PYGZdq{}, uu)}
+\PYG{c+c1}{\PYGZsh{} print(\PYGZdq{}Fd: \PYGZbs{}n\PYGZdq{}, fd)}
+
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Plot some results}
+\PYG{n}{fig}\PYG{p}{,} \PYG{n}{ax} \PYG{o}{=} \PYG{n}{plt}\PYG{o}{.}\PYG{n}{subplots}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{n}{figsize}\PYG{o}{=}\PYG{p}{(}\PYG{l+m+mi}{10}\PYG{p}{,} \PYG{l+m+mi}{5}\PYG{p}{)}\PYG{p}{)}
+\PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{rr\PYGZus{}n}\PYG{p}{,} \PYG{n}{u}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZhy{}o}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{u(x)}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{.}\PYG{n}{legend}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{.}\PYG{n}{grid}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{.}\PYG{n}{set\PYGZus{}title}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+se}{\PYGZbs{}\PYGZsq{}}\PYG{l+s+s1}{Displacement}\PYG{l+s+se}{\PYGZbs{}\PYGZsq{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{.}\PYG{n}{set\PYGZus{}xlabel}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{x}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{.}\PYG{n}{set\PYGZus{}ylabel}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{u(x)}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{rr\PYGZus{}n}\PYG{p}{,} \PYG{n}{f}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZhy{}o}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{label}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{f(x)}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{.}\PYG{n}{legend}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{.}\PYG{n}{grid}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{.}\PYG{n}{set\PYGZus{}title}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+se}{\PYGZbs{}\PYGZsq{}}\PYG{l+s+s1}{Force}\PYG{l+s+se}{\PYGZbs{}\PYGZsq{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{.}\PYG{n}{set\PYGZus{}xlabel}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{x}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{]}\PYG{o}{.}\PYG{n}{set\PYGZus{}ylabel}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{f(x)}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimInput}
+\begin{sphinxVerbatimOutput}
+
+\begin{sphinxuseclass}{cell_output}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+[ 0 10]
+[1 2 3 4 5 6 7 8 9]
+\end{sphinxVerbatim}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+Text(0, 0.5, \PYGZsq{}f(x)\PYGZsq{})
+\end{sphinxVerbatim}
+
+\noindent\sphinxincludegraphics{{c539cab24776278c35f683abb52361c504bfdce22dc65d30ff06cca4dd487734}.png}
+
+\end{sphinxuseclass}\end{sphinxVerbatimOutput}
+
+\end{sphinxuseclass}
+
+\subsubsection{Augmenting the linear system}
+\label{\detokenize{ch/pde/fvm-poisson-1d:augmenting-the-linear-system}}
+\sphinxAtStartPar
+Augmenting the linear system to prescribe the essential boundary conditions, solve the linear system, retrieve and plot the results.
+
+\sphinxAtStartPar
+\sphinxstylestrong{todo}
+
+\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
+
+\begin{sphinxuseclass}{cell_input}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Method 2. Augmented system}
+\PYG{c+c1}{\PYGZsh{} ...}
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimInput}
+
+\end{sphinxuseclass}
+\sphinxAtStartPar
+\sphinxstylestrong{Some comments and todos.}
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Convergence analysis.} It’s possible to evaluate both convergence with the dimension of the elements and/or the degree of the polynomial base functions. The \sphinxstyleemphasis{exact solution} can be easily computed analytically via direct integration for simple distribution of load \(f(x)\), and uniform \(\nu\)
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Result discussion.} “Force” contribution on Dirichlet boundary conditions involves both the node contribution to distributed load and the “constraint reaction”. As an example, with a domain of size \(\ell\) and uniform force distribution \(f\), with \(u(0) = u(\ell) = 0\), by \sphinxstyleemphasis{symmetry} and \sphinxstyleemphasis{global equilibrium} the force at boundaries are \(-\frac{1}{2} q \ell = - \frac{1}{2}\). With the modelling choices done, the contribution of the uniform distributed load on an element on any of its nodes is \(\frac{1}{2} q \ell_i = \frac{1}{2} q \frac{\ell}{n_{el}}\). Here with \(n_{el} = 20\), this elementary contribution is \(\frac{1}{40} = .025\): thus, the nodal contribution of internal nodes is twice (contribution from two neighboring elements) this value \(.05\), and the force on each Dirichlet boundary is \(-\frac{1}{2} + \frac{1}{40} = - 0.475\).
+
+\item {} 
+\sphinxAtStartPar
+Try to set different values of Dirichlet boundary conditions, u\_dir
+
+\end{itemize}
 
 \sphinxstepscope
 

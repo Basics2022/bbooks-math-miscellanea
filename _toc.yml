@@ -85,7 +85,8 @@ parts:
   - file: ch/pde/fem
     sections:
     - file: ch/pde/fem-poisson-1d
-  - file: ch/pde/fvm  
+  - file: ch/pde/fvm
+    sections:
     - file: ch/pde/fvm-poisson-1d
   - file: ch/pde/bem  
 - caption: Boundary Methods for PDEs
