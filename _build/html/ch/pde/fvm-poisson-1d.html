@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>33.1. 1-dimensional Poisson equation &#8212; basics - math</title>
+    <title>1-dimensional Poisson equation &#8212; basics - math</title>
   
   
   
@@ -67,12 +67,10 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/pde/fem-poisson-1d';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/pde/fvm-poisson-1d';</script>
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="34. Finite Volume Method" href="fvm.html" />
-    <link rel="prev" title="33. Finite Element Method" href="fem.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -254,10 +252,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="ale.html">31. Arbitrary Lagrangian-Eulerian description</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Numerical Methods for PDEs</span></p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="numerics.html">32. Introduction to numerical methods for PDEs</a></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="fem.html">33. Finite Element Method</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">33.1. 1-dimensional Poisson equation</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="fem.html">33. Finite Element Method</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="fem-poisson-1d.html">33.1. 1-dimensional Poisson equation</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="fvm.html">34. Finite Volume Method</a></li>
@@ -339,7 +337,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://colab.research.google.com/github/Basics2022/bbooks-math-miscellanea/blob/master/ch/pde/fem-poisson-1d.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/Basics2022/bbooks-math-miscellanea/blob/master/ch/pde/fvm-poisson-1d.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onColab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -387,7 +385,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/edit/main/ch/pde/fem-poisson-1d.ipynb" target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/edit/main/ch/pde/fvm-poisson-1d.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -404,7 +402,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/issues/new?title=Issue%20on%20page%20%2Fch/pde/fem-poisson-1d.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/issues/new?title=Issue%20on%20page%20%2Fch/pde/fvm-poisson-1d.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -434,7 +432,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/ch/pde/fem-poisson-1d.ipynb" target="_blank"
+      <li><a href="../../_sources/ch/pde/fvm-poisson-1d.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -528,14 +526,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strong-form-of-the-problem">33.1.1. Strong form of the problem</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-form-of-the-problem">33.1.2. Weak form of the problem</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#poisson-equation-with-dirichlet-boundary-conditions">33.1.2.1. Poisson equation with Dirichlet boundary conditions</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#finite-element-method">33.1.2.1.1. Finite element method</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integral-form-of-the-problem">Integral form of the problem</a></li>
 </ul>
             </nav>
         </div>
@@ -548,98 +539,19 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="dimensional-poisson-equation">
-<span id="pde-fem-poisson-1d"></span><h1><span class="section-number">33.1. </span>1-dimensional Poisson equation<a class="headerlink" href="#dimensional-poisson-equation" title="Permalink to this heading">#</a></h1>
-<div class="section" id="strong-form-of-the-problem">
-<h2><span class="section-number">33.1.1. </span>Strong form of the problem<a class="headerlink" href="#strong-form-of-the-problem" title="Permalink to this heading">#</a></h2>
+<span id="pde-fvm-poisson-1d"></span><h1>1-dimensional Poisson equation<a class="headerlink" href="#dimensional-poisson-equation" title="Permalink to this heading">#</a></h1>
+<div class="section" id="integral-form-of-the-problem">
+<h2>Integral form of the problem<a class="headerlink" href="#integral-form-of-the-problem" title="Permalink to this heading">#</a></h2>
+<p>The integral form of a Poisson problem reads, <strong>for every</strong> <span class="math notranslate nohighlight">\(V \in \Omega\)</span>,</p>
 <div class="math notranslate nohighlight">
-\[
-  -\left( \nu u'(x) \right)' = f(x) \quad , \qquad x \in [a, b] 
-\]</div>
-<p>Supplied with proper boundary conditions. As an example,</p>
+\[- \oint_{\partial V} \hat{\mathbf{n}} \cdot \left( \nu \nabla u \right) = \int_{V} f \ .\]</div>
+<p>supplied with proper boundary conditions. As an example,</p>
 <ul class="simple">
 <li><p>Dirichlet boundary conditions: <span class="math notranslate nohighlight">\(u(\overline{x}) = \overline{u}\)</span></p></li>
-<li><p>Neumann boundary conditions: <span class="math notranslate nohighlight">\(\nu u'(\overline{x}) = \overline{q}\)</span></p></li>
+<li><p>Neumann boundary conditions: <span class="math notranslate nohighlight">\(\nu \hat{\mathbf{n}} \cdot \nabla u(\overline{x}) = \overline{q}\)</span></p></li>
 <li><p>Robin boundary conditions: <span class="math notranslate nohighlight">\(a u(\overline{x}) + b u'(\overline{x}) = c\)</span></p></li>
 </ul>
-</div>
-<div class="section" id="weak-form-of-the-problem">
-<h2><span class="section-number">33.1.2. </span>Weak form of the problem<a class="headerlink" href="#weak-form-of-the-problem" title="Permalink to this heading">#</a></h2>
-<p>For <span class="math notranslate nohighlight">\(\forall w(x) \in \mathscr{H}^1([a,b])\)</span><a class="footnote-reference brackets" href="#functional-space" id="id1">1</a> ,</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  0 
-  &amp; = \int_{x=a}^b w(x) \left\{ - \left( \nu u'(x) \right)' - f(x) \right\} =  \\
-  &amp; = \int_{x=a}^b  w'(x) \nu u'(x) \, dx - \int_{x=a}^b w(x) f(x) \, dx - \left.\left[ w(x) \nu u(x) \right]\right|_{x=a}^b
-\end{aligned}\end{split}\]</div>
-<p>Boundary conditions…</p>
-<div class="section" id="poisson-equation-with-dirichlet-boundary-conditions">
-<h3><span class="section-number">33.1.2.1. </span>Poisson equation with Dirichlet boundary conditions<a class="headerlink" href="#poisson-equation-with-dirichlet-boundary-conditions" title="Permalink to this heading">#</a></h3>
-<p>By definition, test functions are identically zero on Dirichlet boundary conditions <span class="math notranslate nohighlight">\(\left.w\right|_{S_D} = 0\)</span>.</p>
-<p>Thus the weak form becomes</p>
-<div class="math notranslate nohighlight">
-\[
- \int_{x=a}^b  w'(x) \nu u'(x) \, dx = \int_{x=a}^b w(x) f(x) \, dx \ ,
-\]</div>
-<p>along with the essential boundary conditions <span class="math notranslate nohighlight">\(u(a) = u_a\)</span>, <span class="math notranslate nohighlight">\(u(b) = u_b\)</span>.</p>
-<div class="section" id="finite-element-method">
-<h4><span class="section-number">33.1.2.1.1. </span>Finite element method<a class="headerlink" href="#finite-element-method" title="Permalink to this heading">#</a></h4>
-<p><strong>Discretization of the domain.</strong> The domain <span class="math notranslate nohighlight">\([a,b] =: \Omega\)</span>, is divided into elements <span class="math notranslate nohighlight">\(\Omega_i\)</span> s.t.</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  \cup_i \Omega_i        &amp; = \Omega \\
-  \Omega_i \cap \Omega_j &amp; = \emptyset \quad i \ne j
-\end{aligned}\end{split}\]</div>
-<p>Exploiting additive property of integrals on the union of domains, integrals of the weak form become summation of integrals on the individual elements</p>
-<div class="math notranslate nohighlight">
-\[\int_{\Omega} \dots = \sum_i \int_{\Omega_i} \dots \]</div>
-<p><strong>Choice of the base functions.</strong> <em>Lagrangian base functions</em> (1) <span class="math notranslate nohighlight">\(\phi_i(x_j) = \delta_{ij}\)</span>, 2) <span class="math notranslate nohighlight">\(\phi_i(x) = 0\)</span>, if <span class="math notranslate nohighlight">\(x \notin B(x_i)\)</span>; 3) <span class="math notranslate nohighlight">\(\sum_i \phi_i(x) = 1\)</span>, <span class="math notranslate nohighlight">\(\forall x \in \Omega\)</span>)</p>
-<div class="math notranslate nohighlight">
-\[u(x) = \sum_i \phi_i(x) u_i \ .\]</div>
-<p>Definition on a reference element <span class="math notranslate nohighlight">\(\xi \in [-1, 1]\)</span> and then change of coordinates between “physical” and reference space to evaluate integrals.</p>
-<p>Here, as the maximum order of the derivatives involved in the problem is 1, test functions must be piecewise-<em>linear</em> (or better, first degree polynomial) at least, in order to avoid numerically setting to zero some terms in the equation only due to poor approximation (here the term <span class="math notranslate nohighlight">\(\int_{x=a}^{b} w'(x) \nu u'(x) dx\)</span> would be zero with piecewise-constant test functions).</p>
-<p>First degree-polynomial Lagrangian base functions on the reference elements are</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  \widetilde{\varphi}_1(\xi) &amp; = \dfrac{1}{2} \left( 1 - \xi \right) \\
-  \widetilde{\varphi}_2(\xi) &amp; = \dfrac{1}{2} \left( 1 + \xi \right) \\
-\end{aligned}\end{split}\]</div>
-<p><strong>Evaluation of integrals.</strong> Polynomials functions are exactly evaluated using Gaussian integration, i.e. with a linear combination of the values of the function on a set of Gaussian nodes <em>x_g</em></p>
-<p>…</p>
-<p><strong>Analytical exact integration for first degree-polynomial.</strong> The coordinate transformation<a class="footnote-reference brackets" href="#iso-parametric" id="id2">2</a></p>
-<div class="math notranslate nohighlight">
-\[x = a_i \dfrac{1 - \xi}{2} + b_i \frac{1+\xi}{2} = \frac{a_i + b_i}{2} + \xi \frac{\ell_i}{2} \ ,\]</div>
-<p>transforms the reference element into physical elements: e.g. <span class="math notranslate nohighlight">\(x(\xi=-1) = a_i\)</span>, <span class="math notranslate nohighlight">\(x(\xi=1) = b_i\)</span>. The Jacobian of this transformation is constant over the element,</p>
-<div class="math notranslate nohighlight">
-\[\frac{d x}{d \xi} = \frac{\ell_i}{2} \ .\]</div>
-<p>On the element <span class="math notranslate nohighlight">\(i\)</span>,</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  K_{i, 11} 
-  &amp; = \int_{x=a_i}^{b_i} \frac{d\phi_1}{dx}(x) \frac{d\phi_1}{dx}(x) \, dx = \\
-  &amp; = \int_{\xi=-1}^{\xi=1} \dfrac{d \xi}{d x} \frac{d \widetilde{\phi}_1}{d \xi} \dfrac{d \xi}{d x} \frac{d \widetilde{\phi}_1}{d \xi} \frac{dx}{d \xi} d \xi = \\
-  &amp; = \int_{\xi=-1}^{\xi=1} \left(-\frac{1}{2}\right)\left(-\frac{1}{2}\right) d \xi \frac{2}{\ell_i}
-    = \frac{1}{\ell_i} \ .
-\end{aligned}\end{split}\]</div>
-<p>Analogously,</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  K_{i, 11} &amp; = K_{i, 22} =   \frac{1}{\ell_i} \\
-  K_{i, 12} &amp; = K_{i, 21} = - \frac{1}{\ell_i}
-\end{aligned}\end{split}\]</div>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  M_{i,11} 
-  &amp; = \int_{x=a_i}^{b_i} \phi_1(x) \phi_1(x) dx = \\
-  &amp; = \int_{\xi=-1}^{1} \varphi_1(\xi) \varphi_1(\xi) \frac{dx}{d \xi} d \xi = \\
-  &amp; = \int_{\xi=-1}^{1} \left[ \frac{1}{2} \left( 1 - \xi \right) \right]^2 d \xi \frac{\ell_i}{2} = \\
-  &amp; = \frac{\ell_i}{8} \left( 2 + \frac{2}{3} \right) = \frac{1}{3}\ell_i \ .
-\end{aligned}\end{split}\]</div>
-<p>and analogously</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  M_{i,11} &amp; = M_{i,22} = \frac{\ell_i}{3} \\
-  M_{i,12} &amp; = M_{i,21} = \frac{\ell_i}{6} \\
-\end{aligned}\end{split}\]</div>
+<p><em>The multi-dimensional set may be useful also for 1-dimensional domains, to avoid confusions with signs</em></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -656,40 +568,71 @@ document.write(`
 <span class="n">f</span> <span class="o">=</span> <span class="mf">1.</span>
 
 <span class="c1">#&gt; Discretization</span>
-<span class="n">nel</span> <span class="o">=</span> <span class="mi">20</span>            <span class="c1"># n.of elements</span>
-<span class="n">nnodes</span> <span class="o">=</span> <span class="n">nel</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="n">nel</span> <span class="o">=</span> <span class="mi">10</span>            <span class="c1"># n.of elements</span>
+<span class="n">nnodes</span> <span class="o">=</span> <span class="n">nel</span> <span class="o">+</span> <span class="mi">1</span>    <span class="c1"># n.of nodes</span>
+<span class="n">nvol</span> <span class="o">=</span> <span class="n">nnodes</span>       <span class="c1"># n.finite volumes (node-centered FVM)</span>
+
 <span class="c1">#&gt; Dirichlet boundaries</span>
-<span class="n">i_dir</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="mi">0</span><span class="p">,</span> <span class="n">nel</span> <span class="p">])</span>   <span class="c1"># Global idx of nodes on Dirichlet boundaries</span>
+<span class="n">i_dir</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="mi">0</span><span class="p">,</span> <span class="n">nvol</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>   <span class="c1"># Global idx of nodes on Dirichlet boundaries</span>
 <span class="n">u_dir</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="mf">.0</span><span class="p">,</span> <span class="mf">.0</span> <span class="p">])</span>   <span class="c1"># Value of the solution at nodes on Dir. boundaries</span>
 
 <span class="c1">#&gt; Volume forcing contribution</span>
 <span class="n">f_nodal</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">nel</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">f</span>   <span class="c1"># Nodal values f(x_i) of volume forcing, here uniform f(x) = f</span>
 
-<span class="c1">#&gt; Node coordinates array, rr, and element-node connectivity array, ee</span>
-<span class="n">rr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span> <span class="n">nel</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">ee</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">nel</span><span class="p">)])</span>
-<span class="c1">#&gt; Size of the elements</span>
-<span class="n">e_vol</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="n">rr</span><span class="p">[</span><span class="n">ee</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]]</span> <span class="o">-</span> <span class="n">rr</span><span class="p">[</span><span class="n">ee</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">nel</span><span class="p">)</span> <span class="p">])</span>
+<span class="c1">#&gt; Node centered FVM</span>
+<span class="n">rr_n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span> <span class="n">nel</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>       <span class="c1"># node coordinates (center of the node-centered FVs) </span>
+<span class="n">rr_i</span> <span class="o">=</span> <span class="mf">.5</span> <span class="o">*</span> <span class="p">(</span> <span class="n">rr_n</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">rr_n</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="p">)</span> <span class="c1"># coords of the inner cell interface</span>
+<span class="n">rr_b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="mi">2</span><span class="o">*</span><span class="n">rr_n</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">rr_n</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">2</span><span class="o">*</span><span class="n">rr_n</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">rr_n</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="p">])</span>  <span class="c1"># coords of the boundaries</span>
+
+<span class="n">vols</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+     <span class="p">[</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">rr_i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">rr_n</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="p">]</span> <span class="o">+</span> \
+       <span class="nb">list</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">rr_i</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">rr_i</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="p">)</span> <span class="o">+</span> \
+     <span class="p">[</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">rr_i</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">rr_n</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="p">]</span>
+<span class="p">)</span>
+
+<span class="n">ni</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">rr_i</span><span class="p">)</span>
+<span class="n">nb</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">rr_b</span><span class="p">)</span>
+
+<span class="c1">#&gt; Interface-volume connectivity (ni, 2) (normal dir: first element -&gt; second element)</span>
+<span class="n">iee</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">ni</span><span class="p">)</span> <span class="p">])</span>
+<span class="c1">#&gt; Boundary-volume connectivity (nb) (convention, normal dir: elem -&gt; outside)</span>
+<span class="n">bee</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">nvol</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&gt; Assembling stiffenss matrix, mass matrix, and forcing term</span>
-<span class="c1">#&gt; Stiffness matrix</span>
-<span class="n">ki</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([[</span><span class="n">ee</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">ee</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">ee</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">ee</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">nel</span><span class="p">)])</span>
-<span class="n">kj</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([[</span><span class="n">ee</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">ee</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">ee</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">ee</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">nel</span><span class="p">)])</span>
-<span class="n">ke</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">nu</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,])</span><span class="o">/</span><span class="n">e_vol</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">nel</span><span class="p">)])</span>
-<span class="n">K</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">coo_array</span><span class="p">((</span><span class="n">ke</span><span class="p">,</span> <span class="p">(</span><span class="n">ki</span><span class="p">,</span> <span class="n">kj</span><span class="p">)),)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&gt; Evaluating boundary contributions</span>
+<span class="c1"># Here assmbling a stiffness matrix. In many FVM applications, there&#39;s explicit time</span>
+<span class="c1"># dependence and explicit time integration schemes are used, so there&#39;s no need to </span>
+<span class="c1"># assemble any matrix while the algorithm just rely on accumulation of flux contributions</span>
+<span class="c1"># -&gt; Add a link to a script implementing time-dependent &quot;solver&quot; for FVM, e.g. hyperbolic problems</span>
 
-<span class="c1">#&gt; Mass matrix, here used for integration of the volume force</span>
-<span class="n">mi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([[</span><span class="n">ee</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">ee</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">ee</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">ee</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">nel</span><span class="p">)])</span>
-<span class="n">mj</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([[</span><span class="n">ee</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">ee</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">ee</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">ee</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">nel</span><span class="p">)])</span>
-<span class="n">me</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">2.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,])</span><span class="o">*</span><span class="n">e_vol</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="mf">6.</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">nel</span><span class="p">)])</span>
-<span class="n">M</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">coo_array</span><span class="p">((</span><span class="n">me</span><span class="p">,</span> <span class="p">(</span><span class="n">mi</span><span class="p">,</span> <span class="n">mj</span><span class="p">)),)</span>
+<span class="n">i_flux</span><span class="p">,</span> <span class="n">j_flux</span><span class="p">,</span> <span class="n">e_flux</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]</span>
 
-<span class="n">F</span> <span class="o">=</span> <span class="n">M</span> <span class="o">@</span> <span class="n">f_nodal</span>   <span class="c1"># Volume force</span>
+<span class="c1">#&gt; Loop over internal interface</span>
+<span class="c1"># accumulating and keep changing the dimension! May be very inefficient and slow</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">ni</span><span class="p">):</span>
+    <span class="n">flux_u</span> <span class="o">=</span> <span class="n">nu</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span> <span class="n">rr_n</span><span class="p">[</span> <span class="n">iee</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="p">]</span> <span class="o">-</span> <span class="n">rr_n</span><span class="p">[</span> <span class="n">iee</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="p">]</span> <span class="p">)</span>
+    <span class="n">i_flux</span> <span class="o">+=</span> <span class="p">[</span> <span class="n">iee</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">iee</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">iee</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">iee</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="p">]</span>
+    <span class="n">j_flux</span> <span class="o">+=</span> <span class="p">[</span> <span class="n">iee</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">iee</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">iee</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">iee</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="p">]</span>
+    <span class="n">e_flux</span> <span class="o">+=</span> <span class="p">[</span> <span class="o">-</span><span class="n">flux_u</span><span class="p">,</span> <span class="n">flux_u</span><span class="p">,</span> <span class="n">flux_u</span><span class="p">,</span> <span class="o">-</span><span class="n">flux_u</span> <span class="p">]</span>
+
+<span class="n">e_flux</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">e_flux</span><span class="p">)</span>
+
+<span class="n">K</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">coo_array</span><span class="p">((</span><span class="n">e_flux</span><span class="p">,</span> <span class="p">(</span><span class="n">i_flux</span><span class="p">,</span> <span class="n">j_flux</span><span class="p">)),)</span>
+
+<span class="c1">#&gt; Volume forcing</span>
+<span class="n">F</span> <span class="o">=</span> <span class="n">vols</span> <span class="o">*</span> <span class="n">f</span>
+
+<span class="c1">#&gt; Loop over boundary surfaces</span>
+<span class="c1"># ...</span>
+<span class="c1"># - Neumann: add a forcing term for finite volumes with sides on Neumann boundaries</span>
+<span class="c1"># - Dirichlet: prescribe node value (e.g. 1) matrix slicing, 2) augmented system,...)</span>
+<span class="c1"># - Robin: add a forcing term depending on the unknown value of the function -&gt; modify K matrix</span>
+
+<span class="c1"># ...</span>
 </pre></div>
 </div>
 </div>
@@ -707,6 +650,9 @@ document.write(`
 <span class="n">iD</span> <span class="o">=</span> <span class="n">i_dir</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="n">iU</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">nnodes</span><span class="p">))</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="n">iD</span><span class="p">)))</span>
 <span class="n">ud</span> <span class="o">=</span> <span class="n">u_dir</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">iD</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">iU</span><span class="p">)</span>
 
 <span class="c1">#&gt; Slice stiffness matrix</span>
 <span class="n">Kuu</span> <span class="o">=</span> <span class="p">(</span><span class="n">K</span><span class="o">.</span><span class="n">tocsc</span><span class="p">()[:,</span><span class="n">iU</span><span class="p">])</span><span class="o">.</span><span class="n">tocsr</span><span class="p">()[</span><span class="n">iU</span><span class="p">,:]</span>
@@ -729,13 +675,13 @@ document.write(`
 
 <span class="c1">#&gt; Plot some results</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">rr</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="s1">&#39;-o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;u(x)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">rr_n</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="s1">&#39;-o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;u(x)&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\&#39;</span><span class="s1">Displacement</span><span class="se">\&#39;</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;u(x)&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">rr</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="s1">&#39;-o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;f(x)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">rr_n</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="s1">&#39;-o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;f(x)&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\&#39;</span><span class="s1">Force</span><span class="se">\&#39;</span><span class="s1">&#39;</span><span class="p">)</span>
@@ -745,10 +691,14 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 0 10]
+[1 2 3 4 5 6 7 8 9]
+</pre></div>
+</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;f(x)&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/8a3da01e8d89f3eee1bb1bd39d2382539cd64ef7ff5cc1eaac915f9a94dd79ab.png" src="../../_images/8a3da01e8d89f3eee1bb1bd39d2382539cd64ef7ff5cc1eaac915f9a94dd79ab.png" />
+<img alt="../../_images/c539cab24776278c35f683abb52361c504bfdce22dc65d30ff06cca4dd487734.png" src="../../_images/c539cab24776278c35f683abb52361c504bfdce22dc65d30ff06cca4dd487734.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -767,17 +717,6 @@ document.write(`
 <li><p><strong>Result discussion.</strong> “Force” contribution on Dirichlet boundary conditions involves both the node contribution to distributed load and the “constraint reaction”. As an example, with a domain of size <span class="math notranslate nohighlight">\(\ell\)</span> and uniform force distribution <span class="math notranslate nohighlight">\(f\)</span>, with <span class="math notranslate nohighlight">\(u(0) = u(\ell) = 0\)</span>, by <em>symmetry</em> and <em>global equilibrium</em> the force at boundaries are <span class="math notranslate nohighlight">\(-\frac{1}{2} q \ell = - \frac{1}{2}\)</span>. With the modelling choices done, the contribution of the uniform distributed load on an element on any of its nodes is <span class="math notranslate nohighlight">\(\frac{1}{2} q \ell_i = \frac{1}{2} q \frac{\ell}{n_{el}}\)</span>. Here with <span class="math notranslate nohighlight">\(n_{el} = 20\)</span>, this elementary contribution is <span class="math notranslate nohighlight">\(\frac{1}{40} = .025\)</span>: thus, the nodal contribution of internal nodes is twice (contribution from two neighboring elements) this value <span class="math notranslate nohighlight">\(.05\)</span>, and the force on each Dirichlet boundary is <span class="math notranslate nohighlight">\(-\frac{1}{2} + \frac{1}{40} = - 0.475\)</span>.</p></li>
 <li><p>Try to set different values of Dirichlet boundary conditions, u_dir</p></li>
 </ul>
-<hr class="footnotes docutils" />
-<dl class="footnote brackets">
-<dt class="label" id="functional-space"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p>Which functional space? It would be nice to be as more precise as possible, without introducing too many “unnecessary” complications. Without going into details, 1) everything appears in the weak form should exists for the functions of that space: here, the functions must have <span class="math notranslate nohighlight">\(L^2\)</span>-integrable first-order derivative; 2) some results exist when test and unkwown functions belong to the same space: so, some “special” treatment of essential boundary conditions (on Dirichlet boundaries) is required.</p>
-</dd>
-<dt class="label" id="iso-parametric"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
-<dd><p>Here, the transformation between physical and reference space is iso-parametric, as it uses the same base functions as those used for function approximations, <span class="math notranslate nohighlight">\(x(\xi) = a_i \widetilde{\phi}_1(\xi) + b_i \widetilde{\phi}_2(\xi)\)</span>.</p>
-</dd>
-</dl>
-</div>
-</div>
 </div>
 </div>
 
@@ -811,24 +750,6 @@ document.write(`
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="fem.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">33. </span>Finite Element Method</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="fvm.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">34. </span>Finite Volume Method</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
@@ -844,14 +765,7 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strong-form-of-the-problem">33.1.1. Strong form of the problem</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#weak-form-of-the-problem">33.1.2. Weak form of the problem</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#poisson-equation-with-dirichlet-boundary-conditions">33.1.2.1. Poisson equation with Dirichlet boundary conditions</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#finite-element-method">33.1.2.1.1. Finite element method</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integral-form-of-the-problem">Integral form of the problem</a></li>
 </ul>
   </nav></div>
 
