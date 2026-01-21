@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>5. Spectral decomposition &#8212; basics - math</title>
+    <title>5.1. Spectral decomposition of symmetric matrices &#8212; basics - math</title>
   
   
   
@@ -67,12 +67,12 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/linear-algebra/spectral';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/linear-algebra/spectral-symmetric';</script>
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="5.1. Spectral decomposition of symmetric matrices" href="spectral-symmetric.html" />
-    <link rel="prev" title="4. Linear Systems" href="linear-systems.html" />
+    <link rel="next" title="5.2. Sensitivity of spectral decomposition" href="spectral-sensitivity.html" />
+    <link rel="prev" title="5. Spectral decomposition" href="spectral.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -184,8 +184,8 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="linear-systems.html">4. Linear Systems</a></li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">5. Spectral decomposition</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="spectral-symmetric.html">5.1. Spectral decomposition of symmetric matrices</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="spectral.html">5. Spectral decomposition</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">5.1. Spectral decomposition of symmetric matrices</a></li>
 <li class="toctree-l2"><a class="reference internal" href="spectral-sensitivity.html">5.2. Sensitivity of spectral decomposition</a></li>
 </ul>
 </li>
@@ -360,7 +360,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/edit/main/ch/linear-algebra/spectral.md" target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/edit/main/ch/linear-algebra/spectral-symmetric.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -377,7 +377,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/issues/new?title=Issue%20on%20page%20%2Fch/linear-algebra/spectral.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/issues/new?title=Issue%20on%20page%20%2Fch/linear-algebra/spectral-symmetric.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -407,7 +407,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/ch/linear-algebra/spectral.md" target="_blank"
+      <li><a href="../../_sources/ch/linear-algebra/spectral-symmetric.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -489,7 +489,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Spectral decomposition</h1>
+    <h1>Spectral decomposition of symmetric matrices</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -503,29 +503,54 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="spectral-decomposition">
-<span id="math-spectral"></span><h1><span class="section-number">5. </span>Spectral decomposition<a class="headerlink" href="#spectral-decomposition" title="Permalink to this heading">#</a></h1>
-<ul>
-<li><p><strong>Introduction.</strong> What’s spectral (or eigenvalue) decomposition? Arbitrarieness. When is it possible? Special matrices. Properties and theorems (Cayley-Hamilton)</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="spectral-decomposition-of-symmetric-matrices">
+<span id="math-spectral-symmetric"></span><h1><span class="section-number">5.1. </span>Spectral decomposition of symmetric matrices<a class="headerlink" href="#spectral-decomposition-of-symmetric-matrices" title="Permalink to this heading">#</a></h1>
+<p>In this section the spectral decomposition of symmetric matrices (or Hermitian, if defined on the complex field), <span class="math notranslate nohighlight">\(\mathbf{A} = \mathbf{A}^*\)</span>, is discussed.</p>
+<div class="proof theorem admonition" id="theorem-0">
+<p class="admonition-title"><span class="caption-number">Theorem 5.1 </span> (Spectral theorem of a symmetric matrix)</p>
+<div class="theorem-content section" id="proof-content">
+<p>A symmetric matrix has a spectral decomposition, with a complete set of unit orthogonal vectors and real eigenvalues,</p>
 <div class="math notranslate nohighlight">
-\[\mathbf{A} \mathbf{u}_i = s_i \mathbf{u}_i\]</div>
-</li>
-<li><p><strong>Generalized spectral decompositions.</strong> Generalized spectral decomposition of first order systems; generalized spectral deocmposition of second order systems<a class="footnote-reference brackets" href="#nd-order-underdamped" id="id1">1</a></p>
-<div class="math notranslate nohighlight">
-\[\mathbf{A} \mathbf{u}_i = s_i \mathbf{B} \mathbf{u}_i\]</div>
-<div class="math notranslate nohighlight">
-\[\left[ s_i^2 \mathbf{M}  + s_i \mathbf{C} + \mathbf{K} \right] \mathbf{u}_i = \mathbf{0} \ .\]</div>
-</li>
-<li><p><strong>Sensitivity of spectral decomposition.</strong> …</p></li>
-</ul>
-<hr class="footnotes docutils" />
-<dl class="footnote brackets">
-<dt class="label" id="nd-order-underdamped"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p>It’s likely that mainly underdamped systems with simultaneously diagonalizable matrices will be treated, as this kind of systems often arises in structural dynamics of elastic structures with small structural damping.</p>
-</dd>
-</dl>
-<div class="toctree-wrapper compound">
+\[\mathbf{A} = \mathbf{R} \mathbf{S} \mathbf{R}^* \ ,\]</div>
+<p>with <span class="math notranslate nohighlight">\(\mathbf{R} = \left[ \ \mathbf{r}_1 \ | \ \dots \ | \mathbf{r}_n \ \right]\)</span>, and <span class="math notranslate nohighlight">\(\mathbf{r}_i^* \mathbf{r}_k = \delta_{ik}\)</span>, and <span class="math notranslate nohighlight">\(\mathbf{S} = \text{diag}\{ s_i \}\)</span>, <span class="math notranslate nohighlight">\(s_i \in \mathbb{R}\)</span>.</p>
 </div>
+</div><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Proof<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><strong>todo</strong> <em>By construction…</em></p>
+</div>
+</details><div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathbf{A}
+  &amp; = \mathbf{R} \mathbf{S} \mathbf{R}^* = \\
+  &amp; = \begin{bmatrix} \mathbf{r}_1 &amp; \dots &amp; \mathbf{r}_n \end{bmatrix} \text{diag}\{ s_i \} \begin{bmatrix} \mathbf{r}_1^* \\ \dots \\ \mathbf{r}_n^* \end{bmatrix} = \\
+  &amp; = \begin{bmatrix} s_1 \mathbf{r}_1 &amp; \dots &amp; s_n \mathbf{r}_n \end{bmatrix} \begin{bmatrix} \mathbf{r}_1^* \\ \dots \\ \mathbf{r}_n^* \end{bmatrix} = \\
+  &amp; = s_1 \mathbf{r}_1 \mathbf{r}_1^* + \dots + s_n \mathbf{r}_n \mathbf{r}_n^* \ .
+\end{aligned}\end{split}\]</div>
+<p><strong>Properties.</strong></p>
+<ul>
+<li><p>Left and right eigenvectors are the same. This immediately follows from the symmetry of the matrix and the definition of the left and right eigenvectors</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+     \mathbf{A} \mathbf{r}_k   &amp; = s_k \mathbf{r}_k \\
+     \mathbf{l}_j^* \mathbf{A} &amp; = s^*_j \mathbf{l}_i^* \quad \rightarrow \quad \mathbf{A} \mathbf{l}_j = s_j \mathbf{l}_j \ ,
+   \end{aligned}\end{split}\]</div>
+</li>
+<li><p>Eigenvalues are real, as</p>
+<div class="math notranslate nohighlight">
+\[0 = \mathbf{l}^*_k \left( \mathbf{A} \mathbf{r}_k \right) - \left( \mathbf{l}_k^* \mathbf{A} \right) \mathbf{r}_k = \left( s_k - s^*_k \right) \mathbf{l}^*_k \mathbf{r}_k = 2 \, \text{im}\{ s_k \} \underbrace{\mathbf{l}^*_k \mathbf{r}_k}_{ = | \mathbf{r}_k |^2} \ ,\]</div>
+<p>and thus <span class="math notranslate nohighlight">\(\text{im} \{ s_k \} = 0\)</span>.</p>
+</li>
+<li><p>Eigenvectors with different eigenvalues are orthogonal, as</p>
+<div class="math notranslate nohighlight">
+\[0 = \mathbf{l}^*_j \left( \mathbf{A} \mathbf{r}_k \right) - \left( \mathbf{l}_j^* \mathbf{A} \right) \mathbf{r}_k = \left( s_k - s^*_j \right) \mathbf{l}^*_j \mathbf{r}_k \ ,\]</div>
+<p>and thus <span class="math notranslate nohighlight">\(\mathbf{l}^*_j \mathbf{r}_k = 0\)</span> for <span class="math notranslate nohighlight">\(j \ne k\)</span>, if <span class="math notranslate nohighlight">\(s_j \ne s_k\)</span>. Left and right eigenvectors are orthogonal w.r.t. matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> as well.</p>
+</li>
+</ul>
 </div>
 
     <script type="text/x-thebe-config">
@@ -559,20 +584,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="linear-systems.html"
+       href="spectral.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">4. </span>Linear Systems</p>
+        <p class="prev-next-title"><span class="section-number">5. </span>Spectral decomposition</p>
       </div>
     </a>
     <a class="right-next"
-       href="spectral-symmetric.html"
+       href="spectral-sensitivity.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">5.1. </span>Spectral decomposition of symmetric matrices</p>
+        <p class="prev-next-title"><span class="section-number">5.2. </span>Sensitivity of spectral decomposition</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
