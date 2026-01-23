@@ -9,7 +9,7 @@ A symmetric matrix has a spectral decomposition, with a complete set of unit ort
 
 $$\mathbf{A} = \mathbf{R} \mathbf{S} \mathbf{R}^* \ ,$$
 
-with $\mathbf{R} = \left[ \ \mathbf{r}_1 \ | \ \dots \ | \mathbf{r}_n \ \right]$, and $\mathbf{r}_i^* \mathbf{r}_k = \delta_{ik}$, and $\mathbf{S} = \text{diag}\{ s_i \}$, $s_i \in \mathbb{R}$.
+with $\mathbf{R} = \left[ \ \mathbf{r}_1 \ | \ \dots \ | \ \mathbf{r}_n \ \right]$, and $\mathbf{r}_i^* \mathbf{r}_k = \delta_{ik}$, and $\mathbf{S} = \text{diag}\{ s_i \}$, $s_i \in \mathbb{R}$.
 
 ```
 
