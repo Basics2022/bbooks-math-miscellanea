@@ -125,7 +125,14 @@ $$\begin{aligned}
   & = \mathbf{u}(\mathbf{x}_0) + \Delta \ell \, \partial_{n} \mathbf{u}(\mathbf{x}_0) \ .
 \end{aligned}$$
 
-**If** the matrix $\mathbf{A}_{\hat{\mathbf{n}}}$ is diagonalizable, it's invertible if it has no zero eigenvalue.
+**If** the matrix $\mathbf{A}_{\hat{\mathbf{n}}}$ is diagonalizable, it's invertible if it has no zero eigenvalue. Let $\hat{\mathbf{n}}_i$ be a unit vector so that the matrix $\mathbf{A}_{\hat{\mathbf{n}}}$ has an eigenvalue equal to zero $s_0 = 0$, with right and left eigenvectors $\mathbf{r}_0$, $\mathbf{l}_0$. Recalling the expression of the PDE in normal and tangential components
+
+$$\mathbf{s} = \mathbf{A}_{\hat{\mathbf{n}}} \partial_n \mathbf{u} + \sum_{\ell=1}^{d} \mathbf{A}_{\hat{\mathbf{d}}_\ell} \partial_{t_\ell} \mathbf{u} \ ,$$
+
+left-multiplying by $\mathbf{l}$ gives
+
+$$\mathbf{l}^T_0 \mathbf{s} = \mathbf{l}_0^T \sum_{\ell=1}^{d} \mathbf{A}_{\hat{\mathbf{d}}_\ell} \partial_{t_\ell} \mathbf{u} \ .$$
+
 
 **todo** 
 - *compatibility conditions*
@@ -193,7 +200,10 @@ $$\begin{aligned}
 \end{bmatrix} \ .
 \end{aligned}$$
 
-The eigenvalue decompositino of the matrix $\mathbf{A}_{\hat{\mathbf{n}}}$ follows from
+
+```{dropdown} Eigenvalues. Details
+
+The eigenvalue decomposition of the matrix $\mathbf{A}_{\hat{\mathbf{n}}}$ follows from
 
 $$\begin{aligned}
   0 & = \left| \mathbf{A}_{\hat{\mathbf{n}}} - s \mathbf{I} \right| =
@@ -210,10 +220,155 @@ $$\begin{aligned}
   & =
             s^3 ( - 1 ) + \\
   & \quad + s^2 ( u_n + u_y n_y + u_n + u_x n_x ) + \\
-  & \quad + s   ( - ( u_n + u_x n_x ) ( u_n + u_y n_y ) + n_y ( a^2 n_y - u_n u_y n_y ) + n_x ( a^2 n_x - u_n u_x n_x ) - u_x n_x u_y n_y ) + \\
-  & \quad + 1 \cdot (  n_x u_x n_y ( a^2 n_y - u_n u_y ) + n_y u_y n_x ( a^2 n_x - u_n u_x ) - n_y (  a^2 n_y - u_n u_y n_y )( u_x n_x + u_n ) - n_x ( a^2 n_x - u_n u_x n_x )( u_y n_y + u_n ) ) = \\
-  & = - s^3 + 3 u_n s^2 + s ( a^2 )
+  & \quad + s   ( - ( u_n + u_x n_x ) ( u_n + u_y n_y ) + n_y ( a^2 n_y - u_n u_y ) + n_x ( a^2 n_x - u_n u_x ) - u_x n_x u_y n_y ) + \\
+  & \quad + 1 \cdot (  n_x u_x n_y ( a^2 n_y - u_n u_y ) + n_y u_y n_x ( a^2 n_x - u_n u_x ) - n_y (  a^2 n_y - u_n u_y )( u_x n_x + u_n ) - n_x ( a^2 n_x - u_n u_x )( u_y n_y + u_n ) ) = \\
+  & = - s^3 + 3 u_n s^2 + s ( - u_n^2 - u_n (u_x n_x + u_y n_y) - u_x n_x u_y n_y - u_n u_y n_y - u_n u_x n_x + a^2 - u_x n_x u_y n_y ) + \\
+  & \quad + ( a^2 \left( n_y^2 u_x n_x + n_x^2 n_y u_y - n_y^2 u_x n_x - n_y^2 u_n - n_x^2 u_y n_y - u_n n_x^2 \right) - u_n u_x n_x u_y n_y - u_n u_x n_x u_y n_y +u_n u_x n_x u_y n_y + u_n^2 u_y n_y + u_n u_x n_x u_y n_y + u_n^2 u_x n_x ) = \\ 
+  & = - s^3 + 3 u_n s^2 + s ( a^2 - 3 u_n^2 ) - u_n  ( a^2 - u_n^2 ) = \\
+  & = - ( s - u_n )^3 + ( s - u_n ) a^2 = \\
+  & = - ( s - u_n ) ( ( s - u_n )^2 - a^2 ) \ .
 \end{aligned}$$
+
+```
+
+Thus the eigenvalues of the matrix $\mathbf{A}_{\hat{\mathbf{n}}}$ are
+
+$$s_{1,3} = u_n \mp a \quad , \quad s_2 = u_n \ ,$$
+
+and the right and left eigenvectors follow
+
+$$\begin{aligned}
+  \mathbf{R} & = \\
+  \mathbf{L} & = \\
+\end{aligned}$$
+
+
+
+```{dropdown} Right and left eigenvectors. Details
+
+For $s_{1,3} = u_n \mp  a$,
+
+$$
+\mathbf{0} = \begin{bmatrix} -u_n \pm a & \mathbf{n}^T \\ a^2 \mathbf{n} - u_n \mathbf{u} & \pm a \mathbf{I} + \mathbf{u} \mathbf{n}^T \end{bmatrix}
+\begin{bmatrix} \hat{\rho} \\ \hat{\mathbf{m}} \end{bmatrix}
+$$
+
+From the first equation it follows $\hat{m}_n = ( u_n \mp a ) \hat{\rho}$, and thus the momentum equation gives
+
+$$\begin{aligned}
+  \mathbf{0}
+  & = \hat{\rho} ( a^2 \mathbf{n} - u_n \mathbf{u} ) \pm a \hat{\mathbf{m}} + \mathbf{u} \hat{m}_n = \\
+  & = \hat{\rho} ( a^2 \mathbf{n} - u_n \mathbf{u} ) \pm a \hat{\mathbf{m}} + \mathbf{u} ( u_n \mp a ) \hat{\rho} = \\
+  & = \hat{\rho} ( a^2 \mathbf{n} \mp a \mathbf{u} ) \pm a \hat{\mathbf{m}} \ ,
+\end{aligned}$$
+
+and thus
+
+$$\hat{\mathbf{m}}_{1,3} = \hat{\rho}_{1,3} ( \mathbf{u} \mp a \mathbf{n} ) \ . $$
+
+For $s_{2} = u_n$,
+
+$$
+\mathbf{0} = \begin{bmatrix} -u_n & \mathbf{n}^T \\ a^2 \mathbf{n} - u_n \mathbf{u} & \mathbf{u} \mathbf{n}^T \end{bmatrix}
+\begin{bmatrix} \hat{\rho} \\ \hat{\mathbf{m}} \end{bmatrix}
+$$
+
+From the first equation it follows $\hat{m}_n = u_n \hat{\rho}$, and thus the momentum equation gives
+
+$$\begin{aligned}
+  \mathbf{0}
+  & = \hat{\rho} ( a^2 \mathbf{n} - u_n \mathbf{u} ) + \mathbf{u} \, \hat{m}_n = \\
+  & = \hat{\rho} ( a^2 \mathbf{n} - u_n \mathbf{u} ) + \mathbf{u} \, u_n \, \hat{\rho} = \\
+  & = \hat{\rho}   a^2 \mathbf{n} \ ,
+\end{aligned}$$
+
+and thus $\hat{\rho}_2 = 0$. The components of the momentum readily follows from mass equation that is equivalent to the condition
+
+$$\mathbf{n}^T \hat{\mathbf{m}}_{2} = 0 \ ,$$
+
+i.e. as an example $\hat{\mathbf{m}}_{2} = \begin{bmatrix} n_y \\ -n_x \end{bmatrix}$.
+
+Assuming positive density, it's possible to write all the eigenvectors with the proper physical dimensions, and collect them in the matrix of right eigenvectors,
+
+$$\mathbf{R} = \begin{bmatrix}
+  \rho & 0 & \rho \\
+  \rho ( u - a n_x ) &   \rho a n_y &  \rho ( u + a n_x ) \\ 
+  \rho ( v - a n_y ) & - \rho a n_x &  \rho ( v + a n_y ) 
+\end{bmatrix} \ .$$
+
+The determinant reads
+
+$$\begin{aligned}
+  \frac{1}{\rho^3 a^2} |\mathbf{R}|
+  & =   n_y ( v + n_y ) - ( u - n_x ) n_x - n_y ( v - n_y ) + n_x ( u + n_x ) = 2 \ .
+\end{aligned}$$
+
+The inverse matrix reads
+
+$$\begin{aligned}
+\mathbf{L} 
+& = \frac{1}{|\mathbf{R}|} \, \rho^2 \,
+\begin{bmatrix}
+   a ( a + u_n )       &  - a n_x  & -   a n_y \\
+   2a( n_x v - n_y u ) & 2 a n_ y  & - 2 a n_x \\
+   a ( a - u_n )       &    a n_x  &     a n_y \\
+\end{bmatrix} = \\
+& =
+\frac{1}{2 \rho a^2}
+\begin{bmatrix}
+   a ( a + u_n )       &  - a n_x  & -   a n_y \\
+   2a( n_x v - n_y u ) & 2 a n_ y  & - 2 a n_x \\
+   a ( a - u_n )       &    a n_x  &     a n_y \\
+\end{bmatrix} \ .
+\end{aligned}$$
+
+as
+
+$$\begin{aligned}
+   L_{11} & \propto  a n_y (v+a n_y) + a n_x (u+a n_x) = a u_n + a^2   \\ 
+  -L_{21} & \propto (u-a n_x)(v+a n_y) - (v-a n_y) (u+a n_x) = 2 a u n_y - 2 a n_x v   \\ 
+   L_{31} & \propto -a n_x (u-a n_x) - a n_y (v- a n_y) = - a u_n + a^2  \\ 
+  -L_{12} & \propto a n_x \\ 
+   L_{22} & \propto ( v+ a n_y) - (v - a n_y) = 2 a n_y   \\ 
+  -L_{32} & \propto - a n_x   \\ 
+   L_{13} & \propto - a n_y   \\ 
+  -L_{23} & \propto ( u + a n_x ) - ( u - a n_x ) = 2 a n_x  \\ 
+   L_{33} & \propto a n_y   \\ 
+\end{aligned}$$
+
+Some check
+
+$$\begin{aligned}
+  \mathbf{L} \mathbf{R} 
+  & = \frac{1}{2 \rho a^2} \begin{bmatrix} a ( a + u_n) & - a \mathbf{n}^T \\ 2 a (n_x v - n_y u) & 2 a \mathbf{t}^T \\ a ( a - u_n ) & a \mathbf{n}^T \end{bmatrix} \begin{bmatrix} 1 & 0 & 1 \\ \mathbf{u} - a \mathbf{n} & a \mathbf{t} & \mathbf{u} + a \mathbf{n} \end{bmatrix} \, \rho = \\
+  & = \frac{1}{2 a^2} \begin{bmatrix}
+  a^2 + a u_n - a u_n + a^2 & - a\mathbf{n}^T\mathbf{t} &  a^2 + a u_n - a u_n - a^2 \\
+  2 a ( n_x v - n_y u ) + 2 a ( n_y u - n_x v ) & 2 a^2 &  2 a ( n_x v - n_y u ) + 2 a ( n_y u - n_x v ) \\
+  a^2 - a u_n + a u_n - a^2 &   a\mathbf{n}^T\mathbf{t} &  a^2 - a u_n + a u_n + a^2 \\
+  \end{bmatrix} = \mathbf{I}_3 \ .
+\end{aligned}$$
+
+```
+
+**Normal vectors of the characteristic surfaces.** For **locally supersonic flows**, $|\mathbf{u}| > a$, there are three directions, i.e. three unit vectors $\hat{\mathbf{n}}_i$ that make the eigenvalues equal to zero,
+
+$$\hat{\mathbf{n}}_{1,3} \cdot \mathbf{u} = \pm a \quad , \quad \hat{\mathbf{n}}_{2} \cdot \mathbf{u} = 0 \ ,$$
+
+or equivalently
+
+$$\hat{\mathbf{n}}_{1,3} \cdot \left( \mathbf{u} \mp a \hat{\mathbf{n}}_{1,3} \right) = 0 \quad , \quad \hat{\mathbf{n}}_2 \cdot \mathbf{u} = 0 \ .$$
+
+Let $\hat{\mathbf{u}}$ the unit vector along the local velocity field, it follows
+
+$$u \hat{\mathbf{u}} \cdot \hat{\mathbf{n}}_{1,3} = \pm a \ ,$$
+
+i.e.
+
+$$\cos \theta_{1,3} = \pm \frac{a}{u} = \pm \frac{1}{M} \ .$$
+
+For **locally subsonic flows**, $|\mathbf{u}| < a$, the eigenvalues $s_{1,3}$ are always negative and positive respectively, while the eigenvalue $s_2$ becomes equal to zero for unit vectors that are orthogonal w.r.t. the local velocity.
+
+
 
 
 #### Euler equations for inviscid compressible flows
