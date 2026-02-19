@@ -85,7 +85,7 @@
         
 
 \title{basics - math}
-\date{Dec 08, 2025}
+\date{Feb 19, 2026}
 \release{}
 \author{basics}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -532,6 +532,71 @@ It’s likely that mainly underdamped systems with simultaneously diagonalizable
 \sphinxstepscope
 
 
+\section{Spectral decomposition of symmetric matrices}
+\label{\detokenize{ch/linear-algebra/spectral-symmetric:spectral-decomposition-of-symmetric-matrices}}\label{\detokenize{ch/linear-algebra/spectral-symmetric:math-spectral-symmetric}}\label{\detokenize{ch/linear-algebra/spectral-symmetric::doc}}
+\sphinxAtStartPar
+In this section the spectral decomposition of symmetric matrices (or Hermitian, if defined on the complex field), \(\mathbf{A} = \mathbf{A}^*\), is discussed.
+\label{ch/linear-algebra/spectral-symmetric:theorem-0}
+\begin{sphinxadmonition}{note}{Theorem 5.1.1 (Spectral theorem of a symmetric matrix)}
+
+
+
+\sphinxAtStartPar
+A symmetric matrix has a spectral decomposition, with a complete set of unit orthogonal vectors and real eigenvalues,
+\begin{equation*}
+\begin{split}\mathbf{A} = \mathbf{R} \mathbf{S} \mathbf{R}^* \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+with \(\mathbf{R} = \left[ \ \mathbf{r}_1 \ | \ \dots \ | \ \mathbf{r}_n \ \right]\), and \(\mathbf{r}_i^* \mathbf{r}_k = \delta_{ik}\), and \(\mathbf{S} = \text{diag}\{ s_i \}\), \(s_i \in \mathbb{R}\).
+\end{sphinxadmonition}
+\subsubsection*{Proof}
+
+\sphinxAtStartPar
+\sphinxstylestrong{todo} \sphinxstyleemphasis{By construction…}
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{A}
+  & = \mathbf{R} \mathbf{S} \mathbf{R}^* = \\
+  & = \begin{bmatrix} \mathbf{r}_1 & \dots & \mathbf{r}_n \end{bmatrix} \text{diag}\{ s_i \} \begin{bmatrix} \mathbf{r}_1^* \\ \dots \\ \mathbf{r}_n^* \end{bmatrix} = \\
+  & = \begin{bmatrix} s_1 \mathbf{r}_1 & \dots & s_n \mathbf{r}_n \end{bmatrix} \begin{bmatrix} \mathbf{r}_1^* \\ \dots \\ \mathbf{r}_n^* \end{bmatrix} = \\
+  & = s_1 \mathbf{r}_1 \mathbf{r}_1^* + \dots + s_n \mathbf{r}_n \mathbf{r}_n^* \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Properties.}
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Left and right eigenvectors are the same. This immediately follows from the symmetry of the matrix and the definition of the left and right eigenvectors
+\begin{equation*}
+\begin{split}\begin{aligned}
+     \mathbf{A} \mathbf{r}_k   & = s_k \mathbf{r}_k \\
+     \mathbf{l}_j^* \mathbf{A} & = s^*_j \mathbf{l}_i^* \quad \rightarrow \quad \mathbf{A} \mathbf{l}_j = s_j \mathbf{l}_j \ ,
+   \end{aligned}\end{split}
+\end{equation*}
+\item {} 
+\sphinxAtStartPar
+Eigenvalues are real, as
+\begin{equation*}
+\begin{split}0 = \mathbf{l}^*_k \left( \mathbf{A} \mathbf{r}_k \right) - \left( \mathbf{l}_k^* \mathbf{A} \right) \mathbf{r}_k = \left( s_k - s^*_k \right) \mathbf{l}^*_k \mathbf{r}_k = 2 \, \text{im}\{ s_k \} \underbrace{\mathbf{l}^*_k \mathbf{r}_k}_{ = | \mathbf{r}_k |^2} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and thus \(\text{im} \{ s_k \} = 0\).
+
+\item {} 
+\sphinxAtStartPar
+Eigenvectors with different eigenvalues are orthogonal, as
+\begin{equation*}
+\begin{split}0 = \mathbf{l}^*_j \left( \mathbf{A} \mathbf{r}_k \right) - \left( \mathbf{l}_j^* \mathbf{A} \right) \mathbf{r}_k = \left( s_k - s^*_j \right) \mathbf{l}^*_j \mathbf{r}_k \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and thus \(\mathbf{l}^*_j \mathbf{r}_k = 0\) for \(j \ne k\), if \(s_j \ne s_k\). Left and right eigenvectors are orthogonal w.r.t. matrix \(\mathbf{A}\) as well.
+
+\end{itemize}
+
+\sphinxstepscope
+
+
 \section{Sensitivity of spectral decomposition}
 \label{\detokenize{ch/linear-algebra/spectral-sensitivity:sensitivity-of-spectral-decomposition}}\label{\detokenize{ch/linear-algebra/spectral-sensitivity:math-spectral-sensitivity}}\label{\detokenize{ch/linear-algebra/spectral-sensitivity::doc}}
 \sphinxAtStartPar
@@ -580,7 +645,7 @@ Right and left eigenvalue problems are defined as
   \mathbf{v}_j^* \mathbf{A} & = s_j \mathbf{v}_j^* \mathbf{B} \\
 \end{aligned}\end{split}
 \end{equation}\label{ch/linear-algebra/spectral-sensitivity:property-0}
-\begin{sphinxadmonition}{note}{Property 5.1.1 (Eigenvalues of the right and left spectral problems)}
+\begin{sphinxadmonition}{note}{Property 5.2.1 (Eigenvalues of the right and left spectral problems)}
 
 
 
@@ -592,7 +657,7 @@ Left and right eigenvalue problems have the same set of eigenvalues.
 \sphinxAtStartPar
 \sphinxstylestrong{todo}
 \label{ch/linear-algebra/spectral-sensitivity:property-1}
-\begin{sphinxadmonition}{note}{Property 5.1.2 (Orthogonality conditions of right and left spectral problems)}
+\begin{sphinxadmonition}{note}{Property 5.2.2 (Orthogonality conditions of right and left spectral problems)}
 
 
 
@@ -673,7 +738,7 @@ The sensitivity of the eigenvector \(\mathbf{u}_{i/p}\) is the solution of the l
 \sphinxAtStartPar
 once the sensitivity of the eigenvector \(s_{i/p}\) is known from expression \eqref{equation:ch/linear-algebra/spectral-sensitivity:eq:eig:sens:first:eval}.
 \label{ch/linear-algebra/spectral-sensitivity:property-2}
-\begin{sphinxadmonition}{note}{Property 5.1.3 (Linear system is singular, \protect\( \text{K}(A) = \{ \mathbf{u}_i \}\protect\))}
+\begin{sphinxadmonition}{note}{Property 5.2.3 (Linear system is singular, \protect\( \text{K}(A) = \{ \mathbf{u}_i \}\protect\))}
 
 
 
@@ -689,7 +754,7 @@ As the matrix of the linear system is singular, the linear system has \sphinxsty
 \sphinxAtStartPar
 Fortunately, the RHS belongs to the range of the matrix, \(\mathbf{b}_i \in \text{R}(\mathbf{A}- s_i \mathbf{B})\), as it’s proved in the box below.
 \label{ch/linear-algebra/spectral-sensitivity:property-3}
-\begin{sphinxadmonition}{note}{Property 5.1.4 (\protect\(\ \mathbf{b}_i \in \text{R}(\mathbf{A} - s_i \mathbf{B})\protect\))}
+\begin{sphinxadmonition}{note}{Property 5.2.4 (\protect\(\ \mathbf{b}_i \in \text{R}(\mathbf{A} - s_i \mathbf{B})\protect\))}
 
 
 
@@ -721,7 +786,7 @@ as \((\mathbf{A} - s_i \mathbf{B}) \mathbf{U}_i = \mathbf{0}\), being \(\mathbf{
 \sphinxAtStartPar
 In order to remove this arbitrariness, it’s possible to introduce the orthogonality condition \(\mathbf{V}_i^* \mathbf{B} \widetilde{\mathbf{u}_{i/p}} = \mathbf{0}\), setting the coefficients of the linear combination of the vectors of the kernel \(\boldsymbol\beta = \mathbf{0}\).
 \label{ch/linear-algebra/spectral-sensitivity:property-4}
-\begin{sphinxadmonition}{note}{Property 5.1.5 (Augmented linear system)}
+\begin{sphinxadmonition}{note}{Property 5.2.5 (Augmented linear system)}
 
 
 \begin{equation*}
@@ -733,7 +798,7 @@ In order to remove this arbitrariness, it’s possible to introduce the orthogon
 If everything goes right, the coefficients \(\boldsymbol{\beta}\) must be zero.
 \end{sphinxadmonition}
 \label{ch/linear-algebra/spectral-sensitivity:property-5}
-\begin{sphinxadmonition}{note}{Property 5.1.6 (Decomposition of the soluton using the modal basis)}
+\begin{sphinxadmonition}{note}{Property 5.2.6 (Decomposition of the soluton using the modal basis)}
 
 
 
@@ -6150,6 +6215,533 @@ and \(P\) the pressure field expressed by the \sphinxstylestrong{equation of sta
 \sphinxstepscope
 
 
+\section{Method of characteristics}
+\label{\detokenize{ch/pde/characteristics:method-of-characteristics}}\label{\detokenize{ch/pde/characteristics:pde-hyperbolic-characteristics}}\label{\detokenize{ch/pde/characteristics::doc}}
+
+\subsection{Scalar multi\sphinxhyphen{}dimensional problem}
+\label{\detokenize{ch/pde/characteristics:scalar-multi-dimensional-problem}}\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{a}^T(u(\mathbf{x}), \mathbf{x}) \, \boldsymbol\nabla  u(\mathbf{x}) & = c(u(\mathbf{x}), \mathbf{x}) \quad , \quad \mathbf{x} \in D \\
+  a_k(u(\mathbf{x}), \mathbf{x}) \frac{\partial}{\partial x_k} u(\mathbf{x}) & = c(u(\mathbf{x}), \mathbf{x}) 
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+The method of characteristics aims at transforming the PDE over the domain \(D\), in a set of ODEs over lines \sphinxhyphen{} the characteristic lines. Both the coordinates of these lines and the unknown function on these lines are written in parametric form as
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{x} & = \mathbf{X}(s) \\
+  u(\mathbf{X}(s)) & = U(s) \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Now, taking the ordinary derivative of \(U'(s)\),
+\begin{equation*}
+\begin{split}U'(s) = \frac{d X_k}{d s}(s) \frac{\partial u}{\partial x_k}\left( \mathbf{X}(s) \right) \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+If the characteristic lines are defined by the differential equation \(X'_k(s) = a_k(U(s), X(s))\), the set of ODEs become
+\begin{equation*}
+\begin{split}\begin{aligned}
+ U'(s) & = c\left(U(s), \mathbf{X}(s)\right) \\
+ \mathbf{X}'(s) & = \mathbf{a}\left(U(s), \mathbf{X}(s)\right) \ .
+\end{aligned}\end{split}
+\end{equation*}
+
+\subsection{Vector multi\sphinxhyphen{}dimensional problem}
+\label{\detokenize{ch/pde/characteristics:vector-multi-dimensional-problem}}
+\sphinxAtStartPar
+\sphinxstylestrong{todo} \sphinxstyleemphasis{Characteristic method fails…characteristic \sphinxhyphen{} eikonal \sphinxhyphen{} equation. Uncomment}
+
+\sphinxAtStartPar
+Let
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{u}(t, \mathbf{r}): & \ \mathbb{R} \times \mathbb{R}^d \rightarrow \mathbb{R}^n \\
+  \mathbf{F}(   \mathbf{u}): & \ \mathbb{R}^{n} \rightarrow \mathbb{R}^{d} \times \mathbb{R}^n \\
+  \mathbf{s}(t, \mathbf{r}): & \ \mathbb{R} \times \mathbb{R}^d \rightarrow \mathbb{R}^n \\
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+the conservative form of a hyperbolic problem reads
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \partial_t \mathbf{u} + \nabla \cdot \mathbf{F}(\mathbf{u}) & = \mathbf{s} \\
+  \partial_t u_i + \partial_j F_{ji} & = s_i \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Expanding the divergence of the flux, the convective (quasi\sphinxhyphen{}linear? It makes little to no sense to me…) form follows
+\begin{equation*}
+\begin{split}\begin{aligned}
+  s_i 
+  & = \partial_t u_i + \sum_{j=1}^{d} \partial_j F_{ji} = \\
+  & = \partial_t u_i + \sum_{j=1}^{d} \sum_{k=1}^{n} \partial_j u_k \partial_{u_k} F_{ji} = \\
+  & = \partial_t u_i + \sum_{j=1}^{d} \sum_{k=1}^{n} A^{j}_{ik}(\mathbf{u}) \, \partial_j u_k  \ ,
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+for every component \(i = 1:n\), or
+\begin{equation*}
+\begin{split}\mathbf{s} = \partial_t \mathbf{u} + \sum_{j=1}^{d} \mathbf{A}^j \partial_j \mathbf{u} \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+This problem can be made a little more general with by defining \(\mathbf{x} = (t, \mathbf{r}) = ( x_0, \mathbf{r} )\), as
+\begin{equation*}
+\begin{split}\sum_{j=0}^{d} \mathbf{A}^j \, \partial_j \mathbf{u} = \mathbf{s} \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+The former expression of the hyperbolic problem immediately follows if \(\mathbf{A}_0 = \mathbf{I}_n\), \(A^0_{ik} = \delta_{ik}\), and
+\begin{equation*}
+\begin{split}\widetilde{\nabla} \cdot \widetilde{\mathbf{F}} = \partial_0 \mathbf{F}_0 + \sum_{j=1}^{d} \partial_j \mathbf{F}_j = \widetilde{\nabla} \cdot \begin{bmatrix} \ \mathbf{u} \ | \ \mathbf{F} \ \end{bmatrix} \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+as, for \(i = 1:n\),
+\begin{equation*}
+\begin{split}\delta_{ik} = \partial_{u_k} F_{0i} \quad \rightarrow \quad F_{0i} = u_k \delta_{ik} = u_i \ .\end{split}
+\end{equation*}
+
+\subsubsection{Taylor expansion of a solution}
+\label{\detokenize{ch/pde/characteristics:taylor-expansion-of-a-solution}}
+\sphinxAtStartPar
+Starting from the solution on a manifold determined by the equation \(S: f(\mathbf{x}) = 0\), \(\mathbf{x}_0 \in S\), if the solution is differentiable, the solution in a point \(\mathbf{x} = \mathbf{x}_0 + \Delta \mathbf{x}\) reads
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{u}(\mathbf{x}) & \sim \mathbf{u}(\mathbf{x}_0) + \Delta \mathbf{x} \cdot \nabla \mathbf{u}(\mathbf{x}_0) \\
+  u_i(\mathbf{x}) & \sim u_i(\mathbf{x}_0) + \Delta_j \frac{\partial u_i}{\partial x_j} \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Now, with a change of coordinates from \(\mathbf{x}\) to \(\boldsymbol\xi = (n, \mathbf{t})\), i.e. to local normal and tangential direction,
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \nabla \mathbf{u} 
+  = \hat{\mathbf{x}}_i \frac{\partial}{\partial x_i} \mathbf{u} 
+  = \hat{\mathbf{x}}_i \frac{\partial \mathbf{u}}{\partial x_i} 
+  = \hat{\mathbf{x}}_i \frac{\partial \mathbf{u}}{\partial \xi_k} \frac{\partial \xi_k}{\partial x_i} 
+  = \hat{\boldsymbol\xi}_k \frac{\partial \mathbf{u}}{\partial \xi_k}
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Inserting in the hyperbolic equation
+\begin{equation*}
+\begin{split}\begin{aligned}
+  s_i
+  & = \sum_{j=0}^{d} A^{j}_{ik} \frac{\partial u_k}{\partial x_j} = \\
+  & = \sum_{j=0}^{d} A^{j}_{ik} \sum_{\ell=0}^{d} \frac{\partial u_k}{\partial \xi_\ell} \frac{\partial \xi_\ell}{\partial x_j} = \\ 
+  & = \sum_{\ell=0}^{d}  \sum_{j=0}^{d}  A^{j}_{ik} \frac{\partial \xi_\ell}{\partial x_j} \frac{\partial u_k}{\partial \xi_\ell} = \\ 
+  & = \sum_{\ell=0}^{d}  \sum_{j=0}^{d}  A^{j}_{ik} \xi^\ell_j \frac{\partial u_k}{\partial \xi_\ell} \ ,
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and separating the normal \(\ell = 0\) from the tangential \(\ell=1:d\) coordinates,
+\begin{equation*}
+\begin{split}\begin{aligned}
+  s_i
+  & = \sum_{j=0}^{d} A^j_{ik} \xi^0_j \frac{\partial u_k}{\partial \xi_0} + \sum_{\ell=1}^{d} \sum_{j=0}^{d} A^j_{ik} \xi^t_j \frac{\partial u_k}{\partial \xi_t} = \\
+  & = \sum_{j=0}^{d} A^j_{ik} n_j \frac{\partial u_k}{\partial n} + \sum_{\ell=1}^{d} \sum_{j=0}^{d} A^j_{ik} t^\ell_j \frac{\partial u_k}{\partial t_\ell} = \\
+  & = \sum_{j=0}^{d} n_j \mathbf{A}^j \partial_n \mathbf{u} + \sum_{\ell=1}^{d} \sum_{j=0}^{d} t^\ell_j \mathbf{A}^j \partial_{t_\ell} \mathbf{u} \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+On a smooth surface where the solution is known, all the tangential derivatives of the solution are known as well. In order to evaluate the normal derivative \(\partial_n \mathbf{u}\) from the PDE, the (formal) inversion of the matrix
+\begin{equation*}
+\begin{split}\mathbf{A}_{\hat{\mathbf{n}}} := \sum_{j=0}^{d} n_j \, \mathbf{A}^j \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+must be invertible, to formally get
+\begin{equation*}
+\begin{split}\partial_n \mathbf{u} = \mathbf{A}_{\hat{\mathbf{n}}}^{-1} \left( \mathbf{s} - \sum_{\ell=1}^{d} \mathbf{A}_{\hat{\mathbf{t}}_\ell} \partial_{t_\ell} \mathbf{u} \right) \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+This expression of the normal derivative of the solution \sphinxhyphen{} whenever it exists \sphinxhyphen{} can be used to find the approximation of the solution in normal direction w.r.t. the surface \(S\), i.e. with \(\Delta \mathbf{x} = \Delta \ell \hat{\mathbf{n}}\) as
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{u}(\mathbf{x}) 
+  & \sim \mathbf{u}(\mathbf{x}_0) + \Delta \ell \, \hat{\mathbf{n}} \cdot \nabla \mathbf{u}(\mathbf{x}_0) = \\
+  & = \mathbf{u}(\mathbf{x}_0) + \Delta \ell \, \partial_{n} \mathbf{u}(\mathbf{x}_0) \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{If} the matrix \(\mathbf{A}_{\hat{\mathbf{n}}}\) is diagonalizable, it’s invertible if it has no zero eigenvalue. Let \(\hat{\mathbf{n}}_i\) be a unit vector so that the matrix \(\mathbf{A}_{\hat{\mathbf{n}}}\) has an eigenvalue equal to zero \(s_0 = 0\), with right and left eigenvectors \(\mathbf{r}_0\), \(\mathbf{l}_0\). Recalling the expression of the PDE in normal and tangential components
+\begin{equation*}
+\begin{split}\mathbf{s} = \mathbf{A}_{\hat{\mathbf{n}}} \partial_n \mathbf{u} + \sum_{\ell=1}^{d} \mathbf{A}_{\hat{\mathbf{d}}_\ell} \partial_{t_\ell} \mathbf{u} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+left\sphinxhyphen{}multiplying by \(\mathbf{l}\) gives
+\begin{equation*}
+\begin{split}\mathbf{l}^T_0 \mathbf{s} = \mathbf{l}_0^T \sum_{\ell=1}^{d} \mathbf{A}_{\hat{\mathbf{d}}_\ell} \partial_{t_\ell} \mathbf{u} = \qquad \dots \qquad = \mathbf{l}_0^T \sum_{k=0}^{d} \mathbf{A}^k \partial_k \mathbf{u} \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{todo}
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleemphasis{compatibility conditions}
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleemphasis{eikonal equation}
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleemphasis{explicitly treating steady vs. unsteady problems}
+
+\end{itemize}
+
+
+\subsubsection{Examples}
+\label{\detokenize{ch/pde/characteristics:examples}}
+
+\paragraph{Isothermal compressible flow}
+\label{\detokenize{ch/pde/characteristics:isothermal-compressible-flow}}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Conservative variables: \((\rho, \vec{m})\)
+
+\item {} 
+\sphinxAtStartPar
+Physical variables: e.g. \((\rho, \vec{u})\), \((P, \vec{u})\),…
+
+\end{itemize}
+
+\sphinxAtStartPar
+Conservative form reads
+\begin{equation*}
+\begin{split}\begin{cases}
+  \partial_t \rho + \nabla \cdot \mathbf{m} = 0 \\
+  \partial_t \mathbf{m} + \nabla \cdot \left[ \frac{\mathbf{m}\otimes\mathbf{m}}{\rho} + \rho a^2 \mathbf{I} \right] = 0 \\
+\end{cases}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Convective form in a 2\sphinxhyphen{}dimensional domain reads
+\begin{equation*}
+\begin{split}
+\partial_t \begin{bmatrix} \rho \\ m_x \\ m_y \end{bmatrix} +
+\begin{bmatrix}
+  \cdot & 1     & \cdot \\
+  a^2 - \frac{m_x m_x}{\rho^2} & \frac{2 m_x}{\rho} & \cdot \\
+      - \frac{m_x m_y}{\rho^2} & \frac{m_y}{\rho} & \frac{m_x}{\rho} \\
+\end{bmatrix} \partial_x \begin{bmatrix} \rho \\ m_x \\ m_y \end{bmatrix} +
+\begin{bmatrix}
+  \cdot & \cdot & 1     \\
+  - \frac{m_x m_y}{\rho^2} & \frac{m_y}{\rho} & \frac{m_x}{\rho} \\
+  a^2 - \frac{m_y m_y}{\rho^2} & \cdot & \frac{2 m_y}{\rho} \\
+\end{bmatrix} \partial_y \begin{bmatrix} \rho \\ m_x \\ m_y \end{bmatrix} = \mathbf{0}
+\end{split}
+\end{equation*}\subsubsection*{Some algebra}
+\begin{equation*}
+\begin{split}\begin{aligned}
+  0 & = \rho_{/t} + m_{x/x} + m_{y/y}  \\
+  0 & = m_{i/t} + \partial_{j} \left( \frac{m_j m_i}{\rho} + \rho a^2 \delta_{ij} \right) \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Thus,
+\begin{equation*}
+\begin{split}\begin{aligned}
+\mathbf{A}_{\hat{\mathbf{n}}} 
+& = 
+\begin{bmatrix} 
+  \cdot & n_x & n_y \\
+  a^2 n_x - u_n u_x & u_x n_x + u_n & u_x n_y \\
+  a^2 n_y - u_n u_y & u_y n_x & u_n + u_y n_y \\
+\end{bmatrix} = \\
+& = 
+\begin{bmatrix}
+  0 & \mathbf{n}^T \\
+  a^2 \mathbf{n} - ( \mathbf{n}^T \mathbf{u} ) \mathbf{u} &  \mathbf{n}^T \mathbf{u} \mathbf{I} + \mathbf{u} \mathbf{n}^T
+\end{bmatrix} = \\
+& = 
+\begin{bmatrix}
+  0 & \hat{\mathbf{n}}^T \\
+  a^2 \mathbf{n} - ( \mathbf{n} \cdot \mathbf{u} ) \mathbf{u} & ( \mathbf{n} \cdot \mathbf{u} ) \mathbb{I} + \mathbf{u} \otimes \mathbf{n}
+\end{bmatrix} \ .
+\end{aligned}\end{split}
+\end{equation*}\subsubsection*{Eigenvalues. Details}
+
+\sphinxAtStartPar
+The eigenvalue decomposition of the matrix \(\mathbf{A}_{\hat{\mathbf{n}}}\) follows from
+\begin{equation*}
+\begin{split}\begin{aligned}
+  0 & = \left| \mathbf{A}_{\hat{\mathbf{n}}} - s \mathbf{I} \right| =
+\left|
+\begin{bmatrix}
+  -s & \mathbf{n}^T \\
+  a^2 \mathbf{n} - u_n \mathbf{u} & ( u_n - s ) \mathbf{I} + \mathbf{u} \mathbf{n}^T
+\end{bmatrix} 
+\right| = \\
+  & = -s ( u_n + u_x n_x - s ) ( u_n + u_y n_y - s ) + n_x u_x n_y ( a^2 n_y - u_n u_y ) + n_y u_y n_x ( a^2 n_x - u_n u_x ) + \\
+  &  - ( a^2 n_y - u_n u_y ) ( u_x n_x + u_n - s) n_y 
+     - ( a^2 n_x - u_n u_x ) ( u_y n_y + u_n - s) n_x
+     - s u_x u_y n_x n_y = \\
+  & =
+            s^3 ( - 1 ) + \\
+  & \quad + s^2 ( u_n + u_y n_y + u_n + u_x n_x ) + \\
+  & \quad + s   ( - ( u_n + u_x n_x ) ( u_n + u_y n_y ) + n_y ( a^2 n_y - u_n u_y ) + n_x ( a^2 n_x - u_n u_x ) - u_x n_x u_y n_y ) + \\
+  & \quad + 1 \cdot (  n_x u_x n_y ( a^2 n_y - u_n u_y ) + n_y u_y n_x ( a^2 n_x - u_n u_x ) - n_y (  a^2 n_y - u_n u_y )( u_x n_x + u_n ) - n_x ( a^2 n_x - u_n u_x )( u_y n_y + u_n ) ) = \\
+  & = - s^3 + 3 u_n s^2 + s ( - u_n^2 - u_n (u_x n_x + u_y n_y) - u_x n_x u_y n_y - u_n u_y n_y - u_n u_x n_x + a^2 - u_x n_x u_y n_y ) + \\
+  & \quad + ( a^2 \left( n_y^2 u_x n_x + n_x^2 n_y u_y - n_y^2 u_x n_x - n_y^2 u_n - n_x^2 u_y n_y - u_n n_x^2 \right) - u_n u_x n_x u_y n_y - u_n u_x n_x u_y n_y +u_n u_x n_x u_y n_y + u_n^2 u_y n_y + u_n u_x n_x u_y n_y + u_n^2 u_x n_x ) = \\ 
+  & = - s^3 + 3 u_n s^2 + s ( a^2 - 3 u_n^2 ) - u_n  ( a^2 - u_n^2 ) = \\
+  & = - ( s - u_n )^3 + ( s - u_n ) a^2 = \\
+  & = - ( s - u_n ) ( ( s - u_n )^2 - a^2 ) \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Thus the eigenvalues of the matrix \(\mathbf{A}_{\hat{\mathbf{n}}}\) are
+\begin{equation*}
+\begin{split}s_{1,3} = u_n \mp a \quad , \quad s_2 = u_n \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and the right and left eigenvectors follow
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{R} & = \\
+  \mathbf{L} & = \\
+\end{aligned}\end{split}
+\end{equation*}\subsubsection*{Right and left eigenvectors. Details}
+
+\sphinxAtStartPar
+For \(s_{1,3} = u_n \mp  a\),
+\begin{equation*}
+\begin{split}
+\mathbf{0} = \begin{bmatrix} -u_n \pm a & \mathbf{n}^T \\ a^2 \mathbf{n} - u_n \mathbf{u} & \pm a \mathbf{I} + \mathbf{u} \mathbf{n}^T \end{bmatrix}
+\begin{bmatrix} \hat{\rho} \\ \hat{\mathbf{m}} \end{bmatrix}
+\end{split}
+\end{equation*}
+\sphinxAtStartPar
+From the first equation it follows \(\hat{m}_n = ( u_n \mp a ) \hat{\rho}\), and thus the momentum equation gives
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{0}
+  & = \hat{\rho} ( a^2 \mathbf{n} - u_n \mathbf{u} ) \pm a \hat{\mathbf{m}} + \mathbf{u} \hat{m}_n = \\
+  & = \hat{\rho} ( a^2 \mathbf{n} - u_n \mathbf{u} ) \pm a \hat{\mathbf{m}} + \mathbf{u} ( u_n \mp a ) \hat{\rho} = \\
+  & = \hat{\rho} ( a^2 \mathbf{n} \mp a \mathbf{u} ) \pm a \hat{\mathbf{m}} \ ,
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and thus
+\begin{equation*}
+\begin{split}\hat{\mathbf{m}}_{1,3} = \hat{\rho}_{1,3} ( \mathbf{u} \mp a \mathbf{n} ) \ . \end{split}
+\end{equation*}
+\sphinxAtStartPar
+For \(s_{2} = u_n\),
+\begin{equation*}
+\begin{split}
+\mathbf{0} = \begin{bmatrix} -u_n & \mathbf{n}^T \\ a^2 \mathbf{n} - u_n \mathbf{u} & \mathbf{u} \mathbf{n}^T \end{bmatrix}
+\begin{bmatrix} \hat{\rho} \\ \hat{\mathbf{m}} \end{bmatrix}
+\end{split}
+\end{equation*}
+\sphinxAtStartPar
+From the first equation it follows \(\hat{m}_n = u_n \hat{\rho}\), and thus the momentum equation gives
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{0}
+  & = \hat{\rho} ( a^2 \mathbf{n} - u_n \mathbf{u} ) + \mathbf{u} \, \hat{m}_n = \\
+  & = \hat{\rho} ( a^2 \mathbf{n} - u_n \mathbf{u} ) + \mathbf{u} \, u_n \, \hat{\rho} = \\
+  & = \hat{\rho}   a^2 \mathbf{n} \ ,
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and thus \(\hat{\rho}_2 = 0\). The components of the momentum readily follows from mass equation that is equivalent to the condition
+\begin{equation*}
+\begin{split}\mathbf{n}^T \hat{\mathbf{m}}_{2} = 0 \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+i.e. as an example \(\hat{\mathbf{m}}_{2} = \begin{bmatrix} n_y \\ -n_x \end{bmatrix}\).
+
+\sphinxAtStartPar
+Assuming positive density, it’s possible to write all the eigenvectors with the proper physical dimensions, and collect them in the matrix of right eigenvectors,
+\begin{equation*}
+\begin{split}\mathbf{R} = \begin{bmatrix}
+  \rho & 0 & \rho \\
+  \rho ( u - a n_x ) &   \rho a n_y &  \rho ( u + a n_x ) \\ 
+  \rho ( v - a n_y ) & - \rho a n_x &  \rho ( v + a n_y ) 
+\end{bmatrix} \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+The determinant reads
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \frac{1}{\rho^3 a^2} |\mathbf{R}|
+  & =   n_y ( v + n_y ) - ( u - n_x ) n_x - n_y ( v - n_y ) + n_x ( u + n_x ) = 2 \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+The inverse matrix reads
+\begin{equation*}
+\begin{split}\begin{aligned}
+\mathbf{L} 
+& = \frac{1}{|\mathbf{R}|} \, \rho^2 \,
+\begin{bmatrix}
+   a ( a + u_n )       &  - a n_x  & -   a n_y \\
+   2a( n_x v - n_y u ) & 2 a n_ y  & - 2 a n_x \\
+   a ( a - u_n )       &    a n_x  &     a n_y \\
+\end{bmatrix} = \\
+& =
+\frac{1}{2 \rho a^2}
+\begin{bmatrix}
+   a ( a + u_n )       &  - a n_x  & -   a n_y \\
+   2a( n_x v - n_y u ) & 2 a n_ y  & - 2 a n_x \\
+   a ( a - u_n )       &    a n_x  &     a n_y \\
+\end{bmatrix} \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+as
+\begin{equation*}
+\begin{split}\begin{aligned}
+   L_{11} & \propto  a n_y (v+a n_y) + a n_x (u+a n_x) = a u_n + a^2   \\ 
+  -L_{21} & \propto (u-a n_x)(v+a n_y) - (v-a n_y) (u+a n_x) = 2 a u n_y - 2 a n_x v   \\ 
+   L_{31} & \propto -a n_x (u-a n_x) - a n_y (v- a n_y) = - a u_n + a^2  \\ 
+  -L_{12} & \propto a n_x \\ 
+   L_{22} & \propto ( v+ a n_y) - (v - a n_y) = 2 a n_y   \\ 
+  -L_{32} & \propto - a n_x   \\ 
+   L_{13} & \propto - a n_y   \\ 
+  -L_{23} & \propto ( u + a n_x ) - ( u - a n_x ) = 2 a n_x  \\ 
+   L_{33} & \propto a n_y   \\ 
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Some check
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{L} \mathbf{R} 
+  & = \frac{1}{2 \rho a^2} \begin{bmatrix} a ( a + u_n) & - a \mathbf{n}^T \\ 2 a (n_x v - n_y u) & 2 a \mathbf{t}^T \\ a ( a - u_n ) & a \mathbf{n}^T \end{bmatrix} \begin{bmatrix} 1 & 0 & 1 \\ \mathbf{u} - a \mathbf{n} & a \mathbf{t} & \mathbf{u} + a \mathbf{n} \end{bmatrix} \, \rho = \\
+  & = \frac{1}{2 a^2} \begin{bmatrix}
+  a^2 + a u_n - a u_n + a^2 & - a\mathbf{n}^T\mathbf{t} &  a^2 + a u_n - a u_n - a^2 \\
+  2 a ( n_x v - n_y u ) + 2 a ( n_y u - n_x v ) & 2 a^2 &  2 a ( n_x v - n_y u ) + 2 a ( n_y u - n_x v ) \\
+  a^2 - a u_n + a u_n - a^2 &   a\mathbf{n}^T\mathbf{t} &  a^2 - a u_n + a u_n + a^2 \\
+  \end{bmatrix} = \mathbf{I}_3 \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Normal vectors of the characteristic surfaces.} For \sphinxstylestrong{locally supersonic flows}, \(|\mathbf{u}| > a\), there are three directions, i.e. three unit vectors \(\hat{\mathbf{n}}_i\) that make the eigenvalues equal to zero,
+\begin{equation*}
+\begin{split}\hat{\mathbf{n}}_{1,3} \cdot \mathbf{u} = \pm a \quad , \quad \hat{\mathbf{n}}_{2} \cdot \mathbf{u} = 0 \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+or equivalently
+\begin{equation*}
+\begin{split}\hat{\mathbf{n}}_{1,3} \cdot \left( \mathbf{u} \mp a \hat{\mathbf{n}}_{1,3} \right) = 0 \quad , \quad \hat{\mathbf{n}}_2 \cdot \mathbf{u} = 0 \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Let \(\hat{\mathbf{u}}\) the unit vector along the local velocity field, it follows
+\begin{equation*}
+\begin{split}u \hat{\mathbf{u}} \cdot \hat{\mathbf{n}}_{1,3} = \pm a \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+i.e.
+\begin{equation*}
+\begin{split}\cos \theta_{1,3} = \pm \frac{a}{u} = \pm \frac{1}{M} \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+For \sphinxstylestrong{locally subsonic flows}, \(|\mathbf{u}| < a\), the eigenvalues \(s_{1,3}\) are always negative and positive respectively, while the eigenvalue \(s_2\) becomes equal to zero for unit vectors that are orthogonal w.r.t. the local velocity.
+\subsubsection*{Right and left eigenvectors}
+
+\sphinxAtStartPar
+Right eigenvector problem reads
+\begin{equation*}
+\begin{split}\mathbf{A} \mathbf{R} = \mathbf{R} \mathbf{S} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+s.t. \(\mathbf{A} \mathbf{r}_i = s_i \mathbf{r}_i\), with \(\mathbf{r}_i\) the \(i^{th}\) column of matrix \(\mathbf{R}\).
+
+\sphinxAtStartPar
+Left eigenvector problem reads
+\begin{equation*}
+\begin{split}\mathbf{L} \mathbf{A} = \mathbf{S} \mathbf{L} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+s.t. \(\mathbf{l}_i^T \mathbf{A} = s_i \mathbf{l}_i^T \mathbf{A}\), with \(\mathbf{l}_i^T\) the \(i^{th}\) row of matrix \(\mathbf{L}\).
+
+\sphinxAtStartPar
+\sphinxstylestrong{Compatibility equations.} For \sphinxstylestrong{locally supersonic flows}, for \(s_{1,3} = u_n \mp a\), \(u_n = \pm a\) to get \(s_{1,3} = 0\), and thus the left eigenvectors for those choices of unit vector become
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{l}_{0; 1,3}^T
+  & = \frac{1}{2 \rho a^2} \begin{bmatrix} \  a ( a \pm u_n ) \ | \ \mp a \mathbf{n}^T_{1,3} \end{bmatrix} = \\
+  & = \frac{1}{2 \rho a} \begin{bmatrix} \ 2 a \ | \mp \mathbf{n}^T_{1,3} \ \end{bmatrix} \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+The quasi linear form of the equations becomes
+
+\sphinxAtStartPar
+\sphinxstylestrong{todo} \sphinxstyleemphasis{Check algebra, and UNCOMMENT!}
+
+
+
+\sphinxAtStartPar
+…
+
+\sphinxAtStartPar
+For \(s_2 = u_n\), \(u_n = 0\) to get \(s_2 = 0\), and thus the corresponding left eigenvector reads
+\begin{equation*}
+\begin{split}\mathbf{l}_{0;2}^T = \frac{1}{\rho a} \left[ - \mathbf{t}^T \mathbf{u} \ | \ \mathbf{t}^T \right] \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+with \(\mathbf{t} = \begin{bmatrix} n_y \\ - n_x \end{bmatrix}\), so that \(\mathbf{t}^T \mathbf{n} = 0\). The quasi linear form of the equations becomes
+\begin{equation*}
+\begin{split}\begin{aligned}
+0 
+& = \frac{1}{\rho a} \left[ \ - \mathbf{t}^T \mathbf{u} \ | \ \mathbf{t}^T \ \right] \left( 
+\partial_t \begin{bmatrix} \rho \\ m_x \\ m_y \end{bmatrix} +
+\begin{bmatrix}
+  \cdot & 1     & \cdot \\
+  a^2 - \frac{m_x m_x}{\rho^2} & \frac{2 m_x}{\rho} & \cdot \\
+      - \frac{m_x m_y}{\rho^2} & \frac{m_y}{\rho} & \frac{m_x}{\rho} \\
+\end{bmatrix} \partial_x \begin{bmatrix} \rho \\ m_x \\ m_y \end{bmatrix} +
+\begin{bmatrix}
+  \cdot & \cdot & 1     \\
+  - \frac{m_x m_y}{\rho^2} & \frac{m_y}{\rho} & \frac{m_x}{\rho} \\
+  a^2 - \frac{m_y m_y}{\rho^2} & \cdot & \frac{2 m_y}{\rho} \\
+\end{bmatrix} \partial_y \begin{bmatrix} \rho \\ m_x \\ m_y \end{bmatrix} = \mathbf{0}
+\right) = \\
+0
+& = [ \ - \mathbf{t}^T \mathbf{u} \ | \ \mathbf{t}^T \ ] \partial_t \begin{bmatrix} \rho \\ \mathbf{m} \end{bmatrix} + \\
+& \quad  + [ \ t_x a^2 - \mathbf{t}^T \mathbf{u} u_x \ | \ - \mathbf{t}^T \mathbf{u} + t_x u_x + \mathbf{t}^T \mathbf{u} \ | \ t_y u_x \ ] \partial_x \begin{bmatrix} \rho \\ \mathbf{m} \end{bmatrix} + \\
+& \quad  + [ \ t_y a^2 - \mathbf{t}^T \mathbf{u} u_y \ | \ t_x u_y \ | \ - \mathbf{t}^T \mathbf{u} + t_y u_y + \mathbf{t}^T \mathbf{u} \ ] \partial_y \begin{bmatrix} \rho \\ \mathbf{m} \end{bmatrix} = \\
+0
+& = [ \ - \mathbf{t}^T \mathbf{u} \ | \ \mathbf{t}^T \ ] \partial_t \begin{bmatrix} \rho \\ \mathbf{m} \end{bmatrix} + \\
+& \quad +  a^2 \left( t_x \partial_x + t_y \partial_y \right) \rho - u_t \left( u_x \partial_x + u_y \partial_y \right) \rho + t_x \left( u_x \partial_x + u_y \partial_y \right) m_x + t_y \left( u_x \partial_x + u_y \partial_y \right) m_y = \\
+& = 
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+or choosing \(\hat{\mathbf{t}} = \hat{\mathbf{u}}\), s.t. \(\mathbf{u} = u \hat{\mathbf{t}}\),
+\begin{equation*}
+\begin{split}\begin{aligned}
+0 
+& = \dots \partial_t \dots + a^2 \partial_u \rho - u^2 \partial_u \rho + u t_x \partial_u m_x + u t_y \partial_u m_y = \\
+& = \dots \partial_t \dots + a^2 \partial_u \rho - u^2 \partial_u \rho + \rho \underbrace{u t_x}_{u_x} \partial_u u_x + \rho \underbrace{u t_y}_{u_y} \partial_u u_y + \underbrace{ u u_x t_x \partial_u \rho + u u_y t_y \partial_u \rho}_{ = u^2 \partial_u \rho} = \\
+& = \dots \partial_t \dots + a^2 \, \partial_u \rho + \rho \partial_u \frac{|\mathbf{u}|^2}{2} \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+In \sphinxstylestrong{steady conditions}, dividing by \(\rho \ne 0\)
+\begin{equation*}
+\begin{split}0 = a^2 \, \frac{\partial_u \rho}{\rho} + \partial_u \frac{u^2}{2} = \partial_u \left( a^2 \ln \rho + \frac{u^2}{2} \right) \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+This is the isothermal version of the Bernoulli’s theorem along a streamline for compressible flows, in absence of volume force. This can be derived from momentum equation in steady conditions, after scalar multiplication by the velocity field
+\begin{equation*}
+\begin{split}\begin{aligned}
+  0 
+  & = \mathbf{u} \cdot \left[ \rho \mathbf{u} \cdot \nabla \mathbf{u} + \nabla p \right] = \\
+  & = \mathbf{u} \cdot \left[ \rho \nabla \frac{|\mathbf{u}|^2}{2} + \boldsymbol\omega \times \mathbf{u} + \nabla p \right] = \\
+  & = \rho \mathbf{u} \cdot \left[ \nabla \frac{|\mathbf{u}|^2}{2} + a^2 \frac{\nabla \rho}{\rho} \right] = \\
+  & = \rho \mathbf{u} \cdot \nabla \left( \frac{|\mathbf{u}|^2}{2} + a^2 \ln \rho  \right) \ .
+\end{aligned}\end{split}
+\end{equation*}
+
+\paragraph{Euler equations for inviscid compressible flows}
+\label{\detokenize{ch/pde/characteristics:euler-equations-for-inviscid-compressible-flows}}
+
+\paragraph{Shallow water}
+\label{\detokenize{ch/pde/characteristics:shallow-water}}
+\sphinxstepscope
+
+
 \chapter{Navier\sphinxhyphen{}Cauchy equations}
 \label{\detokenize{ch/pde/nc:navier-cauchy-equations}}\label{\detokenize{ch/pde/nc:pde-nc}}\label{\detokenize{ch/pde/nc::doc}}
 \sphinxAtStartPar
@@ -9004,37 +9596,37 @@ actor\sphinxhyphen{}critic
 \item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}8}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/algebra}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/algebra:\detokenize{definition-8}}
 \indexspace
 \bigletter{example\sphinxhyphen{}0}
-\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}0}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/calculus\sphinxhyphen{}euclidean\sphinxhyphen{}spherical}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/calculus-euclidean-spherical:\detokenize{example-0}}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}0}\sphinxstyleindexextra{ch/pde/hyperbolic}\sphinxstyleindexpageref{ch/pde/hyperbolic:\detokenize{example-0}}
 \indexspace
 \bigletter{example\sphinxhyphen{}1}
-\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}1}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/calculus\sphinxhyphen{}euclidean\sphinxhyphen{}spherical}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/calculus-euclidean-spherical:\detokenize{example-1}}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}1}\sphinxstyleindexextra{ch/pde/hyperbolic}\sphinxstyleindexpageref{ch/pde/hyperbolic:\detokenize{example-1}}
 \indexspace
 \bigletter{example\sphinxhyphen{}10}
 \item\relax\sphinxstyleindexentry{example\sphinxhyphen{}10}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/calculus\sphinxhyphen{}euclidean}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/calculus-euclidean:\detokenize{example-10}}
 \indexspace
 \bigletter{example\sphinxhyphen{}2}
-\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}2}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/calculus\sphinxhyphen{}euclidean\sphinxhyphen{}spherical}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/calculus-euclidean-spherical:\detokenize{example-2}}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}2}\sphinxstyleindexextra{ch/pde/hyperbolic}\sphinxstyleindexpageref{ch/pde/hyperbolic:\detokenize{example-2}}
 \indexspace
 \bigletter{example\sphinxhyphen{}3}
-\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}3}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/calculus\sphinxhyphen{}euclidean\sphinxhyphen{}spherical}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/calculus-euclidean-spherical:\detokenize{example-3}}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}3}\sphinxstyleindexextra{ch/pde/hyperbolic}\sphinxstyleindexpageref{ch/pde/hyperbolic:\detokenize{example-3}}
 \indexspace
 \bigletter{example\sphinxhyphen{}4}
-\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}4}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/calculus\sphinxhyphen{}euclidean\sphinxhyphen{}spherical}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/calculus-euclidean-spherical:\detokenize{example-4}}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}4}\sphinxstyleindexextra{ch/pde/hyperbolic}\sphinxstyleindexpageref{ch/pde/hyperbolic:\detokenize{example-4}}
 \indexspace
 \bigletter{example\sphinxhyphen{}5}
-\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}5}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/calculus\sphinxhyphen{}euclidean\sphinxhyphen{}spherical}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/calculus-euclidean-spherical:\detokenize{example-5}}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}5}\sphinxstyleindexextra{ch/pde/hyperbolic}\sphinxstyleindexpageref{ch/pde/hyperbolic:\detokenize{example-5}}
 \indexspace
 \bigletter{example\sphinxhyphen{}6}
-\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}6}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/calculus\sphinxhyphen{}euclidean\sphinxhyphen{}spherical}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/calculus-euclidean-spherical:\detokenize{example-6}}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}6}\sphinxstyleindexextra{ch/pde/hyperbolic}\sphinxstyleindexpageref{ch/pde/hyperbolic:\detokenize{example-6}}
 \indexspace
 \bigletter{example\sphinxhyphen{}7}
-\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}7}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/calculus\sphinxhyphen{}euclidean}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/calculus-euclidean:\detokenize{example-7}}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}7}\sphinxstyleindexextra{ch/pde/hyperbolic}\sphinxstyleindexpageref{ch/pde/hyperbolic:\detokenize{example-7}}
 \indexspace
 \bigletter{example\sphinxhyphen{}8}
-\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}8}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/calculus\sphinxhyphen{}euclidean}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/calculus-euclidean:\detokenize{example-8}}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}8}\sphinxstyleindexextra{ch/pde/hyperbolic}\sphinxstyleindexpageref{ch/pde/hyperbolic:\detokenize{example-8}}
 \indexspace
 \bigletter{example\sphinxhyphen{}9}
-\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}9}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/calculus\sphinxhyphen{}euclidean}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/calculus-euclidean:\detokenize{example-9}}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}9}\sphinxstyleindexextra{ch/pde/hyperbolic}\sphinxstyleindexpageref{ch/pde/hyperbolic:\detokenize{example-9}}
 \indexspace
 \bigletter{fvm:property:conservation}
 \item\relax\sphinxstyleindexentry{fvm:property:conservation}\sphinxstyleindexextra{ch/pde/fvm}\sphinxstyleindexpageref{ch/pde/fvm:\detokenize{fvm:property:conservation}}
@@ -9085,7 +9677,7 @@ actor\sphinxhyphen{}critic
 \item\relax\sphinxstyleindexentry{svd\sphinxhyphen{}optimization\sphinxhyphen{}norm}\sphinxstyleindexextra{ch/linear\sphinxhyphen{}algebra/svd}\sphinxstyleindexpageref{ch/linear-algebra/svd:\detokenize{svd-optimization-norm}}
 \indexspace
 \bigletter{theorem\sphinxhyphen{}0}
-\item\relax\sphinxstyleindexentry{theorem\sphinxhyphen{}0}\sphinxstyleindexextra{ch/rl/mdp\_sol\_rl}\sphinxstyleindexpageref{ch/rl/mdp_sol_rl:\detokenize{theorem-0}}
+\item\relax\sphinxstyleindexentry{theorem\sphinxhyphen{}0}\sphinxstyleindexextra{ch/linear\sphinxhyphen{}algebra/spectral\sphinxhyphen{}symmetric}\sphinxstyleindexpageref{ch/linear-algebra/spectral-symmetric:\detokenize{theorem-0}}
 \indexspace
 \bigletter{theorem\sphinxhyphen{}1}
 \item\relax\sphinxstyleindexentry{theorem\sphinxhyphen{}1}\sphinxstyleindexextra{ch/ode/lti\sphinxhyphen{}stability\sphinxhyphen{}and\sphinxhyphen{}feedback}\sphinxstyleindexpageref{ch/ode/lti-stability-and-feedback:\detokenize{theorem-1}}

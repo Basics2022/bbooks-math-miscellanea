@@ -131,7 +131,7 @@ $$\mathbf{s} = \mathbf{A}_{\hat{\mathbf{n}}} \partial_n \mathbf{u} + \sum_{\ell=
 
 left-multiplying by $\mathbf{l}$ gives
 
-$$\mathbf{l}^T_0 \mathbf{s} = \mathbf{l}_0^T \sum_{\ell=1}^{d} \mathbf{A}_{\hat{\mathbf{d}}_\ell} \partial_{t_\ell} \mathbf{u} \ .$$
+$$\mathbf{l}^T_0 \mathbf{s} = \mathbf{l}_0^T \sum_{\ell=1}^{d} \mathbf{A}_{\hat{\mathbf{d}}_\ell} \partial_{t_\ell} \mathbf{u} = \qquad \dots \qquad = \mathbf{l}_0^T \sum_{k=0}^{d} \mathbf{A}^k \partial_k \mathbf{u} \ .$$
 
 
 **todo** 
@@ -368,8 +368,116 @@ $$\cos \theta_{1,3} = \pm \frac{a}{u} = \pm \frac{1}{M} \ .$$
 
 For **locally subsonic flows**, $|\mathbf{u}| < a$, the eigenvalues $s_{1,3}$ are always negative and positive respectively, while the eigenvalue $s_2$ becomes equal to zero for unit vectors that are orthogonal w.r.t. the local velocity.
 
+```{dropdown} Right and left eigenvectors
 
+Right eigenvector problem reads
 
+$$\mathbf{A} \mathbf{R} = \mathbf{R} \mathbf{S} \ ,$$
+
+s.t. $\mathbf{A} \mathbf{r}_i = s_i \mathbf{r}_i$, with $\mathbf{r}_i$ the $i^{th}$ column of matrix $\mathbf{R}$.
+
+Left eigenvector problem reads
+
+$$\mathbf{L} \mathbf{A} = \mathbf{S} \mathbf{L} \ ,$$
+
+s.t. $\mathbf{l}_i^T \mathbf{A} = s_i \mathbf{l}_i^T \mathbf{A}$, with $\mathbf{l}_i^T$ the $i^{th}$ row of matrix $\mathbf{L}$.
+
+```
+
+**Compatibility equations.** For **locally supersonic flows**, for $s_{1,3} = u_n \mp a$, $u_n = \pm a$ to get $s_{1,3} = 0$, and thus the left eigenvectors for those choices of unit vector become
+
+$$\begin{aligned}
+  \mathbf{l}_{0; 1,3}^T
+  & = \frac{1}{2 \rho a^2} \begin{bmatrix} \  a ( a \pm u_n ) \ | \ \mp a \mathbf{n}^T_{1,3} \end{bmatrix} = \\
+  & = \frac{1}{2 \rho a} \begin{bmatrix} \ 2 a \ | \mp \mathbf{n}^T_{1,3} \ \end{bmatrix} \ .
+\end{aligned}$$
+
+The quasi linear form of the equations becomes
+
+**todo** *Check algebra, and UNCOMMENT!*
+
+<!--
+$$\begin{aligned}
+0 
+& = \frac{1}{2 \rho a} \left[ \ 2 a \ | \ \mp \mathbf{n}^T_{1,3} \ \right] \left( 
+\partial_t \begin{bmatrix} \rho \\ m_x \\ m_y \end{bmatrix} +
+\begin{bmatrix}
+  \cdot & 1     & \cdot \\
+  a^2 - \frac{m_x m_x}{\rho^2} & \frac{2 m_x}{\rho} & \cdot \\
+      - \frac{m_x m_y}{\rho^2} & \frac{m_y}{\rho} & \frac{m_x}{\rho} \\
+\end{bmatrix} \partial_x \begin{bmatrix} \rho \\ m_x \\ m_y \end{bmatrix} +
+\begin{bmatrix}
+  \cdot & \cdot & 1     \\
+  - \frac{m_x m_y}{\rho^2} & \frac{m_y}{\rho} & \frac{m_x}{\rho} \\
+  a^2 - \frac{m_y m_y}{\rho^2} & \cdot & \frac{2 m_y}{\rho} \\
+\end{bmatrix} \partial_y \begin{bmatrix} \rho \\ m_x \\ m_y \end{bmatrix} = \mathbf{0}
+\right) = \\
+0
+& = \dots \partial_t \dots + \\
+& \quad + \left[ \mp a^2 n_x \pm u_n u_x \ | \ 2 a  \mp u_x n_x \mp u_n \ | \ \mp n_y u_x \ \right] \partial_x \begin{bmatrix} \rho \\ \mathbf{m} \end{bmatrix} +  \\
+& \quad + \left[ \mp a^2 n_y \pm u_n u_y \ | \ \mp n_x u_y \ | \ 2 a \mp u_y n_y \mp u_n \ \right] \partial_y \begin{bmatrix} \rho \\ \mathbf{m} \end{bmatrix} = \\
+& = \dots \partial_t \dots \mp a^2 \partial_n \rho \pm u_n u \partial_u \rho +2 a \partial_x m_x \mp n_x u \partial_u m_x \mp u_n \partial_x m_x + 2 a \partial_y m_y \mp n_y u \partial_u m_y \mp u_n \partial_y m_y = \\
+& = \dots \partial_t \dots \mp a^2 \partial_n \rho + a u \partial_u \rho \mp n_x u \partial_u m_x - a \partial_x m_x \mp n_y u \partial_u m_y - a \partial_y m_y + 2 a \partial_x m_x + 2 a \partial_y m_y = \\
+& = \dots \partial_t \dots \mp a^2 \partial_n \rho + a u \partial_u \rho \mp \rho n_x u \partial_u u_x \mp n_x u_x u \partial_u \rho - a \partial_x m_x \mp \rho n_y \partial_u u_y \mp u_y n_y \partial_u \rho - a \partial_y m_y + 2 a \partial_x m_x + 2 a \partial_y m_y = \\
+& = \dots \partial_t \dots \mp a^2 \partial_n \rho + a u \partial_u \rho \mp \rho n_x u \partial_u u_x \mp u_n u \partial_u \rho - a \partial_x m_x \mp \rho n_y u \partial_u u_y - a \partial_y m_y + 2 a \partial_x m_x + 2 a \partial_y m_y = \\
+& = \dots \partial_t \dots \mp a^2 \partial_n \rho \mp \rho n_x u \partial_u u_x \mp \rho n_y u \partial_u u_y + a \partial_x m_x + a \partial_y m_y = \\
+\end{aligned}$$
+-->
+...
+
+For $s_2 = u_n$, $u_n = 0$ to get $s_2 = 0$, and thus the corresponding left eigenvector reads
+
+$$\mathbf{l}_{0;2}^T = \frac{1}{\rho a} \left[ - \mathbf{t}^T \mathbf{u} \ | \ \mathbf{t}^T \right] \ ,$$
+
+with $\mathbf{t} = \begin{bmatrix} n_y \\ - n_x \end{bmatrix}$, so that $\mathbf{t}^T \mathbf{n} = 0$. The quasi linear form of the equations becomes
+
+$$\begin{aligned}
+0 
+& = \frac{1}{\rho a} \left[ \ - \mathbf{t}^T \mathbf{u} \ | \ \mathbf{t}^T \ \right] \left( 
+\partial_t \begin{bmatrix} \rho \\ m_x \\ m_y \end{bmatrix} +
+\begin{bmatrix}
+  \cdot & 1     & \cdot \\
+  a^2 - \frac{m_x m_x}{\rho^2} & \frac{2 m_x}{\rho} & \cdot \\
+      - \frac{m_x m_y}{\rho^2} & \frac{m_y}{\rho} & \frac{m_x}{\rho} \\
+\end{bmatrix} \partial_x \begin{bmatrix} \rho \\ m_x \\ m_y \end{bmatrix} +
+\begin{bmatrix}
+  \cdot & \cdot & 1     \\
+  - \frac{m_x m_y}{\rho^2} & \frac{m_y}{\rho} & \frac{m_x}{\rho} \\
+  a^2 - \frac{m_y m_y}{\rho^2} & \cdot & \frac{2 m_y}{\rho} \\
+\end{bmatrix} \partial_y \begin{bmatrix} \rho \\ m_x \\ m_y \end{bmatrix} = \mathbf{0}
+\right) = \\
+0
+& = [ \ - \mathbf{t}^T \mathbf{u} \ | \ \mathbf{t}^T \ ] \partial_t \begin{bmatrix} \rho \\ \mathbf{m} \end{bmatrix} + \\
+& \quad  + [ \ t_x a^2 - \mathbf{t}^T \mathbf{u} u_x \ | \ - \mathbf{t}^T \mathbf{u} + t_x u_x + \mathbf{t}^T \mathbf{u} \ | \ t_y u_x \ ] \partial_x \begin{bmatrix} \rho \\ \mathbf{m} \end{bmatrix} + \\
+& \quad  + [ \ t_y a^2 - \mathbf{t}^T \mathbf{u} u_y \ | \ t_x u_y \ | \ - \mathbf{t}^T \mathbf{u} + t_y u_y + \mathbf{t}^T \mathbf{u} \ ] \partial_y \begin{bmatrix} \rho \\ \mathbf{m} \end{bmatrix} = \\
+0
+& = [ \ - \mathbf{t}^T \mathbf{u} \ | \ \mathbf{t}^T \ ] \partial_t \begin{bmatrix} \rho \\ \mathbf{m} \end{bmatrix} + \\
+& \quad +  a^2 \left( t_x \partial_x + t_y \partial_y \right) \rho - u_t \left( u_x \partial_x + u_y \partial_y \right) \rho + t_x \left( u_x \partial_x + u_y \partial_y \right) m_x + t_y \left( u_x \partial_x + u_y \partial_y \right) m_y = \\
+& = 
+\end{aligned}$$
+
+or choosing $\hat{\mathbf{t}} = \hat{\mathbf{u}}$, s.t. $\mathbf{u} = u \hat{\mathbf{t}}$,
+
+$$\begin{aligned}
+0 
+& = \dots \partial_t \dots + a^2 \partial_u \rho - u^2 \partial_u \rho + u t_x \partial_u m_x + u t_y \partial_u m_y = \\
+& = \dots \partial_t \dots + a^2 \partial_u \rho - u^2 \partial_u \rho + \rho \underbrace{u t_x}_{u_x} \partial_u u_x + \rho \underbrace{u t_y}_{u_y} \partial_u u_y + \underbrace{ u u_x t_x \partial_u \rho + u u_y t_y \partial_u \rho}_{ = u^2 \partial_u \rho} = \\
+& = \dots \partial_t \dots + a^2 \, \partial_u \rho + \rho \partial_u \frac{|\mathbf{u}|^2}{2} \ .
+\end{aligned}$$
+
+In **steady conditions**, dividing by $\rho \ne 0$
+
+$$0 = a^2 \, \frac{\partial_u \rho}{\rho} + \partial_u \frac{u^2}{2} = \partial_u \left( a^2 \ln \rho + \frac{u^2}{2} \right) \ .$$
+
+This is the isothermal version of the Bernoulli's theorem along a streamline for compressible flows, in absence of volume force. This can be derived from momentum equation in steady conditions, after scalar multiplication by the velocity field
+
+$$\begin{aligned}
+  0 
+  & = \mathbf{u} \cdot \left[ \rho \mathbf{u} \cdot \nabla \mathbf{u} + \nabla p \right] = \\
+  & = \mathbf{u} \cdot \left[ \rho \nabla \frac{|\mathbf{u}|^2}{2} + \boldsymbol\omega \times \mathbf{u} + \nabla p \right] = \\
+  & = \rho \mathbf{u} \cdot \left[ \nabla \frac{|\mathbf{u}|^2}{2} + a^2 \frac{\nabla \rho}{\rho} \right] = \\
+  & = \rho \mathbf{u} \cdot \nabla \left( \frac{|\mathbf{u}|^2}{2} + a^2 \ln \rho  \right) \ .
+\end{aligned}$$
 
 #### Euler equations for inviscid compressible flows
 

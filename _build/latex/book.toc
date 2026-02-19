@@ -17,13 +17,14 @@
 \contentsline {subsubsection}{Norms and optimization}{10}{subsubsection*.4}%
 \contentsline {chapter}{\numberline {4}Linear Systems}{13}{chapter.4}%
 \contentsline {chapter}{\numberline {5}Spectral decomposition}{15}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Sensitivity of spectral decomposition}{15}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}Generalized eigenvalue problem (first order)}{16}{subsection.5.1.1}%
-\contentsline {subsubsection}{Right and left eigenvalue problem}{16}{subsubsection*.8}%
-\contentsline {subsubsection}{Sensitivity of eigenvalue}{17}{subsubsection*.9}%
-\contentsline {subsubsection}{Sensitivity of eigenvector}{17}{subsubsection*.10}%
-\contentsline {subsection}{\numberline {5.1.2}Generalized eigenvalue problem (second order)}{19}{subsection.5.1.2}%
-\contentsline {subsubsection}{Right and left eigenvalue problem}{19}{subsubsection*.11}%
+\contentsline {section}{\numberline {5.1}Spectral decomposition of symmetric matrices}{15}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Sensitivity of spectral decomposition}{16}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Generalized eigenvalue problem (first order)}{17}{subsection.5.2.1}%
+\contentsline {subsubsection}{Right and left eigenvalue problem}{17}{subsubsection*.8}%
+\contentsline {subsubsection}{Sensitivity of eigenvalue}{18}{subsubsection*.9}%
+\contentsline {subsubsection}{Sensitivity of eigenvector}{18}{subsubsection*.10}%
+\contentsline {subsection}{\numberline {5.2.2}Generalized eigenvalue problem (second order)}{20}{subsection.5.2.2}%
+\contentsline {subsubsection}{Right and left eigenvalue problem}{20}{subsubsection*.11}%
 \contentsline {part}{II\hspace {1em}Multivariable Calculus}{21}{part.2}%
 \contentsline {chapter}{\numberline {6}Introduction to multi\sphinxhyphen {}variable calculus}{23}{chapter.6}%
 \contentsline {section}{\numberline {6.1}Function}{23}{section.6.1}%
@@ -230,83 +231,91 @@
 \contentsline {section}{\numberline {28.4}System non\sphinxhyphen {}linear}{147}{section.28.4}%
 \contentsline {subsection}{\numberline {28.4.1}1\sphinxhyphen {}dimensional space}{147}{subsection.28.4.1}%
 \contentsline {section}{\numberline {28.5}n\sphinxhyphen {}dimensional space}{147}{section.28.5}%
-\contentsline {chapter}{\numberline {29}Navier\sphinxhyphen {}Cauchy equations}{153}{chapter.29}%
-\contentsline {section}{\numberline {29.1}Weak formulation}{153}{section.29.1}%
-\contentsline {chapter}{\numberline {30}Navier\sphinxhyphen {}Stokes equations}{155}{chapter.30}%
-\contentsline {section}{\numberline {30.1}Incompressibility constraint}{155}{section.30.1}%
-\contentsline {subsection}{\numberline {30.1.1}Wave\sphinxhyphen {}vector transformed space}{155}{subsection.30.1.1}%
-\contentsline {section}{\numberline {30.2}Weak formulation of the problem}{156}{section.30.2}%
-\contentsline {subsection}{\numberline {30.2.1}Weak formulation and incompressibility constraint}{156}{subsection.30.2.1}%
-\contentsline {section}{\numberline {30.3}Non\sphinxhyphen {}linear term}{156}{section.30.3}%
-\contentsline {chapter}{\numberline {31}Arbitrary Lagrangian\sphinxhyphen {}Eulerian description}{157}{chapter.31}%
-\contentsline {section}{\numberline {31.1}Integral problem}{157}{section.31.1}%
-\contentsline {section}{\numberline {31.2}Differential problem}{158}{section.31.2}%
-\contentsline {part}{X\hspace {1em}Numerical Methods for PDEs}{159}{part.10}%
-\contentsline {chapter}{\numberline {32}Introduction to numerical methods for PDEs}{161}{chapter.32}%
-\contentsline {chapter}{\numberline {33}Finite Element Method}{165}{chapter.33}%
-\contentsline {section}{\numberline {33.1}1\sphinxhyphen {}dimensional Poisson equation}{165}{section.33.1}%
-\contentsline {subsection}{\numberline {33.1.1}Strong form of the problem}{165}{subsection.33.1.1}%
-\contentsline {subsection}{\numberline {33.1.2}Weak form of the problem}{165}{subsection.33.1.2}%
-\contentsline {subsubsection}{Poisson equation with Dirichlet boundary conditions}{166}{subsubsection*.56}%
-\contentsline {paragraph}{Finite element method}{166}{paragraph*.57}%
-\contentsline {paragraph}{Slicing the linear system}{168}{paragraph*.59}%
-\contentsline {paragraph}{Augmenting the linear system}{170}{paragraph*.60}%
-\contentsline {chapter}{\numberline {34}Finite Volume Method}{171}{chapter.34}%
-\contentsline {section}{\numberline {34.1}1\sphinxhyphen {}dimensional Poisson equation}{171}{section.34.1}%
-\contentsline {subsection}{\numberline {34.1.1}Integral form of the problem}{171}{subsection.34.1.1}%
-\contentsline {subsection}{\numberline {34.1.2}Domain, volume forcing and boundary conditions}{171}{subsection.34.1.2}%
-\contentsline {subsection}{\numberline {34.1.3}Discrete matheamtical problem}{172}{subsection.34.1.3}%
-\contentsline {subsection}{\numberline {34.1.4}Applying essential boundary conditions}{173}{subsection.34.1.4}%
-\contentsline {subsubsection}{Slicing the linear system}{174}{subsubsection*.61}%
-\contentsline {subsubsection}{Augmenting the linear system}{175}{subsubsection*.62}%
-\contentsline {chapter}{\numberline {35}Boundary Element Method}{177}{chapter.35}%
-\contentsline {part}{XI\hspace {1em}Boundary Methods for PDEs}{179}{part.11}%
-\contentsline {chapter}{\numberline {36}Green’s function method}{181}{chapter.36}%
-\contentsline {section}{\numberline {36.1}Poisson equation}{181}{section.36.1}%
-\contentsline {section}{\numberline {36.2}Helmholtz equation}{182}{section.36.2}%
-\contentsline {section}{\numberline {36.3}Wave equation}{184}{section.36.3}%
-\contentsline {part}{XII\hspace {1em}Optimization}{185}{part.12}%
-\contentsline {chapter}{\numberline {37}Optimization}{187}{chapter.37}%
-\contentsline {section}{\numberline {37.1}Unconstrained optimization}{187}{section.37.1}%
-\contentsline {section}{\numberline {37.2}Constrained optimization}{188}{section.37.2}%
-\contentsline {subsection}{\numberline {37.2.1}Method of Lagrange multipliers for equality constraints}{188}{subsection.37.2.1}%
-\contentsline {part}{XIII\hspace {1em}Control}{189}{part.13}%
-\contentsline {chapter}{\numberline {38}Introduction to control methods}{191}{chapter.38}%
-\contentsline {section}{\numberline {38.1}Optimal control}{191}{section.38.1}%
-\contentsline {subsection}{\numberline {38.1.1}Generic ODE}{191}{subsection.38.1.1}%
-\contentsline {subsection}{\numberline {38.1.2}LTI}{192}{subsection.38.1.2}%
-\contentsline {subsubsection}{Infinite\sphinxhyphen {}horizon full\sphinxhyphen {}state feedback}{192}{subsubsection*.63}%
-\contentsline {part}{XIV\hspace {1em}Reinforcement Learning}{195}{part.14}%
-\contentsline {chapter}{\numberline {39}Introduction to Reinforcement Learning}{197}{chapter.39}%
-\contentsline {chapter}{\numberline {40}Markov Processes}{199}{chapter.40}%
-\contentsline {section}{\numberline {40.1}Markov Reward Processes}{200}{section.40.1}%
-\contentsline {subsection}{\numberline {40.1.1}Bellman Equation for \(V(s)\)}{201}{subsection.40.1.1}%
-\contentsline {section}{\numberline {40.2}Markov Decision Processes}{202}{section.40.2}%
-\contentsline {subsection}{\numberline {40.2.1}Policies}{202}{subsection.40.2.1}%
-\contentsline {subsection}{\numberline {40.2.2}Bellman Equations}{203}{subsection.40.2.2}%
-\contentsline {chapter}{\numberline {41}Methods of solution of MPD: DP and LP}{207}{chapter.41}%
-\contentsline {section}{\numberline {41.1}Brute force: policy search}{207}{section.41.1}%
-\contentsline {section}{\numberline {41.2}Dynamic programming}{207}{section.41.2}%
-\contentsline {subsection}{\numberline {41.2.1}Policy iteration}{207}{subsection.41.2.1}%
-\contentsline {subsubsection}{Policy Evaluation}{208}{subsubsection*.65}%
-\contentsline {subsubsection}{Policy Improvement}{208}{subsubsection*.66}%
-\contentsline {subsubsection}{Policy Iteration algorithm}{209}{subsubsection*.67}%
-\contentsline {subsection}{\numberline {41.2.2}Value Iteration}{209}{subsection.41.2.2}%
-\contentsline {subsection}{\numberline {41.2.3}Dynamic programming: extensions}{209}{subsection.41.2.3}%
-\contentsline {section}{\numberline {41.3}Linear programming}{209}{section.41.3}%
-\contentsline {chapter}{\numberline {42}Methods of solution of MPD: RL}{211}{chapter.42}%
-\contentsline {section}{\numberline {42.1}Evaluation}{211}{section.42.1}%
-\contentsline {subsection}{\numberline {42.1.1}Monte\sphinxhyphen {}Carlo RL}{211}{subsection.42.1.1}%
-\contentsline {subsection}{\numberline {42.1.2}Temporal Difference (TD) Learning}{212}{subsection.42.1.2}%
-\contentsline {subsection}{\numberline {42.1.3}TD prediction}{212}{subsection.42.1.3}%
-\contentsline {section}{\numberline {42.2}Model control}{213}{section.42.2}%
-\contentsline {subsection}{\numberline {42.2.1}On\sphinxhyphen {} and Off\sphinxhyphen {}Policy Learning}{213}{subsection.42.2.1}%
-\contentsline {subsection}{\numberline {42.2.2}MC control}{213}{subsection.42.2.2}%
-\contentsline {subsection}{\numberline {42.2.3}\(\mitepsilon \)\sphinxhyphen {}greedy policy improvement }{214}{subsection.42.2.3}%
-\contentsline {subsection}{\numberline {42.2.4}TD control}{215}{subsection.42.2.4}%
-\contentsline {subsection}{\numberline {42.2.5}Off\sphinxhyphen {}policy learning}{215}{subsection.42.2.5}%
-\contentsline {section}{\numberline {42.3}Actor\sphinxhyphen {}Critic}{215}{section.42.3}%
-\contentsline {section}{\numberline {42.4}Learning and planning}{215}{section.42.4}%
-\contentsline {chapter}{\numberline {43}Large or Continuous MDPs}{217}{chapter.43}%
-\contentsline {section}{\numberline {43.1}Value and Policy\sphinxhyphen {}Based RL}{218}{section.43.1}%
-\contentsline {chapter}{Proof Index}{219}{section*.68}%
+\contentsline {section}{\numberline {28.6}Method of characteristics}{151}{section.28.6}%
+\contentsline {subsection}{\numberline {28.6.1}Scalar multi\sphinxhyphen {}dimensional problem}{151}{subsection.28.6.1}%
+\contentsline {subsection}{\numberline {28.6.2}Vector multi\sphinxhyphen {}dimensional problem}{152}{subsection.28.6.2}%
+\contentsline {subsubsection}{Taylor expansion of a solution}{153}{subsubsection*.55}%
+\contentsline {subsubsection}{Examples}{154}{subsubsection*.56}%
+\contentsline {paragraph}{Isothermal compressible flow}{154}{paragraph*.57}%
+\contentsline {paragraph}{Euler equations for inviscid compressible flows}{158}{paragraph*.58}%
+\contentsline {paragraph}{Shallow water}{158}{paragraph*.59}%
+\contentsline {chapter}{\numberline {29}Navier\sphinxhyphen {}Cauchy equations}{159}{chapter.29}%
+\contentsline {section}{\numberline {29.1}Weak formulation}{159}{section.29.1}%
+\contentsline {chapter}{\numberline {30}Navier\sphinxhyphen {}Stokes equations}{161}{chapter.30}%
+\contentsline {section}{\numberline {30.1}Incompressibility constraint}{161}{section.30.1}%
+\contentsline {subsection}{\numberline {30.1.1}Wave\sphinxhyphen {}vector transformed space}{161}{subsection.30.1.1}%
+\contentsline {section}{\numberline {30.2}Weak formulation of the problem}{162}{section.30.2}%
+\contentsline {subsection}{\numberline {30.2.1}Weak formulation and incompressibility constraint}{162}{subsection.30.2.1}%
+\contentsline {section}{\numberline {30.3}Non\sphinxhyphen {}linear term}{162}{section.30.3}%
+\contentsline {chapter}{\numberline {31}Arbitrary Lagrangian\sphinxhyphen {}Eulerian description}{163}{chapter.31}%
+\contentsline {section}{\numberline {31.1}Integral problem}{163}{section.31.1}%
+\contentsline {section}{\numberline {31.2}Differential problem}{164}{section.31.2}%
+\contentsline {part}{X\hspace {1em}Numerical Methods for PDEs}{165}{part.10}%
+\contentsline {chapter}{\numberline {32}Introduction to numerical methods for PDEs}{167}{chapter.32}%
+\contentsline {chapter}{\numberline {33}Finite Element Method}{171}{chapter.33}%
+\contentsline {section}{\numberline {33.1}1\sphinxhyphen {}dimensional Poisson equation}{171}{section.33.1}%
+\contentsline {subsection}{\numberline {33.1.1}Strong form of the problem}{171}{subsection.33.1.1}%
+\contentsline {subsection}{\numberline {33.1.2}Weak form of the problem}{171}{subsection.33.1.2}%
+\contentsline {subsubsection}{Poisson equation with Dirichlet boundary conditions}{172}{subsubsection*.61}%
+\contentsline {paragraph}{Finite element method}{172}{paragraph*.62}%
+\contentsline {paragraph}{Slicing the linear system}{174}{paragraph*.64}%
+\contentsline {paragraph}{Augmenting the linear system}{176}{paragraph*.65}%
+\contentsline {chapter}{\numberline {34}Finite Volume Method}{177}{chapter.34}%
+\contentsline {section}{\numberline {34.1}1\sphinxhyphen {}dimensional Poisson equation}{177}{section.34.1}%
+\contentsline {subsection}{\numberline {34.1.1}Integral form of the problem}{177}{subsection.34.1.1}%
+\contentsline {subsection}{\numberline {34.1.2}Domain, volume forcing and boundary conditions}{177}{subsection.34.1.2}%
+\contentsline {subsection}{\numberline {34.1.3}Discrete matheamtical problem}{178}{subsection.34.1.3}%
+\contentsline {subsection}{\numberline {34.1.4}Applying essential boundary conditions}{179}{subsection.34.1.4}%
+\contentsline {subsubsection}{Slicing the linear system}{180}{subsubsection*.66}%
+\contentsline {subsubsection}{Augmenting the linear system}{181}{subsubsection*.67}%
+\contentsline {chapter}{\numberline {35}Boundary Element Method}{183}{chapter.35}%
+\contentsline {part}{XI\hspace {1em}Boundary Methods for PDEs}{185}{part.11}%
+\contentsline {chapter}{\numberline {36}Green’s function method}{187}{chapter.36}%
+\contentsline {section}{\numberline {36.1}Poisson equation}{187}{section.36.1}%
+\contentsline {section}{\numberline {36.2}Helmholtz equation}{188}{section.36.2}%
+\contentsline {section}{\numberline {36.3}Wave equation}{190}{section.36.3}%
+\contentsline {part}{XII\hspace {1em}Optimization}{191}{part.12}%
+\contentsline {chapter}{\numberline {37}Optimization}{193}{chapter.37}%
+\contentsline {section}{\numberline {37.1}Unconstrained optimization}{193}{section.37.1}%
+\contentsline {section}{\numberline {37.2}Constrained optimization}{194}{section.37.2}%
+\contentsline {subsection}{\numberline {37.2.1}Method of Lagrange multipliers for equality constraints}{194}{subsection.37.2.1}%
+\contentsline {part}{XIII\hspace {1em}Control}{195}{part.13}%
+\contentsline {chapter}{\numberline {38}Introduction to control methods}{197}{chapter.38}%
+\contentsline {section}{\numberline {38.1}Optimal control}{197}{section.38.1}%
+\contentsline {subsection}{\numberline {38.1.1}Generic ODE}{197}{subsection.38.1.1}%
+\contentsline {subsection}{\numberline {38.1.2}LTI}{198}{subsection.38.1.2}%
+\contentsline {subsubsection}{Infinite\sphinxhyphen {}horizon full\sphinxhyphen {}state feedback}{198}{subsubsection*.68}%
+\contentsline {part}{XIV\hspace {1em}Reinforcement Learning}{201}{part.14}%
+\contentsline {chapter}{\numberline {39}Introduction to Reinforcement Learning}{203}{chapter.39}%
+\contentsline {chapter}{\numberline {40}Markov Processes}{205}{chapter.40}%
+\contentsline {section}{\numberline {40.1}Markov Reward Processes}{206}{section.40.1}%
+\contentsline {subsection}{\numberline {40.1.1}Bellman Equation for \(V(s)\)}{207}{subsection.40.1.1}%
+\contentsline {section}{\numberline {40.2}Markov Decision Processes}{208}{section.40.2}%
+\contentsline {subsection}{\numberline {40.2.1}Policies}{208}{subsection.40.2.1}%
+\contentsline {subsection}{\numberline {40.2.2}Bellman Equations}{209}{subsection.40.2.2}%
+\contentsline {chapter}{\numberline {41}Methods of solution of MPD: DP and LP}{213}{chapter.41}%
+\contentsline {section}{\numberline {41.1}Brute force: policy search}{213}{section.41.1}%
+\contentsline {section}{\numberline {41.2}Dynamic programming}{213}{section.41.2}%
+\contentsline {subsection}{\numberline {41.2.1}Policy iteration}{213}{subsection.41.2.1}%
+\contentsline {subsubsection}{Policy Evaluation}{214}{subsubsection*.70}%
+\contentsline {subsubsection}{Policy Improvement}{214}{subsubsection*.71}%
+\contentsline {subsubsection}{Policy Iteration algorithm}{215}{subsubsection*.72}%
+\contentsline {subsection}{\numberline {41.2.2}Value Iteration}{215}{subsection.41.2.2}%
+\contentsline {subsection}{\numberline {41.2.3}Dynamic programming: extensions}{215}{subsection.41.2.3}%
+\contentsline {section}{\numberline {41.3}Linear programming}{215}{section.41.3}%
+\contentsline {chapter}{\numberline {42}Methods of solution of MPD: RL}{217}{chapter.42}%
+\contentsline {section}{\numberline {42.1}Evaluation}{217}{section.42.1}%
+\contentsline {subsection}{\numberline {42.1.1}Monte\sphinxhyphen {}Carlo RL}{217}{subsection.42.1.1}%
+\contentsline {subsection}{\numberline {42.1.2}Temporal Difference (TD) Learning}{218}{subsection.42.1.2}%
+\contentsline {subsection}{\numberline {42.1.3}TD prediction}{218}{subsection.42.1.3}%
+\contentsline {section}{\numberline {42.2}Model control}{219}{section.42.2}%
+\contentsline {subsection}{\numberline {42.2.1}On\sphinxhyphen {} and Off\sphinxhyphen {}Policy Learning}{219}{subsection.42.2.1}%
+\contentsline {subsection}{\numberline {42.2.2}MC control}{219}{subsection.42.2.2}%
+\contentsline {subsection}{\numberline {42.2.3}\(\mitepsilon \)\sphinxhyphen {}greedy policy improvement }{220}{subsection.42.2.3}%
+\contentsline {subsection}{\numberline {42.2.4}TD control}{221}{subsection.42.2.4}%
+\contentsline {subsection}{\numberline {42.2.5}Off\sphinxhyphen {}policy learning}{221}{subsection.42.2.5}%
+\contentsline {section}{\numberline {42.3}Actor\sphinxhyphen {}Critic}{221}{section.42.3}%
+\contentsline {section}{\numberline {42.4}Learning and planning}{221}{section.42.4}%
+\contentsline {chapter}{\numberline {43}Large or Continuous MDPs}{223}{chapter.43}%
+\contentsline {section}{\numberline {43.1}Value and Policy\sphinxhyphen {}Based RL}{224}{section.43.1}%
+\contentsline {chapter}{Proof Index}{225}{section*.73}%
