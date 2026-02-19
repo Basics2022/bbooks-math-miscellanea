@@ -909,27 +909,54 @@ Right and left eigenvectors<div class="sd-summary-down docutils">
 &amp; \quad + \left[ \mp a^2 n_x \pm u_n u_x \ | \ 2 a  \mp u_x n_x \mp u_n \ | \ \mp n_y u_x \ \right] \partial_x \begin{bmatrix} \rho \\ \mathbf{m} \end{bmatrix} +  \\
 &amp; \quad + \left[ \mp a^2 n_y \pm u_n u_y \ | \ \mp n_x u_y \ | \ 2 a \mp u_y n_y \mp u_n \ \right] \partial_y \begin{bmatrix} \rho \\ \mathbf{m} \end{bmatrix} = \\
 &amp; =       \left[ \left( \mp a^2 n_x \pm u_n u_x \right) \partial_x + \left( \mp a^2 n_y \pm u_n u_y \right) \partial_y \right] \rho + \\
-&amp;  \quad+ \left[ \left( 2 a \mp u_x n_x \pm u_n \right) \partial_x + \left( \mp n_x u_y             \right) \partial_y \right] m_x  + \\
-&amp;  \quad+ \left[ \left( \mp n_x u_y             \right) \partial_x + \left( 2 a \mp u_y n_y \mp u_y \right) \partial_y \right] m_y  = \\
+&amp;  \quad+ \left[ \left( 2 a \mp u_x n_x \mp u_n \right) \partial_x + \left( \mp n_x u_y             \right) \partial_y \right] m_x  + \\
+&amp;  \quad+ \left[ \left( \mp n_x u_y             \right) \partial_x + \left( 2 a \mp u_y n_y \mp u_n \right) \partial_y \right] m_y  = \\
 \end{aligned}\end{split}\]</div>
-<p><strong>Remarks.</strong> Comparing directional derivative of <span class="math notranslate nohighlight">\(\rho\)</span> and <span class="math notranslate nohighlight">\(m_x\)</span></p>
+<p><strong>Remarks.</strong> It can be proved that <span class="math notranslate nohighlight">\(d m_x = ( u \mp a n_x ) d \rho\)</span>, and <span class="math notranslate nohighlight">\(d m_y = ( v \mp a n_y ) d \rho\)</span>.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-kebab-horizontal" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M6 12a2 2 0 11-4 0 2 2 0 014 0zm8 0a2 2 0 11-4 0 2 2 0 014 0zm6 2a2 2 0 100-4 2 2 0 000 4z"></path></svg><div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
- &amp; ( \mp a^2 n_x \pm u_n u_x ) ( \mp n_x u_y ) = ? = ( \mp a^2 n_y \pm u_n u_y ) ( 2 a \mp u_x n_x \pm u_n ) \\
- 0 &amp; \ ? = a^2 n_x^2 u_y - u_n u_x n_x u_y \pm 2 a^3 n_y - a^2 u_x n_x n_y + a^2 u_n n_y \mp 2a u_n u_y + u_n u_x u_y n_x - u_n^2 u_y \\
- 0 &amp; \ ? = a^2 n_x^2 u_y \pm 2 a^3 n_y - a^2 u_x n_x n_y + a^2 u_n n_y \mp 2a u_n u_y - u_n^2 u_y \\
- 0 &amp; \ ? = a^2 u_y - a^2 n_y^2 u_y \pm 2 a^3 n_y - a^2 u_x n_x n_y + a^2 u_n n_y \mp 2a u_n u_y - u_n^2 u_y \\
+  ( u_x \mp a n_x ) ( \mp a^2 n_x \pm u_n u_x) 
+  &amp; = \mp a^2 n_x u_x \pm u_x^2 u_n + a^3 n_x^2 - a u_n u_x n_x \\
 \end{aligned}\end{split}\]</div>
-<p>and if <span class="math notranslate nohighlight">\(u_n = \pm a\)</span>,</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
- 0 &amp; \ ? = a^2 u_y - a^2 n_y^2 u_y \pm 2 a^3 n_y - a^2 u_x n_x n_y + a^2 u_n n_y \mp 2a u_n u_y - u_n^2 u_y \\
- 0 &amp; \ ? = a^2 u_y - a^2 n_y^2 u_y \pm 2 a^3 n_y - a^2 u_x n_x n_y \pm a^3 n_y - 2a^2 u_y - a^2 u_y \\
- 0 &amp; \ ? =         - a^2 n_y ( n_y u_y + n_x u_x) \pm 2 a^3 n_y \pm a^3 n_y - 2a^2 u_y           \\
- 0 &amp; \ ? =        \mp a^3 n_y                     \pm 2 a^3 n_y \pm a^3 n_y - 2a^2 u_y           \\
+  ( u_x \mp a n_x ) ( 2a \mp u_x n_x \mp u_n ) 
+  &amp; = 2 a u_x \mp u_x^2 n_x \mp u_x u_n \mp 2 a^2 n_x + a u_x n_x^2 + a n_x u_n = \\
+  &amp; = 2 a u_x \mp u_x^2 n_x - u_x a \mp 2 a^2 n_x + a u_x n_x^2 \pm a^2 n_x = \\
+  &amp; = a u_x \mp a^2 n_x \mp u_x^2 n_x + a u_x n_x^2 = \\
 \end{aligned}\end{split}\]</div>
-<p><strong>todo</strong> <em>Check algebra. It looks like some sign is wrong and this prevent simplifications</em></p>
-<!--
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Comparing directional derivative of <span class="math notranslate nohighlight">\(\ \rho \ \)</span> and <span class="math notranslate nohighlight">\( \ m_x \ \)</span><div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+ &amp; ( \mp a^2 n_x \pm u_n u_x ) ( \mp n_x u_y ) = ? = ( \mp a^2 n_y \pm u_n u_y ) ( 2 a \mp u_x n_x \mp u_n ) \\
+ 0 &amp; \ ? = a^2 n_x^2 u_y - u_n u_x n_x u_y \pm 2 a^3 n_y - a^2 u_x n_x n_y - a^2 u_n n_y \mp 2a u_n u_y + u_n u_x u_y n_x + u_n^2 u_y \\
+ 0 &amp; \ ? = a^2 n_x^2 u_y \pm 2 a^3 n_y - a^2 u_x n_x n_y - a^2 u_n n_y \mp 2a u_n u_y + u_n^2 u_y \\
+ 0 &amp; \ ? = a^2 u_y - a^2 n_y^2 u_y \pm 2 a^3 n_y - a^2 u_x n_x n_y - a^2 u_n n_y \mp 2a u_n u_y + u_n^2 u_y \\
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">and if <span class="math notranslate nohighlight">\(u_n = \pm a\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+ 0 &amp; \ ? = a^2 u_y - a^2 n_y^2 u_y \pm 2 a^3 n_y - a^2 u_x n_x n_y - a^2 u_n n_y \mp 2a u_n u_y + u_n^2 u_y \\
+ 0 &amp; \ ? = a^2 u_y - a^2 n_y^2 u_y \pm 2 a^3 n_y - a^2 u_x n_x n_y \mp a^3 n_y - 2a^2 u_y + a^2 u_y \\
+ 0 &amp; \ ? =         - a^2 n_y ( n_y u_y + n_x u_x) \pm 2 a^3 n_y \mp a^3 n_y                      \\
+ 0 &amp; \ ? =        \mp a^3 n_y                     \pm 2 a^3 n_y \mp a^3 n_y  = 0 \ .
+\end{aligned}\end{split}\]</div>
+</div>
+</details><!--
 $$\begin{aligned}
 & = \dots \partial_t \dots \mp a^2 \partial_n \rho \pm u_n u \partial_u \rho +2 a \partial_x m_x \mp n_x u \partial_u m_x \mp u_n \partial_x m_x + 2 a \partial_y m_y \mp n_y u \partial_u m_y \mp u_n \partial_y m_y = \\
 & = \dots \partial_t \dots \mp a^2 \partial_n \rho + a u \partial_u \rho \mp n_x u \partial_u m_x - a \partial_x m_x \mp n_y u \partial_u m_y - a \partial_y m_y + 2 a \partial_x m_x + 2 a \partial_y m_y = \\

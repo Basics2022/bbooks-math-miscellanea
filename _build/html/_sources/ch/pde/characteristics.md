@@ -416,29 +416,50 @@ $$\begin{aligned}
 & \quad + \left[ \mp a^2 n_x \pm u_n u_x \ | \ 2 a  \mp u_x n_x \mp u_n \ | \ \mp n_y u_x \ \right] \partial_x \begin{bmatrix} \rho \\ \mathbf{m} \end{bmatrix} +  \\
 & \quad + \left[ \mp a^2 n_y \pm u_n u_y \ | \ \mp n_x u_y \ | \ 2 a \mp u_y n_y \mp u_n \ \right] \partial_y \begin{bmatrix} \rho \\ \mathbf{m} \end{bmatrix} = \\
 & =       \left[ \left( \mp a^2 n_x \pm u_n u_x \right) \partial_x + \left( \mp a^2 n_y \pm u_n u_y \right) \partial_y \right] \rho + \\
-&  \quad+ \left[ \left( 2 a \mp u_x n_x \pm u_n \right) \partial_x + \left( \mp n_x u_y             \right) \partial_y \right] m_x  + \\
-&  \quad+ \left[ \left( \mp n_x u_y             \right) \partial_x + \left( 2 a \mp u_y n_y \mp u_y \right) \partial_y \right] m_y  = \\
+&  \quad+ \left[ \left( 2 a \mp u_x n_x \mp u_n \right) \partial_x + \left( \mp n_x u_y             \right) \partial_y \right] m_x  + \\
+&  \quad+ \left[ \left( \mp n_x u_y             \right) \partial_x + \left( 2 a \mp u_y n_y \mp u_n \right) \partial_y \right] m_y  = \\
 \end{aligned}$$
 
-**Remarks.** Comparing directional derivative of $\rho$ and $m_x$
+**Remarks.** It can be proved that $d m_x = ( u \mp a n_x ) d \rho$, and $d m_y = ( v \mp a n_y ) d \rho$.
+
+```{dropdown}
+:open:
 
 $$\begin{aligned}
- & ( \mp a^2 n_x \pm u_n u_x ) ( \mp n_x u_y ) = ? = ( \mp a^2 n_y \pm u_n u_y ) ( 2 a \mp u_x n_x \pm u_n ) \\
- 0 & \ ? = a^2 n_x^2 u_y - u_n u_x n_x u_y \pm 2 a^3 n_y - a^2 u_x n_x n_y + a^2 u_n n_y \mp 2a u_n u_y + u_n u_x u_y n_x - u_n^2 u_y \\
- 0 & \ ? = a^2 n_x^2 u_y \pm 2 a^3 n_y - a^2 u_x n_x n_y + a^2 u_n n_y \mp 2a u_n u_y - u_n^2 u_y \\
- 0 & \ ? = a^2 u_y - a^2 n_y^2 u_y \pm 2 a^3 n_y - a^2 u_x n_x n_y + a^2 u_n n_y \mp 2a u_n u_y - u_n^2 u_y \\
+  ( u_x \mp a n_x ) ( \mp a^2 n_x \pm u_n u_x) 
+  & = \mp a^2 n_x u_x \pm u_x^2 u_n + a^3 n_x^2 - a u_n u_x n_x \\
+\end{aligned}$$
+
+$$\begin{aligned}
+  ( u_x \mp a n_x ) ( 2a \mp u_x n_x \mp u_n ) 
+  & = 2 a u_x \mp u_x^2 n_x \mp u_x u_n \mp 2 a^2 n_x + a u_x n_x^2 + a n_x u_n = \\
+  & = 2 a u_x \mp u_x^2 n_x - u_x a \mp 2 a^2 n_x + a u_x n_x^2 \pm a^2 n_x = \\
+  & = a u_x \mp a^2 n_x \mp u_x^2 n_x + a u_x n_x^2 = \\
+\end{aligned}$$
+
+```
+
+
+```{dropdown} Comparing directional derivative of $\ \rho \ $ and $ \ m_x \ $
+
+$$\begin{aligned}
+ & ( \mp a^2 n_x \pm u_n u_x ) ( \mp n_x u_y ) = ? = ( \mp a^2 n_y \pm u_n u_y ) ( 2 a \mp u_x n_x \mp u_n ) \\
+ 0 & \ ? = a^2 n_x^2 u_y - u_n u_x n_x u_y \pm 2 a^3 n_y - a^2 u_x n_x n_y - a^2 u_n n_y \mp 2a u_n u_y + u_n u_x u_y n_x + u_n^2 u_y \\
+ 0 & \ ? = a^2 n_x^2 u_y \pm 2 a^3 n_y - a^2 u_x n_x n_y - a^2 u_n n_y \mp 2a u_n u_y + u_n^2 u_y \\
+ 0 & \ ? = a^2 u_y - a^2 n_y^2 u_y \pm 2 a^3 n_y - a^2 u_x n_x n_y - a^2 u_n n_y \mp 2a u_n u_y + u_n^2 u_y \\
 \end{aligned}$$
 
 and if $u_n = \pm a$,
 
 $$\begin{aligned}
- 0 & \ ? = a^2 u_y - a^2 n_y^2 u_y \pm 2 a^3 n_y - a^2 u_x n_x n_y + a^2 u_n n_y \mp 2a u_n u_y - u_n^2 u_y \\
- 0 & \ ? = a^2 u_y - a^2 n_y^2 u_y \pm 2 a^3 n_y - a^2 u_x n_x n_y \pm a^3 n_y - 2a^2 u_y - a^2 u_y \\
- 0 & \ ? =         - a^2 n_y ( n_y u_y + n_x u_x) \pm 2 a^3 n_y \pm a^3 n_y - 2a^2 u_y           \\
- 0 & \ ? =        \mp a^3 n_y                     \pm 2 a^3 n_y \pm a^3 n_y - 2a^2 u_y           \\
+ 0 & \ ? = a^2 u_y - a^2 n_y^2 u_y \pm 2 a^3 n_y - a^2 u_x n_x n_y - a^2 u_n n_y \mp 2a u_n u_y + u_n^2 u_y \\
+ 0 & \ ? = a^2 u_y - a^2 n_y^2 u_y \pm 2 a^3 n_y - a^2 u_x n_x n_y \mp a^3 n_y - 2a^2 u_y + a^2 u_y \\
+ 0 & \ ? =         - a^2 n_y ( n_y u_y + n_x u_x) \pm 2 a^3 n_y \mp a^3 n_y                      \\
+ 0 & \ ? =        \mp a^3 n_y                     \pm 2 a^3 n_y \mp a^3 n_y  = 0 \ .
 \end{aligned}$$
 
-**todo** *Check algebra. It looks like some sign is wrong and this prevent simplifications*
+```
+
 
 <!--
 $$\begin{aligned}
