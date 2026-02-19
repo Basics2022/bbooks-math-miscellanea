@@ -396,7 +396,6 @@ The quasi linear form of the equations becomes
 
 **todo** *Check algebra, and UNCOMMENT!*
 
-<!--
 $$\begin{aligned}
 0 
 & = \frac{1}{2 \rho a} \left[ \ 2 a \ | \ \mp \mathbf{n}^T_{1,3} \ \right] \left( 
@@ -416,6 +415,33 @@ $$\begin{aligned}
 & = \dots \partial_t \dots + \\
 & \quad + \left[ \mp a^2 n_x \pm u_n u_x \ | \ 2 a  \mp u_x n_x \mp u_n \ | \ \mp n_y u_x \ \right] \partial_x \begin{bmatrix} \rho \\ \mathbf{m} \end{bmatrix} +  \\
 & \quad + \left[ \mp a^2 n_y \pm u_n u_y \ | \ \mp n_x u_y \ | \ 2 a \mp u_y n_y \mp u_n \ \right] \partial_y \begin{bmatrix} \rho \\ \mathbf{m} \end{bmatrix} = \\
+& =       \left[ \left( \mp a^2 n_x \pm u_n u_x \right) \partial_x + \left( \mp a^2 n_y \pm u_n u_y \right) \partial_y \right] \rho + \\
+&  \quad+ \left[ \left( 2 a \mp u_x n_x \pm u_n \right) \partial_x + \left( \mp n_x u_y             \right) \partial_y \right] m_x  + \\
+&  \quad+ \left[ \left( \mp n_x u_y             \right) \partial_x + \left( 2 a \mp u_y n_y \mp u_y \right) \partial_y \right] m_y  = \\
+\end{aligned}$$
+
+**Remarks.** Comparing directional derivative of $\rho$ and $m_x$
+
+$$\begin{aligned}
+ & ( \mp a^2 n_x \pm u_n u_x ) ( \mp n_x u_y ) = ? = ( \mp a^2 n_y \pm u_n u_y ) ( 2 a \mp u_x n_x \pm u_n ) \\
+ 0 & \ ? = a^2 n_x^2 u_y - u_n u_x n_x u_y \pm 2 a^3 n_y - a^2 u_x n_x n_y + a^2 u_n n_y \mp 2a u_n u_y + u_n u_x u_y n_x - u_n^2 u_y \\
+ 0 & \ ? = a^2 n_x^2 u_y \pm 2 a^3 n_y - a^2 u_x n_x n_y + a^2 u_n n_y \mp 2a u_n u_y - u_n^2 u_y \\
+ 0 & \ ? = a^2 u_y - a^2 n_y^2 u_y \pm 2 a^3 n_y - a^2 u_x n_x n_y + a^2 u_n n_y \mp 2a u_n u_y - u_n^2 u_y \\
+\end{aligned}$$
+
+and if $u_n = \pm a$,
+
+$$\begin{aligned}
+ 0 & \ ? = a^2 u_y - a^2 n_y^2 u_y \pm 2 a^3 n_y - a^2 u_x n_x n_y + a^2 u_n n_y \mp 2a u_n u_y - u_n^2 u_y \\
+ 0 & \ ? = a^2 u_y - a^2 n_y^2 u_y \pm 2 a^3 n_y - a^2 u_x n_x n_y \pm a^3 n_y - 2a^2 u_y - a^2 u_y \\
+ 0 & \ ? =         - a^2 n_y ( n_y u_y + n_x u_x) \pm 2 a^3 n_y \pm a^3 n_y - 2a^2 u_y           \\
+ 0 & \ ? =        \mp a^3 n_y                     \pm 2 a^3 n_y \pm a^3 n_y - 2a^2 u_y           \\
+\end{aligned}$$
+
+**todo** *Check algebra. It looks like some sign is wrong and this prevent simplifications*
+
+<!--
+$$\begin{aligned}
 & = \dots \partial_t \dots \mp a^2 \partial_n \rho \pm u_n u \partial_u \rho +2 a \partial_x m_x \mp n_x u \partial_u m_x \mp u_n \partial_x m_x + 2 a \partial_y m_y \mp n_y u \partial_u m_y \mp u_n \partial_y m_y = \\
 & = \dots \partial_t \dots \mp a^2 \partial_n \rho + a u \partial_u \rho \mp n_x u \partial_u m_x - a \partial_x m_x \mp n_y u \partial_u m_y - a \partial_y m_y + 2 a \partial_x m_x + 2 a \partial_y m_y = \\
 & = \dots \partial_t \dots \mp a^2 \partial_n \rho + a u \partial_u \rho \mp \rho n_x u \partial_u u_x \mp n_x u_x u \partial_u \rho - a \partial_x m_x \mp \rho n_y \partial_u u_y \mp u_y n_y \partial_u \rho - a \partial_y m_y + 2 a \partial_x m_x + 2 a \partial_y m_y = \\
