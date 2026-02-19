@@ -634,7 +634,12 @@ document.write(`
   &amp; \sim \mathbf{u}(\mathbf{x}_0) + \Delta \ell \, \hat{\mathbf{n}} \cdot \nabla \mathbf{u}(\mathbf{x}_0) = \\
   &amp; = \mathbf{u}(\mathbf{x}_0) + \Delta \ell \, \partial_{n} \mathbf{u}(\mathbf{x}_0) \ .
 \end{aligned}\end{split}\]</div>
-<p><strong>If</strong> the matrix <span class="math notranslate nohighlight">\(\mathbf{A}_{\hat{\mathbf{n}}}\)</span> is diagonalizable, it’s invertible if it has no zero eigenvalue.</p>
+<p><strong>If</strong> the matrix <span class="math notranslate nohighlight">\(\mathbf{A}_{\hat{\mathbf{n}}}\)</span> is diagonalizable, it’s invertible if it has no zero eigenvalue. Let <span class="math notranslate nohighlight">\(\hat{\mathbf{n}}_i\)</span> be a unit vector so that the matrix <span class="math notranslate nohighlight">\(\mathbf{A}_{\hat{\mathbf{n}}}\)</span> has an eigenvalue equal to zero <span class="math notranslate nohighlight">\(s_0 = 0\)</span>, with right and left eigenvectors <span class="math notranslate nohighlight">\(\mathbf{r}_0\)</span>, <span class="math notranslate nohighlight">\(\mathbf{l}_0\)</span>. Recalling the expression of the PDE in normal and tangential components</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{s} = \mathbf{A}_{\hat{\mathbf{n}}} \partial_n \mathbf{u} + \sum_{\ell=1}^{d} \mathbf{A}_{\hat{\mathbf{d}}_\ell} \partial_{t_\ell} \mathbf{u} \ ,\]</div>
+<p>left-multiplying by <span class="math notranslate nohighlight">\(\mathbf{l}\)</span> gives</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{l}^T_0 \mathbf{s} = \mathbf{l}_0^T \sum_{\ell=1}^{d} \mathbf{A}_{\hat{\mathbf{d}}_\ell} \partial_{t_\ell} \mathbf{u} \ .\]</div>
 <p><strong>todo</strong></p>
 <ul class="simple">
 <li><p><em>compatibility conditions</em></p></li>
@@ -705,7 +710,14 @@ Some algebra<div class="sd-summary-down docutils">
   a^2 \mathbf{n} - ( \mathbf{n} \cdot \mathbf{u} ) \mathbf{u} &amp; ( \mathbf{n} \cdot \mathbf{u} ) \mathbb{I} + \mathbf{u} \otimes \mathbf{n}
 \end{bmatrix} \ .
 \end{aligned}\end{split}\]</div>
-<p>The eigenvalue decompositino of the matrix <span class="math notranslate nohighlight">\(\mathbf{A}_{\hat{\mathbf{n}}}\)</span> follows from</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Eigenvalues. Details<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The eigenvalue decomposition of the matrix <span class="math notranslate nohighlight">\(\mathbf{A}_{\hat{\mathbf{n}}}\)</span> follows from</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
   0 &amp; = \left| \mathbf{A}_{\hat{\mathbf{n}}} - s \mathbf{I} \right| =
@@ -722,10 +734,135 @@ Some algebra<div class="sd-summary-down docutils">
   &amp; =
             s^3 ( - 1 ) + \\
   &amp; \quad + s^2 ( u_n + u_y n_y + u_n + u_x n_x ) + \\
-  &amp; \quad + s   ( - ( u_n + u_x n_x ) ( u_n + u_y n_y ) + n_y ( a^2 n_y - u_n u_y n_y ) + n_x ( a^2 n_x - u_n u_x n_x ) - u_x n_x u_y n_y ) + \\
-  &amp; \quad + 1 \cdot (  n_x u_x n_y ( a^2 n_y - u_n u_y ) + n_y u_y n_x ( a^2 n_x - u_n u_x ) - n_y (  a^2 n_y - u_n u_y n_y )( u_x n_x + u_n ) - n_x ( a^2 n_x - u_n u_x n_x )( u_y n_y + u_n ) ) = \\
-  &amp; = - s^3 + 3 u_n s^2 + s ( a^2 )
+  &amp; \quad + s   ( - ( u_n + u_x n_x ) ( u_n + u_y n_y ) + n_y ( a^2 n_y - u_n u_y ) + n_x ( a^2 n_x - u_n u_x ) - u_x n_x u_y n_y ) + \\
+  &amp; \quad + 1 \cdot (  n_x u_x n_y ( a^2 n_y - u_n u_y ) + n_y u_y n_x ( a^2 n_x - u_n u_x ) - n_y (  a^2 n_y - u_n u_y )( u_x n_x + u_n ) - n_x ( a^2 n_x - u_n u_x )( u_y n_y + u_n ) ) = \\
+  &amp; = - s^3 + 3 u_n s^2 + s ( - u_n^2 - u_n (u_x n_x + u_y n_y) - u_x n_x u_y n_y - u_n u_y n_y - u_n u_x n_x + a^2 - u_x n_x u_y n_y ) + \\
+  &amp; \quad + ( a^2 \left( n_y^2 u_x n_x + n_x^2 n_y u_y - n_y^2 u_x n_x - n_y^2 u_n - n_x^2 u_y n_y - u_n n_x^2 \right) - u_n u_x n_x u_y n_y - u_n u_x n_x u_y n_y +u_n u_x n_x u_y n_y + u_n^2 u_y n_y + u_n u_x n_x u_y n_y + u_n^2 u_x n_x ) = \\ 
+  &amp; = - s^3 + 3 u_n s^2 + s ( a^2 - 3 u_n^2 ) - u_n  ( a^2 - u_n^2 ) = \\
+  &amp; = - ( s - u_n )^3 + ( s - u_n ) a^2 = \\
+  &amp; = - ( s - u_n ) ( ( s - u_n )^2 - a^2 ) \ .
 \end{aligned}\end{split}\]</div>
+</div>
+</details><p>Thus the eigenvalues of the matrix <span class="math notranslate nohighlight">\(\mathbf{A}_{\hat{\mathbf{n}}}\)</span> are</p>
+<div class="math notranslate nohighlight">
+\[s_{1,3} = u_n \mp a \quad , \quad s_2 = u_n \ ,\]</div>
+<p>and the right and left eigenvectors follow</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathbf{R} &amp; = \\
+  \mathbf{L} &amp; = \\
+\end{aligned}\end{split}\]</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Right and left eigenvectors. Details<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">For <span class="math notranslate nohighlight">\(s_{1,3} = u_n \mp  a\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{0} = \begin{bmatrix} -u_n \pm a &amp; \mathbf{n}^T \\ a^2 \mathbf{n} - u_n \mathbf{u} &amp; \pm a \mathbf{I} + \mathbf{u} \mathbf{n}^T \end{bmatrix}
+\begin{bmatrix} \hat{\rho} \\ \hat{\mathbf{m}} \end{bmatrix}
+\end{split}\]</div>
+<p class="sd-card-text">From the first equation it follows <span class="math notranslate nohighlight">\(\hat{m}_n = ( u_n \mp a ) \hat{\rho}\)</span>, and thus the momentum equation gives</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathbf{0}
+  &amp; = \hat{\rho} ( a^2 \mathbf{n} - u_n \mathbf{u} ) \pm a \hat{\mathbf{m}} + \mathbf{u} \hat{m}_n = \\
+  &amp; = \hat{\rho} ( a^2 \mathbf{n} - u_n \mathbf{u} ) \pm a \hat{\mathbf{m}} + \mathbf{u} ( u_n \mp a ) \hat{\rho} = \\
+  &amp; = \hat{\rho} ( a^2 \mathbf{n} \mp a \mathbf{u} ) \pm a \hat{\mathbf{m}} \ ,
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">and thus</p>
+<div class="math notranslate nohighlight">
+\[\hat{\mathbf{m}}_{1,3} = \hat{\rho}_{1,3} ( \mathbf{u} \mp a \mathbf{n} ) \ . \]</div>
+<p class="sd-card-text">For <span class="math notranslate nohighlight">\(s_{2} = u_n\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{0} = \begin{bmatrix} -u_n &amp; \mathbf{n}^T \\ a^2 \mathbf{n} - u_n \mathbf{u} &amp; \mathbf{u} \mathbf{n}^T \end{bmatrix}
+\begin{bmatrix} \hat{\rho} \\ \hat{\mathbf{m}} \end{bmatrix}
+\end{split}\]</div>
+<p class="sd-card-text">From the first equation it follows <span class="math notranslate nohighlight">\(\hat{m}_n = u_n \hat{\rho}\)</span>, and thus the momentum equation gives</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathbf{0}
+  &amp; = \hat{\rho} ( a^2 \mathbf{n} - u_n \mathbf{u} ) + \mathbf{u} \, \hat{m}_n = \\
+  &amp; = \hat{\rho} ( a^2 \mathbf{n} - u_n \mathbf{u} ) + \mathbf{u} \, u_n \, \hat{\rho} = \\
+  &amp; = \hat{\rho}   a^2 \mathbf{n} \ ,
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">and thus <span class="math notranslate nohighlight">\(\hat{\rho}_2 = 0\)</span>. The components of the momentum readily follows from mass equation that is equivalent to the condition</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{n}^T \hat{\mathbf{m}}_{2} = 0 \ ,\]</div>
+<p class="sd-card-text">i.e. as an example <span class="math notranslate nohighlight">\(\hat{\mathbf{m}}_{2} = \begin{bmatrix} n_y \\ -n_x \end{bmatrix}\)</span>.</p>
+<p class="sd-card-text">Assuming positive density, it’s possible to write all the eigenvectors with the proper physical dimensions, and collect them in the matrix of right eigenvectors,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{R} = \begin{bmatrix}
+  \rho &amp; 0 &amp; \rho \\
+  \rho ( u - a n_x ) &amp;   \rho a n_y &amp;  \rho ( u + a n_x ) \\ 
+  \rho ( v - a n_y ) &amp; - \rho a n_x &amp;  \rho ( v + a n_y ) 
+\end{bmatrix} \ .\end{split}\]</div>
+<p class="sd-card-text">The determinant reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+  \frac{1}{\rho^3 a^2} |\mathbf{R}|
+  &amp; =   n_y ( v + n_y ) - ( u - n_x ) n_x - n_y ( v - n_y ) + n_x ( u + n_x ) = 2 \ .
+\end{aligned}\]</div>
+<p class="sd-card-text">The inverse matrix reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+\mathbf{L} 
+&amp; = \frac{1}{|\mathbf{R}|} \, \rho^2 \,
+\begin{bmatrix}
+   a ( a + u_n )       &amp;  - a n_x  &amp; -   a n_y \\
+   2a( n_x v - n_y u ) &amp; 2 a n_ y  &amp; - 2 a n_x \\
+   a ( a - u_n )       &amp;    a n_x  &amp;     a n_y \\
+\end{bmatrix} = \\
+&amp; =
+\frac{1}{2 \rho a^2}
+\begin{bmatrix}
+   a ( a + u_n )       &amp;  - a n_x  &amp; -   a n_y \\
+   2a( n_x v - n_y u ) &amp; 2 a n_ y  &amp; - 2 a n_x \\
+   a ( a - u_n )       &amp;    a n_x  &amp;     a n_y \\
+\end{bmatrix} \ .
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+   L_{11} &amp; \propto  a n_y (v+a n_y) + a n_x (u+a n_x) = a u_n + a^2   \\ 
+  -L_{21} &amp; \propto (u-a n_x)(v+a n_y) - (v-a n_y) (u+a n_x) = 2 a u n_y - 2 a n_x v   \\ 
+   L_{31} &amp; \propto -a n_x (u-a n_x) - a n_y (v- a n_y) = - a u_n + a^2  \\ 
+  -L_{12} &amp; \propto a n_x \\ 
+   L_{22} &amp; \propto ( v+ a n_y) - (v - a n_y) = 2 a n_y   \\ 
+  -L_{32} &amp; \propto - a n_x   \\ 
+   L_{13} &amp; \propto - a n_y   \\ 
+  -L_{23} &amp; \propto ( u + a n_x ) - ( u - a n_x ) = 2 a n_x  \\ 
+   L_{33} &amp; \propto a n_y   \\ 
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">Some check</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathbf{L} \mathbf{R} 
+  &amp; = \frac{1}{2 \rho a^2} \begin{bmatrix} a ( a + u_n) &amp; - a \mathbf{n}^T \\ 2 a (n_x v - n_y u) &amp; 2 a \mathbf{t}^T \\ a ( a - u_n ) &amp; a \mathbf{n}^T \end{bmatrix} \begin{bmatrix} 1 &amp; 0 &amp; 1 \\ \mathbf{u} - a \mathbf{n} &amp; a \mathbf{t} &amp; \mathbf{u} + a \mathbf{n} \end{bmatrix} \, \rho = \\
+  &amp; = \frac{1}{2 a^2} \begin{bmatrix}
+  a^2 + a u_n - a u_n + a^2 &amp; - a\mathbf{n}^T\mathbf{t} &amp;  a^2 + a u_n - a u_n - a^2 \\
+  2 a ( n_x v - n_y u ) + 2 a ( n_y u - n_x v ) &amp; 2 a^2 &amp;  2 a ( n_x v - n_y u ) + 2 a ( n_y u - n_x v ) \\
+  a^2 - a u_n + a u_n - a^2 &amp;   a\mathbf{n}^T\mathbf{t} &amp;  a^2 - a u_n + a u_n + a^2 \\
+  \end{bmatrix} = \mathbf{I}_3 \ .
+\end{aligned}\end{split}\]</div>
+</div>
+</details><p><strong>Normal vectors of the characteristic surfaces.</strong> For <strong>locally supersonic flows</strong>, <span class="math notranslate nohighlight">\(|\mathbf{u}| &gt; a\)</span>, there are three directions, i.e. three unit vectors <span class="math notranslate nohighlight">\(\hat{\mathbf{n}}_i\)</span> that make the eigenvalues equal to zero,</p>
+<div class="math notranslate nohighlight">
+\[\hat{\mathbf{n}}_{1,3} \cdot \mathbf{u} = \pm a \quad , \quad \hat{\mathbf{n}}_{2} \cdot \mathbf{u} = 0 \ ,\]</div>
+<p>or equivalently</p>
+<div class="math notranslate nohighlight">
+\[\hat{\mathbf{n}}_{1,3} \cdot \left( \mathbf{u} \mp a \hat{\mathbf{n}}_{1,3} \right) = 0 \quad , \quad \hat{\mathbf{n}}_2 \cdot \mathbf{u} = 0 \ .\]</div>
+<p>Let <span class="math notranslate nohighlight">\(\hat{\mathbf{u}}\)</span> the unit vector along the local velocity field, it follows</p>
+<div class="math notranslate nohighlight">
+\[u \hat{\mathbf{u}} \cdot \hat{\mathbf{n}}_{1,3} = \pm a \ ,\]</div>
+<p>i.e.</p>
+<div class="math notranslate nohighlight">
+\[\cos \theta_{1,3} = \pm \frac{a}{u} = \pm \frac{1}{M} \ .\]</div>
+<p>For <strong>locally subsonic flows</strong>, <span class="math notranslate nohighlight">\(|\mathbf{u}| &lt; a\)</span>, the eigenvalues <span class="math notranslate nohighlight">\(s_{1,3}\)</span> are always negative and positive respectively, while the eigenvalue <span class="math notranslate nohighlight">\(s_2\)</span> becomes equal to zero for unit vectors that are orthogonal w.r.t. the local velocity.</p>
 </div>
 <div class="section" id="euler-equations-for-inviscid-compressible-flows">
 <h4><span class="section-number">28.6.2.2.2. </span>Euler equations for inviscid compressible flows<a class="headerlink" href="#euler-equations-for-inviscid-compressible-flows" title="Permalink to this heading">#</a></h4>
