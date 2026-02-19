@@ -134,11 +134,91 @@ $$\begin{aligned}
 
 ### Examples
 
-#### Shallow water
-
 #### Isothermal compressible flow
+
+- Conservative variables: $(\rho, \vec{m})$
+- Physical variables: e.g. $(\rho, \vec{u})$, $(P, \vec{u})$,...
+
+Conservative form reads
+
+$$\begin{cases}
+  \partial_t \rho + \nabla \cdot \mathbf{m} = 0 \\
+  \partial_t \mathbf{m} + \nabla \cdot \left[ \frac{\mathbf{m}\otimes\mathbf{m}}{\rho} + \rho a^2 \mathbf{I} \right] = 0 \\
+\end{cases}$$
+
+Convective form in a 2-dimensional domain reads
+
+$$
+\partial_t \begin{bmatrix} \rho \\ m_x \\ m_y \end{bmatrix} +
+\begin{bmatrix}
+  \cdot & 1     & \cdot \\
+  a^2 - \frac{m_x m_x}{\rho^2} & \frac{2 m_x}{\rho} & \cdot \\
+      - \frac{m_x m_y}{\rho^2} & \frac{m_y}{\rho} & \frac{m_x}{\rho} \\
+\end{bmatrix} \partial_x \begin{bmatrix} \rho \\ m_x \\ m_y \end{bmatrix} +
+\begin{bmatrix}
+  \cdot & \cdot & 1     \\
+  - \frac{m_x m_y}{\rho^2} & \frac{m_y}{\rho} & \frac{m_x}{\rho} \\
+  a^2 - \frac{m_y m_y}{\rho^2} & \cdot & \frac{2 m_y}{\rho} \\
+\end{bmatrix} \partial_y \begin{bmatrix} \rho \\ m_x \\ m_y \end{bmatrix} = \mathbf{0}
+$$
+
+```{dropdown} Some algebra
+
+$$\begin{aligned}
+  0 & = \rho_{/t} + m_{x/x} + m_{y/y}  \\
+  0 & = m_{i/t} + \partial_{j} \left( \frac{m_j m_i}{\rho} + \rho a^2 \delta_{ij} \right) \ .
+\end{aligned}$$
+
+```
+
+Thus,
+
+$$\begin{aligned}
+\mathbf{A}_{\hat{\mathbf{n}}} 
+& = 
+\begin{bmatrix} 
+  \cdot & n_x & n_y \\
+  a^2 n_x - u_n u_x & u_x n_x + u_n & u_x n_y \\
+  a^2 n_y - u_n u_y & u_y n_x & u_n + u_y n_y \\
+\end{bmatrix} = \\
+& = 
+\begin{bmatrix}
+  0 & \mathbf{n}^T \\
+  a^2 \mathbf{n} - ( \mathbf{n}^T \mathbf{u} ) \mathbf{u} &  \mathbf{n}^T \mathbf{u} \mathbf{I} + \mathbf{u} \mathbf{n}^T
+\end{bmatrix} = \\
+& = 
+\begin{bmatrix}
+  0 & \hat{\mathbf{n}}^T \\
+  a^2 \mathbf{n} - ( \mathbf{n} \cdot \mathbf{u} ) \mathbf{u} & ( \mathbf{n} \cdot \mathbf{u} ) \mathbb{I} + \mathbf{u} \otimes \mathbf{n}
+\end{bmatrix} \ .
+\end{aligned}$$
+
+The eigenvalue decompositino of the matrix $\mathbf{A}_{\hat{\mathbf{n}}}$ follows from
+
+$$\begin{aligned}
+  0 & = \left| \mathbf{A}_{\hat{\mathbf{n}}} - s \mathbf{I} \right| =
+\left|
+\begin{bmatrix}
+  -s & \mathbf{n}^T \\
+  a^2 \mathbf{n} - u_n \mathbf{u} & ( u_n - s ) \mathbf{I} + \mathbf{u} \mathbf{n}^T
+\end{bmatrix} 
+\right| = \\
+  & = -s ( u_n + u_x n_x - s ) ( u_n + u_y n_y - s ) + n_x u_x n_y ( a^2 n_y - u_n u_y ) + n_y u_y n_x ( a^2 n_x - u_n u_x ) + \\
+  &  - ( a^2 n_y - u_n u_y ) ( u_x n_x + u_n - s) n_y 
+     - ( a^2 n_x - u_n u_x ) ( u_y n_y + u_n - s) n_x
+     - s u_x u_y n_x n_y = \\
+  & =
+            s^3 ( - 1 ) + \\
+  & \quad + s^2 ( u_n + u_y n_y + u_n + u_x n_x ) + \\
+  & \quad + s   ( - ( u_n + u_x n_x ) ( u_n + u_y n_y ) + n_y ( a^2 n_y - u_n u_y n_y ) + n_x ( a^2 n_x - u_n u_x n_x ) - u_x n_x u_y n_y ) + \\
+  & \quad + 1 \cdot (  n_x u_x n_y ( a^2 n_y - u_n u_y ) + n_y u_y n_x ( a^2 n_x - u_n u_x ) - n_y (  a^2 n_y - u_n u_y n_y )( u_x n_x + u_n ) - n_x ( a^2 n_x - u_n u_x n_x )( u_y n_y + u_n ) ) = \\
+  & = - s^3 + 3 u_n s^2 + s ( a^2 )
+\end{aligned}$$
+
 
 #### Euler equations for inviscid compressible flows
 
+
+#### Shallow water
 
 
