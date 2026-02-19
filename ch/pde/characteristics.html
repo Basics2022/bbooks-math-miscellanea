@@ -1,0 +1,788 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>28.6. Method of characteristics &#8212; basics - math</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/style.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="https://cdn.plot.ly/plotly-lates.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/pde/characteristics';</script>
+    <link rel="shortcut icon" href="../../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="29. Navier-Cauchy equations" href="nc.html" />
+    <link rel="prev" title="28. Hyperbolic problems" href="hyperbolic.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPXX63Z3XR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-JPXX63Z3XR');
+</script>
+
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.svg" class="logo__image only-light" alt="basics - math - Home"/>
+    <script>document.write(`<img src="../../_static/logo-dark.svg" class="logo__image only-dark" alt="basics - math - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Linear Algebra</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../linear-algebra/intro.html">1. Introduction to Linear Algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linear-algebra/matrices.html">2. Matrices</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../linear-algebra/matrix-factorization.html">3. Matrix factorizations</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../linear-algebra/svd.html">3.3. Singular Value Decomposition</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../linear-algebra/linear-systems.html">4. Linear Systems</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../linear-algebra/spectral.html">5. Spectral decomposition</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../linear-algebra/spectral-symmetric.html">5.1. Spectral decomposition of symmetric matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linear-algebra/spectral-sensitivity.html">5.2. Sensitivity of spectral decomposition</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Multivariable Calculus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../multivariable/intro.html">6. Introduction to multi-variable calculus</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Differential Geometry</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../differential-geometry/intro.html">7. Introduction to Differential Geometry</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Vector and Tensor Algebra and Calculus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/algebra.html">8. Tensor Algebra</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean.html">9. Tensor Calculus in Euclidean Spaces</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean-cartesian.html">9.5. Tensor Calculus in Euclidean Spaces - Cartesian coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean-cylindrical.html">9.6. Tensor Calculus in Euclidean Spaces - cylindrical coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean-spherical.html">9.7. Tensor Calculus in Euclidean Spaces - Spehrical coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/tensor-invariants.html">10. Tensor Invariants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/algebra-rotation-tensors.html">11. Unitary and rotation tensors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/algebra-isotropic-tensors.html">12. Isotropic Tensors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/time-derivative-of-integrals.html">13. Time derivative of integrals over moving domains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/calculus-identities.html">14. Calculus identities</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Functional Analysis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../functional-analysis/intro.html">15. Introduction to Functional Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functional-analysis/dirac-delta.html">16. Dirac’s delta</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Complex Calculus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../complex/analysis.html">17. Complex Analysis</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../complex/laplace.html">18. Laplace Transform</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../complex/laplace-def-thm.html">18.1. Definition and Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../complex/laplace-applications.html">18.2. Applications of Laplace Transform</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../complex/fourier.html">19. Fourier Transforms</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../complex/fourier-series.html">19.1. Fourier Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../complex/fourier-transform.html">19.2. Fourier Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../complex/fourier-transforms.html">19.3. Relations between Fourier transforms</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Calculus of Variations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../calculus-variations/intro.html">20. Introduction to Calculus of Variations</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Ordinary Differential Equations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ode/intro.html">21. Introduction to Ordinary Differential Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ode/lti.html">22. Linear Time-Invariant Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ode/lti-response.html">23. LTI system response</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ode/lti-stability-and-feedback.html">24. LTI: stability and feedback</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Partial Differential Equations</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">25. Introduction to Partial Differential Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="elliptic.html">26. Elliptic equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parabolic.html">27. Parabolic equations</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="hyperbolic.html">28. Hyperbolic problems</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">28.6. Method of characteristics</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nc.html">29. Navier-Cauchy equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ns.html">30. Navier-Stokes equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ale.html">31. Arbitrary Lagrangian-Eulerian description</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Numerical Methods for PDEs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="numerics.html">32. Introduction to numerical methods for PDEs</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="fem.html">33. Finite Element Method</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="fem-poisson-1d.html">33.1. 1-dimensional Poisson equation</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="fvm.html">34. Finite Volume Method</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="fvm-poisson-1d.html">34.1. 1-dimensional Poisson equation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bem.html">35. Boundary Element Method</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Boundary Methods for PDEs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="bem-poisson-helmholtz-waves.html">36. Green’s function method</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Optimization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../optimization/intro.html">37. Optimization</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Control</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../control/intro.html">38. Introduction to control methods</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control.html">38.1. Optimal control</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reinforcement Learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../rl/intro.html">39. Introduction to Reinforcement Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp.html">40. Markov Processes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_sol_dp_lp.html">41. Methods of solution of MPD: DP and LP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_sol_rl.html">42. Methods of solution of MPD: RL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_large_continuous.html">43. Large or Continuous MDPs</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/edit/main/ch/pde/characteristics.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/issues/new?title=Issue%20on%20page%20%2Fch/pde/characteristics.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/ch/pde/characteristics.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Method of characteristics</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scalar-multi-dimensional-problem">28.6.1. Scalar multi-dimensional problem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-multi-dimensional-problem">28.6.2. Vector multi-dimensional problem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#taylor-expansion-of-a-solution">28.6.2.1. Taylor expansion of a solution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">28.6.2.2. Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#shallow-water">28.6.2.2.1. Shallow water</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isothermal-compressible-flow">28.6.2.2.2. Isothermal compressible flow</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#euler-equations-for-inviscid-compressible-flows">28.6.2.2.3. Euler equations for inviscid compressible flows</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="tex2jax_ignore mathjax_ignore section" id="method-of-characteristics">
+<span id="pde-hyperbolic-characteristics"></span><h1><span class="section-number">28.6. </span>Method of characteristics<a class="headerlink" href="#method-of-characteristics" title="Permalink to this heading">#</a></h1>
+<div class="section" id="scalar-multi-dimensional-problem">
+<h2><span class="section-number">28.6.1. </span>Scalar multi-dimensional problem<a class="headerlink" href="#scalar-multi-dimensional-problem" title="Permalink to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathbf{a}^T(u(\mathbf{x}), \mathbf{x}) \, \boldsymbol\nabla  u(\mathbf{x}) &amp; = c(u(\mathbf{x}), \mathbf{x}) \quad , \quad \mathbf{x} \in D \\
+  a_k(u(\mathbf{x}), \mathbf{x}) \frac{\partial}{\partial x_k} u(\mathbf{x}) &amp; = c(u(\mathbf{x}), \mathbf{x}) 
+\end{aligned}\end{split}\]</div>
+<p>The method of characteristics aims at transforming the PDE over the domain <span class="math notranslate nohighlight">\(D\)</span>, in a set of ODEs over lines - the characteristic lines. Both the coordinates of these lines and the unknown function on these lines are written in parametric form as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathbf{x} &amp; = \mathbf{X}(s) \\
+  u(\mathbf{X}(s)) &amp; = U(s) \ .
+\end{aligned}\end{split}\]</div>
+<p>Now, taking the ordinary derivative of <span class="math notranslate nohighlight">\(U'(s)\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[U'(s) = \frac{d X_k}{d s}(s) \frac{\partial u}{\partial x_k}\left( \mathbf{X}(s) \right) \ .\]</div>
+<p>If the characteristic lines are defined by the differential equation <span class="math notranslate nohighlight">\(X'_k(s) = a_k(U(s), X(s))\)</span>, the set of ODEs become</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+ U'(s) &amp; = c\left(U(s), \mathbf{X}(s)\right) \\
+ \mathbf{X}'(s) &amp; = \mathbf{a}\left(U(s), \mathbf{X}(s)\right) \ .
+\end{aligned}\end{split}\]</div>
+</div>
+<div class="section" id="vector-multi-dimensional-problem">
+<h2><span class="section-number">28.6.2. </span>Vector multi-dimensional problem<a class="headerlink" href="#vector-multi-dimensional-problem" title="Permalink to this heading">#</a></h2>
+<p><strong>todo</strong> <em>Characteristic method fails…characteristic - eikonal - equation. Uncomment</em></p>
+<p>Let</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathbf{u}(t, \mathbf{r}): &amp; \ \mathbb{R} \times \mathbb{R}^d \rightarrow \mathbb{R}^n \\
+  \mathbf{F}(   \mathbf{u}): &amp; \ \mathbb{R}^{n} \rightarrow \mathbb{R}^{d} \times \mathbb{R}^n \\
+  \mathbf{s}(t, \mathbf{r}): &amp; \ \mathbb{R} \times \mathbb{R}^d \rightarrow \mathbb{R}^n \\
+\end{aligned}\end{split}\]</div>
+<p>the conservative form of a hyperbolic problem reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \partial_t \mathbf{u} + \nabla \cdot \mathbf{F}(\mathbf{u}) &amp; = \mathbf{s} \\
+  \partial_t u_i + \partial_j F_{ji} &amp; = s_i \ .
+\end{aligned}\end{split}\]</div>
+<p>Expanding the divergence of the flux, the convective (quasi-linear? It makes little to no sense to me…) form follows</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  s_i 
+  &amp; = \partial_t u_i + \sum_{j=1}^{d} \partial_j F_{ji} = \\
+  &amp; = \partial_t u_i + \sum_{j=1}^{d} \sum_{k=1}^{n} \partial_j u_k \partial_{u_k} F_{ji} = \\
+  &amp; = \partial_t u_i + \sum_{j=1}^{d} \sum_{k=1}^{n} A^{j}_{ik}(\mathbf{u}) \, \partial_j u_k  \ ,
+\end{aligned}\end{split}\]</div>
+<p>for every component <span class="math notranslate nohighlight">\(i = 1:n\)</span>, or</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{s} = \partial_t \mathbf{u} + \sum_{j=1}^{d} \mathbf{A}^j \partial_j \mathbf{u} \ .\]</div>
+<p>This problem can be made a little more general with by defining <span class="math notranslate nohighlight">\(\mathbf{x} = (t, \mathbf{r}) = ( x_0, \mathbf{r} )\)</span>, as</p>
+<div class="math notranslate nohighlight">
+\[\sum_{j=0}^{d} \mathbf{A}^j \, \partial_j \mathbf{u} = \mathbf{s} \ .\]</div>
+<p>The former expression of the hyperbolic problem immediately follows if <span class="math notranslate nohighlight">\(\mathbf{A}_0 = \mathbf{I}_n\)</span>, <span class="math notranslate nohighlight">\(A^0_{ik} = \delta_{ik}\)</span>, and</p>
+<div class="math notranslate nohighlight">
+\[\widetilde{\nabla} \cdot \widetilde{\mathbf{F}} = \partial_0 \mathbf{F}_0 + \sum_{j=1}^{d} \partial_j \mathbf{F}_j = \widetilde{\nabla} \cdot \begin{bmatrix} \ \mathbf{u} \ | \ \mathbf{F} \ \end{bmatrix} \ .\]</div>
+<p>as, for <span class="math notranslate nohighlight">\(i = 1:n\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\delta_{ik} = \partial_{u_k} F_{0i} \quad \rightarrow \quad F_{0i} = u_k \delta_{ik} = u_i \ .\]</div>
+<div class="section" id="taylor-expansion-of-a-solution">
+<h3><span class="section-number">28.6.2.1. </span>Taylor expansion of a solution<a class="headerlink" href="#taylor-expansion-of-a-solution" title="Permalink to this heading">#</a></h3>
+<p>Starting from the solution on a manifold determined by the equation <span class="math notranslate nohighlight">\(S: f(\mathbf{x}) = 0\)</span>, <span class="math notranslate nohighlight">\(\mathbf{x}_0 \in S\)</span>, if the solution is differentiable, the solution in a point <span class="math notranslate nohighlight">\(\mathbf{x} = \mathbf{x}_0 + \Delta \mathbf{x}\)</span> reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathbf{u}(\mathbf{x}) &amp; \sim \mathbf{u}(\mathbf{x}_0) + \Delta \mathbf{x} \cdot \nabla \mathbf{u}(\mathbf{x}_0) \\
+  u_i(\mathbf{x}) &amp; \sim u_i(\mathbf{x}_0) + \Delta_j \frac{\partial u_i}{\partial x_j} \ .
+\end{aligned}\end{split}\]</div>
+<p>Now, with a change of coordinates from <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> to <span class="math notranslate nohighlight">\(\boldsymbol\xi = (n, \mathbf{t})\)</span>, i.e. to local normal and tangential direction,</p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+  \nabla \mathbf{u} 
+  = \hat{\mathbf{x}}_i \frac{\partial}{\partial x_i} \mathbf{u} 
+  = \hat{\mathbf{x}}_i \frac{\partial \mathbf{u}}{\partial x_i} 
+  = \hat{\mathbf{x}}_i \frac{\partial \mathbf{u}}{\partial \xi_k} \frac{\partial \xi_k}{\partial x_i} 
+  = \hat{\boldsymbol\xi}_k \frac{\partial \mathbf{u}}{\partial \xi_k}
+\end{aligned}\]</div>
+<p>Inserting in the hyperbolic equation</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  s_i
+  &amp; = \sum_{j=0}^{d} A^{j}_{ik} \frac{\partial u_k}{\partial x_j} = \\
+  &amp; = \sum_{j=0}^{d} A^{j}_{ik} \sum_{\ell=0}^{d} \frac{\partial u_k}{\partial \xi_\ell} \frac{\partial \xi_\ell}{\partial x_j} = \\ 
+  &amp; = \sum_{\ell=0}^{d}  \sum_{j=0}^{d}  A^{j}_{ik} \frac{\partial \xi_\ell}{\partial x_j} \frac{\partial u_k}{\partial \xi_\ell} = \\ 
+  &amp; = \sum_{\ell=0}^{d}  \sum_{j=0}^{d}  A^{j}_{ik} \xi^\ell_j \frac{\partial u_k}{\partial \xi_\ell} \ ,
+\end{aligned}\end{split}\]</div>
+<p>and separating the normal <span class="math notranslate nohighlight">\(\ell = 0\)</span> from the tangential <span class="math notranslate nohighlight">\(\ell=1:d\)</span> coordinates,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  s_i
+  &amp; = \sum_{j=0}^{d} A^j_{ik} \xi^0_j \frac{\partial u_k}{\partial \xi_0} + \sum_{\ell=1}^{d} \sum_{j=0}^{d} A^j_{ik} \xi^t_j \frac{\partial u_k}{\partial \xi_t} = \\
+  &amp; = \sum_{j=0}^{d} A^j_{ik} n_j \frac{\partial u_k}{\partial n} + \sum_{\ell=1}^{d} \sum_{j=0}^{d} A^j_{ik} t^\ell_j \frac{\partial u_k}{\partial t_\ell} = \\
+  &amp; = \sum_{j=0}^{d} n_j \mathbf{A}^j \partial_n \mathbf{u} + \sum_{\ell=1}^{d} \sum_{j=0}^{d} t^\ell_j \mathbf{A}^j \partial_{t_\ell} \mathbf{u} \ .
+\end{aligned}\end{split}\]</div>
+<p>On a smooth surface where the solution is known, all the tangential derivatives of the solution are known as well. In order to evaluate the normal derivative <span class="math notranslate nohighlight">\(\partial_n \mathbf{u}\)</span> from the PDE, the (formal) inversion of the matrix</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{A}_{\hat{\mathbf{n}}} := \sum_{j=0}^{d} n_j \, \mathbf{A}^j \ ,\]</div>
+<p>must be invertible, to formally get</p>
+<div class="math notranslate nohighlight">
+\[\partial_n \mathbf{u} = \mathbf{A}_{\hat{\mathbf{n}}}^{-1} \left( \mathbf{s} - \sum_{\ell=1}^{d} \mathbf{A}_{\hat{\mathbf{t}}_\ell} \partial_{t_\ell} \mathbf{u} \right) \ .\]</div>
+<p>This expression of the normal derivative of the solution - whenever it exists - can be used to find the approximation of the solution in normal direction w.r.t. the surface <span class="math notranslate nohighlight">\(S\)</span>, i.e. with <span class="math notranslate nohighlight">\(\Delta \mathbf{x} = \Delta \ell \hat{\mathbf{n}}\)</span> as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathbf{u}(\mathbf{x}) 
+  &amp; \sim \mathbf{u}(\mathbf{x}_0) + \Delta \ell \, \hat{\mathbf{n}} \cdot \nabla \mathbf{u}(\mathbf{x}_0) = \\
+  &amp; = \mathbf{u}(\mathbf{x}_0) + \Delta \ell \, \partial_{n} \mathbf{u}(\mathbf{x}_0) \ .
+\end{aligned}\end{split}\]</div>
+<p><strong>If</strong> the matrix <span class="math notranslate nohighlight">\(\mathbf{A}_{\hat{\mathbf{n}}}\)</span> is diagonalizable, it’s invertible if it has no zero eigenvalue.</p>
+<p><strong>todo</strong></p>
+<ul class="simple">
+<li><p><em>compatibility conditions</em></p></li>
+<li><p><em>eikonal equation</em></p></li>
+<li><p><em>explicitly treating steady vs. unsteady problems</em></p></li>
+</ul>
+</div>
+<div class="section" id="examples">
+<h3><span class="section-number">28.6.2.2. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">#</a></h3>
+<div class="section" id="shallow-water">
+<h4><span class="section-number">28.6.2.2.1. </span>Shallow water<a class="headerlink" href="#shallow-water" title="Permalink to this heading">#</a></h4>
+</div>
+<div class="section" id="isothermal-compressible-flow">
+<h4><span class="section-number">28.6.2.2.2. </span>Isothermal compressible flow<a class="headerlink" href="#isothermal-compressible-flow" title="Permalink to this heading">#</a></h4>
+</div>
+<div class="section" id="euler-equations-for-inviscid-compressible-flows">
+<h4><span class="section-number">28.6.2.2.3. </span>Euler equations for inviscid compressible flows<a class="headerlink" href="#euler-equations-for-inviscid-compressible-flows" title="Permalink to this heading">#</a></h4>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./ch/pde"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="hyperbolic.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">28. </span>Hyperbolic problems</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="nc.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">29. </span>Navier-Cauchy equations</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scalar-multi-dimensional-problem">28.6.1. Scalar multi-dimensional problem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-multi-dimensional-problem">28.6.2. Vector multi-dimensional problem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#taylor-expansion-of-a-solution">28.6.2.1. Taylor expansion of a solution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">28.6.2.2. Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#shallow-water">28.6.2.2.1. Shallow water</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isothermal-compressible-flow">28.6.2.2.2. Isothermal compressible flow</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#euler-equations-for-inviscid-compressible-flows">28.6.2.2.3. Euler equations for inviscid compressible flows</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By basics
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
