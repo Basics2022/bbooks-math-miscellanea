@@ -639,7 +639,7 @@ document.write(`
 \[\mathbf{s} = \mathbf{A}_{\hat{\mathbf{n}}} \partial_n \mathbf{u} + \sum_{\ell=1}^{d} \mathbf{A}_{\hat{\mathbf{d}}_\ell} \partial_{t_\ell} \mathbf{u} \ ,\]</div>
 <p>left-multiplying by <span class="math notranslate nohighlight">\(\mathbf{l}\)</span> gives</p>
 <div class="math notranslate nohighlight">
-\[\mathbf{l}^T_0 \mathbf{s} = \mathbf{l}_0^T \sum_{\ell=1}^{d} \mathbf{A}_{\hat{\mathbf{d}}_\ell} \partial_{t_\ell} \mathbf{u} \ .\]</div>
+\[\mathbf{l}^T_0 \mathbf{s} = \mathbf{l}_0^T \sum_{\ell=1}^{d} \mathbf{A}_{\hat{\mathbf{d}}_\ell} \partial_{t_\ell} \mathbf{u} = \qquad \dots \qquad = \mathbf{l}_0^T \sum_{k=0}^{d} \mathbf{A}^k \partial_k \mathbf{u} \ .\]</div>
 <p><strong>todo</strong></p>
 <ul class="simple">
 <li><p><em>compatibility conditions</em></p></li>
@@ -863,6 +863,108 @@ Right and left eigenvectors. Details<div class="sd-summary-down docutils">
 <div class="math notranslate nohighlight">
 \[\cos \theta_{1,3} = \pm \frac{a}{u} = \pm \frac{1}{M} \ .\]</div>
 <p>For <strong>locally subsonic flows</strong>, <span class="math notranslate nohighlight">\(|\mathbf{u}| &lt; a\)</span>, the eigenvalues <span class="math notranslate nohighlight">\(s_{1,3}\)</span> are always negative and positive respectively, while the eigenvalue <span class="math notranslate nohighlight">\(s_2\)</span> becomes equal to zero for unit vectors that are orthogonal w.r.t. the local velocity.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Right and left eigenvectors<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Right eigenvector problem reads</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{A} \mathbf{R} = \mathbf{R} \mathbf{S} \ ,\]</div>
+<p class="sd-card-text">s.t. <span class="math notranslate nohighlight">\(\mathbf{A} \mathbf{r}_i = s_i \mathbf{r}_i\)</span>, with <span class="math notranslate nohighlight">\(\mathbf{r}_i\)</span> the <span class="math notranslate nohighlight">\(i^{th}\)</span> column of matrix <span class="math notranslate nohighlight">\(\mathbf{R}\)</span>.</p>
+<p class="sd-card-text">Left eigenvector problem reads</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{L} \mathbf{A} = \mathbf{S} \mathbf{L} \ ,\]</div>
+<p class="sd-card-text">s.t. <span class="math notranslate nohighlight">\(\mathbf{l}_i^T \mathbf{A} = s_i \mathbf{l}_i^T \mathbf{A}\)</span>, with <span class="math notranslate nohighlight">\(\mathbf{l}_i^T\)</span> the <span class="math notranslate nohighlight">\(i^{th}\)</span> row of matrix <span class="math notranslate nohighlight">\(\mathbf{L}\)</span>.</p>
+</div>
+</details><p><strong>Compatibility equations.</strong> For <strong>locally supersonic flows</strong>, for <span class="math notranslate nohighlight">\(s_{1,3} = u_n \mp a\)</span>, <span class="math notranslate nohighlight">\(u_n = \pm a\)</span> to get <span class="math notranslate nohighlight">\(s_{1,3} = 0\)</span>, and thus the left eigenvectors for those choices of unit vector become</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathbf{l}_{0; 1,3}^T
+  &amp; = \frac{1}{2 \rho a^2} \begin{bmatrix} \  a ( a \pm u_n ) \ | \ \mp a \mathbf{n}^T_{1,3} \end{bmatrix} = \\
+  &amp; = \frac{1}{2 \rho a} \begin{bmatrix} \ 2 a \ | \mp \mathbf{n}^T_{1,3} \ \end{bmatrix} \ .
+\end{aligned}\end{split}\]</div>
+<p>The quasi linear form of the equations becomes</p>
+<p><strong>todo</strong> <em>Check algebra, and UNCOMMENT!</em></p>
+<!--
+$$\begin{aligned}
+0 
+& = \frac{1}{2 \rho a} \left[ \ 2 a \ | \ \mp \mathbf{n}^T_{1,3} \ \right] \left( 
+\partial_t \begin{bmatrix} \rho \\ m_x \\ m_y \end{bmatrix} +
+\begin{bmatrix}
+  \cdot & 1     & \cdot \\
+  a^2 - \frac{m_x m_x}{\rho^2} & \frac{2 m_x}{\rho} & \cdot \\
+      - \frac{m_x m_y}{\rho^2} & \frac{m_y}{\rho} & \frac{m_x}{\rho} \\
+\end{bmatrix} \partial_x \begin{bmatrix} \rho \\ m_x \\ m_y \end{bmatrix} +
+\begin{bmatrix}
+  \cdot & \cdot & 1     \\
+  - \frac{m_x m_y}{\rho^2} & \frac{m_y}{\rho} & \frac{m_x}{\rho} \\
+  a^2 - \frac{m_y m_y}{\rho^2} & \cdot & \frac{2 m_y}{\rho} \\
+\end{bmatrix} \partial_y \begin{bmatrix} \rho \\ m_x \\ m_y \end{bmatrix} = \mathbf{0}
+\right) = \\
+0
+& = \dots \partial_t \dots + \\
+& \quad + \left[ \mp a^2 n_x \pm u_n u_x \ | \ 2 a  \mp u_x n_x \mp u_n \ | \ \mp n_y u_x \ \right] \partial_x \begin{bmatrix} \rho \\ \mathbf{m} \end{bmatrix} +  \\
+& \quad + \left[ \mp a^2 n_y \pm u_n u_y \ | \ \mp n_x u_y \ | \ 2 a \mp u_y n_y \mp u_n \ \right] \partial_y \begin{bmatrix} \rho \\ \mathbf{m} \end{bmatrix} = \\
+& = \dots \partial_t \dots \mp a^2 \partial_n \rho \pm u_n u \partial_u \rho +2 a \partial_x m_x \mp n_x u \partial_u m_x \mp u_n \partial_x m_x + 2 a \partial_y m_y \mp n_y u \partial_u m_y \mp u_n \partial_y m_y = \\
+& = \dots \partial_t \dots \mp a^2 \partial_n \rho + a u \partial_u \rho \mp n_x u \partial_u m_x - a \partial_x m_x \mp n_y u \partial_u m_y - a \partial_y m_y + 2 a \partial_x m_x + 2 a \partial_y m_y = \\
+& = \dots \partial_t \dots \mp a^2 \partial_n \rho + a u \partial_u \rho \mp \rho n_x u \partial_u u_x \mp n_x u_x u \partial_u \rho - a \partial_x m_x \mp \rho n_y \partial_u u_y \mp u_y n_y \partial_u \rho - a \partial_y m_y + 2 a \partial_x m_x + 2 a \partial_y m_y = \\
+& = \dots \partial_t \dots \mp a^2 \partial_n \rho + a u \partial_u \rho \mp \rho n_x u \partial_u u_x \mp u_n u \partial_u \rho - a \partial_x m_x \mp \rho n_y u \partial_u u_y - a \partial_y m_y + 2 a \partial_x m_x + 2 a \partial_y m_y = \\
+& = \dots \partial_t \dots \mp a^2 \partial_n \rho \mp \rho n_x u \partial_u u_x \mp \rho n_y u \partial_u u_y + a \partial_x m_x + a \partial_y m_y = \\
+\end{aligned}$$
+-->
+<p>…</p>
+<p>For <span class="math notranslate nohighlight">\(s_2 = u_n\)</span>, <span class="math notranslate nohighlight">\(u_n = 0\)</span> to get <span class="math notranslate nohighlight">\(s_2 = 0\)</span>, and thus the corresponding left eigenvector reads</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{l}_{0;2}^T = \frac{1}{\rho a} \left[ - \mathbf{t}^T \mathbf{u} \ | \ \mathbf{t}^T \right] \ ,\]</div>
+<p>with <span class="math notranslate nohighlight">\(\mathbf{t} = \begin{bmatrix} n_y \\ - n_x \end{bmatrix}\)</span>, so that <span class="math notranslate nohighlight">\(\mathbf{t}^T \mathbf{n} = 0\)</span>. The quasi linear form of the equations becomes</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+0 
+&amp; = \frac{1}{\rho a} \left[ \ - \mathbf{t}^T \mathbf{u} \ | \ \mathbf{t}^T \ \right] \left( 
+\partial_t \begin{bmatrix} \rho \\ m_x \\ m_y \end{bmatrix} +
+\begin{bmatrix}
+  \cdot &amp; 1     &amp; \cdot \\
+  a^2 - \frac{m_x m_x}{\rho^2} &amp; \frac{2 m_x}{\rho} &amp; \cdot \\
+      - \frac{m_x m_y}{\rho^2} &amp; \frac{m_y}{\rho} &amp; \frac{m_x}{\rho} \\
+\end{bmatrix} \partial_x \begin{bmatrix} \rho \\ m_x \\ m_y \end{bmatrix} +
+\begin{bmatrix}
+  \cdot &amp; \cdot &amp; 1     \\
+  - \frac{m_x m_y}{\rho^2} &amp; \frac{m_y}{\rho} &amp; \frac{m_x}{\rho} \\
+  a^2 - \frac{m_y m_y}{\rho^2} &amp; \cdot &amp; \frac{2 m_y}{\rho} \\
+\end{bmatrix} \partial_y \begin{bmatrix} \rho \\ m_x \\ m_y \end{bmatrix} = \mathbf{0}
+\right) = \\
+0
+&amp; = [ \ - \mathbf{t}^T \mathbf{u} \ | \ \mathbf{t}^T \ ] \partial_t \begin{bmatrix} \rho \\ \mathbf{m} \end{bmatrix} + \\
+&amp; \quad  + [ \ t_x a^2 - \mathbf{t}^T \mathbf{u} u_x \ | \ - \mathbf{t}^T \mathbf{u} + t_x u_x + \mathbf{t}^T \mathbf{u} \ | \ t_y u_x \ ] \partial_x \begin{bmatrix} \rho \\ \mathbf{m} \end{bmatrix} + \\
+&amp; \quad  + [ \ t_y a^2 - \mathbf{t}^T \mathbf{u} u_y \ | \ t_x u_y \ | \ - \mathbf{t}^T \mathbf{u} + t_y u_y + \mathbf{t}^T \mathbf{u} \ ] \partial_y \begin{bmatrix} \rho \\ \mathbf{m} \end{bmatrix} = \\
+0
+&amp; = [ \ - \mathbf{t}^T \mathbf{u} \ | \ \mathbf{t}^T \ ] \partial_t \begin{bmatrix} \rho \\ \mathbf{m} \end{bmatrix} + \\
+&amp; \quad +  a^2 \left( t_x \partial_x + t_y \partial_y \right) \rho - u_t \left( u_x \partial_x + u_y \partial_y \right) \rho + t_x \left( u_x \partial_x + u_y \partial_y \right) m_x + t_y \left( u_x \partial_x + u_y \partial_y \right) m_y = \\
+&amp; = 
+\end{aligned}\end{split}\]</div>
+<p>or choosing <span class="math notranslate nohighlight">\(\hat{\mathbf{t}} = \hat{\mathbf{u}}\)</span>, s.t. <span class="math notranslate nohighlight">\(\mathbf{u} = u \hat{\mathbf{t}}\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+0 
+&amp; = \dots \partial_t \dots + a^2 \partial_u \rho - u^2 \partial_u \rho + u t_x \partial_u m_x + u t_y \partial_u m_y = \\
+&amp; = \dots \partial_t \dots + a^2 \partial_u \rho - u^2 \partial_u \rho + \rho \underbrace{u t_x}_{u_x} \partial_u u_x + \rho \underbrace{u t_y}_{u_y} \partial_u u_y + \underbrace{ u u_x t_x \partial_u \rho + u u_y t_y \partial_u \rho}_{ = u^2 \partial_u \rho} = \\
+&amp; = \dots \partial_t \dots + a^2 \, \partial_u \rho + \rho \partial_u \frac{|\mathbf{u}|^2}{2} \ .
+\end{aligned}\end{split}\]</div>
+<p>In <strong>steady conditions</strong>, dividing by <span class="math notranslate nohighlight">\(\rho \ne 0\)</span></p>
+<div class="math notranslate nohighlight">
+\[0 = a^2 \, \frac{\partial_u \rho}{\rho} + \partial_u \frac{u^2}{2} = \partial_u \left( a^2 \ln \rho + \frac{u^2}{2} \right) \ .\]</div>
+<p>This is the isothermal version of the Bernoulli’s theorem along a streamline for compressible flows, in absence of volume force. This can be derived from momentum equation in steady conditions, after scalar multiplication by the velocity field</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  0 
+  &amp; = \mathbf{u} \cdot \left[ \rho \mathbf{u} \cdot \nabla \mathbf{u} + \nabla p \right] = \\
+  &amp; = \mathbf{u} \cdot \left[ \rho \nabla \frac{|\mathbf{u}|^2}{2} + \boldsymbol\omega \times \mathbf{u} + \nabla p \right] = \\
+  &amp; = \rho \mathbf{u} \cdot \left[ \nabla \frac{|\mathbf{u}|^2}{2} + a^2 \frac{\nabla \rho}{\rho} \right] = \\
+  &amp; = \rho \mathbf{u} \cdot \nabla \left( \frac{|\mathbf{u}|^2}{2} + a^2 \ln \rho  \right) \ .
+\end{aligned}\end{split}\]</div>
 </div>
 <div class="section" id="euler-equations-for-inviscid-compressible-flows">
 <h4><span class="section-number">28.6.2.2.2. </span>Euler equations for inviscid compressible flows<a class="headerlink" href="#euler-equations-for-inviscid-compressible-flows" title="Permalink to this heading">#</a></h4>
