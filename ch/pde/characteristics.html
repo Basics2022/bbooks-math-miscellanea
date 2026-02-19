@@ -508,9 +508,9 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-multi-dimensional-problem">28.6.2. Vector multi-dimensional problem</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#taylor-expansion-of-a-solution">28.6.2.1. Taylor expansion of a solution</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">28.6.2.2. Examples</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#shallow-water">28.6.2.2.1. Shallow water</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isothermal-compressible-flow">28.6.2.2.2. Isothermal compressible flow</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#euler-equations-for-inviscid-compressible-flows">28.6.2.2.3. Euler equations for inviscid compressible flows</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isothermal-compressible-flow">28.6.2.2.1. Isothermal compressible flow</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#euler-equations-for-inviscid-compressible-flows">28.6.2.2.2. Euler equations for inviscid compressible flows</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#shallow-water">28.6.2.2.3. Shallow water</a></li>
 </ul>
 </li>
 </ul>
@@ -644,14 +644,94 @@ document.write(`
 </div>
 <div class="section" id="examples">
 <h3><span class="section-number">28.6.2.2. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">#</a></h3>
-<div class="section" id="shallow-water">
-<h4><span class="section-number">28.6.2.2.1. </span>Shallow water<a class="headerlink" href="#shallow-water" title="Permalink to this heading">#</a></h4>
-</div>
 <div class="section" id="isothermal-compressible-flow">
-<h4><span class="section-number">28.6.2.2.2. </span>Isothermal compressible flow<a class="headerlink" href="#isothermal-compressible-flow" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">28.6.2.2.1. </span>Isothermal compressible flow<a class="headerlink" href="#isothermal-compressible-flow" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Conservative variables: <span class="math notranslate nohighlight">\((\rho, \vec{m})\)</span></p></li>
+<li><p>Physical variables: e.g. <span class="math notranslate nohighlight">\((\rho, \vec{u})\)</span>, <span class="math notranslate nohighlight">\((P, \vec{u})\)</span>,…</p></li>
+</ul>
+<p>Conservative form reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{cases}
+  \partial_t \rho + \nabla \cdot \mathbf{m} = 0 \\
+  \partial_t \mathbf{m} + \nabla \cdot \left[ \frac{\mathbf{m}\otimes\mathbf{m}}{\rho} + \rho a^2 \mathbf{I} \right] = 0 \\
+\end{cases}\end{split}\]</div>
+<p>Convective form in a 2-dimensional domain reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\partial_t \begin{bmatrix} \rho \\ m_x \\ m_y \end{bmatrix} +
+\begin{bmatrix}
+  \cdot &amp; 1     &amp; \cdot \\
+  a^2 - \frac{m_x m_x}{\rho^2} &amp; \frac{2 m_x}{\rho} &amp; \cdot \\
+      - \frac{m_x m_y}{\rho^2} &amp; \frac{m_y}{\rho} &amp; \frac{m_x}{\rho} \\
+\end{bmatrix} \partial_x \begin{bmatrix} \rho \\ m_x \\ m_y \end{bmatrix} +
+\begin{bmatrix}
+  \cdot &amp; \cdot &amp; 1     \\
+  - \frac{m_x m_y}{\rho^2} &amp; \frac{m_y}{\rho} &amp; \frac{m_x}{\rho} \\
+  a^2 - \frac{m_y m_y}{\rho^2} &amp; \cdot &amp; \frac{2 m_y}{\rho} \\
+\end{bmatrix} \partial_y \begin{bmatrix} \rho \\ m_x \\ m_y \end{bmatrix} = \mathbf{0}
+\end{split}\]</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Some algebra<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  0 &amp; = \rho_{/t} + m_{x/x} + m_{y/y}  \\
+  0 &amp; = m_{i/t} + \partial_{j} \left( \frac{m_j m_i}{\rho} + \rho a^2 \delta_{ij} \right) \ .
+\end{aligned}\end{split}\]</div>
+</div>
+</details><p>Thus,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+\mathbf{A}_{\hat{\mathbf{n}}} 
+&amp; = 
+\begin{bmatrix} 
+  \cdot &amp; n_x &amp; n_y \\
+  a^2 n_x - u_n u_x &amp; u_x n_x + u_n &amp; u_x n_y \\
+  a^2 n_y - u_n u_y &amp; u_y n_x &amp; u_n + u_y n_y \\
+\end{bmatrix} = \\
+&amp; = 
+\begin{bmatrix}
+  0 &amp; \mathbf{n}^T \\
+  a^2 \mathbf{n} - ( \mathbf{n}^T \mathbf{u} ) \mathbf{u} &amp;  \mathbf{n}^T \mathbf{u} \mathbf{I} + \mathbf{u} \mathbf{n}^T
+\end{bmatrix} = \\
+&amp; = 
+\begin{bmatrix}
+  0 &amp; \hat{\mathbf{n}}^T \\
+  a^2 \mathbf{n} - ( \mathbf{n} \cdot \mathbf{u} ) \mathbf{u} &amp; ( \mathbf{n} \cdot \mathbf{u} ) \mathbb{I} + \mathbf{u} \otimes \mathbf{n}
+\end{bmatrix} \ .
+\end{aligned}\end{split}\]</div>
+<p>The eigenvalue decompositino of the matrix <span class="math notranslate nohighlight">\(\mathbf{A}_{\hat{\mathbf{n}}}\)</span> follows from</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  0 &amp; = \left| \mathbf{A}_{\hat{\mathbf{n}}} - s \mathbf{I} \right| =
+\left|
+\begin{bmatrix}
+  -s &amp; \mathbf{n}^T \\
+  a^2 \mathbf{n} - u_n \mathbf{u} &amp; ( u_n - s ) \mathbf{I} + \mathbf{u} \mathbf{n}^T
+\end{bmatrix} 
+\right| = \\
+  &amp; = -s ( u_n + u_x n_x - s ) ( u_n + u_y n_y - s ) + n_x u_x n_y ( a^2 n_y - u_n u_y ) + n_y u_y n_x ( a^2 n_x - u_n u_x ) + \\
+  &amp;  - ( a^2 n_y - u_n u_y ) ( u_x n_x + u_n - s) n_y 
+     - ( a^2 n_x - u_n u_x ) ( u_y n_y + u_n - s) n_x
+     - s u_x u_y n_x n_y = \\
+  &amp; =
+            s^3 ( - 1 ) + \\
+  &amp; \quad + s^2 ( u_n + u_y n_y + u_n + u_x n_x ) + \\
+  &amp; \quad + s   ( - ( u_n + u_x n_x ) ( u_n + u_y n_y ) + n_y ( a^2 n_y - u_n u_y n_y ) + n_x ( a^2 n_x - u_n u_x n_x ) - u_x n_x u_y n_y ) + \\
+  &amp; \quad + 1 \cdot (  n_x u_x n_y ( a^2 n_y - u_n u_y ) + n_y u_y n_x ( a^2 n_x - u_n u_x ) - n_y (  a^2 n_y - u_n u_y n_y )( u_x n_x + u_n ) - n_x ( a^2 n_x - u_n u_x n_x )( u_y n_y + u_n ) ) = \\
+  &amp; = - s^3 + 3 u_n s^2 + s ( a^2 )
+\end{aligned}\end{split}\]</div>
 </div>
 <div class="section" id="euler-equations-for-inviscid-compressible-flows">
-<h4><span class="section-number">28.6.2.2.3. </span>Euler equations for inviscid compressible flows<a class="headerlink" href="#euler-equations-for-inviscid-compressible-flows" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">28.6.2.2.2. </span>Euler equations for inviscid compressible flows<a class="headerlink" href="#euler-equations-for-inviscid-compressible-flows" title="Permalink to this heading">#</a></h4>
+</div>
+<div class="section" id="shallow-water">
+<h4><span class="section-number">28.6.2.2.3. </span>Shallow water<a class="headerlink" href="#shallow-water" title="Permalink to this heading">#</a></h4>
 </div>
 </div>
 </div>
@@ -724,9 +804,9 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-multi-dimensional-problem">28.6.2. Vector multi-dimensional problem</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#taylor-expansion-of-a-solution">28.6.2.1. Taylor expansion of a solution</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">28.6.2.2. Examples</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#shallow-water">28.6.2.2.1. Shallow water</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isothermal-compressible-flow">28.6.2.2.2. Isothermal compressible flow</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#euler-equations-for-inviscid-compressible-flows">28.6.2.2.3. Euler equations for inviscid compressible flows</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isothermal-compressible-flow">28.6.2.2.1. Isothermal compressible flow</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#euler-equations-for-inviscid-compressible-flows">28.6.2.2.2. Euler equations for inviscid compressible flows</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#shallow-water">28.6.2.2.3. Shallow water</a></li>
 </ul>
 </li>
 </ul>
