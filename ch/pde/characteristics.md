@@ -141,10 +141,16 @@ $$\mathbf{l}^T_0 \mathbf{s} = \mathbf{l}_0^T \sum_{\ell=1}^{d} \mathbf{A}_{\hat{
 
 ### Examples
 
-#### Isothermal compressible flow
+#### Isothermal compressible flow - 2d
 
 - Conservative variables: $(\rho, \vec{m})$
 - Physical variables: e.g. $(\rho, \vec{u})$, $(P, \vec{u})$,...
+
+In isothermal compressible flow model, pressure is a function of density only and
+
+$$d p = a^2 d \rho \ ,$$
+
+with constant $a$, speed of sound.
 
 Conservative form reads
 
@@ -627,8 +633,6 @@ $$\begin{aligned}
 with the last equation containing only non-dimensional quantities.
 
 
-
-
 ```
 
 
@@ -697,9 +701,191 @@ $$\begin{aligned}
   & = \rho \mathbf{u} \cdot \nabla \left( \frac{|\mathbf{u}|^2}{2} + a^2 \ln \rho  \right) \ .
 \end{aligned}$$
 
-#### Euler equations for inviscid compressible flows
+#### Euler equations for homoentropic inviscid compressible flows - 2d
+
+Homoentropic flows have constant and uniform entropy, $s(\mathbf{r},t) = \overline{s}$. This condition immediately follows from the [entropy equation](https://basics2022.github.io/bbooks-fluid-mechanics/ch/compressible/entropy.html) under the assumptions of:
+1. negligible viscous effects
+2. negligible heat conductivity
+3. uniform entropy at the boundaries
+
+so that, there's no source in the governing equation of the entropy of material particles (because of 1. and 2., $D_t s = 0$) and the value of the entropy of material particles entering the domain is constant and uniform (because of 3., $s = \overline{s}$).
+
+**todo** *Check if anything changes from the very beginning, e.g. transforming $\nabla p = a^2 \nabla \rho$ and collecting in the flux term $\nabla \cdot \left( \rho a^2 \mathbf{I} \right)$.*
+
+Under these conditions, all the computation done for the isothermal flow model are valid except for the ones assuming constant speed of sound $a$. In general the speed of sound is a function of the thermodynamic state. As an example, using $\rho$, $s$ as the pair of thermodynamic independent variables, the speed of sound reads
+
+$$a^2(\rho, s) = \left( \frac{\partial p}{\partial \rho} \right)_s \ .$$
+
+Here $a$ is a function of the density only, as the constant value of entropy can be treated as a constant parameter.
+
+#### Euler equations for inviscid compressible flows - 2d
+
+**1. Using conservative variables.**
+
+Conservative form reads
+
+$$\begin{cases}
+  \partial_t \rho + \nabla \cdot \mathbf{m} = 0 \\
+  \partial_t \mathbf{m} + \nabla \cdot \left[ \frac{\mathbf{m}\otimes\mathbf{m}}{\rho} + p \mathbf{I} \right] = 0 \\
+  \partial_t E^t + \nabla \cdot \left( \frac{E^t + p}{\rho} \mathbf{m} \right) = 0 \ .
+\end{cases}$$
+
+Convective form in a 2-dimensional domain reads
+
+$$
+\partial_t \begin{bmatrix} \rho \\ m_x \\ m_y \\ E^t \end{bmatrix} +
+\begin{bmatrix}
+  \cdot & 1     & \cdot & \cdot \\
+  \partial_\rho p - \frac{m_x m_x}{\rho^2} & \frac{2 m_x}{\rho} & \cdot & \partial_{E^t} p \\
+      - \frac{m_x m_y}{\rho^2} & \frac{m_y}{\rho} & \frac{m_x}{\rho} & \cdot \\
+      \frac{- h^t + \partial_\rho p}{\rho} m_x +  \frac{\partial_{\rho} P}{\rho} & h^t & \cdot & \frac{1 + \partial_{E^t} P}{\rho} m_x
+\end{bmatrix} \partial_x \begin{bmatrix} \rho \\ m_x \\ m_y \\ E^t \end{bmatrix} +
+\begin{bmatrix}
+  \cdot & \cdot & 1 & \cdot    \\
+  - \frac{m_x m_y}{\rho^2} & \frac{m_y}{\rho} & \frac{m_x}{\rho} & \cdot \\
+  \partial_\rho p - \frac{m_y m_y}{\rho^2} & \cdot & \frac{2 m_y}{\rho} & \partial_{E^t} p \\
+  \frac{ - h^t + \partial_\rho p}{\rho} m_y & \cdot & h^t &  \frac{1 + \partial_{E^t} P}{\rho} m_y
+\end{bmatrix} \partial_y \begin{bmatrix} \rho \\ m_x \\ m_y \\ E^t \end{bmatrix} = \mathbf{0}
+$$
 
 
-#### Shallow water
+Thus,
+
+$$\begin{aligned}
+\mathbf{A}_n 
+& =
+\begin{bmatrix}
+  0 & \mathbf{n}^T & 0 \\
+  \partial_\rho p \mathbf{n} - u_n \mathbf{u} & u_n \mathbf{I} + \mathbf{u} \mathbf{n}^T & \partial_{E^t} p \mathbf{n} \\
+  - ( h^t + \partial_\rho p ) u_n & h^t \mathbf{n}^T & \left( 1 + \partial_{E^t} P \right) u_n
+\end{bmatrix} = \\
+& =
+\begin{bmatrix}
+  0 & n_x & n_y & 0 \\
+  \partial_\rho p \, n_x - u_n u_x & u_n + n_x u &       n_y u & \partial_{E^t} p \, n_x \\
+  \partial_\rho p \, n_y - u_n u_y &       n_x v & u_n + n_y v & \partial_{E^t} p \, n_y \\
+  - ( h^t + \partial_\rho p ) u_n & h^t n_x & h^t n_y & \left( 1 + \partial_{E^t} P \right) u_n
+\end{bmatrix} \ .
+\end{aligned}$$
+
+```{dropdown} Speed of sound
+
+...link to an updated version of [Thermodynamics:potentials:Maxwell's relations](https://basics2022.github.io/bbooks-physics-thermodynamics/ch/potentials.html)
+
+$$\begin{aligned}
+  a^2(\rho,s) = \left.\frac{\partial p}{\partial \rho}\right|_s 
+\end{aligned}$$
+
+**Independent variables $f(\rho, e)$**
+
+$$\begin{aligned}
+  a^2(\rho, e) = \ ?
+\end{aligned}$$
+
+$$\begin{aligned}
+  a^2(\rho, e(\rho, s)) 
+  & = \left.\frac{\partial p}{\partial \rho}\right|_s  = \\
+  & = \left.\frac{\partial p}{\partial \rho}\right|_e + \left.\frac{\partial p}{\partial e}\right|_\rho \left.\frac{\partial e}{\partial \rho}\right|_s  = \\
+  & = \left.\frac{\partial p}{\partial \rho}\right|_e + \left.\frac{\partial p}{\partial e}\right|_\rho \, \frac{p}{\rho^2} \ .
+\end{aligned}$$
+
+Thermodynamic potentials, partial derivatives and Maxwell's relations
+
+$$
+de = T ds + \frac{p}{\rho^2} d \rho
+\quad , \quad
+T = \left.\frac{\partial p}{\partial s}\right|_\rho
+\quad , \quad
+\frac{p}{\rho^2} = \left.\frac{\partial e}{\partial \rho}\right|_s
+$$
+
+**Independent variables $f(\rho, \mathbf{m}, E^t)$** With 
+
+$$E^t = \rho \left( \frac{|\mathbf{u}|^2}{2} + e \right) = \frac{|\mathbf{m}|^2}{2 \rho} + \rho e \ .$$
+
+$$\begin{aligned}
+  a^2(\rho, \mathbf{m}, E^t(\rho, \mathbf{m}, s))
+\end{aligned}$$
+
+$$\begin{aligned}
+a^2(\rho,\mathbf{m}, E^t)
+  & = \left.\frac{\partial p}{\partial \rho}\right|_{s} (\rho, \mathbf{m}, E^t(\rho, \mathbf{m}, e(\rho, s))) = \\
+  & = \left.\frac{\partial p}{\partial \rho}\right|_{\mathbf{m}, E^t} + \left.\frac{\partial p}{\partial E^t}\right|_{\rho, \mathbf{m}} \left[ \left.\frac{\partial E^t}{\partial \rho}\right|_{\mathbf{m}, e} + \left.\frac{\partial E^t}{\partial e} \right|_{\rho, \mathbf{m}} \left.\frac{\partial e}{\partial \rho}\right|_{s} \right]  = \\
+  & = \left.\frac{\partial p}{\partial \rho}\right|_{\mathbf{m}, E^t} + \left.\frac{\partial p}{\partial E^t}\right|_{\rho, \mathbf{m}} \left[ \left( - \frac{|\mathbf{m}|^2}{2 \rho^2} + e \right) + \rho \left.\frac{\partial e}{\partial \rho}\right|_{s} \right]  = \\
+\end{aligned}$$
+
+```
+
+```{dropdown} Eigenvalues
+:open:
+
+$$
+0 = |\mathbf{A}_n - s \mathbf{I}| =
+\begin{bmatrix}
+  -s & n_x & n_y & 0 \\
+  \partial_\rho p \, n_x - u_n u_x & -s + u_n + n_x u &       n_y u & \partial_{E^t} p \, n_x \\
+  \partial_\rho p \, n_y - u_n u_y &       n_x v & -s + u_n + n_y v & \partial_{E^t} p \, n_y \\
+  - ( h^t + \partial_\rho p ) u_n & h^t n_x & h^t n_y & - s + \left( 1 + \partial_{E^t} P \right) u_n
+\end{bmatrix} \ .
+$$
+
+```
+
+
+
+**2. Using physical variables $(\rho, \mathbf{u}, s)$.** So that speed of sound $a^2(\rho, s) = \left( \partial_\rho p \right)_s$ naturally appears.
+
+Convective form in a 2-dimensional domain reads
+
+$$\begin{aligned}
+  & D_t \rho + \rho \nabla \cdot \mathbf{u} = 0 \\
+  & D_t \mathbf{u} + \frac{1}{\rho} \nabla p = \mathbf{0} \\
+  & D_t e + \frac{p}{\rho} \nabla \cdot \mathbf{u} = 0 \ .
+\end{aligned}$$
+
+$$\begin{aligned}
+  0 & = \partial_t \rho + u \partial_x \rho + \rho \partial_x u + v \partial_y \rho + \rho \partial_y v \\ 
+  0 & = \partial_t u + u \partial_x u + v \partial_y u + \frac{1}{\rho}\partial_x p = \\
+    & = \partial_t u + u \partial_x u + v \partial_y u + \frac{1}{\rho}\partial_\rho p|_e \partial_x \rho + \frac{1}{\rho}\partial_e p|_\rho \partial_x e \\
+  0 & = \partial_t v + u \partial_x v + v \partial_y v + \frac{1}{\rho}\partial_y p = \\
+    & = \partial_t v + u \partial_x v + v \partial_y v + \frac{1}{\rho}\partial_\rho p|_e \partial_y \rho + \frac{1}{\rho}\partial_e p|_\rho \partial_y e \\
+  0 & = \partial_t e + u \partial_x e + v \partial_y e + \frac{p}{\rho}\left( \partial_x u + \partial_y v \right) \ .
+\end{aligned}$$
+
+Convective form in a 2-dimensional domain reads
+
+$$
+\partial_t \begin{bmatrix} \rho \\ u \\ v \\ e \end{bmatrix} +
+\begin{bmatrix}
+  u & \rho  & \cdot & \cdot \\
+  \frac{1}{\rho} \partial_\rho p & u & \cdot & \frac{1}{\rho} \partial_{e}p \\
+  \cdot &  \cdot & u & \cdot \\
+  \cdot &  \frac{p}{\rho} & \cdot & u \\
+\end{bmatrix} \partial_x \begin{bmatrix} \rho \\ u \\ v \\ e \end{bmatrix} +
+\begin{bmatrix}
+  v & \cdot & \rho & \cdot  \\
+  \cdot & v & \cdot & \cdot \\
+  \frac{1}{\rho} \partial_\rho p & \cdot & v & \frac{1}{\rho} \partial_{e}p \\
+  \cdot & \cdot & \frac{p}{\rho} & v \\
+\end{bmatrix} \partial_y \begin{bmatrix} \rho \\ u \\ v \\ e \end{bmatrix} = \mathbf{0}
+$$
+
+
+Thus,
+
+$$\begin{aligned}
+\mathbf{A}_n 
+& =
+\begin{bmatrix}
+  u_n & \rho \mathbf{n}^T & \cdot \\
+  \frac{1}{\rho} \partial_\rho p \, \mathbf{n} & u_n \mathbf{I}  & \frac{1}{\rho} \partial_{e} p \, \mathbf{n} \\
+  \cdot & \frac{p}{\rho} \mathbf{n}^T & u_n
+\end{bmatrix} = \\
+ & = \dots
+\end{aligned}$$
+
+
+
+#### Shallow water - 2d
 
 
