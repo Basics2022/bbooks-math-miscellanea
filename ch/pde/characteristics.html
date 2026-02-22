@@ -910,36 +910,37 @@ Right and left eigenvectors<div class="sd-summary-down docutils">
 &amp; \quad + \left[ \mp a^2 n_y \pm u_n u_y \ | \ \mp n_x u_y \ | \ 2 a \mp u_y n_y \mp u_n \ \right] \partial_y \begin{bmatrix} \rho \\ \mathbf{m} \end{bmatrix} = \\
 &amp; =       \left[ \left( \mp a^2 n_x \pm u_n u_x \right) \partial_x + \left( \mp a^2 n_y \pm u_n u_y \right) \partial_y \right] \rho + \\
 &amp;  \quad+ \left[ \left( 2 a \mp u_x n_x \mp u_n \right) \partial_x + \left( \mp n_x u_y             \right) \partial_y \right] m_x  + \\
-&amp;  \quad+ \left[ \left( \mp n_x u_y             \right) \partial_x + \left( 2 a \mp u_y n_y \mp u_n \right) \partial_y \right] m_y  = \\
+&amp;  \quad+ \left[ \left( \mp n_y u_x             \right) \partial_x + \left( 2 a \mp u_y n_y \mp u_n \right) \partial_y \right] m_y  = \\
 \end{aligned}\end{split}\]</div>
-<p><strong>Remarks.</strong> It can be proved that <span class="math notranslate nohighlight">\(d m_x = ( u \mp a n_x ) d \rho\)</span>, and <span class="math notranslate nohighlight">\(d m_y = ( v \mp a n_y ) d \rho\)</span>.</p>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
-<summary class="sd-summary-title sd-card-header">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-kebab-horizontal" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M6 12a2 2 0 11-4 0 2 2 0 014 0zm8 0a2 2 0 11-4 0 2 2 0 014 0zm6 2a2 2 0 100-4 2 2 0 000 4z"></path></svg><div class="sd-summary-down docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="sd-summary-up docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="sd-summary-content sd-card-body docutils">
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
+<!--
+```{dropdown}
+:open:
+
+$$\begin{aligned}
   ( u_x \mp a n_x ) ( \mp a^2 n_x \pm u_n u_x) 
-  &amp; = \mp a^2 n_x u_x \pm u_x^2 u_n + a^3 n_x^2 - a u_n u_x n_x \\
-\end{aligned}\end{split}\]</div>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
+  & = \mp a^2 n_x u_x \pm u_x^2 u_n + a^3 n_x^2 - a u_n u_x n_x \\
+\end{aligned}$$
+
+$$\begin{aligned}
   ( u_x \mp a n_x ) ( 2a \mp u_x n_x \mp u_n ) 
-  &amp; = 2 a u_x \mp u_x^2 n_x \mp u_x u_n \mp 2 a^2 n_x + a u_x n_x^2 + a n_x u_n = \\
-  &amp; = 2 a u_x \mp u_x^2 n_x - u_x a \mp 2 a^2 n_x + a u_x n_x^2 \pm a^2 n_x = \\
-  &amp; = a u_x \mp a^2 n_x \mp u_x^2 n_x + a u_x n_x^2 = \\
-\end{aligned}\end{split}\]</div>
-</div>
-</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+  & = 2 a u_x \mp u_x^2 n_x \mp u_x u_n \mp 2 a^2 n_x + a u_x n_x^2 + a n_x u_n = \\
+  & = 2 a u_x \mp u_x^2 n_x - u_x a \mp 2 a^2 n_x + a u_x n_x^2 \pm a^2 n_x = \\
+  & = a u_x \mp a^2 n_x \mp u_x^2 n_x + a u_x n_x^2 = \\
+\end{aligned}$$
+
+```
+-->
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Comparing directional derivative of <span class="math notranslate nohighlight">\(\ \rho \ \)</span> and <span class="math notranslate nohighlight">\( \ m_x \ \)</span><div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">By direct comparison of the coefficients of the differential operator applied to physical quantities, it follows that these differential operators are proportional to the same directional derivative. Here, as an example, the ccoefficients of the differential operators acting on <span class="math notranslate nohighlight">\(\rho\)</span> and <span class="math notranslate nohighlight">\(m_x\)</span>, <span class="math notranslate nohighlight">\(X^{\rho} \partial_x + Y^{\rho} \partial_y\)</span> and <span class="math notranslate nohighlight">\(X^{m_x} \partial_x + Y^{m_x} \partial_y\)</span>, are compared with the goal of proving that</p>
+<div class="math notranslate nohighlight">
+\[\frac{X^{\rho}}{Y^{\rho}} = \frac{X^{m_x}}{Y^{m_x}} \ ,\]</div>
+<p class="sd-card-text">or, avoiding singularities, <span class="math notranslate nohighlight">\(X^{\rho} Y^{m_x} = Y^{\rho} X^{m_x}\)</span>. With the explicit expressions of the coefficients,</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
  &amp; ( \mp a^2 n_x \pm u_n u_x ) ( \mp n_x u_y ) = ? = ( \mp a^2 n_y \pm u_n u_y ) ( 2 a \mp u_x n_x \mp u_n ) \\
@@ -955,6 +956,156 @@ Comparing directional derivative of <span class="math notranslate nohighlight">\
  0 &amp; \ ? =         - a^2 n_y ( n_y u_y + n_x u_x) \pm 2 a^3 n_y \mp a^3 n_y                      \\
  0 &amp; \ ? =        \mp a^3 n_y                     \pm 2 a^3 n_y \mp a^3 n_y  = 0 \ .
 \end{aligned}\end{split}\]</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Ratio of the coefficients of the differential operators<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">With <span class="math notranslate nohighlight">\(a = \pm u_n\)</span>, the comparison of coefficients in differential operator acting on <span class="math notranslate nohighlight">\(\rho\)</span> and <span class="math notranslate nohighlight">\(m_x\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \frac{X^{\rho}}{X^{m_x}}
+  &amp; = \frac{\mp a^2 n_x \pm u_n u_x}{2a \mp u n_x \mp u_n} = \\ 
+  &amp; = \frac{\mp a^2 n_x + a u}{2a \mp u n_x - a} = \\ 
+  &amp; = a \frac{\mp a n_x + u}{ a \mp u n_x    } = \\ 
+  &amp; = a \frac{- u_n n_x + u}{ \pm u_n \mp u n_x    } = \\ 
+  &amp; = \pm a \frac{- ( u n_x + v n_y ) n_x + u}{  u n_x + v n_y - u n_x    } = \\ 
+  &amp; = \pm a \frac{ u n_y^2 - v n_y n_x }{  + v n_y  } = \\ 
+  &amp; = \pm a \frac{ u n_y - v n_x }{ v } \ .
+\end{aligned}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \frac{Y^{\rho}}{Y^{m_x}}
+  &amp; = \frac{\mp a^2 n_y \pm u_n v}{\mp n_x v} = \\
+  &amp; = \frac{\mp a \cdot a n_y \pm u_n v}{\mp n_x v} = \\
+  &amp; = \frac{- a u_n n_y + a v}{\mp n_x v} = \\
+  &amp; = \pm a \frac{ u_n n_y - v}{ n_x v} = \\
+  &amp; = \pm a \frac{ ( u n_x + v n_y ) n_y - v}{ n_x v} = \\
+  &amp; = \pm a \frac{ u n_x n_y - v n_x^2}{ n_x v } = \\
+  &amp; = \pm a \frac{ u n_y - v n_x  }{ v } \ .
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">The comparison of coefficients in differential operator acting on <span class="math notranslate nohighlight">\(\rho\)</span> and <span class="math notranslate nohighlight">\(m_y\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \frac{X^{\rho}}{X^{m_y}}
+  &amp; = \frac{\mp a^2 n_x + a u}{\mp n_y u} = \\
+  &amp; = \frac{\mp a \cdot a n_x \pm u_n u}{\mp n_y u} = \\
+  &amp; = \frac{ -  a u_n n_x + a u}{\mp n_y u} = \\
+  &amp; = \pm a \frac{ u_n n_x - u}{ n_y u} = \\
+  &amp; = \pm a \frac{ ( u n_x + v n_y ) n_x - u}{ n_y u } = \\
+  &amp; = \pm a \frac{ - u n_y + v n_x }{ u } = \\
+  &amp; = \mp a \frac{ u n_y - v n_x }{ u } \ .
+\end{aligned}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \frac{Y^{\rho}}{Y^{m_y}}
+  &amp; = \frac{}{} = \\
+\end{aligned}\end{split}\]</div>
+</div>
+</details><p>Thus it follows that on the characteristic lines,</p>
+<div class="math notranslate nohighlight">
+\[0 = \pm a ( u n_y - v n_x ) d \rho + v d m_x - u d m_y \ ,\]</div>
+<p>or, recalling that <span class="math notranslate nohighlight">\(m_x = \rho u\)</span>, <span class="math notranslate nohighlight">\(m_y = \rho v\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  0 
+  &amp; = \pm a ( u n_y - v n_x ) d \rho + v d m_x - u d m_y = \\
+  &amp; = \pm a ( u n_y - v n_x ) d \rho + \rho v d u + uv d \rho - \rho u d v - uv d \rho = \\
+  &amp; = \pm a ( u n_y - v n_x ) d \rho + \rho v d u - \rho u d v  = \\
+\end{aligned}\end{split}\]</div>
+<p>or evaluating the ratio of these coefficients</p>
+<div class="math notranslate nohighlight">
+\[\frac{\rho v}{\pm a ( u n_y - v n_x )}\]</div>
+<p><strong>todo</strong> <em>Find the general relation.</em></p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Prandtl-Meyer relation<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[
+  0 = \pm a ( u n_y - v n_x ) d \rho + \rho v d u - \rho u d v \ .
+\]</div>
+<p class="sd-card-text">Defining <span class="math notranslate nohighlight">\(\theta\)</span> as the flow angle w.r.t. the <span class="math notranslate nohighlight">\(x\)</span>-axis, s.t. and <span class="math notranslate nohighlight">\(V\)</span> the absolute value of the local velocity, it follows</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  u &amp; = V \cos \theta \\
+  v &amp; = V \sin \theta \ .
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">From the relation <span class="math notranslate nohighlight">\(\mathbf{u} \cdot \hat{\mathbf{n}} = \pm a\)</span> on Mach lines, being <span class="math notranslate nohighlight">\(\hat{\mathbf{n}}\)</span> the unit vector orthogonal to the Mach lines.,</p>
+<div class="math notranslate nohighlight">
+\[u_n = \pm a \quad , \quad V \cos \mu = \pm a \ ,\]</div>
+<p class="sd-card-text">with <span class="math notranslate nohighlight">\(\mu\)</span> the angle between the Mach line and the flow. The components of the unit normal vector read</p>
+<div class="math notranslate nohighlight">
+\[\pm a = n_x u + n_y v = V \left( n_x \cos \theta + n_y \sin theta \right)\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \pm \sin \mu 
+  &amp; = n_x \cos \theta + n_y \sin \theta = \\
+  &amp; = \pm \sin( \mu - \theta + \theta ) = \\
+  &amp; = \pm \left[ \sin ( \mu - \theta ) \cos \theta + \cos ( \mu - \theta ) \sin \theta \right] = \\
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">so that …</p>
+<p class="sd-card-text"><strong>todo</strong> <em>Treat properly <span class="math notranslate nohighlight">\(\mp\)</span> and <span class="math notranslate nohighlight">\(\pm\)</span> for the 2 families of Mach lines</em></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  n_x &amp; = \sin ( \theta \mp \mu ) \\
+  n_y &amp; = - \cos ( \theta \mp  \mu ) \ .
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">Now</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  u n_y - v n_x
+  &amp; = V \left( - \cos \theta \cos ( \theta \mp \mu ) - \sin \theta \sin ( \theta \mp \mu ) \right) = \\
+  &amp; = - V \cos ( \theta - \theta \pm \mu ) = - V \cos \mu \ .
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">The differentials of the Cartesian components of the velocity in polar coordinates become</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  d u 
+  &amp; = d ( V \cos \theta ) = dV \cos \theta - V \sin \theta d \theta \\
+  d v 
+  &amp; = d ( V \sin \theta ) = dV \sin \theta + V \cos \theta d \theta \\
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">So that, putting everything together,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  0
+  &amp; = \pm a ( u n_y - v n_x ) d \rho + \rho v d u - \rho u d v = \\
+  &amp; = \mp a V \cos \mu d \rho + \rho V \left( \sin \theta \cos \theta - \cos \theta \sin \theta \right) d V + \rho V^2 \left( - \sin \theta \sin \theta - \cos \theta \cos \theta  \right) d \theta = \\
+  &amp; = \mp a V \cos \mu d \rho - \rho V^2 d \theta \ ,
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">i.e.</p>
+<div class="math notranslate nohighlight">
+\[0 = \pm a \cos \mu \, d \rho + \rho V \, d \theta \ .\]</div>
+<p class="sd-card-text">Now, as <span class="math notranslate nohighlight">\(\sin \mu = \frac{a}{V} = \frac{1}{M}\)</span>, <span class="math notranslate nohighlight">\(\cos \mu = \sqrt{ 1 - \sin^2 \mu } = \sqrt{ 1 - \frac{1}{M^2} }\)</span>, Prandtl-Meyer relation can be recast as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  0 &amp; = \pm \frac{1}{M} \sqrt{ 1 - \frac{1}{M^2} } d \rho + \rho d \theta \\
+  0 &amp; = \pm \sqrt{ M^2 - 1 } d \rho + M^2 \rho d \theta  \ .
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">For an isothermal and irrotational flow, momentum equation reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathbf{0}
+  &amp; = \mathbf{u} \cdot \nabla \mathbf{u} + a^2 \frac{\nabla \rho}{\rho} = \\
+  &amp; = \nabla \frac{|\mathbf{u}|^2}{2} + \boldsymbol\omega \times \mathbf{u} + a^2 \frac{\nabla \rho}{\rho} = \\
+  &amp; = \nabla \frac{|\mathbf{u}|^2}{2} + a^2 \frac{\nabla \rho}{\rho} \ ,
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">and thus, as <span class="math notranslate nohighlight">\(\frac{d \rho}{\rho} = - \frac{1}{a^2} d \frac{V^2}{2} = - \frac{1}{a^2} V dV\)</span>, Prandtl-Meyer relation becomes</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  0 &amp; = \mp \sqrt{ M^2 - 1 } \frac{1}{a^2} V dV + M^2 \ d \theta  \\
+  0 &amp; = \mp \sqrt{ M^2 - 1 } \underbrace{\frac{V^2}{a^2}}_{ = M^2} \frac{V dV}{V^2} + M^2 \ d \theta  \\
+  0 &amp; = \mp \sqrt{ M^2 - 1 } \frac{dV}{V} + d \theta  \\
+  0 &amp; = \mp \sqrt{ M^2 - 1 } \frac{d M}{M} + d \theta  \ ,
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">with the last equation containing only non-dimensional quantities.</p>
 </div>
 </details><!--
 $$\begin{aligned}
