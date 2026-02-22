@@ -835,6 +835,77 @@ $$
 
 **2. Using physical variables $(\rho, \mathbf{u}, s)$.** So that speed of sound $a^2(\rho, s) = \left( \partial_\rho p \right)_s$ naturally appears.
 
+```{dropdown} Change of coordinates and convective form
+:open:
+
+Starting from a set of variables $\mathbf{u}$ and the convective form of the equations
+
+$$\mathbf{s} = \partial_t \mathbf{u} + \sum_{k} \mathbf{A}^k \partial_k \mathbf{u} \ ,$$
+
+using another set of variables $\mathbf{v}$, the equations become
+
+$$\begin{aligned}
+  \mathbf{s} & = \partial_t \mathbf{u} + \sum_{k} \mathbf{A}^k \partial_k \mathbf{u} \\
+  \mathbf{s} & = \mathbf{U}_{\mathbf{v}}(\mathbf{v}) \partial_t \mathbf{v} + \sum_{k} \mathbf{A}^k  \mathbf{U}_{\mathbf{v}}(\mathbf{v}) \partial_k \mathbf{v} \ ,
+\end{aligned}$$
+
+being $d \mathbf{u} = \mathbf{U}_{\mathbf{v}} d \mathbf{v}$. If the transformation is non-singular, and $\mathbf{U}_{\mathbf{v}}^{-1} = \mathbf{V}_{\mathbf{u}}(\mathbf{v})$, then the differential equations can be recast as
+
+$$\partial_t \mathbf{v} + \sum_{k} \mathbf{V}_{\mathbf{u}} \mathbf{A}^k \mathbf{U}_{\mathbf{v}} \partial_k \mathbf{v} = \mathbf{V}_{\mathbf{u}} \mathbf{s}$$
+
+With a coordinate transformation, the normal and tangential matrices become
+
+$$\begin{aligned}
+  \mathbf{A}^{\mathbf{v}}_{\mathbf{n}} 
+  & = \sum_k n_k \mathbf{V}_{\mathbf{u}} \mathbf{A}^k \mathbf{U}_{\mathbf{v}} = \\
+  & =  \mathbf{V}_{\mathbf{u}} \underbrace{\sum_k n_k \mathbf{A}^k}_{ \mathbf{A}^{\mathbf{u}}_{\mathbf{n}} } \mathbf{U}_{\mathbf{v}} =   
+       \mathbf{V}_{\mathbf{u}} \mathbf{A}^{\mathbf{u}}_{\mathbf{n}} \mathbf{U}_{\mathbf{v}} \ ,
+\end{aligned}$$
+
+$$\mathbf{A}^{\mathbf{v}}_{\mathbf{t}_i} = \dots = \mathbf{V}_{\mathbf{u}} \mathbf{A}^{\mathbf{u}}_{\mathbf{t}_i} \mathbf{U}_{\mathbf{v}} \ .$$
+
+**If** the change of variables is non-singular, the Jacobian matrices $\mathbf{V}_\mathbf{u}$, $\mathbf{U}_\mathbf{v}$ are non singular and reciprocally inverse. Thus, the **determinant** of the matrix $\mathbf{A}_{\mathbf{n}}$ is independent from the set of chosen variables, as
+
+$$\begin{aligned}
+ \text{det}\left( \mathbf{A}_{\mathbf{n}}^{\mathbf{v}} \right) 
+ & = \text{det}\left( \mathbf{V}_{\mathbf{u}} \right) \text{det}\left( \mathbf{A}_{\mathbf{n}}^{\mathbf{u}} \right) \text{det}\left( \mathbf{U}_{\mathbf{v}} \right) = \\
+ & = \text{det}\left( \mathbf{V}_{\mathbf{u}} \right) \text{det}\left( \mathbf{A}_{\mathbf{n}}^{\mathbf{u}} \right) \text{det}\left( \mathbf{V}_{\mathbf{u}} \right)^{-1} = \\
+ & = \text{det}\left( \mathbf{A}_{\mathbf{n}}^{\mathbf{u}} \right) \ .
+\end{aligned}$$
+
+Thus, the **eigenvalues** are independent from the set of variables as well
+
+$$\begin{aligned}
+  0 & = \text{det}\left( s \mathbf{I} - \mathbf{A}^{\mathbf{v}}_{\mathbf{n}} \right) = \\
+    & = \text{det} \left( \mathbf{V}_{\mathbf{u}} \right) \text{det}\left( s \mathbf{I} - \mathbf{A}^{\mathbf{u}}_{\mathbf{n}} \right) \text{det} \left( \mathbf{U}_{\mathbf{v}} \right) = \\
+    & = \text{det}\left( s \mathbf{I} - \mathbf{A}^{\mathbf{u}}_{\mathbf{n}} \right) \ .
+\end{aligned}$$
+
+The relation between **right eigenvectors** immediately follows
+
+$$\begin{aligned}
+  \mathbf{A}^{\mathbf{v}}_{\mathbf{n}} \mathbf{R}^\mathbf{v} & = \mathbf{R}^\mathbf{v} \mathbf{S} \\
+  \mathbf{V}_{\mathbf{u}} \mathbf{A}^{\mathbf{u}}_{\mathbf{n}} \mathbf{U}_{\mathbf{v}} \mathbf{R}^\mathbf{v} & = \mathbf{R}^\mathbf{v} \mathbf{S} \\
+  \mathbf{A}^{\mathbf{u}}_{\mathbf{n}} \underbrace{\mathbf{U}_{\mathbf{v}} \mathbf{R}^\mathbf{v}}_{\mathbf{R}^\mathbf{u}} & = \underbrace{\mathbf{U}_{\mathbf{v}} \mathbf{R}^\mathbf{v}}_{\mathbf{R}^\mathbf{u}} \mathbf{S} \\
+  \mathbf{A}^{\mathbf{u}}_{\mathbf{n}} \mathbf{R}^\mathbf{u} & = \mathbf{R}^\mathbf{u} \mathbf{S} \ ,
+\end{aligned}$$
+
+with $\mathbf{R}^{\mathbf{u}} = \mathbf{U}_{\mathbf{v}} \mathbf{R}^\mathbf{v}$, or for any individual eigenvector $\mathbf{r}^\mathbf{u}_i = \mathbf{U}_{\mathbf{v}} \mathbf{r}^{\mathbf{v}}_i$.
+
+The relation between **left eigenvectors** analogously follows
+
+$$\begin{aligned}
+  \mathbf{L}^\mathbf{v} \mathbf{A}^{\mathbf{v}}_{\mathbf{n}} & = \mathbf{S} \mathbf{L}^\mathbf{v} \\
+  \mathbf{L}^\mathbf{v} \mathbf{V}_{\mathbf{u}} \mathbf{A}^{\mathbf{u}}_{\mathbf{n}} \mathbf{U}_{\mathbf{v}} & = \mathbf{S} \mathbf{L}^\mathbf{v} \\
+  \underbrace{\mathbf{L}^\mathbf{v} \mathbf{V}_{\mathbf{u}}}_{\mathbf{L}^\mathbf{u}} \mathbf{A}^{\mathbf{u}}_{\mathbf{n}} & = \mathbf{S} \underbrace{\mathbf{L}^\mathbf{v} \mathbf{V}_{\mathbf{u}}}_{\mathbf{L}^\mathbf{u}}  \\
+  \mathbf{L}^\mathbf{u} \mathbf{A}^{\mathbf{u}}_{\mathbf{n}} & = \mathbf{S} \mathbf{L}^\mathbf{u}  \ ,
+\end{aligned}$$
+
+with $\mathbf{L}^{\mathbf{u}} = \mathbf{L}^\mathbf{v} \mathbf{U}_{\mathbf{v}}$, or for any individual eigenvector $\left( \mathbf{l}^\mathbf{u}_i \right)^T = \left( \mathbf{l}^\mathbf{v}_i \right)^T \mathbf{U}_\mathbf{v}$, or $\mathbf{l}^\mathbf{u}_i = \mathbf{U}_\mathbf{v}^T \mathbf{l}^\mathbf{v}_i$.
+
+
+```
+
 Convective form in a 2-dimensional domain reads
 
 $$\begin{aligned}
@@ -870,7 +941,6 @@ $$
 \end{bmatrix} \partial_y \begin{bmatrix} \rho \\ u \\ v \\ e \end{bmatrix} = \mathbf{0}
 $$
 
-
 Thus,
 
 $$\begin{aligned}
@@ -884,8 +954,7 @@ $$\begin{aligned}
  & = \dots
 \end{aligned}$$
 
-
-
 #### Shallow water - 2d
+
 
 

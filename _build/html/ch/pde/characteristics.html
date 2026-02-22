@@ -1299,7 +1299,70 @@ Eigenvalues<div class="sd-summary-down docutils">
 \end{split}\]</div>
 </div>
 </details><p><strong>2. Using physical variables <span class="math notranslate nohighlight">\((\rho, \mathbf{u}, s)\)</span>.</strong> So that speed of sound <span class="math notranslate nohighlight">\(a^2(\rho, s) = \left( \partial_\rho p \right)_s\)</span> naturally appears.</p>
-<p>Convective form in a 2-dimensional domain reads</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Change of coordinates and convective form<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Starting from a set of variables <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> and the convective form of the equations</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{s} = \partial_t \mathbf{u} + \sum_{k} \mathbf{A}^k \partial_k \mathbf{u} \ ,\]</div>
+<p class="sd-card-text">using another set of variables <span class="math notranslate nohighlight">\(\mathbf{v}\)</span>, the equations become</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathbf{s} &amp; = \partial_t \mathbf{u} + \sum_{k} \mathbf{A}^k \partial_k \mathbf{u} \\
+  \mathbf{s} &amp; = \mathbf{U}_{\mathbf{v}}(\mathbf{v}) \partial_t \mathbf{v} + \sum_{k} \mathbf{A}^k  \mathbf{U}_{\mathbf{v}}(\mathbf{v}) \partial_k \mathbf{v} \ ,
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">being <span class="math notranslate nohighlight">\(d \mathbf{u} = \mathbf{U}_{\mathbf{v}} d \mathbf{v}\)</span>. If the transformation is non-singular, and <span class="math notranslate nohighlight">\(\mathbf{U}_{\mathbf{v}}^{-1} = \mathbf{V}_{\mathbf{u}}(\mathbf{v})\)</span>, then the differential equations can be recast as</p>
+<div class="math notranslate nohighlight">
+\[\partial_t \mathbf{v} + \sum_{k} \mathbf{V}_{\mathbf{u}} \mathbf{A}^k \mathbf{U}_{\mathbf{v}} \partial_k \mathbf{v} = \mathbf{V}_{\mathbf{u}} \mathbf{s}\]</div>
+<p class="sd-card-text">With a coordinate transformation, the normal and tangential matrices become</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathbf{A}^{\mathbf{v}}_{\mathbf{n}} 
+  &amp; = \sum_k n_k \mathbf{V}_{\mathbf{u}} \mathbf{A}^k \mathbf{U}_{\mathbf{v}} = \\
+  &amp; =  \mathbf{V}_{\mathbf{u}} \underbrace{\sum_k n_k \mathbf{A}^k}_{ \mathbf{A}^{\mathbf{u}}_{\mathbf{n}} } \mathbf{U}_{\mathbf{v}} =   
+       \mathbf{V}_{\mathbf{u}} \mathbf{A}^{\mathbf{u}}_{\mathbf{n}} \mathbf{U}_{\mathbf{v}} \ ,
+\end{aligned}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\mathbf{A}^{\mathbf{v}}_{\mathbf{t}_i} = \dots = \mathbf{V}_{\mathbf{u}} \mathbf{A}^{\mathbf{u}}_{\mathbf{t}_i} \mathbf{U}_{\mathbf{v}} \ .\]</div>
+<p class="sd-card-text"><strong>If</strong> the change of variables is non-singular, the Jacobian matrices <span class="math notranslate nohighlight">\(\mathbf{V}_\mathbf{u}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{U}_\mathbf{v}\)</span> are non singular and reciprocally inverse. Thus, the <strong>determinant</strong> of the matrix <span class="math notranslate nohighlight">\(\mathbf{A}_{\mathbf{n}}\)</span> is independent from the set of chosen variables, as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+ \text{det}\left( \mathbf{A}_{\mathbf{n}}^{\mathbf{v}} \right) 
+ &amp; = \text{det}\left( \mathbf{V}_{\mathbf{u}} \right) \text{det}\left( \mathbf{A}_{\mathbf{n}}^{\mathbf{u}} \right) \text{det}\left( \mathbf{U}_{\mathbf{v}} \right) = \\
+ &amp; = \text{det}\left( \mathbf{V}_{\mathbf{u}} \right) \text{det}\left( \mathbf{A}_{\mathbf{n}}^{\mathbf{u}} \right) \text{det}\left( \mathbf{V}_{\mathbf{u}} \right)^{-1} = \\
+ &amp; = \text{det}\left( \mathbf{A}_{\mathbf{n}}^{\mathbf{u}} \right) \ .
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">Thus, the <strong>eigenvalues</strong> are independent from the set of variables as well</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  0 &amp; = \text{det}\left( s \mathbf{I} - \mathbf{A}^{\mathbf{v}}_{\mathbf{n}} \right) = \\
+    &amp; = \text{det} \left( \mathbf{V}_{\mathbf{u}} \right) \text{det}\left( s \mathbf{I} - \mathbf{A}^{\mathbf{u}}_{\mathbf{n}} \right) \text{det} \left( \mathbf{U}_{\mathbf{v}} \right) = \\
+    &amp; = \text{det}\left( s \mathbf{I} - \mathbf{A}^{\mathbf{u}}_{\mathbf{n}} \right) \ .
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">The relation between <strong>right eigenvectors</strong> immediately follows</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathbf{A}^{\mathbf{v}}_{\mathbf{n}} \mathbf{R}^\mathbf{v} &amp; = \mathbf{R}^\mathbf{v} \mathbf{S} \\
+  \mathbf{V}_{\mathbf{u}} \mathbf{A}^{\mathbf{u}}_{\mathbf{n}} \mathbf{U}_{\mathbf{v}} \mathbf{R}^\mathbf{v} &amp; = \mathbf{R}^\mathbf{v} \mathbf{S} \\
+  \mathbf{A}^{\mathbf{u}}_{\mathbf{n}} \underbrace{\mathbf{U}_{\mathbf{v}} \mathbf{R}^\mathbf{v}}_{\mathbf{R}^\mathbf{u}} &amp; = \underbrace{\mathbf{U}_{\mathbf{v}} \mathbf{R}^\mathbf{v}}_{\mathbf{R}^\mathbf{u}} \mathbf{S} \\
+  \mathbf{A}^{\mathbf{u}}_{\mathbf{n}} \mathbf{R}^\mathbf{u} &amp; = \mathbf{R}^\mathbf{u} \mathbf{S} \ ,
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">with <span class="math notranslate nohighlight">\(\mathbf{R}^{\mathbf{u}} = \mathbf{U}_{\mathbf{v}} \mathbf{R}^\mathbf{v}\)</span>, or for any individual eigenvector <span class="math notranslate nohighlight">\(\mathbf{r}^\mathbf{u}_i = \mathbf{U}_{\mathbf{v}} \mathbf{r}^{\mathbf{v}}_i\)</span>.</p>
+<p class="sd-card-text">The relation between <strong>left eigenvectors</strong> analogously follows</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathbf{L}^\mathbf{v} \mathbf{A}^{\mathbf{v}}_{\mathbf{n}} &amp; = \mathbf{S} \mathbf{L}^\mathbf{v} \\
+  \mathbf{L}^\mathbf{v} \mathbf{V}_{\mathbf{u}} \mathbf{A}^{\mathbf{u}}_{\mathbf{n}} \mathbf{U}_{\mathbf{v}} &amp; = \mathbf{S} \mathbf{L}^\mathbf{v} \\
+  \underbrace{\mathbf{L}^\mathbf{v} \mathbf{V}_{\mathbf{u}}}_{\mathbf{L}^\mathbf{u}} \mathbf{A}^{\mathbf{u}}_{\mathbf{n}} &amp; = \mathbf{S} \underbrace{\mathbf{L}^\mathbf{v} \mathbf{V}_{\mathbf{u}}}_{\mathbf{L}^\mathbf{u}}  \\
+  \mathbf{L}^\mathbf{u} \mathbf{A}^{\mathbf{u}}_{\mathbf{n}} &amp; = \mathbf{S} \mathbf{L}^\mathbf{u}  \ ,
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">with <span class="math notranslate nohighlight">\(\mathbf{L}^{\mathbf{u}} = \mathbf{L}^\mathbf{v} \mathbf{U}_{\mathbf{v}}\)</span>, or for any individual eigenvector <span class="math notranslate nohighlight">\(\left( \mathbf{l}^\mathbf{u}_i \right)^T = \left( \mathbf{l}^\mathbf{v}_i \right)^T \mathbf{U}_\mathbf{v}\)</span>, or <span class="math notranslate nohighlight">\(\mathbf{l}^\mathbf{u}_i = \mathbf{U}_\mathbf{v}^T \mathbf{l}^\mathbf{v}_i\)</span>.</p>
+</div>
+</details><p>Convective form in a 2-dimensional domain reads</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
   &amp; D_t \rho + \rho \nabla \cdot \mathbf{u} = 0 \\
