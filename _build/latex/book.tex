@@ -85,7 +85,7 @@
         
 
 \title{basics - math}
-\date{Feb 19, 2026}
+\date{Feb 22, 2026}
 \release{}
 \author{basics}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -6392,8 +6392,8 @@ left\sphinxhyphen{}multiplying by \(\mathbf{l}\) gives
 \subsubsection{Examples}
 \label{\detokenize{ch/pde/characteristics:examples}}
 
-\paragraph{Isothermal compressible flow}
-\label{\detokenize{ch/pde/characteristics:isothermal-compressible-flow}}\begin{itemize}
+\paragraph{Isothermal compressible flow \sphinxhyphen{} 2d}
+\label{\detokenize{ch/pde/characteristics:isothermal-compressible-flow-2d}}\begin{itemize}
 \item {} 
 \sphinxAtStartPar
 Conservative variables: \((\rho, \vec{m})\)
@@ -6403,6 +6403,14 @@ Conservative variables: \((\rho, \vec{m})\)
 Physical variables: e.g. \((\rho, \vec{u})\), \((P, \vec{u})\),…
 
 \end{itemize}
+
+\sphinxAtStartPar
+In isothermal compressible flow model, pressure is a function of density only and
+\begin{equation*}
+\begin{split}d p = a^2 d \rho \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+with constant \(a\), speed of sound.
 
 \sphinxAtStartPar
 Conservative form reads
@@ -6689,32 +6697,211 @@ The quasi linear form of the equations becomes
 & \quad + \left[ \mp a^2 n_x \pm u_n u_x \ | \ 2 a  \mp u_x n_x \mp u_n \ | \ \mp n_y u_x \ \right] \partial_x \begin{bmatrix} \rho \\ \mathbf{m} \end{bmatrix} +  \\
 & \quad + \left[ \mp a^2 n_y \pm u_n u_y \ | \ \mp n_x u_y \ | \ 2 a \mp u_y n_y \mp u_n \ \right] \partial_y \begin{bmatrix} \rho \\ \mathbf{m} \end{bmatrix} = \\
 & =       \left[ \left( \mp a^2 n_x \pm u_n u_x \right) \partial_x + \left( \mp a^2 n_y \pm u_n u_y \right) \partial_y \right] \rho + \\
-&  \quad+ \left[ \left( 2 a \mp u_x n_x \pm u_n \right) \partial_x + \left( \mp n_x u_y             \right) \partial_y \right] m_x  + \\
-&  \quad+ \left[ \left( \mp n_x u_y             \right) \partial_x + \left( 2 a \mp u_y n_y \mp u_y \right) \partial_y \right] m_y  = \\
+&  \quad+ \left[ \left( 2 a \mp u_x n_x \mp u_n \right) \partial_x + \left( \mp n_x u_y             \right) \partial_y \right] m_x  + \\
+&  \quad+ \left[ \left( \mp n_y u_x             \right) \partial_x + \left( 2 a \mp u_y n_y \mp u_n \right) \partial_y \right] m_y  = \\
 \end{aligned}\end{split}
 \end{equation*}
+
+\subsubsection*{Comparing directional derivative of \protect\(\ \rho \ \protect\) and \protect\( \ m_x \ \protect\)}
+
 \sphinxAtStartPar
-\sphinxstylestrong{Remarks.} Comparing directional derivative of \(\rho\) and \(m_x\)
+By direct comparison of the coefficients of the differential operator applied to physical quantities, it follows that these differential operators are proportional to the same directional derivative. Here, as an example, the ccoefficients of the differential operators acting on \(\rho\) and \(m_x\), \(X^{\rho} \partial_x + Y^{\rho} \partial_y\) and \(X^{m_x} \partial_x + Y^{m_x} \partial_y\), are compared with the goal of proving that
+\begin{equation*}
+\begin{split}\frac{X^{\rho}}{Y^{\rho}} = \frac{X^{m_x}}{Y^{m_x}} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+or, avoiding singularities, \(X^{\rho} Y^{m_x} = Y^{\rho} X^{m_x}\). With the explicit expressions of the coefficients,
 \begin{equation*}
 \begin{split}\begin{aligned}
- & ( \mp a^2 n_x \pm u_n u_x ) ( \mp n_x u_y ) = ? = ( \mp a^2 n_y \pm u_n u_y ) ( 2 a \mp u_x n_x \pm u_n ) \\
- 0 & \ ? = a^2 n_x^2 u_y - u_n u_x n_x u_y \pm 2 a^3 n_y - a^2 u_x n_x n_y + a^2 u_n n_y \mp 2a u_n u_y + u_n u_x u_y n_x - u_n^2 u_y \\
- 0 & \ ? = a^2 n_x^2 u_y \pm 2 a^3 n_y - a^2 u_x n_x n_y + a^2 u_n n_y \mp 2a u_n u_y - u_n^2 u_y \\
- 0 & \ ? = a^2 u_y - a^2 n_y^2 u_y \pm 2 a^3 n_y - a^2 u_x n_x n_y + a^2 u_n n_y \mp 2a u_n u_y - u_n^2 u_y \\
+ & ( \mp a^2 n_x \pm u_n u_x ) ( \mp n_x u_y ) = ? = ( \mp a^2 n_y \pm u_n u_y ) ( 2 a \mp u_x n_x \mp u_n ) \\
+ 0 & \ ? = a^2 n_x^2 u_y - u_n u_x n_x u_y \pm 2 a^3 n_y - a^2 u_x n_x n_y - a^2 u_n n_y \mp 2a u_n u_y + u_n u_x u_y n_x + u_n^2 u_y \\
+ 0 & \ ? = a^2 n_x^2 u_y \pm 2 a^3 n_y - a^2 u_x n_x n_y - a^2 u_n n_y \mp 2a u_n u_y + u_n^2 u_y \\
+ 0 & \ ? = a^2 u_y - a^2 n_y^2 u_y \pm 2 a^3 n_y - a^2 u_x n_x n_y - a^2 u_n n_y \mp 2a u_n u_y + u_n^2 u_y \\
 \end{aligned}\end{split}
 \end{equation*}
 \sphinxAtStartPar
 and if \(u_n = \pm a\),
 \begin{equation*}
 \begin{split}\begin{aligned}
- 0 & \ ? = a^2 u_y - a^2 n_y^2 u_y \pm 2 a^3 n_y - a^2 u_x n_x n_y + a^2 u_n n_y \mp 2a u_n u_y - u_n^2 u_y \\
- 0 & \ ? = a^2 u_y - a^2 n_y^2 u_y \pm 2 a^3 n_y - a^2 u_x n_x n_y \pm a^3 n_y - 2a^2 u_y - a^2 u_y \\
- 0 & \ ? =         - a^2 n_y ( n_y u_y + n_x u_x) \pm 2 a^3 n_y \pm a^3 n_y - 2a^2 u_y           \\
- 0 & \ ? =        \mp a^3 n_y                     \pm 2 a^3 n_y \pm a^3 n_y - 2a^2 u_y           \\
+ 0 & \ ? = a^2 u_y - a^2 n_y^2 u_y \pm 2 a^3 n_y - a^2 u_x n_x n_y - a^2 u_n n_y \mp 2a u_n u_y + u_n^2 u_y \\
+ 0 & \ ? = a^2 u_y - a^2 n_y^2 u_y \pm 2 a^3 n_y - a^2 u_x n_x n_y \mp a^3 n_y - 2a^2 u_y + a^2 u_y \\
+ 0 & \ ? =         - a^2 n_y ( n_y u_y + n_x u_x) \pm 2 a^3 n_y \mp a^3 n_y                      \\
+ 0 & \ ? =        \mp a^3 n_y                     \pm 2 a^3 n_y \mp a^3 n_y  = 0 \ .
+\end{aligned}\end{split}
+\end{equation*}\subsubsection*{Ratio of the coefficients of the differential operators}
+
+\sphinxAtStartPar
+With \(a = \pm u_n\), the comparison of coefficients in differential operator acting on \(\rho\) and \(m_x\)
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \frac{X^{\rho}}{X^{m_x}}
+  & = \frac{\mp a^2 n_x \pm u_n u_x}{2a \mp u n_x \mp u_n} = \\ 
+  & = \frac{\mp a^2 n_x + a u}{2a \mp u n_x - a} = \\ 
+  & = a \frac{\mp a n_x + u}{ a \mp u n_x    } = \\ 
+  & = a \frac{- u_n n_x + u}{ \pm u_n \mp u n_x    } = \\ 
+  & = \pm a \frac{- ( u n_x + v n_y ) n_x + u}{  u n_x + v n_y - u n_x    } = \\ 
+  & = \pm a \frac{ u n_y^2 - v n_y n_x }{  + v n_y  } = \\ 
+  & = \pm a \frac{ u n_y - v n_x }{ v } \ .
+\end{aligned}\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\begin{aligned}
+  \frac{Y^{\rho}}{Y^{m_x}}
+  & = \frac{\mp a^2 n_y \pm u_n v}{\mp n_x v} = \\
+  & = \frac{\mp a \cdot a n_y \pm u_n v}{\mp n_x v} = \\
+  & = \frac{- a u_n n_y + a v}{\mp n_x v} = \\
+  & = \pm a \frac{ u_n n_y - v}{ n_x v} = \\
+  & = \pm a \frac{ ( u n_x + v n_y ) n_y - v}{ n_x v} = \\
+  & = \pm a \frac{ u n_x n_y - v n_x^2}{ n_x v } = \\
+  & = \pm a \frac{ u n_y - v n_x  }{ v } \ .
 \end{aligned}\end{split}
 \end{equation*}
 \sphinxAtStartPar
-\sphinxstylestrong{todo} \sphinxstyleemphasis{Check algebra. It looks like some sign is wrong and this prevent simplifications}
+The comparison of coefficients in differential operator acting on \(\rho\) and \(m_y\)
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \frac{X^{\rho}}{X^{m_y}}
+  & = \frac{\mp a^2 n_x + a u}{\mp n_y u} = \\
+  & = \frac{\mp a \cdot a n_x \pm u_n u}{\mp n_y u} = \\
+  & = \frac{ -  a u_n n_x + a u}{\mp n_y u} = \\
+  & = \pm a \frac{ u_n n_x - u}{ n_y u} = \\
+  & = \pm a \frac{ ( u n_x + v n_y ) n_x - u}{ n_y u } = \\
+  & = \pm a \frac{ - u n_y + v n_x }{ u } = \\
+  & = \mp a \frac{ u n_y - v n_x }{ u } \ .
+\end{aligned}\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\begin{aligned}
+  \frac{Y^{\rho}}{Y^{m_y}}
+  & = \frac{}{} = \\
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Thus it follows that on the characteristic lines,
+\begin{equation*}
+\begin{split}0 = \pm a ( u n_y - v n_x ) d \rho + v d m_x - u d m_y \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+or, recalling that \(m_x = \rho u\), \(m_y = \rho v\)
+\begin{equation*}
+\begin{split}\begin{aligned}
+  0 
+  & = \pm a ( u n_y - v n_x ) d \rho + v d m_x - u d m_y = \\
+  & = \pm a ( u n_y - v n_x ) d \rho + \rho v d u + uv d \rho - \rho u d v - uv d \rho = \\
+  & = \pm a ( u n_y - v n_x ) d \rho + \rho v d u - \rho u d v  = \\
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+or evaluating the ratio of these coefficients
+\begin{equation*}
+\begin{split}\frac{\rho v}{\pm a ( u n_y - v n_x )}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{todo} \sphinxstyleemphasis{Find the general relation.}
+\subsubsection*{Prandtl\sphinxhyphen{}Meyer relation}
+\begin{equation*}
+\begin{split}
+  0 = \pm a ( u n_y - v n_x ) d \rho + \rho v d u - \rho u d v \ .
+\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Defining \(\theta\) as the flow angle w.r.t. the \(x\)\sphinxhyphen{}axis, s.t. and \(V\) the absolute value of the local velocity, it follows
+\begin{equation*}
+\begin{split}\begin{aligned}
+  u & = V \cos \theta \\
+  v & = V \sin \theta \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+From the relation \(\mathbf{u} \cdot \hat{\mathbf{n}} = \pm a\) on Mach lines, being \(\hat{\mathbf{n}}\) the unit vector orthogonal to the Mach lines.,
+\begin{equation*}
+\begin{split}u_n = \pm a \quad , \quad V \cos \mu = \pm a \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+with \(\mu\) the angle between the Mach line and the flow. The components of the unit normal vector read
+\begin{equation*}
+\begin{split}\pm a = n_x u + n_y v = V \left( n_x \cos \theta + n_y \sin theta \right)\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\begin{aligned}
+  \pm \sin \mu 
+  & = n_x \cos \theta + n_y \sin \theta = \\
+  & = \pm \sin( \mu - \theta + \theta ) = \\
+  & = \pm \left[ \sin ( \mu - \theta ) \cos \theta + \cos ( \mu - \theta ) \sin \theta \right] = \\
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+so that …
+
+\sphinxAtStartPar
+\sphinxstylestrong{todo} \sphinxstyleemphasis{Treat properly \(\mp\) and \(\pm\) for the 2 families of Mach lines}
+\begin{equation*}
+\begin{split}\begin{aligned}
+  n_x & = \sin ( \theta \mp \mu ) \\
+  n_y & = - \cos ( \theta \mp  \mu ) \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Now
+\begin{equation*}
+\begin{split}\begin{aligned}
+  u n_y - v n_x
+  & = V \left( - \cos \theta \cos ( \theta \mp \mu ) - \sin \theta \sin ( \theta \mp \mu ) \right) = \\
+  & = - V \cos ( \theta - \theta \pm \mu ) = - V \cos \mu \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+The differentials of the Cartesian components of the velocity in polar coordinates become
+\begin{equation*}
+\begin{split}\begin{aligned}
+  d u 
+  & = d ( V \cos \theta ) = dV \cos \theta - V \sin \theta d \theta \\
+  d v 
+  & = d ( V \sin \theta ) = dV \sin \theta + V \cos \theta d \theta \\
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+So that, putting everything together,
+\begin{equation*}
+\begin{split}\begin{aligned}
+  0
+  & = \pm a ( u n_y - v n_x ) d \rho + \rho v d u - \rho u d v = \\
+  & = \mp a V \cos \mu d \rho + \rho V \left( \sin \theta \cos \theta - \cos \theta \sin \theta \right) d V + \rho V^2 \left( - \sin \theta \sin \theta - \cos \theta \cos \theta  \right) d \theta = \\
+  & = \mp a V \cos \mu d \rho - \rho V^2 d \theta \ ,
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+i.e.
+\begin{equation*}
+\begin{split}0 = \pm a \cos \mu \, d \rho + \rho V \, d \theta \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Now, as \(\sin \mu = \frac{a}{V} = \frac{1}{M}\), \(\cos \mu = \sqrt{ 1 - \sin^2 \mu } = \sqrt{ 1 - \frac{1}{M^2} }\), Prandtl\sphinxhyphen{}Meyer relation can be recast as
+\begin{equation*}
+\begin{split}\begin{aligned}
+  0 & = \pm \frac{1}{M} \sqrt{ 1 - \frac{1}{M^2} } d \rho + \rho d \theta \\
+  0 & = \pm \sqrt{ M^2 - 1 } d \rho + M^2 \rho d \theta  \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+For an isothermal and irrotational flow, momentum equation reads
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{0}
+  & = \mathbf{u} \cdot \nabla \mathbf{u} + a^2 \frac{\nabla \rho}{\rho} = \\
+  & = \nabla \frac{|\mathbf{u}|^2}{2} + \boldsymbol\omega \times \mathbf{u} + a^2 \frac{\nabla \rho}{\rho} = \\
+  & = \nabla \frac{|\mathbf{u}|^2}{2} + a^2 \frac{\nabla \rho}{\rho} \ ,
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and thus, as \(\frac{d \rho}{\rho} = - \frac{1}{a^2} d \frac{V^2}{2} = - \frac{1}{a^2} V dV\), Prandtl\sphinxhyphen{}Meyer relation becomes
+\begin{equation*}
+\begin{split}\begin{aligned}
+  0 & = \mp \sqrt{ M^2 - 1 } \frac{1}{a^2} V dV + M^2 \ d \theta  \\
+  0 & = \mp \sqrt{ M^2 - 1 } \underbrace{\frac{V^2}{a^2}}_{ = M^2} \frac{V dV}{V^2} + M^2 \ d \theta  \\
+  0 & = \mp \sqrt{ M^2 - 1 } \frac{dV}{V} + d \theta  \\
+  0 & = \mp \sqrt{ M^2 - 1 } \frac{d M}{M} + d \theta  \ ,
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+with the last equation containing only non\sphinxhyphen{}dimensional quantities.
 
 
 
@@ -6781,11 +6968,516 @@ This is the isothermal version of the Bernoulli’s theorem along a streamline f
 \end{aligned}\end{split}
 \end{equation*}
 
-\paragraph{Euler equations for inviscid compressible flows}
-\label{\detokenize{ch/pde/characteristics:euler-equations-for-inviscid-compressible-flows}}
+\paragraph{Euler equations for homoentropic inviscid compressible flows \sphinxhyphen{} 2d}
+\label{\detokenize{ch/pde/characteristics:euler-equations-for-homoentropic-inviscid-compressible-flows-2d}}
+\sphinxAtStartPar
+Homoentropic flows have constant and uniform entropy, \(s(\mathbf{r},t) = \overline{s}\). This condition immediately follows from the \sphinxhref{https://basics2022.github.io/bbooks-fluid-mechanics/ch/compressible/entropy.html}{entropy equation} under the assumptions of:
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+negligible viscous effects
 
-\paragraph{Shallow water}
-\label{\detokenize{ch/pde/characteristics:shallow-water}}
+\item {} 
+\sphinxAtStartPar
+negligible heat conductivity
+
+\item {} 
+\sphinxAtStartPar
+uniform entropy at the boundaries
+
+\end{enumerate}
+
+\sphinxAtStartPar
+so that, there’s no source in the governing equation of the entropy of material particles (because of 1. and 2., \(D_t s = 0\)) and the value of the entropy of material particles entering the domain is constant and uniform (because of 3., \(s = \overline{s}\)).
+
+\sphinxAtStartPar
+\sphinxstylestrong{todo} \sphinxstyleemphasis{Check if anything changes from the very beginning, e.g. transforming \(\nabla p = a^2 \nabla \rho\) and collecting in the flux term \(\nabla \cdot \left( \rho a^2 \mathbf{I} \right)\).}
+
+\sphinxAtStartPar
+Under these conditions, all the computation done for the isothermal flow model are valid except for the ones assuming constant speed of sound \(a\). In general the speed of sound is a function of the thermodynamic state. As an example, using \(\rho\), \(s\) as the pair of thermodynamic independent variables, the speed of sound reads
+\begin{equation*}
+\begin{split}a^2(\rho, s) = \left( \frac{\partial p}{\partial \rho} \right)_s \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Here \(a\) is a function of the density only, as the constant value of entropy can be treated as a constant parameter.
+
+
+\paragraph{Euler equations for inviscid compressible flows \sphinxhyphen{} 2d}
+\label{\detokenize{ch/pde/characteristics:euler-equations-for-inviscid-compressible-flows-2d}}
+\sphinxAtStartPar
+\sphinxstylestrong{1. Using conservative variables.}
+
+\sphinxAtStartPar
+Conservative form reads
+\begin{equation*}
+\begin{split}\begin{cases}
+  \partial_t \rho + \nabla \cdot \mathbf{m} = 0 \\
+  \partial_t \mathbf{m} + \nabla \cdot \left[ \frac{\mathbf{m}\otimes\mathbf{m}}{\rho} + p \mathbf{I} \right] = 0 \\
+  \partial_t E^t + \nabla \cdot \left( \frac{E^t + p}{\rho} \mathbf{m} \right) = 0 \ .
+\end{cases}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Convective form in a 2\sphinxhyphen{}dimensional domain reads
+\begin{equation*}
+\begin{split}
+\partial_t \begin{bmatrix} \rho \\ m_x \\ m_y \\ E^t \end{bmatrix} +
+\begin{bmatrix}
+  \cdot & 1     & \cdot & \cdot \\
+  \partial_\rho p - \frac{m_x m_x}{\rho^2} & \frac{2 m_x}{\rho} & \cdot & \partial_{E^t} p \\
+      - \frac{m_x m_y}{\rho^2} & \frac{m_y}{\rho} & \frac{m_x}{\rho} & \cdot \\
+      \frac{- h^t + \partial_\rho p}{\rho} m_x +  \frac{\partial_{\rho} P}{\rho} & h^t & \cdot & \frac{1 + \partial_{E^t} P}{\rho} m_x
+\end{bmatrix} \partial_x \begin{bmatrix} \rho \\ m_x \\ m_y \\ E^t \end{bmatrix} +
+\begin{bmatrix}
+  \cdot & \cdot & 1 & \cdot    \\
+  - \frac{m_x m_y}{\rho^2} & \frac{m_y}{\rho} & \frac{m_x}{\rho} & \cdot \\
+  \partial_\rho p - \frac{m_y m_y}{\rho^2} & \cdot & \frac{2 m_y}{\rho} & \partial_{E^t} p \\
+  \frac{ - h^t + \partial_\rho p}{\rho} m_y & \cdot & h^t &  \frac{1 + \partial_{E^t} P}{\rho} m_y
+\end{bmatrix} \partial_y \begin{bmatrix} \rho \\ m_x \\ m_y \\ E^t \end{bmatrix} = \mathbf{0}
+\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Thus,
+\begin{equation*}
+\begin{split}\begin{aligned}
+\mathbf{A}_n 
+& =
+\begin{bmatrix}
+  0 & \mathbf{n}^T & 0 \\
+  \partial_\rho p \mathbf{n} - u_n \mathbf{u} & u_n \mathbf{I} + \mathbf{u} \mathbf{n}^T & \partial_{E^t} p \mathbf{n} \\
+  - ( h^t + \partial_\rho p ) u_n & h^t \mathbf{n}^T & \left( 1 + \partial_{E^t} P \right) u_n
+\end{bmatrix} = \\
+& =
+\begin{bmatrix}
+  0 & n_x & n_y & 0 \\
+  \partial_\rho p \, n_x - u_n u_x & u_n + n_x u &       n_y u & \partial_{E^t} p \, n_x \\
+  \partial_\rho p \, n_y - u_n u_y &       n_x v & u_n + n_y v & \partial_{E^t} p \, n_y \\
+  - ( h^t + \partial_\rho p ) u_n & h^t n_x & h^t n_y & \left( 1 + \partial_{E^t} P \right) u_n
+\end{bmatrix} \ .
+\end{aligned}\end{split}
+\end{equation*}\subsubsection*{Speed of sound}
+
+\sphinxAtStartPar
+…link to an updated version of \sphinxhref{https://basics2022.github.io/bbooks-physics-thermodynamics/ch/potentials.html}{Thermodynamics:potentials:Maxwell’s relations}
+\begin{equation*}
+\begin{split}\begin{aligned}
+  a^2(\rho,s) = \left.\frac{\partial p}{\partial \rho}\right|_s 
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Independent variables \(f(\rho, e)\)}
+\begin{equation*}
+\begin{split}\begin{aligned}
+  a^2(\rho, e) = \ ?
+\end{aligned}\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\begin{aligned}
+  a^2(\rho, e(\rho, s)) 
+  & = \left.\frac{\partial p}{\partial \rho}\right|_s  = \\
+  & = \left.\frac{\partial p}{\partial \rho}\right|_e + \left.\frac{\partial p}{\partial e}\right|_\rho \left.\frac{\partial e}{\partial \rho}\right|_s  = \\
+  & = \left.\frac{\partial p}{\partial \rho}\right|_e + \left.\frac{\partial p}{\partial e}\right|_\rho \, \frac{p}{\rho^2} \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Thermodynamic potentials, partial derivatives and Maxwell’s relations
+\begin{equation*}
+\begin{split}
+de = T ds + \frac{p}{\rho^2} d \rho
+\quad , \quad
+T = \left.\frac{\partial p}{\partial s}\right|_\rho
+\quad , \quad
+\frac{p}{\rho^2} = \left.\frac{\partial e}{\partial \rho}\right|_s
+\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Independent variables \(f(\rho, \mathbf{m}, E^t)\)} With
+\begin{equation*}
+\begin{split}E^t = \rho \left( \frac{|\mathbf{u}|^2}{2} + e \right) = \frac{|\mathbf{m}|^2}{2 \rho} + \rho e \ .\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\begin{aligned}
+  a^2(\rho, \mathbf{m}, E^t(\rho, \mathbf{m}, s))
+\end{aligned}\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\begin{aligned}
+a^2(\rho,\mathbf{m}, E^t)
+  & = \left.\frac{\partial p}{\partial \rho}\right|_{s} (\rho, \mathbf{m}, E^t(\rho, \mathbf{m}, e(\rho, s))) = \\
+  & = \left.\frac{\partial p}{\partial \rho}\right|_{\mathbf{m}, E^t} + \left.\frac{\partial p}{\partial E^t}\right|_{\rho, \mathbf{m}} \left[ \left.\frac{\partial E^t}{\partial \rho}\right|_{\mathbf{m}, e} + \left.\frac{\partial E^t}{\partial e} \right|_{\rho, \mathbf{m}} \left.\frac{\partial e}{\partial \rho}\right|_{s} \right]  = \\
+  & = \left.\frac{\partial p}{\partial \rho}\right|_{\mathbf{m}, E^t} + \left.\frac{\partial p}{\partial E^t}\right|_{\rho, \mathbf{m}} \left[ \left( - \frac{|\mathbf{m}|^2}{2 \rho^2} + e \right) + \rho \left.\frac{\partial e}{\partial \rho}\right|_{s} \right]  = \\
+\end{aligned}\end{split}
+\end{equation*}\subsubsection*{Eigenvalues}
+\begin{equation*}
+\begin{split}
+0 = |\mathbf{A}_n - s \mathbf{I}| =
+\begin{bmatrix}
+  -s & n_x & n_y & 0 \\
+  \partial_\rho p \, n_x - u_n u_x & -s + u_n + n_x u &       n_y u & \partial_{E^t} p \, n_x \\
+  \partial_\rho p \, n_y - u_n u_y &       n_x v & -s + u_n + n_y v & \partial_{E^t} p \, n_y \\
+  - ( h^t + \partial_\rho p ) u_n & h^t n_x & h^t n_y & - s + \left( 1 + \partial_{E^t} P \right) u_n
+\end{bmatrix} \ .
+\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{2. Using physical variables \((\rho, \mathbf{u}, s)\).} So that speed of sound \(a^2(\rho, s) = \left( \partial_\rho p \right)_s\) naturally appears.
+\subsubsection*{Change of coordinates and convective form}
+
+\sphinxAtStartPar
+Starting from a set of variables \(\mathbf{u}\) and the convective form of the equations
+\begin{equation*}
+\begin{split}\mathbf{s} = \partial_t \mathbf{u} + \sum_{k} \mathbf{A}^k \partial_k \mathbf{u} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+using another set of variables \(\mathbf{v}\), the equations become
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{s} & = \partial_t \mathbf{u} + \sum_{k} \mathbf{A}^k \partial_k \mathbf{u} \\
+  \mathbf{s} & = \mathbf{U}_{\mathbf{v}}(\mathbf{v}) \partial_t \mathbf{v} + \sum_{k} \mathbf{A}^k  \mathbf{U}_{\mathbf{v}}(\mathbf{v}) \partial_k \mathbf{v} \ ,
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+being \(d \mathbf{u} = \mathbf{U}_{\mathbf{v}} d \mathbf{v}\). If the transformation is non\sphinxhyphen{}singular, and \(\mathbf{U}_{\mathbf{v}}^{-1} = \mathbf{V}_{\mathbf{u}}(\mathbf{v})\), then the differential equations can be recast as
+\begin{equation*}
+\begin{split}\partial_t \mathbf{v} + \sum_{k} \mathbf{V}_{\mathbf{u}} \mathbf{A}^k \mathbf{U}_{\mathbf{v}} \partial_k \mathbf{v} = \mathbf{V}_{\mathbf{u}} \mathbf{s}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+With a coordinate transformation, the normal and tangential matrices become
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{A}^{\mathbf{v}}_{\mathbf{n}} 
+  & = \sum_k n_k \mathbf{V}_{\mathbf{u}} \mathbf{A}^k \mathbf{U}_{\mathbf{v}} = \\
+  & =  \mathbf{V}_{\mathbf{u}} \underbrace{\sum_k n_k \mathbf{A}^k}_{ \mathbf{A}^{\mathbf{u}}_{\mathbf{n}} } \mathbf{U}_{\mathbf{v}} =   
+       \mathbf{V}_{\mathbf{u}} \mathbf{A}^{\mathbf{u}}_{\mathbf{n}} \mathbf{U}_{\mathbf{v}} \ ,
+\end{aligned}\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\mathbf{A}^{\mathbf{v}}_{\mathbf{t}_i} = \dots = \mathbf{V}_{\mathbf{u}} \mathbf{A}^{\mathbf{u}}_{\mathbf{t}_i} \mathbf{U}_{\mathbf{v}} \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{If} the change of variables is non\sphinxhyphen{}singular, the Jacobian matrices \(\mathbf{V}_\mathbf{u}\), \(\mathbf{U}_\mathbf{v}\) are non singular and reciprocally inverse. Thus, the \sphinxstylestrong{determinant} of the matrix \(\mathbf{A}_{\mathbf{n}}\) is independent from the set of chosen variables, as
+\begin{equation*}
+\begin{split}\begin{aligned}
+ \text{det}\left( \mathbf{A}_{\mathbf{n}}^{\mathbf{v}} \right) 
+ & = \text{det}\left( \mathbf{V}_{\mathbf{u}} \right) \text{det}\left( \mathbf{A}_{\mathbf{n}}^{\mathbf{u}} \right) \text{det}\left( \mathbf{U}_{\mathbf{v}} \right) = \\
+ & = \text{det}\left( \mathbf{V}_{\mathbf{u}} \right) \text{det}\left( \mathbf{A}_{\mathbf{n}}^{\mathbf{u}} \right) \text{det}\left( \mathbf{V}_{\mathbf{u}} \right)^{-1} = \\
+ & = \text{det}\left( \mathbf{A}_{\mathbf{n}}^{\mathbf{u}} \right) \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Thus, the \sphinxstylestrong{eigenvalues} are independent from the set of variables as well
+\begin{equation*}
+\begin{split}\begin{aligned}
+  0 & = \text{det}\left( s \mathbf{I} - \mathbf{A}^{\mathbf{v}}_{\mathbf{n}} \right) = \\
+    & = \text{det} \left( \mathbf{V}_{\mathbf{u}} \right) \text{det}\left( s \mathbf{I} - \mathbf{A}^{\mathbf{u}}_{\mathbf{n}} \right) \text{det} \left( \mathbf{U}_{\mathbf{v}} \right) = \\
+    & = \text{det}\left( s \mathbf{I} - \mathbf{A}^{\mathbf{u}}_{\mathbf{n}} \right) \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+The relation between \sphinxstylestrong{right eigenvectors} immediately follows
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{A}^{\mathbf{v}}_{\mathbf{n}} \mathbf{R}^\mathbf{v} & = \mathbf{R}^\mathbf{v} \mathbf{S} \\
+  \mathbf{V}_{\mathbf{u}} \mathbf{A}^{\mathbf{u}}_{\mathbf{n}} \mathbf{U}_{\mathbf{v}} \mathbf{R}^\mathbf{v} & = \mathbf{R}^\mathbf{v} \mathbf{S} \\
+  \mathbf{A}^{\mathbf{u}}_{\mathbf{n}} \underbrace{\mathbf{U}_{\mathbf{v}} \mathbf{R}^\mathbf{v}}_{\mathbf{R}^\mathbf{u}} & = \underbrace{\mathbf{U}_{\mathbf{v}} \mathbf{R}^\mathbf{v}}_{\mathbf{R}^\mathbf{u}} \mathbf{S} \\
+  \mathbf{A}^{\mathbf{u}}_{\mathbf{n}} \mathbf{R}^\mathbf{u} & = \mathbf{R}^\mathbf{u} \mathbf{S} \ ,
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+with \(\mathbf{R}^{\mathbf{u}} = \mathbf{U}_{\mathbf{v}} \mathbf{R}^\mathbf{v}\), or for any individual eigenvector \(\mathbf{r}^\mathbf{u}_i = \mathbf{U}_{\mathbf{v}} \mathbf{r}^{\mathbf{v}}_i\).
+
+\sphinxAtStartPar
+The relation between \sphinxstylestrong{left eigenvectors} analogously follows
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{L}^\mathbf{v} \mathbf{A}^{\mathbf{v}}_{\mathbf{n}} & = \mathbf{S} \mathbf{L}^\mathbf{v} \\
+  \mathbf{L}^\mathbf{v} \mathbf{V}_{\mathbf{u}} \mathbf{A}^{\mathbf{u}}_{\mathbf{n}} \mathbf{U}_{\mathbf{v}} & = \mathbf{S} \mathbf{L}^\mathbf{v} \\
+  \underbrace{\mathbf{L}^\mathbf{v} \mathbf{V}_{\mathbf{u}}}_{\mathbf{L}^\mathbf{u}} \mathbf{A}^{\mathbf{u}}_{\mathbf{n}} & = \mathbf{S} \underbrace{\mathbf{L}^\mathbf{v} \mathbf{V}_{\mathbf{u}}}_{\mathbf{L}^\mathbf{u}}  \\
+  \mathbf{L}^\mathbf{u} \mathbf{A}^{\mathbf{u}}_{\mathbf{n}} & = \mathbf{S} \mathbf{L}^\mathbf{u}  \ ,
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+with \(\mathbf{L}^{\mathbf{u}} = \mathbf{L}^\mathbf{v} \mathbf{U}_{\mathbf{v}}\), or for any individual eigenvector \(\left( \mathbf{l}^\mathbf{u}_i \right)^T = \left( \mathbf{l}^\mathbf{v}_i \right)^T \mathbf{U}_\mathbf{v}\), or \(\mathbf{l}^\mathbf{u}_i = \mathbf{U}_\mathbf{v}^T \mathbf{l}^\mathbf{v}_i\).
+
+\sphinxAtStartPar
+Convective form in a 2\sphinxhyphen{}dimensional domain reads
+\begin{equation*}
+\begin{split}\begin{aligned}
+  & D_t \rho + \rho \nabla \cdot \mathbf{u} = 0 \\
+  & D_t \mathbf{u} + \frac{1}{\rho} \nabla p = \mathbf{0} \\
+  & D_t e + \frac{p}{\rho} \nabla \cdot \mathbf{u} = 0 \ .
+\end{aligned}\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\begin{aligned}
+  0 & = \partial_t \rho + u \partial_x \rho + \rho \partial_x u + v \partial_y \rho + \rho \partial_y v \\ 
+  0 & = \partial_t u + u \partial_x u + v \partial_y u + \frac{1}{\rho}\partial_x p = \\
+    & = \partial_t u + u \partial_x u + v \partial_y u + \frac{1}{\rho}\partial_\rho p|_e \partial_x \rho + \frac{1}{\rho}\partial_e p|_\rho \partial_x e \\
+  0 & = \partial_t v + u \partial_x v + v \partial_y v + \frac{1}{\rho}\partial_y p = \\
+    & = \partial_t v + u \partial_x v + v \partial_y v + \frac{1}{\rho}\partial_\rho p|_e \partial_y \rho + \frac{1}{\rho}\partial_e p|_\rho \partial_y e \\
+  0 & = \partial_t e + u \partial_x e + v \partial_y e + \frac{p}{\rho}\left( \partial_x u + \partial_y v \right) \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Convective form in a 2\sphinxhyphen{}dimensional domain reads
+\begin{equation*}
+\begin{split}
+\partial_t \begin{bmatrix} \rho \\ u \\ v \\ e \end{bmatrix} +
+\begin{bmatrix}
+  u & \rho  & \cdot & \cdot \\
+  \frac{1}{\rho} \partial_\rho p & u & \cdot & \frac{1}{\rho} \partial_{e}p \\
+  \cdot &  \cdot & u & \cdot \\
+  \cdot &  \frac{p}{\rho} & \cdot & u \\
+\end{bmatrix} \partial_x \begin{bmatrix} \rho \\ u \\ v \\ e \end{bmatrix} +
+\begin{bmatrix}
+  v & \cdot & \rho & \cdot  \\
+  \cdot & v & \cdot & \cdot \\
+  \frac{1}{\rho} \partial_\rho p & \cdot & v & \frac{1}{\rho} \partial_{e}p \\
+  \cdot & \cdot & \frac{p}{\rho} & v \\
+\end{bmatrix} \partial_y \begin{bmatrix} \rho \\ u \\ v \\ e \end{bmatrix} = \mathbf{0}
+\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Thus,
+\begin{equation*}
+\begin{split}\begin{aligned}
+\mathbf{A}_n 
+& =
+\begin{bmatrix}
+  u_n & \rho \mathbf{n}^T & \cdot \\
+  \frac{1}{\rho} \partial_\rho p \, \mathbf{n} & u_n \mathbf{I}  & \frac{1}{\rho} \partial_{e} p \, \mathbf{n} \\
+  \cdot & \frac{p}{\rho} \mathbf{n}^T & u_n
+\end{bmatrix} = \\
+ & = \dots
+\end{aligned}\end{split}
+\end{equation*}\subsubsection*{Eigenvalues of the \protect\(\ \mathbf{A}_\mathbf{n} \ \protect\) matrix using variables \protect\(\ (\rho, \mathbf{u}, e )\protect\).}
+
+\sphinxAtStartPar
+Let \(\mathbf{M} = \mathbf{A}_n - \lambda \mathbf{I}\). We expand \(\det(\mathbf{M})\) along the \sphinxstylestrong{first row}:
+\begin{equation*}
+\begin{split}
+\det(\mathbf{M}) = a_{11}M_{11} - a_{12}M_{12} + a_{13}M_{13} - a_{14}M_{14}
+\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Identification of Minors}
+Substituting the elements from the first row \([\chi, \rho n_x, \rho n_y, 0]\):
+\begin{equation*}
+\begin{split}
+\det(\mathbf{M}) = \chi \det \underbrace{\begin{bmatrix} \chi & 0 & \beta n_x \\ 0 & \chi & \beta n_y \\ \eta n_x & \eta n_y & \chi \end{bmatrix}}_{M_{11}} - \rho n_x \det \underbrace{\begin{bmatrix} \alpha n_x & 0 & \beta n_x \\ \alpha n_y & \chi & \beta n_y \\ 0 & \eta n_y & \chi \end{bmatrix}}_{M_{12}} + \rho n_y \det \underbrace{\begin{bmatrix} \alpha n_x & \chi & \beta n_x \\ \alpha n_y & 0 & \beta n_y \\ 0 & \eta n_x & \chi \end{bmatrix}}_{M_{13}} - 0
+\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Evaluating Minor \(M_{11}\)}
+Expanding \(M_{11}\) along its first row:
+\begin{equation*}
+\begin{split}
+\det(M_{11}) = \chi(\chi^2 - \beta \eta n_y^2) - 0 + \beta n_x(0 - \chi \eta n_x) = \chi^3 - \chi \beta \eta n_y^2 - \chi \beta \eta n_x^2
+\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Since \(n_x^2 + n_y^2 = 1\):
+\begin{equation*}
+\begin{split} \det(M_{11}) = \chi(\chi^2 - \beta \eta) \end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Evaluating Minor \(M_{12}\)}
+Expanding \(M_{12}\) along its first row:
+\begin{equation*}
+\begin{split}
+\det(M_{12}) = \alpha n_x(\chi^2 - \beta \eta n_y^2) - 0 + \beta n_x(\alpha n_x \eta n_y - 0) =  \alpha \chi^2 n_x
+\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Note.} Cross terms often cancel in symmetric projections)\}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Note.} In the final summation, the \(\rho n_x\) multiplier simplifies this to \(\alpha \rho n_x^2 \chi^2\).
+
+\sphinxAtStartPar
+\sphinxstylestrong{Evaluating Minor \(M_{13}\)}
+Expanding \(M_{13}\) along its first row:
+\begin{equation*}
+\begin{split}
+\det(M_{13}) = \alpha n_x(0 - \beta \eta n_x) - \chi(\alpha n_y \chi - 0) + \beta n_x(\alpha n_y \eta n_x - 0) = - \alpha \chi^2 n_y
+\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Total Characteristic Polynomial}
+Combining the terms:
+\begin{equation*}
+\begin{split}\begin{aligned}
+  0
+  & = \chi[\chi(\chi^2 - \beta \eta)] - \rho n_x [\alpha n_x \chi^2] + \rho n_y [- \alpha n_y \chi^2] = \\
+  & = \chi^2 ( \chi^2 - \beta \eta) - \alpha \rho \chi^2 (n_x^2 + n_y^2) = \\
+  & = \chi^2 ( \chi^2 - \beta \eta - \alpha \rho )
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Final Substitution}
+Recall \(\alpha \rho = \partial_{\rho}p\) and \(\beta \eta = \frac{p}{\rho^2}\partial_{e}p\). The speed of sound is \(a^2 = \alpha \rho + \beta \eta\):
+\begin{equation*}
+\begin{split}
+\chi^2 ( \chi^2 - a^2 ) = 0
+\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Thus the solutions \(\chi = u_n - s\) are:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\(\chi_{1,2} = \pm a \implies s_{1,2} = u_n \mp a\)
+
+\item {} 
+\sphinxAtStartPar
+\(\chi_{3,4} = 0 \implies s_{3,4} = u_n\).
+
+\end{itemize}
+\subsubsection*{Right eigenvectors}
+
+\sphinxAtStartPar
+The right eigenvectors \(\mathbf{R}\) satisfy the equation \((\mathbf{A}_n - \lambda \mathbf{I})\mathbf{R} = 0\). Using the substituted variable \(\chi = u_n - \lambda\), the system for any eigenvector \(\mathbf{R} = [R_\rho, R_u, R_v, R_e]^T\) is:
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+\(\chi R_\rho + \rho n_x R_u + \rho n_y R_v = 0\)
+
+\item {} 
+\sphinxAtStartPar
+\(\alpha n_x R_\rho + \chi R_u + \beta n_x R_e = 0\)
+
+\item {} 
+\sphinxAtStartPar
+\(\alpha n_y R_\rho + \chi R_v + \beta n_y R_e = 0\)
+
+\item {} 
+\sphinxAtStartPar
+\(\eta n_x R_u + \eta n_y R_v + \chi R_e = 0\)
+
+\end{enumerate}
+
+
+\bigskip\hrule\bigskip
+
+
+\sphinxAtStartPar
+\sphinxstylestrong{Convective Eigenvectors (\(\lambda_{1,2} = u_n \implies \chi = 0\))}
+When \(\chi = 0\), the system collapses to:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+From (1) and (4): \(n_x R_u + n_y R_v = 0\) (Velocity change is purely tangential).
+
+\item {} 
+\sphinxAtStartPar
+From (2) and (3): \(\alpha R_\rho + \beta R_e = 0 \implies R_\rho = -\frac{\beta}{\alpha} R_e\).
+
+\end{itemize}
+
+\sphinxAtStartPar
+We choose two linearly independent vectors representing the non\sphinxhyphen{}acoustic transport:
+
+\sphinxAtStartPar
+\sphinxstylestrong{Entropy Wave (\(\mathbf{R}_1\)):}
+Only density changes; pressure (and thus velocity/energy) remains constant.
+\begin{equation*}
+\begin{split} \mathbf{R}_1 = \begin{bmatrix} 1 \\ 0 \\ 0 \\ -\alpha/\beta \end{bmatrix} \end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Vorticity/Shear Wave (\(\mathbf{R}_2\)):}
+Only the tangential velocity changes; no change in density or pressure.
+\begin{equation*}
+\begin{split} \mathbf{R}_2 = \begin{bmatrix} 0 \\ n_y \\ -n_x \\ 0 \end{bmatrix} \end{split}
+\end{equation*}
+
+\bigskip\hrule\bigskip
+
+
+\sphinxAtStartPar
+\sphinxstylestrong{Acoustic Eigenvectors (\(\lambda_{3,4} = u_n \pm a \implies \chi = \mp a\))}
+Substituting \(\chi = \mp a\) into the system:
+\begin{enumerate}
+\sphinxsetlistlabels{\arabic}{enumi}{enumii}{}{.}%
+\item {} 
+\sphinxAtStartPar
+\(\mp a R_\rho + \rho (n_x R_u + n_y R_v) = 0 \implies n_x R_u + n_y R_v = \pm \frac{a}{\rho} R_\rho\)
+
+\item {} 
+\sphinxAtStartPar
+From (2) and (3): The velocity changes \(R_u, R_v\) must be proportional to \(n_x, n_y\) (the wave is longitudinal). Let \(R_u = k n_x\) and \(R_v = k n_y\).
+
+\item {} 
+\sphinxAtStartPar
+Then \(k = \pm \frac{a}{\rho} R_\rho\).
+
+\end{enumerate}
+
+\sphinxAtStartPar
+For the energy component from (4):
+\(\eta k (n_x^2 + n_y^2) \mp a R_e = 0 \implies R_e = \pm \frac{\eta k}{a} = \frac{\eta}{\rho} R_\rho\).
+
+\sphinxAtStartPar
+Setting \(R_\rho = \rho\) as a normalization:
+
+\sphinxAtStartPar
+\sphinxstylestrong{Right\sphinxhyphen{}Running Acoustic Wave (\(C^+\)):}
+\begin{equation*}
+\begin{split} \mathbf{R}_3 = \begin{bmatrix} \rho \\ a n_x \\ a n_y \\ p/\rho \end{bmatrix} \end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Left\sphinxhyphen{}Running Acoustic Wave (\(C^-\)):}
+\begin{equation*}
+\begin{split} \mathbf{R}_4 = \begin{bmatrix} \rho \\ -a n_x \\ -a n_y \\ p/\rho \end{bmatrix} \end{split}
+\end{equation*}\subsubsection*{Left eigenvectors}
+
+\sphinxAtStartPar
+The left eigenvectors \(\mathbf{L}\) are found by solving \(\mathbf{L}(\mathbf{A}_n - \lambda \mathbf{I}) = 0\). Using \(\chi = u_n - \lambda\), \(\alpha = \frac{1}{\rho}\partial_{\rho}p\), and \(\beta = \frac{1}{\rho}\partial_{e}p\):
+
+\sphinxAtStartPar
+\sphinxstylestrong{Convective Eigenvectors (\(\chi = 0\))}
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{\(\mathbf{L}_1\) (Entropy):} Projects onto the state where pressure is constant.
+\begin{equation*}
+\begin{split} \mathbf{L}_1 = [1, 0, 0, -\alpha/\beta] \end{split}
+\end{equation*}
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{\(\mathbf{L}_2\) (Vorticity):} Projects onto the tangential velocity change.
+
+\end{itemize}
+\begin{equation*}
+\begin{split} \mathbf{L}_2 = [0, n_y, -n_x, 0] \end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Acoustic Eigenvectors (\(\chi = \mp a\))}
+For the acoustic waves, the weights for \(u\) and \(v\) align with the normal \(\mathbf{n}\).
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{\(\mathbf{L}_3\) (\(u_n + a\)):}
+\begin{equation*}
+\begin{split} \mathbf{L}_3 = \left[ \frac{\alpha}{2a^2}, \frac{n_x}{2a}, \frac{n_y}{2a}, \frac{\beta}{2a^2} \right] \end{split}
+\end{equation*}
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{\(\mathbf{L}_4\) (\(u_n - a\)):}
+\begin{equation*}
+\begin{split} \mathbf{L}_4 = \left[ \frac{\alpha}{2a^2}, -\frac{n_x}{2a}, -\frac{n_y}{2a}, \frac{\beta}{2a^2} \right] \end{split}
+\end{equation*}
+\end{itemize}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Compatibility Equations}
+Multiplying the primitive variable differential vector \(d\mathbf{V} = [d\rho, du, dv, de]^T\) by these eigenvectors yields:
+\begin{equation*}
+\begin{split} \frac{\alpha}{a^2} d\rho + \frac{\beta}{a^2} de \pm \frac{1}{a}(n_x du + n_y dv) = 0 \end{split}
+\end{equation*}
+\sphinxAtStartPar
+Using \(a^2 d\rho_{total} = \alpha \rho d\rho + \beta \rho de\), this simplifies to the physical form:
+\begin{equation*}
+\begin{split} \frac{dp}{\rho a} \pm du_n = 0 \end{split}
+\end{equation*}
+
+\paragraph{Shallow water \sphinxhyphen{} 2d}
+\label{\detokenize{ch/pde/characteristics:shallow-water-2d}}
 \sphinxstepscope
 
 

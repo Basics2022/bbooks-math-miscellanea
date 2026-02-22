@@ -954,6 +954,168 @@ $$\begin{aligned}
  & = \dots
 \end{aligned}$$
 
+```{dropdown} Eigenvalues of the $\ \mathbf{A}_\mathbf{n} \ $ matrix using variables $\ (\rho, \mathbf{u}, e )$.
+:open:
+
+Let $\mathbf{M} = \mathbf{A}_n - \lambda \mathbf{I}$. We expand $\det(\mathbf{M})$ along the **first row**:
+
+$$
+\det(\mathbf{M}) = a_{11}M_{11} - a_{12}M_{12} + a_{13}M_{13} - a_{14}M_{14}
+$$
+
+**Identification of Minors**
+Substituting the elements from the first row $[\chi, \rho n_x, \rho n_y, 0]$:
+
+$$
+\det(\mathbf{M}) = \chi \det \underbrace{\begin{bmatrix} \chi & 0 & \beta n_x \\ 0 & \chi & \beta n_y \\ \eta n_x & \eta n_y & \chi \end{bmatrix}}_{M_{11}} - \rho n_x \det \underbrace{\begin{bmatrix} \alpha n_x & 0 & \beta n_x \\ \alpha n_y & \chi & \beta n_y \\ 0 & \eta n_y & \chi \end{bmatrix}}_{M_{12}} + \rho n_y \det \underbrace{\begin{bmatrix} \alpha n_x & \chi & \beta n_x \\ \alpha n_y & 0 & \beta n_y \\ 0 & \eta n_x & \chi \end{bmatrix}}_{M_{13}} - 0
+$$
+
+**Evaluating Minor $M_{11}$**
+Expanding $M_{11}$ along its first row:
+
+$$
+\det(M_{11}) = \chi(\chi^2 - \beta \eta n_y^2) - 0 + \beta n_x(0 - \chi \eta n_x) = \chi^3 - \chi \beta \eta n_y^2 - \chi \beta \eta n_x^2
+$$
+
+Since $n_x^2 + n_y^2 = 1$:
+
+$$ \det(M_{11}) = \chi(\chi^2 - \beta \eta) $$
+
+**Evaluating Minor $M_{12}$**
+Expanding $M_{12}$ along its first row:
+
+$$
+\det(M_{12}) = \alpha n_x(\chi^2 - \beta \eta n_y^2) - 0 + \beta n_x(\alpha n_x \eta n_y - 0) =  \alpha \chi^2 n_x
+$$
+
+**Note.** Cross terms often cancel in symmetric projections)}
+
+**Note.** In the final summation, the $\rho n_x$ multiplier simplifies this to $\alpha \rho n_x^2 \chi^2$.
+
+**Evaluating Minor $M_{13}$**
+Expanding $M_{13}$ along its first row:
+
+$$
+\det(M_{13}) = \alpha n_x(0 - \beta \eta n_x) - \chi(\alpha n_y \chi - 0) + \beta n_x(\alpha n_y \eta n_x - 0) = - \alpha \chi^2 n_y
+$$
+
+
+**Total Characteristic Polynomial**
+Combining the terms:
+
+$$\begin{aligned}
+  0
+  & = \chi[\chi(\chi^2 - \beta \eta)] - \rho n_x [\alpha n_x \chi^2] + \rho n_y [- \alpha n_y \chi^2] = \\
+  & = \chi^2 ( \chi^2 - \beta \eta) - \alpha \rho \chi^2 (n_x^2 + n_y^2) = \\
+  & = \chi^2 ( \chi^2 - \beta \eta - \alpha \rho )
+\end{aligned}$$
+
+
+**Final Substitution**
+Recall $\alpha \rho = \partial_{\rho}p$ and $\beta \eta = \frac{p}{\rho^2}\partial_{e}p$. The speed of sound is $a^2 = \alpha \rho + \beta \eta$:
+
+$$
+\chi^2 ( \chi^2 - a^2 ) = 0
+$$
+
+Thus the solutions $\chi = u_n - s$ are:
+
+* $\chi_{1,2} = \pm a \implies s_{1,2} = u_n \mp a$
+* $\chi_{3,4} = 0 \implies s_{3,4} = u_n$.
+
+```
+
+```{dropdown} Right eigenvectors
+:open:
+
+
+The right eigenvectors $\mathbf{R}$ satisfy the equation $(\mathbf{A}_n - \lambda \mathbf{I})\mathbf{R} = 0$. Using the substituted variable $\chi = u_n - \lambda$, the system for any eigenvector $\mathbf{R} = [R_\rho, R_u, R_v, R_e]^T$ is:
+
+1.  $\chi R_\rho + \rho n_x R_u + \rho n_y R_v = 0$
+2.  $\alpha n_x R_\rho + \chi R_u + \beta n_x R_e = 0$
+3.  $\alpha n_y R_\rho + \chi R_v + \beta n_y R_e = 0$
+4.  $\eta n_x R_u + \eta n_y R_v + \chi R_e = 0$
+
+---
+
+**Convective Eigenvectors ($\lambda_{1,2} = u_n \implies \chi = 0$)**
+When $\chi = 0$, the system collapses to:
+* From (1) and (4): $n_x R_u + n_y R_v = 0$ (Velocity change is purely tangential).
+* From (2) and (3): $\alpha R_\rho + \beta R_e = 0 \implies R_\rho = -\frac{\beta}{\alpha} R_e$.
+
+We choose two linearly independent vectors representing the non-acoustic transport:
+
+**Entropy Wave ($\mathbf{R}_1$):**
+Only density changes; pressure (and thus velocity/energy) remains constant.
+
+$$ \mathbf{R}_1 = \begin{bmatrix} 1 \\ 0 \\ 0 \\ -\alpha/\beta \end{bmatrix} $$
+
+**Vorticity/Shear Wave ($\mathbf{R}_2$):**
+Only the tangential velocity changes; no change in density or pressure.
+
+$$ \mathbf{R}_2 = \begin{bmatrix} 0 \\ n_y \\ -n_x \\ 0 \end{bmatrix} $$
+
+---
+
+**Acoustic Eigenvectors ($\lambda_{3,4} = u_n \pm a \implies \chi = \mp a$)**
+Substituting $\chi = \mp a$ into the system:
+
+1.  $\mp a R_\rho + \rho (n_x R_u + n_y R_v) = 0 \implies n_x R_u + n_y R_v = \pm \frac{a}{\rho} R_\rho$
+2.  From (2) and (3): The velocity changes $R_u, R_v$ must be proportional to $n_x, n_y$ (the wave is longitudinal). Let $R_u = k n_x$ and $R_v = k n_y$.
+3.  Then $k = \pm \frac{a}{\rho} R_\rho$.
+
+For the energy component from (4):
+$\eta k (n_x^2 + n_y^2) \mp a R_e = 0 \implies R_e = \pm \frac{\eta k}{a} = \frac{\eta}{\rho} R_\rho$.
+
+Setting $R_\rho = \rho$ as a normalization:
+
+**Right-Running Acoustic Wave ($C^+$):**
+
+$$ \mathbf{R}_3 = \begin{bmatrix} \rho \\ a n_x \\ a n_y \\ p/\rho \end{bmatrix} $$
+
+**Left-Running Acoustic Wave ($C^-$):**
+
+$$ \mathbf{R}_4 = \begin{bmatrix} \rho \\ -a n_x \\ -a n_y \\ p/\rho \end{bmatrix} $$
+
+```
+
+```{dropdown} Left eigenvectors
+:open:
+
+
+The left eigenvectors $\mathbf{L}$ are found by solving $\mathbf{L}(\mathbf{A}_n - \lambda \mathbf{I}) = 0$. Using $\chi = u_n - \lambda$, $\alpha = \frac{1}{\rho}\partial_{\rho}p$, and $\beta = \frac{1}{\rho}\partial_{e}p$:
+
+**Convective Eigenvectors ($\chi = 0$)**
+* **$\mathbf{L}_1$ (Entropy):** Projects onto the state where pressure is constant.
+
+  $$ \mathbf{L}_1 = [1, 0, 0, -\alpha/\beta] $$
+
+* **$\mathbf{L}_2$ (Vorticity):** Projects onto the tangential velocity change.
+
+$$ \mathbf{L}_2 = [0, n_y, -n_x, 0] $$
+
+**Acoustic Eigenvectors ($\chi = \mp a$)**
+For the acoustic waves, the weights for $u$ and $v$ align with the normal $\mathbf{n}$.
+* **$\mathbf{L}_3$ ($u_n + a$):**
+
+  $$ \mathbf{L}_3 = \left[ \frac{\alpha}{2a^2}, \frac{n_x}{2a}, \frac{n_y}{2a}, \frac{\beta}{2a^2} \right] $$
+
+* **$\mathbf{L}_4$ ($u_n - a$):**
+
+  $$ \mathbf{L}_4 = \left[ \frac{\alpha}{2a^2}, -\frac{n_x}{2a}, -\frac{n_y}{2a}, \frac{\beta}{2a^2} \right] $$
+
+**Compatibility Equations**
+Multiplying the primitive variable differential vector $d\mathbf{V} = [d\rho, du, dv, de]^T$ by these eigenvectors yields:
+
+$$ \frac{\alpha}{a^2} d\rho + \frac{\beta}{a^2} de \pm \frac{1}{a}(n_x du + n_y dv) = 0 $$
+
+Using $a^2 d\rho_{total} = \alpha \rho d\rho + \beta \rho de$, this simplifies to the physical form:
+
+$$ \frac{dp}{\rho a} \pm du_n = 0 $$
+
+```
+
+
 #### Shallow water - 2d
 
 

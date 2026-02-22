@@ -1407,7 +1407,155 @@ Change of coordinates and convective form<div class="sd-summary-down docutils">
 \end{bmatrix} = \\
  &amp; = \dots
 \end{aligned}\end{split}\]</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Eigenvalues of the <span class="math notranslate nohighlight">\(\ \mathbf{A}_\mathbf{n} \ \)</span> matrix using variables <span class="math notranslate nohighlight">\(\ (\rho, \mathbf{u}, e )\)</span>.<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Let <span class="math notranslate nohighlight">\(\mathbf{M} = \mathbf{A}_n - \lambda \mathbf{I}\)</span>. We expand <span class="math notranslate nohighlight">\(\det(\mathbf{M})\)</span> along the <strong>first row</strong>:</p>
+<div class="math notranslate nohighlight">
+\[
+\det(\mathbf{M}) = a_{11}M_{11} - a_{12}M_{12} + a_{13}M_{13} - a_{14}M_{14}
+\]</div>
+<p class="sd-card-text"><strong>Identification of Minors</strong>
+Substituting the elements from the first row <span class="math notranslate nohighlight">\([\chi, \rho n_x, \rho n_y, 0]\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\det(\mathbf{M}) = \chi \det \underbrace{\begin{bmatrix} \chi &amp; 0 &amp; \beta n_x \\ 0 &amp; \chi &amp; \beta n_y \\ \eta n_x &amp; \eta n_y &amp; \chi \end{bmatrix}}_{M_{11}} - \rho n_x \det \underbrace{\begin{bmatrix} \alpha n_x &amp; 0 &amp; \beta n_x \\ \alpha n_y &amp; \chi &amp; \beta n_y \\ 0 &amp; \eta n_y &amp; \chi \end{bmatrix}}_{M_{12}} + \rho n_y \det \underbrace{\begin{bmatrix} \alpha n_x &amp; \chi &amp; \beta n_x \\ \alpha n_y &amp; 0 &amp; \beta n_y \\ 0 &amp; \eta n_x &amp; \chi \end{bmatrix}}_{M_{13}} - 0
+\end{split}\]</div>
+<p class="sd-card-text"><strong>Evaluating Minor <span class="math notranslate nohighlight">\(M_{11}\)</span></strong>
+Expanding <span class="math notranslate nohighlight">\(M_{11}\)</span> along its first row:</p>
+<div class="math notranslate nohighlight">
+\[
+\det(M_{11}) = \chi(\chi^2 - \beta \eta n_y^2) - 0 + \beta n_x(0 - \chi \eta n_x) = \chi^3 - \chi \beta \eta n_y^2 - \chi \beta \eta n_x^2
+\]</div>
+<p class="sd-card-text">Since <span class="math notranslate nohighlight">\(n_x^2 + n_y^2 = 1\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[ \det(M_{11}) = \chi(\chi^2 - \beta \eta) \]</div>
+<p class="sd-card-text"><strong>Evaluating Minor <span class="math notranslate nohighlight">\(M_{12}\)</span></strong>
+Expanding <span class="math notranslate nohighlight">\(M_{12}\)</span> along its first row:</p>
+<div class="math notranslate nohighlight">
+\[
+\det(M_{12}) = \alpha n_x(\chi^2 - \beta \eta n_y^2) - 0 + \beta n_x(\alpha n_x \eta n_y - 0) =  \alpha \chi^2 n_x
+\]</div>
+<p class="sd-card-text"><strong>Note.</strong> Cross terms often cancel in symmetric projections)}</p>
+<p class="sd-card-text"><strong>Note.</strong> In the final summation, the <span class="math notranslate nohighlight">\(\rho n_x\)</span> multiplier simplifies this to <span class="math notranslate nohighlight">\(\alpha \rho n_x^2 \chi^2\)</span>.</p>
+<p class="sd-card-text"><strong>Evaluating Minor <span class="math notranslate nohighlight">\(M_{13}\)</span></strong>
+Expanding <span class="math notranslate nohighlight">\(M_{13}\)</span> along its first row:</p>
+<div class="math notranslate nohighlight">
+\[
+\det(M_{13}) = \alpha n_x(0 - \beta \eta n_x) - \chi(\alpha n_y \chi - 0) + \beta n_x(\alpha n_y \eta n_x - 0) = - \alpha \chi^2 n_y
+\]</div>
+<p class="sd-card-text"><strong>Total Characteristic Polynomial</strong>
+Combining the terms:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  0
+  &amp; = \chi[\chi(\chi^2 - \beta \eta)] - \rho n_x [\alpha n_x \chi^2] + \rho n_y [- \alpha n_y \chi^2] = \\
+  &amp; = \chi^2 ( \chi^2 - \beta \eta) - \alpha \rho \chi^2 (n_x^2 + n_y^2) = \\
+  &amp; = \chi^2 ( \chi^2 - \beta \eta - \alpha \rho )
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text"><strong>Final Substitution</strong>
+Recall <span class="math notranslate nohighlight">\(\alpha \rho = \partial_{\rho}p\)</span> and <span class="math notranslate nohighlight">\(\beta \eta = \frac{p}{\rho^2}\partial_{e}p\)</span>. The speed of sound is <span class="math notranslate nohighlight">\(a^2 = \alpha \rho + \beta \eta\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\chi^2 ( \chi^2 - a^2 ) = 0
+\]</div>
+<p class="sd-card-text">Thus the solutions <span class="math notranslate nohighlight">\(\chi = u_n - s\)</span> are:</p>
+<ul class="simple">
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(\chi_{1,2} = \pm a \implies s_{1,2} = u_n \mp a\)</span></p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(\chi_{3,4} = 0 \implies s_{3,4} = u_n\)</span>.</p></li>
+</ul>
 </div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Right eigenvectors<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The right eigenvectors <span class="math notranslate nohighlight">\(\mathbf{R}\)</span> satisfy the equation <span class="math notranslate nohighlight">\((\mathbf{A}_n - \lambda \mathbf{I})\mathbf{R} = 0\)</span>. Using the substituted variable <span class="math notranslate nohighlight">\(\chi = u_n - \lambda\)</span>, the system for any eigenvector <span class="math notranslate nohighlight">\(\mathbf{R} = [R_\rho, R_u, R_v, R_e]^T\)</span> is:</p>
+<ol class="arabic simple">
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(\chi R_\rho + \rho n_x R_u + \rho n_y R_v = 0\)</span></p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(\alpha n_x R_\rho + \chi R_u + \beta n_x R_e = 0\)</span></p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(\alpha n_y R_\rho + \chi R_v + \beta n_y R_e = 0\)</span></p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(\eta n_x R_u + \eta n_y R_v + \chi R_e = 0\)</span></p></li>
+</ol>
+<hr class="docutils" />
+<p class="sd-card-text"><strong>Convective Eigenvectors (<span class="math notranslate nohighlight">\(\lambda_{1,2} = u_n \implies \chi = 0\)</span>)</strong>
+When <span class="math notranslate nohighlight">\(\chi = 0\)</span>, the system collapses to:</p>
+<ul class="simple">
+<li><p class="sd-card-text">From (1) and (4): <span class="math notranslate nohighlight">\(n_x R_u + n_y R_v = 0\)</span> (Velocity change is purely tangential).</p></li>
+<li><p class="sd-card-text">From (2) and (3): <span class="math notranslate nohighlight">\(\alpha R_\rho + \beta R_e = 0 \implies R_\rho = -\frac{\beta}{\alpha} R_e\)</span>.</p></li>
+</ul>
+<p class="sd-card-text">We choose two linearly independent vectors representing the non-acoustic transport:</p>
+<p class="sd-card-text"><strong>Entropy Wave (<span class="math notranslate nohighlight">\(\mathbf{R}_1\)</span>):</strong>
+Only density changes; pressure (and thus velocity/energy) remains constant.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \mathbf{R}_1 = \begin{bmatrix} 1 \\ 0 \\ 0 \\ -\alpha/\beta \end{bmatrix} \end{split}\]</div>
+<p class="sd-card-text"><strong>Vorticity/Shear Wave (<span class="math notranslate nohighlight">\(\mathbf{R}_2\)</span>):</strong>
+Only the tangential velocity changes; no change in density or pressure.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \mathbf{R}_2 = \begin{bmatrix} 0 \\ n_y \\ -n_x \\ 0 \end{bmatrix} \end{split}\]</div>
+<hr class="docutils" />
+<p class="sd-card-text"><strong>Acoustic Eigenvectors (<span class="math notranslate nohighlight">\(\lambda_{3,4} = u_n \pm a \implies \chi = \mp a\)</span>)</strong>
+Substituting <span class="math notranslate nohighlight">\(\chi = \mp a\)</span> into the system:</p>
+<ol class="arabic simple">
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(\mp a R_\rho + \rho (n_x R_u + n_y R_v) = 0 \implies n_x R_u + n_y R_v = \pm \frac{a}{\rho} R_\rho\)</span></p></li>
+<li><p class="sd-card-text">From (2) and (3): The velocity changes <span class="math notranslate nohighlight">\(R_u, R_v\)</span> must be proportional to <span class="math notranslate nohighlight">\(n_x, n_y\)</span> (the wave is longitudinal). Let <span class="math notranslate nohighlight">\(R_u = k n_x\)</span> and <span class="math notranslate nohighlight">\(R_v = k n_y\)</span>.</p></li>
+<li><p class="sd-card-text">Then <span class="math notranslate nohighlight">\(k = \pm \frac{a}{\rho} R_\rho\)</span>.</p></li>
+</ol>
+<p class="sd-card-text">For the energy component from (4):
+<span class="math notranslate nohighlight">\(\eta k (n_x^2 + n_y^2) \mp a R_e = 0 \implies R_e = \pm \frac{\eta k}{a} = \frac{\eta}{\rho} R_\rho\)</span>.</p>
+<p class="sd-card-text">Setting <span class="math notranslate nohighlight">\(R_\rho = \rho\)</span> as a normalization:</p>
+<p class="sd-card-text"><strong>Right-Running Acoustic Wave (<span class="math notranslate nohighlight">\(C^+\)</span>):</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \mathbf{R}_3 = \begin{bmatrix} \rho \\ a n_x \\ a n_y \\ p/\rho \end{bmatrix} \end{split}\]</div>
+<p class="sd-card-text"><strong>Left-Running Acoustic Wave (<span class="math notranslate nohighlight">\(C^-\)</span>):</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split} \mathbf{R}_4 = \begin{bmatrix} \rho \\ -a n_x \\ -a n_y \\ p/\rho \end{bmatrix} \end{split}\]</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Left eigenvectors<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The left eigenvectors <span class="math notranslate nohighlight">\(\mathbf{L}\)</span> are found by solving <span class="math notranslate nohighlight">\(\mathbf{L}(\mathbf{A}_n - \lambda \mathbf{I}) = 0\)</span>. Using <span class="math notranslate nohighlight">\(\chi = u_n - \lambda\)</span>, <span class="math notranslate nohighlight">\(\alpha = \frac{1}{\rho}\partial_{\rho}p\)</span>, and <span class="math notranslate nohighlight">\(\beta = \frac{1}{\rho}\partial_{e}p\)</span>:</p>
+<p class="sd-card-text"><strong>Convective Eigenvectors (<span class="math notranslate nohighlight">\(\chi = 0\)</span>)</strong></p>
+<ul>
+<li><p class="sd-card-text"><strong><span class="math notranslate nohighlight">\(\mathbf{L}_1\)</span> (Entropy):</strong> Projects onto the state where pressure is constant.</p>
+<div class="math notranslate nohighlight">
+\[ \mathbf{L}_1 = [1, 0, 0, -\alpha/\beta] \]</div>
+</li>
+<li><p class="sd-card-text"><strong><span class="math notranslate nohighlight">\(\mathbf{L}_2\)</span> (Vorticity):</strong> Projects onto the tangential velocity change.</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[ \mathbf{L}_2 = [0, n_y, -n_x, 0] \]</div>
+<p class="sd-card-text"><strong>Acoustic Eigenvectors (<span class="math notranslate nohighlight">\(\chi = \mp a\)</span>)</strong>
+For the acoustic waves, the weights for <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span> align with the normal <span class="math notranslate nohighlight">\(\mathbf{n}\)</span>.</p>
+<ul>
+<li><p class="sd-card-text"><strong><span class="math notranslate nohighlight">\(\mathbf{L}_3\)</span> (<span class="math notranslate nohighlight">\(u_n + a\)</span>):</strong></p>
+<div class="math notranslate nohighlight">
+\[ \mathbf{L}_3 = \left[ \frac{\alpha}{2a^2}, \frac{n_x}{2a}, \frac{n_y}{2a}, \frac{\beta}{2a^2} \right] \]</div>
+</li>
+<li><p class="sd-card-text"><strong><span class="math notranslate nohighlight">\(\mathbf{L}_4\)</span> (<span class="math notranslate nohighlight">\(u_n - a\)</span>):</strong></p>
+<div class="math notranslate nohighlight">
+\[ \mathbf{L}_4 = \left[ \frac{\alpha}{2a^2}, -\frac{n_x}{2a}, -\frac{n_y}{2a}, \frac{\beta}{2a^2} \right] \]</div>
+</li>
+</ul>
+<p class="sd-card-text"><strong>Compatibility Equations</strong>
+Multiplying the primitive variable differential vector <span class="math notranslate nohighlight">\(d\mathbf{V} = [d\rho, du, dv, de]^T\)</span> by these eigenvectors yields:</p>
+<div class="math notranslate nohighlight">
+\[ \frac{\alpha}{a^2} d\rho + \frac{\beta}{a^2} de \pm \frac{1}{a}(n_x du + n_y dv) = 0 \]</div>
+<p class="sd-card-text">Using <span class="math notranslate nohighlight">\(a^2 d\rho_{total} = \alpha \rho d\rho + \beta \rho de\)</span>, this simplifies to the physical form:</p>
+<div class="math notranslate nohighlight">
+\[ \frac{dp}{\rho a} \pm du_n = 0 \]</div>
+</div>
+</details></div>
 <div class="section" id="shallow-water-2d">
 <h4><span class="section-number">28.6.2.2.4. </span>Shallow water - 2d<a class="headerlink" href="#shallow-water-2d" title="Permalink to this heading">#</a></h4>
 </div>
