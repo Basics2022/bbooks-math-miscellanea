@@ -417,11 +417,10 @@ $$\begin{aligned}
 & \quad + \left[ \mp a^2 n_y \pm u_n u_y \ | \ \mp n_x u_y \ | \ 2 a \mp u_y n_y \mp u_n \ \right] \partial_y \begin{bmatrix} \rho \\ \mathbf{m} \end{bmatrix} = \\
 & =       \left[ \left( \mp a^2 n_x \pm u_n u_x \right) \partial_x + \left( \mp a^2 n_y \pm u_n u_y \right) \partial_y \right] \rho + \\
 &  \quad+ \left[ \left( 2 a \mp u_x n_x \mp u_n \right) \partial_x + \left( \mp n_x u_y             \right) \partial_y \right] m_x  + \\
-&  \quad+ \left[ \left( \mp n_x u_y             \right) \partial_x + \left( 2 a \mp u_y n_y \mp u_n \right) \partial_y \right] m_y  = \\
+&  \quad+ \left[ \left( \mp n_y u_x             \right) \partial_x + \left( 2 a \mp u_y n_y \mp u_n \right) \partial_y \right] m_y  = \\
 \end{aligned}$$
 
-**Remarks.** It can be proved that $d m_x = ( u \mp a n_x ) d \rho$, and $d m_y = ( v \mp a n_y ) d \rho$.
-
+<!--
 ```{dropdown}
 :open:
 
@@ -438,9 +437,15 @@ $$\begin{aligned}
 \end{aligned}$$
 
 ```
-
+-->
 
 ```{dropdown} Comparing directional derivative of $\ \rho \ $ and $ \ m_x \ $
+
+By direct comparison of the coefficients of the differential operator applied to physical quantities, it follows that these differential operators are proportional to the same directional derivative. Here, as an example, the ccoefficients of the differential operators acting on $\rho$ and $m_x$, $X^{\rho} \partial_x + Y^{\rho} \partial_y$ and $X^{m_x} \partial_x + Y^{m_x} \partial_y$, are compared with the goal of proving that
+
+$$\frac{X^{\rho}}{Y^{\rho}} = \frac{X^{m_x}}{Y^{m_x}} \ ,$$
+
+or, avoiding singularities, $X^{\rho} Y^{m_x} = Y^{\rho} X^{m_x}$. With the explicit expressions of the coefficients,
 
 $$\begin{aligned}
  & ( \mp a^2 n_x \pm u_n u_x ) ( \mp n_x u_y ) = ? = ( \mp a^2 n_y \pm u_n u_y ) ( 2 a \mp u_x n_x \mp u_n ) \\
@@ -457,6 +462,172 @@ $$\begin{aligned}
  0 & \ ? =         - a^2 n_y ( n_y u_y + n_x u_x) \pm 2 a^3 n_y \mp a^3 n_y                      \\
  0 & \ ? =        \mp a^3 n_y                     \pm 2 a^3 n_y \mp a^3 n_y  = 0 \ .
 \end{aligned}$$
+
+```
+
+```{dropdown} Ratio of the coefficients of the differential operators
+:open:
+
+With $a = \pm u_n$, the comparison of coefficients in differential operator acting on $\rho$ and $m_x$
+
+$$\begin{aligned}
+  \frac{X^{\rho}}{X^{m_x}}
+  & = \frac{\mp a^2 n_x \pm u_n u_x}{2a \mp u n_x \mp u_n} = \\ 
+  & = \frac{\mp a^2 n_x + a u}{2a \mp u n_x - a} = \\ 
+  & = a \frac{\mp a n_x + u}{ a \mp u n_x    } = \\ 
+  & = a \frac{- u_n n_x + u}{ \pm u_n \mp u n_x    } = \\ 
+  & = \pm a \frac{- ( u n_x + v n_y ) n_x + u}{  u n_x + v n_y - u n_x    } = \\ 
+  & = \pm a \frac{ u n_y^2 - v n_y n_x }{  + v n_y  } = \\ 
+  & = \pm a \frac{ u n_y - v n_x }{ v } \ .
+\end{aligned}$$
+
+$$\begin{aligned}
+  \frac{Y^{\rho}}{Y^{m_x}}
+  & = \frac{\mp a^2 n_y \pm u_n v}{\mp n_x v} = \\
+  & = \frac{\mp a \cdot a n_y \pm u_n v}{\mp n_x v} = \\
+  & = \frac{- a u_n n_y + a v}{\mp n_x v} = \\
+  & = \pm a \frac{ u_n n_y - v}{ n_x v} = \\
+  & = \pm a \frac{ ( u n_x + v n_y ) n_y - v}{ n_x v} = \\
+  & = \pm a \frac{ u n_x n_y - v n_x^2}{ n_x v } = \\
+  & = \pm a \frac{ u n_y - v n_x  }{ v } \ .
+\end{aligned}$$
+
+The comparison of coefficients in differential operator acting on $\rho$ and $m_y$
+
+$$\begin{aligned}
+  \frac{X^{\rho}}{X^{m_y}}
+  & = \frac{\mp a^2 n_x + a u}{\mp n_y u} = \\
+  & = \frac{\mp a \cdot a n_x \pm u_n u}{\mp n_y u} = \\
+  & = \frac{ -  a u_n n_x + a u}{\mp n_y u} = \\
+  & = \pm a \frac{ u_n n_x - u}{ n_y u} = \\
+  & = \pm a \frac{ ( u n_x + v n_y ) n_x - u}{ n_y u } = \\
+  & = \pm a \frac{ - u n_y + v n_x }{ u } = \\
+  & = \mp a \frac{ u n_y - v n_x }{ u } \ .
+\end{aligned}$$
+
+$$\begin{aligned}
+  \frac{Y^{\rho}}{Y^{m_y}}
+  & = \frac{}{} = \\
+\end{aligned}$$
+
+```
+
+Thus it follows that on the characteristic lines,
+
+$$0 = \pm a ( u n_y - v n_x ) d \rho + v d m_x - u d m_y \ ,$$
+
+or, recalling that $m_x = \rho u$, $m_y = \rho v$
+
+$$\begin{aligned}
+  0 
+  & = \pm a ( u n_y - v n_x ) d \rho + v d m_x - u d m_y = \\
+  & = \pm a ( u n_y - v n_x ) d \rho + \rho v d u + uv d \rho - \rho u d v - uv d \rho = \\
+  & = \pm a ( u n_y - v n_x ) d \rho + \rho v d u - \rho u d v  = \\
+\end{aligned}$$
+
+or evaluating the ratio of these coefficients
+
+$$\frac{\rho v}{\pm a ( u n_y - v n_x )}$$
+
+**todo** *Find the general relation.*
+
+```{dropdown} Prandtl-Meyer relation
+:open:
+
+$$
+  0 = \pm a ( u n_y - v n_x ) d \rho + \rho v d u - \rho u d v \ .
+$$
+
+Defining $\theta$ as the flow angle w.r.t. the $x$-axis, s.t. and $V$ the absolute value of the local velocity, it follows
+
+$$\begin{aligned}
+  u & = V \cos \theta \\
+  v & = V \sin \theta \ .
+\end{aligned}$$
+
+From the relation $\mathbf{u} \cdot \hat{\mathbf{n}} = \pm a$ on Mach lines, being $\hat{\mathbf{n}}$ the unit vector orthogonal to the Mach lines.,
+
+$$u_n = \pm a \quad , \quad V \cos \mu = \pm a \ ,$$
+
+with $\mu$ the angle between the Mach line and the flow. The components of the unit normal vector read
+
+$$\pm a = n_x u + n_y v = V \left( n_x \cos \theta + n_y \sin theta \right)$$
+
+$$\begin{aligned}
+  \pm \sin \mu 
+  & = n_x \cos \theta + n_y \sin \theta = \\
+  & = \pm \sin( \mu - \theta + \theta ) = \\
+  & = \pm \left[ \sin ( \mu - \theta ) \cos \theta + \cos ( \mu - \theta ) \sin \theta \right] = \\
+\end{aligned}$$
+
+so that ...
+
+**todo** *Treat properly $\mp$ and $\pm$ for the 2 families of Mach lines*
+
+$$\begin{aligned}
+  n_x & = \sin ( \theta \mp \mu ) \\
+  n_y & = - \cos ( \theta \mp  \mu ) \ .
+\end{aligned}$$
+
+Now
+
+$$\begin{aligned}
+  u n_y - v n_x
+  & = V \left( - \cos \theta \cos ( \theta \mp \mu ) - \sin \theta \sin ( \theta \mp \mu ) \right) = \\
+  & = - V \cos ( \theta - \theta \pm \mu ) = - V \cos \mu \ .
+\end{aligned}$$
+
+The differentials of the Cartesian components of the velocity in polar coordinates become
+
+$$\begin{aligned}
+  d u 
+  & = d ( V \cos \theta ) = dV \cos \theta - V \sin \theta d \theta \\
+  d v 
+  & = d ( V \sin \theta ) = dV \sin \theta + V \cos \theta d \theta \\
+\end{aligned}$$
+
+So that, putting everything together,
+
+$$\begin{aligned}
+  0
+  & = \pm a ( u n_y - v n_x ) d \rho + \rho v d u - \rho u d v = \\
+  & = \mp a V \cos \mu d \rho + \rho V \left( \sin \theta \cos \theta - \cos \theta \sin \theta \right) d V + \rho V^2 \left( - \sin \theta \sin \theta - \cos \theta \cos \theta  \right) d \theta = \\
+  & = \mp a V \cos \mu d \rho - \rho V^2 d \theta \ ,
+\end{aligned}$$
+
+i.e.
+
+$$0 = \pm a \cos \mu \, d \rho + \rho V \, d \theta \ .$$
+
+Now, as $\sin \mu = \frac{a}{V} = \frac{1}{M}$, $\cos \mu = \sqrt{ 1 - \sin^2 \mu } = \sqrt{ 1 - \frac{1}{M^2} }$, Prandtl-Meyer relation can be recast as
+
+$$\begin{aligned}
+  0 & = \pm \frac{1}{M} \sqrt{ 1 - \frac{1}{M^2} } d \rho + \rho d \theta \\
+  0 & = \pm \sqrt{ M^2 - 1 } d \rho + M^2 \rho d \theta  \ .
+\end{aligned}$$
+
+For an isothermal and irrotational flow, momentum equation reads
+
+$$\begin{aligned}
+  \mathbf{0}
+  & = \mathbf{u} \cdot \nabla \mathbf{u} + a^2 \frac{\nabla \rho}{\rho} = \\
+  & = \nabla \frac{|\mathbf{u}|^2}{2} + \boldsymbol\omega \times \mathbf{u} + a^2 \frac{\nabla \rho}{\rho} = \\
+  & = \nabla \frac{|\mathbf{u}|^2}{2} + a^2 \frac{\nabla \rho}{\rho} \ ,
+\end{aligned}$$
+
+and thus, as $\frac{d \rho}{\rho} = - \frac{1}{a^2} d \frac{V^2}{2} = - \frac{1}{a^2} V dV$, Prandtl-Meyer relation becomes
+
+$$\begin{aligned}
+  0 & = \mp \sqrt{ M^2 - 1 } \frac{1}{a^2} V dV + M^2 \ d \theta  \\
+  0 & = \mp \sqrt{ M^2 - 1 } \underbrace{\frac{V^2}{a^2}}_{ = M^2} \frac{V dV}{V^2} + M^2 \ d \theta  \\
+  0 & = \mp \sqrt{ M^2 - 1 } \frac{dV}{V} + d \theta  \\
+  0 & = \mp \sqrt{ M^2 - 1 } \frac{d M}{M} + d \theta  \ ,
+\end{aligned}$$
+
+with the last equation containing only non-dimensional quantities.
+
+
+
 
 ```
 
