@@ -65,6 +65,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'ch/pde/hyperbolic';</script>
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -517,7 +519,28 @@ document.write(`
 <li><p>Method of characteristics: domains of influence</p></li>
 <li><p>“Inviscid” limit, multiple solutions, entropy condition and unique physical solution</p></li>
 </ul>
-<p>Some useful script on GDrive \texttt{basics-books/colabs/math/pde/fvm}. So far 1-dimensional problem only: linear equation, linear system (linearized p-sys), non linear system (p-sys).</p>
+<p>Some useful script on GDrive <span class="math notranslate nohighlight">\(\texttt{basics-books/colabs/math/pde/fvm}\)</span>. So far 1-dimensional problem only: linear equation, linear system (linearized p-sys), non linear system (p-sys).</p>
+<p>Different characteristics of hyperbolic problems:</p>
+<ul class="simple">
+<li><p>space domain dimension: 1-dimensional vs. multi-dimensional space domain</p></li>
+<li><p>linear vs. non-linear</p></li>
+<li><p>scalar (1 equation) vs. vector (system of equations)</p></li>
+</ul>
+<p><strong>todo</strong></p>
+<ul>
+<li><p>hyperbolic problems as the <strong>ideal limit of dissipative</strong> (parabolic?) problems. In non-linear problems, multiple (infinite?) solutions of the hyperbolic problem exist, but there’s only one (? Prove it! Or just provide the idea) solution that is the limit of the solution of the dissipative problem, in the <em>ideal</em> limit: when do jumps occur? When do rerefaction fans occur?</p>
+<ul class="simple">
+<li><p>show multiple solutions</p></li>
+<li><p>show limit of the dissipative solution</p></li>
+</ul>
+<p>on some simple problems, maybe starting from a scalar problem in 1-dimesnional domain, and then generalize to “more difficult” problems</p>
+</li>
+<li><p>domains of <strong>dependence</strong> and <strong>influence</strong>. Show them in both unsteady and steady problems?</p>
+<ul class="simple">
+<li><p>Example with compressible flows (or the p-sys) comparing unsteady and steady problems, and discussing the nature of the equations in the subsonic and supersonic regimes</p></li>
+</ul>
+</li>
+</ul>
 <div class="toctree-wrapper compound">
 </div>
 </div>
