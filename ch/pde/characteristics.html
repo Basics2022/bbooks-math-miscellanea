@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>28.6. Method of characteristics &#8212; basics - math</title>
+    <title>28.5. Method of characteristics &#8212; basics - math</title>
   
   
   
@@ -72,7 +72,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="29. Navier-Cauchy equations" href="nc.html" />
-    <link rel="prev" title="28. Hyperbolic problems" href="hyperbolic.html" />
+    <link rel="prev" title="28.4. Scalar non-linear equation" href="hyperbolic-scalar-nonlinear.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -249,8 +249,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="intro.html">25. Introduction to Partial Differential Equations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="elliptic.html">26. Elliptic equations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="parabolic.html">27. Parabolic equations</a></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="hyperbolic.html">28. Hyperbolic problems</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">28.6. Method of characteristics</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="hyperbolic.html">28. Hyperbolic equations</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="hyperbolic-intro.html">28.1. Hyperbolic problems and conservation laws</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hyperbolic-dimensions.html">28.2. Hyperbolic problems - dimensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hyperbolic-scalar-linear.html">28.3. Scalar linear equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hyperbolic-scalar-nonlinear.html">28.4. Scalar non-linear equation</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">28.5. Method of characteristics</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="nc.html">29. Navier-Cauchy equations</a></li>
@@ -504,14 +508,14 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scalar-multi-dimensional-problem">28.6.1. Scalar multi-dimensional problem</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-multi-dimensional-problem">28.6.2. Vector multi-dimensional problem</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#taylor-expansion-of-a-solution">28.6.2.1. Taylor expansion of a solution</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">28.6.2.2. Examples</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isothermal-compressible-flow-2d">28.6.2.2.1. Isothermal compressible flow - 2d</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#euler-equations-for-homoentropic-inviscid-compressible-flows-2d">28.6.2.2.2. Euler equations for homoentropic inviscid compressible flows - 2d</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#euler-equations-for-inviscid-compressible-flows-2d">28.6.2.2.3. Euler equations for inviscid compressible flows - 2d</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#shallow-water-2d">28.6.2.2.4. Shallow water - 2d</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scalar-multi-dimensional-problem">28.5.1. Scalar multi-dimensional problem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-multi-dimensional-problem">28.5.2. Vector multi-dimensional problem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#taylor-expansion-of-a-solution">28.5.2.1. Taylor expansion of a solution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">28.5.2.2. Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isothermal-compressible-flow-2d">28.5.2.2.1. Isothermal compressible flow - 2d</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#euler-equations-for-homoentropic-inviscid-compressible-flows-2d">28.5.2.2.2. Euler equations for homoentropic inviscid compressible flows - 2d</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#euler-equations-for-inviscid-compressible-flows-2d">28.5.2.2.3. Euler equations for inviscid compressible flows - 2d</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#shallow-water-2d">28.5.2.2.4. Shallow water - 2d</a></li>
 </ul>
 </li>
 </ul>
@@ -528,9 +532,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="method-of-characteristics">
-<span id="pde-hyperbolic-characteristics"></span><h1><span class="section-number">28.6. </span>Method of characteristics<a class="headerlink" href="#method-of-characteristics" title="Permalink to this heading">#</a></h1>
+<span id="pde-hyperbolic-characteristics"></span><h1><span class="section-number">28.5. </span>Method of characteristics<a class="headerlink" href="#method-of-characteristics" title="Permalink to this heading">#</a></h1>
 <div class="section" id="scalar-multi-dimensional-problem">
-<h2><span class="section-number">28.6.1. </span>Scalar multi-dimensional problem<a class="headerlink" href="#scalar-multi-dimensional-problem" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">28.5.1. </span>Scalar multi-dimensional problem<a class="headerlink" href="#scalar-multi-dimensional-problem" title="Permalink to this heading">#</a></h2>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
   \mathbf{a}^T(u(\mathbf{x}), \mathbf{x}) \, \boldsymbol\nabla  u(\mathbf{x}) &amp; = c(u(\mathbf{x}), \mathbf{x}) \quad , \quad \mathbf{x} \in D \\
@@ -553,7 +557,7 @@ document.write(`
 \end{aligned}\end{split}\]</div>
 </div>
 <div class="section" id="vector-multi-dimensional-problem">
-<h2><span class="section-number">28.6.2. </span>Vector multi-dimensional problem<a class="headerlink" href="#vector-multi-dimensional-problem" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">28.5.2. </span>Vector multi-dimensional problem<a class="headerlink" href="#vector-multi-dimensional-problem" title="Permalink to this heading">#</a></h2>
 <p><strong>todo</strong> <em>Characteristic method fails…characteristic - eikonal - equation. Uncomment</em></p>
 <p>Let</p>
 <div class="math notranslate nohighlight">
@@ -589,7 +593,7 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[\delta_{ik} = \partial_{u_k} F_{0i} \quad \rightarrow \quad F_{0i} = u_k \delta_{ik} = u_i \ .\]</div>
 <div class="section" id="taylor-expansion-of-a-solution">
-<h3><span class="section-number">28.6.2.1. </span>Taylor expansion of a solution<a class="headerlink" href="#taylor-expansion-of-a-solution" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">28.5.2.1. </span>Taylor expansion of a solution<a class="headerlink" href="#taylor-expansion-of-a-solution" title="Permalink to this heading">#</a></h3>
 <p>Starting from the solution on a manifold determined by the equation <span class="math notranslate nohighlight">\(S: f(\mathbf{x}) = 0\)</span>, <span class="math notranslate nohighlight">\(\mathbf{x}_0 \in S\)</span>, if the solution is differentiable, the solution in a point <span class="math notranslate nohighlight">\(\mathbf{x} = \mathbf{x}_0 + \Delta \mathbf{x}\)</span> reads</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
@@ -649,9 +653,9 @@ document.write(`
 </ul>
 </div>
 <div class="section" id="examples">
-<h3><span class="section-number">28.6.2.2. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">28.5.2.2. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">#</a></h3>
 <div class="section" id="isothermal-compressible-flow-2d">
-<h4><span class="section-number">28.6.2.2.1. </span>Isothermal compressible flow - 2d<a class="headerlink" href="#isothermal-compressible-flow-2d" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">28.5.2.2.1. </span>Isothermal compressible flow - 2d<a class="headerlink" href="#isothermal-compressible-flow-2d" title="Permalink to this heading">#</a></h4>
 <ul class="simple">
 <li><p>Conservative variables: <span class="math notranslate nohighlight">\((\rho, \vec{m})\)</span></p></li>
 <li><p>Physical variables: e.g. <span class="math notranslate nohighlight">\((\rho, \vec{u})\)</span>, <span class="math notranslate nohighlight">\((P, \vec{u})\)</span>,…</p></li>
@@ -1173,7 +1177,7 @@ $$\begin{aligned}
 \end{aligned}\end{split}\]</div>
 </div>
 <div class="section" id="euler-equations-for-homoentropic-inviscid-compressible-flows-2d">
-<h4><span class="section-number">28.6.2.2.2. </span>Euler equations for homoentropic inviscid compressible flows - 2d<a class="headerlink" href="#euler-equations-for-homoentropic-inviscid-compressible-flows-2d" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">28.5.2.2.2. </span>Euler equations for homoentropic inviscid compressible flows - 2d<a class="headerlink" href="#euler-equations-for-homoentropic-inviscid-compressible-flows-2d" title="Permalink to this heading">#</a></h4>
 <p>Homoentropic flows have constant and uniform entropy, <span class="math notranslate nohighlight">\(s(\mathbf{r},t) = \overline{s}\)</span>. This condition immediately follows from the <a class="reference external" href="https://basics2022.github.io/bbooks-fluid-mechanics/ch/compressible/entropy.html">entropy equation</a> under the assumptions of:</p>
 <ol class="arabic simple">
 <li><p>negligible viscous effects</p></li>
@@ -1188,7 +1192,7 @@ $$\begin{aligned}
 <p>Here <span class="math notranslate nohighlight">\(a\)</span> is a function of the density only, as the constant value of entropy can be treated as a constant parameter.</p>
 </div>
 <div class="section" id="euler-equations-for-inviscid-compressible-flows-2d">
-<h4><span class="section-number">28.6.2.2.3. </span>Euler equations for inviscid compressible flows - 2d<a class="headerlink" href="#euler-equations-for-inviscid-compressible-flows-2d" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">28.5.2.2.3. </span>Euler equations for inviscid compressible flows - 2d<a class="headerlink" href="#euler-equations-for-inviscid-compressible-flows-2d" title="Permalink to this heading">#</a></h4>
 <p><strong>1. Using conservative variables.</strong></p>
 <p>Conservative form reads</p>
 <div class="math notranslate nohighlight">
@@ -1557,7 +1561,7 @@ Multiplying the primitive variable differential vector <span class="math notrans
 </div>
 </details></div>
 <div class="section" id="shallow-water-2d">
-<h4><span class="section-number">28.6.2.2.4. </span>Shallow water - 2d<a class="headerlink" href="#shallow-water-2d" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">28.5.2.2.4. </span>Shallow water - 2d<a class="headerlink" href="#shallow-water-2d" title="Permalink to this heading">#</a></h4>
 </div>
 </div>
 </div>
@@ -1594,12 +1598,12 @@ Multiplying the primitive variable differential vector <span class="math notrans
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="hyperbolic.html"
+       href="hyperbolic-scalar-nonlinear.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">28. </span>Hyperbolic problems</p>
+        <p class="prev-next-title"><span class="section-number">28.4. </span>Scalar non-linear equation</p>
       </div>
     </a>
     <a class="right-next"
@@ -1626,14 +1630,14 @@ Multiplying the primitive variable differential vector <span class="math notrans
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scalar-multi-dimensional-problem">28.6.1. Scalar multi-dimensional problem</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-multi-dimensional-problem">28.6.2. Vector multi-dimensional problem</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#taylor-expansion-of-a-solution">28.6.2.1. Taylor expansion of a solution</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">28.6.2.2. Examples</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isothermal-compressible-flow-2d">28.6.2.2.1. Isothermal compressible flow - 2d</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#euler-equations-for-homoentropic-inviscid-compressible-flows-2d">28.6.2.2.2. Euler equations for homoentropic inviscid compressible flows - 2d</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#euler-equations-for-inviscid-compressible-flows-2d">28.6.2.2.3. Euler equations for inviscid compressible flows - 2d</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#shallow-water-2d">28.6.2.2.4. Shallow water - 2d</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scalar-multi-dimensional-problem">28.5.1. Scalar multi-dimensional problem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-multi-dimensional-problem">28.5.2. Vector multi-dimensional problem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#taylor-expansion-of-a-solution">28.5.2.1. Taylor expansion of a solution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">28.5.2.2. Examples</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#isothermal-compressible-flow-2d">28.5.2.2.1. Isothermal compressible flow - 2d</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#euler-equations-for-homoentropic-inviscid-compressible-flows-2d">28.5.2.2.2. Euler equations for homoentropic inviscid compressible flows - 2d</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#euler-equations-for-inviscid-compressible-flows-2d">28.5.2.2.3. Euler equations for inviscid compressible flows - 2d</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#shallow-water-2d">28.5.2.2.4. Shallow water - 2d</a></li>
 </ul>
 </li>
 </ul>
