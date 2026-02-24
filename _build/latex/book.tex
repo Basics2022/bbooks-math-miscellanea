@@ -85,7 +85,7 @@
         
 
 \title{basics - math}
-\date{Feb 22, 2026}
+\date{Feb 24, 2026}
 \release{}
 \author{basics}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -5644,8 +5644,126 @@ and \(\phi = g\), for \(\vec{r} \in S_D\).
 \sphinxstepscope
 
 
-\chapter{Hyperbolic problems}
-\label{\detokenize{ch/pde/hyperbolic:hyperbolic-problems}}\label{\detokenize{ch/pde/hyperbolic:pde-hyperbolic}}\label{\detokenize{ch/pde/hyperbolic::doc}}
+\chapter{Hyperbolic equations}
+\label{\detokenize{ch/pde/hyperbolic:hyperbolic-equations}}\label{\detokenize{ch/pde/hyperbolic:pde-hyperbolic}}\label{\detokenize{ch/pde/hyperbolic::doc}}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Integral equations
+
+\item {} 
+\sphinxAtStartPar
+Jump conditions
+
+\item {} 
+\sphinxAtStartPar
+Differential equations
+
+\item {} 
+\sphinxAtStartPar
+Method of characteristics: domains of influence
+
+\item {} 
+\sphinxAtStartPar
+“Inviscid” limit, multiple solutions, entropy condition and unique physical solution
+
+\end{itemize}
+
+\sphinxAtStartPar
+Some useful script on GDrive \textbackslash{}texttt\{basics\sphinxhyphen{}books/colabs/math/pde/fvm\}. So far 1\sphinxhyphen{}dimensional problem only: linear equation, linear system (linearized p\sphinxhyphen{}sys), non linear system (p\sphinxhyphen{}sys).
+
+\sphinxstepscope
+
+
+\section{Hyperbolic problems and conservation laws}
+\label{\detokenize{ch/pde/hyperbolic-intro:hyperbolic-problems-and-conservation-laws}}\label{\detokenize{ch/pde/hyperbolic-intro:pde-hyperbolic-intro}}\label{\detokenize{ch/pde/hyperbolic-intro::doc}}
+\sphinxAtStartPar
+\sphinxstylestrong{todo}
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+In fluid dynamics: no viscosity, no heat conduction
+
+\item {} 
+\sphinxAtStartPar
+In this limit, the equation may produce non\sphinxhyphen{}physical equations, i.e. solutions that are not the limit of the solution of the full problem in the limit of \(\mathbf{F}^d(\nabla \mathbf{u}) \rightarrow \mathbf{0}\)
+
+\item {} 
+\sphinxAtStartPar
+How many equations in how many variables?
+
+\item {} 
+\sphinxAtStartPar
+Linear diffusion flux \(\mathbf{F}^d = \dots\)
+
+\item {} 
+\sphinxAtStartPar
+Entropy condition, to select the physical solution from all the possible solutions
+
+\end{itemize}
+
+
+\subsection{Integral equations}
+\label{\detokenize{ch/pde/hyperbolic-intro:integral-equations}}\label{\detokenize{ch/pde/hyperbolic-intro:pde-hyperbolic-intro-integral}}
+\sphinxAtStartPar
+Many laws can be written as integral balance equations for a material volume \(V_t\),
+\begin{equation*}
+\begin{split}\begin{aligned}
+  & \dfrac{d}{dt} \int_{V_t} \mathbf{u} + \oint_{\partial V_t} \hat{\mathbf{n}} \cdot \mathbf{F}(\mathbf{u}, \nabla \mathbf{u}) = \int_{V_t} \mathbf{s} \\
+  & \dfrac{d}{dt} \int_{V_t} u_i + \oint_{\partial V_t} n_j \, F_{ji} = \int_{V_t} s_i \\
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+or for generic volume \(v_t\), using {\hyperref[\detokenize{ch/tensor-algebra-calculus/time-derivative-of-integrals:tensor-calculus-time-derivative-of-integrals-volume-density}]{\sphinxcrossref{\DUrole{std,std-ref}{Reynolds’ transport theorem}}}},
+\begin{equation*}
+\begin{split}\dfrac{d}{dt} \int_{v_t} \mathbf{u} + \oint_{\partial v_t} \mathbf{u} \left( \mathbf{v} - \mathbf{v}_b \right) \cdot \hat{\mathbf{n}} + \oint_{\partial v_t} \hat{\mathbf{n}} \cdot \mathbf{F}(\mathbf{u}, \nabla \mathbf{u}) = \int_{v_t} \mathbf{s} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+being \(\mathbf{v}\) the velocity of the continuous medium and \(\mathbf{v}_b\) the velocity of the boundary \(\partial v_t\).
+
+\sphinxAtStartPar
+The flux can be often written as a sum of a \sphinxstyleemphasis{conservative part} and a \sphinxstyleemphasis{diffusion part} as
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{F}(\mathbf{u}, \nabla \mathbf{u})
+  & = \mathbf{F}(\mathbf{u}) + \mathbf{F}^d(\nabla \mathbf{u}) \ ,
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+with slight abuse of notation in writing the conservative flux with the same letter as the full flux.
+
+\sphinxAtStartPar
+Under some conditions, the diffusion part goes to zero.
+
+
+\subsection{Jump relations}
+\label{\detokenize{ch/pde/hyperbolic-intro:jump-relations}}\label{\detokenize{ch/pde/hyperbolic-intro:pde-hyperbolic-intro-jump}}
+\sphinxAtStartPar
+Collapsing the volume \(v_t\) on a surface, volume terms vanish faster than the surface terms. Jump conditions follow from the arbitrariety of this surface
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{0}
+  & = \hat{\mathbf{n}}_1 \cdot \left[ (\mathbf{v}_1-\mathbf{v}_b) \mathbf{u} + \mathbf{F}_1 \right] 
+    + \hat{\mathbf{n}}_2 \cdot \left[ (\mathbf{v}_2-\mathbf{v}_b) \mathbf{u} + \mathbf{F}_2 \right] = \\
+  & = \hat{\mathbf{n}}   \cdot \left[ (\mathbf{v}-\mathbf{v}_b) \mathbf{u} + \mathbf{F} \right] = \\
+  & = \left[ v_n^{rel} \mathbf{u} + \mathbf{F}_n \right] \ .
+\end{aligned}\end{split}
+\end{equation*}
+
+\subsection{Differential equations}
+\label{\detokenize{ch/pde/hyperbolic-intro:differential-equations}}\label{\detokenize{ch/pde/hyperbolic-intro:pde-hyperbolic-intro-differential}}
+\sphinxAtStartPar
+If the functions are differentiable, with divergence theorem and exploiting the arbitrariety of the volume \(v_t\)
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \partial_t u_i + \partial_j F_{ji} & = s_i \\
+  \partial_t \mathbf{u} + \nabla \cdot \mathbf{F} & = \mathbf{s} \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxstepscope
+
+
+\section{Hyperbolic problems \sphinxhyphen{} dimensions}
+\label{\detokenize{ch/pde/hyperbolic-dimensions:hyperbolic-problems-dimensions}}\label{\detokenize{ch/pde/hyperbolic-dimensions:pde-hyperbolic-dimensions}}\label{\detokenize{ch/pde/hyperbolic-dimensions::doc}}
 \sphinxAtStartPar
 Hyperbolic problems often come from a small\sphinxhyphen{}amplitude linearization, or as the non\sphinxhyphen{}diffusion (or inviscid) limit of a more general problem.
 
@@ -5656,11 +5774,11 @@ As a result of these simplification, these problems may experience \sphinxstyles
 The very nature of these problem also suggest methods for the solution or the analysis of these equations, like \sphinxstylestrong{characteristic method}.
 
 
-\section{Scalar linear}
-\label{\detokenize{ch/pde/hyperbolic:scalar-linear}}\label{\detokenize{ch/pde/hyperbolic:pde-hyperbolic-scalar-linear}}
+\subsection{Scalar linear}
+\label{\detokenize{ch/pde/hyperbolic-dimensions:scalar-linear}}\label{\detokenize{ch/pde/hyperbolic-dimensions:pde-hyperbolic-scalar-linear}}
 
-\subsection{1\sphinxhyphen{}dimensional}
-\label{\detokenize{ch/pde/hyperbolic:dimensional}}\begin{equation*}
+\subsubsection{1\sphinxhyphen{}dimensional}
+\label{\detokenize{ch/pde/hyperbolic-dimensions:dimensional}}\begin{equation*}
 \begin{split}\partial_t u(x,t) + a \partial_x u(x,t) = f(x,t)\end{split}
 \end{equation*}
 \sphinxAtStartPar
@@ -5679,21 +5797,21 @@ and the PDE on characteristic line becomes the ODE
 \begin{split}\dfrac{d U}{d t}(X(t), t) = f(X(t), t) \ .\end{split}
 \end{equation*}
 
-\section{Scalar non\sphinxhyphen{}linear}
-\label{\detokenize{ch/pde/hyperbolic:scalar-non-linear}}\label{\detokenize{ch/pde/hyperbolic:pde-hyperbolic-scalar-non-linear}}
+\subsection{Scalar non\sphinxhyphen{}linear}
+\label{\detokenize{ch/pde/hyperbolic-dimensions:scalar-non-linear}}\label{\detokenize{ch/pde/hyperbolic-dimensions:pde-hyperbolic-scalar-non-linear}}
 
-\section{System linear}
-\label{\detokenize{ch/pde/hyperbolic:system-linear}}\label{\detokenize{ch/pde/hyperbolic:pde-hyperbolic-system-linear}}
+\subsection{System linear}
+\label{\detokenize{ch/pde/hyperbolic-dimensions:system-linear}}\label{\detokenize{ch/pde/hyperbolic-dimensions:pde-hyperbolic-system-linear}}
 
-\subsection{1\sphinxhyphen{}dimensional}
-\label{\detokenize{ch/pde/hyperbolic:id1}}\begin{equation*}
+\subsubsection{1\sphinxhyphen{}dimensional}
+\label{\detokenize{ch/pde/hyperbolic-dimensions:id1}}\begin{equation*}
 \begin{split}\mathbf{u}(x,t)\end{split}
 \end{equation*}\begin{equation*}
 \begin{split}\partial_t \mathbf{u} + \mathbf{A} \partial_x \mathbf{u} = \mathbf{f}\end{split}
 \end{equation*}
 
-\subsubsection{Method of characteristics}
-\label{\detokenize{ch/pde/hyperbolic:method-of-characteristics}}
+\paragraph{Method of characteristics}
+\label{\detokenize{ch/pde/hyperbolic-dimensions:method-of-characteristics}}
 \sphinxAtStartPar
 \sphinxstylestrong{Characteristics.} \(\mathbf{U}(t) = \mathbf{u}(X(t), t)\)
 \begin{equation*}
@@ -5730,11 +5848,11 @@ Thus, on the \(i^{th}\) family of characteristic lines, \(\dfrac{d X}{dt} = \lam
 If \(F_i = \left[ \mathbf{L} \mathbf{f} \right]_i = 0\), the characteristic variable \(q_i\) is constant along the characteristic lines. Once the characteristic variables are determined, the conservative variables are evalauted as \(\mathbf{u}(x,t) = \mathbf{R} \mathbf{q}(x,t)\).
 
 
-\subsubsection{Domain of influence and domain of dependence}
-\label{\detokenize{ch/pde/hyperbolic:domain-of-influence-and-domain-of-dependence}}
+\paragraph{Domain of influence and domain of dependence}
+\label{\detokenize{ch/pde/hyperbolic-dimensions:domain-of-influence-and-domain-of-dependence}}
 
-\subsubsection{Riemann problem}
-\label{\detokenize{ch/pde/hyperbolic:riemann-problem}}
+\paragraph{Riemann problem}
+\label{\detokenize{ch/pde/hyperbolic-dimensions:riemann-problem}}
 \sphinxAtStartPar
 A Riemann problem is defined as the evolution of the initial state
 \begin{equation*}
@@ -5785,8 +5903,8 @@ and defining the homogeneous regions
 the solution is in the \(S_i\) region is
 \begin{equation*}
 \begin{split}u_i(x,t) = \sum_{\lambda_k > \frac{x}{t}} R_{ik} q_{a,k} +  \sum_{\lambda_k < \frac{x}{t}} R_{ik} q_{b,k}\end{split}
-\end{equation*}\label{ch/pde/hyperbolic:example-0}
-\begin{sphinxadmonition}{note}{Example 28.3.1 (Linear(ized) P\sphinxhyphen{}system)}
+\end{equation*}\label{ch/pde/hyperbolic-dimensions:example-0}
+\begin{sphinxadmonition}{note}{Example 28.2.1 (Linear(ized) P\sphinxhyphen{}system)}
 
 
 
@@ -5823,18 +5941,18 @@ The linear(ized) P\sphinxhyphen{}system around a uniform reference state \(\over
 \sphinxAtStartPar
 Subsonic: the two families of characteristic lines have opposite direction; supersonic: the two families of characteristic lines have the same direction.
 \end{sphinxadmonition}
-\label{ch/pde/hyperbolic:example-1}
-\begin{sphinxadmonition}{note}{Example 28.3.2 (Linearized shallow water equations)}
+\label{ch/pde/hyperbolic-dimensions:example-1}
+\begin{sphinxadmonition}{note}{Example 28.2.2 (Linearized shallow water equations)}
 
 
 \end{sphinxadmonition}
-\label{ch/pde/hyperbolic:example-2}
-\begin{sphinxadmonition}{note}{Example 28.3.3 (Linearized Euler equations (acoustics))}
+\label{ch/pde/hyperbolic-dimensions:example-2}
+\begin{sphinxadmonition}{note}{Example 28.2.3 (Linearized Euler equations (acoustics))}
 
 
 \end{sphinxadmonition}
-\label{ch/pde/hyperbolic:example-3}
-\begin{sphinxadmonition}{note}{Example 28.3.4 (Wave equation)}
+\label{ch/pde/hyperbolic-dimensions:example-3}
+\begin{sphinxadmonition}{note}{Example 28.2.4 (Wave equation)}
 
 
 
@@ -5889,11 +6007,11 @@ Analogously, taking space derivative of the first and time derivative of the sec
 \end{equation*}\end{sphinxadmonition}
 
 
-\section{System non\sphinxhyphen{}linear}
-\label{\detokenize{ch/pde/hyperbolic:system-non-linear}}\label{\detokenize{ch/pde/hyperbolic:pde-hyperbolic-system-non-linear}}
+\subsection{System non\sphinxhyphen{}linear}
+\label{\detokenize{ch/pde/hyperbolic-dimensions:system-non-linear}}\label{\detokenize{ch/pde/hyperbolic-dimensions:pde-hyperbolic-system-non-linear}}
 
-\subsection{1\sphinxhyphen{}dimensional space}
-\label{\detokenize{ch/pde/hyperbolic:dimensional-space}}\begin{equation*}
+\subsubsection{1\sphinxhyphen{}dimensional space}
+\label{\detokenize{ch/pde/hyperbolic-dimensions:dimensional-space}}\begin{equation*}
 \begin{split}\mathbf{u}(x,t)\end{split}
 \end{equation*}\begin{equation*}
 \begin{split}\begin{aligned}
@@ -5902,8 +6020,8 @@ Analogously, taking space derivative of the first and time derivative of the sec
 \end{aligned}\end{split}
 \end{equation*}
 
-\section{n\sphinxhyphen{}dimensional space}
-\label{\detokenize{ch/pde/hyperbolic:n-dimensional-space}}\begin{equation*}
+\subsection{n\sphinxhyphen{}dimensional space}
+\label{\detokenize{ch/pde/hyperbolic-dimensions:n-dimensional-space}}\begin{equation*}
 \begin{split}\mathbf{u}(\vec{r}, t)\end{split}
 \end{equation*}\begin{equation*}
 \begin{split}\begin{aligned}
@@ -5928,8 +6046,8 @@ Different descritpions of integral problem,
   & = \partial_t u_i + \partial_{x_k} F_{ki} (u_l) = \\
   & = \partial_t u_i + \partial_{x_k} u_m \partial_{u_m} F_{ki} (u_l) = \\
 \end{aligned}\end{split}
-\end{equation*}\label{ch/pde/hyperbolic:example-4}
-\begin{sphinxadmonition}{note}{Example 28.5.1 (P\sphinxhyphen{}system in 1\sphinxhyphen{}dimensional domain)}
+\end{equation*}\label{ch/pde/hyperbolic-dimensions:example-4}
+\begin{sphinxadmonition}{note}{Example 28.2.5 (P\sphinxhyphen{}system in 1\sphinxhyphen{}dimensional domain)}
 
 
 \begin{equation*}
@@ -5962,8 +6080,8 @@ with \(\partial_x P = a^2 \partial_x \rho\),
   \mathbf{L} & = \frac{1}{2 \rho a} \begin{bmatrix} a & \rho \\ a & -\rho  \end{bmatrix} \\
 \end{aligned}\end{split}
 \end{equation*}\end{sphinxadmonition}
-\label{ch/pde/hyperbolic:example-5}
-\begin{sphinxadmonition}{note}{Example 28.5.2 (Euler equations in 1\sphinxhyphen{}dimensional domain)}
+\label{ch/pde/hyperbolic-dimensions:example-5}
+\begin{sphinxadmonition}{note}{Example 28.2.6 (Euler equations in 1\sphinxhyphen{}dimensional domain)}
 
 
 
@@ -6078,8 +6196,8 @@ being
 \end{equation*}\begin{equation*}
 \begin{split}\mathbf{L} = \dots \end{split}
 \end{equation*}\end{sphinxadmonition}
-\label{ch/pde/hyperbolic:example-6}
-\begin{sphinxadmonition}{note}{Example 28.5.3 (Shallow water equation in \protect\(1\protect\)\sphinxhyphen{}dimensional domain)}
+\label{ch/pde/hyperbolic-dimensions:example-6}
+\begin{sphinxadmonition}{note}{Example 28.2.7 (Shallow water equation in \protect\(1\protect\)\sphinxhyphen{}dimensional domain)}
 
 
 
@@ -6152,8 +6270,8 @@ and integration in \(z\)\sphinxhyphen{}direction \sphinxstylestrong{todo} Explic
 \begin{equation*}
 \begin{split}0 = |\mathbf{A}(\mathbf{u}) - s^2 \mathbf{I}| = -s \left( 2 u - s \right) + u^2 - g \eta = (s-u)^2 - g  \eta \ .\end{split}
 \end{equation*}\end{sphinxadmonition}
-\label{ch/pde/hyperbolic:example-7}
-\begin{sphinxadmonition}{note}{Example 28.5.4 (P\sphinxhyphen{}system in n\sphinxhyphen{}dimensional domain)}
+\label{ch/pde/hyperbolic-dimensions:example-7}
+\begin{sphinxadmonition}{note}{Example 28.2.8 (P\sphinxhyphen{}system in n\sphinxhyphen{}dimensional domain)}
 
 
 \begin{itemize}
@@ -6172,8 +6290,8 @@ Physical variables: e.g. \((\rho, \vec{u})\), \((P, \vec{u})\),…
   \partial_t \vec{m} + \nabla \cdot \left[ \frac{\vec{m}\otimes\vec{m}}{\rho} + \rho a^2 \mathbb{I} \right] = 0 \\
 \end{cases}\end{split}
 \end{equation*}\end{sphinxadmonition}
-\label{ch/pde/hyperbolic:example-8}
-\begin{sphinxadmonition}{note}{Example 28.5.5 (Euler system in n\sphinxhyphen{}dimensional domain)}
+\label{ch/pde/hyperbolic-dimensions:example-8}
+\begin{sphinxadmonition}{note}{Example 28.2.9 (Euler system in n\sphinxhyphen{}dimensional domain)}
 
 
 \begin{itemize}
@@ -6201,8 +6319,8 @@ where \(\Pi\) represents the pressure field as a function of the conservative va
 \sphinxAtStartPar
 and \(P\) the pressure field expressed by the \sphinxstylestrong{equation of state of the fluid} as a function of density and internal energy per unit mass as the pair of independent variables determining the thermodynamic state.
 \end{sphinxadmonition}
-\label{ch/pde/hyperbolic:example-9}
-\begin{sphinxadmonition}{note}{Example 28.5.6 (Shallow water equations in 2\sphinxhyphen{}dimensional domain)}
+\label{ch/pde/hyperbolic-dimensions:example-9}
+\begin{sphinxadmonition}{note}{Example 28.2.10 (Shallow water equations in 2\sphinxhyphen{}dimensional domain)}
 
 
 \begin{equation*}
@@ -6211,6 +6329,205 @@ and \(P\) the pressure field expressed by the \sphinxstylestrong{equation of sta
   \partial_t (\rho \eta \vec{u}) + \nabla \cdot \left(\rho \eta \vec{u} \vec{u} + \frac{1}{2} \rho g \eta^2 \mathbb{I} \right) = 0 \\
 \end{cases}\end{split}
 \end{equation*}\end{sphinxadmonition}
+
+\sphinxstepscope
+
+
+\section{Scalar linear equation}
+\label{\detokenize{ch/pde/hyperbolic-scalar-linear:scalar-linear-equation}}\label{\detokenize{ch/pde/hyperbolic-scalar-linear:pde-hyperbolic-problems-scalar-linear}}\label{\detokenize{ch/pde/hyperbolic-scalar-linear::doc}}
+\sphinxstepscope
+
+
+\section{Scalar non\sphinxhyphen{}linear equation}
+\label{\detokenize{ch/pde/hyperbolic-scalar-nonlinear:scalar-non-linear-equation}}\label{\detokenize{ch/pde/hyperbolic-scalar-nonlinear:pde-hyperbolic-problems-scalar-nonlinear}}\label{\detokenize{ch/pde/hyperbolic-scalar-nonlinear::doc}}
+\sphinxAtStartPar
+\sphinxstylestrong{todo list}
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+When does a jump occur? I.e. when is the physical solution discontinuous? Have non physical jumps already been discussed?
+
+\item {} 
+\sphinxAtStartPar
+Boundary conditions for hyperbolic problems
+
+\item {} 
+\sphinxAtStartPar
+…
+
+\end{itemize}
+
+
+\subsection{Examples}
+\label{\detokenize{ch/pde/hyperbolic-scalar-nonlinear:examples}}\label{\detokenize{ch/pde/hyperbolic-scalar-nonlinear:pde-hyperbolic-problems-scalar-nonlinear-examples}}
+
+\subsubsection{Burgers’s equation}
+\label{\detokenize{ch/pde/hyperbolic-scalar-nonlinear:burgers-s-equation}}\label{\detokenize{ch/pde/hyperbolic-scalar-nonlinear:pde-hyperbolic-problems-scalar-nonlinear-examples-burgers}}
+
+\paragraph{Differential equation and integral balance}
+\label{\detokenize{ch/pde/hyperbolic-scalar-nonlinear:differential-equation-and-integral-balance}}\label{\detokenize{ch/pde/hyperbolic-scalar-nonlinear:pde-hyperbolic-problems-scalar-nonlinear-examples-burgers-equations}}
+\sphinxAtStartPar
+Burgers’ differential equation reads
+\begin{equation*}
+\begin{split}\begin{aligned}
+  0
+  & = \partial_t u + u \partial_x u =            && \text{(convective form)}   \\
+  & = \partial_t u + \partial_x \frac{u^2}{2} =  && \text{(conservative form)} \\
+  & = \partial_t u + \partial_x F(u) \ ,
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+being the flux \(F(u) = \frac{u^2}{2}\), and it can be derived as the local counterpart of the integral balance equation,
+\begin{equation*}
+\begin{split}\begin{aligned}
+  0
+  & = \frac{d}{dt} \int_V u + \oint_{\partial V} n_x \frac{u^2}{2}  
+    = \frac{d}{dt} \int_V u + \left. F(u(x)) \right|_{a}^{b} \ ,
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+for a control volume at rest \(V = [a, b]\). For a control volume with arbitrary motion \(v_t = [a_t, b_t]\) the integral balance equation reads
+\begin{equation*}
+\begin{split}\begin{aligned}
+  0
+  & = \frac{d}{dt} \int_{v_t} u - \oint_{\partial v_t} \hat{\mathbf{n}} \cdot \mathbf{v}_b \, u + \oint_{\partial v_t} n_x F(u) = \\
+  & = \frac{d}{dt} \int_{v_t} u - \oint_{\partial v_t} n_x v_{b,x} \, u + \oint_{\partial v_t} n_x F(u) = \\
+  & = \frac{d}{dt} \int_{v_t} u + \left. \left[ F(u(x)) - v_{b,x} u(x) \right] \right|_{a}^{b} \ ,
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+having used Reynolds’ transport theorem%
+\begin{footnote}[1]\sphinxAtStartFootnote
+For a generic volume \(v_t\), \(d_t \int_{v_t} f = \int_{v_t} \partial_t f + \oint_{\partial v_t} \hat{\mathbf{n}} \cdot \mathbf{v}_b \, f\). Thus, for a control volume at rest \(V\), \(d_t \int_V f = \int_V \partial_t f\). Comparing the two expressions, it immediately follows that \(d_t \int_{v_t} f = d_t \int_{V \equiv v_t} f + \oint_{\partial v_t} \hat{\mathbf{n}} \cdot \mathbf{v}_b \, f\).
+%
+\end{footnote}, and the unit normal vector in the only space direction \(n_x(x=a) = -1\) on the left extreme and \(n_x(x=b) = 1\) on the right extreme of the domain \(V = [a,b]\).
+
+
+\paragraph{Jump condition}
+\label{\detokenize{ch/pde/hyperbolic-scalar-nonlinear:jump-condition}}\label{\detokenize{ch/pde/hyperbolic-scalar-nonlinear:pde-hyperbolic-problems-scalar-nonlinear-examples-burgers-jump}}
+\sphinxAtStartPar
+Jump condition immediately follows from the integral form of the balance equations for the arbitrary volume \(v_t\).
+\begin{equation*}
+\begin{split}[ F ] = v_{b,x} [ u ] \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+For Burgers’ equation, \(F(u) = \frac{u^2}{2}\), and thus the jump relation becomes
+\begin{equation*}
+\begin{split}
+  \frac{u^2_2}{2} - \frac{u^2_1}{2} = v_{b,x} \left( u_2 - u_1 \right) \ ,
+\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and thus, except for the trivial condition \(u_1 = u_2\) where no jump occurs,
+\begin{equation*}
+\begin{split}v_{b,x} = \frac{1}{2} \left( u_2 + u_1 \right) \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+the velocity of the point where the discontinuity appears \sphinxhyphen{} the shock \sphinxhyphen{} is the average of the velocity \(u\) on its sides.
+
+\sphinxAtStartPar
+\sphinxstylestrong{todo} \sphinxstyleemphasis{When does a jump occur? I.e. when is the physical solution discontinuous? Have non physical jumps already been discussed?}
+
+
+\paragraph{Characteristics}
+\label{\detokenize{ch/pde/hyperbolic-scalar-nonlinear:characteristics}}\label{\detokenize{ch/pde/hyperbolic-scalar-nonlinear:pde-hyperbolic-problems-scalar-nonlinear-examples-burgers-characteristics}}
+\sphinxAtStartPar
+Let \(U(t) = u(X(t), t)\). Burgers’ equation can be recast as%
+\begin{footnote}[2]\sphinxAtStartFootnote
+Using derivation of composite functions, \(d_t U(t) = d_t u(X(t), t) = \partial_t u + d_t X \partial_x u =\) \( \partial_t u|_{(x,t)=(X(t),t)} + \dot{X}(t) \partial_x u|_{(x,t)=(X(t),t)}\).
+%
+\end{footnote}
+\begin{equation*}
+\begin{split}0 = d_t U - \dot{X} \partial_x u + u \partial_x u \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+A characteristic line is defined as a curve for which the coefficient of the spatial partial differential equation is zero, i.e. \(\dot{X}(t) = U(X(t),t)\). On these lines, the PDE becomes a ODE, so that it’s somehow equivalent \sphinxstylestrong{todo} \sphinxstyleemphasis{be more precies} to the system of ODEs
+\begin{equation*}
+\begin{split}\begin{cases}
+  \dot{X}(t) = U(X(t), t) \\
+  \dot{U}(t) = 0 \ .
+\end{cases}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+These equations need initial and boundary conditions.
+
+\sphinxAtStartPar
+\sphinxstylestrong{todo} \sphinxstyleemphasis{Boundary conditions for hyperbolic problems}
+
+\sphinxAtStartPar
+Let \(x_0\), \(t_0\) a point in space and time where the solution is known, \(u_0 = u(x_0, t_0)\). On the characteristic line originating from \(x_0, t_0\), the velocity is constant in time as \(\dot{U}(t) = 0\), and thus \(U(t)_{X(t;x_0,t_0)} = u_0\). The characteristic line satisfying the first equation and the initial conditions is the line with equation
+\begin{equation*}
+\begin{split}X(t; t_0,x_0, u_0) = u_0 ( t - t_0 ) + x_0 \ .\end{split}
+\end{equation*}
+
+\paragraph{Riemann problem}
+\label{\detokenize{ch/pde/hyperbolic-scalar-nonlinear:riemann-problem}}\label{\detokenize{ch/pde/hyperbolic-scalar-nonlinear:pde-hyperbolic-problems-scalar-nonlinear-examples-burgers-riemann}}
+\sphinxAtStartPar
+Riemann problem is defined as the PDE with a discontinuity in a piecewise constant initial conditons. For an unbounded domain \(V = (-\infty, + \infty)\)%
+\begin{footnote}[3]\sphinxAtStartFootnote
+In an unbounded domain, there’s no need to treat boundary conditions…\sphinxstylestrong{todo} \sphinxstyleemphasis{add link to boundary conditions for hyperbolic problems}.
+%
+\end{footnote}
+\begin{equation*}
+\begin{split}u(x,0) = \left\{ \begin{aligned} u_1 && , \quad x < 0 \\ u_2 && , \quad x > 0\end{aligned} \right. \end{split}
+\end{equation*}
+\sphinxAtStartPar
+Two cases must be discussed here: \(1)\) \(u_1 < u_2\), \(2)\) \(u_1 > u_2\).
+
+\sphinxAtStartPar
+\sphinxstylestrong{Expansion fan, \(u_1 < u_2\).} A self\sphinxhyphen{}similar solution exists between lines \(r_1: \, x = u_1 t\) and \(r_2: \, x = u_2 t\). Defining \(\xi := \frac{x}{t}\), the solution becomes \(u(x, t) = U\left( \xi(x,t) \right)\), so that
+\begin{equation*}
+\begin{split}\begin{aligned} 
+ & \partial_t U = \partial_t \xi U'(\xi) = - \frac{x}{t^2} U'(\xi) \\
+ & \partial_x U = \partial_x \xi U'(\xi) =   \frac{1}{t  } U'(\xi) \ ,
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+so that Burgers’ equation in the rarefaction fan becomes
+\begin{equation*}
+\begin{split}0 = \partial_t u + u \partial_x u = \frac{1}{t} \left[ - \xi + U(\xi) \right] U'(\xi) \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Looking for a continuous solution blending the two states, the condition \(U'(\xi) = 0\) is not feasible. Then,
+\begin{equation*}
+\begin{split}U(\xi) = \xi \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+or
+\begin{equation*}
+\begin{split}u(x,t) = \frac{x}{t} \quad , \quad \frac{x}{t} \in [ u_1 , u_2 ] \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+The solution of the Riemann problem reads
+\begin{equation*}
+\begin{split}u(x,t) = \left\{ \begin{aligned} 
+  u_1         \quad & , \quad  \frac{x}{t} \le u_1 \\
+  \frac{x}{t} \quad & , \quad  \frac{x}{t} \in [u_1, u_2] \\ 
+  u_2         \quad & , \quad  \frac{x}{t} \ge u_2
+\end{aligned} \right.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Shock, \(u_1 > u_2\).} Characteristic method fails at a shock originating from the origin. Characteristic lines originating from \(x < 0\) have a slope \(\dot{X}(t) = u_1\) larger than the slope of the characteristic lines originating from \(x > 0\): characteristic lines collapses into the shock, that has velocity
+\begin{equation*}
+\begin{split}\dot{s} = \frac{u_1 + u_2}{2} \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+The solution of the Riemann problem reads
+\begin{equation*}
+\begin{split}u(x,t) = \left\{ \begin{aligned} 
+  u_1         \quad & , \quad  \frac{x}{t} < \dot{s} \\
+  u_2         \quad & , \quad  \frac{x}{t} > \dot{s}
+\end{aligned} \right.\end{split}
+\end{equation*}
+
+\paragraph{Boundary conditions}
+\label{\detokenize{ch/pde/hyperbolic-scalar-nonlinear:boundary-conditions}}\label{\detokenize{ch/pde/hyperbolic-scalar-nonlinear:pde-hyperbolic-problems-scalar-nonlinear-examples-burgers-boundary-conditions}}
+\sphinxAtStartPar
+In order to have a well\sphinxhyphen{}defined hyperbolic problem, boundary conditions are \sphinxstylestrong{required} on the regions of the boundary \sphinxstylestrong{where the information enters the domain}. For a scalar problem, the local direction of the information is determined by the velocity of the local characteristic lines. For Burgers’ equation, the direction of the local intormation is just the sign of the velocity of the characteristics, that is equal to the local velocity. Thus, boundary conditions are strictly needed on the left boundary \(x = a\) if \(u(a, t) > 0\) and on the right boundary \(x = b\) if \(u(b, t) < 0\).
+
+
+\bigskip\hrule\bigskip
+
 
 \sphinxstepscope
 
