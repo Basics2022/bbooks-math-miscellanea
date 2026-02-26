@@ -1,4 +1,4 @@
-(pde:hyperbolic:problems:scalar-nonlinear)=
+(pde:hyperbolic:problems:1d-scalar-nonlinear)=
 # Scalar non-linear equation
 
 **todo list**

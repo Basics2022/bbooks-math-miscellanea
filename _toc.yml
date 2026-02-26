@@ -79,8 +79,10 @@ parts:
     sections:
     - file: ch/pde/hyperbolic-intro
     - file: ch/pde/hyperbolic-dimensions
-    - file: ch/pde/hyperbolic-scalar-linear
-    - file: ch/pde/hyperbolic-scalar-nonlinear
+    - file: ch/pde/hyperbolic-1d-scalar-linear
+    - file: ch/pde/hyperbolic-1d-vector-linear
+    - file: ch/pde/hyperbolic-1d-scalar-nonlinear
+#   - file: ch/pde/hyperbolic-scalar-linear
     - file: ch/pde/characteristics
   - file: ch/pde/nc
   - file: ch/pde/ns
