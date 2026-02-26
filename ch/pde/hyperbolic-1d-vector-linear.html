@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>28. Hyperbolic equations &#8212; basics - math</title>
+    <title>28.4. Linear vector equation &#8212; basics - math</title>
   
   
   
@@ -67,12 +67,12 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/pde/hyperbolic';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/pde/hyperbolic-1d-vector-linear';</script>
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="28.1. Hyperbolic problems and conservation laws" href="hyperbolic-intro.html" />
-    <link rel="prev" title="27. Parabolic equations" href="parabolic.html" />
+    <link rel="next" title="28.5. Scalar non-linear equation" href="hyperbolic-1d-scalar-nonlinear.html" />
+    <link rel="prev" title="28.3. Scalar linear equation" href="hyperbolic-1d-scalar-linear.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -249,11 +249,11 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="intro.html">25. Introduction to Partial Differential Equations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="elliptic.html">26. Elliptic equations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="parabolic.html">27. Parabolic equations</a></li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">28. Hyperbolic equations</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="hyperbolic.html">28. Hyperbolic equations</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="hyperbolic-intro.html">28.1. Hyperbolic problems and conservation laws</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hyperbolic-dimensions.html">28.2. Hyperbolic problems - dimensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hyperbolic-1d-scalar-linear.html">28.3. Scalar linear equation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hyperbolic-1d-vector-linear.html">28.4. Linear vector equation</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">28.4. Linear vector equation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hyperbolic-1d-scalar-nonlinear.html">28.5. Scalar non-linear equation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="characteristics.html">28.6. Method of characteristics</a></li>
 </ul>
@@ -368,7 +368,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/edit/main/ch/pde/hyperbolic.md" target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/edit/main/ch/pde/hyperbolic-1d-vector-linear.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -385,7 +385,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/issues/new?title=Issue%20on%20page%20%2Fch/pde/hyperbolic.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/issues/new?title=Issue%20on%20page%20%2Fch/pde/hyperbolic-1d-vector-linear.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -415,7 +415,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/ch/pde/hyperbolic.md" target="_blank"
+      <li><a href="../../_sources/ch/pde/hyperbolic-1d-vector-linear.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -497,7 +497,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Hyperbolic equations</h1>
+    <h1>Linear vector equation</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -511,61 +511,47 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="hyperbolic-equations">
-<span id="pde-hyperbolic"></span><h1><span class="section-number">28. </span>Hyperbolic equations<a class="headerlink" href="#hyperbolic-equations" title="Permalink to this heading">#</a></h1>
-<ul class="simple">
-<li><p>Integral equations</p></li>
-<li><p>Jump conditions</p></li>
-<li><p>Differential equations</p></li>
-<li><p>Method of characteristics: domains of influence</p></li>
-<li><p>“Inviscid” limit, multiple solutions, entropy condition and unique physical solution</p></li>
-</ul>
-<p>Some useful script on GDrive <span class="math notranslate nohighlight">\(\texttt{basics-books/colabs/math/pde/fvm}\)</span>. So far 1-dimensional problem only: linear equation, linear system (linearized p-sys), non linear system (p-sys).</p>
-<!--
-Different characteristics of hyperbolic problems:
-- space domain dimension: 1-dimensional vs. multi-dimensional space domain
-- linear vs. non-linear
-- scalar (1 equation) vs. vector (system of equations)
--->
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
-<summary class="sd-summary-title sd-card-header">
-Problems<div class="sd-summary-down docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="sd-summary-up docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text"><strong>1-dimensional domain</strong></p>
-<ul class="simple">
-<li><p class="sd-card-text"><a class="reference internal" href="hyperbolic-1d-scalar-linear.html#pde-hyperbolic-problems-1d-scalar-linear"><span class="std std-ref">Scalar linear</span></a></p></li>
-<li><p class="sd-card-text"><a class="reference internal" href="hyperbolic-1d-vector-linear.html#pde-hyperbolic-problems-1d-vector-linear"><span class="std std-ref">Vector linear</span></a></p></li>
-<li><p class="sd-card-text"><a class="reference internal" href="hyperbolic-1d-scalar-nonlinear.html#pde-hyperbolic-problems-1d-scalar-nonlinear"><span class="std std-ref">Scalar non-linear</span></a></p></li>
-<li><p class="sd-card-text"><span class="xref myst">Vector non-linear</span></p></li>
-</ul>
-<p class="sd-card-text"><strong>n-dimensional domain</strong></p>
-<ul class="simple">
-<li><p class="sd-card-text"><span class="xref myst">Scalar linear</span></p></li>
-<li><p class="sd-card-text"><span class="xref myst">Vector linear</span></p></li>
-<li><p class="sd-card-text"><span class="xref myst">Scalar non-linear</span></p></li>
-<li><p class="sd-card-text"><span class="xref myst">Vector non-linear</span></p></li>
-</ul>
-</div>
-</details><p><strong>todo</strong></p>
-<ul>
-<li><p>hyperbolic problems as the <strong>ideal limit of dissipative</strong> (parabolic?) problems. In non-linear problems, multiple (infinite?) solutions of the hyperbolic problem exist, but there’s only one (? Prove it! Or just provide the idea) solution that is the limit of the solution of the dissipative problem, in the <em>ideal</em> limit: when do jumps occur? When do rerefaction fans occur?</p>
-<ul class="simple">
-<li><p>show multiple solutions</p></li>
-<li><p>show limit of the dissipative solution</p></li>
-</ul>
-<p>on some simple problems, maybe starting from a scalar problem in 1-dimesnional domain, and then generalize to “more difficult” problems</p>
-</li>
-<li><p>domains of <strong>dependence</strong> and <strong>influence</strong>. Show them in both unsteady and steady problems?</p>
-<ul class="simple">
-<li><p>Example with compressible flows (or the p-sys) comparing unsteady and steady problems, and discussing the nature of the equations in the subsonic and supersonic regimes</p></li>
-</ul>
-</li>
-</ul>
-<div class="toctree-wrapper compound">
-</div>
+  <div class="tex2jax_ignore mathjax_ignore section" id="linear-vector-equation">
+<span id="pde-hyperbolic-problems-1d-vector-linear"></span><h1><span class="section-number">28.4. </span>Linear vector equation<a class="headerlink" href="#linear-vector-equation" title="Permalink to this heading">#</a></h1>
+<p><strong>Differential equation.</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathbf{r}
+  &amp; = \partial_t \mathbf{u} + \mathbf{A} \partial_x \mathbf{u}                 &amp;&amp; \text{  convective form} \\
+  &amp; = \partial_t \mathbf{u} + \partial_x \left( \mathbf{A} \mathbf{u} \right)  &amp;&amp; \text{conservative form} 
+\end{aligned}\end{split}\]</div>
+<p><strong>Integral eqaution.</strong> On a control volume <span class="math notranslate nohighlight">\(V\)</span> at rest</p>
+<div class="math notranslate nohighlight">
+\[\int_{V} \mathbf{r} = \dfrac{d}{dt} \int_V \mathbf{u} + \oint_{\partial V} n_x \mathbf{A} \mathbf{u} \ .\]</div>
+<p>Integral equation in an arbitrary domain <span class="math notranslate nohighlight">\(v_t\)</span> can be derived using <a class="reference internal" href="../tensor-algebra-calculus/time-derivative-of-integrals.html#tensor-calculus-time-derivative-of-integrals-volume-density"><span class="std std-ref">Reynolds’ transport theorem</span></a>.</p>
+<p><strong>Method of characteristics.</strong> Let <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> be diagonalizable,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathbf{A} \mathbf{R} &amp; = \mathbf{R} \mathbf{S} \\
+  \mathbf{A} &amp; = \mathbf{R} \mathbf{S} \mathbf{L} \\
+\end{aligned}\end{split}\]</div>
+<p>Using spectral decomposition and multiplying the PDE by <span class="math notranslate nohighlight">\(\mathbf{L}\)</span>, the PDE is transformed in a set of scalar PDE equations,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathbf{L} \mathbf{r}
+  &amp; = \mathbf{L} \left( \partial_t \mathbf{u} + \mathbf{R} \mathbf{S} \mathbf{L} \partial_x \mathbf{u} \right) = \\
+  &amp; = \mathbf{L} \partial_t \mathbf{u} + \mathbf{S} \mathbf{L} \partial_x \mathbf{u} = \\
+  &amp; = \partial_t \mathbf{v} + \mathbf{S} \partial_x \mathbf{v} \ ,
+\end{aligned}\end{split}\]</div>
+<p>or</p>
+<div class="math notranslate nohighlight">
+\[\partial_t v_i + s_i \partial_x v_i = L_{ik} r_k \ ,\]</div>
+<p>having introduced the characteristic variables <span class="math notranslate nohighlight">\(\mathbf{v}(x,t) := \mathbf{L} \mathbf{u}(x,t)\)</span>. If the source is not function of the unknown function <span class="math notranslate nohighlight">\(\mathbf{u}(x,t)\)</span>, this is a system of decoupled PDEs. The solution of the vector PDE follows from the solution of <span class="math notranslate nohighlight">\(n\)</span> scalar PDE linear equations. Using methods of characteristics, the solution of the <span class="math notranslate nohighlight">\(i^{th}\)</span> scalar PDE equation can be recast as the solution of pairs of ODEs, after writing <span class="math notranslate nohighlight">\(V_i(t) = v_i(X_i(t), t)\)</span>, being <span class="math notranslate nohighlight">\(X_i(t)\)</span> the equation of a curve belonging to the <span class="math notranslate nohighlight">\(i^{th}\)</span> familiy of characteristics,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{cases}
+  \dot{X}_i = s_i \\
+  \dot{V}_i = L_{ik} r_k \ .
+\end{cases}\end{split}\]</div>
+<p>As the spectral decomposition of a constant matrix is constant, the characteristic lines are straight lines <span class="math notranslate nohighlight">\(X_i(t) = s_i t + c\)</span>. In general, the solution of the dynamical equations of the characteristic variables <span class="math notranslate nohighlight">\(V_i\)</span> is a full system of <span class="math notranslate nohighlight">\(n\)</span> ODEs.</p>
+<p><strong>Particular case: no source.</strong> As a particular case, if the source term is identically zero, <span class="math notranslate nohighlight">\(\mathbf{r}(x,t) = \mathbf{0}\)</span>, characteristic variable <span class="math notranslate nohighlight">\(V_i(t)\)</span> is constant along each characteristic line <span class="math notranslate nohighlight">\(X_i(t;\dots)\)</span> of the <span class="math notranslate nohighlight">\(i^{th}\)</span> family of characteristics.</p>
+<p>…</p>
+<div class="math notranslate nohighlight">
+\[u_k(x,t) = R_{ki} v_i(x,t) = R_{ri} v_i(x_{0,i} + s_i(t-t_{0,i}), t) \ .\]</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -599,20 +585,20 @@ Problems<div class="sd-summary-down docutils">
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="parabolic.html"
+       href="hyperbolic-1d-scalar-linear.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">27. </span>Parabolic equations</p>
+        <p class="prev-next-title"><span class="section-number">28.3. </span>Scalar linear equation</p>
       </div>
     </a>
     <a class="right-next"
-       href="hyperbolic-intro.html"
+       href="hyperbolic-1d-scalar-nonlinear.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">28.1. </span>Hyperbolic problems and conservation laws</p>
+        <p class="prev-next-title"><span class="section-number">28.5. </span>Scalar non-linear equation</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
