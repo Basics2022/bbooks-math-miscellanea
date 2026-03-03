@@ -97,6 +97,7 @@ parts:
   - file: ch/pde/fvm
     sections:
     - file: ch/pde/fvm-poisson-1d
+    - file: ch/pde/fvm-hyperbolic-pde
   - file: ch/pde/bem  
 - caption: Boundary Methods for PDEs
   numbered: True
