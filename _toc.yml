@@ -84,6 +84,7 @@ parts:
     - file: ch/pde/hyperbolic-1d-scalar-nonlinear
 #   - file: ch/pde/hyperbolic-scalar-linear
     - file: ch/pde/characteristics
+    - file: ch/pde/riemann-pb
   - file: ch/pde/nc
   - file: ch/pde/ns
   - file: ch/pde/ale

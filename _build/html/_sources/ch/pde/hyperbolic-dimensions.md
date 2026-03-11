@@ -332,7 +332,7 @@ $$\partial_t \begin{bmatrix} \rho \\ m \\ E^t \end{bmatrix} + \partial_x \begin{
 
 **Convective form in conservative variables.**
 
-$$\partial_t \begin{bmatrix} \rho \\ m \\ E^t \end{bmatrix} + \partial_x \begin{bmatrix} 0 & 1 & 0 \\ - \frac{m^2}{\rho^2} + \partial_\rho \Pi & \frac{2 m}{\rho} + \partial_m \Pi & \partial_{E^t} \Pi \\ - \frac{m}{\rho^2}(E^t+\Pi)+ \frac{m}{\rho}\partial_\rho \Pi & \frac{1}{\rho} (E^t + \Pi) + \frac{m}{ \rho} \partial_{m} \Pi & \frac{m}{\rho} \left( 1 + \partial_{E^t} \Pi \right)  \end{bmatrix} \partial_x \begin{bmatrix} \rho \\ m \\ E^t \end{bmatrix}  = \underline{0} \ ,$$
+$$\partial_t \begin{bmatrix} \rho \\ m \\ E^t \end{bmatrix} + \begin{bmatrix} 0 & 1 & 0 \\ - \frac{m^2}{\rho^2} + \partial_\rho \Pi & \frac{2 m}{\rho} + \partial_m \Pi & \partial_{E^t} \Pi \\ - \frac{m}{\rho^2}(E^t+\Pi)+ \frac{m}{\rho}\partial_\rho \Pi & \frac{1}{\rho} (E^t + \Pi) + \frac{m}{ \rho} \partial_{m} \Pi & \frac{m}{\rho} \left( 1 + \partial_{E^t} \Pi \right)  \end{bmatrix} \partial_x \begin{bmatrix} \rho \\ m \\ E^t \end{bmatrix}  = \underline{0} \ ,$$
 
 **Spectral decomposition** of $\mathbf{A}(\mathbf{u})$
 

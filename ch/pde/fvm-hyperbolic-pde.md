@@ -11,8 +11,8 @@
     - must satisfy entropy condition, i.e. produce the physical solution (the limit of viscous problem for negligible viscosity) among the infinite possible solutions
   - schemes:
     - low-order
-      - [Godunov](pde:fvm:hyperbolic:flux:godunov): the numerical flux is evaluated after solving a [Riemann problem]() at each cell interface, taking the $x = 0$ state $\mathbf{u}(x=0, t)$ to evaluate the flux $\mathbf{F}(\mathbf{u})$ at that cell boundary
-      - [Roe](pde:fvm:hyperbolic:flux:roe) (~ linearized Godunov)
+      - [Godunov](pde:fvm:hyperbolic:flux:godunov): the numerical flux is evaluated after solving a [Riemann problem](pde:hyperbolic:riemann-pb) at each cell interface, taking the $x = 0$ state $\mathbf{u}(x=0, t)$ to evaluate the flux $\mathbf{F}(\mathbf{u})$ at that cell boundary
+      - [Roe](pde:fvm:hyperbolic:flux:roe) (~ linearized Godunov) + [entropy fix](pde:fvm:hyperbolic:flux:entropy-fix) required for the numerical method to select the physical solution
     - high-order schemes:
       - improve accuracy of differentiable solutions (no shock, no discontinuity) on regular grids
       - fail to represent the physical solution
@@ -120,11 +120,122 @@ so that the solution that avoids singularities for $\rho_L = \rho_R$ (the one wi
 
 $$\hat{u} = \frac{\sqrt{\rho_L} u_L + \sqrt{\rho_R} u_R}{\sqrt{\rho_L} + \sqrt{\rho_R}} \ ,$$
 
-2. **Consistency.** From this choice of sign, consistency follows immediately,
+2. **Consistency.** From this choice of sign, consistency of the velocity follows immediately,
 
 $$\lim_{\mathbf{u}_L, \mathbf{u}_R \rightarrow \mathbf{u}} \hat{\mathbf{u}}(\mathbf{u}_L, \mathbf{u}_R) = \mathbf{u} \ .$$
+
+Arbitrary intermediate value of the density $\hat{\rho}$ needs to satisfy consistency, as well. Just as an example, if $\hat{\rho}$ is chosen to be the average of the densities, $\hat{\rho} = \frac{1}{2}(\rho_L + \rho_R)$, this is consistent choice.
 
 ```
 
 ````
+
+````{prf:example} Euler equations. Intermediate state
+
+**Intermediate state.** For each value of $\hat{\rho}$,
+
+$$\begin{aligned}
+  \hat{u}   & = \frac{\sqrt{\rho_L} u_L + \sqrt{\rho_R} u_R}{\sqrt{\rho_L} + \sqrt{\rho_R}} \\
+  \hat{h}^t & = \langle h^t \rangle_{\sqrt{\rho}} = \frac{ \sqrt{\rho_L} h^t_L + \sqrt{\rho_R} h^t_R }{\sqrt{\rho_L} + \sqrt{\rho_R}}
+\end{aligned}$$
+
+while $\hat{\rho}$ can be found (if not trivial) solving an additional condition
+
+$$\Delta P =
+    \Delta \rho \, \partial_\rho \Pi(\hat{\rho},\hat{\rho}\hat{u},\hat{E}^t(\hat{\rho}, \hat{u}, \hat{h}^t)) 
+  + \Delta m    \, \partial_m    \Pi(\hat{\rho},\hat{\rho}\hat{u},\hat{E}^t(\hat{\rho}, \hat{u}, \hat{h}^t)) 
+  + \Delta E^t  \, \partial_{E^t}\Pi(\hat{\rho},\hat{\rho}\hat{u},\hat{E}^t(\hat{\rho}, \hat{u}, \hat{h}^t)) \ .$$
+
+If this condition is an identity - as it is for a perfect ideal gas - any value of $\hat{\rho}$ satisfying consistency is allowed.
+
+
+```{dropdown} Details
+
+3. **Conservation**
+
+$$\mathbf{A}(\hat{\mathbf{u}})(\mathbf{u}_L - \mathbf{u}_R) = \mathbf{F}_L - \mathbf{F}_R \ .$$
+
+explicitly, using conservative variables
+
+$$
+\begin{bmatrix} 0 & 1 & 0 \\ - \frac{m^2}{\rho^2} + \partial_\rho \Pi & \frac{2 m}{\rho} + \partial_m \Pi & \partial_{E^t} \Pi \\ - \frac{m}{\rho^2}(E^t+\Pi)+ \frac{m}{\rho}\partial_\rho \Pi & \frac{1}{\rho} (E^t + \Pi) + \frac{m}{ \rho} \partial_{m} \Pi & \frac{m}{\rho} \left( 1 + \partial_{E^t} \Pi \right) \end{bmatrix}
+\begin{bmatrix} \rho_L - \rho_R \\ m_L - m_R \\ E^t_L - E^t_R \end{bmatrix} = 
+\left|\begin{bmatrix} \rho \\ \frac{m^2}{\rho} + \Pi(\rho,m,E^t) \\ \frac{m}{\rho} \left( E^t+\Pi(\rho,m,E^t) \right) \end{bmatrix}\right|^L_R 
+$$
+
+or
+
+
+$$
+\begin{bmatrix} 0 & 1 & 0 \\ - \hat{u}^2 + \partial_\rho \Pi & 2 \hat{u} + \partial_m \Pi & \partial_{E^t} \Pi \\ - \hat{u} \hat{h}^t + \hat{u} \partial_\rho \Pi & \hat{h}^t + \hat{u} \partial_{m} \Pi & \hat{u} \left( 1 + \partial_{E^t} \Pi \right) \end{bmatrix}
+\begin{bmatrix} \rho_L - \rho_R \\ \rho_L u_L - \rho_R u_R \\ E^t_L - E^t_R \end{bmatrix} = 
+\left|\begin{bmatrix} \rho \\ \rho u^2 + \Pi(\rho,m,E^t) \\ \rho u h^t  \end{bmatrix}\right|^L_R 
+$$
+
+<!--
+Using the values of partial derivatives of the function $p(\rho, e) = p\left(\rho, \frac{E^t}{\rho} - \frac{m^2}{2\rho^2} \right) = \Pi(\rho, m, E^t)$ evaluated [here:Non-linear systems:example:Euler equation in 1-dimensional domain](pde:hyperbolic:dimensions)
+
+$$\begin{aligned}
+  \partial_\rho \Pi & = c^2 + \partial_e P|_{\rho} \left( - \frac{{h^t}^2}{\rho} + \frac{u^2}{\rho} \right) \\
+  \partial_m    \Pi & =       \partial_e P|_{\rho} \left( - \frac{m}{\rho^2}  \right) \\
+  \partial_{E^t}\Pi & =       \partial_e P|_{\rho} \left(   \frac{1}{\rho  }  \right) \\
+  c^2 & = \partial_\rho P|_{e} + \frac{p}{\rho^2} \partial_e p|_{\rho} \ .
+\end{aligned}$$
+-->
+
+* The first equation is an identity
+
+* The second equation in $\hat{u}$ gives
+
+   $$\begin{aligned}
+     0 
+     & = - \left.\left[ \rho ( \hat{u} - u )^2 \right]\right|_R^L +  \left.\left( \rho \partial_\rho \hat{\Pi} + \rho u \partial_m \hat{\Pi} + E^t \partial_{E^t} \hat{\Pi} - \Pi \right)\right|_{R}^{L} \ ,
+   \end{aligned}$$
+
+* The third equation in $\hat{h}^t$ gives
+   
+   $$\begin{aligned}
+     0 
+     & = \left.\left[ \rho ( u - \hat{u} ) \hat{h}^t \right]\right|_R^L + \left.\left[ \hat{u} \rho \partial_\rho \hat{\Pi} + \hat{u} m \partial_m \hat{\Pi} + \hat{u} E^t \partial_{E^t} \hat{\Pi} + \hat{u} \underbrace{E^t}_{= \rho h^t - p} - \rho u h^t \right]\right|_L^R = \\
+     & = \left.\left[ \rho ( u - \hat{u} ) \hat{h}^t + \rho h^t ( \hat{u} - u ) \right]\right|_R^L + \hat{u} \left.\left[ \rho \partial_\rho \hat{\Pi} + m \partial_m \hat{\Pi} + E^t \partial_{E^t} \hat{\Pi} - \Pi \right]\right|_L^R = \\ 
+     & = \left.\left[ \rho ( u - \hat{u} ) ( \hat{h}^t - h^t ) \right]\right|_R^L + \hat{u} \left.\left[ \rho \partial_\rho \hat{\Pi} + m \partial_m \hat{\Pi} + E^t \partial_{E^t} \hat{\Pi} - \Pi \right]\right|_L^R \ .
+   \end{aligned}$$
+
+Adding the condition $\Delta P = \Delta \rho \partial_\rho \hat{\Pi} + m \partial_m \hat{\Pi} + E^t \partial_{E^t} \hat{\Pi}$, the second equation can be solved for $\hat{u}$ (choosing the solution providing consistency - see P-sys example for a brief discussion)
+
+$$\hat{u} = \langle u \rangle_{\sqrt{\rho}} = \frac{ \sqrt{\rho_L} u_L + \sqrt{\rho_R} u_R }{\sqrt{\rho_L} + \sqrt{\rho_R}}$$
+
+and the third equation can be solved for $\hat{h}^t$ (using $\sqrt{\rho_L}(u_L - \hat{u}) = - \sqrt{\rho_R}(u_R - \hat{u})$ from the expression of $\hat{u}$ to get the equation $\sqrt{\rho}(\hat{h}^t - h^t_L) = - \sqrt{\rho_R}(\hat{h}^t - h^t_R)$),
+
+$$\hat{h}^t = \langle h^t \rangle_{\sqrt{\rho}} = \frac{ \sqrt{\rho_L} h^t_L + \sqrt{\rho_R} h^t_R }{\sqrt{\rho_L} + \sqrt{\rho_R}}$$
+
+For a medium with generic equations of state, the condition about $\Delta p$ introduced above can be eventually solved to find the value of $\hat{\rho}$. For a perfect ideal gas (PIG), this condition is an identity providing no additional information on the value of $\hat{\rho}$
+
+2. **Consistency.** ...
+
+
+```
+
+````
+
+(pde:fvm:hyperbolic:flux:entropy-fix)=
+### Entropy fix
+
+Entropy fix is required to exploit numerical dissipation in choosing the physical solution, when some eigenvalue is close to zero. As an example, a threshold is set as a ratio of the local speed of sound $a$, e.g. $\delta = 0.1 \div 0.2$ and the Roe matrix is modified as
+
+$$\hat{\mathbf{A}}^{s\, fix} = \hat{\mathbf{R}} \left| \hat{\boldsymbol{\Lambda}}^{s\, fix} \right| \hat{\mathbf{L}} \ ,$$
+
+with 
+
+$$
+\left| \hat{\boldsymbol{\Lambda}}^{s\, fix}_{i} \right| = 
+\begin{cases} 
+  |\lambda_i| && |\lambda_i| \ge \delta a \\
+  \frac{|\lambda_i|^2}{2 \delta a} + \frac{\delta a}{2} && |\lambda_i| < \delta a \\
+\end{cases}
+$$
+
+**todo** *Add discussion about* **numerical dissipation** *and some numerical examples...*
+
+
 
