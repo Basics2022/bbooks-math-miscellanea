@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>34.2. FVM for hyperbolic problems &#8212; basics - math</title>
+    <title>Riemann problems &#8212; basics - math</title>
   
   
   
@@ -65,14 +65,10 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/pde/fvm-hyperbolic-pde';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/pde/hyperbolic-riemann-pb';</script>
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="35. Boundary Element Method" href="bem.html" />
-    <link rel="prev" title="34.1. 1-dimensional Poisson equation" href="fvm-poisson-1d.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -263,15 +259,15 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="ale.html">31. Arbitrary Lagrangian-Eulerian description</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Numerical Methods for PDEs</span></p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="numerics.html">32. Introduction to numerical methods for PDEs</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="fem.html">33. Finite Element Method</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="fem-poisson-1d.html">33.1. 1-dimensional Poisson equation</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="fvm.html">34. Finite Volume Method</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="fvm.html">34. Finite Volume Method</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="fvm-poisson-1d.html">34.1. 1-dimensional Poisson equation</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">34.2. FVM for hyperbolic problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fvm-hyperbolic-pde.html">34.2. FVM for hyperbolic problems</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="bem.html">35. Boundary Element Method</a></li>
@@ -369,7 +365,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/edit/main/ch/pde/fvm-hyperbolic-pde.md" target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/edit/main/ch/pde/hyperbolic-riemann-pb.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -386,7 +382,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/issues/new?title=Issue%20on%20page%20%2Fch/pde/fvm-hyperbolic-pde.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/issues/new?title=Issue%20on%20page%20%2Fch/pde/hyperbolic-riemann-pb.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -416,7 +412,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/ch/pde/fvm-hyperbolic-pde.md" target="_blank"
+      <li><a href="../../_sources/ch/pde/hyperbolic-riemann-pb.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -487,9 +483,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -500,24 +494,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>FVM for hyperbolic problems</h1>
+    <h1>Riemann problems</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-fluxes">34.2.1. Numerical fluxes</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#godunov-flux">34.2.1.1. Godunov flux</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#roe-flux">34.2.1.2. Roe flux</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#entropy-fix">34.2.1.3. Entropy fix</a></li>
-</ul>
-</li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -527,252 +508,9 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="fvm-for-hyperbolic-problems">
-<span id="pde-fvm-hyperbolic"></span><h1><span class="section-number">34.2. </span>FVM for hyperbolic problems<a class="headerlink" href="#fvm-for-hyperbolic-problems" title="Permalink to this heading">#</a></h1>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
-<summary class="sd-summary-title sd-card-header">
-Approach<div class="sd-summary-down docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="sd-summary-up docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="sd-summary-content sd-card-body docutils">
-<ul>
-<li><p class="sd-card-text">Integral equations, often from balance or conservation laws</p></li>
-<li><p class="sd-card-text"><a class="reference internal" href="#pde-fvm-hyperbolic-flux"><span class="std std-ref">Numerical flux</span></a></p>
-<ul>
-<li><p class="sd-card-text">features:</p>
-<ul class="simple">
-<li><p class="sd-card-text">must be conservative…</p></li>
-<li><p class="sd-card-text">must satisfy entropy condition, i.e. produce the physical solution (the limit of viscous problem for negligible viscosity) among the infinite possible solutions</p></li>
-</ul>
-</li>
-<li><p class="sd-card-text">schemes:</p>
-<ul>
-<li><p class="sd-card-text">low-order</p>
-<ul class="simple">
-<li><p class="sd-card-text"><a class="reference internal" href="#pde-fvm-hyperbolic-flux-godunov"><span class="std std-ref">Godunov</span></a>: the numerical flux is evaluated after solving a <a class="reference internal" href="hyperbolic-riemann-pb.html#pde-hyperbolic-riemann-pb"><span class="std std-ref">Riemann problem</span></a> at each cell interface, taking the <span class="math notranslate nohighlight">\(x = 0\)</span> state <span class="math notranslate nohighlight">\(\mathbf{u}(x=0, t)\)</span> to evaluate the flux <span class="math notranslate nohighlight">\(\mathbf{F}(\mathbf{u})\)</span> at that cell boundary</p></li>
-<li><p class="sd-card-text"><a class="reference internal" href="#pde-fvm-hyperbolic-flux-roe"><span class="std std-ref">Roe</span></a> (~ linearized Godunov) + <a class="reference internal" href="#pde-fvm-hyperbolic-flux-entropy-fix"><span class="std std-ref">entropy fix</span></a> required for the numerical method to select the physical solution</p></li>
-</ul>
-</li>
-<li><p class="sd-card-text">high-order schemes:</p>
-<ul class="simple">
-<li><p class="sd-card-text">improve accuracy of differentiable solutions (no shock, no discontinuity) on regular grids</p></li>
-<li><p class="sd-card-text">fail to represent the physical solution</p></li>
-</ul>
-</li>
-<li><p class="sd-card-text">high-resolution, (TVD schemes with flux limiters, MUSCL,…):</p>
-<ul>
-<li><p class="sd-card-text">high-order methods where the solution is differentiable</p></li>
-<li><p class="sd-card-text">low order method where the solution has discontinuities</p></li>
-<li><p class="sd-card-text">high-resolution achieved as a linear combination of a low and high order flux</p>
-<div class="math notranslate nohighlight">
-\[F(u_{i+1/2}) = f^{low}_{i+1/2} + \phi(r_{i-1,i}) \left( f^{high}_{i+1/2} - f^{low}_{i+1/2} \right) \ ,\]</div>
-<p class="sd-card-text">being <span class="math notranslate nohighlight">\(\phi(r_{i,i+1})\)</span> the flux limiter, i.e. a function of the gradient <span class="math notranslate nohighlight">\(r_i\)</span> of the solution on the grid</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p class="sd-card-text">Theorems about numerics:</p>
-<ul class="simple">
-<li><p class="sd-card-text">…</p></li>
-</ul>
-</li>
-</ul>
-</div>
-</details><div class="section" id="numerical-fluxes">
-<span id="pde-fvm-hyperbolic-flux"></span><h2><span class="section-number">34.2.1. </span>Numerical fluxes<a class="headerlink" href="#numerical-fluxes" title="Permalink to this heading">#</a></h2>
-<div class="section" id="godunov-flux">
-<span id="pde-fvm-hyperbolic-flux-godunov"></span><h3><span class="section-number">34.2.1.1. </span>Godunov flux<a class="headerlink" href="#godunov-flux" title="Permalink to this heading">#</a></h3>
-<p>…</p>
-</div>
-<div class="section" id="roe-flux">
-<span id="pde-fvm-hyperbolic-flux-roe"></span><h3><span class="section-number">34.2.1.2. </span>Roe flux<a class="headerlink" href="#roe-flux" title="Permalink to this heading">#</a></h3>
-<p>Instead of solving the original non-linear problem,</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  \mathbf{0} 
-  &amp; = \partial_t \mathbf{u} + \partial_x \mathbf{F}(\mathbf{u}) = \\
-  &amp; = \partial_t \mathbf{u} + \mathbf{A}(\mathbf{u}) \partial_x \mathbf{u} \ .
-\end{aligned}\end{split}\]</div>
-<p>a Roe solver aims at solving a linearized problem at each interface, namely</p>
-<div class="math notranslate nohighlight">
-\[\mathbf{0} = \partial_t \mathbf{u} + \hat{\mathbf{A}}(\mathbf{u}_L, \mathbf{u}_R) \partial_x \mathbf{u} \ ,\]</div>
-<p>being <span class="math notranslate nohighlight">\(\hat{\mathbf{A}}(\mathbf{u}_L, \mathbf{u}_R)\)</span> an approximation of the convection matrix <span class="math notranslate nohighlight">\(\mathbf{A}(\mathbf{u})\)</span> built with the states in the cells sharing the interface of interest: in time-explicit schemes, states in the cells <span class="math notranslate nohighlight">\(\mathbf{u}_L\)</span>, <span class="math notranslate nohighlight">\(\mathbf{u}_R\)</span> are known, and so it is the linearized matrix <span class="math notranslate nohighlight">\(\hat{\mathbf{A}}(\mathbf{u}_L, \mathbf{u}_R)\)</span>.</p>
-<p><strong>Intermediate state, <span class="math notranslate nohighlight">\(\hat{\mathbf{u}}\)</span>.</strong> The linearized matrix can be written as the original matrix evaluated for an <em>intermediate state</em> <span class="math notranslate nohighlight">\(\hat{\mathbf{u}}(\mathbf{u}_L, \mathbf{u}_R)\)</span>,</p>
-<div class="math notranslate nohighlight">
-\[\hat{\mathbf{A}}(\mathbf{u}_L, \mathbf{u}_R) = \mathbf{A}(\hat{\mathbf{u}}(\mathbf{u}_L, \mathbf{u}_R)) \ .\]</div>
-<p><strong>Roe flux.</strong> Roe flux looks similar to upwind scheme,</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  \mathbf{F}^{Roe}
-  &amp; = \frac{1}{2} \left( \mathbf{F}(\mathbf{u}_L) + \mathbf{F}(\mathbf{u}_R) - \left| \hat{\mathbf{A}}(\mathbf{u}_L, \mathbf{u}_R) \right| (\mathbf{u}_L - \mathbf{u}_R) \right) = \\
-  &amp; = \frac{1}{2} \left( \mathbf{F}(\mathbf{u}_L) + \mathbf{F}(\mathbf{u}_R) - \hat{\mathbf{R}} \left| \hat{\boldsymbol{\Lambda}} \right| \hat{\mathbf{L}} (\mathbf{u}_L - \mathbf{u}_R) \right) \ .
-\end{aligned}\end{split}\]</div>
-<p><strong>Properties.</strong> Roe matrix needs to satisfy the following properties:</p>
-<ol class="arabic simple">
-<li><p><strong>diagonalization</strong>: <span class="math notranslate nohighlight">\(\hat{\mathbf{A}}\)</span> is diagonalizable</p></li>
-<li><p><strong>consistency</strong>: if <span class="math notranslate nohighlight">\(\mathbf{u}_L, \mathbf{u}_R \rightarrow \mathbf{u}\)</span>, then <span class="math notranslate nohighlight">\(\hat{\mathbf{u}} \rightarrow \mathbf{u}\)</span></p></li>
-<li><p><strong>conservation</strong>: <span class="math notranslate nohighlight">\(\mathbf{A}(\hat{\mathbf{u}}) \left( \mathbf{u}_L - \mathbf{u}_R \right) = \mathbf{F}(\mathbf{u}_L) - \mathbf{F}(\mathbf{u}_R)\)</span></p></li>
-</ol>
-<div class="proof example admonition" id="example-0">
-<p class="admonition-title"><span class="caption-number">Example 34.1 </span> (P-sys. Intermediate state)</p>
-<div class="example-content section" id="proof-content">
-<p><strong>Intermediate state.</strong> For each value of <span class="math notranslate nohighlight">\(\hat{\rho}\)</span>,</p>
-<div class="math notranslate nohighlight">
-\[\hat{u} = \frac{\sqrt{\rho_L} u_L + \sqrt{\rho_R} u_R}{\sqrt{\rho_L} + \sqrt{\rho_R}} \ ,\]</div>
-<p>and thus</p>
-<div class="math notranslate nohighlight">
-\[\hat{m} = \hat{\rho} \hat{u} \ .\]</div>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
-<summary class="sd-summary-title sd-card-header">
-Details<div class="sd-summary-down docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="sd-summary-up docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="sd-summary-content sd-card-body docutils">
-<ol class="arabic simple" start="3">
-<li><p class="sd-card-text"><strong>Conservation</strong></p></li>
-</ol>
-<div class="math notranslate nohighlight">
-\[\mathbf{A}(\hat{\mathbf{u}})(\mathbf{u}_L - \mathbf{u}_R) = \mathbf{F}_L - \mathbf{F}_R \ .\]</div>
-<p class="sd-card-text">explicitly, using conservative variables</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{bmatrix} 0 &amp; 1 \\ a^2 - \frac{\hat{m}^2}{\hat{\rho}^2} &amp; 2 \frac{\hat{m}}{\hat{\rho}}  \end{bmatrix}
-\begin{bmatrix} \rho_L - \rho_R \\ m_L - m_R \end{bmatrix} = 
-\begin{bmatrix} \rho_L - \rho_R \\ \frac{m_L^2}{\rho_L} + \rho_L a^2 - \frac{m_R^2}{\rho_R} - \rho_R a^2 \end{bmatrix} \ .
-\end{split}\]</div>
-<p class="sd-card-text">The first equation is identically satisfied. The second equation in <span class="math notranslate nohighlight">\(\hat{u}\)</span> reads</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  0
-  &amp; = (a^2 - \hat{u}^2) (\rho_L - \rho_R) + 2 \hat{u} \left( \rho_L u_L - \rho_R u_R \right) - \rho_L u_L^2 - \rho_L a^2 + \rho_R u_R^2 + \rho_R a^2 =  \\
-  &amp; = - \hat{u}^2 (\rho_L - \rho_R) + 2 \hat{u} \left( \rho_L u_L - \rho_R u_R \right) - \rho_L u_L^2 + \rho_R u_R^2 =  \\
-\end{aligned}\end{split}\]</div>
-<p class="sd-card-text">and collecting terms</p>
-<div class="math notranslate nohighlight">
-\[\begin{aligned}
-  0
-  &amp; = \rho_L ( \hat{u} - u_L )^2 - \rho_R (\hat{u} - u_R )^2 
-\end{aligned}\]</div>
-<p class="sd-card-text">or, with <span class="math notranslate nohighlight">\(\rho &gt; 0\)</span>,</p>
-<div class="math notranslate nohighlight">
-\[\sqrt{\rho_L} ( \hat{u} - u_L ) = \mp \sqrt{\rho_R} (\hat{u} - u_R) \ ,\]</div>
-<p class="sd-card-text">so that the solution that avoids singularities for <span class="math notranslate nohighlight">\(\rho_L = \rho_R\)</span> (the one with the minus sign above) reads</p>
-<div class="math notranslate nohighlight">
-\[\hat{u} = \frac{\sqrt{\rho_L} u_L + \sqrt{\rho_R} u_R}{\sqrt{\rho_L} + \sqrt{\rho_R}} \ ,\]</div>
-<ol class="arabic simple" start="2">
-<li><p class="sd-card-text"><strong>Consistency.</strong> From this choice of sign, consistency of the velocity follows immediately,</p></li>
-</ol>
-<div class="math notranslate nohighlight">
-\[\lim_{\mathbf{u}_L, \mathbf{u}_R \rightarrow \mathbf{u}} \hat{\mathbf{u}}(\mathbf{u}_L, \mathbf{u}_R) = \mathbf{u} \ .\]</div>
-<p class="sd-card-text">Arbitrary intermediate value of the density <span class="math notranslate nohighlight">\(\hat{\rho}\)</span> needs to satisfy consistency, as well. Just as an example, if <span class="math notranslate nohighlight">\(\hat{\rho}\)</span> is chosen to be the average of the densities, <span class="math notranslate nohighlight">\(\hat{\rho} = \frac{1}{2}(\rho_L + \rho_R)\)</span>, this is consistent choice.</p>
-</div>
-</details></div>
-</div><div class="proof example admonition" id="example-1">
-<p class="admonition-title"><span class="caption-number">Example 34.2 </span> (Euler equations. Intermediate state)</p>
-<div class="example-content section" id="proof-content">
-<p><strong>Intermediate state.</strong> For each value of <span class="math notranslate nohighlight">\(\hat{\rho}\)</span>,</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  \hat{u}   &amp; = \frac{\sqrt{\rho_L} u_L + \sqrt{\rho_R} u_R}{\sqrt{\rho_L} + \sqrt{\rho_R}} \\
-  \hat{h}^t &amp; = \langle h^t \rangle_{\sqrt{\rho}} = \frac{ \sqrt{\rho_L} h^t_L + \sqrt{\rho_R} h^t_R }{\sqrt{\rho_L} + \sqrt{\rho_R}}
-\end{aligned}\end{split}\]</div>
-<p>while <span class="math notranslate nohighlight">\(\hat{\rho}\)</span> can be found (if not trivial) solving an additional condition</p>
-<div class="math notranslate nohighlight">
-\[\Delta P =
-    \Delta \rho \, \partial_\rho \Pi(\hat{\rho},\hat{\rho}\hat{u},\hat{E}^t(\hat{\rho}, \hat{u}, \hat{h}^t)) 
-  + \Delta m    \, \partial_m    \Pi(\hat{\rho},\hat{\rho}\hat{u},\hat{E}^t(\hat{\rho}, \hat{u}, \hat{h}^t)) 
-  + \Delta E^t  \, \partial_{E^t}\Pi(\hat{\rho},\hat{\rho}\hat{u},\hat{E}^t(\hat{\rho}, \hat{u}, \hat{h}^t)) \ .\]</div>
-<p>If this condition is an identity - as it is for a perfect ideal gas - any value of <span class="math notranslate nohighlight">\(\hat{\rho}\)</span> satisfying consistency is allowed.</p>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
-<summary class="sd-summary-title sd-card-header">
-Details<div class="sd-summary-down docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="sd-summary-up docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="sd-summary-content sd-card-body docutils">
-<ol class="arabic simple" start="3">
-<li><p class="sd-card-text"><strong>Conservation</strong></p></li>
-</ol>
-<div class="math notranslate nohighlight">
-\[\mathbf{A}(\hat{\mathbf{u}})(\mathbf{u}_L - \mathbf{u}_R) = \mathbf{F}_L - \mathbf{F}_R \ .\]</div>
-<p class="sd-card-text">explicitly, using conservative variables</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{bmatrix} 0 &amp; 1 &amp; 0 \\ - \frac{m^2}{\rho^2} + \partial_\rho \Pi &amp; \frac{2 m}{\rho} + \partial_m \Pi &amp; \partial_{E^t} \Pi \\ - \frac{m}{\rho^2}(E^t+\Pi)+ \frac{m}{\rho}\partial_\rho \Pi &amp; \frac{1}{\rho} (E^t + \Pi) + \frac{m}{ \rho} \partial_{m} \Pi &amp; \frac{m}{\rho} \left( 1 + \partial_{E^t} \Pi \right) \end{bmatrix}
-\begin{bmatrix} \rho_L - \rho_R \\ m_L - m_R \\ E^t_L - E^t_R \end{bmatrix} = 
-\left|\begin{bmatrix} \rho \\ \frac{m^2}{\rho} + \Pi(\rho,m,E^t) \\ \frac{m}{\rho} \left( E^t+\Pi(\rho,m,E^t) \right) \end{bmatrix}\right|^L_R 
-\end{split}\]</div>
-<p class="sd-card-text">or</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{bmatrix} 0 &amp; 1 &amp; 0 \\ - \hat{u}^2 + \partial_\rho \Pi &amp; 2 \hat{u} + \partial_m \Pi &amp; \partial_{E^t} \Pi \\ - \hat{u} \hat{h}^t + \hat{u} \partial_\rho \Pi &amp; \hat{h}^t + \hat{u} \partial_{m} \Pi &amp; \hat{u} \left( 1 + \partial_{E^t} \Pi \right) \end{bmatrix}
-\begin{bmatrix} \rho_L - \rho_R \\ \rho_L u_L - \rho_R u_R \\ E^t_L - E^t_R \end{bmatrix} = 
-\left|\begin{bmatrix} \rho \\ \rho u^2 + \Pi(\rho,m,E^t) \\ \rho u h^t  \end{bmatrix}\right|^L_R 
-\end{split}\]</div>
-<!--
-Using the values of partial derivatives of the function $p(\rho, e) = p\left(\rho, \frac{E^t}{\rho} - \frac{m^2}{2\rho^2} \right) = \Pi(\rho, m, E^t)$ evaluated [here:Non-linear systems:example:Euler equation in 1-dimensional domain](pde:hyperbolic:dimensions)
-
-$$\begin{aligned}
-  \partial_\rho \Pi & = c^2 + \partial_e P|_{\rho} \left( - \frac{{h^t}^2}{\rho} + \frac{u^2}{\rho} \right) \\
-  \partial_m    \Pi & =       \partial_e P|_{\rho} \left( - \frac{m}{\rho^2}  \right) \\
-  \partial_{E^t}\Pi & =       \partial_e P|_{\rho} \left(   \frac{1}{\rho  }  \right) \\
-  c^2 & = \partial_\rho P|_{e} + \frac{p}{\rho^2} \partial_e p|_{\rho} \ .
-\end{aligned}$$
--->
-<ul>
-<li><p class="sd-card-text">The first equation is an identity</p></li>
-<li><p class="sd-card-text">The second equation in <span class="math notranslate nohighlight">\(\hat{u}\)</span> gives</p>
-<div class="math notranslate nohighlight">
-\[\begin{aligned}
-     0 
-     &amp; = - \left.\left[ \rho ( \hat{u} - u )^2 \right]\right|_R^L +  \left.\left( \rho \partial_\rho \hat{\Pi} + \rho u \partial_m \hat{\Pi} + E^t \partial_{E^t} \hat{\Pi} - \Pi \right)\right|_{R}^{L} \ ,
-   \end{aligned}\]</div>
-</li>
-<li><p class="sd-card-text">The third equation in <span class="math notranslate nohighlight">\(\hat{h}^t\)</span> gives</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-     0 
-     &amp; = \left.\left[ \rho ( u - \hat{u} ) \hat{h}^t \right]\right|_R^L + \left.\left[ \hat{u} \rho \partial_\rho \hat{\Pi} + \hat{u} m \partial_m \hat{\Pi} + \hat{u} E^t \partial_{E^t} \hat{\Pi} + \hat{u} \underbrace{E^t}_{= \rho h^t - p} - \rho u h^t \right]\right|_L^R = \\
-     &amp; = \left.\left[ \rho ( u - \hat{u} ) \hat{h}^t + \rho h^t ( \hat{u} - u ) \right]\right|_R^L + \hat{u} \left.\left[ \rho \partial_\rho \hat{\Pi} + m \partial_m \hat{\Pi} + E^t \partial_{E^t} \hat{\Pi} - \Pi \right]\right|_L^R = \\ 
-     &amp; = \left.\left[ \rho ( u - \hat{u} ) ( \hat{h}^t - h^t ) \right]\right|_R^L + \hat{u} \left.\left[ \rho \partial_\rho \hat{\Pi} + m \partial_m \hat{\Pi} + E^t \partial_{E^t} \hat{\Pi} - \Pi \right]\right|_L^R \ .
-   \end{aligned}\end{split}\]</div>
-</li>
-</ul>
-<p class="sd-card-text">Adding the condition <span class="math notranslate nohighlight">\(\Delta P = \Delta \rho \partial_\rho \hat{\Pi} + m \partial_m \hat{\Pi} + E^t \partial_{E^t} \hat{\Pi}\)</span>, the second equation can be solved for <span class="math notranslate nohighlight">\(\hat{u}\)</span> (choosing the solution providing consistency - see P-sys example for a brief discussion)</p>
-<div class="math notranslate nohighlight">
-\[\hat{u} = \langle u \rangle_{\sqrt{\rho}} = \frac{ \sqrt{\rho_L} u_L + \sqrt{\rho_R} u_R }{\sqrt{\rho_L} + \sqrt{\rho_R}}\]</div>
-<p class="sd-card-text">and the third equation can be solved for <span class="math notranslate nohighlight">\(\hat{h}^t\)</span> (using <span class="math notranslate nohighlight">\(\sqrt{\rho_L}(u_L - \hat{u}) = - \sqrt{\rho_R}(u_R - \hat{u})\)</span> from the expression of <span class="math notranslate nohighlight">\(\hat{u}\)</span> to get the equation <span class="math notranslate nohighlight">\(\sqrt{\rho}(\hat{h}^t - h^t_L) = - \sqrt{\rho_R}(\hat{h}^t - h^t_R)\)</span>),</p>
-<div class="math notranslate nohighlight">
-\[\hat{h}^t = \langle h^t \rangle_{\sqrt{\rho}} = \frac{ \sqrt{\rho_L} h^t_L + \sqrt{\rho_R} h^t_R }{\sqrt{\rho_L} + \sqrt{\rho_R}}\]</div>
-<p class="sd-card-text">For a medium with generic equations of state, the condition about <span class="math notranslate nohighlight">\(\Delta p\)</span> introduced above can be eventually solved to find the value of <span class="math notranslate nohighlight">\(\hat{\rho}\)</span>. For a perfect ideal gas (PIG), this condition is an identity providing no additional information on the value of <span class="math notranslate nohighlight">\(\hat{\rho}\)</span></p>
-<ol class="arabic simple" start="2">
-<li><p class="sd-card-text"><strong>Consistency.</strong> …</p></li>
-</ol>
-</div>
-</details></div>
-</div></div>
-<div class="section" id="entropy-fix">
-<span id="pde-fvm-hyperbolic-flux-entropy-fix"></span><h3><span class="section-number">34.2.1.3. </span>Entropy fix<a class="headerlink" href="#entropy-fix" title="Permalink to this heading">#</a></h3>
-<p>Entropy fix is required to exploit numerical dissipation in choosing the physical solution, when some eigenvalue is close to zero. As an example, a threshold is set as a ratio of the local speed of sound <span class="math notranslate nohighlight">\(a\)</span>, e.g. <span class="math notranslate nohighlight">\(\delta = 0.1 \div 0.2\)</span> and the Roe matrix is modified as</p>
-<div class="math notranslate nohighlight">
-\[\hat{\mathbf{A}}^{s\, fix} = \hat{\mathbf{R}} \left| \hat{\boldsymbol{\Lambda}}^{s\, fix} \right| \hat{\mathbf{L}} \ ,\]</div>
-<p>with</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\left| \hat{\boldsymbol{\Lambda}}^{s\, fix}_{i} \right| = 
-\begin{cases} 
-  |\lambda_i| &amp;&amp; |\lambda_i| \ge \delta a \\
-  \frac{|\lambda_i|^2}{2 \delta a} + \frac{\delta a}{2} &amp;&amp; |\lambda_i| &lt; \delta a \\
-\end{cases}
-\end{split}\]</div>
-<p><strong>todo</strong> <em>Add discussion about</em> <strong>numerical dissipation</strong> <em>and some numerical examples…</em></p>
-</div>
-</div>
+  <div class="tex2jax_ignore mathjax_ignore section" id="riemann-problems">
+<span id="pde-hyperbolic-riemann-pb"></span><h1>Riemann problems<a class="headerlink" href="#riemann-problems" title="Permalink to this heading">#</a></h1>
+<p><a class="reference external" href="https://basics2022.github.io/bbooks-fluid-mechanics/ch/compressible/riemann-problem.html">Riemann problems in compressible fluid mechanics</a></p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -805,49 +543,12 @@ $$\begin{aligned}
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
-    <a class="left-prev"
-       href="fvm-poisson-1d.html"
-       title="previous page">
-      <i class="fa-solid fa-angle-left"></i>
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">34.1. </span>1-dimensional Poisson equation</p>
-      </div>
-    </a>
-    <a class="right-next"
-       href="bem.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">35. </span>Boundary Element Method</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
 </div>
                 </footer>
               
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-fluxes">34.2.1. Numerical fluxes</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#godunov-flux">34.2.1.1. Godunov flux</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#roe-flux">34.2.1.2. Roe flux</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#entropy-fix">34.2.1.3. Entropy fix</a></li>
-</ul>
-</li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>
