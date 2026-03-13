@@ -71,7 +71,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="35. Boundary Element Method" href="bem.html" />
+    <link rel="next" title="34.3. Boundary conditions in hyperbolic problems" href="fvm-hyperbolic-bc.html" />
     <link rel="prev" title="34.1. 1-dimensional Poisson equation" href="fvm-poisson-1d.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -256,6 +256,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="hyperbolic-1d-vector-linear.html">28.4. Linear vector equation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hyperbolic-1d-scalar-nonlinear.html">28.5. Scalar non-linear equation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="characteristics.html">28.6. Method of characteristics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hyperbolic-riemann-pb.html">28.7. Riemann problems</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="nc.html">29. Navier-Cauchy equations</a></li>
@@ -272,6 +273,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="fvm.html">34. Finite Volume Method</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="fvm-poisson-1d.html">34.1. 1-dimensional Poisson equation</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">34.2. FVM for hyperbolic problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fvm-hyperbolic-bc.html">34.3. Boundary conditions in hyperbolic problems</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="bem.html">35. Boundary Element Method</a></li>
@@ -538,12 +540,21 @@ Approach<div class="sd-summary-down docutils">
 </summary><div class="sd-summary-content sd-card-body docutils">
 <ul>
 <li><p class="sd-card-text">Integral equations, often from balance or conservation laws</p></li>
+<li><p class="sd-card-text">First, problems in 1-dimensional domains are treated. Most of the features of a finite volume method are treated for 1-dimensional problems</p>
+<ul class="simple">
+<li><p class="sd-card-text">flux: characteristics and common schemes</p></li>
+<li><p class="sd-card-text">implementation: evaluation of flux at interfaces and distribution on cells</p></li>
+<li><p class="sd-card-text">boundary conditions</p></li>
+<li><p class="sd-card-text">…</p></li>
+</ul>
+<p class="sd-card-text">then everything is naturally generalized to multi-dimensional domain: each interface of a cell in a multi-dimensional domain is locally treated as a 1-dimensional domain.</p>
+</li>
 <li><p class="sd-card-text"><a class="reference internal" href="#pde-fvm-hyperbolic-flux"><span class="std std-ref">Numerical flux</span></a></p>
 <ul>
 <li><p class="sd-card-text">features:</p>
 <ul class="simple">
 <li><p class="sd-card-text">must be conservative…</p></li>
-<li><p class="sd-card-text">must satisfy entropy condition, i.e. produce the physical solution (the limit of viscous problem for negligible viscosity) among the infinite possible solutions</p></li>
+<li><p class="sd-card-text">must satisfy <strong>entropy condition</strong>, i.e. produce the physical solution (the limit of viscous problem for negligible viscosity) among the infinite possible solutions</p></li>
 </ul>
 </li>
 <li><p class="sd-card-text">schemes:</p>
@@ -576,8 +587,12 @@ Approach<div class="sd-summary-down docutils">
 </ul>
 </li>
 <li><p class="sd-card-text">Theorems about numerics:</p>
-<ul class="simple">
-<li><p class="sd-card-text">…</p></li>
+<ul>
+<li><p class="sd-card-text"><strong>CFL (Courant-Friedrichs-Lewy) condition</strong> for explicit-time schemes (it could hold locally…),</p>
+<div class="math notranslate nohighlight">
+\[\Delta t \le \frac{\Delta x}{|\lambda|_{\max}}\]</div>
+</li>
+<li><p class="sd-card-text">…<em>results about fluxes</em>…</p></li>
 </ul>
 </li>
 </ul>
@@ -586,7 +601,17 @@ Approach<div class="sd-summary-down docutils">
 <span id="pde-fvm-hyperbolic-flux"></span><h2><span class="section-number">34.2.1. </span>Numerical fluxes<a class="headerlink" href="#numerical-fluxes" title="Permalink to this heading">#</a></h2>
 <div class="section" id="godunov-flux">
 <span id="pde-fvm-hyperbolic-flux-godunov"></span><h3><span class="section-number">34.2.1.1. </span>Godunov flux<a class="headerlink" href="#godunov-flux" title="Permalink to this heading">#</a></h3>
-<p>…</p>
+<p>The numerical flux in Godunov scheme is the flux <span class="math notranslate nohighlight">\(\mathbf{F}\)</span> evaluated with the state at the interface of two neighboring cells, resulting from  the solution of the <a class="reference internal" href="hyperbolic-riemann-pb.html#pde-hyperbolic-riemann-pb"><span class="std std-ref">Riemann problem</span></a> between the two cells.</p>
+<p>For a piecewise constant approximation of the fields (like in standard finite volume methods), the evolution at each cell interface can be treated as a Riemann problem</p>
+<p>In order to calculate the numerical flux at the interface <span class="math notranslate nohighlight">\(i\)</span>, separating cells <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span></p>
+<ol class="arabic">
+<li><p>The Riemann problem is solved at interface <span class="math notranslate nohighlight">\(i\)</span> separating the two cells with uniform fields <span class="math notranslate nohighlight">\(\mathbf{u}_A(t)\)</span>, <span class="math notranslate nohighlight">\(\mathbf{u}_B(t)\)</span>. Let <span class="math notranslate nohighlight">\(\mathbf{u}_i(x,t+\Delta t)\)</span> be the solution, being <span class="math notranslate nohighlight">\(x\)</span> a local coordinate (orthogonal to the interface for multi-dimensional domains) with <span class="math notranslate nohighlight">\(x=0\)</span> at the interface, and <span class="math notranslate nohighlight">\(\Delta t &gt; 0\)</span>. Riemann problem is a <strong>non-linear problem</strong>, so a non-linear solver is required. In order to avoid (expensive) non-linear methods, <a class="reference internal" href="#pde-fvm-hyperbolic-flux-roe"><span class="std std-ref">Roe scheme</span></a> is introduced in the next section.</p></li>
+<li><p>The state at interface <span class="math notranslate nohighlight">\(\mathbf{u}_i(x=0,t+\Delta t)\)</span> is retrieved from the solution of the Riemann problem</p></li>
+<li><p>The numerical flux is evaluated with the state at the interface</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{F}_i(t) = \mathbf{F}(\mathbf{u}_i(0,t)) \ .\]</div>
+</li>
+</ol>
 </div>
 <div class="section" id="roe-flux">
 <span id="pde-fvm-hyperbolic-flux-roe"></span><h3><span class="section-number">34.2.1.2. </span>Roe flux<a class="headerlink" href="#roe-flux" title="Permalink to this heading">#</a></h3>
@@ -815,11 +840,11 @@ $$\begin{aligned}
       </div>
     </a>
     <a class="right-next"
-       href="bem.html"
+       href="fvm-hyperbolic-bc.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">35. </span>Boundary Element Method</p>
+        <p class="prev-next-title"><span class="section-number">34.3. </span>Boundary conditions in hyperbolic problems</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

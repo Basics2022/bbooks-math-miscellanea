@@ -5,10 +5,18 @@
 :open:
 
 - Integral equations, often from balance or conservation laws
+- First, problems in 1-dimensional domains are treated. Most of the features of a finite volume method are treated for 1-dimensional problems
+  - flux: characteristics and common schemes
+  - implementation: evaluation of flux at interfaces and distribution on cells
+  - boundary conditions
+  - ...
+
+  then everything is naturally generalized to multi-dimensional domain: each interface of a cell in a multi-dimensional domain is locally treated as a 1-dimensional domain.
+
 - [Numerical flux](pde:fvm:hyperbolic:flux)
   - features:
     - must be conservative...
-    - must satisfy entropy condition, i.e. produce the physical solution (the limit of viscous problem for negligible viscosity) among the infinite possible solutions
+    - must satisfy **entropy condition**, i.e. produce the physical solution (the limit of viscous problem for negligible viscosity) among the infinite possible solutions
   - schemes:
     - low-order
       - [Godunov](pde:fvm:hyperbolic:flux:godunov): the numerical flux is evaluated after solving a [Riemann problem](pde:hyperbolic:riemann-pb) at each cell interface, taking the $x = 0$ state $\mathbf{u}(x=0, t)$ to evaluate the flux $\mathbf{F}(\mathbf{u})$ at that cell boundary
@@ -26,7 +34,11 @@
          being $\phi(r_{i,i+1})$ the flux limiter, i.e. a function of the gradient $r_i$ of the solution on the grid
 
 - Theorems about numerics:
-  - ...
+  - **CFL (Courant-Friedrichs-Lewy) condition** for explicit-time schemes (it could hold locally...),
+   
+     $$\Delta t \le \frac{\Delta x}{|\lambda|_{\max}}$$
+
+  - ...*results about fluxes*...
 
 ```
 
@@ -36,7 +48,16 @@
 (pde:fvm:hyperbolic:flux:godunov)=
 ### Godunov flux
 
-...
+The numerical flux in Godunov scheme is the flux $\mathbf{F}$ evaluated with the state at the interface of two neighboring cells, resulting from  the solution of the [Riemann problem](pde:hyperbolic:riemann-pb) between the two cells. 
+
+For a piecewise constant approximation of the fields (like in standard finite volume methods), the evolution at each cell interface can be treated as a Riemann problem
+
+In order to calculate the numerical flux at the interface $i$, separating cells $A$, $B$
+1. The Riemann problem is solved at interface $i$ separating the two cells with uniform fields $\mathbf{u}_A(t)$, $\mathbf{u}_B(t)$. Let $\mathbf{u}_i(x,t+\Delta t)$ be the solution, being $x$ a local coordinate (orthogonal to the interface for multi-dimensional domains) with $x=0$ at the interface, and $\Delta t > 0$. Riemann problem is a **non-linear problem**, so a non-linear solver is required. In order to avoid (expensive) non-linear methods, [Roe scheme](pde:fvm:hyperbolic:flux:roe) is introduced in the next section. 
+2. The state at interface $\mathbf{u}_i(x=0,t+\Delta t)$ is retrieved from the solution of the Riemann problem
+3. The numerical flux is evaluated with the state at the interface
+
+   $$\mathbf{F}_i(t) = \mathbf{F}(\mathbf{u}_i(0,t)) \ .$$
 
 (pde:fvm:hyperbolic:flux:roe)=
 ### Roe flux

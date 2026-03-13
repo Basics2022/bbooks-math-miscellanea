@@ -84,7 +84,7 @@ parts:
     - file: ch/pde/hyperbolic-1d-scalar-nonlinear
 #   - file: ch/pde/hyperbolic-scalar-linear
     - file: ch/pde/characteristics
-    - file: ch/pde/riemann-pb
+    - file: ch/pde/hyperbolic-riemann-pb
   - file: ch/pde/nc
   - file: ch/pde/ns
   - file: ch/pde/ale
@@ -99,6 +99,7 @@ parts:
     sections:
     - file: ch/pde/fvm-poisson-1d
     - file: ch/pde/fvm-hyperbolic-pde
+    - file: ch/pde/fvm-hyperbolic-bc
   - file: ch/pde/bem  
 - caption: Boundary Methods for PDEs
   numbered: True

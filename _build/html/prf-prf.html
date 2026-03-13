@@ -259,6 +259,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="ch/pde/hyperbolic-1d-vector-linear.html">28.4. Linear vector equation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ch/pde/hyperbolic-1d-scalar-nonlinear.html">28.5. Scalar non-linear equation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ch/pde/characteristics.html">28.6. Method of characteristics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch/pde/hyperbolic-riemann-pb.html">28.7. Riemann problems</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="ch/pde/nc.html">29. Navier-Cauchy equations</a></li>
@@ -275,6 +276,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 has-children"><a class="reference internal" href="ch/pde/fvm.html">34. Finite Volume Method</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="ch/pde/fvm-poisson-1d.html">34.1. 1-dimensional Poisson equation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ch/pde/fvm-hyperbolic-pde.html">34.2. FVM for hyperbolic problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ch/pde/fvm-hyperbolic-bc.html">34.3. Boundary conditions in hyperbolic problems</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="ch/pde/bem.html">35. Boundary Element Method</a></li>
@@ -623,7 +625,7 @@ document.write(`
      <tr>
        <td></td>
        <td>
-       <a href="ch/pde/fvm-hyperbolic-pde.html#example-0"><code class="xref">example-0</code></a> <em>(ch/pde/fvm-hyperbolic-pde)</em></td><td>
+       <a href="ch/pde/fvm-hyperbolic-bc.html#example-0"><code class="xref">example-0</code></a> <em>(ch/pde/fvm-hyperbolic-bc)</em></td><td>
        <em>example</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-example-1"><td></td><td>
@@ -631,7 +633,7 @@ document.write(`
      <tr>
        <td></td>
        <td>
-       <a href="ch/pde/fvm-hyperbolic-pde.html#example-1"><code class="xref">example-1</code></a> <em>(ch/pde/fvm-hyperbolic-pde)</em></td><td>
+       <a href="ch/pde/fvm-hyperbolic-bc.html#example-1"><code class="xref">example-1</code></a> <em>(ch/pde/fvm-hyperbolic-bc)</em></td><td>
        <em>example</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-example-10"><td></td><td>
@@ -647,7 +649,7 @@ document.write(`
      <tr>
        <td></td>
        <td>
-       <a href="ch/pde/hyperbolic-dimensions.html#example-2"><code class="xref">example-2</code></a> <em>(ch/pde/hyperbolic-dimensions)</em></td><td>
+       <a href="ch/tensor-algebra-calculus/calculus-euclidean-spherical.html#example-2"><code class="xref">example-2</code></a> <em>(ch/tensor-algebra-calculus/calculus-euclidean-spherical)</em></td><td>
        <em>example</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-example-3"><td></td><td>
@@ -655,7 +657,7 @@ document.write(`
      <tr>
        <td></td>
        <td>
-       <a href="ch/pde/hyperbolic-dimensions.html#example-3"><code class="xref">example-3</code></a> <em>(ch/pde/hyperbolic-dimensions)</em></td><td>
+       <a href="ch/tensor-algebra-calculus/calculus-euclidean-spherical.html#example-3"><code class="xref">example-3</code></a> <em>(ch/tensor-algebra-calculus/calculus-euclidean-spherical)</em></td><td>
        <em>example</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-example-4"><td></td><td>
@@ -663,7 +665,7 @@ document.write(`
      <tr>
        <td></td>
        <td>
-       <a href="ch/pde/hyperbolic-dimensions.html#example-4"><code class="xref">example-4</code></a> <em>(ch/pde/hyperbolic-dimensions)</em></td><td>
+       <a href="ch/tensor-algebra-calculus/calculus-euclidean-spherical.html#example-4"><code class="xref">example-4</code></a> <em>(ch/tensor-algebra-calculus/calculus-euclidean-spherical)</em></td><td>
        <em>example</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-example-5"><td></td><td>
@@ -671,7 +673,7 @@ document.write(`
      <tr>
        <td></td>
        <td>
-       <a href="ch/pde/hyperbolic-dimensions.html#example-5"><code class="xref">example-5</code></a> <em>(ch/pde/hyperbolic-dimensions)</em></td><td>
+       <a href="ch/tensor-algebra-calculus/calculus-euclidean-spherical.html#example-5"><code class="xref">example-5</code></a> <em>(ch/tensor-algebra-calculus/calculus-euclidean-spherical)</em></td><td>
        <em>example</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-example-6"><td></td><td>
@@ -679,7 +681,7 @@ document.write(`
      <tr>
        <td></td>
        <td>
-       <a href="ch/pde/hyperbolic-dimensions.html#example-6"><code class="xref">example-6</code></a> <em>(ch/pde/hyperbolic-dimensions)</em></td><td>
+       <a href="ch/tensor-algebra-calculus/calculus-euclidean-spherical.html#example-6"><code class="xref">example-6</code></a> <em>(ch/tensor-algebra-calculus/calculus-euclidean-spherical)</em></td><td>
        <em>example</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-example-7"><td></td><td>
@@ -687,7 +689,7 @@ document.write(`
      <tr>
        <td></td>
        <td>
-       <a href="ch/pde/hyperbolic-dimensions.html#example-7"><code class="xref">example-7</code></a> <em>(ch/pde/hyperbolic-dimensions)</em></td><td>
+       <a href="ch/tensor-algebra-calculus/calculus-euclidean.html#example-7"><code class="xref">example-7</code></a> <em>(ch/tensor-algebra-calculus/calculus-euclidean)</em></td><td>
        <em>example</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-example-8"><td></td><td>
@@ -695,7 +697,7 @@ document.write(`
      <tr>
        <td></td>
        <td>
-       <a href="ch/pde/hyperbolic-dimensions.html#example-8"><code class="xref">example-8</code></a> <em>(ch/pde/hyperbolic-dimensions)</em></td><td>
+       <a href="ch/tensor-algebra-calculus/calculus-euclidean.html#example-8"><code class="xref">example-8</code></a> <em>(ch/tensor-algebra-calculus/calculus-euclidean)</em></td><td>
        <em>example</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-example-9"><td></td><td>
@@ -703,7 +705,7 @@ document.write(`
      <tr>
        <td></td>
        <td>
-       <a href="ch/pde/hyperbolic-dimensions.html#example-9"><code class="xref">example-9</code></a> <em>(ch/pde/hyperbolic-dimensions)</em></td><td>
+       <a href="ch/tensor-algebra-calculus/calculus-euclidean.html#example-9"><code class="xref">example-9</code></a> <em>(ch/tensor-algebra-calculus/calculus-euclidean)</em></td><td>
        <em>example</em></td></tr>
      <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
      <tr class="cap" id="cap-fvm:property:conservation"><td></td><td>

@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>34. Finite Volume Method &#8212; basics - math</title>
+    <title>34.3. Boundary conditions in hyperbolic problems &#8212; basics - math</title>
   
   
   
@@ -65,12 +65,14 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/pde/fvm';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/pde/fvm-hyperbolic-bc';</script>
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="34.1. 1-dimensional Poisson equation" href="fvm-poisson-1d.html" />
-    <link rel="prev" title="33.1. 1-dimensional Poisson equation" href="fem-poisson-1d.html" />
+    <link rel="next" title="35. Boundary Element Method" href="bem.html" />
+    <link rel="prev" title="34.2. FVM for hyperbolic problems" href="fvm-hyperbolic-pde.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -268,10 +270,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="fem-poisson-1d.html">33.1. 1-dimensional Poisson equation</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">34. Finite Volume Method</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="fvm.html">34. Finite Volume Method</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="fvm-poisson-1d.html">34.1. 1-dimensional Poisson equation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fvm-hyperbolic-pde.html">34.2. FVM for hyperbolic problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fvm-hyperbolic-bc.html">34.3. Boundary conditions in hyperbolic problems</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">34.3. Boundary conditions in hyperbolic problems</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="bem.html">35. Boundary Element Method</a></li>
@@ -369,7 +371,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/edit/main/ch/pde/fvm.md" target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/edit/main/ch/pde/fvm-hyperbolic-bc.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -386,7 +388,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/issues/new?title=Issue%20on%20page%20%2Fch/pde/fvm.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/issues/new?title=Issue%20on%20page%20%2Fch/pde/fvm-hyperbolic-bc.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -416,7 +418,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/ch/pde/fvm.md" target="_blank"
+      <li><a href="../../_sources/ch/pde/fvm-hyperbolic-bc.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -487,7 +489,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -498,11 +502,24 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Finite Volume Method</h1>
+    <h1>Boundary conditions in hyperbolic problems</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wall">34.3.1. Wall</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#domain-at-rest">34.3.1.1. Domain at rest</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moving-domain">34.3.1.2. Moving domain</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#characteristic-based-boundary-conditions">34.3.2. Characteristic-based boundary conditions</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -512,14 +529,67 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="finite-volume-method">
-<span id="pde-fvm"></span><h1><span class="section-number">34. </span>Finite Volume Method<a class="headerlink" href="#finite-volume-method" title="Permalink to this heading">#</a></h1>
-<div class="proof property admonition" id="fvm:property:conservation">
-<p class="admonition-title"><span class="caption-number">Property 34.1 </span></p>
-<div class="property-content section" id="proof-content">
-<p>Evaluate flux on interfaces between cells, and distribute between neighboring cells.</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="boundary-conditions-in-hyperbolic-problems">
+<span id="pde-fvm-hyperbolic-bc"></span><h1><span class="section-number">34.3. </span>Boundary conditions in hyperbolic problems<a class="headerlink" href="#boundary-conditions-in-hyperbolic-problems" title="Permalink to this heading">#</a></h1>
+<div class="section" id="wall">
+<span id="pde-fvm-hyperbolic-bc-wall"></span><h2><span class="section-number">34.3.1. </span>Wall<a class="headerlink" href="#wall" title="Permalink to this heading">#</a></h2>
+<div class="section" id="domain-at-rest">
+<h3><span class="section-number">34.3.1.1. </span>Domain at rest<a class="headerlink" href="#domain-at-rest" title="Permalink to this heading">#</a></h3>
+<div class="proof example admonition" id="example-0">
+<p class="admonition-title"><span class="caption-number">Example 34.3 </span> (Wall for Roe flux in 1-dimensional P-sys)</p>
+<div class="example-content section" id="proof-content">
+<p><strong>Roe intermediate state for a P-sys</strong> is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{bmatrix} \hat{\rho} \\ \hat{m} \end{bmatrix} = \begin{bmatrix} \hat{\rho} \\ \hat{\rho} \hat{u} \end{bmatrix} \ ,\end{split}\]</div>
+<p>with <span class="math notranslate nohighlight">\(\hat{\rho}\)</span> satisfying consistency (as an example <span class="math notranslate nohighlight">\(\hat{\rho} = \sqrt{\rho_L \rho_R}\)</span> or <span class="math notranslate nohighlight">\(\hat{\rho} = \frac{1}{2} \left( \rho_L + \rho_R \right)\)</span>), and</p>
+<div class="math notranslate nohighlight">
+\[\hat{u} = \frac{\sqrt{\rho_L} u_L + \sqrt{\rho_R} u_R}{\sqrt{\rho_L}+\sqrt{\rho_R}} \ .\]</div>
+<p>Wall boundary conditions for a P-sys implies no mass flux through the wall. The state of the ghost cell outside the domain is prescribed as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{u}_{g} = \begin{bmatrix} \rho_{g} \\ \rho_{g} u_{g} \end{bmatrix} \ ,\end{split}\]</div>
+<p>with <span class="math notranslate nohighlight">\(\rho_{g} = \rho_{\partial}\)</span>, <span class="math notranslate nohighlight">\(u_{g} = - u_{\partial}\)</span>. Roe intermediate state across the wall boundary interface has velocity</p>
+<div class="math notranslate nohighlight">
+\[\hat{u}_{\partial} = \frac{\sqrt{\rho_g} u_g + \sqrt{\rho_{\partial}} u_{\partial}}{\sqrt{\rho_g} + \sqrt{\rho_{\partial}}} = 0 \ .\]</div>
+<p><strong>Upwind matrix in Roe flux.</strong> Using the spectral decomposition of the matrix</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{A} = \begin{bmatrix} u &amp; \rho \\ \frac{a^2}{\rho} &amp; u  \end{bmatrix} \ ,\end{split}\]</div>
+<p>i.e.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{R} = \begin{bmatrix} \rho &amp; \rho \\ a &amp; -a \end{bmatrix} \quad , \quad
+\boldsymbol\Lambda = \begin{bmatrix} u-a &amp; 0 \\ 0 &amp; u+a \end{bmatrix} \quad , \quad
+\mathbf{L} = \begin{bmatrix} \frac{1}{2\rho} &amp; \frac{1}{2a} \\ \frac{1}{2\rho} &amp; -\frac{1}{2a} \end{bmatrix}
+\end{split}\]</div>
+<p>the upwind matrix evaluated on the Roe intermediate state (no need for entropy fix; with entropy fix, the result doesn’t change anyway, as there’s no eigenvalue close to zero) reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+|\hat{\mathbf{A}}|
+= \hat{\mathbf{R}} \left| \hat{\boldsymbol{\Lambda}} \right| \hat{\mathbf{L}} 
+&amp; = \begin{bmatrix} \rho &amp; \rho \\ a &amp; -a \end{bmatrix} \begin{bmatrix} a &amp; 0 \\ 0 &amp; a \end{bmatrix} \begin{bmatrix} \frac{1}{2\rho} &amp; \frac{1}{2a} \\ \frac{1}{2\rho} &amp; -\frac{1}{2a} \end{bmatrix} = \\
+&amp; = \begin{bmatrix} \rho a &amp; \rho a \\ a^2 &amp; -a^2 \end{bmatrix} \begin{bmatrix} \frac{1}{2\rho} &amp; \frac{1}{2a} \\ \frac{1}{2\rho} &amp; -\frac{1}{2a} \end{bmatrix} = \\
+&amp; = \begin{bmatrix} a &amp; 0 \\ 0 &amp; a \end{bmatrix} \ . 
+\end{aligned}\end{split}\]</div>
+<p><strong>Roe flux.</strong> Putting everything together, Roe flux at wall reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathbf{F}_{\partial} 
+  &amp; = \frac{1}{2} \left[ \mathbf{F}_{g} + \mathbf{F}_{\partial} - \left| \hat{\mathbf{A}} \right| \left( \mathbf{u}_{g} - \mathbf{u}_{\partial} \right) \right] = \\
+  &amp; = \frac{1}{2} \left[ \begin{bmatrix} -m_\partial \\ \rho_\partial \left( a^2 + u^2_\partial \right)  \end{bmatrix} + \begin{bmatrix} m_\partial \\ \rho_g \left( a^2 + u^2_\partial \right) \end{bmatrix} - \begin{bmatrix} a &amp; 0 \\ 0 &amp; a \end{bmatrix} \left( \begin{bmatrix} \rho_\partial \\ -m_\partial \end{bmatrix} - \begin{bmatrix} \rho_\partial \\ m_\partial \end{bmatrix} \right) \right] = \\
+  &amp; = \begin{bmatrix} 0 \\ \rho_\partial ( a + u_\partial )^2 \end{bmatrix} \ ,
+\end{aligned}\end{split}\]</div>
+<p>i.e. there’s <strong>no mass flux</strong> across the wall, as the first component of the vector <span class="math notranslate nohighlight">\(\mathbf{F}_\partial\)</span> is zero.</p>
 </div>
-</div><div class="toctree-wrapper compound">
+</div><div class="proof example admonition" id="example-1">
+<p class="admonition-title"><span class="caption-number">Example 34.4 </span> (Wall for Roe flux in 1-dimensional Euler equations)</p>
+<div class="example-content section" id="proof-content">
+</div>
+</div></div>
+<div class="section" id="moving-domain">
+<h3><span class="section-number">34.3.1.2. </span>Moving domain<a class="headerlink" href="#moving-domain" title="Permalink to this heading">#</a></h3>
+</div>
+</div>
+<div class="section" id="characteristic-based-boundary-conditions">
+<span id="pde-fvm-hyperbolic-bc-characteristics"></span><h2><span class="section-number">34.3.2. </span>Characteristic-based boundary conditions<a class="headerlink" href="#characteristic-based-boundary-conditions" title="Permalink to this heading">#</a></h2>
 </div>
 </div>
 
@@ -554,20 +624,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="fem-poisson-1d.html"
+       href="fvm-hyperbolic-pde.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">33.1. </span>1-dimensional Poisson equation</p>
+        <p class="prev-next-title"><span class="section-number">34.2. </span>FVM for hyperbolic problems</p>
       </div>
     </a>
     <a class="right-next"
-       href="fvm-poisson-1d.html"
+       href="bem.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">34.1. </span>1-dimensional Poisson equation</p>
+        <p class="prev-next-title"><span class="section-number">35. </span>Boundary Element Method</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -577,6 +647,25 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wall">34.3.1. Wall</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#domain-at-rest">34.3.1.1. Domain at rest</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moving-domain">34.3.1.2. Moving domain</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#characteristic-based-boundary-conditions">34.3.2. Characteristic-based boundary conditions</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
