@@ -583,6 +583,20 @@ document.write(`
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="dimensional-euler-equations-for-perfect-ideal-gas-on-moving-mesh-ale">
 <span id="pde-fvm-hyperbolic-examples-euler-1d-ale-piston"></span><h1><span class="section-number">34.4.4. </span>1-dimensional Euler equations for Perfect Ideal Gas on moving mesh (ALE)<a class="headerlink" href="#dimensional-euler-equations-for-perfect-ideal-gas-on-moving-mesh-ale" title="Permalink to this heading">#</a></h1>
+<p><strong>Integral equations for general domain <span class="math notranslate nohighlight">\(v_t\)</span>.</strong> Starting from the balance equation for a control volume <span class="math notranslate nohighlight">\(V\)</span> at rest,</p>
+<div class="math notranslate nohighlight">
+\[\frac{d}{dt}\int_{V} \mathbf{u} + \oint_{\partial V} \mathbf{F}(\mathbf{u}) \cdot \hat{\mathbf{n}} = \int_{V} \mathbf{s} \ ,\]</div>
+<p>using <span class="xref myst">Reynolds’ transport theorem</span>, the balance equation for an arbitrary volume <span class="math notranslate nohighlight">\(v_t\)</span> follows</p>
+<div class="math notranslate nohighlight">
+\[\frac{d}{dt}\int_{v_t} \mathbf{u} - \oint_{\partial v_t} \mathbf{u} \mathbf{v}_b \cdot \hat{\mathbf{n}} + \oint_{\partial v_t} \mathbf{F}(\mathbf{u}) \cdot \hat{\mathbf{n}} = \int_{v_t} \mathbf{s} \ ,\]</div>
+<p>or collecting all the boundary terms</p>
+<div class="math notranslate nohighlight">
+\[\frac{d}{dt}\int_{v_t} \mathbf{u} + \oint_{\partial v_t} \left[ \mathbf{F}(\mathbf{u}) - \mathbf{u} \mathbf{v}_b \right] \cdot \hat{\mathbf{n}} = \int_{v_t} \mathbf{s} \ .\]</div>
+<p><strong>Explicit Euler</strong> scheme</p>
+<div class="math notranslate nohighlight">
+\[( \mathbf{u}_i^{n+1} V_i^{n+1} ) = ( \mathbf{u}_i^{n} V_i^{n} ) - \Delta t \sum_{j \in B_i} \mathbf{F}_j^n \ ,\]</div>
+<p><strong>Roe flux</strong> …</p>
+<p><strong>Boundary conditions</strong></p>
 <div class="section" id="useful-classes-for-numerical-methods">
 <h2><span class="section-number">34.4.4.1. </span>Useful classes for numerical methods<a class="headerlink" href="#useful-classes-for-numerical-methods" title="Permalink to this heading">#</a></h2>
 <div class="section" id="basic-libraries">
