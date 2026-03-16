@@ -736,18 +736,30 @@ $$
 \partial_t \begin{bmatrix} \rho \\ m_x \\ m_y \\ E^t \end{bmatrix} +
 \begin{bmatrix}
   \cdot & 1     & \cdot & \cdot \\
-  \partial_\rho p - \frac{m_x m_x}{\rho^2} & \frac{2 m_x}{\rho} & \cdot & \partial_{E^t} p \\
+  \partial_\rho p - \frac{m_x m_x}{\rho^2} & \frac{2 m_x}{\rho} + \partial_{m_x} P & \partial_{m_y} P & \partial_{E^t} p \\
       - \frac{m_x m_y}{\rho^2} & \frac{m_y}{\rho} & \frac{m_x}{\rho} & \cdot \\
-      \frac{- h^t + \partial_\rho p}{\rho} m_x +  \frac{\partial_{\rho} P}{\rho} & h^t & \cdot & \frac{1 + \partial_{E^t} P}{\rho} m_x
+      \frac{- h^t + \partial_\rho p}{\rho} m_x +  \frac{\partial_{\rho} P}{\rho} & h^t + \frac{\partial_{m_x} P}{\rho} m_x & \frac{\partial_{m_y} P}{\rho} m_x & \frac{1 + \partial_{E^t} P}{\rho} m_x
 \end{bmatrix} \partial_x \begin{bmatrix} \rho \\ m_x \\ m_y \\ E^t \end{bmatrix} +
 \begin{bmatrix}
   \cdot & \cdot & 1 & \cdot    \\
   - \frac{m_x m_y}{\rho^2} & \frac{m_y}{\rho} & \frac{m_x}{\rho} & \cdot \\
-  \partial_\rho p - \frac{m_y m_y}{\rho^2} & \cdot & \frac{2 m_y}{\rho} & \partial_{E^t} p \\
-  \frac{ - h^t + \partial_\rho p}{\rho} m_y & \cdot & h^t &  \frac{1 + \partial_{E^t} P}{\rho} m_y
+  \partial_\rho p - \frac{m_y m_y}{\rho^2} & \partial_{m_x} P & \frac{2 m_y}{\rho} + \partial_{m_y} P & \partial_{E^t} p \\
+  \frac{ - h^t + \partial_\rho p}{\rho} m_y & \frac{\partial_{m_x} P}{\rho} m_y & h^t + \frac{\partial_{m_y} P}{\rho} m_y &  \frac{1 + \partial_{E^t} P}{\rho} m_y
 \end{bmatrix} \partial_y \begin{bmatrix} \rho \\ m_x \\ m_y \\ E^t \end{bmatrix} = \mathbf{0}
 $$
 
+<!--
+with 
+
+$$
+  \partial_x ( p m_x ) + \partial_y ( p m_y ) = p_{/m_x} m_{x/x} m_x + p_{/m_y} m_{y/x} m_x + p m_{x/x} +  p_{/m_x} m_{x/y} m_y + p_{/m_y} m_{y/y} m_y + p m_{y/y}
+$$
+
+$$\begin{aligned}
+  \partial_{m_x} \left( P \mathbf{m} \right) & = \partial_{m_x} P \mathbf{m} + P \hat{\mathbf{x}} \\
+  \partial_{m_y} \left( P \mathbf{m} \right) & = \partial_{m_y} P \mathbf{m} + P \hat{\mathbf{y}} \\
+\end{aligned}$$
+-->
 
 Thus,
 
@@ -756,17 +768,50 @@ $$\begin{aligned}
 & =
 \begin{bmatrix}
   0 & \mathbf{n}^T & 0 \\
-  \partial_\rho p \mathbf{n} - u_n \mathbf{u} & u_n \mathbf{I} + \mathbf{u} \mathbf{n}^T & \partial_{E^t} p \mathbf{n} \\
-  - ( h^t + \partial_\rho p ) u_n & h^t \mathbf{n}^T & \left( 1 + \partial_{E^t} P \right) u_n
+  \partial_\rho p \mathbf{n} - u_n \mathbf{u} & u_n \mathbf{I} + \mathbf{u} \mathbf{n}^T + \mathbf{n} \partial_{\mathbf{m}} P & \partial_{E^t} p \mathbf{n} \\
+  ( - h^t + \partial_\rho p ) u_n & h^t \mathbf{n}^T + u_n \partial_{\mathbf{m}} P & \left( 1 + \partial_{E^t} P \right) u_n
 \end{bmatrix} = \\
 & =
 \begin{bmatrix}
   0 & n_x & n_y & 0 \\
-  \partial_\rho p \, n_x - u_n u_x & u_n + n_x u &       n_y u & \partial_{E^t} p \, n_x \\
-  \partial_\rho p \, n_y - u_n u_y &       n_x v & u_n + n_y v & \partial_{E^t} p \, n_y \\
-  - ( h^t + \partial_\rho p ) u_n & h^t n_x & h^t n_y & \left( 1 + \partial_{E^t} P \right) u_n
+  \partial_\rho p \, n_x - u_n u_x & u_n + n_x u + n_x \partial_{m_x} P &       n_y u + n_x \partial_{m_y} P & \partial_{E^t} p \, n_x \\
+  \partial_\rho p \, n_y - u_n u_y &       n_x v + n_y \partial_{m_x} P & u_n + n_y v + n_y \partial_{m_y} P & \partial_{E^t} p \, n_y \\
+  ( - h^t + \partial_\rho P ) u_n & h^t n_x + u_n \partial_{m_x} P & h^t n_y + u_n \partial_{m_y} P & \left( 1 + \partial_{E^t} P \right) u_n
 \end{bmatrix} \ .
 \end{aligned}$$
+
+with
+
+$$\begin{aligned}
+  \partial_{m_i} P        & = \partial_e P|_{\rho} \left(-\frac{m_i}{\rho^2} \right) \\
+  \partial_{\mathbf{m}} P & = - \frac{\mathbf{m}}{\rho^2} \, \partial_e P|_{\rho} = - \frac{\mathbf{u}}{\rho} \partial_e P|_{\rho} \\
+\end{aligned}$$
+
+
+```{dropdown} Derivative of the pressure function $\ P(\rho, \mathbf{m}, E^t)$
+:open:
+
+As $E^t = \rho \left( e + \frac{|\mathbf{u}|^2}{2} \right) = \rho e^t + \frac{|\mathbf{m}|^2}{2 \rho} $, $e^t = \frac{E^t}{\rho} - \frac{|\mathbf{m}|^2}{2 \rho^2}$
+
+$$\begin{aligned}
+  P(\rho, \mathbf{m}, E^t)
+\end{aligned}$$
+
+$$P(\rho, e) = P\left( \rho, e\left(\rho, \mathbf{m}, E^t \right) \right) \ ,$$
+
+$$\begin{aligned}
+  \left.\partial_\rho  P \right|_{\mathbf{m}, E^t}
+  & = \left.\partial_{\rho} P \right|_e + \left. \partial_e P \right|_{\rho} \left.\partial_{\rho} e\right|_{\mathbf{m}, E^t}
+ && = \left.\partial_{\rho} P \right|_e + \left. \partial_e P \right|_{\rho} \left( - \frac{E^t}{\rho^2} + \frac{|\mathbf{m}|^2}{\rho^3} \right)  \\
+  \left.\partial_{m_i} P \right|_{\rho      , E^t}
+  & = \left. \partial_e P \right|_{\rho} \left.\partial_{m_i} e\right|_{\rho      , E^t}
+ && = \left. \partial_e P \right|_{\rho} \left( - \frac{m_i}{\rho^2} \right) \\
+  \left.\partial_{E^t} P \right|_{\rho,\mathbf{m}}
+  & = \left. \partial_e P \right|_{\rho} \left.\partial_{E^t} e\right|_{\rho,\mathbf{m}} 
+ && = \left. \partial_e P \right|_{\rho} \left( \frac{1}{\rho} \right) \\
+\end{aligned}$$
+
+```
 
 ```{dropdown} Speed of sound
 
@@ -825,7 +870,7 @@ $$
   -s & n_x & n_y & 0 \\
   \partial_\rho p \, n_x - u_n u_x & -s + u_n + n_x u &       n_y u & \partial_{E^t} p \, n_x \\
   \partial_\rho p \, n_y - u_n u_y &       n_x v & -s + u_n + n_y v & \partial_{E^t} p \, n_y \\
-  - ( h^t + \partial_\rho p ) u_n & h^t n_x & h^t n_y & - s + \left( 1 + \partial_{E^t} P \right) u_n
+  ( - h^t + \partial_\rho P ) u_n & h^t n_x + u_n \partial_{m_x} P & h^t n_y + u_n \partial_{m_y} P & -s + \left( 1 + \partial_{E^t} P \right) u_n
 \end{bmatrix} \ .
 $$
 
