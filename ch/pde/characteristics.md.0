@@ -914,7 +914,7 @@ $$
 ```{dropdown} Convection matrix
 :open:
 
-Let $\mathbf{u} = ( \rho, \mathbf{m}, E^t )$ the vector of conservative variables, and $\mathbf{v} = ( \rho, s\mathbf{u} , e ) \ $ the vector of physical variables. As proved in the following section, the relation between the convection matrices reads
+Let $\mathbf{u} = ( \rho, \mathbf{m}, E^t )$ the vector of conservative variables, and $\mathbf{v} = ( \rho, s\mathbf{u} , s )$ the vector of physical variables. As proved in the following section, the relation between the convection matrices reads
 
 $$\mathbf{A}_{\mathbf{n}}^{\mathbf{u}} = \mathbf{U}_{\mathbf{v}} \mathbf{A}_{\mathbf{n}}^{\mathbf{v}} \mathbf{V}_{\mathbf{u}} \ ,$$
 
@@ -930,13 +930,7 @@ $$
   1 & \cdot & \cdot & \cdot \\
   u & \rho  & \cdot & \cdot \\
   v & \cdot & \rho  & \cdot \\
-  e + \frac{|\mathbf{u}|^2}{2} & \rho u & \rho v & \rho \\
-\end{bmatrix}
-= 
-\begin{bmatrix}
- 1 & \cdot & \cdot \\ 
- \mathbf{u} & \mathbf{I}_2 & \cdot \\
- e^t & \rho \mathbf{u}^T & \rho
+  e + \frac{|\mathbf{u}|^2}{2} + \rho \partial_\rho e|_s & \rho u & \rho v & \rho \partial_s e|_{\rho} \\
 \end{bmatrix}
 $$
 
@@ -947,105 +941,53 @@ $$
   1 & \cdot & \cdot & \cdot \\
   -\frac{u}{\rho} & \frac{1}{\rho}  & \cdot & \cdot \\
   -\frac{v}{\rho} & \cdot & \frac{1}{\rho}  & \cdot \\
-  \frac{1}{\rho} \left( \frac{|\mathbf{u}|^2}{2} - e \right) & -\frac{ u}{\rho} & -\frac{ v}{\rho} & \frac{1}{\rho} \\
+  \frac{1}{\rho \partial_s e|_{\rho}} \left( \frac{|\mathbf{u}|^2}{2} - ( e + \rho \partial_\rho e|_s ) \right) & -\frac{ u}{\rho \partial_s e|_{\rho}} & -\frac{ v}{\rho \partial_s e|_{\rho}} & \frac{1}{\rho \partial_s e|_{\rho}} \\
 \end{bmatrix}
 $$
 
 the gradient and its inverse (easy to evaluate for the triangular structure of the $\mathbf{U}_{\mathbf{v}}$ matrix) of the change of variables
 
-$$\mathbf{u} = \begin{bmatrix} \rho \\ m_x \\ m_y \\ E^t \end{bmatrix} = \begin{bmatrix} \rho \\ \rho u \\ \rho v \\ \rho \left( e + \frac{|\mathbf{u}|^2}{2} \right) \end{bmatrix}$$
+$$\mathbf{u} = \begin{bmatrix} \rho \\ m_x \\ m_y \\ E^t \end{bmatrix} = \begin{bmatrix} \rho \\ \rho u \\ \rho v \\ \rho \left( e(\rho,s) + \frac{|\mathbf{u}|^2}{2} \right) \end{bmatrix}$$
 
 ```
 
 ```{dropdown} Right and left eigenvectors
 :open:
 
-With the right and left eigenvectors using physical variables $(\rho, \mathbf{u}, e)$,
+With the right and left eigenvectors using physical variables $(\rho, \mathbf{u}, s)$,
 
 $$
 \mathbf{R}^\mathbf{v} =
 \begin{bmatrix}
-  \rho            & \rho                                                   & 0     & \rho  \\
- -a n_x           & 0                                                      & a n_y & a n_x \\
- -a n_y           & 0                                                      &-a n_x & a n_y \\
-  \frac{p}{\rho}  & -\rho \frac{\partial_\rho p|_e}{\partial_e p|_{\rho}}  & 0     & \frac{p}{\rho}
-\end{bmatrix}
-=
-\begin{bmatrix}
-  \rho            & \rho                                                   & 0               & \rho  \\
- -a \mathbf{n}    & \mathbf{0}                                             & a \mathbf{t}    & a \mathbf{n} \\
-  \frac{p}{\rho}  & -\rho \frac{\partial_\rho p|_e}{\partial_e p|_{\rho}}  & 0               & \frac{p}{\rho}
+  \rho            & 0     & \rho          & \rho  \\
+ -a n_x           & a n_y & 0             & a n_x \\
+ -a n_y           &-a n_x & 0             & a n_y \\
+  \frac{p}{\rho}  & 0     & -\rho \frac{\partial_\rho p|_e}{\partial_e p|_{\rho}}  & \frac{p}{\rho}
 \end{bmatrix}
 $$
-<!--
-= 
-\begin{bmatrix}
-  \rho           & \rho    & 0            & \rho  \\
- -a n_x          & 0       & a n_y        & a n_x \\
- -a n_y          & 0       &-a n_x        & a n_y \\
-  \frac{p}{\rho} & \chi    & 0            & \frac{p}{\rho}
-\end{bmatrix}
--->
-
 
 $$
 \mathbf{L}^\mathbf{v} =
 \begin{bmatrix}
- \frac{P_\rho}{2 \rho a^2} & - \frac{1}{2a} \mathbf{n}^T & \frac{P_e}{2 \rho a^2} \\
- \frac{P}{\rho^2} \frac{P_e}{\rho a^2} & \mathbf{0}^T & - \frac{P_e}{\rho a^2} \\
- 0 & \frac{\mathbf{t}^T}{a} & 0 \\
- \frac{P_\rho}{2 \rho a^2} & + \frac{1}{2a} \mathbf{n}^T & \frac{P_e}{2 \rho a^2} \\
+0 & -\frac{n_x}{2a} & -\frac{n_y}{2a} & \frac{\rho}{2a^2} \\
+0 & \frac{n_y}{a} & -\frac{n_x}{a} & 0 \\
+\frac{1}{\rho} & 0 & 0 & -\frac{\partial_e P |_\rho}{\rho^2 a^2} \\
+0 & \frac{n_x}{2a} & \frac{n_y}{2a} & \frac{\rho}{2a^2}
 \end{bmatrix}
 $$
 
-<!--
-with
+right and left eigenvectors w.r.t. conservative variables are
 
-$$\begin{aligned}
-  \chi   & := - \rho \frac{\partial_\rho p}{\partial_e p} \\
-  \Delta & := \frac{p}{\rho} - \chi = \frac{p}{\rho} + \rho \frac{\partial_\rho p}{\partial_e p} = \\
-         &  = \frac{\rho}{\partial_e p} \left[ \frac{p}{\rho^2} \partial_e p + \partial_\rho p \right] = \frac{\rho a^2}{\partial_e p} \ .
-\end{aligned}$$
-
--->
-
-Right eigenvectors w.r.t. conservative variables are
-
-$$\begin{aligned}
-\mathbf{R}^\mathbf{u} = \mathbf{U}_{\mathbf{v}} \mathbf{R}^{\mathbf{v}} 
-& =
-\begin{bmatrix}
-  \rho & \rho & 0 & \rho \\
-  \rho u - \rho a n_x & \rho u & \rho a n_y & \rho u + \rho a n_x \\
-  \rho u - \rho a n_y & \rho v &-\rho a n_x & \rho u + \rho a n_y \\
-  \rho e^t - \rho u_n a + p & \rho e^t - \rho^2 \frac{P_\rho}{P_e} & \rho a u_t & \rho e^t + \rho u_n a + p 
-\end{bmatrix} = \\
-& =
-\begin{bmatrix}
-  \rho & \rho & 0 & \rho \\
-  \rho u - \rho a n_x & \rho u & \rho a n_y & \rho u + \rho a n_x \\
-  \rho u - \rho a n_y & \rho v &-\rho a n_x & \rho u + \rho a n_y \\
-  \rho h^t - \rho u_n a & \rho e^t - \rho^2 \frac{P_\rho}{P_e} & \rho a u_t & \rho h^t + \rho u_n a
-\end{bmatrix} \ ,
-\end{aligned}$$
-
-with $h^t = e^t + \frac{|\mathbf{u}|^2}{2}$, and 
-
-$$\rho e^t - \rho^2 \frac{P_\rho}{P_e} = \rho e^t + P - P - \rho^2 \frac{P_\rho}{P_e} = \rho h^t - \frac{\rho^2}{P_e} \left( \frac{P}{\rho^2} P_e + P_\rho \right) = \rho h^t - \frac{\rho^2}{P_e} a^2 \ .$$ 
-
-Or using the derivatives of $\Pi(\rho, \mathbf{m}, E^t)$,
-
-$$\begin{aligned}
-  E^t - \rho^2 \frac{P_\rho}{P_e} 
-  & = E^t - \rho^2 \frac{\partial_\rho \Pi - \partial_{E^t} \Pi (-e^t + |\mathbf{u}|^2)}{\rho \partial_{E^t} \Pi } = \\
-  & = E^t - \rho \frac{\partial_\rho \Pi}{\partial_{E^t} \Pi} - E^t + \rho |\mathbf{u}|^2 = \\
-  & = \rho |\mathbf{u}|^2 - \rho \frac{\partial_\rho \Pi}{\partial_{E^t} \Pi} \ .
-\end{aligned}$$
-
-Left eigenvectors w.r.t. conservative variables are
-
+$$\mathbf{R}^\mathbf{u} = \mathbf{U}_{\mathbf{v}} \mathbf{R}^{\mathbf{v}} 
+=\begin{bmatrix}
+ \rho               & 0          & \rho   & \rho                \\
+ \rho ( u - a n_x ) & \rho a n_y & \rho u & \rho ( u + a n_x )  \\ 
+ \rho ( v - a n_y ) & \rho a n_y & \rho v & \rho ( v + a n_y )  \\ 
+ \dots & \dots & \dots & \dots
+\end{bmatrix}
 $$
-\mathbf{L}^\mathbf{u} = \mathbf{L}^{\mathbf{v}} \mathbf{V}_{\mathbf{u}} = 
+
+$$\mathbf{L}^\mathbf{u} = \mathbf{L}^{\mathbf{v}} \mathbf{V}_{\mathbf{u}} = 
 $$
 
 being
@@ -1066,10 +1008,10 @@ $$\begin{aligned}
 :open:
 
 $$\begin{aligned}
-  R_{41} & = \rho e + \rho \frac{|\mathbf{u}|^2}{2} - \rho a ( u n_x + v n_y )  + p  \\ 
-  R_{42} & =               \frac{|\mathbf{u}|^2}{2}   \rho a ( u n_y - v n_x ) \\
-  R_{43} & = \rho e + \rho \frac{|\mathbf{u}|^2}{2} - \rho a ( u n_x + v n_y )  + p  \\
-  R_{44} & = \rho e + \rho \frac{|\mathbf{u}|^2}{2} - \frac{\partial_\rho p|_e}{\partial_e p|_\rho}  \\
+  R_{41} & = \rho e + \rho k + \rho^2 \partial_\rho e - \rho a ( u n_x + v n_y )  + p \partial_s e|_{\rho} \\ 
+  R_{42} & = 0 + \rho a ( u n_y - v n_x ) \\
+  R_{43} & = \rho e + \rho k + \rho^2 \partial_\rho e - \rho a ( u n_x + v n_y )  + p \partial_s e|_{\rho} \\
+  R_{44} & = \rho e + \rho k + \rho^2 \partial_\rho e - \frac{\partial_\rho p|_e}{\partial_e p|_\rho} \partial_s e|_{\rho} \\
 \end{aligned}$$
 
 
