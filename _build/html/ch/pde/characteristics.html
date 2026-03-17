@@ -1438,7 +1438,13 @@ Convection matrix<div class="sd-summary-down docutils">
   -\frac{u}{\rho} &amp; \frac{1}{\rho}  &amp; \cdot &amp; \cdot \\
   -\frac{v}{\rho} &amp; \cdot &amp; \frac{1}{\rho}  &amp; \cdot \\
   \frac{1}{\rho} \left( \frac{|\mathbf{u}|^2}{2} - e \right) &amp; -\frac{ u}{\rho} &amp; -\frac{ v}{\rho} &amp; \frac{1}{\rho} \\
-\end{bmatrix}
+\end{bmatrix} 
+=
+\begin{bmatrix}
+  1 &amp; \cdot &amp; \cdot \\
+  - \frac{\mathbf{u}}{\rho} &amp; \frac{1}{\rho} \mathbf{I}_2 &amp; \cdot \\
+  \frac{1}{\rho} \left( |\mathbf{u}|^2 - e^t \right) &amp; - \frac{\mathbf{u}^T}{\rho} &amp; \frac{1}{\rho}
+\end{bmatrix} 
 \end{split}\]</div>
 <p class="sd-card-text">the gradient and its inverse (easy to evaluate for the triangular structure of the <span class="math notranslate nohighlight">\(\mathbf{U}_{\mathbf{v}}\)</span> matrix) of the change of variables</p>
 <div class="math notranslate nohighlight">
@@ -1529,13 +1535,50 @@ $$\begin{aligned}
 \end{aligned}\end{split}\]</div>
 <p class="sd-card-text">Left eigenvectors w.r.t. conservative variables are</p>
 <div class="math notranslate nohighlight">
-\[
-\mathbf{L}^\mathbf{u} = \mathbf{L}^{\mathbf{v}} \mathbf{V}_{\mathbf{u}} = 
-\]</div>
+\[\begin{split}\begin{aligned}
+\mathbf{L}^\mathbf{u} = \mathbf{L}^{\mathbf{v}} \mathbf{V}_{\mathbf{u}} 
+&amp; = 
+\begin{bmatrix}
+  \frac{P_\rho}{2 \rho a^2} + \frac{u_n}{2 \rho a} + \frac{1}{2 \rho a^2} \frac{P_e}{\rho} (|\mathbf{u}|^2 - e^t) &amp; 
+  - \frac{1}{2 \rho a} n_x - \frac{u}{2 \rho a^2}\frac{P_e}{\rho} &amp;
+  - \frac{1}{2 \rho a} n_y - \frac{v}{2 \rho a^2}\frac{P_e}{\rho} &amp;
+  \frac{P_e}{2 \rho^2 a^2} \\
+  \frac{P}{\rho^2}\frac{P_e}{\rho a^2} - \frac{P_e}{\rho a^2} \frac{|\mathbf{u}|^2 - e^t}{\rho} &amp;
+    \frac{P_e}{\rho a^2} \frac{u}{\rho} &amp;
+    \frac{P_e}{\rho a^2} \frac{v}{\rho} &amp;
+  - \frac{P_e}{\rho^2 a^2} \\
+  - \frac{u_t}{\rho a} &amp; \frac{t_x}{\rho a} &amp; \frac{t_y}{\rho a} &amp; 0 \\
+  \frac{P_\rho}{2 \rho a^2} - \frac{u_n}{2 \rho a} + \frac{1}{2 \rho a^2} \frac{P_e}{\rho} (|\mathbf{u}|^2 - e^t) &amp; 
+    \frac{1}{2 \rho a} n_x - \frac{u}{2 \rho a^2}\frac{P_e}{\rho} &amp;
+    \frac{1}{2 \rho a} n_y - \frac{v}{2 \rho a^2}\frac{P_e}{\rho} &amp;
+  \frac{P_e}{2 \rho^2 a^2} \\
+\end{bmatrix} = \\
+&amp; =
+\frac{1}{2 \rho a^2}
+\begin{bmatrix}
+  \Pi_\rho + a u_n &amp; - a n_x + \Pi_{m_x}  &amp; - a n_y + \Pi_{m_y} &amp; \Pi_{E^t} \\
+   2 a^2 - 2 \Pi_{\rho} &amp; - 2 \Pi_{m_x} &amp; 2 - \Pi_{m_y} &amp; - 2 \Pi_{E^t} \\
+  - 2 a u_t &amp; 2 a t_x &amp; 2 a t_y &amp; 0 \\
+  \Pi_\rho - a u_n &amp;   a n_x + \Pi_{m_x}  &amp;   a n_y + \Pi_{m_y} &amp; \Pi_{E^t} \\
+\end{bmatrix}
+\end{aligned}\end{split}\]</div>
 <p class="sd-card-text">being</p>
 <div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \Pi_\rho &amp; = P_\rho + \frac{ P_e }{\rho} \left( - e^t + |\mathbf{u}|^2 \right) \\
+  \Pi_{\mathbf{m}} &amp; = -\frac{\mathbf{u}}{\rho} P_e \\
+  \Pi_{E^t} &amp; = \frac{1}{\rho} P_e
+\end{aligned}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+2 \frac{P}{\rho^2} P_e - 2 P_e \frac{|\mathbf{u}|^2 - e^t}{\rho}
+&amp; = 2 \frac{P}{\rho^2} P_e + 2 P_\rho - 2 \Pi_\rho = \\
+&amp; = 2 a^2 - 2 \Pi_\rho
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">and the speed of sound</p>
+<div class="math notranslate nohighlight">
 \[a^2(\rho,s) = \partial_\rho P|_s\]</div>
-<p class="sd-card-text">and with <span class="math notranslate nohighlight">\(P(\rho, e(\rho,s))\)</span></p>
+<p class="sd-card-text">with <span class="math notranslate nohighlight">\(P(\rho, e(\rho,s))\)</span></p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
   a^2 

@@ -948,7 +948,13 @@ $$
   -\frac{u}{\rho} & \frac{1}{\rho}  & \cdot & \cdot \\
   -\frac{v}{\rho} & \cdot & \frac{1}{\rho}  & \cdot \\
   \frac{1}{\rho} \left( \frac{|\mathbf{u}|^2}{2} - e \right) & -\frac{ u}{\rho} & -\frac{ v}{\rho} & \frac{1}{\rho} \\
-\end{bmatrix}
+\end{bmatrix} 
+=
+\begin{bmatrix}
+  1 & \cdot & \cdot \\
+  - \frac{\mathbf{u}}{\rho} & \frac{1}{\rho} \mathbf{I}_2 & \cdot \\
+  \frac{1}{\rho} \left( |\mathbf{u}|^2 - e^t \right) & - \frac{\mathbf{u}^T}{\rho} & \frac{1}{\rho}
+\end{bmatrix} 
 $$
 
 the gradient and its inverse (easy to evaluate for the triangular structure of the $\mathbf{U}_{\mathbf{v}}$ matrix) of the change of variables
@@ -1044,34 +1050,59 @@ $$\begin{aligned}
 
 Left eigenvectors w.r.t. conservative variables are
 
-$$
-\mathbf{L}^\mathbf{u} = \mathbf{L}^{\mathbf{v}} \mathbf{V}_{\mathbf{u}} = 
-$$
+$$\begin{aligned}
+\mathbf{L}^\mathbf{u} = \mathbf{L}^{\mathbf{v}} \mathbf{V}_{\mathbf{u}} 
+& = 
+\begin{bmatrix}
+  \frac{P_\rho}{2 \rho a^2} + \frac{u_n}{2 \rho a} + \frac{1}{2 \rho a^2} \frac{P_e}{\rho} (|\mathbf{u}|^2 - e^t) & 
+  - \frac{1}{2 \rho a} n_x - \frac{u}{2 \rho a^2}\frac{P_e}{\rho} &
+  - \frac{1}{2 \rho a} n_y - \frac{v}{2 \rho a^2}\frac{P_e}{\rho} &
+  \frac{P_e}{2 \rho^2 a^2} \\
+  \frac{P}{\rho^2}\frac{P_e}{\rho a^2} - \frac{P_e}{\rho a^2} \frac{|\mathbf{u}|^2 - e^t}{\rho} &
+    \frac{P_e}{\rho a^2} \frac{u}{\rho} &
+    \frac{P_e}{\rho a^2} \frac{v}{\rho} &
+  - \frac{P_e}{\rho^2 a^2} \\
+  - \frac{u_t}{\rho a} & \frac{t_x}{\rho a} & \frac{t_y}{\rho a} & 0 \\
+  \frac{P_\rho}{2 \rho a^2} - \frac{u_n}{2 \rho a} + \frac{1}{2 \rho a^2} \frac{P_e}{\rho} (|\mathbf{u}|^2 - e^t) & 
+    \frac{1}{2 \rho a} n_x - \frac{u}{2 \rho a^2}\frac{P_e}{\rho} &
+    \frac{1}{2 \rho a} n_y - \frac{v}{2 \rho a^2}\frac{P_e}{\rho} &
+  \frac{P_e}{2 \rho^2 a^2} \\
+\end{bmatrix} = \\
+& =
+\frac{1}{2 \rho a^2}
+\begin{bmatrix}
+  \Pi_\rho + a u_n & - a n_x + \Pi_{m_x}  & - a n_y + \Pi_{m_y} & \Pi_{E^t} \\
+   2 a^2 - 2 \Pi_{\rho} & - 2 \Pi_{m_x} & 2 - \Pi_{m_y} & - 2 \Pi_{E^t} \\
+  - 2 a u_t & 2 a t_x & 2 a t_y & 0 \\
+  \Pi_\rho - a u_n &   a n_x + \Pi_{m_x}  &   a n_y + \Pi_{m_y} & \Pi_{E^t} \\
+\end{bmatrix}
+\end{aligned}$$
 
 being
 
+$$\begin{aligned}
+  \Pi_\rho & = P_\rho + \frac{ P_e }{\rho} \left( - e^t + |\mathbf{u}|^2 \right) \\
+  \Pi_{\mathbf{m}} & = -\frac{\mathbf{u}}{\rho} P_e \\
+  \Pi_{E^t} & = \frac{1}{\rho} P_e
+\end{aligned}$$
+
+$$\begin{aligned}
+2 \frac{P}{\rho^2} P_e - 2 P_e \frac{|\mathbf{u}|^2 - e^t}{\rho}
+& = 2 \frac{P}{\rho^2} P_e + 2 P_\rho - 2 \Pi_\rho = \\
+& = 2 a^2 - 2 \Pi_\rho
+\end{aligned}$$
+
+and the speed of sound
+
 $$a^2(\rho,s) = \partial_\rho P|_s$$
 
-and with $P(\rho, e(\rho,s))$
+with $P(\rho, e(\rho,s))$
 
 $$\begin{aligned}
   a^2 
   & = \partial_\rho P|_e + \partial_\rho e|_s \, \partial_e P|_\rho  = \\
   & = \partial_\rho P|_e + \frac{P}{\rho^2}\partial_e \, P|_\rho  \ .
 \end{aligned}$$
-
-
-```
-```{dropdown} Some algebra
-:open:
-
-$$\begin{aligned}
-  R_{41} & = \rho e + \rho \frac{|\mathbf{u}|^2}{2} - \rho a ( u n_x + v n_y )  + p  \\ 
-  R_{42} & =               \frac{|\mathbf{u}|^2}{2}   \rho a ( u n_y - v n_x ) \\
-  R_{43} & = \rho e + \rho \frac{|\mathbf{u}|^2}{2} - \rho a ( u n_x + v n_y )  + p  \\
-  R_{44} & = \rho e + \rho \frac{|\mathbf{u}|^2}{2} - \frac{\partial_\rho p|_e}{\partial_e p|_\rho}  \\
-\end{aligned}$$
-
 
 ```
 
