@@ -72,7 +72,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="30. Navier-Stokes equations" href="ns.html" />
-    <link rel="prev" title="28.6. Method of characteristics" href="characteristics.html" />
+    <link rel="prev" title="28.7. Riemann problems" href="hyperbolic-riemann-pb.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -256,6 +256,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="hyperbolic-1d-vector-linear.html">28.4. Linear vector equation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hyperbolic-1d-scalar-nonlinear.html">28.5. Scalar non-linear equation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="characteristics.html">28.6. Method of characteristics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hyperbolic-riemann-pb.html">28.7. Riemann problems</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">29. Navier-Cauchy equations</a></li>
@@ -272,6 +273,14 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 has-children"><a class="reference internal" href="fvm.html">34. Finite Volume Method</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="fvm-poisson-1d.html">34.1. 1-dimensional Poisson equation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fvm-hyperbolic-pde.html">34.2. FVM for hyperbolic problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fvm-hyperbolic-bc.html">34.3. Boundary conditions in hyperbolic problems</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="fvm-hyperbolic-examples.html">34.4. Examples of FVM for hyperbolic problems</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="psys-1d.html">34.4.1. 1-dimensional P-system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="euler-1d.html">34.4.2. 1-dimensional Euler equations for Perfect Ideal Gas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="euler-quasi-1d.html">34.4.3. Quasi 1-dimensional Euler equations for Perfect Ideal Gas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="euler-1d-ale-piston.html">34.4.4. 1-dimensional Euler equations for Perfect Ideal Gas on moving mesh (ALE)</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="bem.html">35. Boundary Element Method</a></li>
@@ -286,7 +295,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Control</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../control/intro.html">38. Introduction to control methods</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../control/intro.html">38. Introduction to control methods</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../control/optimal-control.html">38.1. Optimal control</a></li>
 </ul>
 </li>
@@ -605,12 +614,12 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="characteristics.html"
+       href="hyperbolic-riemann-pb.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">28.6. </span>Method of characteristics</p>
+        <p class="prev-next-title"><span class="section-number">28.7. </span>Riemann problems</p>
       </div>
     </a>
     <a class="right-next"

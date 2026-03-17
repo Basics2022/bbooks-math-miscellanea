@@ -1205,14 +1205,21 @@ $$\begin{aligned}
 <div class="section" id="euler-equations-for-inviscid-compressible-flows-2d">
 <h4><span class="section-number">28.6.2.2.3. </span>Euler equations for inviscid compressible flows - 2d<a class="headerlink" href="#euler-equations-for-inviscid-compressible-flows-2d" title="Permalink to this heading">#</a></h4>
 <p><strong>1. Using conservative variables.</strong></p>
-<p>Conservative form reads</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Direct computation with conservative variables<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Conservative form reads</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{cases}
   \partial_t \rho + \nabla \cdot \mathbf{m} = 0 \\
   \partial_t \mathbf{m} + \nabla \cdot \left[ \frac{\mathbf{m}\otimes\mathbf{m}}{\rho} + p \mathbf{I} \right] = 0 \\
   \partial_t E^t + \nabla \cdot \left( \frac{E^t + p}{\rho} \mathbf{m} \right) = 0 \ .
 \end{cases}\end{split}\]</div>
-<p>Convective form in a 2-dimensional domain reads</p>
+<p class="sd-card-text">Convective form in a 2-dimensional domain reads</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \partial_t \begin{bmatrix} \rho \\ m_x \\ m_y \\ E^t \end{bmatrix} +
@@ -1241,7 +1248,7 @@ $$\begin{aligned}
   \partial_{m_y} \left( P \mathbf{m} \right) & = \partial_{m_y} P \mathbf{m} + P \hat{\mathbf{y}} \\
 \end{aligned}$$
 -->
-<p>Thus,</p>
+<p class="sd-card-text">Thus,</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
 \mathbf{A}_n 
@@ -1259,11 +1266,29 @@ $$\begin{aligned}
   ( - h^t + \partial_\rho P ) u_n &amp; h^t n_x + u_n \partial_{m_x} P &amp; h^t n_y + u_n \partial_{m_y} P &amp; \left( 1 + \partial_{E^t} P \right) u_n
 \end{bmatrix} \ .
 \end{aligned}\end{split}\]</div>
-<p>with</p>
+<p class="sd-card-text">with</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
   \partial_{m_i} P        &amp; = \partial_e P|_{\rho} \left(-\frac{m_i}{\rho^2} \right) \\
   \partial_{\mathbf{m}} P &amp; = - \frac{\mathbf{m}}{\rho^2} \, \partial_e P|_{\rho} = - \frac{\mathbf{u}}{\rho} \partial_e P|_{\rho} \\
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">and thus</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+\mathbf{A}_n
+&amp; =
+\begin{bmatrix}
+  0 &amp; n_x &amp; n_y &amp; 0 \\
+  \partial_\rho P \, n_x - u_n u_x &amp; u_n + n_x u ( 1 - \partial_{E^t} P ) &amp;       n_y u - n_x v \partial_{E^t} P &amp; \partial_{E^t} P \, n_x \\
+  \partial_\rho P \, n_y - u_n u_y &amp;       n_x v - n_y u \partial_{E^t} P &amp; u_n + n_y v ( 1 - \partial_{E^t} P ) &amp; \partial_{E^t} P \, n_y \\
+  ( - h^t + \partial_\rho P ) u_n &amp; h^t n_x + u_n \partial_{m_x} P &amp; h^t n_y + u_n \partial_{m_y} P &amp; \left( 1 + \partial_{E^t} P \right) u_n
+\end{bmatrix} \\
+&amp; =
+\begin{bmatrix}
+  0 &amp; \mathbf{n}^T &amp; 0 \\
+  \partial_\rho P \mathbf{n} - u_n \mathbf{u} &amp; u_n \mathbf{I} + \mathbf{u} \mathbf{n}^T - \mathbf{n} \mathbf{u}^T \partial_{E^t} P &amp; \partial_{E^t} P \mathbf{n} \\
+  ( - h^t + \partial_\rho P ) u_n &amp; h^t \mathbf{n}^T - u_n \mathbf{u}^T \partial_{E^t} P &amp; \left( 1 + \partial_{E^t} P \right) u_n
+\end{bmatrix} \ .
 \end{aligned}\end{split}\]</div>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
 <summary class="sd-summary-title sd-card-header">
@@ -1290,6 +1315,14 @@ Derivative of the pressure function <span class="math notranslate nohighlight">\
   \left.\partial_{E^t} P \right|_{\rho,\mathbf{m}}
   &amp; = \left. \partial_e P \right|_{\rho} \left.\partial_{E^t} e\right|_{\rho,\mathbf{m}} 
  &amp;&amp; = \left. \partial_e P \right|_{\rho} \left( \frac{1}{\rho} \right) \\
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">and by direct comparison,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \left.\partial_\rho  P \right|_{\mathbf{m}, E^t}
+  &amp; = \left.\partial_{\rho} P \right|_e + \left. \partial_{E^t} P \right|_{\rho,\mathbf{m}} \left( -e^t + |\mathbf{u}|^2 \right)  \\
+  \left.\partial_{\mathbf{m}} P \right|_{\rho      , E^t}
+  &amp; = - \mathbf{u} \left. \partial_{E^t} P \right|_{\rho, \mathbf{m}} 
 \end{aligned}\end{split}\]</div>
 </div>
 </details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
@@ -1358,6 +1391,174 @@ Eigenvalues<div class="sd-summary-down docutils">
 \end{bmatrix} \ .
 \end{split}\]</div>
 </div>
+</details></div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Using physical variables <span class="math notranslate nohighlight">\(\ (\rho, \mathbf{u}, s)\)</span> and variable transformation<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Convection matrix<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Let <span class="math notranslate nohighlight">\(\mathbf{u} = ( \rho, \mathbf{m}, E^t )\)</span> the vector of conservative variables, and <span class="math notranslate nohighlight">\(\mathbf{v} = ( \rho, s\mathbf{u} , e ) \ \)</span> the vector of physical variables. As proved in the following section, the relation between the convection matrices reads</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{A}_{\mathbf{n}}^{\mathbf{u}} = \mathbf{U}_{\mathbf{v}} \mathbf{A}_{\mathbf{n}}^{\mathbf{v}} \mathbf{V}_{\mathbf{u}} \ ,\]</div>
+<p class="sd-card-text">with</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{A}_{\mathbf{n}}^{\mathbf{v}} = \begin{bmatrix} u_n &amp; \rho \mathbf{n}^T &amp; \cdot \\ \frac{1}{\rho}\partial_\rho p|_e \mathbf{n} &amp; u_n \mathbf{I} &amp; \frac{1}{\rho}\partial_e p|_{\rho} \mathbf{n} \\ \cdot &amp; \frac{p}{\rho} \mathbf{n}^T &amp; u_n \end{bmatrix} \ ,\end{split}\]</div>
+<p class="sd-card-text">and</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{U}_{\mathbf{v}} = 
+\begin{bmatrix}
+  1 &amp; \cdot &amp; \cdot &amp; \cdot \\
+  u &amp; \rho  &amp; \cdot &amp; \cdot \\
+  v &amp; \cdot &amp; \rho  &amp; \cdot \\
+  e + \frac{|\mathbf{u}|^2}{2} &amp; \rho u &amp; \rho v &amp; \rho \\
+\end{bmatrix}
+= 
+\begin{bmatrix}
+ 1 &amp; \cdot &amp; \cdot \\ 
+ \mathbf{u} &amp; \mathbf{I}_2 &amp; \cdot \\
+ e^t &amp; \rho \mathbf{u}^T &amp; \rho
+\end{bmatrix}
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{V}_{\mathbf{u}} = 
+\mathbf{U}_{\mathbf{v}}^{-1} = 
+\begin{bmatrix}
+  1 &amp; \cdot &amp; \cdot &amp; \cdot \\
+  -\frac{u}{\rho} &amp; \frac{1}{\rho}  &amp; \cdot &amp; \cdot \\
+  -\frac{v}{\rho} &amp; \cdot &amp; \frac{1}{\rho}  &amp; \cdot \\
+  \frac{1}{\rho} \left( \frac{|\mathbf{u}|^2}{2} - e \right) &amp; -\frac{ u}{\rho} &amp; -\frac{ v}{\rho} &amp; \frac{1}{\rho} \\
+\end{bmatrix}
+\end{split}\]</div>
+<p class="sd-card-text">the gradient and its inverse (easy to evaluate for the triangular structure of the <span class="math notranslate nohighlight">\(\mathbf{U}_{\mathbf{v}}\)</span> matrix) of the change of variables</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{u} = \begin{bmatrix} \rho \\ m_x \\ m_y \\ E^t \end{bmatrix} = \begin{bmatrix} \rho \\ \rho u \\ \rho v \\ \rho \left( e + \frac{|\mathbf{u}|^2}{2} \right) \end{bmatrix}\end{split}\]</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Right and left eigenvectors<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">With the right and left eigenvectors using physical variables <span class="math notranslate nohighlight">\((\rho, \mathbf{u}, e)\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{R}^\mathbf{v} =
+\begin{bmatrix}
+  \rho            &amp; \rho                                                   &amp; 0     &amp; \rho  \\
+ -a n_x           &amp; 0                                                      &amp; a n_y &amp; a n_x \\
+ -a n_y           &amp; 0                                                      &amp;-a n_x &amp; a n_y \\
+  \frac{p}{\rho}  &amp; -\rho \frac{\partial_\rho p|_e}{\partial_e p|_{\rho}}  &amp; 0     &amp; \frac{p}{\rho}
+\end{bmatrix}
+=
+\begin{bmatrix}
+  \rho            &amp; \rho                                                   &amp; 0               &amp; \rho  \\
+ -a \mathbf{n}    &amp; \mathbf{0}                                             &amp; a \mathbf{t}    &amp; a \mathbf{n} \\
+  \frac{p}{\rho}  &amp; -\rho \frac{\partial_\rho p|_e}{\partial_e p|_{\rho}}  &amp; 0               &amp; \frac{p}{\rho}
+\end{bmatrix}
+\end{split}\]</div>
+<!--
+= 
+\begin{bmatrix}
+  \rho           & \rho    & 0            & \rho  \\
+ -a n_x          & 0       & a n_y        & a n_x \\
+ -a n_y          & 0       &-a n_x        & a n_y \\
+  \frac{p}{\rho} & \chi    & 0            & \frac{p}{\rho}
+\end{bmatrix}
+-->
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{L}^\mathbf{v} =
+\begin{bmatrix}
+ \frac{P_\rho}{2 \rho a^2} &amp; - \frac{1}{2a} \mathbf{n}^T &amp; \frac{P_e}{2 \rho a^2} \\
+ \frac{P}{\rho^2} \frac{P_e}{\rho a^2} &amp; \mathbf{0}^T &amp; - \frac{P_e}{\rho a^2} \\
+ 0 &amp; \frac{\mathbf{t}^T}{a} &amp; 0 \\
+ \frac{P_\rho}{2 \rho a^2} &amp; + \frac{1}{2a} \mathbf{n}^T &amp; \frac{P_e}{2 \rho a^2} \\
+\end{bmatrix}
+\end{split}\]</div>
+<!--
+with
+
+$$\begin{aligned}
+  \chi   & := - \rho \frac{\partial_\rho p}{\partial_e p} \\
+  \Delta & := \frac{p}{\rho} - \chi = \frac{p}{\rho} + \rho \frac{\partial_\rho p}{\partial_e p} = \\
+         &  = \frac{\rho}{\partial_e p} \left[ \frac{p}{\rho^2} \partial_e p + \partial_\rho p \right] = \frac{\rho a^2}{\partial_e p} \ .
+\end{aligned}$$
+
+-->
+<p class="sd-card-text">Right eigenvectors w.r.t. conservative variables are</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+\mathbf{R}^\mathbf{u} = \mathbf{U}_{\mathbf{v}} \mathbf{R}^{\mathbf{v}} 
+&amp; =
+\begin{bmatrix}
+  \rho &amp; \rho &amp; 0 &amp; \rho \\
+  \rho u - \rho a n_x &amp; \rho u &amp; \rho a n_y &amp; \rho u + \rho a n_x \\
+  \rho u - \rho a n_y &amp; \rho v &amp;-\rho a n_x &amp; \rho u + \rho a n_y \\
+  \rho e^t - \rho u_n a + p &amp; \rho e^t - \rho^2 \frac{P_\rho}{P_e} &amp; \rho a u_t &amp; \rho e^t + \rho u_n a + p 
+\end{bmatrix} = \\
+&amp; =
+\begin{bmatrix}
+  \rho &amp; \rho &amp; 0 &amp; \rho \\
+  \rho u - \rho a n_x &amp; \rho u &amp; \rho a n_y &amp; \rho u + \rho a n_x \\
+  \rho u - \rho a n_y &amp; \rho v &amp;-\rho a n_x &amp; \rho u + \rho a n_y \\
+  \rho h^t - \rho u_n a &amp; \rho e^t - \rho^2 \frac{P_\rho}{P_e} &amp; \rho a u_t &amp; \rho h^t + \rho u_n a
+\end{bmatrix} \ ,
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">with <span class="math notranslate nohighlight">\(h^t = e^t + \frac{|\mathbf{u}|^2}{2}\)</span>, and</p>
+<div class="math notranslate nohighlight">
+\[\rho e^t - \rho^2 \frac{P_\rho}{P_e} = \rho e^t + P - P - \rho^2 \frac{P_\rho}{P_e} = \rho h^t - \frac{\rho^2}{P_e} \left( \frac{P}{\rho^2} P_e + P_\rho \right) = \rho h^t - \frac{\rho^2}{P_e} a^2 \ .\]</div>
+<p class="sd-card-text">Or using the derivatives of <span class="math notranslate nohighlight">\(\Pi(\rho, \mathbf{m}, E^t)\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  E^t - \rho^2 \frac{P_\rho}{P_e} 
+  &amp; = E^t - \rho^2 \frac{\partial_\rho \Pi - \partial_{E^t} \Pi (-e^t + |\mathbf{u}|^2)}{\rho \partial_{E^t} \Pi } = \\
+  &amp; = E^t - \rho \frac{\partial_\rho \Pi}{\partial_{E^t} \Pi} - E^t + \rho |\mathbf{u}|^2 = \\
+  &amp; = \rho |\mathbf{u}|^2 - \rho \frac{\partial_\rho \Pi}{\partial_{E^t} \Pi} \ .
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">Left eigenvectors w.r.t. conservative variables are</p>
+<div class="math notranslate nohighlight">
+\[
+\mathbf{L}^\mathbf{u} = \mathbf{L}^{\mathbf{v}} \mathbf{V}_{\mathbf{u}} = 
+\]</div>
+<p class="sd-card-text">being</p>
+<div class="math notranslate nohighlight">
+\[a^2(\rho,s) = \partial_\rho P|_s\]</div>
+<p class="sd-card-text">and with <span class="math notranslate nohighlight">\(P(\rho, e(\rho,s))\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  a^2 
+  &amp; = \partial_\rho P|_e + \partial_\rho e|_s \, \partial_e P|_\rho  = \\
+  &amp; = \partial_\rho P|_e + \frac{P}{\rho^2}\partial_e \, P|_\rho  \ .
+\end{aligned}\end{split}\]</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Some algebra<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  R_{41} &amp; = \rho e + \rho \frac{|\mathbf{u}|^2}{2} - \rho a ( u n_x + v n_y )  + p  \\ 
+  R_{42} &amp; =               \frac{|\mathbf{u}|^2}{2}   \rho a ( u n_y - v n_x ) \\
+  R_{43} &amp; = \rho e + \rho \frac{|\mathbf{u}|^2}{2} - \rho a ( u n_x + v n_y )  + p  \\
+  R_{44} &amp; = \rho e + \rho \frac{|\mathbf{u}|^2}{2} - \frac{\partial_\rho p|_e}{\partial_e p|_\rho}  \\
+\end{aligned}\end{split}\]</div>
+</div>
+</details></div>
 </details><p><strong>2. Using physical variables <span class="math notranslate nohighlight">\((\rho, \mathbf{u}, s)\)</span>.</strong> So that speed of sound <span class="math notranslate nohighlight">\(a^2(\rho, s) = \left( \partial_\rho p \right)_s\)</span> naturally appears.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
 <summary class="sd-summary-title sd-card-header">
