@@ -1,0 +1,1094 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>28.7.3. Euler equations &#8212; basics - math</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/style.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="https://cdn.plot.ly/plotly-lates.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/pde/hyperbolic-nd-euler';</script>
+    <link rel="shortcut icon" href="../../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="28.7.4. Shallow water" href="hyperbolic-nd-shallow-water.html" />
+    <link rel="prev" title="28.7.2. P-system" href="hyperbolic-nd-psys.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPXX63Z3XR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-JPXX63Z3XR');
+</script>
+
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.svg" class="logo__image only-light" alt="basics - math - Home"/>
+    <script>document.write(`<img src="../../_static/logo-dark.svg" class="logo__image only-dark" alt="basics - math - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Linear Algebra</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../linear-algebra/intro.html">1. Introduction to Linear Algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linear-algebra/matrices.html">2. Matrices</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../linear-algebra/matrix-factorization.html">3. Matrix factorizations</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../linear-algebra/svd.html">3.3. Singular Value Decomposition</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../linear-algebra/linear-systems.html">4. Linear Systems</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../linear-algebra/spectral.html">5. Spectral decomposition</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../linear-algebra/spectral-symmetric.html">5.1. Spectral decomposition of symmetric matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linear-algebra/spectral-sensitivity.html">5.2. Sensitivity of spectral decomposition</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Multivariable Calculus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../multivariable/intro.html">6. Introduction to multi-variable calculus</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Differential Geometry</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../differential-geometry/intro.html">7. Introduction to Differential Geometry</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Vector and Tensor Algebra and Calculus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/algebra.html">8. Tensor Algebra</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean.html">9. Tensor Calculus in Euclidean Spaces</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean-cartesian.html">9.5. Tensor Calculus in Euclidean Spaces - Cartesian coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean-cylindrical.html">9.6. Tensor Calculus in Euclidean Spaces - cylindrical coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean-spherical.html">9.7. Tensor Calculus in Euclidean Spaces - Spehrical coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/tensor-invariants.html">10. Tensor Invariants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/algebra-rotation-tensors.html">11. Unitary and rotation tensors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/algebra-isotropic-tensors.html">12. Isotropic Tensors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/time-derivative-of-integrals.html">13. Time derivative of integrals over moving domains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/calculus-identities.html">14. Calculus identities</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Functional Analysis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../functional-analysis/intro.html">15. Introduction to Functional Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functional-analysis/dirac-delta.html">16. Dirac’s delta</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Complex Calculus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../complex/analysis.html">17. Complex Analysis</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../complex/laplace.html">18. Laplace Transform</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../complex/laplace-def-thm.html">18.1. Definition and Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../complex/laplace-applications.html">18.2. Applications of Laplace Transform</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../complex/fourier.html">19. Fourier Transforms</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../complex/fourier-series.html">19.1. Fourier Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../complex/fourier-transform.html">19.2. Fourier Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../complex/fourier-transforms.html">19.3. Relations between Fourier transforms</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Calculus of Variations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../calculus-variations/intro.html">20. Introduction to Calculus of Variations</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Ordinary Differential Equations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ode/intro.html">21. Introduction to Ordinary Differential Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ode/lti.html">22. Linear Time-Invariant Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ode/lti-response.html">23. LTI system response</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ode/lti-stability-and-feedback.html">24. LTI: stability and feedback</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Partial Differential Equations</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">25. Introduction to Partial Differential Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="elliptic.html">26. Elliptic equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parabolic.html">27. Parabolic equations</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="hyperbolic.html">28. Hyperbolic equations</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="hyperbolic-intro.html">28.1. Hyperbolic problems and conservation laws</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hyperbolic-dimensions.html">28.2. Hyperbolic problems - dimensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hyperbolic-1d-scalar-linear.html">28.3. Scalar linear equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hyperbolic-1d-vector-linear.html">28.4. Linear vector equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hyperbolic-1d-scalar-nonlinear.html">28.5. Scalar non-linear equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="characteristics.html">28.6. Method of characteristics</a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="hyperbolic-nd.html">28.7. Hyperbolic problems in multi-dimensional domains</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="hyperbolic-nd-draft.html">28.7.1. General hyperbolic problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hyperbolic-nd-psys.html">28.7.2. P-system</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">28.7.3. Euler equations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hyperbolic-nd-shallow-water.html">28.7.4. Shallow water</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hyperbolic-riemann-pb.html">28.8. Riemann problems</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nc.html">29. Navier-Cauchy equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ns.html">30. Navier-Stokes equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ale.html">31. Arbitrary Lagrangian-Eulerian description</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Numerical Methods for PDEs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="numerics.html">32. Introduction to numerical methods for PDEs</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="fem.html">33. Finite Element Method</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="fem-poisson-1d.html">33.1. 1-dimensional Poisson equation</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="fvm.html">34. Finite Volume Method</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="fvm-poisson-1d.html">34.1. 1-dimensional Poisson equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fvm-hyperbolic-pde.html">34.2. FVM for hyperbolic problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fvm-hyperbolic-bc.html">34.3. Boundary conditions in hyperbolic problems</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="fvm-hyperbolic-examples.html">34.4. Examples of FVM for hyperbolic problems</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="psys-1d.html">34.4.1. 1-dimensional P-system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="euler-1d.html">34.4.2. 1-dimensional Euler equations for Perfect Ideal Gas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="euler-quasi-1d.html">34.4.3. Quasi 1-dimensional Euler equations for Perfect Ideal Gas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="euler-1d-ale-piston.html">34.4.4. 1-dimensional Euler equations for Perfect Ideal Gas on moving mesh (ALE)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bem.html">35. Boundary Element Method</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Boundary Methods for PDEs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="bem-poisson-helmholtz-waves.html">36. Green’s function method</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Optimization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../optimization/intro.html">37. Optimization</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Control</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../control/intro.html">38. Introduction to control methods</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control.html">38.1. Optimal control</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reinforcement Learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../rl/intro.html">39. Introduction to Reinforcement Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp.html">40. Markov Processes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_sol_dp_lp.html">41. Methods of solution of MPD: DP and LP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_sol_rl.html">42. Methods of solution of MPD: RL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_large_continuous.html">43. Large or Continuous MDPs</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/edit/main/ch/pde/hyperbolic-nd-euler.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/issues/new?title=Issue%20on%20page%20%2Fch/pde/hyperbolic-nd-euler.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/ch/pde/hyperbolic-nd-euler.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Euler equations</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thermodynamics-and-constitutive-equations">28.7.3.1. Thermodynamics and constitutive equations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integral-equations">28.7.3.2. Integral equations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jump-conditions">28.7.3.2.1. Jump conditions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differential-equations">28.7.3.3. Differential equations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conservative-form">28.7.3.3.1. Conservative form</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convective-forms">28.7.3.3.2. Convective forms</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spectral-decomposition">28.7.3.3.3. Spectral decomposition</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#riemann-problem">28.7.3.4. Riemann problem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linearization-roe-intermediate-state">28.7.3.4.1. Linearization - Roe intermediate state</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boundary-conditions">28.7.3.5. Boundary conditions</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="tex2jax_ignore mathjax_ignore section" id="euler-equations">
+<span id="pde-hyperbolic-nd-euler"></span><h1><span class="section-number">28.7.3. </span>Euler equations<a class="headerlink" href="#euler-equations" title="Permalink to this heading">#</a></h1>
+<div class="section" id="thermodynamics-and-constitutive-equations">
+<span id="pde-hyperbolic-nd-euler-thermodynamics"></span><h2><span class="section-number">28.7.3.1. </span>Thermodynamics and constitutive equations<a class="headerlink" href="#thermodynamics-and-constitutive-equations" title="Permalink to this heading">#</a></h2>
+<p><strong>todo</strong> <em>Reference to <a class="reference external" href="https://basics2022.github.io/bbooks-physics-thermodynamics/intro.html">Physics: Thermodynamics</a> bbook</em></p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Thermodynamics<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Principles of thermodynamics and differential of the internal energy<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The differential of the internal energy as a function of <span class="math notranslate nohighlight">\(s, \rho\)</span> as independent thermodynamic variables, <span class="math notranslate nohighlight">\(e(\rho, s)\)</span> reads</p>
+<div class="math notranslate nohighlight">
+\[de = T \, ds + \frac{p}{\rho^2} d \rho \ ,\]</div>
+<p class="sd-card-text">from the principles of thermodynamics, and the definition of the entropy <span class="math notranslate nohighlight">\(s\)</span> in classical thermodynamics. Following Gibbs’ mathematical foundation of classical thermodynamics, it immediately follows</p>
+<div class="math notranslate nohighlight">
+\[
+T = \left( \frac{\partial e}{\partial s} \right)_\rho
+\quad , \quad
+\frac{p}{\rho^2} =  \left( \frac{\partial e}{\partial \rho} \right)_s .
+\]</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Speed of sound, <span class="math notranslate nohighlight">\(\ a(\rho, s)\)</span>.<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">As it should be clear from the study of hyperbolic systems, the speed of sound <span class="math notranslate nohighlight">\(a\)</span> can be defined as</p>
+<div class="math notranslate nohighlight">
+\[a^2(\rho, s) = \left( \frac{\partial p}{\partial \rho} \right)_s \ .\]</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Speed of sound, and change of independent thermodynamic variables<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">All the relations in this box mainly exploit <strong>rule of derivatives of composite functions</strong> and basic thermodynamic relations.</p>
+<p class="sd-card-text">As an example, if the pressure is defined as a function of <span class="math notranslate nohighlight">\((\rho, e)\)</span>, and the relation <span class="math notranslate nohighlight">\(e(\rho,s)\)</span> is known, with pressure can be written as <span class="math notranslate nohighlight">\(p(\rho, e) = p(\rho, e(\rho,s))\)</span>. With the derivation of the composite function, an alternative expression of the speed of sound follows</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  a^2
+  &amp; = \left( \frac{\partial p}{\partial \rho} \right)_s = \\
+  &amp; = \left( \frac{\partial p}{\partial \rho} \right)_e + \left( \frac{\partial e}{\partial \rho} \right)_s \left( \frac{\partial p}{\partial e} \right)_\rho = \\
+  &amp; = \left( \frac{\partial p}{\partial \rho} \right)_e + \frac{p}{\rho^2} \left( \frac{\partial p}{\partial e} \right)_\rho \ .
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">Conservative variables of Euler equations are <span class="math notranslate nohighlight">\((\rho, \vec{m}, E^t) = \left( \rho, \rho \vec{u}, \rho \left( e + \frac{|\vec{u}^2}{2} \right) \right)\)</span>. Pressure as a function of conservative variable reads</p>
+<div class="math notranslate nohighlight">
+\[p = \Pi \left( \rho, \vec{m}, E^t \right) = \Pi \left( \rho, \rho \vec{u}, \rho e(\rho,s) + \rho \frac{|\vec{u}|^2}{2} \right)\]</div>
+</div>
+</details></div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Constitutive equations for an ideal Newtonian fluid<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<ul class="simple">
+<li><p class="sd-card-text">Stress tensor <span class="math notranslate nohighlight">\(\mathbb{T} = - p \mathbb{I}\)</span></p></li>
+<li><p class="sd-card-text">Stress vector <span class="math notranslate nohighlight">\(\vec{t}_{\hat{n}} = \hat{n} \cdot \mathbb{T} = - p \hat{n}\)</span></p></li>
+<li><p class="sd-card-text">Heat conduction flux <span class="math notranslate nohighlight">\(\vec{q} = \vec{0}\)</span></p></li>
+</ul>
+</div>
+</details></div>
+<div class="section" id="integral-equations">
+<span id="pde-hyperbolic-nd-euler-integral"></span><h2><span class="section-number">28.7.3.2. </span>Integral equations<a class="headerlink" href="#integral-equations" title="Permalink to this heading">#</a></h2>
+<p>Conservative variables and flux are respectively</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{u} = \begin{bmatrix} \rho \\ \vec{m} \\ E^t \end{bmatrix} 
+\quad , \quad
+\mathbf{F} = \begin{bmatrix} \vec{m} \\ \frac{\vec{m} \otimes \vec{m}}{\rho} + p \mathbb{I} \\ H^t \frac{\vec{m}}{\rho} \end{bmatrix}
+\end{split}\]</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Integral equations for a control volume <span class="math notranslate nohighlight">\(\ V \ \)</span> at rest<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Integral equation for a control volume at rest <span class="math notranslate nohighlight">\(V\)</span> immediately follows from the three principles of classial mechanics: conservation of mass, 2-nd principle of Newtonian dynamics, 1-st principle of thermodynamics</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \frac{d}{dt} \int_{V} \rho         + \oint_{\partial V} \rho         \vec{u} \cdot \hat{n} &amp; = 0 \\
+  \frac{d}{dt} \int_{V} \rho \vec{u} + \oint_{\partial V} \rho \vec{u} \vec{u} \cdot \hat{n} &amp; = - \oint_{\partial V} p \hat{n} \\
+  \frac{d}{dt} \int_{V} \rho e^t     + \oint_{\partial V} \rho e^t     \vec{u} \cdot \hat{n} &amp; = - \oint_{\partial V} p \vec{u} \cdot \hat{n} \\
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">with the need for an equation of state with the expression of pressure <span class="math notranslate nohighlight">\(p\)</span> as a function of the dynamical variables <span class="math notranslate nohighlight">\(p = \Pi(\rho, \vec{u}, e^t)\)</span>. Using conservative variables <span class="math notranslate nohighlight">\((\rho, \vec{m}, E^t) = (\rho, \rho \vec{u}, \rho e^t)\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \frac{d}{dt} \int_{V} \rho    + \oint_{\partial V} \vec{m} \cdot \hat{n} &amp; = 0 \\
+  \frac{d}{dt} \int_{V} \vec{m} + \oint_{\partial V} \left( \frac{\vec{m} \otimes \vec{m}}{\rho} + p \mathbb{I} \right) \cdot \hat{n} &amp; = 0 \\
+  \frac{d}{dt} \int_{V} E^t     + \oint_{\partial V} H^t \frac{\vec{m}}{\rho} \cdot \hat{n} &amp; = 0 \ .
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">having defined the total enthalpy per unit volume</p>
+<div class="math notranslate nohighlight">
+\[H^t = \rho h^t = \rho \left( e^t + \frac{p}{\rho} \right) = \rho \left( e + \frac{p}{\rho} + \frac{|\vec{u}|^2}{2} \right) = \rho \left( h + \frac{|\vec{v}|^2}{2} \right) \ .\]</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Integral equations for an arbitrary domain <span class="math notranslate nohighlight">\(\ v_t \ \)</span><div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Integral equation for an arbitrary domain <span class="math notranslate nohighlight">\(v_t\)</span>, with <a class="reference internal" href="../tensor-algebra-calculus/time-derivative-of-integrals.html#tensor-calculus-time-derivative-of-integrals-volume-density"><span class="std std-ref">Reynolds’ transport theorem</span></a></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \frac{d}{dt} \int_{v_t} \rho         + \oint_{\partial v_t} \rho         ( \vec{u} - \vec{v}_b ) \cdot \hat{n} &amp; = \\
+  \frac{d}{dt} \int_{v_t} \rho \vec{u} + \oint_{\partial v_t} \rho \vec{u} ( \vec{u} - \vec{v}_b ) \cdot \hat{n} &amp; = \\
+  \frac{d}{dt} \int_{v_t} \rho e^t     + \oint_{\partial v_t} \rho e^t     ( \vec{u} - \vec{v}_b ) \cdot \hat{n} &amp; = \\
+\end{aligned}\end{split}\]</div>
+</div>
+</details><div class="section" id="jump-conditions">
+<span id="pde-hyperbolic-nd-euler-integral-jump"></span><h3><span class="section-number">28.7.3.2.1. </span>Jump conditions<a class="headerlink" href="#jump-conditions" title="Permalink to this heading">#</a></h3>
+<p>Jump conditions <a class="reference internal" href="hyperbolic-nd-draft.html#equation-eq-pde-hyperbolic-jump">(28.1)</a> for Euler equations read</p>
+<div class="math notranslate nohighlight" id="equation-eq-pde-hyperbolic-jump-eule">
+<span class="eqno">(28.2)<a class="headerlink" href="#equation-eq-pde-hyperbolic-jump-eule" title="Permalink to this equation">#</a></span>\[\begin{split}
+  \vec{v}_b \cdot \hat{n} \left[ \left( \begin{matrix} \rho \\ \vec{m} \\ E^t \end{matrix} \right) \right] = \hat{n} \cdot \left[ \left( \begin{matrix} \vec{m} \\\frac{\vec{m} \vec{m}}{\rho} + p \\ H^t \end{matrix} \right) \right]
+\end{split}\]</div>
+</div>
+</div>
+<div class="section" id="differential-equations">
+<span id="pde-hyperbolic-nd-euler-differential"></span><h2><span class="section-number">28.7.3.3. </span>Differential equations<a class="headerlink" href="#differential-equations" title="Permalink to this heading">#</a></h2>
+<p>In regions where the fields are smooth, from integral to differential equations using <a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean.html#tensor-calculus-integrals-theorems"><span class="std std-ref">theorems of differential calculus</span></a></p>
+<div class="section" id="conservative-form">
+<span id="pde-hyperbolic-nd-euler-differential-conservative"></span><h3><span class="section-number">28.7.3.3.1. </span>Conservative form<a class="headerlink" href="#conservative-form" title="Permalink to this heading">#</a></h3>
+</div>
+<div class="section" id="convective-forms">
+<span id="pde-hyperbolic-nd-euler-differential-convective"></span><h3><span class="section-number">28.7.3.3.2. </span>Convective forms<a class="headerlink" href="#convective-forms" title="Permalink to this heading">#</a></h3>
+</div>
+<div class="section" id="spectral-decomposition">
+<span id="pde-hyperbolic-nd-euler-differential-spectrum"></span><h3><span class="section-number">28.7.3.3.3. </span>Spectral decomposition<a class="headerlink" href="#spectral-decomposition" title="Permalink to this heading">#</a></h3>
+<p>It may be convenient to evaluate the spectrum using physical variables <span class="math notranslate nohighlight">\(\mathbf{v} = (\rho, \vec{u}, e)\)</span> and then use the rules for the spectral decomposition after a <a class="reference internal" href="hyperbolic-nd-draft.html#pde-hyperbolic-nd-draft-characteristics-spectrum-change-vars"><span class="std std-ref">change of variables</span></a> to get the spectrum in terms of the conservative variables.</p>
+<p><strong>Transformation of variables.</strong> The tranformation between physical variables <span class="math notranslate nohighlight">\(\mathbf{v} = (\rho, \vec{u}, e)\)</span> and the conservative variables <span class="math notranslate nohighlight">\(\mathbf{u} = ( \rho, \vec{m}, E^t )\)</span> reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+\mathbf{v}(\mathbf{u}) &amp; = \begin{bmatrix} \rho \\ \vec{u} \\ e \end{bmatrix} = \begin{bmatrix} \rho \\ \frac{\vec{m}}{\rho} \\ \frac{E^t}{\rho} - \frac{|\vec{m}|^2}{2 \rho^2} \end{bmatrix}
+\qquad , \qquad
+\mathbf{u}(\mathbf{v}) &amp; = \begin{bmatrix} \rho \\ \vec{m} \\ E^t \end{bmatrix} = \begin{bmatrix} \rho \\ \rho \vec{u} \\ \rho \left( e + \frac{|\vec{u}|^2}{2} \right) \end{bmatrix} \ .
+\end{aligned}\end{split}\]</div>
+<p><strong>Gradients of the transformations.</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{U}_{\mathbf{v}} = 
+\begin{bmatrix}
+  1 &amp; \cdot &amp; \cdot &amp; \cdot \\
+  u &amp; \rho  &amp; \cdot &amp; \cdot \\
+  v &amp; \cdot &amp; \rho  &amp; \cdot \\
+  e + \frac{|\mathbf{u}|^2}{2} &amp; \rho u &amp; \rho v &amp; \rho \\
+\end{bmatrix}
+= 
+\begin{bmatrix}
+ 1 &amp; \cdot &amp; \cdot \\ 
+ \mathbf{u} &amp; \mathbf{I}_2 &amp; \cdot \\
+ e^t &amp; \rho \mathbf{u}^T &amp; \rho
+\end{bmatrix}
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{V}_{\mathbf{u}} = 
+\mathbf{U}_{\mathbf{v}}^{-1} = 
+\begin{bmatrix}
+  1 &amp; \cdot &amp; \cdot &amp; \cdot \\
+  -\frac{u}{\rho} &amp; \frac{1}{\rho}  &amp; \cdot &amp; \cdot \\
+  -\frac{v}{\rho} &amp; \cdot &amp; \frac{1}{\rho}  &amp; \cdot \\
+  \frac{1}{\rho} \left( \frac{|\mathbf{u}|^2}{2} - e \right) &amp; -\frac{ u}{\rho} &amp; -\frac{ v}{\rho} &amp; \frac{1}{\rho} \\
+\end{bmatrix} 
+=
+\begin{bmatrix}
+  1 &amp; \cdot &amp; \cdot \\
+  - \frac{\mathbf{u}}{\rho} &amp; \frac{1}{\rho} \mathbf{I}_2 &amp; \cdot \\
+  \frac{1}{\rho} \left( |\mathbf{u}|^2 - e^t \right) &amp; - \frac{\mathbf{u}^T}{\rho} &amp; \frac{1}{\rho}
+\end{bmatrix} 
+\end{split}\]</div>
+<p><strong>Spectral decomposition of <span class="math notranslate nohighlight">\(\mathbf{A}_{\hat{n}}^{\mathbf{v}}\)</span>, using <span class="math notranslate nohighlight">\(\mathbf{v}=(\rho, \vec{u}, e)\)</span>.</strong> The normal convective matrix using physical variables <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{A}_{\hat{n}}^{\mathbf{v}} = \begin{bmatrix} u_n &amp; \rho \mathbf{n}^T &amp; \cdot \\ \frac{1}{\rho}\partial_\rho p|_e \mathbf{n} &amp; u_n \mathbf{I} &amp; \frac{1}{\rho}\partial_e p|_{\rho} \mathbf{n} \\ \cdot &amp; \frac{p}{\rho} \mathbf{n}^T &amp; u_n \end{bmatrix} \ ,\end{split}\]</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Eigenvalues<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">In a 2-dimensional domain, the system of equations is 4-dimensional, and its eigenvalues are</p>
+<div class="math notranslate nohighlight">
+\[\left\{ u_n - a, u_n, u_n, u_n + a \right\} \ .\]</div>
+<p class="sd-card-text">In a 3-dimensional domain, the system of equations is 5-dimensional, and its eigenvalues are</p>
+<div class="math notranslate nohighlight">
+\[\left\{ u_n - a, u_n, u_n, u_n, u_n + a \right\} \ .\]</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Right eigenvectors<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">In a 2-dimensional domain</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{R}^\mathbf{v} =
+\begin{bmatrix}
+  \rho            &amp; \rho                                                   &amp; 0     &amp; \rho  \\
+ -a n_x           &amp; 0                                                      &amp; a n_y &amp; a n_x \\
+ -a n_y           &amp; 0                                                      &amp;-a n_x &amp; a n_y \\
+  \frac{p}{\rho}  &amp; -\rho \frac{\partial_\rho p|_e}{\partial_e p|_{\rho}}  &amp; 0     &amp; \frac{p}{\rho}
+\end{bmatrix}
+=
+\begin{bmatrix}
+  \rho            &amp; \rho                                                   &amp; 0               &amp; \rho  \\
+ -a \mathbf{n}    &amp; \mathbf{0}                                             &amp; a \mathbf{t}    &amp; a \mathbf{n} \\
+  \frac{p}{\rho}  &amp; -\rho \frac{\partial_\rho p|_e}{\partial_e p|_{\rho}}  &amp; 0               &amp; \frac{p}{\rho}
+\end{bmatrix}
+\end{split}\]</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Left eigenvectors<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">In a 2-dimensional domain</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{L}^\mathbf{v} =
+\begin{bmatrix}
+ \frac{P_\rho}{2 \rho a^2} &amp; - \frac{1}{2a} \mathbf{n}^T &amp; \frac{P_e}{2 \rho a^2} \\
+ \frac{P}{\rho^2} \frac{P_e}{\rho a^2} &amp; \mathbf{0}^T &amp; - \frac{P_e}{\rho a^2} \\
+ 0 &amp; \frac{\mathbf{t}^T}{a} &amp; 0 \\
+ \frac{P_\rho}{2 \rho a^2} &amp; + \frac{1}{2a} \mathbf{n}^T &amp; \frac{P_e}{2 \rho a^2} \\
+\end{bmatrix}
+\end{split}\]</div>
+</div>
+</details><p><strong>Spectral decomposition of <span class="math notranslate nohighlight">\(\mathbf{A}_{\hat{n}}^{\mathbf{u}}\)</span>, using <span class="math notranslate nohighlight">\(\mathbf{u}=(\rho, \vec{m}, E^t)\)</span>.</strong></p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Right eigenvectors<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">In a 2-dimensional domain</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{R}^\mathbf{u} =
+\begin{bmatrix}
+  \rho                           &amp; \rho                                                         &amp; 0                 &amp; \rho                      \\
+  \vec{m} - \rho a \hat{n}       &amp; \vec{m}                                                      &amp; \rho a \hat{t}    &amp; \vec{m} + \rho a \hat{n}  \\
+  H^t - m_n a                    &amp; \frac{|\vec{m}|^2}{\rho} - \rho \frac{\Pi_{\rho}}{\Pi_{E^t}} &amp; a m_t             &amp; H^t + m_n a                  
+\end{bmatrix}
+\end{split}\]</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Left eigenvectors<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">In a 2-dimensional domain</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{L}^\mathbf{u} =
+\frac{1}{2 \rho a^2}
+\begin{bmatrix}
+  \Pi_\rho + a u_n &amp; - a n_x + \Pi_{m_x}  &amp; - a n_y + \Pi_{m_y} &amp; \Pi_{E^t} \\
+   2 a^2 - 2 \Pi_{\rho} &amp; - 2 \Pi_{m_x} &amp; 2 - \Pi_{m_y} &amp; - 2 \Pi_{E^t} \\
+  - 2 a u_t &amp; 2 a t_x &amp; 2 a t_y &amp; 0 \\
+  \Pi_\rho - a u_n &amp;   a n_x + \Pi_{m_x}  &amp;   a n_y + \Pi_{m_y} &amp; \Pi_{E^t} \\
+\end{bmatrix}
+\end{split}\]</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Some algebra<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Right eigenvectors w.r.t. conservative variables are</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+\mathbf{R}^\mathbf{u} = \mathbf{U}_{\mathbf{v}} \mathbf{R}^{\mathbf{v}} 
+&amp; =
+\begin{bmatrix}
+  \rho &amp; \rho &amp; 0 &amp; \rho \\
+  \rho u - \rho a n_x &amp; \rho u &amp; \rho a n_y &amp; \rho u + \rho a n_x \\
+  \rho u - \rho a n_y &amp; \rho v &amp;-\rho a n_x &amp; \rho u + \rho a n_y \\
+  \rho e^t - \rho u_n a + p &amp; \rho e^t - \rho^2 \frac{P_\rho}{P_e} &amp; \rho a u_t &amp; \rho e^t + \rho u_n a + p 
+\end{bmatrix} = \\
+&amp; =
+\begin{bmatrix}
+  \rho &amp; \rho &amp; 0 &amp; \rho \\
+  \rho u - \rho a n_x &amp; \rho u &amp; \rho a n_y &amp; \rho u + \rho a n_x \\
+  \rho u - \rho a n_y &amp; \rho v &amp;-\rho a n_x &amp; \rho u + \rho a n_y \\
+  \rho h^t - \rho u_n a &amp; \rho e^t - \rho^2 \frac{P_\rho}{P_e} &amp; \rho a u_t &amp; \rho h^t + \rho u_n a
+\end{bmatrix} \ ,
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">with <span class="math notranslate nohighlight">\(h^t = e^t + \frac{|\mathbf{u}|^2}{2}\)</span>, and</p>
+<div class="math notranslate nohighlight">
+\[\rho e^t - \rho^2 \frac{P_\rho}{P_e} = \rho e^t + P - P - \rho^2 \frac{P_\rho}{P_e} = \rho h^t - \frac{\rho^2}{P_e} \left( \frac{P}{\rho^2} P_e + P_\rho \right) = \rho h^t - \frac{\rho^2}{P_e} a^2 \ .\]</div>
+<p class="sd-card-text">Or using the derivatives of <span class="math notranslate nohighlight">\(\Pi(\rho, \mathbf{m}, E^t)\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  E^t - \rho^2 \frac{P_\rho}{P_e} 
+  &amp; = E^t - \rho^2 \frac{\partial_\rho \Pi - \partial_{E^t} \Pi (-e^t + |\mathbf{u}|^2)}{\rho \partial_{E^t} \Pi } = \\
+  &amp; = E^t - \rho \frac{\partial_\rho \Pi}{\partial_{E^t} \Pi} - E^t + \rho |\mathbf{u}|^2 = \\
+  &amp; = \rho |\mathbf{u}|^2 - \rho \frac{\partial_\rho \Pi}{\partial_{E^t} \Pi} \ .
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">Left eigenvectors w.r.t. conservative variables are</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+\mathbf{L}^\mathbf{u} = \mathbf{L}^{\mathbf{v}} \mathbf{V}_{\mathbf{u}} 
+&amp; = 
+\begin{bmatrix}
+  \frac{P_\rho}{2 \rho a^2} + \frac{u_n}{2 \rho a} + \frac{1}{2 \rho a^2} \frac{P_e}{\rho} (|\mathbf{u}|^2 - e^t) &amp; 
+  - \frac{1}{2 \rho a} n_x - \frac{u}{2 \rho a^2}\frac{P_e}{\rho} &amp;
+  - \frac{1}{2 \rho a} n_y - \frac{v}{2 \rho a^2}\frac{P_e}{\rho} &amp;
+  \frac{P_e}{2 \rho^2 a^2} \\
+  \frac{P}{\rho^2}\frac{P_e}{\rho a^2} - \frac{P_e}{\rho a^2} \frac{|\mathbf{u}|^2 - e^t}{\rho} &amp;
+    \frac{P_e}{\rho a^2} \frac{u}{\rho} &amp;
+    \frac{P_e}{\rho a^2} \frac{v}{\rho} &amp;
+  - \frac{P_e}{\rho^2 a^2} \\
+  - \frac{u_t}{\rho a} &amp; \frac{t_x}{\rho a} &amp; \frac{t_y}{\rho a} &amp; 0 \\
+  \frac{P_\rho}{2 \rho a^2} - \frac{u_n}{2 \rho a} + \frac{1}{2 \rho a^2} \frac{P_e}{\rho} (|\mathbf{u}|^2 - e^t) &amp; 
+    \frac{1}{2 \rho a} n_x - \frac{u}{2 \rho a^2}\frac{P_e}{\rho} &amp;
+    \frac{1}{2 \rho a} n_y - \frac{v}{2 \rho a^2}\frac{P_e}{\rho} &amp;
+  \frac{P_e}{2 \rho^2 a^2} \\
+\end{bmatrix} = \\
+&amp; =
+\frac{1}{2 \rho a^2}
+\begin{bmatrix}
+  \Pi_\rho + a u_n &amp; - a n_x + \Pi_{m_x}  &amp; - a n_y + \Pi_{m_y} &amp; \Pi_{E^t} \\
+   2 a^2 - 2 \Pi_{\rho} &amp; - 2 \Pi_{m_x} &amp; 2 - \Pi_{m_y} &amp; - 2 \Pi_{E^t} \\
+  - 2 a u_t &amp; 2 a t_x &amp; 2 a t_y &amp; 0 \\
+  \Pi_\rho - a u_n &amp;   a n_x + \Pi_{m_x}  &amp;   a n_y + \Pi_{m_y} &amp; \Pi_{E^t} \\
+\end{bmatrix}
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">being</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \Pi_\rho &amp; = P_\rho + \frac{ P_e }{\rho} \left( - e^t + |\mathbf{u}|^2 \right) \\
+  \Pi_{\mathbf{m}} &amp; = -\frac{\mathbf{u}}{\rho} P_e \\
+  \Pi_{E^t} &amp; = \frac{1}{\rho} P_e
+\end{aligned}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+2 \frac{P}{\rho^2} P_e - 2 P_e \frac{|\mathbf{u}|^2 - e^t}{\rho}
+&amp; = 2 \frac{P}{\rho^2} P_e + 2 P_\rho - 2 \Pi_\rho = \\
+&amp; = 2 a^2 - 2 \Pi_\rho
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">and the speed of sound</p>
+<div class="math notranslate nohighlight">
+\[a^2(\rho,s) = \partial_\rho P|_s\]</div>
+<p class="sd-card-text">with <span class="math notranslate nohighlight">\(P(\rho, e(\rho,s))\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  a^2 
+  &amp; = \partial_\rho P|_e + \partial_\rho e|_s \, \partial_e P|_\rho  = \\
+  &amp; = \partial_\rho P|_e + \frac{P}{\rho^2}\partial_e \, P|_\rho  \ .
+\end{aligned}\end{split}\]</div>
+</div>
+</details><ul class="simple">
+<li><p>Eigenvalues, right and left eigenvectors</p></li>
+<li><p>Characteristic lines/surfaces, and compatibility conditions</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="riemann-problem">
+<span id="pde-hyperbolic-nd-euler-riemann"></span><h2><span class="section-number">28.7.3.4. </span>Riemann problem<a class="headerlink" href="#riemann-problem" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Useful in numerical schemes in finite volume methods, using Godunov flux</p></li>
+</ul>
+<div class="section" id="linearization-roe-intermediate-state">
+<span id="pde-hyperbolic-nd-euler-riemann-roe"></span><h3><span class="section-number">28.7.3.4.1. </span>Linearization - Roe intermediate state<a class="headerlink" href="#linearization-roe-intermediate-state" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Local linearization of the problem, to reduce the computational cost of solving non-linear Riemann problems at all the interfaces in a grid in FVM</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="boundary-conditions">
+<span id="pde-hyperbolic-nd-euler-bc"></span><h2><span class="section-number">28.7.3.5. </span>Boundary conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>characteristic-based</p></li>
+<li><p>wall</p></li>
+<li><p>…</p></li>
+</ul>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./ch/pde"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="hyperbolic-nd-psys.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">28.7.2. </span>P-system</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="hyperbolic-nd-shallow-water.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">28.7.4. </span>Shallow water</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thermodynamics-and-constitutive-equations">28.7.3.1. Thermodynamics and constitutive equations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integral-equations">28.7.3.2. Integral equations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jump-conditions">28.7.3.2.1. Jump conditions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differential-equations">28.7.3.3. Differential equations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conservative-form">28.7.3.3.1. Conservative form</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convective-forms">28.7.3.3.2. Convective forms</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spectral-decomposition">28.7.3.3.3. Spectral decomposition</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#riemann-problem">28.7.3.4. Riemann problem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linearization-roe-intermediate-state">28.7.3.4.1. Linearization - Roe intermediate state</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boundary-conditions">28.7.3.5. Boundary conditions</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By basics
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

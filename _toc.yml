@@ -84,6 +84,12 @@ parts:
     - file: ch/pde/hyperbolic-1d-scalar-nonlinear
 #   - file: ch/pde/hyperbolic-scalar-linear
     - file: ch/pde/characteristics
+    - file: ch/pde/hyperbolic-nd
+      sections:
+      - file: ch/pde/hyperbolic-nd-draft
+      - file: ch/pde/hyperbolic-nd-psys
+      - file: ch/pde/hyperbolic-nd-euler
+      - file: ch/pde/hyperbolic-nd-shallow-water
     - file: ch/pde/hyperbolic-riemann-pb
   - file: ch/pde/nc
   - file: ch/pde/ns

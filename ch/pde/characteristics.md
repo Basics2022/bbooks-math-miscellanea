@@ -1,6 +1,9 @@
 (pde:hyperbolic:characteristics)=
 # Method of characteristics
 
+<span style="color:red"> This page is an old version of the material. It contains some useful and (incredibly?) interesting things, but it will be used to write new pages first and eventually deleted. Check all the **cross-references**</span>
+
+
 ## Scalar multi-dimensional problem
 
 $$\begin{aligned}
