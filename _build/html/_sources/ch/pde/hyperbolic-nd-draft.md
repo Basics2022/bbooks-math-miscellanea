@@ -64,9 +64,17 @@ being $[ \ \cdot \ ] =  (\cdot)_{+} - (\cdot)_{-}$ the jump across the surface.
 (pde:hyperbolic:nd:draft:differential)=
 ## Differential equations
 
-In regions where the fields are smooth, differential equations follow from integral equations using [theorems of differential calculus](tensor:calculus:integrals:theorems). Conservative form of the differential equations reads
+In regions where the fields are smooth, differential equations follow from integral equations using [theorems of differential calculus](tensor:calculus:integrals:theorems). 
 
-$$\partial_t \mathbf{u} + \nabla \cdot \mathbf{F}(\mathbf{u}) = \mathbf{s} \ .$$
+
+(pde:hyperbolic:nd:draft:differential:conservative)=
+## Conservative form
+
+Conservative form of the differential equations reads
+
+$$
+  \partial_t \mathbf{u} + \nabla \cdot \mathbf{F}(\mathbf{u}) = \mathbf{s} \ .
+$$(eq:pde:hyperbolic:differential:conservative)
 
 ```{dropdown} From integral equations on $\ V \ $ to conservative form of differential equations
 
@@ -126,7 +134,6 @@ having defined $A_{i \ell}^{(k)} = \partial_{u_{\ell}} F_{ki}$, or using vector 
 $$\partial_t \mathbf{u} + \sum_{k=1}^{d} \mathbf{A}^{(k)}(\mathbf{u}) \partial_k \mathbf{u} = \mathbf{s} \ .$$
 
 ```
-
 
 (pde:hyperbolic:nd:draft:characteristics)=
 ## Method of characteristics

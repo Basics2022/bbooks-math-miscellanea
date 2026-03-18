@@ -531,16 +531,17 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differential-equations">28.7.1.2. Differential equations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method-of-characteristics">28.7.1.3. Method of characteristics</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spectral-decomposition">28.7.1.3.1. Spectral decomposition</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#change-of-variables">28.7.1.3.2. Change of variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conservative-form">28.7.1.3. Conservative form</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method-of-characteristics">28.7.1.4. Method of characteristics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spectral-decomposition">28.7.1.4.1. Spectral decomposition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#change-of-variables">28.7.1.4.2. Change of variables</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#riemann-problem">28.7.1.4. Riemann problem</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linearization-roe-intermediate-state">28.7.1.4.1. Linearization - Roe intermediate state</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#riemann-problem">28.7.1.5. Riemann problem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linearization-roe-intermediate-state">28.7.1.5.1. Linearization - Roe intermediate state</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boundary-conditions">28.7.1.5. Boundary conditions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boundary-conditions">28.7.1.6. Boundary conditions</a></li>
 </ul>
             </nav>
         </div>
@@ -621,9 +622,15 @@ From integral equations on <span class="math notranslate nohighlight">\(\ v_t \ 
 </div>
 <div class="section" id="differential-equations">
 <span id="pde-hyperbolic-nd-draft-differential"></span><h2><span class="section-number">28.7.1.2. </span>Differential equations<a class="headerlink" href="#differential-equations" title="Permalink to this heading">#</a></h2>
-<p>In regions where the fields are smooth, differential equations follow from integral equations using <a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean.html#tensor-calculus-integrals-theorems"><span class="std std-ref">theorems of differential calculus</span></a>. Conservative form of the differential equations reads</p>
-<div class="math notranslate nohighlight">
-\[\partial_t \mathbf{u} + \nabla \cdot \mathbf{F}(\mathbf{u}) = \mathbf{s} \ .\]</div>
+<p>In regions where the fields are smooth, differential equations follow from integral equations using <a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean.html#tensor-calculus-integrals-theorems"><span class="std std-ref">theorems of differential calculus</span></a>.</p>
+</div>
+<div class="section" id="conservative-form">
+<span id="pde-hyperbolic-nd-draft-differential-conservative"></span><h2><span class="section-number">28.7.1.3. </span>Conservative form<a class="headerlink" href="#conservative-form" title="Permalink to this heading">#</a></h2>
+<p>Conservative form of the differential equations reads</p>
+<div class="math notranslate nohighlight" id="equation-eq-pde-hyperbolic-differential-conservative">
+<span class="eqno">(28.2)<a class="headerlink" href="#equation-eq-pde-hyperbolic-differential-conservative" title="Permalink to this equation">#</a></span>\[
+  \partial_t \mathbf{u} + \nabla \cdot \mathbf{F}(\mathbf{u}) = \mathbf{s} \ .
+\]</div>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 From integral equations on <span class="math notranslate nohighlight">\(\ V \ \)</span> to conservative form of differential equations<div class="sd-summary-down docutils">
@@ -684,9 +691,9 @@ From conservative form to convective form of differential equations<div class="s
 </div>
 </details></div>
 <div class="section" id="method-of-characteristics">
-<span id="pde-hyperbolic-nd-draft-characteristics"></span><h2><span class="section-number">28.7.1.3. </span>Method of characteristics<a class="headerlink" href="#method-of-characteristics" title="Permalink to this heading">#</a></h2>
+<span id="pde-hyperbolic-nd-draft-characteristics"></span><h2><span class="section-number">28.7.1.4. </span>Method of characteristics<a class="headerlink" href="#method-of-characteristics" title="Permalink to this heading">#</a></h2>
 <div class="section" id="spectral-decomposition">
-<span id="pde-hyperbolic-nd-draft-characteristics-spectrum"></span><h3><span class="section-number">28.7.1.3.1. </span>Spectral decomposition<a class="headerlink" href="#spectral-decomposition" title="Permalink to this heading">#</a></h3>
+<span id="pde-hyperbolic-nd-draft-characteristics-spectrum"></span><h3><span class="section-number">28.7.1.4.1. </span>Spectral decomposition<a class="headerlink" href="#spectral-decomposition" title="Permalink to this heading">#</a></h3>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Summary of method of characteristics in multi-dimensional domains.<div class="sd-summary-down docutils">
@@ -790,7 +797,7 @@ Summary of method of characteristics in multi-dimensional domains.<div class="sd
 </div>
 </details></div>
 <div class="section" id="change-of-variables">
-<span id="pde-hyperbolic-nd-draft-characteristics-spectrum-change-vars"></span><h3><span class="section-number">28.7.1.3.2. </span>Change of variables<a class="headerlink" href="#change-of-variables" title="Permalink to this heading">#</a></h3>
+<span id="pde-hyperbolic-nd-draft-characteristics-spectrum-change-vars"></span><h3><span class="section-number">28.7.1.4.2. </span>Change of variables<a class="headerlink" href="#change-of-variables" title="Permalink to this heading">#</a></h3>
 <p>Let <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> the set of conservative variables<a class="footnote-reference brackets" href="#spectral-cons-phys" id="id1">1</a> and let <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> another set of variables. Let the transfomration of variables <span class="math notranslate nohighlight">\(\mathbf{v}(\mathbf{u})\)</span> be invertible and let <span class="math notranslate nohighlight">\(\mathbf{u}(\mathbf{v})\)</span> be the inverse transformation. Let <span class="math notranslate nohighlight">\(\mathbf{U}_{\mathbf{v}}\)</span> the gradient of the transformation <span class="math notranslate nohighlight">\(\mathbf{u}(\mathbf{v})\)</span> w.r.t. variables <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{V}_{\mathbf{u}}\)</span> the gradient of the inverse transformation <span class="math notranslate nohighlight">\(\mathbf{v}(\mathbf{u})\)</span>, so that the differentials of the variables read</p>
 <div class="math notranslate nohighlight">
 \[d \mathbf{u} = \mathbf{U}_{\mathbf{v}} d \mathbf{v} \quad , \quad d \mathbf{v} = \mathbf{V}_{\mathbf{u}} d \mathbf{u} \ .\]</div>
@@ -878,19 +885,19 @@ Change of variables and spectral decomposition of the matrix <span class="math n
 </div>
 </div>
 <div class="section" id="riemann-problem">
-<span id="pde-hyperbolic-nd-draft-riemann"></span><h2><span class="section-number">28.7.1.4. </span>Riemann problem<a class="headerlink" href="#riemann-problem" title="Permalink to this heading">#</a></h2>
+<span id="pde-hyperbolic-nd-draft-riemann"></span><h2><span class="section-number">28.7.1.5. </span>Riemann problem<a class="headerlink" href="#riemann-problem" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Useful in numerical schemes in finite volume methods, using Godunov flux</p></li>
 </ul>
 <div class="section" id="linearization-roe-intermediate-state">
-<span id="pde-hyperbolic-nd-draft-riemann-roe"></span><h3><span class="section-number">28.7.1.4.1. </span>Linearization - Roe intermediate state<a class="headerlink" href="#linearization-roe-intermediate-state" title="Permalink to this heading">#</a></h3>
+<span id="pde-hyperbolic-nd-draft-riemann-roe"></span><h3><span class="section-number">28.7.1.5.1. </span>Linearization - Roe intermediate state<a class="headerlink" href="#linearization-roe-intermediate-state" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Local linearization of the problem, to reduce the computational cost of solving non-linear Riemann problems at all the interfaces in a grid in FVM</p></li>
 </ul>
 </div>
 </div>
 <div class="section" id="boundary-conditions">
-<span id="pde-hyperbolic-nd-draft-bc"></span><h2><span class="section-number">28.7.1.5. </span>Boundary conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this heading">#</a></h2>
+<span id="pde-hyperbolic-nd-draft-bc"></span><h2><span class="section-number">28.7.1.6. </span>Boundary conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>characteristic-based</p></li>
 <li><p>wall</p></li>
@@ -973,16 +980,17 @@ Change of variables and spectral decomposition of the matrix <span class="math n
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differential-equations">28.7.1.2. Differential equations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method-of-characteristics">28.7.1.3. Method of characteristics</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spectral-decomposition">28.7.1.3.1. Spectral decomposition</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#change-of-variables">28.7.1.3.2. Change of variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conservative-form">28.7.1.3. Conservative form</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#method-of-characteristics">28.7.1.4. Method of characteristics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spectral-decomposition">28.7.1.4.1. Spectral decomposition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#change-of-variables">28.7.1.4.2. Change of variables</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#riemann-problem">28.7.1.4. Riemann problem</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linearization-roe-intermediate-state">28.7.1.4.1. Linearization - Roe intermediate state</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#riemann-problem">28.7.1.5. Riemann problem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linearization-roe-intermediate-state">28.7.1.5.1. Linearization - Roe intermediate state</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boundary-conditions">28.7.1.5. Boundary conditions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boundary-conditions">28.7.1.6. Boundary conditions</a></li>
 </ul>
   </nav></div>
 

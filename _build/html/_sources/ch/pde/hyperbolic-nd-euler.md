@@ -14,24 +14,30 @@
 
 The differential of the internal energy as a function of $s, \rho$ as independent thermodynamic variables, $e(\rho, s)$ reads
 
-$$de = T \, ds + \frac{p}{\rho^2} d \rho \ ,$$
+$$
+  de = T \, ds + \frac{p}{\rho^2} d \rho \ ,
+$$(eq:pde:hyperbolic:euler:first-principle)
 
-from the principles of thermodynamics, and the definition of the entropy $s$ in classical thermodynamics. Following Gibbs' mathematical foundation of classical thermodynamics, it immediately follows 
+from the principles of thermodynamics, and the definition of the entropy $s$ in classical thermodynamics. Following [Gibbs' mathematical foundation of classical thermodynamics](https://basics2022.github.io/bbooks-physics-thermodynamics/ch/principles-gibbs-phase-rule.html), the partial derivatives of the internal energy can be related to temperature, pressure and density
 
 $$
-T = \left( \frac{\partial e}{\partial s} \right)_\rho
-\quad , \quad
-\frac{p}{\rho^2} =  \left( \frac{\partial e}{\partial \rho} \right)_s .
-$$
+  T = \left( \frac{\partial e}{\partial s} \right)_\rho
+  \quad , \quad
+  \frac{p}{\rho^2} =  \left( \frac{\partial e}{\partial \rho} \right)_s .
+$$(eq:pde:hyperbolic:euler:first-principle:partial-ders)
 
 ```
 
 ```{dropdown} Speed of sound, $\ a(\rho, s)$.
 :open:
 
-As it should be clear from the study of hyperbolic systems, the speed of sound $a$ can be defined as
+As it should be clear from the study of Euler equations as an hyperbolic system  the speed of sound $a$ can be defined as
 
-$$a^2(\rho, s) = \left( \frac{\partial p}{\partial \rho} \right)_s \ .$$
+$$
+  a^2(\rho, s) = \left( \frac{\partial p}{\partial \rho} \right)_s \ .
+$$(eq:pde:hyperbolic:euler:speed-of-sound:rho-s)
+
+As an example, the definition of the speed of sound appears in two of the eigenvalues of the system, as shown in {eq}`eq:pde:hyperbolic:differential:convective:euler:rho-u-s:eigval` using the convective form {eq}`eq:pde:hyperbolic:differential:convective:euler:rho-u-s:mat` of the equations using $(\rho, \vec{u}, s)$ as primary variables.
 
 ```
 
@@ -47,13 +53,11 @@ $$\begin{aligned}
   & = \left( \frac{\partial p}{\partial \rho} \right)_s = \\
   & = \left( \frac{\partial p}{\partial \rho} \right)_e + \left( \frac{\partial e}{\partial \rho} \right)_s \left( \frac{\partial p}{\partial e} \right)_\rho = \\
   & = \left( \frac{\partial p}{\partial \rho} \right)_e + \frac{p}{\rho^2} \left( \frac{\partial p}{\partial e} \right)_\rho \ .
-\end{aligned}$$
+\end{aligned}$$(eq:pde:hyperbolic:euler:speed-of-sound:rho-e)
 
 Conservative variables of Euler equations are $(\rho, \vec{m}, E^t) = \left( \rho, \rho \vec{u}, \rho \left( e + \frac{|\vec{u}^2}{2} \right) \right)$. Pressure as a function of conservative variable reads
 
 $$p = \Pi \left( \rho, \vec{m}, E^t \right) = \Pi \left( \rho, \rho \vec{u}, \rho e(\rho,s) + \rho \frac{|\vec{u}|^2}{2} \right)$$
-
-
 
 ```
 
@@ -74,10 +78,12 @@ $$p = \Pi \left( \rho, \vec{m}, E^t \right) = \Pi \left( \rho, \rho \vec{u}, \rh
 Conservative variables and flux are respectively
 
 $$
-\mathbf{u} = \begin{bmatrix} \rho \\ \vec{m} \\ E^t \end{bmatrix} 
-\quad , \quad
-\mathbf{F} = \begin{bmatrix} \vec{m} \\ \frac{\vec{m} \otimes \vec{m}}{\rho} + p \mathbb{I} \\ H^t \frac{\vec{m}}{\rho} \end{bmatrix}
+\mathbf{u} = \begin{bmatrix} \rho \\ \vec{m} \\ E^t \end{bmatrix}
+$$(eq:pde:hyperbolic:cons-vars:euler)
+
 $$
+\mathbf{F} = \begin{bmatrix} \vec{m} \\ \frac{\vec{m} \otimes \vec{m}}{\rho} + p \mathbb{I} \\ H^t \frac{\vec{m}}{\rho} \end{bmatrix}
+$$(eq:pde:hyperbolic:flux:euler)
 
 ```{dropdown} Integral equations for a control volume $\ V \ $ at rest
 
@@ -122,7 +128,7 @@ Jump conditions {eq}`eq:pde:hyperbolic:jump` for Euler equations read
 
 $$
   \vec{v}_b \cdot \hat{n} \left[ \left( \begin{matrix} \rho \\ \vec{m} \\ E^t \end{matrix} \right) \right] = \hat{n} \cdot \left[ \left( \begin{matrix} \vec{m} \\\frac{\vec{m} \vec{m}}{\rho} + p \\ H^t \end{matrix} \right) \right]
-$$(eq:pde:hyperbolic:jump:eule)
+$$(eq:pde:hyperbolic:jump:euler)
 
 (pde:hyperbolic:nd:euler:differential)=
 ## Differential equations
@@ -132,8 +138,138 @@ In regions where the fields are smooth, from integral to differential equations 
 (pde:hyperbolic:nd:euler:differential:conservative)=
 ### Conservative form
 
+Conservative form of the differential equations immediately follows introducing the expressions {eq}`eq:pde:hyperbolic:cons-vars:euler` of the conservative variables and {eq}`eq:pde:hyperbolic:flux:euler` of the flux in the general expression of the conservative form of hyperbolic problems {eq}`eq:pde:hyperbolic:differential:conservative`
+
+$$
+  \partial_t \begin{bmatrix}  \rho \\ \vec{m} \\ E^t \end{bmatrix} + \nabla \cdot \begin{bmatrix} \vec{m} \\ \frac{\vec{m}\otimes\vec{m}}{\rho} + p \mathbb{I} \\ H^t \frac{\vec{m}}{\rho}  \end{bmatrix} = \mathbf{0} \ .
+$$(eq:pde:hyperbolic:differential:conservative:euler)
+
 (pde:hyperbolic:nd:euler:differential:convective)=
 ### Convective forms
+
+```{dropdown} Convective form with conservative variables
+:open:
+
+Using Cartesian coordinates for a 2-dimensional domain,
+
+$$\begin{cases}
+  \partial_t \rho + \partial_x m_x + \partial_y m_y = 0 \\
+  \partial_t m_x + \partial_x \left( \frac{m_x^2}{\rho} + \Pi \right) + \partial_y \left( \frac{m_x m_y}{\rho}     \right) = 0 \\
+  \partial_t m_y + \partial_x \left( \frac{m_x m_y}{\rho}     \right) + \partial_y \left( \frac{m_y^2}{\rho} + \Pi \right) = 0 \\
+  \partial_t E^t + \partial_x \left( \left( E^t + \Pi \right) \frac{m_x}{\rho} \right) + \partial_y \left( \left( E^t + \Pi \right) \frac{m_y}{\rho} \right) = 0
+\end{cases}$$
+
+$$\begin{cases}
+  \partial_t \rho + \partial_x m_x + \partial_y m_y = 0 \\
+  \partial_t m_x - \frac{m_x^2}{\rho^2} \partial_x \rho + 2 \frac{m_x}{\rho} \partial_x m_x + \partial_x \Pi - \frac{m_x m_y}{\rho^2} \partial_y \rho + \frac{m_y}{\rho} \partial_y m_x + \frac{m_x}{\rho} \partial_y m_y = 0 \\
+  \partial_t m_x  - \frac{m_x m_y}{\rho^2} \partial_x \rho + \frac{m_y}{\rho} \partial_x m_x + \frac{m_x}{\rho} \partial_x m_y - \frac{m_y^2}{\rho^2} \partial_y \rho + 2 \frac{m_y}{\rho} \partial_y m_y + \partial_y \Pi= 0 \\
+  \partial_t E^t - u h^t \partial_x \rho + h^t \partial_x m_x + u \partial_x E^t + u \partial_x \Pi - v h^t \partial_y \rho + h^t \partial_y m_y + v \partial_y E^t + v \partial_y \Pi = 0
+\end{cases}$$
+
+and using the matrix formalism
+
+$$\begin{aligned}
+  \partial_t \begin{bmatrix} \rho \\ m_x \\ m_y \\ E^t \end{bmatrix} 
+ & + \begin{bmatrix}
+  0 & 1  & 0 & 0 \\
+  -u^2 + \Pi_{\rho} & 2 u + \Pi_u & \Pi_v & \Pi_{E^t}  \\
+  -uv    & v & u & \cdot \\
+  (-h^t + \Pi_\rho ) u & h^t + u \Pi_{m_x} & u \Pi_{m_y} & u ( 1 + \Pi_{E^t} ) \\
+   \end{bmatrix} \partial_x \begin{bmatrix} \rho \\ m_x \\ m_y \\ E^t \end{bmatrix} + \\
+ & + \begin{bmatrix}
+  0 & 0 & 1 & 0 \\
+  -uv    & v & u & \cdot \\
+  -v^2 + \Pi_{\rho} & \Pi_u & 2 v + \Pi_v & \Pi_{E^t} \\
+  ( -h^t + \Pi_\rho ) v & v \Pi_{m_x} & h^t + v \Pi_{m_y} & v ( 1 + \Pi_{E^t} ) \\
+   \end{bmatrix} \partial_y \begin{bmatrix} \rho \\ m_x \\ m_y \\ E^t \end{bmatrix} = \mathbf{0}
+\end{aligned}$$(eq:pde:hyperbolic:differential:convective:euler:cons-vars:mat)
+
+```
+
+```{dropdown} Convective form with primary variables $\ (\rho, \vec{u}, e)$.
+:open:
+
+$$\begin{cases}
+  \partial_t \rho + \rho \nabla \cdot \vec{u} + \vec{u} \cdot \nabla \rho = 0 \\
+  \partial_t \vec{u} + \vec{u} \cdot \nabla \vec{u} + \frac{1}{\rho} \nabla p = \vec{0} \\
+  \partial_t e + \vec{u} \cdot \nabla e + \frac{1}{\rho} p \nabla \cdot \vec{u} = 0 \ .
+\end{cases}$$(eq:pde:hyperbolic:differential:convective:euler:rho-u-e)
+
+or using Cartesian coordinates and matrix formalism
+
+$$\begin{aligned}
+  \partial_t \begin{bmatrix} \rho \\ u \\ v \\ e \end{bmatrix}
+ + \begin{bmatrix}
+   u                      & \rho            & \cdot & \cdot \\
+   \frac{p_\rho|_e}{\rho} & u               & \cdot & \frac{p_e|_\rho}{\rho}  \\
+   \cdot                  & \cdot           & u     & \cdot  \\
+   \cdot                  & \frac{p}{\rho}  & \cdot & u \\
+   \end{bmatrix} \partial_x \begin{bmatrix} \rho \\ u \\ v \\ e \end{bmatrix}
+ + \begin{bmatrix}
+   v                      & \cdot           & \rho           & \cdot \\
+   \cdot                  & v               & \cdot          & \cdot \\
+   \frac{p_\rho|_e}{\rho} & \cdot           & v              & \frac{p_e|_\rho}{\rho}  \\
+   \cdot                  & \cdot           & \frac{p}{\rho} & v \\
+   \end{bmatrix} \partial_y \begin{bmatrix} \rho \\ u \\ v \\ e \end{bmatrix} = \mathbf{0}
+\end{aligned}$$(eq:pde:hyperbolic:differential:convective:euler:rho-u-e:mat)
+
+
+```
+
+```{dropdown} Convective form with primary variables $\ (\rho, \vec{u}, s)$.
+:open:
+
+Using the thermodynamic relation $de = T ds + \frac{p}{\rho^2} d \rho$ and combining mass and internal energy equations, the differential equation $D_t s = 0$ follows for the entropy, having introduced the material derivative $D_t \_ = \partial_t \_ + \vec{u} \cdot \nabla \_$. The convective form of the equations becomes
+
+$$\begin{cases}
+  \partial_t \rho + \rho \nabla \cdot \vec{u} + \vec{u} \cdot \nabla \rho = 0 \\
+  \partial_t \vec{u} + \vec{u} \cdot \nabla \vec{u} + \frac{1}{\rho} \nabla p = \vec{0} \\
+  \partial_t s + \vec{u} \cdot \nabla s = 0 \ .
+\end{cases}$$(eq:pde:hyperbolic:differential:convective:euler:rho-u-s)
+
+or using Cartesian coordinates and matrix formalism in a 2-dimensional domain
+
+$$\begin{aligned}
+  \partial_t \begin{bmatrix} \rho \\ u \\ v \\ s \end{bmatrix}
+ + \begin{bmatrix}
+   u                      & \rho            & \cdot & \cdot \\
+   \frac{p_\rho|_s}{\rho} & u               & \cdot & \frac{p_s|_\rho}{\rho}  \\
+   \cdot                  & \cdot           & u     & \cdot  \\
+   \cdot                  & \cdot           & \cdot & u \\
+   \end{bmatrix} \partial_x \begin{bmatrix} \rho \\ u \\ v \\ s \end{bmatrix}
+ + \begin{bmatrix}
+   v                      & \cdot           & \rho           & \cdot \\
+   \cdot                  & v               & \cdot          & \cdot \\
+   \frac{p_\rho|_s}{\rho} & \cdot           & v              & \frac{p_s|_\rho}{\rho}  \\
+   \cdot                  & \cdot           & \cdot          & v \\
+   \end{bmatrix} \partial_y \begin{bmatrix} \rho \\ u \\ v \\ s \end{bmatrix} = \mathbf{0}
+\end{aligned}$$(eq:pde:hyperbolic:differential:convective:euler:rho-u-s:mat)
+
+Using this expression of the equations, it's pretty easy to find the eigenvalues of the system, evaluating the eigenvalues of the matrix
+
+$$
+\mathbf{A}^{\mathbf{v}}_{\hat{n}} = n_x \mathbf{A}^\mathbf{v}_x + n_y \mathbf{A}^\mathbf{v}_y =
+\begin{bmatrix}
+  u_n & \rho \mathbf{n}^T & \cdot \\
+  \frac{p_\rho|_s}{\rho} & u_n \mathbf{I}_2 &  \frac{p_s|_\rho}{\rho} \\
+  \cdot & \cdot & u_n
+\end{bmatrix}
+$$
+
+as the zeros of the following equation,
+
+$$0 = | \mathbf{A}_{\hat{n}}^{\mathbf{v}} - s \mathbf{I}_4| = ( u_n - s )^2 \left( ( u_n - s )^2 - \left.\frac{\partial p}{\partial \rho}\right|_s \right) = ( u_n - s )^2 \left( ( u_n - s )^2 - a^2 \right) \ ,$$
+
+having used the definition of the spped of sound {eq}`eq:pde:hyperbolic:euler:speed-of-sound:rho-s`. Thus the **eigenvalues of the system** are
+
+$$\begin{aligned}
+  s_{1,4} & = u_n \mp a \\
+  s_{2,3} & = u_n \ .
+\end{aligned}$$(eq:pde:hyperbolic:differential:convective:euler:rho-u-s:eigval)
+
+```
+
+
 
 (pde:hyperbolic:nd:euler:differential:spectrum)=
 ### Spectral decomposition
@@ -143,9 +279,9 @@ It may be convenient to evaluate the spectrum using physical variables $\mathbf{
 **Transformation of variables.** The tranformation between physical variables $\mathbf{v} = (\rho, \vec{u}, e)$ and the conservative variables $\mathbf{u} = ( \rho, \vec{m}, E^t )$ reads
 
 $$\begin{aligned}
-\mathbf{v}(\mathbf{u}) & = \begin{bmatrix} \rho \\ \vec{u} \\ e \end{bmatrix} = \begin{bmatrix} \rho \\ \frac{\vec{m}}{\rho} \\ \frac{E^t}{\rho} - \frac{|\vec{m}|^2}{2 \rho^2} \end{bmatrix}
+\mathbf{v}(\mathbf{u}) = \begin{bmatrix} \rho \\ \vec{u} \\ e \end{bmatrix} = \begin{bmatrix} \rho \\ \frac{\vec{m}}{\rho} \\ \frac{E^t}{\rho} - \frac{|\vec{m}|^2}{2 \rho^2} \end{bmatrix}
 \qquad , \qquad
-\mathbf{u}(\mathbf{v}) & = \begin{bmatrix} \rho \\ \vec{m} \\ E^t \end{bmatrix} = \begin{bmatrix} \rho \\ \rho \vec{u} \\ \rho \left( e + \frac{|\vec{u}|^2}{2} \right) \end{bmatrix} \ .
+\mathbf{u}(\mathbf{v}) = \begin{bmatrix} \rho \\ \vec{m} \\ E^t \end{bmatrix} = \begin{bmatrix} \rho \\ \rho \vec{u} \\ \rho \left( e + \frac{|\vec{u}|^2}{2} \right) \end{bmatrix} \ .
 \end{aligned}$$
 
 **Gradients of the transformations.**
