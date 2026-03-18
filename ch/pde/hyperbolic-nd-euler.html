@@ -573,14 +573,16 @@ Principles of thermodynamics and differential of the internal energy<div class="
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text">The differential of the internal energy as a function of <span class="math notranslate nohighlight">\(s, \rho\)</span> as independent thermodynamic variables, <span class="math notranslate nohighlight">\(e(\rho, s)\)</span> reads</p>
-<div class="math notranslate nohighlight">
-\[de = T \, ds + \frac{p}{\rho^2} d \rho \ ,\]</div>
-<p class="sd-card-text">from the principles of thermodynamics, and the definition of the entropy <span class="math notranslate nohighlight">\(s\)</span> in classical thermodynamics. Following Gibbs’ mathematical foundation of classical thermodynamics, it immediately follows</p>
-<div class="math notranslate nohighlight">
-\[
-T = \left( \frac{\partial e}{\partial s} \right)_\rho
-\quad , \quad
-\frac{p}{\rho^2} =  \left( \frac{\partial e}{\partial \rho} \right)_s .
+<div class="math notranslate nohighlight" id="equation-eq-pde-hyperbolic-euler-first-principle">
+<span class="eqno">(28.3)<a class="headerlink" href="#equation-eq-pde-hyperbolic-euler-first-principle" title="Permalink to this equation">#</a></span>\[
+  de = T \, ds + \frac{p}{\rho^2} d \rho \ ,
+\]</div>
+<p class="sd-card-text">from the principles of thermodynamics, and the definition of the entropy <span class="math notranslate nohighlight">\(s\)</span> in classical thermodynamics. Following <a class="reference external" href="https://basics2022.github.io/bbooks-physics-thermodynamics/ch/principles-gibbs-phase-rule.html">Gibbs’ mathematical foundation of classical thermodynamics</a>, the partial derivatives of the internal energy can be related to temperature, pressure and density</p>
+<div class="math notranslate nohighlight" id="equation-eq-pde-hyperbolic-euler-first-principle-partial-ders">
+<span class="eqno">(28.4)<a class="headerlink" href="#equation-eq-pde-hyperbolic-euler-first-principle-partial-ders" title="Permalink to this equation">#</a></span>\[
+  T = \left( \frac{\partial e}{\partial s} \right)_\rho
+  \quad , \quad
+  \frac{p}{\rho^2} =  \left( \frac{\partial e}{\partial \rho} \right)_s .
 \]</div>
 </div>
 </details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
@@ -590,9 +592,12 @@ Speed of sound, <span class="math notranslate nohighlight">\(\ a(\rho, s)\)</spa
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">As it should be clear from the study of hyperbolic systems, the speed of sound <span class="math notranslate nohighlight">\(a\)</span> can be defined as</p>
-<div class="math notranslate nohighlight">
-\[a^2(\rho, s) = \left( \frac{\partial p}{\partial \rho} \right)_s \ .\]</div>
+<p class="sd-card-text">As it should be clear from the study of Euler equations as an hyperbolic system  the speed of sound <span class="math notranslate nohighlight">\(a\)</span> can be defined as</p>
+<div class="math notranslate nohighlight" id="equation-eq-pde-hyperbolic-euler-speed-of-sound-rho-s">
+<span class="eqno">(28.5)<a class="headerlink" href="#equation-eq-pde-hyperbolic-euler-speed-of-sound-rho-s" title="Permalink to this equation">#</a></span>\[
+  a^2(\rho, s) = \left( \frac{\partial p}{\partial \rho} \right)_s \ .
+\]</div>
+<p class="sd-card-text">As an example, the definition of the speed of sound appears in two of the eigenvalues of the system, as shown in <a class="reference internal" href="#equation-eq-pde-hyperbolic-differential-convective-euler-rho-u-s-eigval">(28.16)</a> using the convective form <a class="reference internal" href="#equation-eq-pde-hyperbolic-differential-convective-euler-rho-u-s-mat">(28.15)</a> of the equations using <span class="math notranslate nohighlight">\((\rho, \vec{u}, s)\)</span> as primary variables.</p>
 </div>
 </details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
 <summary class="sd-summary-title sd-card-header">
@@ -603,8 +608,8 @@ Speed of sound, and change of independent thermodynamic variables<div class="sd-
 </summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text">All the relations in this box mainly exploit <strong>rule of derivatives of composite functions</strong> and basic thermodynamic relations.</p>
 <p class="sd-card-text">As an example, if the pressure is defined as a function of <span class="math notranslate nohighlight">\((\rho, e)\)</span>, and the relation <span class="math notranslate nohighlight">\(e(\rho,s)\)</span> is known, with pressure can be written as <span class="math notranslate nohighlight">\(p(\rho, e) = p(\rho, e(\rho,s))\)</span>. With the derivation of the composite function, an alternative expression of the speed of sound follows</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
+<div class="math notranslate nohighlight" id="equation-eq-pde-hyperbolic-euler-speed-of-sound-rho-e">
+<span class="eqno">(28.6)<a class="headerlink" href="#equation-eq-pde-hyperbolic-euler-speed-of-sound-rho-e" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
   a^2
   &amp; = \left( \frac{\partial p}{\partial \rho} \right)_s = \\
   &amp; = \left( \frac{\partial p}{\partial \rho} \right)_e + \left( \frac{\partial e}{\partial \rho} \right)_s \left( \frac{\partial p}{\partial e} \right)_\rho = \\
@@ -632,10 +637,12 @@ Constitutive equations for an ideal Newtonian fluid<div class="sd-summary-down d
 <div class="section" id="integral-equations">
 <span id="pde-hyperbolic-nd-euler-integral"></span><h2><span class="section-number">28.7.3.2. </span>Integral equations<a class="headerlink" href="#integral-equations" title="Permalink to this heading">#</a></h2>
 <p>Conservative variables and flux are respectively</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\mathbf{u} = \begin{bmatrix} \rho \\ \vec{m} \\ E^t \end{bmatrix} 
-\quad , \quad
+<div class="math notranslate nohighlight" id="equation-eq-pde-hyperbolic-cons-vars-euler">
+<span class="eqno">(28.7)<a class="headerlink" href="#equation-eq-pde-hyperbolic-cons-vars-euler" title="Permalink to this equation">#</a></span>\[\begin{split}
+\mathbf{u} = \begin{bmatrix} \rho \\ \vec{m} \\ E^t \end{bmatrix}
+\end{split}\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-pde-hyperbolic-flux-euler">
+<span class="eqno">(28.8)<a class="headerlink" href="#equation-eq-pde-hyperbolic-flux-euler" title="Permalink to this equation">#</a></span>\[\begin{split}
 \mathbf{F} = \begin{bmatrix} \vec{m} \\ \frac{\vec{m} \otimes \vec{m}}{\rho} + p \mathbb{I} \\ H^t \frac{\vec{m}}{\rho} \end{bmatrix}
 \end{split}\]</div>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
@@ -681,8 +688,8 @@ Integral equations for an arbitrary domain <span class="math notranslate nohighl
 </details><div class="section" id="jump-conditions">
 <span id="pde-hyperbolic-nd-euler-integral-jump"></span><h3><span class="section-number">28.7.3.2.1. </span>Jump conditions<a class="headerlink" href="#jump-conditions" title="Permalink to this heading">#</a></h3>
 <p>Jump conditions <a class="reference internal" href="hyperbolic-nd-draft.html#equation-eq-pde-hyperbolic-jump">(28.1)</a> for Euler equations read</p>
-<div class="math notranslate nohighlight" id="equation-eq-pde-hyperbolic-jump-eule">
-<span class="eqno">(28.2)<a class="headerlink" href="#equation-eq-pde-hyperbolic-jump-eule" title="Permalink to this equation">#</a></span>\[\begin{split}
+<div class="math notranslate nohighlight" id="equation-eq-pde-hyperbolic-jump-euler">
+<span class="eqno">(28.9)<a class="headerlink" href="#equation-eq-pde-hyperbolic-jump-euler" title="Permalink to this equation">#</a></span>\[\begin{split}
   \vec{v}_b \cdot \hat{n} \left[ \left( \begin{matrix} \rho \\ \vec{m} \\ E^t \end{matrix} \right) \right] = \hat{n} \cdot \left[ \left( \begin{matrix} \vec{m} \\\frac{\vec{m} \vec{m}}{\rho} + p \\ H^t \end{matrix} \right) \right]
 \end{split}\]</div>
 </div>
@@ -692,19 +699,146 @@ Integral equations for an arbitrary domain <span class="math notranslate nohighl
 <p>In regions where the fields are smooth, from integral to differential equations using <a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean.html#tensor-calculus-integrals-theorems"><span class="std std-ref">theorems of differential calculus</span></a></p>
 <div class="section" id="conservative-form">
 <span id="pde-hyperbolic-nd-euler-differential-conservative"></span><h3><span class="section-number">28.7.3.3.1. </span>Conservative form<a class="headerlink" href="#conservative-form" title="Permalink to this heading">#</a></h3>
+<p>Conservative form of the differential equations immediately follows introducing the expressions <a class="reference internal" href="#equation-eq-pde-hyperbolic-cons-vars-euler">(28.7)</a> of the conservative variables and <a class="reference internal" href="#equation-eq-pde-hyperbolic-flux-euler">(28.8)</a> of the flux in the general expression of the conservative form of hyperbolic problems <a class="reference internal" href="hyperbolic-nd-draft.html#equation-eq-pde-hyperbolic-differential-conservative">(28.2)</a></p>
+<div class="math notranslate nohighlight" id="equation-eq-pde-hyperbolic-differential-conservative-euler">
+<span class="eqno">(28.10)<a class="headerlink" href="#equation-eq-pde-hyperbolic-differential-conservative-euler" title="Permalink to this equation">#</a></span>\[\begin{split}
+  \partial_t \begin{bmatrix}  \rho \\ \vec{m} \\ E^t \end{bmatrix} + \nabla \cdot \begin{bmatrix} \vec{m} \\ \frac{\vec{m}\otimes\vec{m}}{\rho} + p \mathbb{I} \\ H^t \frac{\vec{m}}{\rho}  \end{bmatrix} = \mathbf{0} \ .
+\end{split}\]</div>
 </div>
 <div class="section" id="convective-forms">
 <span id="pde-hyperbolic-nd-euler-differential-convective"></span><h3><span class="section-number">28.7.3.3.2. </span>Convective forms<a class="headerlink" href="#convective-forms" title="Permalink to this heading">#</a></h3>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Convective form with conservative variables<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Using Cartesian coordinates for a 2-dimensional domain,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{cases}
+  \partial_t \rho + \partial_x m_x + \partial_y m_y = 0 \\
+  \partial_t m_x + \partial_x \left( \frac{m_x^2}{\rho} + \Pi \right) + \partial_y \left( \frac{m_x m_y}{\rho}     \right) = 0 \\
+  \partial_t m_y + \partial_x \left( \frac{m_x m_y}{\rho}     \right) + \partial_y \left( \frac{m_y^2}{\rho} + \Pi \right) = 0 \\
+  \partial_t E^t + \partial_x \left( \left( E^t + \Pi \right) \frac{m_x}{\rho} \right) + \partial_y \left( \left( E^t + \Pi \right) \frac{m_y}{\rho} \right) = 0
+\end{cases}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{cases}
+  \partial_t \rho + \partial_x m_x + \partial_y m_y = 0 \\
+  \partial_t m_x - \frac{m_x^2}{\rho^2} \partial_x \rho + 2 \frac{m_x}{\rho} \partial_x m_x + \partial_x \Pi - \frac{m_x m_y}{\rho^2} \partial_y \rho + \frac{m_y}{\rho} \partial_y m_x + \frac{m_x}{\rho} \partial_y m_y = 0 \\
+  \partial_t m_x  - \frac{m_x m_y}{\rho^2} \partial_x \rho + \frac{m_y}{\rho} \partial_x m_x + \frac{m_x}{\rho} \partial_x m_y - \frac{m_y^2}{\rho^2} \partial_y \rho + 2 \frac{m_y}{\rho} \partial_y m_y + \partial_y \Pi= 0 \\
+  \partial_t E^t - u h^t \partial_x \rho + h^t \partial_x m_x + u \partial_x E^t + u \partial_x \Pi - v h^t \partial_y \rho + h^t \partial_y m_y + v \partial_y E^t + v \partial_y \Pi = 0
+\end{cases}\end{split}\]</div>
+<p class="sd-card-text">and using the matrix formalism</p>
+<div class="math notranslate nohighlight" id="equation-eq-pde-hyperbolic-differential-convective-euler-cons-vars-mat">
+<span class="eqno">(28.11)<a class="headerlink" href="#equation-eq-pde-hyperbolic-differential-convective-euler-cons-vars-mat" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+  \partial_t \begin{bmatrix} \rho \\ m_x \\ m_y \\ E^t \end{bmatrix} 
+ &amp; + \begin{bmatrix}
+  0 &amp; 1  &amp; 0 &amp; 0 \\
+  -u^2 + \Pi_{\rho} &amp; 2 u + \Pi_u &amp; \Pi_v &amp; \Pi_{E^t}  \\
+  -uv    &amp; v &amp; u &amp; \cdot \\
+  (-h^t + \Pi_\rho ) u &amp; h^t + u \Pi_{m_x} &amp; u \Pi_{m_y} &amp; u ( 1 + \Pi_{E^t} ) \\
+   \end{bmatrix} \partial_x \begin{bmatrix} \rho \\ m_x \\ m_y \\ E^t \end{bmatrix} + \\
+ &amp; + \begin{bmatrix}
+  0 &amp; 0 &amp; 1 &amp; 0 \\
+  -uv    &amp; v &amp; u &amp; \cdot \\
+  -v^2 + \Pi_{\rho} &amp; \Pi_u &amp; 2 v + \Pi_v &amp; \Pi_{E^t} \\
+  ( -h^t + \Pi_\rho ) v &amp; v \Pi_{m_x} &amp; h^t + v \Pi_{m_y} &amp; v ( 1 + \Pi_{E^t} ) \\
+   \end{bmatrix} \partial_y \begin{bmatrix} \rho \\ m_x \\ m_y \\ E^t \end{bmatrix} = \mathbf{0}
+\end{aligned}\end{split}\]</div>
 </div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Convective form with primary variables <span class="math notranslate nohighlight">\(\ (\rho, \vec{u}, e)\)</span>.<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight" id="equation-eq-pde-hyperbolic-differential-convective-euler-rho-u-e">
+<span class="eqno">(28.12)<a class="headerlink" href="#equation-eq-pde-hyperbolic-differential-convective-euler-rho-u-e" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{cases}
+  \partial_t \rho + \rho \nabla \cdot \vec{u} + \vec{u} \cdot \nabla \rho = 0 \\
+  \partial_t \vec{u} + \vec{u} \cdot \nabla \vec{u} + \frac{1}{\rho} \nabla p = \vec{0} \\
+  \partial_t e + \vec{u} \cdot \nabla e + \frac{1}{\rho} p \nabla \cdot \vec{u} = 0 \ .
+\end{cases}\end{split}\]</div>
+<p class="sd-card-text">or using Cartesian coordinates and matrix formalism</p>
+<div class="math notranslate nohighlight" id="equation-eq-pde-hyperbolic-differential-convective-euler-rho-u-e-mat">
+<span class="eqno">(28.13)<a class="headerlink" href="#equation-eq-pde-hyperbolic-differential-convective-euler-rho-u-e-mat" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+  \partial_t \begin{bmatrix} \rho \\ u \\ v \\ e \end{bmatrix}
+ + \begin{bmatrix}
+   u                      &amp; \rho            &amp; \cdot &amp; \cdot \\
+   \frac{p_\rho|_e}{\rho} &amp; u               &amp; \cdot &amp; \frac{p_e|_\rho}{\rho}  \\
+   \cdot                  &amp; \cdot           &amp; u     &amp; \cdot  \\
+   \cdot                  &amp; \frac{p}{\rho}  &amp; \cdot &amp; u \\
+   \end{bmatrix} \partial_x \begin{bmatrix} \rho \\ u \\ v \\ e \end{bmatrix}
+ + \begin{bmatrix}
+   v                      &amp; \cdot           &amp; \rho           &amp; \cdot \\
+   \cdot                  &amp; v               &amp; \cdot          &amp; \cdot \\
+   \frac{p_\rho|_e}{\rho} &amp; \cdot           &amp; v              &amp; \frac{p_e|_\rho}{\rho}  \\
+   \cdot                  &amp; \cdot           &amp; \frac{p}{\rho} &amp; v \\
+   \end{bmatrix} \partial_y \begin{bmatrix} \rho \\ u \\ v \\ e \end{bmatrix} = \mathbf{0}
+\end{aligned}\end{split}\]</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Convective form with primary variables <span class="math notranslate nohighlight">\(\ (\rho, \vec{u}, s)\)</span>.<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Using the thermodynamic relation <span class="math notranslate nohighlight">\(de = T ds + \frac{p}{\rho^2} d \rho\)</span> and combining mass and internal energy equations, the differential equation <span class="math notranslate nohighlight">\(D_t s = 0\)</span> follows for the entropy, having introduced the material derivative <span class="math notranslate nohighlight">\(D_t \_ = \partial_t \_ + \vec{u} \cdot \nabla \_\)</span>. The convective form of the equations becomes</p>
+<div class="math notranslate nohighlight" id="equation-eq-pde-hyperbolic-differential-convective-euler-rho-u-s">
+<span class="eqno">(28.14)<a class="headerlink" href="#equation-eq-pde-hyperbolic-differential-convective-euler-rho-u-s" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{cases}
+  \partial_t \rho + \rho \nabla \cdot \vec{u} + \vec{u} \cdot \nabla \rho = 0 \\
+  \partial_t \vec{u} + \vec{u} \cdot \nabla \vec{u} + \frac{1}{\rho} \nabla p = \vec{0} \\
+  \partial_t s + \vec{u} \cdot \nabla s = 0 \ .
+\end{cases}\end{split}\]</div>
+<p class="sd-card-text">or using Cartesian coordinates and matrix formalism in a 2-dimensional domain</p>
+<div class="math notranslate nohighlight" id="equation-eq-pde-hyperbolic-differential-convective-euler-rho-u-s-mat">
+<span class="eqno">(28.15)<a class="headerlink" href="#equation-eq-pde-hyperbolic-differential-convective-euler-rho-u-s-mat" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+  \partial_t \begin{bmatrix} \rho \\ u \\ v \\ s \end{bmatrix}
+ + \begin{bmatrix}
+   u                      &amp; \rho            &amp; \cdot &amp; \cdot \\
+   \frac{p_\rho|_s}{\rho} &amp; u               &amp; \cdot &amp; \frac{p_s|_\rho}{\rho}  \\
+   \cdot                  &amp; \cdot           &amp; u     &amp; \cdot  \\
+   \cdot                  &amp; \cdot           &amp; \cdot &amp; u \\
+   \end{bmatrix} \partial_x \begin{bmatrix} \rho \\ u \\ v \\ s \end{bmatrix}
+ + \begin{bmatrix}
+   v                      &amp; \cdot           &amp; \rho           &amp; \cdot \\
+   \cdot                  &amp; v               &amp; \cdot          &amp; \cdot \\
+   \frac{p_\rho|_s}{\rho} &amp; \cdot           &amp; v              &amp; \frac{p_s|_\rho}{\rho}  \\
+   \cdot                  &amp; \cdot           &amp; \cdot          &amp; v \\
+   \end{bmatrix} \partial_y \begin{bmatrix} \rho \\ u \\ v \\ s \end{bmatrix} = \mathbf{0}
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">Using this expression of the equations, it’s pretty easy to find the eigenvalues of the system, evaluating the eigenvalues of the matrix</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{A}^{\mathbf{v}}_{\hat{n}} = n_x \mathbf{A}^\mathbf{v}_x + n_y \mathbf{A}^\mathbf{v}_y =
+\begin{bmatrix}
+  u_n &amp; \rho \mathbf{n}^T &amp; \cdot \\
+  \frac{p_\rho|_s}{\rho} &amp; u_n \mathbf{I}_2 &amp;  \frac{p_s|_\rho}{\rho} \\
+  \cdot &amp; \cdot &amp; u_n
+\end{bmatrix}
+\end{split}\]</div>
+<p class="sd-card-text">as the zeros of the following equation,</p>
+<div class="math notranslate nohighlight">
+\[0 = | \mathbf{A}_{\hat{n}}^{\mathbf{v}} - s \mathbf{I}_4| = ( u_n - s )^2 \left( ( u_n - s )^2 - \left.\frac{\partial p}{\partial \rho}\right|_s \right) = ( u_n - s )^2 \left( ( u_n - s )^2 - a^2 \right) \ ,\]</div>
+<p class="sd-card-text">having used the definition of the spped of sound <a class="reference internal" href="#equation-eq-pde-hyperbolic-euler-speed-of-sound-rho-s">(28.5)</a>. Thus the <strong>eigenvalues of the system</strong> are</p>
+<div class="math notranslate nohighlight" id="equation-eq-pde-hyperbolic-differential-convective-euler-rho-u-s-eigval">
+<span class="eqno">(28.16)<a class="headerlink" href="#equation-eq-pde-hyperbolic-differential-convective-euler-rho-u-s-eigval" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+  s_{1,4} &amp; = u_n \mp a \\
+  s_{2,3} &amp; = u_n \ .
+\end{aligned}\end{split}\]</div>
+</div>
+</details></div>
 <div class="section" id="spectral-decomposition">
 <span id="pde-hyperbolic-nd-euler-differential-spectrum"></span><h3><span class="section-number">28.7.3.3.3. </span>Spectral decomposition<a class="headerlink" href="#spectral-decomposition" title="Permalink to this heading">#</a></h3>
 <p>It may be convenient to evaluate the spectrum using physical variables <span class="math notranslate nohighlight">\(\mathbf{v} = (\rho, \vec{u}, e)\)</span> and then use the rules for the spectral decomposition after a <a class="reference internal" href="hyperbolic-nd-draft.html#pde-hyperbolic-nd-draft-characteristics-spectrum-change-vars"><span class="std std-ref">change of variables</span></a> to get the spectrum in terms of the conservative variables.</p>
 <p><strong>Transformation of variables.</strong> The tranformation between physical variables <span class="math notranslate nohighlight">\(\mathbf{v} = (\rho, \vec{u}, e)\)</span> and the conservative variables <span class="math notranslate nohighlight">\(\mathbf{u} = ( \rho, \vec{m}, E^t )\)</span> reads</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
-\mathbf{v}(\mathbf{u}) &amp; = \begin{bmatrix} \rho \\ \vec{u} \\ e \end{bmatrix} = \begin{bmatrix} \rho \\ \frac{\vec{m}}{\rho} \\ \frac{E^t}{\rho} - \frac{|\vec{m}|^2}{2 \rho^2} \end{bmatrix}
+\mathbf{v}(\mathbf{u}) = \begin{bmatrix} \rho \\ \vec{u} \\ e \end{bmatrix} = \begin{bmatrix} \rho \\ \frac{\vec{m}}{\rho} \\ \frac{E^t}{\rho} - \frac{|\vec{m}|^2}{2 \rho^2} \end{bmatrix}
 \qquad , \qquad
-\mathbf{u}(\mathbf{v}) &amp; = \begin{bmatrix} \rho \\ \vec{m} \\ E^t \end{bmatrix} = \begin{bmatrix} \rho \\ \rho \vec{u} \\ \rho \left( e + \frac{|\vec{u}|^2}{2} \right) \end{bmatrix} \ .
+\mathbf{u}(\mathbf{v}) = \begin{bmatrix} \rho \\ \vec{m} \\ E^t \end{bmatrix} = \begin{bmatrix} \rho \\ \rho \vec{u} \\ \rho \left( e + \frac{|\vec{u}|^2}{2} \right) \end{bmatrix} \ .
 \end{aligned}\end{split}\]</div>
 <p><strong>Gradients of the transformations.</strong></p>
 <div class="math notranslate nohighlight">
