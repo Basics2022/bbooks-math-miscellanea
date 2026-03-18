@@ -815,7 +815,7 @@ Convective form with primary variables <span class="math notranslate nohighlight
 \mathbf{A}^{\mathbf{v}}_{\hat{n}} = n_x \mathbf{A}^\mathbf{v}_x + n_y \mathbf{A}^\mathbf{v}_y =
 \begin{bmatrix}
   u_n &amp; \rho \mathbf{n}^T &amp; \cdot \\
-  \frac{p_\rho|_s}{\rho} &amp; u_n \mathbf{I}_2 &amp;  \frac{p_s|_\rho}{\rho} \\
+  \frac{p_\rho|_s}{\rho} \mathbf{n} &amp; u_n \mathbf{I}_2 &amp;  \frac{p_s|_\rho}{\rho} \mathbf{n} \\
   \cdot &amp; \cdot &amp; u_n
 \end{bmatrix}
 \end{split}\]</div>
@@ -884,7 +884,7 @@ Eigenvalues<div class="sd-summary-down docutils">
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">In a 2-dimensional domain, the system of equations is 4-dimensional, and its eigenvalues are</p>
+<p class="sd-card-text">In a 2-dimensional domain, the system of equations is 4-dimensional. As shown with the convective form <a class="reference internal" href="#equation-eq-pde-hyperbolic-differential-convective-euler-rho-u-s-mat">(28.15)</a> using <span class="math notranslate nohighlight">\((\rho, \vec{u}, s)\)</span> as primary variables, the eigenvalues of the system are</p>
 <div class="math notranslate nohighlight">
 \[\left\{ u_n - a, u_n, u_n, u_n + a \right\} \ .\]</div>
 <p class="sd-card-text">In a 3-dimensional domain, the system of equations is 5-dimensional, and its eigenvalues are</p>
@@ -915,7 +915,55 @@ Right eigenvectors<div class="sd-summary-down docutils">
   \frac{p}{\rho}  &amp; -\rho \frac{\partial_\rho p|_e}{\partial_e p|_{\rho}}  &amp; 0               &amp; \frac{p}{\rho}
 \end{bmatrix}
 \end{split}\]</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Details for <span class="math notranslate nohighlight">\( \ d\)</span>-dimensional domain<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Given the eigenvalues of the system in a <span class="math notranslate nohighlight">\(d\)</span>-dimensional (<span class="math notranslate nohighlight">\(d = 2, 3\)</span>), the right eigenvectors of the matrix <span class="math notranslate nohighlight">\(\mathbf{A}^{\mathbf{v}}_{\hat{n}}\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mathbf{A}^{\mathbf{v}}_{\hat{n}} = n_i \mathbf{A}^\mathbf{v}_i =
+\begin{bmatrix}
+  u_n &amp; \rho \mathbf{n}^T &amp; \cdot \\
+  \frac{p_\rho|_s}{\rho} \mathbf{n} &amp; u_n \mathbf{I}_d &amp;  \frac{p_s|_\rho}{\rho} \mathbf{n} \\
+  \cdot &amp; \frac{p}{\rho}\mathbf{n}^T &amp; u_n
+\end{bmatrix}
+\end{split}\]</div>
+<p class="sd-card-text">are evaluated. For <span class="math notranslate nohighlight">\(s_{1,d+2} = u_n \mp a\)</span>, the singular system</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{0} = 
+\begin{bmatrix}
+  \pm a &amp; \rho \mathbf{n}^T &amp; \cdot \\
+  \frac{p_\rho|_e}{\rho} \mathbf{n} &amp; \pm a \mathbf{I}_3 &amp;  \frac{p_e|_\rho}{\rho} \mathbf{n} \\
+  \cdot &amp; \frac{p}{\rho}\mathbf{n}^T &amp; \pm a
+\end{bmatrix} \begin{bmatrix} \tilde{\rho} \\ \tilde{\mathbf{u}} \\ \tilde{e} \end{bmatrix} \ ,
+\end{split}\]</div>
+<p class="sd-card-text">has the non-trivial solution - it should be easy to prove it recalling the expression <a class="reference internal" href="#equation-eq-pde-hyperbolic-euler-speed-of-sound-rho-e">(28.6)</a> of the speed of sound</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix} \tilde{\rho}_{1,d+2} \\ \tilde{\vec{u}}_{1,d+2} \\ \tilde{e}_{1,d+2} \end{bmatrix} =
+\begin{bmatrix} \rho \\ \mp a \mathbf{n} \\ \frac{p}{\rho} \end{bmatrix} \ .
+\end{split}\]</div>
+<p class="sd-card-text">For <span class="math notranslate nohighlight">\(s_{2:d+1} = u_n\)</span>, the solution of singular system</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{0} = 
+\begin{bmatrix}
+   \cdot &amp; \rho \mathbf{n}^T &amp; \cdot \\
+  \frac{p_\rho|_e}{\rho} \mathbf{n} &amp; \mathbf{0}_d &amp;  \frac{p_e|_\rho}{\rho} \mathbf{n} \\
+  \cdot &amp; \frac{p}{\rho}\mathbf{n}^T &amp; \cdot
+\end{bmatrix} \begin{bmatrix} \tilde{\rho} \\ \tilde{\mathbf{u}} \\ \tilde{e} \end{bmatrix} \ ,
+\end{split}\]</div>
+<p class="sd-card-text">is a linear combination of the basis of the kernel of the matrix. It shouldn’t be hard to prove that the kernel is spanned by the right eigenvectors</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{r}_2 = \begin{bmatrix} \rho \\ \mathbf{0} \\ - \rho \frac{p_\rho|_e}{p_e|_\rho}  \end{bmatrix} \ ,\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{r}_{2+i} = \begin{bmatrix} \cdot \\ a \mathbf{t}_i \\ \cdot \end{bmatrix} \quad , \quad i = 1:d \ ,\end{split}\]</div>
+<p class="sd-card-text">with <span class="math notranslate nohighlight">\(\mathbf{t}_{i}\)</span> <span class="math notranslate nohighlight">\(d-1\)</span> independent “tangent vectors”, orthogonal w.r.t. the unit “normal vector” <span class="math notranslate nohighlight">\(\mathbf{n}\)</span>.</p>
 </div>
+</details></div>
 </details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
 <summary class="sd-summary-title sd-card-header">
 Left eigenvectors<div class="sd-summary-down docutils">

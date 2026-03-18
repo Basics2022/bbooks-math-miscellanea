@@ -251,7 +251,7 @@ $$
 \mathbf{A}^{\mathbf{v}}_{\hat{n}} = n_x \mathbf{A}^\mathbf{v}_x + n_y \mathbf{A}^\mathbf{v}_y =
 \begin{bmatrix}
   u_n & \rho \mathbf{n}^T & \cdot \\
-  \frac{p_\rho|_s}{\rho} & u_n \mathbf{I}_2 &  \frac{p_s|_\rho}{\rho} \\
+  \frac{p_\rho|_s}{\rho} \mathbf{n} & u_n \mathbf{I}_2 &  \frac{p_s|_\rho}{\rho} \mathbf{n} \\
   \cdot & \cdot & u_n
 \end{bmatrix}
 $$
@@ -323,10 +323,10 @@ $$
 
 $$\mathbf{A}_{\hat{n}}^{\mathbf{v}} = \begin{bmatrix} u_n & \rho \mathbf{n}^T & \cdot \\ \frac{1}{\rho}\partial_\rho p|_e \mathbf{n} & u_n \mathbf{I} & \frac{1}{\rho}\partial_e p|_{\rho} \mathbf{n} \\ \cdot & \frac{p}{\rho} \mathbf{n}^T & u_n \end{bmatrix} \ ,$$
 
-```{dropdown} Eigenvalues
+````{dropdown} Eigenvalues
 :open:
 
-In a 2-dimensional domain, the system of equations is 4-dimensional, and its eigenvalues are
+In a 2-dimensional domain, the system of equations is 4-dimensional. As shown with the convective form {eq}`eq:pde:hyperbolic:differential:convective:euler:rho-u-s:mat` using $(\rho, \vec{u}, s)$ as primary variables, the eigenvalues of the system are
 
 $$\left\{ u_n - a, u_n, u_n, u_n + a \right\} \ .$$
 
@@ -334,9 +334,9 @@ In a 3-dimensional domain, the system of equations is 5-dimensional, and its eig
 
 $$\left\{ u_n - a, u_n, u_n, u_n, u_n + a \right\} \ .$$
 
-```
+````
 
-```{dropdown} Right eigenvectors
+````{dropdown} Right eigenvectors
 :open:
 
 In a 2-dimensional domain
@@ -357,9 +357,60 @@ $$
 \end{bmatrix}
 $$
 
+```{dropdown} Details for $ \ d$-dimensional domain
+
+Given the eigenvalues of the system in a $d$-dimensional ($d = 2, 3$), the right eigenvectors of the matrix $\mathbf{A}^{\mathbf{v}}_{\hat{n}}$,
+
+$$
+\mathbf{A}^{\mathbf{v}}_{\hat{n}} = n_i \mathbf{A}^\mathbf{v}_i =
+\begin{bmatrix}
+  u_n & \rho \mathbf{n}^T & \cdot \\
+  \frac{p_\rho|_s}{\rho} \mathbf{n} & u_n \mathbf{I}_d &  \frac{p_s|_\rho}{\rho} \mathbf{n} \\
+  \cdot & \frac{p}{\rho}\mathbf{n}^T & u_n
+\end{bmatrix}
+$$
+
+are evaluated. For $s_{1,d+2} = u_n \mp a$, the singular system
+
+$$\mathbf{0} = 
+\begin{bmatrix}
+  \pm a & \rho \mathbf{n}^T & \cdot \\
+  \frac{p_\rho|_e}{\rho} \mathbf{n} & \pm a \mathbf{I}_3 &  \frac{p_e|_\rho}{\rho} \mathbf{n} \\
+  \cdot & \frac{p}{\rho}\mathbf{n}^T & \pm a
+\end{bmatrix} \begin{bmatrix} \tilde{\rho} \\ \tilde{\mathbf{u}} \\ \tilde{e} \end{bmatrix} \ ,
+$$
+
+has the non-trivial solution - it should be easy to prove it recalling the expression {eq}`eq:pde:hyperbolic:euler:speed-of-sound:rho-e` of the speed of sound
+
+$$
+\begin{bmatrix} \tilde{\rho}_{1,d+2} \\ \tilde{\vec{u}}_{1,d+2} \\ \tilde{e}_{1,d+2} \end{bmatrix} =
+\begin{bmatrix} \rho \\ \mp a \mathbf{n} \\ \frac{p}{\rho} \end{bmatrix} \ .
+$$
+
+For $s_{2:d+1} = u_n$, the solution of singular system
+
+$$\mathbf{0} = 
+\begin{bmatrix}
+   \cdot & \rho \mathbf{n}^T & \cdot \\
+  \frac{p_\rho|_e}{\rho} \mathbf{n} & \mathbf{0}_d &  \frac{p_e|_\rho}{\rho} \mathbf{n} \\
+  \cdot & \frac{p}{\rho}\mathbf{n}^T & \cdot
+\end{bmatrix} \begin{bmatrix} \tilde{\rho} \\ \tilde{\mathbf{u}} \\ \tilde{e} \end{bmatrix} \ ,
+$$
+
+is a linear combination of the basis of the kernel of the matrix. It shouldn't be hard to prove that the kernel is spanned by the right eigenvectors
+
+$$\mathbf{r}_2 = \begin{bmatrix} \rho \\ \mathbf{0} \\ - \rho \frac{p_\rho|_e}{p_e|_\rho}  \end{bmatrix} \ ,$$
+
+$$\mathbf{r}_{2+i} = \begin{bmatrix} \cdot \\ a \mathbf{t}_i \\ \cdot \end{bmatrix} \quad , \quad i = 1:d \ ,$$
+
+with $\mathbf{t}_{i}$ $d-1$ independent "tangent vectors", orthogonal w.r.t. the unit "normal vector" $\mathbf{n}$.
+
+
 ```
 
-```{dropdown} Left eigenvectors
+````
+
+````{dropdown} Left eigenvectors
 :open:
 
 In a 2-dimensional domain
@@ -374,7 +425,7 @@ $$
 \end{bmatrix}
 $$
 
-```
+````
 
 **Spectral decomposition of $\mathbf{A}_{\hat{n}}^{\mathbf{u}}$, using $\mathbf{u}=(\rho, \vec{m}, E^t)$.** 
 
