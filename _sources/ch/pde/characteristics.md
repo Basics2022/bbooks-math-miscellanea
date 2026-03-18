@@ -1,6 +1,9 @@
 (pde:hyperbolic:characteristics)=
 # Method of characteristics
 
+<span style="color:red"> This page is an old version of the material. It contains some useful and (incredibly?) interesting things, but it will be used to write new pages first and eventually deleted. Check all the **cross-references**</span>
+
+
 ## Scalar multi-dimensional problem
 
 $$\begin{aligned}
@@ -1103,19 +1106,6 @@ $$\begin{aligned}
   & = \partial_\rho P|_e + \partial_\rho e|_s \, \partial_e P|_\rho  = \\
   & = \partial_\rho P|_e + \frac{P}{\rho^2}\partial_e \, P|_\rho  \ .
 \end{aligned}$$
-
-
-```
-```{dropdown} Some algebra
-:open:
-
-$$\begin{aligned}
-  R_{41} & = \rho e + \rho \frac{|\mathbf{u}|^2}{2} - \rho a ( u n_x + v n_y )  + p  \\ 
-  R_{42} & =               \frac{|\mathbf{u}|^2}{2}   \rho a ( u n_y - v n_x ) \\
-  R_{43} & = \rho e + \rho \frac{|\mathbf{u}|^2}{2} - \rho a ( u n_x + v n_y )  + p  \\
-  R_{44} & = \rho e + \rho \frac{|\mathbf{u}|^2}{2} - \frac{\partial_\rho p|_e}{\partial_e p|_\rho}  \\
-\end{aligned}$$
-
 
 ```
 

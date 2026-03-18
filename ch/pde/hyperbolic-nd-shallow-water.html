@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>28.8. Riemann problems &#8212; basics - math</title>
+    <title>28.7.4. Shallow water &#8212; basics - math</title>
   
   
   
@@ -65,12 +65,14 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/pde/hyperbolic-riemann-pb';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/pde/hyperbolic-nd-shallow-water';</script>
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="29. Navier-Cauchy equations" href="nc.html" />
-    <link rel="prev" title="28.7.3. Shallow water" href="hyperbolic-nd-shallow-water.html" />
+    <link rel="next" title="28.8. Riemann problems" href="hyperbolic-riemann-pb.html" />
+    <link rel="prev" title="28.7.3. Euler equations" href="hyperbolic-nd-euler.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -254,13 +256,14 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="hyperbolic-1d-vector-linear.html">28.4. Linear vector equation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="hyperbolic-1d-scalar-nonlinear.html">28.5. Scalar non-linear equation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="characteristics.html">28.6. Method of characteristics</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="hyperbolic-nd.html">28.7. Hyperbolic problems in multi-dimensional domains</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="hyperbolic-nd-psys.html">28.7.1. P-system</a></li>
-<li class="toctree-l3"><a class="reference internal" href="hyperbolic-nd-euler.html">28.7.2. Euler equations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="hyperbolic-nd-shallow-water.html">28.7.3. Shallow water</a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="hyperbolic-nd.html">28.7. Hyperbolic problems in multi-dimensional domains</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="hyperbolic-nd-draft.html">28.7.1. Shallow water</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hyperbolic-nd-psys.html">28.7.2. P-system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hyperbolic-nd-euler.html">28.7.3. Euler equations</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">28.7.4. Shallow water</a></li>
 </ul>
 </li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">28.8. Riemann problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hyperbolic-riemann-pb.html">28.8. Riemann problems</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="nc.html">29. Navier-Cauchy equations</a></li>
@@ -382,7 +385,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/edit/main/ch/pde/hyperbolic-riemann-pb.md" target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/edit/main/ch/pde/hyperbolic-nd-shallow-water.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -399,7 +402,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/issues/new?title=Issue%20on%20page%20%2Fch/pde/hyperbolic-riemann-pb.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/issues/new?title=Issue%20on%20page%20%2Fch/pde/hyperbolic-nd-shallow-water.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -429,7 +432,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/ch/pde/hyperbolic-riemann-pb.md" target="_blank"
+      <li><a href="../../_sources/ch/pde/hyperbolic-nd-shallow-water.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -500,7 +503,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -511,11 +516,31 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Riemann problems</h1>
+    <h1>Shallow water</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integral-equations">28.7.4.1. Integral equations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jump-conditions">28.7.4.1.1. Jump conditions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differential-equations">28.7.4.2. Differential equations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spectral-decomposition">28.7.4.2.1. Spectral decomposition</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#riemann-problem">28.7.4.3. Riemann problem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linearization-roe-intermediate-state">28.7.4.3.1. Linearization - Roe intermediate state</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boundary-conditions">28.7.4.4. Boundary conditions</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -525,9 +550,54 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="riemann-problems">
-<span id="pde-hyperbolic-riemann-pb"></span><h1><span class="section-number">28.8. </span>Riemann problems<a class="headerlink" href="#riemann-problems" title="Permalink to this heading">#</a></h1>
-<p><a class="reference external" href="https://basics2022.github.io/bbooks-fluid-mechanics/ch/compressible/riemann-problem.html">Riemann problems in compressible fluid mechanics</a></p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="shallow-water">
+<span id="pde-hyperbolic-nd-shallow-water"></span><h1><span class="section-number">28.7.4. </span>Shallow water<a class="headerlink" href="#shallow-water" title="Permalink to this heading">#</a></h1>
+<div class="section" id="integral-equations">
+<span id="pde-hyperbolic-nd-shallow-water-integral"></span><h2><span class="section-number">28.7.4.1. </span>Integral equations<a class="headerlink" href="#integral-equations" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Intgral equation for a control volume at rest <span class="math notranslate nohighlight">\(V\)</span></p></li>
+<li><p>Intgral equation for an arbitrary domain <span class="math notranslate nohighlight">\(v_t\)</span>, with Reynolds’ transport theorem</p></li>
+</ul>
+<div class="section" id="jump-conditions">
+<span id="pde-hyperbolic-nd-shallow-water-integral-jump"></span><h3><span class="section-number">28.7.4.1.1. </span>Jump conditions<a class="headerlink" href="#jump-conditions" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>From the integral equation for an arbitrary domain <span class="math notranslate nohighlight">\(v_t\)</span>, collapsed on a surface</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="differential-equations">
+<span id="pde-hyperbolic-nd-shallow-water-differential"></span><h2><span class="section-number">28.7.4.2. </span>Differential equations<a class="headerlink" href="#differential-equations" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>In regions where the fields are smooth, from integral to differential equations with “divergence theorem”</p></li>
+</ul>
+<div class="section" id="spectral-decomposition">
+<span id="pde-hyperbolic-nd-shallow-water-differential-spectrum"></span><h3><span class="section-number">28.7.4.2.1. </span>Spectral decomposition<a class="headerlink" href="#spectral-decomposition" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Eigenvalues, right and left eigenvectors</p></li>
+<li><p>Characteristic lines/surfaces, and compatibility conditions</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="riemann-problem">
+<span id="pde-hyperbolic-nd-shallow-water-riemann"></span><h2><span class="section-number">28.7.4.3. </span>Riemann problem<a class="headerlink" href="#riemann-problem" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Useful in numerical schemes in finite volume methods, using Godunov flux</p></li>
+</ul>
+<div class="section" id="linearization-roe-intermediate-state">
+<span id="pde-hyperbolic-nd-shallow-water-riemann-roe"></span><h3><span class="section-number">28.7.4.3.1. </span>Linearization - Roe intermediate state<a class="headerlink" href="#linearization-roe-intermediate-state" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Local linearization of the problem, to reduce the computational cost of solving non-linear Riemann problems at all the interfaces in a grid in FVM</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="boundary-conditions">
+<span id="pde-hyperbolic-nd-shallow-water-bc"></span><h2><span class="section-number">28.7.4.4. </span>Boundary conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>characteristic-based</p></li>
+<li><p>wall</p></li>
+<li><p>…</p></li>
+</ul>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -561,20 +631,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="hyperbolic-nd-shallow-water.html"
+       href="hyperbolic-nd-euler.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">28.7.3. </span>Shallow water</p>
+        <p class="prev-next-title"><span class="section-number">28.7.3. </span>Euler equations</p>
       </div>
     </a>
     <a class="right-next"
-       href="nc.html"
+       href="hyperbolic-riemann-pb.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">29. </span>Navier-Cauchy equations</p>
+        <p class="prev-next-title"><span class="section-number">28.8. </span>Riemann problems</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -584,6 +654,32 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integral-equations">28.7.4.1. Integral equations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jump-conditions">28.7.4.1.1. Jump conditions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differential-equations">28.7.4.2. Differential equations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spectral-decomposition">28.7.4.2.1. Spectral decomposition</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#riemann-problem">28.7.4.3. Riemann problem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linearization-roe-intermediate-state">28.7.4.3.1. Linearization - Roe intermediate state</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boundary-conditions">28.7.4.4. Boundary conditions</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
