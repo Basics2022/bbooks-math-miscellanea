@@ -127,7 +127,7 @@ $$\begin{aligned}
 Jump conditions {eq}`eq:pde:hyperbolic:jump` for Euler equations read
 
 $$
-  \vec{v}_b \cdot \hat{n} \left[ \left( \begin{matrix} \rho \\ \vec{m} \\ E^t \end{matrix} \right) \right] = \hat{n} \cdot \left[ \left( \begin{matrix} \vec{m} \\\frac{\vec{m} \vec{m}}{\rho} + p \\ H^t \end{matrix} \right) \right]
+  \vec{v}_b \cdot \hat{n} \left[ \left( \begin{matrix} \rho \\ \vec{m} \\ E^t \end{matrix} \right) \right] = \hat{n} \cdot \left[ \left( \begin{matrix} \vec{m} \\\frac{\vec{m} \vec{m}}{\rho} + p \\ H^t \frac{\vec{m}}{\rho} \end{matrix} \right) \right]
 $$(eq:pde:hyperbolic:jump:euler)
 
 (pde:hyperbolic:nd:euler:differential)=

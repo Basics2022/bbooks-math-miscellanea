@@ -1,0 +1,961 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>28.9. Physical solution in hyperbolic problems &#8212; basics - math</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/style.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="https://cdn.plot.ly/plotly-lates.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/pde/hyperbolic-entropy';</script>
+    <link rel="shortcut icon" href="../../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="28.10. Convexity in hyperbolic problems" href="hyperbolic-convexity.html" />
+    <link rel="prev" title="28.8. Riemann problems" href="hyperbolic-riemann-pb.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPXX63Z3XR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-JPXX63Z3XR');
+</script>
+
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.svg" class="logo__image only-light" alt="basics - math - Home"/>
+    <script>document.write(`<img src="../../_static/logo-dark.svg" class="logo__image only-dark" alt="basics - math - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Linear Algebra</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../linear-algebra/intro.html">1. Introduction to Linear Algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linear-algebra/matrices.html">2. Matrices</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../linear-algebra/matrix-factorization.html">3. Matrix factorizations</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../linear-algebra/svd.html">3.3. Singular Value Decomposition</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../linear-algebra/linear-systems.html">4. Linear Systems</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../linear-algebra/spectral.html">5. Spectral decomposition</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../linear-algebra/spectral-symmetric.html">5.1. Spectral decomposition of symmetric matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linear-algebra/spectral-sensitivity.html">5.2. Sensitivity of spectral decomposition</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Multivariable Calculus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../multivariable/intro.html">6. Introduction to multi-variable calculus</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Differential Geometry</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../differential-geometry/intro.html">7. Introduction to Differential Geometry</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Vector and Tensor Algebra and Calculus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/algebra.html">8. Tensor Algebra</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean.html">9. Tensor Calculus in Euclidean Spaces</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean-cartesian.html">9.5. Tensor Calculus in Euclidean Spaces - Cartesian coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean-cylindrical.html">9.6. Tensor Calculus in Euclidean Spaces - cylindrical coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean-spherical.html">9.7. Tensor Calculus in Euclidean Spaces - Spehrical coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/tensor-invariants.html">10. Tensor Invariants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/algebra-rotation-tensors.html">11. Unitary and rotation tensors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/algebra-isotropic-tensors.html">12. Isotropic Tensors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/time-derivative-of-integrals.html">13. Time derivative of integrals over moving domains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/calculus-identities.html">14. Calculus identities</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Functional Analysis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../functional-analysis/intro.html">15. Introduction to Functional Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functional-analysis/dirac-delta.html">16. Dirac’s delta</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Complex Calculus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../complex/analysis.html">17. Complex Analysis</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../complex/laplace.html">18. Laplace Transform</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../complex/laplace-def-thm.html">18.1. Definition and Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../complex/laplace-applications.html">18.2. Applications of Laplace Transform</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../complex/fourier.html">19. Fourier Transforms</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../complex/fourier-series.html">19.1. Fourier Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../complex/fourier-transform.html">19.2. Fourier Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../complex/fourier-transforms.html">19.3. Relations between Fourier transforms</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Calculus of Variations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../calculus-variations/intro.html">20. Introduction to Calculus of Variations</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Ordinary Differential Equations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ode/intro.html">21. Introduction to Ordinary Differential Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ode/lti.html">22. Linear Time-Invariant Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ode/lti-response.html">23. LTI system response</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ode/lti-stability-and-feedback.html">24. LTI: stability and feedback</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Partial Differential Equations</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">25. Introduction to Partial Differential Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="elliptic.html">26. Elliptic equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parabolic.html">27. Parabolic equations</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="hyperbolic.html">28. Hyperbolic equations</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="hyperbolic-intro.html">28.1. Hyperbolic problems and conservation laws</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hyperbolic-dimensions.html">28.2. Hyperbolic problems - dimensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hyperbolic-1d-scalar-linear.html">28.3. Scalar linear equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hyperbolic-1d-vector-linear.html">28.4. Linear vector equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hyperbolic-1d-scalar-nonlinear.html">28.5. Scalar non-linear equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="characteristics.html">28.6. Method of characteristics</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="hyperbolic-nd.html">28.7. Hyperbolic problems in multi-dimensional domains</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="hyperbolic-nd-draft.html">28.7.1. General hyperbolic problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hyperbolic-nd-psys.html">28.7.2. P-system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hyperbolic-nd-euler.html">28.7.3. Euler equations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hyperbolic-nd-shallow-water.html">28.7.4. Shallow water</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="hyperbolic-riemann-pb.html">28.8. Riemann problems</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">28.9. Physical solution in hyperbolic problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hyperbolic-convexity.html">28.10. Convexity in hyperbolic problems</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="nc.html">29. Navier-Cauchy equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ns.html">30. Navier-Stokes equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ale.html">31. Arbitrary Lagrangian-Eulerian description</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Numerical Methods for PDEs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="numerics.html">32. Introduction to numerical methods for PDEs</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="fem.html">33. Finite Element Method</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="fem-poisson-1d.html">33.1. 1-dimensional Poisson equation</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="fvm.html">34. Finite Volume Method</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="fvm-poisson-1d.html">34.1. 1-dimensional Poisson equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fvm-hyperbolic-pde.html">34.2. FVM for hyperbolic problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fvm-hyperbolic-bc.html">34.3. Boundary conditions in hyperbolic problems</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="fvm-hyperbolic-examples.html">34.4. Examples of FVM for hyperbolic problems</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="psys-1d.html">34.4.1. 1-dimensional P-system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="euler-1d.html">34.4.2. 1-dimensional Euler equations for Perfect Ideal Gas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="euler-quasi-1d.html">34.4.3. Quasi 1-dimensional Euler equations for Perfect Ideal Gas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="euler-1d-ale-piston.html">34.4.4. 1-dimensional Euler equations for Perfect Ideal Gas on moving mesh (ALE)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bem.html">35. Boundary Element Method</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Boundary Methods for PDEs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="bem-poisson-helmholtz-waves.html">36. Green’s function method</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Optimization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../optimization/intro.html">37. Optimization</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Control</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../control/intro.html">38. Introduction to control methods</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control.html">38.1. Optimal control</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reinforcement Learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../rl/intro.html">39. Introduction to Reinforcement Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp.html">40. Markov Processes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_sol_dp_lp.html">41. Methods of solution of MPD: DP and LP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_sol_rl.html">42. Methods of solution of MPD: RL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_large_continuous.html">43. Large or Continuous MDPs</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/edit/main/ch/pde/hyperbolic-entropy.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/issues/new?title=Issue%20on%20page%20%2Fch/pde/hyperbolic-entropy.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/ch/pde/hyperbolic-entropy.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Physical solution in hyperbolic problems</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scalar-non-linear-equation-in-1-dimensional-domain">28.9.1. Scalar non-linear equation in 1-dimensional domain</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#burgers-equation">28.9.1.1. Burgers’ equation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-system-of-equations-in-1-dimensional-domain">28.9.2. Non-linear system of equations in 1-dimensional domain</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#p-system">28.9.2.1. P-system</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shallow-water">28.9.2.2. Shallow water</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#euler-equations">28.9.2.3. Euler equations</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="tex2jax_ignore mathjax_ignore section" id="physical-solution-in-hyperbolic-problems">
+<span id="pde-hyperbolic-entropy"></span><h1><span class="section-number">28.9. </span>Physical solution in hyperbolic problems<a class="headerlink" href="#physical-solution-in-hyperbolic-problems" title="Permalink to this heading">#</a></h1>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Topics<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">This section deals with:</p>
+<ul class="simple">
+<li><p class="sd-card-text">existence of infinite number of solution of hyperbolic problems, and existence of one physical solution of the problem as the inviscid limit of the solution of the diffusive problem</p></li>
+<li><p class="sd-card-text">definition of an entropy function, <span class="math notranslate nohighlight">\(\eta(u)\)</span>, and its flux, <span class="math notranslate nohighlight">\(q(\eta)\)</span></p></li>
+<li><p class="sd-card-text">properties of the entropy functions, and fluxes: <strong>convex</strong>, and non-convex fluxes</p></li>
+<li><p class="sd-card-text">discussion of the general case, and examples (Euler equations, P-sys, shallow water)</p></li>
+</ul>
+</div>
+</details><div class="section" id="scalar-non-linear-equation-in-1-dimensional-domain">
+<span id="pde-hyperbolic-entropy-1d-scalar"></span><h2><span class="section-number">28.9.1. </span>Scalar non-linear equation in 1-dimensional domain<a class="headerlink" href="#scalar-non-linear-equation-in-1-dimensional-domain" title="Permalink to this heading">#</a></h2>
+<p>The hyperbolic equation for <span class="math notranslate nohighlight">\(u(x,t)\)</span>, <span class="math notranslate nohighlight">\(\partial_t u + \partial_x F(u) = 0\)</span>, is often the inviscid limit of the 2-nd order equation</p>
+<div class="math notranslate nohighlight">
+\[\partial_t u + \partial_x F(u) - \partial_x \left( \varepsilon \partial_x u \right) = 0 \ .\]</div>
+<p>Term <span class="math notranslate nohighlight">\(\varepsilon \partial_x u\)</span> represents a diffusive flux, and the inviscid limit is defined by the condition <span class="math notranslate nohighlight">\(\varepsilon \rightarrow 0\)</span>.</p>
+<p><strong>Definition of an entropy function <span class="math notranslate nohighlight">\(\eta(u)\)</span>, and its flux <span class="math notranslate nohighlight">\(q(u)\)</span></strong>. Let <span class="math notranslate nohighlight">\(\eta(u)\)</span> be a function of the field <span class="math notranslate nohighlight">\(u\)</span>. Evaluating its time derivative using the viscous equation,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \partial_t \eta(u) 
+  &amp; = \eta'(u) \partial_t u = \\
+  &amp; = \eta'(u) \left[ - \partial_x F(u) - \partial_x ( \varepsilon \partial_x u ) \right] = \\
+  &amp; = - \eta'(u) F'(u) \partial_x u - \eta'(u) ( \varepsilon u_{/x} )_{/x} \ .
+\end{aligned}\end{split}\]</div>
+<p>If a function <span class="math notranslate nohighlight">\(q(u)\)</span> satisfies the condition</p>
+<div class="math notranslate nohighlight">
+\[q'(u) = \eta'(u) F'(u) \ ,\]</div>
+<p>function <span class="math notranslate nohighlight">\(\eta(u)\)</span> can be defined as an <strong>entropy function</strong> and <span class="math notranslate nohighlight">\(q(u)\)</span> as the corresponding <strong>entropy flux</strong>.</p>
+<p><strong>Differential inequality.</strong> Let these functions exist. Then</p>
+<div class="math notranslate nohighlight">
+\[\partial_t \eta + \partial_x q = - \eta' \left( \varepsilon u_{/x} \right)_{/x} \ ,\]</div>
+<p>is a differential balance equation for the entropy. The last term can be manipulated to find</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  0 
+  &amp; = \partial_t \eta + \partial_x q - \eta' \left( \varepsilon u_{/x} \right)_{/x} = \\
+  &amp; = \partial_t \eta + \partial_x q - \left( \varepsilon \eta'(u) u_{/x} \right)_{/x} + \eta''(u) \varepsilon \left( u_{/x} \right)^2 \ ,
+\end{aligned}\end{split}\]</div>
+<p>For <span class="math notranslate nohighlight">\(\varepsilon \ge 0\)</span>, for <strong>convex entropy function</strong> <span class="math notranslate nohighlight">\(\eta''(u)\)</span>, a differential inequality follows</p>
+<div class="math notranslate nohighlight">
+\[
+   \partial_t \eta + \partial_x q + \left( \varepsilon \eta'(u) u_{/x} \right)_{/x} \le 0 \ .
+\]</div>
+<p><strong>Integral inequality and jump conditions.</strong> Differential inequality is the local counterpart of the integral equation for a volume <span class="math notranslate nohighlight">\(V\)</span> at rest</p>
+<div class="math notranslate nohighlight">
+\[\frac{d}{dt} \int_{V} \eta + \oint_{\partial V} n_x \, q + \oint_{\partial V} \varepsilon q'(u) u_{/x} n_x \le 0 \ ,\]</div>
+<p>or for a generic volume <span class="math notranslate nohighlight">\(v_t\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\frac{d}{dt} \int_{v_t} \eta - \oint_{\partial v_t} n_x v_b \eta + \oint_{\partial v_t} n_x \, q + \oint_{\partial v_t} \varepsilon q'(u) u_{/x} n_x \le 0 \ ,\]</div>
+<p>being <span class="math notranslate nohighlight">\(v_b\)</span> the velocity of the points of the boundary of the domain <span class="math notranslate nohighlight">\(\partial v_t\)</span>. Jump condition in the inviscid limit <span class="math notranslate nohighlight">\(\varepsilon \rightarrow 0\)</span> follows from the collapse of the volume on a surface (<span class="math notranslate nohighlight">\(\frac{|v_t|}{|\partial v_t|} \rightarrow 0\)</span>), and from the arbitrariness of this surface</p>
+<div class="math notranslate nohighlight">
+\[v_b [ \eta ] \ge [ q ] \ .\]</div>
+<p><strong>Weak shocks.</strong> Expanding in Taylor series jump condition for weak shocks provides an alternative version of the entropy condition, as a relation between the eigenvalues of the system and the shock speed. The shock speed reads <span class="math notranslate nohighlight">\(\dot{s} = \frac{[f]}{[u]} = \frac{f_R-f_L}{u_R - u_L}\)</span>. Taylor expansion of jump condition relies on Taylor expansion of the jumps there in and of the speed of the shock</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  f_R - f_L &amp; = f'(L) \Delta u + f''(L) \frac{\Delta u^2}{2} + f'''(L) \frac{\Delta u^3}{6} + o(\Delta u^3) \\
+  \dot{s}   &amp; = f'(L) + f''(L) \frac{\Delta u}{2} + f'''(L) \frac{\Delta u^2}{6} + o(\Delta u^2) \\
+  \eta_R - \eta_L  &amp; = \eta'(L) \Delta u + \eta''(L) \frac{\Delta u^2}{2} + \eta'''(L) \frac{\Delta u^3}{6} + o(\Delta u^3) \\
+     q_R -    q_L  &amp; =    q'(L) \Delta u +    q''(L) \frac{\Delta u^2}{2} +    q'''(L) \frac{\Delta u^3}{6} + o(\Delta u^3) \\
+\end{aligned}\end{split}\]</div>
+<p>and comparing terms of the same order</p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+  0 \le \Delta u ( \eta'_L f'_L - q'_L ) + \Delta u^2 \left( \frac{1}{2} f'_L \eta''_L + \frac{1}{2} f''_L \eta'_L - \frac{1}{2} q''_L \right) + \Delta u^3 \left( \frac{1}{6} \eta'''_L f'_L + \frac{1}{4} \eta''_L f''_L + \frac{1}{6} \eta'_L f'''_L - \frac{1}{6} q'''_L \right) + o(\Delta u^3) \ .
+\end{aligned}\]</div>
+<p>Exploiting the relation <span class="math notranslate nohighlight">\(q' = \eta' f'\)</span>, and evaluating higher-order derivatives</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  q'' &amp; = \eta'' f' + \eta' f'' \\
+  q'''&amp; = \eta''' f' + 2 \eta'' f'' + \eta' f''' \\
+\end{aligned}\end{split}\]</div>
+<p>it follows that the first two terms of the jump condition inequality are identically zero, so that it can be written as</p>
+<div class="math notranslate nohighlight">
+\[0 \le -\frac{1}{12} \Delta u^3 \eta''_L f''_L \ .\]</div>
+<p>For a system with <strong>convex entropy function</strong> <span class="math notranslate nohighlight">\(\eta''(u) \ge 0\)</span>, and <strong>convex flux</strong> <span class="math notranslate nohighlight">\(f''(u) \ge 0\)</span>, it follows that <span class="math notranslate nohighlight">\(\Delta u \le 0\)</span>, i.e. <span class="math notranslate nohighlight">\(u_R &lt; u_L\)</span>. Using the Taylor expansion (either centered in the left or right state) of the speed of the shock,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \dot{s} &amp; = f'_L + f''_L \frac{\Delta u}{2} \le f'_L \\
+  \dot{s} &amp; = f'_R - f''_R \frac{\Delta u}{2} \ge f'_R \\
+\end{aligned}\end{split}\]</div>
+<p>the relation between the eigenvalues of the systems in the left <span class="math notranslate nohighlight">\(\lambda_L = f'(u_L)\)</span> and right state <span class="math notranslate nohighlight">\(\lambda_R = f'(u_R)\)</span>, and the speed of the shock immediately follows</p>
+<div class="math notranslate nohighlight">
+\[\lambda_L \ge \dot{s} \ge \lambda_R \ .\]</div>
+<div class="section" id="burgers-equation">
+<span id="pde-hyperbolic-entropy-1d-scalar-burgers"></span><h3><span class="section-number">28.9.1.1. </span>Burgers’ equation<a class="headerlink" href="#burgers-equation" title="Permalink to this heading">#</a></h3>
+<!--
+The flux of Burgers' equation is $F(u) = \frac{u^2}{2}$. Thus, the relation between an entropy function and its flux reads
+
+$$q'(u) = u \eta'(u) \ .$$
+
+Solutions can be easily found with polynomial functions. A standard choice providing $\eta''(u) \ge 0$ is
+
+$$\eta(u) = \frac{u^2}{2} \quad , \quad q(u) = \frac{u^3}{3} \ .$$
+
+With thiss choice, jump relation reads
+
+$$v_b \frac{1}{2} ( u^2_R - u^2_L ) \ge \frac{1}{3} ( u^3_R - u^3_L ) \ .$$
+$$v_b \frac{1}{2} ( u_R + u_L ) \ge \frac{1}{3} ( u^2_R + u_R u_L + u^2_L ) \ .$$
+
+The speed of a shock is $\dot{s} = \frac{[F]}{[u]} = \frac{u_R + u_L}{2}$, so that the jump condition across a shock reads
+
+$$\begin{aligned}
+  0 
+  & \le \frac{1}{4} ( u_R^2 + 2 u_R u_L + u_L^2 ) - \frac{1}{3} ( u_R^2 +  u_R u_L + u_L^2 ) = \\
+\end{aligned}$$
+-->
+</div>
+</div>
+<div class="section" id="non-linear-system-of-equations-in-1-dimensional-domain">
+<span id="pde-hyperbolic-entropy-1d-system"></span><h2><span class="section-number">28.9.2. </span>Non-linear system of equations in 1-dimensional domain<a class="headerlink" href="#non-linear-system-of-equations-in-1-dimensional-domain" title="Permalink to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[\partial_t \mathbf{u} + \partial_x \mathbf{F}(\mathbf{u}) = \mathbf{0} \ .\]</div>
+<p>If a shock originates from the <span class="math notranslate nohighlight">\(i^{th}\)</span> characteristic family, the condition <span class="math notranslate nohighlight">\(\lambda_{i,L} \ge \dot{s}_i \ge \lambda_{i,R}\)</span> holds.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Details<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Let <span class="math notranslate nohighlight">\(\mathbf{A}(\mathbf{u}) = \nabla_{\mathbf{u}} \mathbf{F}(\mathbf{u})\)</span> the convection matrix, <span class="math notranslate nohighlight">\(\mathbf{A} = \mathbf{R} \boldsymbol\Lambda \mathbf{L}\)</span> its spectral decomposition, and <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> the characteristic variables s.t. <span class="math notranslate nohighlight">\(d \mathbf{v} = \mathbf{L} d \mathbf{u}\)</span>, or <span class="math notranslate nohighlight">\(d \mathbf{u} = \mathbf{R} d \mathbf{v}\)</span>.</p>
+<p class="sd-card-text">The convective form of the equation reads</p>
+<div class="math notranslate nohighlight">
+\[\partial_t \mathbf{u} + \mathbf{A} \partial_x \mathbf{u} = \mathbf{0} \ ,\]</div>
+<p class="sd-card-text">or in diagonal form using characteristic variables,</p>
+<div class="math notranslate nohighlight">
+\[\partial_t \mathbf{v} + \boldsymbol\Lambda \partial_x \mathbf{v} = \mathbf{0} \ .\]</div>
+<p class="sd-card-text">A shock originating from the <span class="math notranslate nohighlight">\(i^{th}\)</span> family of characteristics comes from the scalar equation</p>
+<div class="math notranslate nohighlight">
+\[\partial_t v_i + \lambda_i \partial_x v_i = 0 \ .\]</div>
+<p class="sd-card-text">The speed of the shock satisfies <span class="math notranslate nohighlight">\(\dot{s}_i [ \mathbf{u} ]_i = [ \mathbf{F}(\mathbf{u}) ]_i\)</span>, with <span class="math notranslate nohighlight">\([ \mathbf{u} ]_i = \mathbf{u}_i^+ - \mathbf{u}_i^-\)</span>, and</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathbf{u}_i^- &amp; = \mathbf{u}(\mathbf{v}_{\notin i}, v_i^-) \\
+  \mathbf{u}_i^+ &amp; = \mathbf{u}(\mathbf{v}_{\notin i}, v_i^+) \\
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">Taylor expansion of the relation gives (no sum on <span class="math notranslate nohighlight">\(i\)</span>, as <span class="math notranslate nohighlight">\(\Delta v_i\)</span> is the only non-zero component of <span class="math notranslate nohighlight">\(\Delta \mathbf{v}\)</span> across a shock originating from the <span class="math notranslate nohighlight">\(i^{th}\)</span> family of characteristics)</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+ \dot{s}_i \Delta_i u_k 
+ &amp; = \Delta_i F_k = \\
+ &amp; = \partial_{u_\ell} F_k \Delta_i u_\ell + \frac{1}{2} \partial_{u_\ell u_m} F_k \Delta_i u_{\ell} \Delta_i u_{m} = \\
+ &amp; = A_{k \ell} R_{\ell i} \Delta v_i + \frac{1}{2} \partial_{u_\ell u_m} F_k \Delta_i u_{\ell} \Delta_i u_{m} 
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">Exploiting spectral decomposition of the convection matrix</p>
+<div class="math notranslate nohighlight">
+\[\left( \dot{s}_i R_{ki} - R_{km} \Lambda_{mn} \underbrace{L_{n\ell} R_{\ell i}}_{\delta_{ni}} \right) \Delta v_i = \frac{1}{2} \partial_{u_\ell u_m} F_k \Delta_i u_\ell \Delta_i u_m\]</div>
+<div class="math notranslate nohighlight">
+\[\left( \dot{s}_i - \lambda_i \right) R_{ki}\Delta v_i = \frac{1}{2} \partial_{u_\ell u_m} F_k \Delta_i u_\ell \Delta_i u_m\]</div>
+<div class="math notranslate nohighlight">
+\[\left( \dot{s}_i - \lambda_i \right) \Delta_i u_k = \frac{1}{2} \partial_{u_\ell u_m} F_k \Delta_i u_\ell \Delta_i u_m \ .\]</div>
+<p class="sd-card-text">If the flux is convex (here the flux is a vector quantity. Is this the requirement for each of its components <span class="math notranslate nohighlight">\(F_k\)</span>?), i.e. the Hessian is (semi)definite positive, the right-hand side is always non-negative.</p>
+<p class="sd-card-text">The following relations have been used above</p>
+<div class="math notranslate nohighlight">
+\[d u_l = R_{lm} d v_m \ .\]</div>
+<div class="math notranslate nohighlight">
+\[\Delta_i u_l = \partial_{v_m} u_l \underbrace{\Delta_i v_m}_{= \delta_{im} \Delta v_i} = \partial_{v_i} u_l \Delta v_i = R_{li} \Delta v_i \ .\]</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Entropy function for systems<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Let <span class="math notranslate nohighlight">\(\eta(\mathbf{u})\)</span> the entropy function of the system <span class="math notranslate nohighlight">\(\partial_t \mathbf{u} + \partial_x \mathbf{F}(\mathbf{u}) = \mathbf{0}\)</span>. It follows</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \partial_t \eta
+  &amp; = \partial_{u_i} \eta \, \partial_t u_i \\
+  &amp; = - \partial_{u_i} \eta \, \partial_{x} F_i = \\
+  &amp; = - \partial_{u_i} \eta \, \partial_{u_j} F_i \, \partial_x u_j = \\
+  &amp; = - \partial_{u_j} q \, \partial_x u_j = \\
+  &amp; = - \partial_x q \ ,
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">i.e. the compatibility equation between the entropy function <span class="math notranslate nohighlight">\(\eta(\mathbf{u})\)</span> and the entropy flux <span class="math notranslate nohighlight">\(q(\mathbf{u})\)</span> reads</p>
+<div class="math notranslate nohighlight">
+\[\partial_{u_j} q = \partial_{u_j} F_i \, \partial_{u_i} \eta = A_{ij} \partial_{u_i} \eta \ ,\]</div>
+<p class="sd-card-text">or using vector formalism</p>
+<div class="math notranslate nohighlight">
+\[\nabla_{\mathbf{u}} q = \nabla_{\mathbf{u}} \mathbf{F} \cdot \nabla_{\mathbf{u}} \eta = \mathbf{A} \cdot \nabla_{\mathbf{u}} \eta \ .\]</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Entropy function in diffusive equations<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Let <span class="math notranslate nohighlight">\(\partial_t \mathbf{u} + \partial_x \mathbf{F}(\mathbf{u}) = \partial_x( \mathbf{D} \partial_x \mathbf{u} )\)</span> the diffusive equation. The entropy equation becomes</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \partial_t \eta
+  &amp; = \partial_{u_i} \eta \, \partial_t u_i \\
+  &amp; = - \partial_{u_i} \eta \, \partial_{x} F_i + \partial_{u_i} \eta \partial_x \left( D_{ik} \partial_x u_k \right) = \\
+  &amp; = - \partial_{u_i} \eta \, \partial_{u_j} F_i \, \partial_x u_j + \partial_x \left( \partial_{u_i} \eta D_{ik} \partial_x u_k \right) - \partial_x \partial_{u_i} \eta D_{ik} \partial_{x} u_k = \\
+  &amp; = - \partial_{u_j} q \, \partial_x u_j + \partial_x \left( \partial_{u_i} \eta D_{ik} \partial_x u_k \right) - \partial_x u_l \partial_{u_l u_i} \eta D_{ik} \partial_{x} u_k \ .
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">By definition, if the <strong>diffusion term</strong> is <strong>compatible</strong> with the entropy function, the matrix (is this a matrix, a tensor or a matrix of tensors?) <span class="math notranslate nohighlight">\(\nabla_{\mathbf{u} \mathbf{u}} \cdot \mathbf{D}\)</span> is semi-definite positive. If the diffusion term is compatible with the entropy function, in the inviscid limit <span class="math notranslate nohighlight">\(D_{ik} \rightarrow 0\)</span>, the entropy inequality becomes</p>
+<div class="math notranslate nohighlight">
+\[\partial_t \eta - \partial_x q \le 0 \ .\]</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Entropy variables<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Now, let the <strong>entropy variables</strong> be <span class="math notranslate nohighlight">\(\mathbf{w} := \nabla_{\mathbf{u}} \eta\)</span>, <span class="math notranslate nohighlight">\(w_i = \partial_{u_i} \eta\)</span>. The last term becomes</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \frac{\partial u_l}{\partial x} \frac{\partial u_k}{\partial x} \frac{\partial}{\partial u_l} \frac{\partial}{\partial u_i} \eta D_{ik} 
+  &amp; = \frac{\partial u_l}{\partial x} \frac{\partial u_k}{\partial x} \frac{\partial}{\partial u_l} w_i D_{ik} = \\
+  &amp; = \frac{\partial w_i}{\partial x} D_{ik} \frac{\partial u_k}{\partial x} = \\
+  &amp; = \partial_x \mathbf{w} \cdot \mathbf{D} \cdot \left( \nabla_{\mathbf{u} \mathbf{u}} \eta \right)^{-1} \cdot \partial_x \mathbf{w} \ ,
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">being</p>
+<div class="math notranslate nohighlight">
+\[\partial_x \mathbf{u} = \partial_x \mathbf{w} \cdot \nabla_{\mathbf{w}} \mathbf{u} = \partial_x \mathbf{w} \cdot \left( \nabla_{\mathbf{u}} \mathbf{w} \right)^{-1} = \partial_x \mathbf{w} \cdot \left( \nabla_{\mathbf{u} \mathbf{u}} \eta \right)^{-1}\]</div>
+<p class="sd-card-text">or, by symmetry of the Hessian, <span class="math notranslate nohighlight">\(\partial_x \mathbf{u} = \left( \nabla_{\mathbf{u} \mathbf{u}} \eta \right)^{-1} \cdot \partial_x \mathbf{w}\)</span>.</p>
+<p class="sd-card-text">Compatibility between the diffusion and the entropy function needs <span class="math notranslate nohighlight">\(\mathbf{D} \cdot \left( \nabla_{\mathbf{u} \mathbf{u}} \eta \right)^{-1}\)</span> to be semi-definite positive.</p>
+<div class="math notranslate nohighlight">
+\[\partial_x u_k = \partial_{w_j} u_k \partial_x w_j = \left[ \partial_{u_k} w_j \right]^{-1} \partial_x w_j \ ,\]</div>
+<div class="math notranslate nohighlight">
+\[\delta_{ij} = \partial_{u_i} w_k \partial_{w_k} u_j \ .\]</div>
+</div>
+</details><div class="section" id="p-system">
+<span id="pde-hyperbolic-entropy-1d-system-p-sys"></span><h3><span class="section-number">28.9.2.1. </span>P-system<a class="headerlink" href="#p-system" title="Permalink to this heading">#</a></h3>
+<p>A common choice of <em>entropy function</em> in a P-system is the mechanical energy (the “reversible” part of the energy).</p>
+<div class="math notranslate nohighlight">
+\[\eta = \rho \left( \frac{1}{2} \rho u^2 + a^2 \ln \frac{\rho}{\rho_0} \right) \ .\]</div>
+<p>This quantity decreases across shocks. Corresponding flux reads</p>
+<div class="math notranslate nohighlight">
+\[q = \rho \left( \frac{1}{2} u^2 + a^2 \ln \frac{\rho}{\rho_0} + a^2 \right) u \ .\]</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Details<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Taking the time derivative of the entropy function,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+ \eta_{/t} 
+ &amp; = \rho_{/t} \frac{u^2}{2} + \rho u u_{/t} + a^2 \rho_{/t} \ln \frac{\rho}{\rho_0} + a^2 \rho_{/t} = \\
+ &amp; = \left( \frac{u^2}{2} + a^2 \ln \frac{\rho}{\rho_0} + a^2 \right) \rho_{/t} + u \rho u_{/t} = \\
+ &amp; = - \left( \frac{u^2}{2} + a^2 \ln \frac{\rho}{\rho_0} + a^2 \right) (\rho u)_{/x} - u \left( \rho u u_{/x} + a^2 \rho_{/x} \right) = \\
+ &amp; = - \left( \rho \frac{u^2}{2} u \right)_{/x} \underbrace{- a^2 \ln \frac{\rho}{\rho_0} \rho u_{/x} - a^2 \ln \frac{\rho}{\rho_0} u \rho_{/x} - a^2 \rho_{/x} u}_{= - \left( a^2 \rho \ln \frac{\rho}{\rho_0} u \right)_{/x}} \underbrace{- a^2 \rho u_{/x} - a^2 \rho_{/x} u}_{= - ( a^2 \rho u )_{/x}} = \\
+ &amp; = - \left[ \left( \rho \frac{u^2}{2} + a^2 \rho \ln \frac{\rho}{\rho_0} + \rho a^2  \right) u \right]_{/x} \ .
+\end{aligned}\end{split}\]</div>
+<!--
+P-system equations don't include total energy equation, but only mass and momentum balance. From momentum balance kinetic energy (and mechanical energy) balance can be derived after multiplication by the velocity field $u = \frac{m}{\rho}$.
+
+Convective form of viscous P-system equations reads
+
+$$\begin{cases}
+  \partial_t \rho + u \partial_{x} \rho + \rho \partial_x u = 0 \\
+  \rho \partial_t u + \rho u \partial_x u + \partial_x p - \partial_x ( \nu \partial_x u ) = 0 \ .
+\end{cases}$$
+
+...
+-->
+</div>
+</details></div>
+<div class="section" id="shallow-water">
+<span id="pde-hyperbolic-entropy-1d-system-shallow-water"></span><h3><span class="section-number">28.9.2.2. </span>Shallow water<a class="headerlink" href="#shallow-water" title="Permalink to this heading">#</a></h3>
+</div>
+<div class="section" id="euler-equations">
+<span id="pde-hyperbolic-entropy-1d-system-euler"></span><h3><span class="section-number">28.9.2.3. </span>Euler equations<a class="headerlink" href="#euler-equations" title="Permalink to this heading">#</a></h3>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./ch/pde"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="hyperbolic-riemann-pb.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">28.8. </span>Riemann problems</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="hyperbolic-convexity.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">28.10. </span>Convexity in hyperbolic problems</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scalar-non-linear-equation-in-1-dimensional-domain">28.9.1. Scalar non-linear equation in 1-dimensional domain</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#burgers-equation">28.9.1.1. Burgers’ equation</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-system-of-equations-in-1-dimensional-domain">28.9.2. Non-linear system of equations in 1-dimensional domain</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#p-system">28.9.2.1. P-system</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shallow-water">28.9.2.2. Shallow water</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#euler-equations">28.9.2.3. Euler equations</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By basics
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
