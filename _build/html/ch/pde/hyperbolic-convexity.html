@@ -561,6 +561,48 @@ Burgers’ equation<div class="sd-summary-down docutils">
 <p class="sd-card-text">so that the compatibility condition <span class="math notranslate nohighlight">\(q'(u) = F'(u) \eta'(u)\)</span> is satisfied.</p>
 <p class="sd-card-text">The flux is convex, <span class="math notranslate nohighlight">\(F''(u) = 1 &gt; 0\)</span>; the entropy function is convex as well, <span class="math notranslate nohighlight">\(\eta''(u) = 1 &gt; 0\)</span>.</p>
 </div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+P-system<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\partial_t \begin{bmatrix} \rho \\ m \end{bmatrix}
++ \partial_x \begin{bmatrix} m \\ \frac{m^2}{\rho} + \rho a^2 \end{bmatrix} 
+= \partial_x \begin{bmatrix} 0 \\ \mu \partial_x \left( \frac{m}{\rho} \right) \end{bmatrix}
+\end{split}\]</div>
+<ul class="simple">
+<li><p class="sd-card-text">Flux: <span class="math notranslate nohighlight">\(F(\mathbf{u}) = \begin{bmatrix} m \\ \frac{m^2}{\rho} + \rho a^2 \end{bmatrix} \)</span></p></li>
+<li><p class="sd-card-text">Entropy: <span class="math notranslate nohighlight">\(\eta(\mathbf{u}) = \frac{m^2}{2 \rho} + a^2 \rho \ln \frac{\rho}{\rho_0}\)</span></p></li>
+<li><p class="sd-card-text">Diffusion flux: <span class="math notranslate nohighlight">\(\begin{bmatrix} 0 &amp; 0 \\ - \mu \frac{m}{\rho^2} &amp; \mu \frac{1}{\rho} \end{bmatrix} \partial_x \begin{bmatrix} \rho \\ m \end{bmatrix}\)</span></p></li>
+</ul>
+<p class="sd-card-text"><strong>Flux.</strong> First component</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\nabla_{\mathbf{u}} F_1 = \begin{bmatrix} 0 \\ 1 \end{bmatrix}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\nabla_{\mathbf{u} \mathbf{u}} F_1 = \mathbf{0}_2 \ .\]</div>
+<p class="sd-card-text">Second component</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\nabla_{\mathbf{u}} F_2 = \begin{bmatrix} a^2 - \frac{m^2}{\rho^2} \\ 2 \frac{m}{\rho} \end{bmatrix}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\nabla_{\mathbf{u} \mathbf{u}} F_2 = \begin{bmatrix} 2 \frac{m^2}{\rho^3} &amp; - \frac{2 m}{\rho^2} \\ - \frac{2 m}{\rho^2} &amp; \frac{2}{\rho} \end{bmatrix} \ .\end{split}\]</div>
+<p class="sd-card-text"><strong>Entropy.</strong> Gradient</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\nabla_{\mathbf{u}} \eta = \begin{bmatrix} - \frac{m^2}{2 \rho^2} + a^2\left( 1 + \ln \frac{\rho}{\rho_0} \right) \\ \frac{m}{\rho} \end{bmatrix}\end{split}\]</div>
+<p class="sd-card-text">and Hessian</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\nabla_{\mathbf{u} \mathbf{u}} \eta = \begin{bmatrix}  \frac{m^2}{\rho^3} + \frac{a^2}{\rho} &amp; - \frac{m}{\rho^2} \\ - \frac{m}{\rho^2} &amp; \frac{1}{\rho} \end{bmatrix}\end{split}\]</div>
+<p class="sd-card-text"><strong>Compatibility of diffusion and entropy.</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\nabla_{\mathbf{u} \mathbf{u}} \eta \cdot \mathbf{D} = 
+\mu \begin{bmatrix} \frac{m^2}{\rho^4} &amp; -\frac{m}{\rho^3} \\ - \frac{m}{\rho^3} &amp; \frac{1}{\rho^2} \end{bmatrix}
+\end{split}\]</div>
+<p class="sd-card-text">This matrix is semi-definite positive with one zero eigenvalue (associated with exact conservation and no dissipation in mass equation), and the other eigenvalue</p>
+</div>
 </details></div>
 </div>
 

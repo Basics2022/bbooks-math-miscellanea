@@ -262,7 +262,7 @@ $$\delta_{ij} = \partial_{u_i} w_k \partial_{w_k} u_j \ .$$
 
 A common choice of *entropy function* in a P-system is the mechanical energy (the "reversible" part of the energy).
 
-$$\eta = \rho \left( \frac{1}{2} \rho u^2 + a^2 \ln \frac{\rho}{\rho_0} \right) \ .$$
+$$\eta = \rho \left( \frac{1}{2} u^2 + a^2 \ln \frac{\rho}{\rho_0} \right) \ .$$
 
 This quantity decreases across shocks. Corresponding flux reads
 
