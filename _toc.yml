@@ -91,6 +91,8 @@ parts:
       - file: ch/pde/hyperbolic-nd-euler
       - file: ch/pde/hyperbolic-nd-shallow-water
     - file: ch/pde/hyperbolic-riemann-pb
+    - file: ch/pde/hyperbolic-entropy
+    - file: ch/pde/hyperbolic-convexity
   - file: ch/pde/nc
   - file: ch/pde/ns
   - file: ch/pde/ale
