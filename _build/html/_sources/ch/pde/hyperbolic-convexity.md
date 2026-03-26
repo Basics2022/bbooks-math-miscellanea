@@ -1,9 +1,11 @@
-(pde:hyperbolic:entropy)=
+(pde:hyperbolic:convexity)=
 # Convexity in hyperbolic problems
 
 Convexity of the entropy function and the flux are assumption used discussing [physical solutions in hyperbolic problems](pde:hyperbolic:entropy).
 
-Convexity of the entropy flux $\eta''(u) \ge 0$ is a requirement for the entropy inequality
+Convexity of the entropy function, $\eta''(u) \ge 0$, and the flux $F$, F''(u)$$, is a requirement for the entropy inequality.
+
+Next section discusses [problems with non-convex fluxes](pde:hyperbolic:non-convex), and the **Olenik-criterion**.
 
 ## Examples
 
