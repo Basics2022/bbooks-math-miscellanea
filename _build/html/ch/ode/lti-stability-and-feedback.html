@@ -256,7 +256,17 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-1d-vector-linear.html">28.4. Linear vector equation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-1d-scalar-nonlinear.html">28.5. Scalar non-linear equation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../pde/characteristics.html">28.6. Method of characteristics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-riemann-pb.html">28.7. Riemann problems</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../pde/hyperbolic-nd.html">28.7. Hyperbolic problems in multi-dimensional domains</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-draft.html">28.7.1. General hyperbolic problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-psys.html">28.7.2. P-system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-euler.html">28.7.3. Euler equations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-shallow-water.html">28.7.4. Shallow water</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-riemann-pb.html">28.8. Riemann problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-entropy.html">28.9. Physical solution in hyperbolic problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-convexity.html">28.10. Convexity in hyperbolic problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-non-convex.html">28.11. Non-convex hyperbolic problems</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../pde/nc.html">29. Navier-Cauchy equations</a></li>
@@ -266,15 +276,15 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Numerical Methods for PDEs</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../pde/numerics.html">32. Introduction to numerical methods for PDEs</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/fem.html">33. Finite Element Method</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/fem.html">33. Finite Element Method</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../pde/fem-poisson-1d.html">33.1. 1-dimensional Poisson equation</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/fvm.html">34. Finite Volume Method</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/fvm.html">34. Finite Volume Method</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../pde/fvm-poisson-1d.html">34.1. 1-dimensional Poisson equation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../pde/fvm-hyperbolic-pde.html">34.2. FVM for hyperbolic problems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../pde/fvm-hyperbolic-bc.html">34.3. Boundary conditions in hyperbolic problems</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../pde/fvm-hyperbolic-examples.html">34.4. Examples of FVM for hyperbolic problems</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../pde/fvm-hyperbolic-examples.html">34.4. Examples of FVM for hyperbolic problems</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../pde/psys-1d.html">34.4.1. 1-dimensional P-system</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../pde/euler-1d.html">34.4.2. 1-dimensional Euler equations for Perfect Ideal Gas</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../pde/euler-quasi-1d.html">34.4.3. Quasi 1-dimensional Euler equations for Perfect Ideal Gas</a></li>
@@ -295,8 +305,9 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Control</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../control/intro.html">38. Introduction to control methods</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../control/intro.html">38. Introduction to control methods</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../control/optimal-control.html">38.1. Optimal control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-full-state.html">38.2. Full-state feedback</a></li>
 </ul>
 </li>
 </ul>
@@ -528,6 +539,8 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cauchy-argument-principle">24.2.1. Cauchy argument principle</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nyquist-stability-criterion">24.2.2. Nyquist stability criterion</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bode-stability-criterion-for-minimal-phase-systems">24.2.3. Bode stability criterion for minimal phase systems</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-margin">24.2.4. Phase margin</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gain-margin">24.2.5. Gain margin</a></li>
 </ul>
 </li>
 </ul>
@@ -557,9 +570,9 @@ Contents<div class="sd-summary-down docutils">
 </ul>
 </div>
 </details><div class="section" id="stability-of-a-lti-siso">
-<h2><span class="section-number">24.1. </span>Stability of a LTI - SISO<a class="headerlink" href="#stability-of-a-lti-siso" title="Permalink to this heading">#</a></h2>
+<span id="ode-lti-stability-fb-siso"></span><h2><span class="section-number">24.1. </span>Stability of a LTI - SISO<a class="headerlink" href="#stability-of-a-lti-siso" title="Permalink to this heading">#</a></h2>
 <div class="section" id="transfer-function">
-<h3><span class="section-number">24.1.1. </span>Transfer function<a class="headerlink" href="#transfer-function" title="Permalink to this heading">#</a></h3>
+<span id="ode-lti-stability-fb-siso-tf"></span><h3><span class="section-number">24.1.1. </span>Transfer function<a class="headerlink" href="#transfer-function" title="Permalink to this heading">#</a></h3>
 <p>Let the SISO input-output relation of a LTI system be represented in Laplace domain by the transfer function <span class="math notranslate nohighlight">\(G(s)\)</span>,</p>
 <div class="math notranslate nohighlight">
 \[y(s) = G(s) u(s)\]</div>
@@ -603,7 +616,7 @@ Contents<div class="sd-summary-down docutils">
 </div>
 </div></div>
 <div class="section" id="stability-w-r-t-non-zero-initial-conditions-or-w-r-t-implusive-input-in-time-domain">
-<h3><span class="section-number">24.1.2. </span>Stability w.r.t. non-zero initial conditions - or w.r.t. implusive input - in time domain<a class="headerlink" href="#stability-w-r-t-non-zero-initial-conditions-or-w-r-t-implusive-input-in-time-domain" title="Permalink to this heading">#</a></h3>
+<span id="ode-lti-stability-fb-siso-impulsive-input"></span><h3><span class="section-number">24.1.2. </span>Stability w.r.t. non-zero initial conditions - or w.r.t. implusive input - in time domain<a class="headerlink" href="#stability-w-r-t-non-zero-initial-conditions-or-w-r-t-implusive-input-in-time-domain" title="Permalink to this heading">#</a></h3>
 <p>Transfer function <span class="math notranslate nohighlight">\(G(s)\)</span> represents the free the function w.r.t. impulsive input. Response in time domain can be evaluated as the inverse Laplace transform of the transfer function,</p>
 <div class="math notranslate nohighlight">
 \[y(t) = \mathscr{L}^{-1} \left\{ y(s) \right\} = \mathscr{L}^{-1} \left\{ \sum_{n_d=1}^{D} \dfrac{R_d}{(s-p_d)} \right\} = \sum_{d=1}^{D} R_d \, e^{p_d t} \ .\]</div>
@@ -623,7 +636,7 @@ Contents<div class="sd-summary-down docutils">
 <p>loops around the origin <span class="math notranslate nohighlight">\(0+i 0\)</span> of the complex plane.</p>
 </div>
 <div class="section" id="nyquist-stability-criterion">
-<h3><span class="section-number">24.2.2. </span>Nyquist stability criterion<a class="headerlink" href="#nyquist-stability-criterion" title="Permalink to this heading">#</a></h3>
+<span id="ode-lti-stability-fb-siso-nyquist"></span><h3><span class="section-number">24.2.2. </span>Nyquist stability criterion<a class="headerlink" href="#nyquist-stability-criterion" title="Permalink to this heading">#</a></h3>
 <p>Nyquist stability criterion provides some conditions for the stability of a closed loop transfer function</p>
 <div class="math notranslate nohighlight">
 \[G_c(s) := \dfrac{G(s)}{1+G(s)} \ , \]</div>
@@ -639,13 +652,18 @@ Contents<div class="sd-summary-down docutils">
 </div>
 </div></div>
 <div class="section" id="bode-stability-criterion-for-minimal-phase-systems">
-<h3><span class="section-number">24.2.3. </span>Bode stability criterion for minimal phase systems<a class="headerlink" href="#bode-stability-criterion-for-minimal-phase-systems" title="Permalink to this heading">#</a></h3>
+<span id="ode-lti-stability-fb-siso-bode"></span><h3><span class="section-number">24.2.3. </span>Bode stability criterion for minimal phase systems<a class="headerlink" href="#bode-stability-criterion-for-minimal-phase-systems" title="Permalink to this heading">#</a></h3>
 <div class="proof definition admonition" id="definition-2">
 <p class="admonition-title"><span class="caption-number">Definition 24.1 </span> (Minimal phase systems)</p>
 <div class="definition-content section" id="proof-content">
 </div>
 </div><p>…</p>
-<p>Safetry gain margin, safety phase margin…</p>
+</div>
+<div class="section" id="phase-margin">
+<span id="ode-lti-stability-fb-siso-phase-margin"></span><h3><span class="section-number">24.2.4. </span>Phase margin<a class="headerlink" href="#phase-margin" title="Permalink to this heading">#</a></h3>
+</div>
+<div class="section" id="gain-margin">
+<span id="ode-lti-stability-fb-siso-gain-margin"></span><h3><span class="section-number">24.2.5. </span>Gain margin<a class="headerlink" href="#gain-margin" title="Permalink to this heading">#</a></h3>
 </div>
 </div>
 </div>
@@ -722,6 +740,8 @@ Contents<div class="sd-summary-down docutils">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cauchy-argument-principle">24.2.1. Cauchy argument principle</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nyquist-stability-criterion">24.2.2. Nyquist stability criterion</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bode-stability-criterion-for-minimal-phase-systems">24.2.3. Bode stability criterion for minimal phase systems</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-margin">24.2.4. Phase margin</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gain-margin">24.2.5. Gain margin</a></li>
 </ul>
 </li>
 </ul>

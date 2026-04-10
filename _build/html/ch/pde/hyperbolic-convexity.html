@@ -307,6 +307,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1 has-children"><a class="reference internal" href="../control/intro.html">38. Introduction to control methods</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../control/optimal-control.html">38.1. Optimal control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-full-state.html">38.2. Full-state feedback</a></li>
 </ul>
 </li>
 </ul>
@@ -543,7 +544,7 @@ document.write(`
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="convexity-in-hyperbolic-problems">
 <span id="pde-hyperbolic-convexity"></span><h1><span class="section-number">28.10. </span>Convexity in hyperbolic problems<a class="headerlink" href="#convexity-in-hyperbolic-problems" title="Permalink to this heading">#</a></h1>
-<p>Convexity of the entropy function and the flux are assumption used discussing <span class="xref myst">physical solutions in hyperbolic problems</span>.</p>
+<p>Convexity of the entropy function and the flux are assumption used discussing <a class="reference internal" href="hyperbolic-entropy.html#pde-hyperbolic-entropy"><span class="std std-ref">physical solutions in hyperbolic problems</span></a>.</p>
 <p>Convexity of the entropy function, <span class="math notranslate nohighlight">\(\eta''(u) \ge 0\)</span>, and the flux <span class="math notranslate nohighlight">\(F\)</span>, F’’(u)$$, is a requirement for the entropy inequality.</p>
 <p>Next section discusses <span class="xref myst">problems with non-convex fluxes</span>, and the <strong>Olenik-criterion</strong>.</p>
 <div class="section" id="examples">
@@ -672,10 +673,10 @@ Euler equations for compressible flows<div class="sd-summary-down docutils">
 \end{split}\]</div>
 <p class="sd-card-text"><strong>Compatibility of diffusion and entropy.</strong></p>
 <div class="math notranslate nohighlight">
-\[\begin{split}
+\[
 \nabla_{\mathbf{u} \mathbf{u}} \eta \cdot \mathbf{D} = 
-\mu \begin{bmatrix} \frac{m^2}{\rho^4} &amp; -\frac{m}{\rho^3} \\ - \frac{m}{\rho^3} &amp; \frac{1}{\rho^2} \end{bmatrix}
-\end{split}\]</div>
+\mu \begin{bmatrix} \dots \end{bmatrix}
+\]</div>
 <p class="sd-card-text">This matrix is semi-definite positive with one zero eigenvalue (associated with exact conservation and no dissipation in mass equation), and the other eigenvalue</p>
 </div>
 </details></div>

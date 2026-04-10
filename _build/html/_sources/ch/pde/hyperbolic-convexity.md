@@ -141,7 +141,7 @@ $$
 
 $$
 \nabla_{\mathbf{u} \mathbf{u}} \eta \cdot \mathbf{D} = 
-\mu \begin{bmatrix} \frac{m^2}{\rho^4} & -\frac{m}{\rho^3} \\ - \frac{m}{\rho^3} & \frac{1}{\rho^2} \end{bmatrix}
+\mu \begin{bmatrix} \dots \end{bmatrix}
 $$
 
 This matrix is semi-definite positive with one zero eigenvalue (associated with exact conservation and no dissipation in mass equation), and the other eigenvalue

@@ -130,6 +130,10 @@ parts:
   - file: ch/control/intro
     sections:
     - file: ch/control/optimal-control
+      sections:
+      - file: ch/control/optimal-control-full-state
+      - file: ch/control/optimal-control-observer
+      - file: ch/control/optimal-control-output
 - caption: Reinforcement Learning
   numbered: True
   chapters:

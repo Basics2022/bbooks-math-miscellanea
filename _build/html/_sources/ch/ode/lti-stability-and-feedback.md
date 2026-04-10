@@ -10,8 +10,10 @@
 
 ```
 
+(ode:lti:stability-fb:siso)=
 ## Stability of a LTI - SISO
 
+(ode:lti:stability-fb:siso:tf)=
 ### Transfer function
 Let the SISO input-output relation of a LTI system be represented in Laplace domain by the transfer function $G(s)$,
 
@@ -63,6 +65,7 @@ $$G(s) =  \dfrac{s+1}{(s+2)^3} = \dfrac{1}{(s+2)^2} - \dfrac{1}{(s+2)^3} \ . $$
 
 ```
 
+(ode:lti:stability-fb:siso:impulsive-input)=
 ### Stability w.r.t. non-zero initial conditions - or w.r.t. implusive input - in time domain
 
 Transfer function $G(s)$ represents the free the function w.r.t. impulsive input. Response in time domain can be evaluated as the inverse Laplace transform of the transfer function,
@@ -87,6 +90,7 @@ $$N =  Z - P$$ (eq:cauchy-arg-principle)
 loops around the origin $0+i 0$ of the complex plane.
 
 
+(ode:lti:stability-fb:siso:nyquist)=
 ### Nyquist stability criterion
 
 Nyquist stability criterion provides some conditions for the stability of a closed loop transfer function 
@@ -107,6 +111,7 @@ In order for the closed-loop system to be asymptotically stable, the diagram of 
 
 ```
 
+(ode:lti:stability-fb:siso:bode)=
 ### Bode stability criterion for minimal phase systems
 
 ```{prf:definition} Minimal phase systems
@@ -115,10 +120,14 @@ In order for the closed-loop system to be asymptotically stable, the diagram of 
 
 ...
 
-Safetry gain margin, safety phase margin...
 
 ```{prf:theroem} Bode stability criterion
 
 ```
 
+(ode:lti:stability-fb:siso:phase-margin)=
+### Phase margin
+
+(ode:lti:stability-fb:siso:gain-margin)=
+### Gain margin
 

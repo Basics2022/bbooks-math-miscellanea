@@ -71,7 +71,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="39. Introduction to Reinforcement Learning" href="../rl/intro.html" />
+    <link rel="next" title="38.1.1. Full-state feedback" href="optimal-control-full-state.html" />
     <link rel="prev" title="38. Introduction to control methods" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -256,7 +256,17 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-1d-vector-linear.html">28.4. Linear vector equation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-1d-scalar-nonlinear.html">28.5. Scalar non-linear equation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../pde/characteristics.html">28.6. Method of characteristics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-riemann-pb.html">28.7. Riemann problems</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../pde/hyperbolic-nd.html">28.7. Hyperbolic problems in multi-dimensional domains</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-draft.html">28.7.1. General hyperbolic problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-psys.html">28.7.2. P-system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-euler.html">28.7.3. Euler equations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-shallow-water.html">28.7.4. Shallow water</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-riemann-pb.html">28.8. Riemann problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-entropy.html">28.9. Physical solution in hyperbolic problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-convexity.html">28.10. Convexity in hyperbolic problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-non-convex.html">28.11. Non-convex hyperbolic problems</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../pde/nc.html">29. Navier-Cauchy equations</a></li>
@@ -266,15 +276,15 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Numerical Methods for PDEs</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../pde/numerics.html">32. Introduction to numerical methods for PDEs</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/fem.html">33. Finite Element Method</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/fem.html">33. Finite Element Method</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../pde/fem-poisson-1d.html">33.1. 1-dimensional Poisson equation</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/fvm.html">34. Finite Volume Method</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/fvm.html">34. Finite Volume Method</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../pde/fvm-poisson-1d.html">34.1. 1-dimensional Poisson equation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../pde/fvm-hyperbolic-pde.html">34.2. FVM for hyperbolic problems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../pde/fvm-hyperbolic-bc.html">34.3. Boundary conditions in hyperbolic problems</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../pde/fvm-hyperbolic-examples.html">34.4. Examples of FVM for hyperbolic problems</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../pde/fvm-hyperbolic-examples.html">34.4. Examples of FVM for hyperbolic problems</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../pde/psys-1d.html">34.4.1. 1-dimensional P-system</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../pde/euler-1d.html">34.4.2. 1-dimensional Euler equations for Perfect Ideal Gas</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../pde/euler-quasi-1d.html">34.4.3. Quasi 1-dimensional Euler equations for Perfect Ideal Gas</a></li>
@@ -295,8 +305,13 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Control</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">38. Introduction to control methods</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">38.1. Optimal control</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">38. Introduction to control methods</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">38.1. Optimal control</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="optimal-control-full-state.html">38.1.1. Full-state feedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optimal-control-observer.html">38.1.2. Optimal observer for deterministic disturbances</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optimal-control-output.html">38.1.3. Sub-optimal control for output feedback</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -496,9 +511,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -514,18 +527,6 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generic-ode">38.1.1. Generic ODE</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lti">38.1.2. LTI</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#infinite-horizon-full-state-feedback">38.1.2.1. Infinite-horizon full-state feedback</a></li>
-</ul>
-</li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -537,78 +538,18 @@ document.write(`
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="optimal-control">
 <span id="control-optimal"></span><h1><span class="section-number">38.1. </span>Optimal control<a class="headerlink" href="#optimal-control" title="Permalink to this heading">#</a></h1>
-<p>Optimal control can be recast as a <strong>constrained optimization problem</strong>, <span class="math notranslate nohighlight">\(J\)</span>, where an extreme - optimum - of an objective function must be found, subject to constraints that include the equations of motion. Some constraints may be included into an augmented objective function <span class="math notranslate nohighlight">\(\widetilde{J}\)</span> with the methods of <a class="reference internal" href="../optimization/intro.html#optimization-constrained-lagrange-multipliers"><span class="std std-ref">Lagrange multipliers</span></a>.</p>
-<p><strong>Finite time vs. Infinite time horizon.</strong></p>
-<div class="section" id="generic-ode">
-<h2><span class="section-number">38.1.1. </span>Generic ODE<a class="headerlink" href="#generic-ode" title="Permalink to this heading">#</a></h2>
-<div class="math notranslate nohighlight">
-\[\mathbf{M} \dot{\mathbf{x}} = \mathbf{f}(\mathbf{x}, \mathbf{u})\]</div>
-<p>The objective function combines (weights) the error on a desired performance and the control input, in order to get the desired behavior with feasible control (that can be provided by actuators, without saturation, avoiding unnecessary high power input and too sharp behavior,…)</p>
-<p>As an example, if the goal of the control <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> is to keep the system around <span class="math notranslate nohighlight">\(\mathbf{x} = \mathbf{0}\)</span>, the cost function to be minimized can be designed as</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}J = \int_{t=0}^{T} \dfrac{1}{2} \begin{bmatrix} \mathbf{x}^T &amp; \mathbf{u}^T \end{bmatrix} \begin{bmatrix}  \mathbf{Q} &amp; \mathbf{S} \\ \mathbf{S}^T &amp; \mathbf{R} \end{bmatrix} \begin{bmatrix} \mathbf{x} \\ \mathbf{u} \end{bmatrix} \, dt \ .\end{split}\]</div>
-</div>
-<div class="section" id="lti">
-<h2><span class="section-number">38.1.2. </span>LTI<a class="headerlink" href="#lti" title="Permalink to this heading">#</a></h2>
-<div class="math notranslate nohighlight">
-\[\begin{split}J = \int_{t=0}^{T} \dfrac{1}{2} \begin{bmatrix} \mathbf{x}^T &amp; \mathbf{u}^T \end{bmatrix} \begin{bmatrix}  \mathbf{Q} &amp; \mathbf{S} \\ \mathbf{S}^T &amp; \mathbf{R} \end{bmatrix} \begin{bmatrix} \mathbf{x} \\ \mathbf{u} \end{bmatrix} \, dt\end{split}\]</div>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{cases}
-  \dot{\mathbf{x}} = \mathbf{A} \mathbf{x} + \mathbf{B} \mathbf{u} \\
-       \mathbf{y}  = \mathbf{C} \mathbf{x} + \mathbf{D} \mathbf{u} \\
-\end{cases}\end{split}\]</div>
-<div class="section" id="infinite-horizon-full-state-feedback">
-<h3><span class="section-number">38.1.2.1. </span>Infinite-horizon full-state feedback<a class="headerlink" href="#infinite-horizon-full-state-feedback" title="Permalink to this heading">#</a></h3>
-<p>No need for an <a class="reference internal" href="observer.html#control-observer"><span class="std std-ref">observer</span></a>. The system is assumed to be stable. The augmented cost function reads</p>
-<div class="math notranslate nohighlight">
-\[\widetilde{J}(\mathbf{x}, \mathbf{u}; \boldsymbol{\lambda}) = \int_{t=0}^{+\infty} \left\{ \dfrac{1}{2} \mathbf{x}^T \mathbf{Q} \mathbf{x} + \mathbf{x}^T \mathbf{S} \mathbf{u} + \dfrac{1}{2} \mathbf{u}^T \mathbf{R} \mathbf{u} - \boldsymbol{\lambda}^T (\dot{\mathbf{x}} - \mathbf{A} \mathbf{x} - \mathbf{B}  \mathbf{u} ) \right\} \, dt \ ,\]</div>
-<p>with given initial conditions <span class="math notranslate nohighlight">\(\mathbf{x}(0) = \mathbf{x}_0\)</span>, so that <span class="math notranslate nohighlight">\(\delta \mathbf{x}_0 = \mathbf{0}\)</span>.</p>
-<p>Using <a class="reference internal" href="../calculus-variations/intro.html#calculus-variations-intro"><span class="std std-ref">calculus of variations</span></a>, the variations of the cost function w.r.t. <span class="math notranslate nohighlight">\(\mathbf{x}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{u}\)</span>, <span class="math notranslate nohighlight">\(\boldsymbol{\lambda}\)</span> read</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
- \delta_{\mathbf{x}}           : &amp; \quad  \mathbf{Q} \mathbf{x} + \mathbf{S} \mathbf{u} + \dot{\boldsymbol{\lambda}} + \mathbf{A}^T \boldsymbol{\lambda} = \mathbf{0} \\
- \delta_{\mathbf{u}}           : &amp; \quad  \mathbf{S}^T \mathbf{x} + \mathbf{R} \mathbf{u} + \mathbf{B}^T \boldsymbol{\lambda} = \mathbf{0} \\
- \delta_{\boldsymbol{\lambda}} : &amp; \quad  \dot{\mathbf{x}} - \mathbf{A} \mathbf{x} - \mathbf{B} \mathbf{u} = \mathbf{0} \\
-\end{aligned}\end{split}\]</div>
-<p>From the variation w.r.t. <span class="math notranslate nohighlight">\(\mathbf{u}\)</span>, since <span class="math notranslate nohighlight">\(\mathbf{R} &gt; 0\)</span> and thus innvertible,</p>
-<div class="math notranslate nohighlight">
-\[\mathbf{u} = - \mathbf{R}^{-1} \left( \mathbf{S}^T \mathbf{x} + \mathbf{B}^T \boldsymbol{\lambda} \right)\]</div>
-<p>Now, assuming the relation <span class="math notranslate nohighlight">\(\boldsymbol{\lambda} = \mathbf{P} \mathbf{x}\)</span>, it follows</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  \dot{\boldsymbol{\lambda}} 
-  &amp; = - \mathbf{Q} \mathbf{x} - \mathbf{S} \mathbf{u} - \mathbf{A}^T \boldsymbol{\lambda} = \\
-  &amp; = \left\{ - \mathbf{Q}+ \mathbf{S} \mathbf{R}^{-1} \left( \mathbf{S}^T + \mathbf{B}^T \mathbf{P} \right) - \mathbf{A}^T \mathbf{P} \right\} \mathbf{x}  \\
-  \dot{\boldsymbol{\lambda}}
-  &amp; = \dot{\mathbf{P}} \mathbf{x} + \mathbf{P} \dot{\mathbf{x}} = \\
-  &amp; = \dot{\mathbf{P}} \mathbf{x} + \mathbf{P} \left( \mathbf{A} \mathbf{x} + \mathbf{B} \mathbf{u} \right) = \\
-  &amp; = \left\{ \dot{\mathbf{P}} + \mathbf{P} \left[ \mathbf{A} - \mathbf{B} \mathbf{R}^{-1} \left( \mathbf{S}^T + \mathbf{B}^T \mathbf{P} \right)  \right] \right\} \mathbf{x} \ ,
-\end{aligned}\end{split}\]</div>
-<p>and comparing the two different expressions of <span class="math notranslate nohighlight">\(\dot{\boldsymbol{\lambda}}\)</span>, if the equality holds for any <span class="math notranslate nohighlight">\(\mathbf{x}\)</span>, the <strong>dynamical Riccati equation</strong> for <span class="math notranslate nohighlight">\(\mathbf{P}\)</span> is derived as</p>
-<div class="math notranslate nohighlight">
-\[\dot{\mathbf{P}} + \mathbf{P} \widetilde{\mathbf{A}} + \widetilde{\mathbf{A}}^T \mathbf{P} - \mathbf{P} \mathbf{B} \mathbf{R}^{-1} \mathbf{B}^T \mathbf{P} + \widetilde{\mathbf{Q}} = \mathbf{0} \ ,\]</div>
-<p>where <span class="math notranslate nohighlight">\(\widetilde{\mathbf{A}} = \mathbf{A} - \mathbf{B} \mathbf{R}^{-1} \mathbf{S}^T \)</span> and <span class="math notranslate nohighlight">\(\widetilde{\mathbf{Q}} = \mathbf{Q} - \mathbf{S} \mathbf{R}^{-1} \mathbf{S}^T\)</span>. Riccati equation is a non-linear dynamical matrix equation in <span class="math notranslate nohighlight">\(\mathbf{P}\)</span>. Algorithms for computing the solution of dynamical and algebraic equation exists, see <a class="reference internal" href="#control-optimal-riccati">Example 38.1</a>.</p>
-<!--
-$$\dot{\mathbf{P}} = - \mathbf{P} \left( \mathbf{A} - \mathbf{B} \mathbf{R}^{-1} \mathbf{S}^T \right) - \left( \mathbf{A} - \mathbf{B} \mathbf{R}^{-1} \mathbf{S}^T \right)^T \mathbf{P} + \mathbf{P} \mathbf{B} \mathbf{R}^{-1} \mathbf{B}^T \mathbf{P} - \left( \mathbf{Q} - \mathbf{S} \mathbf{R}^{-1} \mathbf{S}^T \right)$$
--->
-<p>Once <span class="math notranslate nohighlight">\(\mathbf{P}\)</span> is evaluated, the control law reads</p>
-<div class="math notranslate nohighlight">
-\[\mathbf{u} = - \mathbf{R}^{-1} \left( \mathbf{S}^T + \mathbf{B}^T \mathbf{P} \right) \mathbf{x} \ .\]</div>
-<p>For infinite-horizone, the algebraic equation (ARE) for the steady state is solved after setting <span class="math notranslate nohighlight">\(\dot{\mathbf{P}} = \mathbf{0}\)</span>, the solution for a LTI system is a constant matrix <span class="math notranslate nohighlight">\(\mathbf{P}\)</span>, and thus the control law is a proportional feedback on the full-state of the system,</p>
-<div class="math notranslate nohighlight">
-\[\mathbf{u} = - \mathbf{G} \mathbf{x} \ ,\]</div>
-<p>with <span class="math notranslate nohighlight">\(\mathbf{G} = \mathbf{R}^{-1} \left( \mathbf{S}^T + \mathbf{B}^T \mathbf{P} \right)\)</span>.</p>
-<div class="proof example admonition" id="control-optimal-riccati">
-<p class="admonition-title"><span class="caption-number">Example 38.1 </span> (Solution of Riccati equation)</p>
-<div class="example-content section" id="proof-content">
-<p>…</p>
-</div>
-</div><p><strong>Properties.</strong> <strong>todo</strong></p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\mathbf{P}\)</span> symmetric? definite positive? …</p></li>
-<li><p>…</p></li>
+<li><p>Deterministic/stochastic signals</p></li>
+<li><p>Full-state feedback, observer and full-state on observed state, output feedback</p></li>
 </ul>
-</div>
+<p><strong>Deterministic signals.</strong></p>
+<ul class="simple">
+<li><p><a class="reference internal" href="optimal-control-full-state.html#control-optimal-full-state-fb"><span class="std std-ref">Full-state feedback</span></a>, <span class="math notranslate nohighlight">\(\mathbf{u} = - \mathbf{K} \mathbf{x}\)</span></p></li>
+<li><p><a class="reference internal" href="optimal-control-observer.html#control-optimal-observer"><span class="std std-ref">Observer</span></a>, and full-state feed back on the observed state, <span class="math notranslate nohighlight">\(\mathbf{u} = - \mathbf{K} \mathbf{o}\)</span></p></li>
+<li><p><a class="reference internal" href="optimal-control-output.html#control-optimal-output-fb"><span class="std std-ref">Output feedback</span></a>, <span class="math notranslate nohighlight">\(\mathbf{u} = - \mathbf{K} \mathbf{y}\)</span></p></li>
+</ul>
+<p><strong>Stochastic signals.</strong></p>
+<div class="toctree-wrapper compound">
 </div>
 </div>
 
@@ -652,11 +593,11 @@ $$\dot{\mathbf{P}} = - \mathbf{P} \left( \mathbf{A} - \mathbf{B} \mathbf{R}^{-1}
       </div>
     </a>
     <a class="right-next"
-       href="../rl/intro.html"
+       href="optimal-control-full-state.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">39. </span>Introduction to Reinforcement Learning</p>
+        <p class="prev-next-title"><span class="section-number">38.1.1. </span>Full-state feedback</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -666,24 +607,6 @@ $$\dot{\mathbf{P}} = - \mathbf{P} \left( \mathbf{A} - \mathbf{B} \mathbf{R}^{-1}
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generic-ode">38.1.1. Generic ODE</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lti">38.1.2. LTI</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#infinite-horizon-full-state-feedback">38.1.2.1. Infinite-horizon full-state feedback</a></li>
-</ul>
-</li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>
