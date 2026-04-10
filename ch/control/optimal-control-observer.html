@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>28.1. Hyperbolic problems and conservation laws &#8212; basics - math</title>
+    <title>38.1.2. Optimal observer for deterministic disturbances &#8212; basics - math</title>
   
   
   
@@ -67,12 +67,12 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/pde/hyperbolic-intro';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/control/optimal-control-observer';</script>
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="28.2. Hyperbolic problems - dimensions" href="hyperbolic-dimensions.html" />
-    <link rel="prev" title="28. Hyperbolic equations" href="hyperbolic.html" />
+    <link rel="next" title="38.1.3. Sub-optimal control for output feedback" href="optimal-control-output.html" />
+    <link rel="prev" title="38.1.1. Full-state feedback" href="optimal-control-full-state.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -245,69 +245,73 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../ode/lti-stability-and-feedback.html">24. LTI: stability and feedback</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Partial Differential Equations</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="intro.html">25. Introduction to Partial Differential Equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="elliptic.html">26. Elliptic equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="parabolic.html">27. Parabolic equations</a></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="hyperbolic.html">28. Hyperbolic equations</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">28.1. Hyperbolic problems and conservation laws</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hyperbolic-dimensions.html">28.2. Hyperbolic problems - dimensions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hyperbolic-1d-scalar-linear.html">28.3. Scalar linear equation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hyperbolic-1d-vector-linear.html">28.4. Linear vector equation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hyperbolic-1d-scalar-nonlinear.html">28.5. Scalar non-linear equation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="characteristics.html">28.6. Method of characteristics</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="hyperbolic-nd.html">28.7. Hyperbolic problems in multi-dimensional domains</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="hyperbolic-nd-draft.html">28.7.1. General hyperbolic problem</a></li>
-<li class="toctree-l3"><a class="reference internal" href="hyperbolic-nd-psys.html">28.7.2. P-system</a></li>
-<li class="toctree-l3"><a class="reference internal" href="hyperbolic-nd-euler.html">28.7.3. Euler equations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="hyperbolic-nd-shallow-water.html">28.7.4. Shallow water</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../pde/intro.html">25. Introduction to Partial Differential Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/elliptic.html">26. Elliptic equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/parabolic.html">27. Parabolic equations</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/hyperbolic.html">28. Hyperbolic equations</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-intro.html">28.1. Hyperbolic problems and conservation laws</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-dimensions.html">28.2. Hyperbolic problems - dimensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-1d-scalar-linear.html">28.3. Scalar linear equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-1d-vector-linear.html">28.4. Linear vector equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-1d-scalar-nonlinear.html">28.5. Scalar non-linear equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/characteristics.html">28.6. Method of characteristics</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../pde/hyperbolic-nd.html">28.7. Hyperbolic problems in multi-dimensional domains</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-draft.html">28.7.1. General hyperbolic problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-psys.html">28.7.2. P-system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-euler.html">28.7.3. Euler equations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-shallow-water.html">28.7.4. Shallow water</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="hyperbolic-riemann-pb.html">28.8. Riemann problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hyperbolic-entropy.html">28.9. Physical solution in hyperbolic problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hyperbolic-convexity.html">28.10. Convexity in hyperbolic problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hyperbolic-non-convex.html">28.11. Non-convex hyperbolic problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-riemann-pb.html">28.8. Riemann problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-entropy.html">28.9. Physical solution in hyperbolic problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-convexity.html">28.10. Convexity in hyperbolic problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-non-convex.html">28.11. Non-convex hyperbolic problems</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="nc.html">29. Navier-Cauchy equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ns.html">30. Navier-Stokes equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ale.html">31. Arbitrary Lagrangian-Eulerian description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/nc.html">29. Navier-Cauchy equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/ns.html">30. Navier-Stokes equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/ale.html">31. Arbitrary Lagrangian-Eulerian description</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Numerical Methods for PDEs</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="numerics.html">32. Introduction to numerical methods for PDEs</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="fem.html">33. Finite Element Method</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="fem-poisson-1d.html">33.1. 1-dimensional Poisson equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/numerics.html">32. Introduction to numerical methods for PDEs</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/fem.html">33. Finite Element Method</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pde/fem-poisson-1d.html">33.1. 1-dimensional Poisson equation</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="fvm.html">34. Finite Volume Method</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="fvm-poisson-1d.html">34.1. 1-dimensional Poisson equation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fvm-hyperbolic-pde.html">34.2. FVM for hyperbolic problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fvm-hyperbolic-bc.html">34.3. Boundary conditions in hyperbolic problems</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="fvm-hyperbolic-examples.html">34.4. Examples of FVM for hyperbolic problems</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="psys-1d.html">34.4.1. 1-dimensional P-system</a></li>
-<li class="toctree-l3"><a class="reference internal" href="euler-1d.html">34.4.2. 1-dimensional Euler equations for Perfect Ideal Gas</a></li>
-<li class="toctree-l3"><a class="reference internal" href="euler-quasi-1d.html">34.4.3. Quasi 1-dimensional Euler equations for Perfect Ideal Gas</a></li>
-<li class="toctree-l3"><a class="reference internal" href="euler-1d-ale-piston.html">34.4.4. 1-dimensional Euler equations for Perfect Ideal Gas on moving mesh (ALE)</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/fvm.html">34. Finite Volume Method</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pde/fvm-poisson-1d.html">34.1. 1-dimensional Poisson equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/fvm-hyperbolic-pde.html">34.2. FVM for hyperbolic problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/fvm-hyperbolic-bc.html">34.3. Boundary conditions in hyperbolic problems</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../pde/fvm-hyperbolic-examples.html">34.4. Examples of FVM for hyperbolic problems</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../pde/psys-1d.html">34.4.1. 1-dimensional P-system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/euler-1d.html">34.4.2. 1-dimensional Euler equations for Perfect Ideal Gas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/euler-quasi-1d.html">34.4.3. Quasi 1-dimensional Euler equations for Perfect Ideal Gas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/euler-1d-ale-piston.html">34.4.4. 1-dimensional Euler equations for Perfect Ideal Gas on moving mesh (ALE)</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="bem.html">35. Boundary Element Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/bem.html">35. Boundary Element Method</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Boundary Methods for PDEs</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="bem-poisson-helmholtz-waves.html">36. Green’s function method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/bem-poisson-helmholtz-waves.html">36. Green’s function method</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Optimization</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../optimization/intro.html">37. Optimization</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Control</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../control/intro.html">38. Introduction to control methods</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control.html">38.1. Optimal control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-full-state.html">38.2. Full-state feedback</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">38. Introduction to control methods</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="optimal-control.html">38.1. Optimal control</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="optimal-control-full-state.html">38.1.1. Full-state feedback</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">38.1.2. Optimal observer for deterministic disturbances</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optimal-control-output.html">38.1.3. Sub-optimal control for output feedback</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -389,7 +393,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/edit/main/ch/pde/hyperbolic-intro.md" target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/edit/main/ch/control/optimal-control-observer.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -406,7 +410,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/issues/new?title=Issue%20on%20page%20%2Fch/pde/hyperbolic-intro.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/issues/new?title=Issue%20on%20page%20%2Fch/control/optimal-control-observer.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -436,7 +440,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/ch/pde/hyperbolic-intro.md" target="_blank"
+      <li><a href="../../_sources/ch/control/optimal-control-observer.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -507,9 +511,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -520,21 +522,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Hyperbolic problems and conservation laws</h1>
+    <h1>Optimal observer for deterministic disturbances</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integral-equations">28.1.1. Integral equations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jump-relations">28.1.2. Jump relations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differential-equations">28.1.3. Differential equations</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -544,58 +536,26 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="hyperbolic-problems-and-conservation-laws">
-<span id="pde-hyperbolic-intro"></span><h1><span class="section-number">28.1. </span>Hyperbolic problems and conservation laws<a class="headerlink" href="#hyperbolic-problems-and-conservation-laws" title="Permalink to this heading">#</a></h1>
-<p><strong>todo</strong></p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="optimal-observer-for-deterministic-disturbances">
+<span id="control-optimal-observer"></span><h1><span class="section-number">38.1.2. </span>Optimal observer for deterministic disturbances<a class="headerlink" href="#optimal-observer-for-deterministic-disturbances" title="Permalink to this heading">#</a></h1>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{cases}
+ \dot{\mathbf{x}} = \mathbf{A} \mathbf{x} + \mathbf{B} \mathbf{u} + \mathbf{B}_d \mathbf{d} \\
+ \mathbf{y}       = \mathbf{C} \mathbf{x} + \mathbf{D} \mathbf{u} + \mathbf{D}_d \mathbf{d} + \mathbf{D}_r \mathbf{r}
+\end{cases}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{cases}
+ \dot{\mathbf{o}} = \mathbf{A} \mathbf{o} + \mathbf{B} \mathbf{u} + \mathbf{L} \left( \mathbf{y} - \mathbf{y}_o \right) \\
+ \mathbf{y}_o     = \mathbf{C} \mathbf{o} + \mathbf{D} \mathbf{u} 
+\end{cases}\end{split}\]</div>
+<p>The error is defined as <span class="math notranslate nohighlight">\(\mathbf{e} := \mathbf{o} - \mathbf{x}\)</span>, and it’s governed by the dynamical equation</p>
+<div class="math notranslate nohighlight">
+\[\dot{\mathbf{e}} = \left( \mathbf{A} - \mathbf{L} \mathbf{C} \right) \mathbf{e} + \left( \mathbf{B}_d - \mathbf{L} \mathbf{D}_d \right)  \mathbf{d} - \mathbf{L} \mathbf{D}_r \mathbf{r} \ .\]</div>
+<p>This equation shows that the dynamics is asymptotically stable if the matrix <span class="math notranslate nohighlight">\(\mathbf{A} - \mathbf{L} \mathbf{C}\)</span> is asymptotically stable. The matrix <span class="math notranslate nohighlight">\(\mathbf{L}\)</span> is involved in the dynamics from the exogenous input <span class="math notranslate nohighlight">\(\mathbf{d}\)</span> and measurement error <span class="math notranslate nohighlight">\(\mathbf{r}\)</span>. The design of <span class="math notranslate nohighlight">\(\mathbf{L}\)</span> is driven by some requiremenets:</p>
 <ul class="simple">
-<li><p>In fluid dynamics: no viscosity, no heat conduction</p></li>
-<li><p>In this limit, the equation may produce non-physical equations, i.e. solutions that are not the limit of the solution of the full problem in the limit of <span class="math notranslate nohighlight">\(\mathbf{F}^d(\nabla \mathbf{u}) \rightarrow \mathbf{0}\)</span></p></li>
-<li><p>How many equations in how many variables?</p></li>
-<li><p>Linear diffusion flux <span class="math notranslate nohighlight">\(\mathbf{F}^d = \dots\)</span></p></li>
-<li><p>Entropy condition, to select the physical solution from all the possible solutions</p></li>
+<li><p>asymptotic stability of <span class="math notranslate nohighlight">\(\mathbf{A} - \mathbf{L}\mathbf{C}\)</span>,</p></li>
+<li><p>low sensitivity to exogenous input and measurement error.</p></li>
 </ul>
-<div class="section" id="integral-equations">
-<span id="pde-hyperbolic-intro-integral"></span><h2><span class="section-number">28.1.1. </span>Integral equations<a class="headerlink" href="#integral-equations" title="Permalink to this heading">#</a></h2>
-<p>Many laws can be written as integral balance equations for a material volume <span class="math notranslate nohighlight">\(V_t\)</span>,</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  &amp; \dfrac{d}{dt} \int_{V_t} \mathbf{u} + \oint_{\partial V_t} \hat{\mathbf{n}} \cdot \mathbf{F}(\mathbf{u}, \nabla \mathbf{u}) = \int_{V_t} \mathbf{s} \\
-  &amp; \dfrac{d}{dt} \int_{V_t} u_i + \oint_{\partial V_t} n_j \, F_{ji} = \int_{V_t} s_i \\
-\end{aligned}\end{split}\]</div>
-<p>or for generic volume <span class="math notranslate nohighlight">\(v_t\)</span>, using <a class="reference internal" href="../tensor-algebra-calculus/time-derivative-of-integrals.html#tensor-calculus-time-derivative-of-integrals-volume-density"><span class="std std-ref">Reynolds’ transport theorem</span></a>,</p>
-<div class="math notranslate nohighlight">
-\[\dfrac{d}{dt} \int_{v_t} \mathbf{u} + \oint_{\partial v_t} \mathbf{u} \left( \mathbf{v} - \mathbf{v}_b \right) \cdot \hat{\mathbf{n}} + \oint_{\partial v_t} \hat{\mathbf{n}} \cdot \mathbf{F}(\mathbf{u}, \nabla \mathbf{u}) = \int_{v_t} \mathbf{s} \ ,\]</div>
-<p>being <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> the velocity of the continuous medium and <span class="math notranslate nohighlight">\(\mathbf{v}_b\)</span> the velocity of the boundary <span class="math notranslate nohighlight">\(\partial v_t\)</span>.</p>
-<p>The flux can be often written as a sum of a <em>conservative part</em> and a <em>diffusion part</em> as</p>
-<div class="math notranslate nohighlight">
-\[\begin{aligned}
-  \mathbf{F}(\mathbf{u}, \nabla \mathbf{u})
-  &amp; = \mathbf{F}(\mathbf{u}) + \mathbf{F}^d(\nabla \mathbf{u}) \ ,
-\end{aligned}\]</div>
-<p>with slight abuse of notation in writing the conservative flux with the same letter as the full flux.</p>
-<p>Under some conditions, the diffusion part goes to zero.</p>
-</div>
-<div class="section" id="jump-relations">
-<span id="pde-hyperbolic-intro-jump"></span><h2><span class="section-number">28.1.2. </span>Jump relations<a class="headerlink" href="#jump-relations" title="Permalink to this heading">#</a></h2>
-<p>Collapsing the volume <span class="math notranslate nohighlight">\(v_t\)</span> on a surface, volume terms vanish faster than the surface terms. Jump conditions follow from the arbitrariety of this surface</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  \mathbf{0}
-  &amp; = \hat{\mathbf{n}}_1 \cdot \left[ (\mathbf{v}_1-\mathbf{v}_b) \mathbf{u} + \mathbf{F}_1 \right] 
-    + \hat{\mathbf{n}}_2 \cdot \left[ (\mathbf{v}_2-\mathbf{v}_b) \mathbf{u} + \mathbf{F}_2 \right] = \\
-  &amp; = \hat{\mathbf{n}}   \cdot \left[ (\mathbf{v}-\mathbf{v}_b) \mathbf{u} + \mathbf{F} \right] = \\
-  &amp; = \left[ v_n^{rel} \mathbf{u} + \mathbf{F}_n \right] \ .
-\end{aligned}\end{split}\]</div>
-</div>
-<div class="section" id="differential-equations">
-<span id="pde-hyperbolic-intro-differential"></span><h2><span class="section-number">28.1.3. </span>Differential equations<a class="headerlink" href="#differential-equations" title="Permalink to this heading">#</a></h2>
-<p>If the functions are differentiable, with divergence theorem and exploiting the arbitrariety of the volume <span class="math notranslate nohighlight">\(v_t\)</span></p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  \partial_t u_i + \partial_j F_{ji} &amp; = s_i \\
-  \partial_t \mathbf{u} + \nabla \cdot \mathbf{F} &amp; = \mathbf{s} \ .
-\end{aligned}\end{split}\]</div>
-</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -611,7 +571,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./ch/pde"
+            path: "./ch/control"
         },
         predefinedOutput: true
     }
@@ -629,20 +589,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="hyperbolic.html"
+       href="optimal-control-full-state.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">28. </span>Hyperbolic equations</p>
+        <p class="prev-next-title"><span class="section-number">38.1.1. </span>Full-state feedback</p>
       </div>
     </a>
     <a class="right-next"
-       href="hyperbolic-dimensions.html"
+       href="optimal-control-output.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">28.2. </span>Hyperbolic problems - dimensions</p>
+        <p class="prev-next-title"><span class="section-number">38.1.3. </span>Sub-optimal control for output feedback</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -652,22 +612,6 @@ document.write(`
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integral-equations">28.1.1. Integral equations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#jump-relations">28.1.2. Jump relations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differential-equations">28.1.3. Differential equations</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>
