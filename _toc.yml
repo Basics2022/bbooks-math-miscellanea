@@ -66,6 +66,7 @@ parts:
   numbered: True
   chapters:
   - file: ch/ode/intro
+  - file: ch/ode/ode-linear-systems
   - file: ch/ode/lti
   - file: ch/ode/lti-response
   - file: ch/ode/lti-stability-and-feedback
@@ -134,6 +135,7 @@ parts:
       - file: ch/control/optimal-control-full-state
       - file: ch/control/optimal-control-observer
       - file: ch/control/optimal-control-output
+      - file: ch/control/kalman
 - caption: Reinforcement Learning
   numbered: True
   chapters:

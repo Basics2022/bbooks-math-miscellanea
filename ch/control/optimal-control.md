@@ -10,3 +10,4 @@
 * [Output feedback](control:optimal:output-fb), $\mathbf{u} = - \mathbf{K} \mathbf{y}$
 
 **Stochastic signals.**
+* [Kalman filter](control:kalman), i.e. optimal observer w.r.t. white noise system exogenous input and measurement noise
