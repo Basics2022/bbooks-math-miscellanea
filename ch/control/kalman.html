@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>5. Spectral decomposition &#8212; basics - math</title>
+    <title>39.1.4. Kalman filter &#8212; basics - math</title>
   
   
   
@@ -67,12 +67,12 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/linear-algebra/spectral';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/control/kalman';</script>
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="5.1. Spectral decomposition of symmetric matrices" href="spectral-symmetric.html" />
-    <link rel="prev" title="4. Linear Systems" href="linear-systems.html" />
+    <link rel="next" title="40. Introduction to Reinforcement Learning" href="../rl/intro.html" />
+    <link rel="prev" title="39.1.3. Sub-optimal control for output feedback" href="optimal-control-output.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -176,17 +176,17 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Linear Algebra</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="intro.html">1. Introduction to Linear Algebra</a></li>
-<li class="toctree-l1"><a class="reference internal" href="matrices.html">2. Matrices</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="matrix-factorization.html">3. Matrix factorizations</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="svd.html">3.3. Singular Value Decomposition</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../linear-algebra/intro.html">1. Introduction to Linear Algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linear-algebra/matrices.html">2. Matrices</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../linear-algebra/matrix-factorization.html">3. Matrix factorizations</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../linear-algebra/svd.html">3.3. Singular Value Decomposition</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="linear-systems.html">4. Linear Systems</a></li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">5. Spectral decomposition</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="spectral-symmetric.html">5.1. Spectral decomposition of symmetric matrices</a></li>
-<li class="toctree-l2"><a class="reference internal" href="spectral-sensitivity.html">5.2. Sensitivity of spectral decomposition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linear-algebra/linear-systems.html">4. Linear Systems</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../linear-algebra/spectral.html">5. Spectral decomposition</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../linear-algebra/spectral-symmetric.html">5.1. Spectral decomposition of symmetric matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linear-algebra/spectral-sensitivity.html">5.2. Sensitivity of spectral decomposition</a></li>
 </ul>
 </li>
 </ul>
@@ -305,13 +305,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../optimization/intro.html">38. Optimization</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Control</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../control/intro.html">39. Introduction to control methods</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../control/optimal-control.html">39.1. Optimal control</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../control/optimal-control-full-state.html">39.1.1. Full-state feedback</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../control/optimal-control-observer.html">39.1.2. Optimal observer for deterministic disturbances</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../control/optimal-control-output.html">39.1.3. Sub-optimal control for output feedback</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../control/kalman.html">39.1.4. Kalman filter</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">39. Introduction to control methods</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="optimal-control.html">39.1. Optimal control</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="optimal-control-full-state.html">39.1.1. Full-state feedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optimal-control-observer.html">39.1.2. Optimal observer for deterministic disturbances</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optimal-control-output.html">39.1.3. Sub-optimal control for output feedback</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">39.1.4. Kalman filter</a></li>
 </ul>
 </li>
 </ul>
@@ -395,7 +395,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/edit/main/ch/linear-algebra/spectral.md" target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/edit/main/ch/control/kalman.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -412,7 +412,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/issues/new?title=Issue%20on%20page%20%2Fch/linear-algebra/spectral.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/issues/new?title=Issue%20on%20page%20%2Fch/control/kalman.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -442,7 +442,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/ch/linear-algebra/spectral.md" target="_blank"
+      <li><a href="../../_sources/ch/control/kalman.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -513,7 +513,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -524,11 +526,20 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Spectral decomposition</h1>
+    <h1>Kalman filter</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-dynamics">39.1.4.1. Error dynamics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimality-conditions">39.1.4.2. Optimality conditions</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -538,28 +549,78 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="spectral-decomposition">
-<span id="math-spectral"></span><h1><span class="section-number">5. </span>Spectral decomposition<a class="headerlink" href="#spectral-decomposition" title="Permalink to this heading">#</a></h1>
-<ul>
-<li><p><strong>Introduction.</strong> What’s spectral (or eigenvalue) decomposition? Arbitrarieness. When is it possible? Special matrices. Properties and theorems (Cayley-Hamilton)</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="kalman-filter">
+<span id="control-kalman"></span><h1><span class="section-number">39.1.4. </span>Kalman filter<a class="headerlink" href="#kalman-filter" title="Permalink to this heading">#</a></h1>
+<p>Kalman filter is an optimal state estimator, in terms of minimum-variance error reconstruction. It has the structure of a state observer. Let the linear system</p>
 <div class="math notranslate nohighlight">
-\[\mathbf{A} \mathbf{u}_i = s_i \mathbf{u}_i\]</div>
-</li>
-<li><p><strong>Generalized spectral decompositions.</strong> Generalized spectral decomposition of first order systems; generalized spectral deocmposition of second order systems<a class="footnote-reference brackets" href="#nd-order-underdamped" id="id1">1</a></p>
+\[\begin{split}\begin{cases}
+  \dot{\mathbf{x}} = \mathbf{A} \mathbf{x} + \mathbf{B} \mathbf{u} + \mathbf{B}_d \mathbf{d} \\
+  \mathbf{y} = \mathbf{C} \mathbf{x} + \mathbf{D}_u \mathbf{u} + \mathbf{D}_d \mathbf{d} + \mathbf{D}_r \mathbf{r} \  ,
+\end{cases}\end{split}\]</div>
+<p>Kalman filter for time-continuous systems has the structure</p>
 <div class="math notranslate nohighlight">
-\[\mathbf{A} \mathbf{u}_i = s_i \mathbf{B} \mathbf{u}_i\]</div>
+\[\begin{split}\begin{cases}
+  \dot{\mathbf{o}} = \mathbf{A} \mathbf{o} + \mathbf{B} \mathbf{u} + \mathbf{L} ( \mathbf{y} - \mathbf{y}_o ) \\
+  \mathbf{y}_o = \mathbf{C} \mathbf{o} + \mathbf{D}_u \mathbf{u}
+\end{cases}\end{split}\]</div>
+<div class="section" id="error-dynamics">
+<h2><span class="section-number">39.1.4.1. </span>Error dynamics<a class="headerlink" href="#error-dynamics" title="Permalink to this heading">#</a></h2>
+<p>Let the error be defined as <span class="math notranslate nohighlight">\(\mathbf{e} := \mathbf{x} - \mathbf{o}\)</span>, its dynamical equation reads</p>
+<div class="math notranslate nohighlight" id="equation-eq-kalman-error-eq">
+<span class="eqno">(39.4)<a class="headerlink" href="#equation-eq-kalman-error-eq" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+  \dot{\mathbf{e}} &amp; = \left( \mathbf{A} - \mathbf{L} \mathbf{C} \right)  \mathbf{e} + \left( \mathbf{B}_d - \mathbf{L} \mathbf{D}_d \right) \mathbf{d} - \mathbf{L} \mathbf{D}_r \mathbf{r} \\
+  \dot{\mathbf{e}} &amp; = \mathbf{A}_e \mathbf{e} + \mathbf{B}_{ed} \mathbf{d} + \mathbf{B}_{er} \mathbf{r} \\
+  \dot{\mathbf{e}} &amp; = \mathbf{A}_e \mathbf{e} + \boldsymbol\xi \ ,
+\end{aligned}\end{split}\]</div>
+<p>with the definition of the noise input in the dynamical equation of the error, <span class="math notranslate nohighlight">\(\boldsymbol\xi = \left( \mathbf{B}_d - \mathbf{L} \mathbf{D}_d \right) \mathbf{d} - \mathbf{L} \mathbf{D}_r \mathbf{r}\)</span>.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Details<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
 <div class="math notranslate nohighlight">
-\[\left[ s_i^2 \mathbf{M}  + s_i \mathbf{C} + \mathbf{K} \right] \mathbf{u}_i = \mathbf{0} \ .\]</div>
-</li>
-<li><p><strong>Sensitivity of spectral decomposition.</strong> …</p></li>
+\[\begin{split}\begin{aligned}
+  \dot{\mathbf{e}}
+  &amp; = \dot{\mathbf{x}} - \dot{\mathbf{o}} = \\
+  &amp; = \mathbf{A} \mathbf{x} + \mathbf{B} \mathbf{u} + \mathbf{B}_d \mathbf{d} - \left( \mathbf{A} \mathbf{o} + \mathbf{B} \mathbf{u} + \mathbf{L} ( \mathbf{y} - \mathbf{y}_o )\right) = \\
+  &amp; = \left( \mathbf{A} - \mathbf{L} \mathbf{C} \right)  \mathbf{e} + \left( \mathbf{B}_d - \mathbf{L} \mathbf{D}_d \right) \mathbf{d} - \mathbf{L} \mathbf{D}_r \mathbf{r}
+\end{aligned}\end{split}\]</div>
+</div>
+</details><p>Let the exogenous input <span class="math notranslate nohighlight">\(\mathbf{d}\)</span> and the measurement input <span class="math notranslate nohighlight">\(\mathbf{r}\)</span> be random signals, thus the input <span class="math notranslate nohighlight">\(\boldsymbol\xi\)</span> of the error dynamical equation <a class="reference internal" href="#equation-eq-kalman-error-eq">(39.4)</a> is a random signal with correlation</p>
+<!--
+$$\mathbb{E}\left[ \boldsymbol\xi(t) \boldsymbol\xi^*(\tau) \right] =
+   \left( \mathbf{B}_d - \mathbf{L} \mathbf{D}_d \right)   \mathbb{E}\left[ \mathbf{d} \mathbf{d}^*  \right] \left( \mathbf{B}_d - \mathbf{L} \mathbf{D}_d \right)^*
+ - \left( \mathbf{B}_d - \mathbf{L} \mathbf{D}_d \right)   \mathbb{E}\left[ \mathbf{d} \mathbf{r}^*  \right] \left(                \mathbf{L} \mathbf{D}_r \right)^*
+ - \left(                \mathbf{L} \mathbf{D}_r \right)   \mathbb{E}\left[ \mathbf{r} \mathbf{d}^*  \right] \left( \mathbf{B}_d - \mathbf{L} \mathbf{D}_d \right)^*
+ + \left(                \mathbf{L} \mathbf{D}_r \right)   \mathbb{E}\left[ \mathbf{r} \mathbf{r}^*  \right] \left(                \mathbf{L} \mathbf{D}_r \right)^*
+$$
+-->
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+\mathbf{R}_{\boldsymbol\xi \boldsymbol\xi}(t,\tau) := \mathbb{E}\left[ \boldsymbol\xi(t) \boldsymbol\xi^*(\tau) \right]
+ &amp; = \mathbf{B}_{ed} \mathbf{R}_{\mathbf{d}\mathbf{d}}(t,\tau) \mathbf{B}_{ed}^*
+   + \mathbf{B}_{ed} \mathbf{R}_{\mathbf{d}\mathbf{r}}(t,\tau) \mathbf{B}_{er}^* + \\
+ &amp; + \mathbf{B}_{er} \mathbf{R}_{\mathbf{r}\mathbf{d}}(t,\tau) \mathbf{B}_{ed}^*
+   + \mathbf{B}_{er} \mathbf{R}_{\mathbf{r}\mathbf{r}}(t,\tau) \mathbf{B}_{er}^*
+\end{aligned}\end{split}\]</div>
+<p>Using the general results for linear systems for <strong>white noise</strong> as an input <span class="math notranslate nohighlight">\(\boldsymbol\xi\)</span>, the covariance matrix <span class="math notranslate nohighlight">\(\mathbf{P}_{\mathbf{e}}(t) := \mathbf{R}_{\mathbf{e}\mathbf{e}}(t,t)\)</span> of the error - governed by eqaution <a class="reference internal" href="#equation-eq-kalman-error-eq">(39.4)</a> - satisfies the Lyapunov equation <a class="reference internal" href="../ode/ode-linear-systems.html#equation-eq-lyapunov-correlation">(22.3)</a></p>
+<div class="math notranslate nohighlight">
+\[\dot{\mathbf{P}}_{\mathbf{e}} = \mathbf{A}_e \mathbf{P}_{\mathbf{e}} + \mathbf{P}_{\mathbf{e}} \mathbf{A}_e^* + \boldsymbol\sigma_{\xi}^2 \ ,\]</div>
+<p>being</p>
+<div class="math notranslate nohighlight">
+\[\boldsymbol\sigma_{xi}^2 = \dots \]</div>
+</div>
+<div class="section" id="optimality-conditions">
+<h2><span class="section-number">39.1.4.2. </span>Optimality conditions<a class="headerlink" href="#optimality-conditions" title="Permalink to this heading">#</a></h2>
+<p>…</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{L} = \]</div>
+<ul class="simple">
+<li><p>duality with the optimal control…</p></li>
+<li><p>…</p></li>
 </ul>
-<hr class="footnotes docutils" />
-<dl class="footnote brackets">
-<dt class="label" id="nd-order-underdamped"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p>It’s likely that mainly underdamped systems with simultaneously diagonalizable matrices will be treated, as this kind of systems often arises in structural dynamics of elastic structures with small structural damping.</p>
-</dd>
-</dl>
-<div class="toctree-wrapper compound">
 </div>
 </div>
 
@@ -576,7 +637,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./ch/linear-algebra"
+            path: "./ch/control"
         },
         predefinedOutput: true
     }
@@ -594,20 +655,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="linear-systems.html"
+       href="optimal-control-output.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">4. </span>Linear Systems</p>
+        <p class="prev-next-title"><span class="section-number">39.1.3. </span>Sub-optimal control for output feedback</p>
       </div>
     </a>
     <a class="right-next"
-       href="spectral-symmetric.html"
+       href="../rl/intro.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">5.1. </span>Spectral decomposition of symmetric matrices</p>
+        <p class="prev-next-title"><span class="section-number">40. </span>Introduction to Reinforcement Learning</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -617,6 +678,21 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-dynamics">39.1.4.1. Error dynamics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimality-conditions">39.1.4.2. Optimality conditions</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

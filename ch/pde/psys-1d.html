@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>34.4.1. 1-dimensional P-system &#8212; basics - math</title>
+    <title>35.4.1. 1-dimensional P-system &#8212; basics - math</title>
   
   
   
@@ -71,8 +71,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="34.4.2. 1-dimensional Euler equations for Perfect Ideal Gas" href="euler-1d.html" />
-    <link rel="prev" title="34.4. Examples of FVM for hyperbolic problems" href="fvm-hyperbolic-examples.html" />
+    <link rel="next" title="35.4.2. 1-dimensional Euler equations for Perfect Ideal Gas" href="euler-1d.html" />
+    <link rel="prev" title="35.4. Examples of FVM for hyperbolic problems" href="fvm-hyperbolic-examples.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -240,84 +240,90 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Ordinary Differential Equations</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../ode/intro.html">21. Introduction to Ordinary Differential Equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ode/lti.html">22. Linear Time-Invariant Systems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ode/lti-response.html">23. LTI system response</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ode/lti-stability-and-feedback.html">24. LTI: stability and feedback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ode/ode-linear-systems.html">22. Linear systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ode/lti.html">23. Linear Time-Invariant Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ode/lti-response.html">24. LTI system response</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ode/lti-stability-and-feedback.html">25. LTI: stability and feedback</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Partial Differential Equations</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="intro.html">25. Introduction to Partial Differential Equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="elliptic.html">26. Elliptic equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="parabolic.html">27. Parabolic equations</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="hyperbolic.html">28. Hyperbolic equations</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="hyperbolic-intro.html">28.1. Hyperbolic problems and conservation laws</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hyperbolic-dimensions.html">28.2. Hyperbolic problems - dimensions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hyperbolic-1d-scalar-linear.html">28.3. Scalar linear equation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hyperbolic-1d-vector-linear.html">28.4. Linear vector equation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hyperbolic-1d-scalar-nonlinear.html">28.5. Scalar non-linear equation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="characteristics.html">28.6. Method of characteristics</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="hyperbolic-nd.html">28.7. Hyperbolic problems in multi-dimensional domains</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="hyperbolic-nd-draft.html">28.7.1. General hyperbolic problem</a></li>
-<li class="toctree-l3"><a class="reference internal" href="hyperbolic-nd-psys.html">28.7.2. P-system</a></li>
-<li class="toctree-l3"><a class="reference internal" href="hyperbolic-nd-euler.html">28.7.3. Euler equations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="hyperbolic-nd-shallow-water.html">28.7.4. Shallow water</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">26. Introduction to Partial Differential Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="elliptic.html">27. Elliptic equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parabolic.html">28. Parabolic equations</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="hyperbolic.html">29. Hyperbolic equations</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="hyperbolic-intro.html">29.1. Hyperbolic problems and conservation laws</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hyperbolic-dimensions.html">29.2. Hyperbolic problems - dimensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hyperbolic-1d-scalar-linear.html">29.3. Scalar linear equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hyperbolic-1d-vector-linear.html">29.4. Linear vector equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hyperbolic-1d-scalar-nonlinear.html">29.5. Scalar non-linear equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="characteristics.html">29.6. Method of characteristics</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="hyperbolic-nd.html">29.7. Hyperbolic problems in multi-dimensional domains</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="hyperbolic-nd-draft.html">29.7.1. General hyperbolic problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hyperbolic-nd-psys.html">29.7.2. P-system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hyperbolic-nd-euler.html">29.7.3. Euler equations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hyperbolic-nd-shallow-water.html">29.7.4. Shallow water</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="hyperbolic-riemann-pb.html">28.8. Riemann problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hyperbolic-entropy.html">28.9. Physical solution in hyperbolic problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hyperbolic-convexity.html">28.10. Convexity in hyperbolic problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hyperbolic-non-convex.html">28.11. Non-convex hyperbolic problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hyperbolic-riemann-pb.html">29.8. Riemann problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hyperbolic-entropy.html">29.9. Physical solution in hyperbolic problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hyperbolic-convexity.html">29.10. Convexity in hyperbolic problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hyperbolic-non-convex.html">29.11. Non-convex hyperbolic problems</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="nc.html">29. Navier-Cauchy equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ns.html">30. Navier-Stokes equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ale.html">31. Arbitrary Lagrangian-Eulerian description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nc.html">30. Navier-Cauchy equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ns.html">31. Navier-Stokes equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ale.html">32. Arbitrary Lagrangian-Eulerian description</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Numerical Methods for PDEs</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="numerics.html">32. Introduction to numerical methods for PDEs</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="fem.html">33. Finite Element Method</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="fem-poisson-1d.html">33.1. 1-dimensional Poisson equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numerics.html">33. Introduction to numerical methods for PDEs</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="fem.html">34. Finite Element Method</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="fem-poisson-1d.html">34.1. 1-dimensional Poisson equation</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="fvm.html">34. Finite Volume Method</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="fvm-poisson-1d.html">34.1. 1-dimensional Poisson equation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fvm-hyperbolic-pde.html">34.2. FVM for hyperbolic problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fvm-hyperbolic-bc.html">34.3. Boundary conditions in hyperbolic problems</a></li>
-<li class="toctree-l2 current active has-children"><a class="reference internal" href="fvm-hyperbolic-examples.html">34.4. Examples of FVM for hyperbolic problems</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l3 current active"><a class="current reference internal" href="#">34.4.1. 1-dimensional P-system</a></li>
-<li class="toctree-l3"><a class="reference internal" href="euler-1d.html">34.4.2. 1-dimensional Euler equations for Perfect Ideal Gas</a></li>
-<li class="toctree-l3"><a class="reference internal" href="euler-quasi-1d.html">34.4.3. Quasi 1-dimensional Euler equations for Perfect Ideal Gas</a></li>
-<li class="toctree-l3"><a class="reference internal" href="euler-1d-ale-piston.html">34.4.4. 1-dimensional Euler equations for Perfect Ideal Gas on moving mesh (ALE)</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="fvm.html">35. Finite Volume Method</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="fvm-poisson-1d.html">35.1. 1-dimensional Poisson equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fvm-hyperbolic-pde.html">35.2. FVM for hyperbolic problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fvm-hyperbolic-bc.html">35.3. Boundary conditions in hyperbolic problems</a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="fvm-hyperbolic-examples.html">35.4. Examples of FVM for hyperbolic problems</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">35.4.1. 1-dimensional P-system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="euler-1d.html">35.4.2. 1-dimensional Euler equations for Perfect Ideal Gas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="euler-quasi-1d.html">35.4.3. Quasi 1-dimensional Euler equations for Perfect Ideal Gas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="euler-1d-ale-piston.html">35.4.4. 1-dimensional Euler equations for Perfect Ideal Gas on moving mesh (ALE)</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="bem.html">35. Boundary Element Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bem.html">36. Boundary Element Method</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Boundary Methods for PDEs</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="bem-poisson-helmholtz-waves.html">36. Green’s function method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bem-poisson-helmholtz-waves.html">37. Green’s function method</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Optimization</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../optimization/intro.html">37. Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../optimization/intro.html">38. Optimization</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Control</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../control/intro.html">38. Introduction to control methods</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control.html">38.1. Optimal control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-full-state.html">38.2. Full-state feedback</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../control/intro.html">39. Introduction to control methods</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../control/optimal-control.html">39.1. Optimal control</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../control/optimal-control-full-state.html">39.1.1. Full-state feedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../control/optimal-control-observer.html">39.1.2. Optimal observer for deterministic disturbances</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../control/optimal-control-output.html">39.1.3. Sub-optimal control for output feedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../control/kalman.html">39.1.4. Kalman filter</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Reinforcement Learning</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../rl/intro.html">39. Introduction to Reinforcement Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rl/mdp.html">40. Markov Processes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_sol_dp_lp.html">41. Methods of solution of MPD: DP and LP</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_sol_rl.html">42. Methods of solution of MPD: RL</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_large_continuous.html">43. Large or Continuous MDPs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/intro.html">40. Introduction to Reinforcement Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp.html">41. Markov Processes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_sol_dp_lp.html">42. Methods of solution of MPD: DP and LP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_sol_rl.html">43. Methods of solution of MPD: RL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_large_continuous.html">44. Large or Continuous MDPs</a></li>
 </ul>
 
     </div>
@@ -561,19 +567,19 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-classes-for-numerical-methods">34.4.1.1. Useful classes for numerical methods</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-libraries">34.4.1.1.1. Basic libraries</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parent-class">34.4.1.1.2. Parent class</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#p-system-class">34.4.1.1.3. P-system class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-classes-for-numerical-methods">35.4.1.1. Useful classes for numerical methods</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-libraries">35.4.1.1.1. Basic libraries</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parent-class">35.4.1.1.2. Parent class</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#p-system-class">35.4.1.1.3. P-system class</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-simulation">34.4.1.2. Numerical simulation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#system-of-equations">34.4.1.2.1. System of equations</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#domain">34.4.1.2.2. Domain</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boundary-conditions">34.4.1.2.3. Boundary conditions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-parameters">34.4.1.2.4. Simulation parameters</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#time-loop">34.4.1.2.5. Time loop</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#post-processing">34.4.1.2.6. Post-processing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-simulation">35.4.1.2. Numerical simulation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#system-of-equations">35.4.1.2.1. System of equations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#domain">35.4.1.2.2. Domain</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boundary-conditions">35.4.1.2.3. Boundary conditions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-parameters">35.4.1.2.4. Simulation parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#time-loop">35.4.1.2.5. Time loop</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#post-processing">35.4.1.2.6. Post-processing</a></li>
 </ul>
 </li>
 </ul>
@@ -588,11 +594,11 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="dimensional-p-system">
-<span id="pde-fvm-hyperbolic-examples-psys-1d"></span><h1><span class="section-number">34.4.1. </span>1-dimensional P-system<a class="headerlink" href="#dimensional-p-system" title="Permalink to this heading">#</a></h1>
+<span id="pde-fvm-hyperbolic-examples-psys-1d"></span><h1><span class="section-number">35.4.1. </span>1-dimensional P-system<a class="headerlink" href="#dimensional-p-system" title="Permalink to this heading">#</a></h1>
 <div class="section" id="useful-classes-for-numerical-methods">
-<h2><span class="section-number">34.4.1.1. </span>Useful classes for numerical methods<a class="headerlink" href="#useful-classes-for-numerical-methods" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">35.4.1.1. </span>Useful classes for numerical methods<a class="headerlink" href="#useful-classes-for-numerical-methods" title="Permalink to this heading">#</a></h2>
 <div class="section" id="basic-libraries">
-<h3><span class="section-number">34.4.1.1.1. </span>Basic libraries<a class="headerlink" href="#basic-libraries" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">35.4.1.1.1. </span>Basic libraries<a class="headerlink" href="#basic-libraries" title="Permalink to this heading">#</a></h3>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -609,7 +615,7 @@ document.write(`
 </div>
 </div>
 <div class="section" id="parent-class">
-<h3><span class="section-number">34.4.1.1.2. </span>Parent class<a class="headerlink" href="#parent-class" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">35.4.1.1.2. </span>Parent class<a class="headerlink" href="#parent-class" title="Permalink to this heading">#</a></h3>
 <p><span class="math notranslate nohighlight">\(\texttt{HyperbolicSystem1d()}\)</span> class with common functions (or just their templates) required to implement a finite volume method solver.</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
@@ -657,7 +663,7 @@ document.write(`
 </div>
 </div>
 <div class="section" id="p-system-class">
-<h3><span class="section-number">34.4.1.1.3. </span>P-system class<a class="headerlink" href="#p-system-class" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">35.4.1.1.3. </span>P-system class<a class="headerlink" href="#p-system-class" title="Permalink to this heading">#</a></h3>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -774,9 +780,9 @@ document.write(`
 </div>
 </div>
 <div class="section" id="numerical-simulation">
-<h2><span class="section-number">34.4.1.2. </span>Numerical simulation<a class="headerlink" href="#numerical-simulation" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">35.4.1.2. </span>Numerical simulation<a class="headerlink" href="#numerical-simulation" title="Permalink to this heading">#</a></h2>
 <div class="section" id="system-of-equations">
-<h3><span class="section-number">34.4.1.2.1. </span>System of equations<a class="headerlink" href="#system-of-equations" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">35.4.1.2.1. </span>System of equations<a class="headerlink" href="#system-of-equations" title="Permalink to this heading">#</a></h3>
 <p>Initialized the system of equations to be solved</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
@@ -804,7 +810,7 @@ document.write(`
 </div>
 </div>
 <div class="section" id="domain">
-<h3><span class="section-number">34.4.1.2.2. </span>Domain<a class="headerlink" href="#domain" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">35.4.1.2.2. </span>Domain<a class="headerlink" href="#domain" title="Permalink to this heading">#</a></h3>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -832,7 +838,7 @@ document.write(`
 </div>
 </div>
 <div class="section" id="boundary-conditions">
-<h3><span class="section-number">34.4.1.2.3. </span>Boundary conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">35.4.1.2.3. </span>Boundary conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this heading">#</a></h3>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -865,7 +871,7 @@ document.write(`
 </div>
 </div>
 <div class="section" id="simulation-parameters">
-<h3><span class="section-number">34.4.1.2.4. </span>Simulation parameters<a class="headerlink" href="#simulation-parameters" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">35.4.1.2.4. </span>Simulation parameters<a class="headerlink" href="#simulation-parameters" title="Permalink to this heading">#</a></h3>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -897,7 +903,7 @@ document.write(`
 </div>
 </div>
 <div class="section" id="time-loop">
-<h3><span class="section-number">34.4.1.2.5. </span>Time loop<a class="headerlink" href="#time-loop" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">35.4.1.2.5. </span>Time loop<a class="headerlink" href="#time-loop" title="Permalink to this heading">#</a></h3>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -957,7 +963,7 @@ document.write(`
 </div>
 </div>
 <div class="section" id="post-processing">
-<h3><span class="section-number">34.4.1.2.6. </span>Post-processing<a class="headerlink" href="#post-processing" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">35.4.1.2.6. </span>Post-processing<a class="headerlink" href="#post-processing" title="Permalink to this heading">#</a></h3>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -1065,7 +1071,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">34.4. </span>Examples of FVM for hyperbolic problems</p>
+        <p class="prev-next-title"><span class="section-number">35.4. </span>Examples of FVM for hyperbolic problems</p>
       </div>
     </a>
     <a class="right-next"
@@ -1073,7 +1079,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">34.4.2. </span>1-dimensional Euler equations for Perfect Ideal Gas</p>
+        <p class="prev-next-title"><span class="section-number">35.4.2. </span>1-dimensional Euler equations for Perfect Ideal Gas</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1092,19 +1098,19 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-classes-for-numerical-methods">34.4.1.1. Useful classes for numerical methods</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-libraries">34.4.1.1.1. Basic libraries</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parent-class">34.4.1.1.2. Parent class</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#p-system-class">34.4.1.1.3. P-system class</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-classes-for-numerical-methods">35.4.1.1. Useful classes for numerical methods</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-libraries">35.4.1.1.1. Basic libraries</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parent-class">35.4.1.1.2. Parent class</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#p-system-class">35.4.1.1.3. P-system class</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-simulation">34.4.1.2. Numerical simulation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#system-of-equations">34.4.1.2.1. System of equations</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#domain">34.4.1.2.2. Domain</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boundary-conditions">34.4.1.2.3. Boundary conditions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-parameters">34.4.1.2.4. Simulation parameters</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#time-loop">34.4.1.2.5. Time loop</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#post-processing">34.4.1.2.6. Post-processing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-simulation">35.4.1.2. Numerical simulation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#system-of-equations">35.4.1.2.1. System of equations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#domain">35.4.1.2.2. Domain</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#boundary-conditions">35.4.1.2.3. Boundary conditions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-parameters">35.4.1.2.4. Simulation parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#time-loop">35.4.1.2.5. Time loop</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#post-processing">35.4.1.2.6. Post-processing</a></li>
 </ul>
 </li>
 </ul>
