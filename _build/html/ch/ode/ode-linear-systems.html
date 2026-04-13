@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>5. Spectral decomposition &#8212; basics - math</title>
+    <title>22. Linear systems &#8212; basics - math</title>
   
   
   
@@ -67,12 +67,12 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/linear-algebra/spectral';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/ode/ode-linear-systems';</script>
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="5.1. Spectral decomposition of symmetric matrices" href="spectral-symmetric.html" />
-    <link rel="prev" title="4. Linear Systems" href="linear-systems.html" />
+    <link rel="next" title="23. Linear Time-Invariant Systems" href="lti.html" />
+    <link rel="prev" title="21. Introduction to Ordinary Differential Equations" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -176,17 +176,17 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Linear Algebra</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="intro.html">1. Introduction to Linear Algebra</a></li>
-<li class="toctree-l1"><a class="reference internal" href="matrices.html">2. Matrices</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="matrix-factorization.html">3. Matrix factorizations</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="svd.html">3.3. Singular Value Decomposition</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../linear-algebra/intro.html">1. Introduction to Linear Algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linear-algebra/matrices.html">2. Matrices</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../linear-algebra/matrix-factorization.html">3. Matrix factorizations</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../linear-algebra/svd.html">3.3. Singular Value Decomposition</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="linear-systems.html">4. Linear Systems</a></li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">5. Spectral decomposition</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="spectral-symmetric.html">5.1. Spectral decomposition of symmetric matrices</a></li>
-<li class="toctree-l2"><a class="reference internal" href="spectral-sensitivity.html">5.2. Sensitivity of spectral decomposition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linear-algebra/linear-systems.html">4. Linear Systems</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../linear-algebra/spectral.html">5. Spectral decomposition</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../linear-algebra/spectral-symmetric.html">5.1. Spectral decomposition of symmetric matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linear-algebra/spectral-sensitivity.html">5.2. Sensitivity of spectral decomposition</a></li>
 </ul>
 </li>
 </ul>
@@ -238,12 +238,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../calculus-variations/intro.html">20. Introduction to Calculus of Variations</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Ordinary Differential Equations</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../ode/intro.html">21. Introduction to Ordinary Differential Equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ode/ode-linear-systems.html">22. Linear systems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ode/lti.html">23. Linear Time-Invariant Systems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ode/lti-response.html">24. LTI system response</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ode/lti-stability-and-feedback.html">25. LTI: stability and feedback</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">21. Introduction to Ordinary Differential Equations</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">22. Linear systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lti.html">23. Linear Time-Invariant Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lti-response.html">24. LTI system response</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lti-stability-and-feedback.html">25. LTI: stability and feedback</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Partial Differential Equations</span></p>
 <ul class="nav bd-sidenav">
@@ -395,7 +395,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/edit/main/ch/linear-algebra/spectral.md" target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/edit/main/ch/ode/ode-linear-systems.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -412,7 +412,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/issues/new?title=Issue%20on%20page%20%2Fch/linear-algebra/spectral.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/issues/new?title=Issue%20on%20page%20%2Fch/ode/ode-linear-systems.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -442,7 +442,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/ch/linear-algebra/spectral.md" target="_blank"
+      <li><a href="../../_sources/ch/ode/ode-linear-systems.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -513,7 +513,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -524,11 +526,26 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Spectral decomposition</h1>
+    <h1>Linear systems</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-solution">22.1. General solution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stochastic-response">22.2. Stochastic response</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#correlation-matrix">22.2.1. Correlation matrix</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lyapunov-equation-of-the-correlation-matrix">22.2.1.1. Lyapunov equation of the correlation matrix</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -538,28 +555,176 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="spectral-decomposition">
-<span id="math-spectral"></span><h1><span class="section-number">5. </span>Spectral decomposition<a class="headerlink" href="#spectral-decomposition" title="Permalink to this heading">#</a></h1>
-<ul>
-<li><p><strong>Introduction.</strong> What’s spectral (or eigenvalue) decomposition? Arbitrarieness. When is it possible? Special matrices. Properties and theorems (Cayley-Hamilton)</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="linear-systems">
+<span id="ode-linear-miscellanea"></span><h1><span class="section-number">22. </span>Linear systems<a class="headerlink" href="#linear-systems" title="Permalink to this heading">#</a></h1>
+<div class="section" id="general-solution">
+<span id="ode-linear-miscellanea-general-solution"></span><h2><span class="section-number">22.1. </span>General solution<a class="headerlink" href="#general-solution" title="Permalink to this heading">#</a></h2>
+<p>The general solution of the initial value problem</p>
+<div class="math notranslate nohighlight" id="equation-eq-ode-system-linear">
+<span class="eqno">(22.1)<a class="headerlink" href="#equation-eq-ode-system-linear" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+  &amp; \dot{\mathbf{x}} = \mathbf{A} \mathbf{x} + \mathbf{B} \mathbf{u} \\
+  &amp; \mathbf{x}(t_0) = \mathbf{x}_0
+\end{aligned}\end{split}\]</div>
+<p>with no impulsive forcing in <span class="math notranslate nohighlight">\(t_0\)</span> reads</p>
+<div class="math notranslate nohighlight" id="equation-eq-ode-system-linear-sol">
+<span class="eqno">(22.2)<a class="headerlink" href="#equation-eq-ode-system-linear-sol" title="Permalink to this equation">#</a></span>\[\begin{split}
+   \mathbf{x}(t) &amp; = \boldsymbol\Phi(t,t_0) \mathbf{x_0} + \int_{\tau=t_0}^{t}  \boldsymbol\Phi(t,\tau) \mathbf{B}(\tau) \mathbf{u}(\tau) d \tau \\
+\end{split}\]</div>
+<p>with</p>
 <div class="math notranslate nohighlight">
-\[\mathbf{A} \mathbf{u}_i = s_i \mathbf{u}_i\]</div>
-</li>
-<li><p><strong>Generalized spectral decompositions.</strong> Generalized spectral decomposition of first order systems; generalized spectral deocmposition of second order systems<a class="footnote-reference brackets" href="#nd-order-underdamped" id="id1">1</a></p>
+\[\begin{split}\begin{cases}
+  \frac{\partial}{\partial t} \boldsymbol\Phi(t,t_0) = \mathbf{A}(t) \boldsymbol\Phi(t,t_0) \\
+  \boldsymbol\Phi(t,t_0) = \mathbf{I} \ ,
+\end{cases}\end{split}\]</div>
+<p>or alternatively, <span class="math notranslate nohighlight">\(\partial_{t_0} \boldsymbol\Phi(t,t_0) = \boldsymbol\Phi(t,t_0) \mathbf{A}(t_0)\)</span>.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+General solution - details<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Pre-multiplication of equation <a class="reference internal" href="#equation-eq-ode-system-linear">(22.1)</a> by <span class="math notranslate nohighlight">\(\boldsymbol\phi(t)\)</span>, with <span class="math notranslate nohighlight">\(\dot{\boldsymbol\phi}(t) = - \boldsymbol\phi(t) \mathbf{A}(t)\)</span> gives</p>
 <div class="math notranslate nohighlight">
-\[\mathbf{A} \mathbf{u}_i = s_i \mathbf{B} \mathbf{u}_i\]</div>
+\[\begin{split}\begin{aligned}
+  \boldsymbol\phi(t) \dot{\mathbf{x}} - \boldsymbol\phi(t) \mathbf{A} \mathbf{x} &amp; = \boldsymbol\phi(t) \mathbf{B} \mathbf{u} \\
+  \boldsymbol\phi(t) \dot{\mathbf{x}} + \dot{\boldsymbol\phi}(t) \mathbf{x} &amp; = \boldsymbol\phi(t) \mathbf{B} \mathbf{u} \\
+  \frac{d}{dt} \left( \boldsymbol\phi(t) \mathbf{x} \right) &amp; = \boldsymbol\phi(t) \mathbf{B} \mathbf{u} \\
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">and integration - without impulsive forces in <span class="math notranslate nohighlight">\(t = t_0\)</span>, that would cause jump in initial conditions, see <a class="reference internal" href="lti.html#ode-lti-impulsive-force"><span class="std std-ref">section about impulsive force</span></a> -</p>
 <div class="math notranslate nohighlight">
-\[\left[ s_i^2 \mathbf{M}  + s_i \mathbf{C} + \mathbf{K} \right] \mathbf{u}_i = \mathbf{0} \ .\]</div>
-</li>
-<li><p><strong>Sensitivity of spectral decomposition.</strong> …</p></li>
-</ul>
-<hr class="footnotes docutils" />
-<dl class="footnote brackets">
-<dt class="label" id="nd-order-underdamped"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p>It’s likely that mainly underdamped systems with simultaneously diagonalizable matrices will be treated, as this kind of systems often arises in structural dynamics of elastic structures with small structural damping.</p>
-</dd>
-</dl>
-<div class="toctree-wrapper compound">
+\[\begin{split}\begin{aligned}
+  \boldsymbol\phi(t) \mathbf{x} - \boldsymbol\phi(t_0) \mathbf{x_0} &amp; = \int_{\tau=t_0}^{t} \boldsymbol\phi(\tau) \mathbf{B}(\tau) \mathbf{u}(\tau) d \tau \\
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">and thus</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+   \mathbf{x}(t) &amp; = \boldsymbol\phi^{-1}(t) \boldsymbol\phi(t_0) \mathbf{x_0} + \int_{\tau=t_0}^{t}  \boldsymbol\phi^{-1}(t)\boldsymbol\phi(\tau) \mathbf{B}(\tau) \mathbf{u}(\tau) d \tau \\
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">or, defining <span class="math notranslate nohighlight">\(\boldsymbol\Phi(a,b) := \boldsymbol\phi^{-1}(a) \boldsymbol\phi(b)\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+   \mathbf{x}(t) &amp; = \boldsymbol\Phi(t,t_0) \mathbf{x_0} + \int_{\tau=t_0}^{t}  \boldsymbol\Phi(t,\tau) \mathbf{B}(\tau) \mathbf{u}(\tau) d \tau \\
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">with <span class="math notranslate nohighlight">\(\boldsymbol\Phi(t,t_0)\)</span> satisfying the initial value problem</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{cases}
+  \frac{\partial}{\partial t} \boldsymbol\Phi(t,t_0) = \mathbf{A}(t) \boldsymbol\Phi(t,t_0) \\
+  \boldsymbol\Phi(t,t_0) = \mathbf{I} \ .
+\end{cases}\end{split}\]</div>
+<p class="sd-card-text">The initial conditions follows from the solution, as the integral identically vanishes as <span class="math notranslate nohighlight">\(t \rightarrow t_0\)</span> if there’s no impulsive force in <span class="math notranslate nohighlight">\(t_0\)</span>. The matrix differential equation follows from the definition of the function <span class="math notranslate nohighlight">\(\boldsymbol\Phi(t,\tau)\)</span> in terms of <span class="math notranslate nohighlight">\(\boldsymbol\phi(t)\)</span> and from the time derivative of the inverse of a matrix</p>
+<div class="math notranslate nohighlight">
+\[\frac{d}{dt} \boldsymbol\phi^{-1} = - \boldsymbol\phi^{-1} \dot{\boldsymbol\phi} \boldsymbol\phi^{-1} \ ,\]</div>
+<p class="sd-card-text">as <span class="math notranslate nohighlight">\(\mathbf{0} = \frac{d}{dt} \mathbf{I} = \frac{d}{dt} \left( \boldsymbol\phi^{-1} \boldsymbol\phi \right)\)</span>.</p>
+<p class="sd-card-text">Time derivative of <span class="math notranslate nohighlight">\(\boldsymbol\Phi(t,\tau)\)</span> w.r.t. the first argument reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \partial_t \boldsymbol\Phi(t,\tau) 
+  &amp; = \partial_t \left( \boldsymbol\phi^{-1}(t) \boldsymbol\phi(\tau) \right) = \\
+  &amp; = \frac{d}{dt} \boldsymbol\phi^{-1}(t) \, \boldsymbol\phi(\tau) = \\
+  &amp; = - \boldsymbol\phi^{-1}(t) \dot{\boldsymbol\phi}(t) \boldsymbol\phi^{-1}(t) \, \boldsymbol\phi(\tau) = \\
+  &amp; =   \underbrace{\boldsymbol\phi^{-1}(t) \boldsymbol\phi(t)}_{=\mathbf{I}} \mathbf{A}(t) \underbrace{\boldsymbol\phi^{-1}(t)  \, \boldsymbol\phi(\tau)}_{\boldsymbol\Phi(t,\tau)} = \\
+  &amp; = \mathbf{A}(t) \boldsymbol\Phi(t, \tau) \ .
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">Derivative w.r.t. the second argument simply reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \partial_{\tau} \boldsymbol\Phi(t,\tau) 
+  &amp; = \boldsymbol\phi^{-1}(t) \frac{d}{d\tau} \boldsymbol\phi(\tau) = \\
+  &amp; = \boldsymbol\phi^{-1}(t) \boldsymbol\phi(\tau) \mathbf{A}(\tau) = \\
+  &amp; = \boldsymbol\Phi(t,\tau) \mathbf{A}(\tau) \ .
+\end{aligned}\end{split}\]</div>
+</div>
+</details></div>
+<div class="section" id="stochastic-response">
+<span id="ode-linear-miscellanea-stochastic-response"></span><h2><span class="section-number">22.2. </span>Stochastic response<a class="headerlink" href="#stochastic-response" title="Permalink to this heading">#</a></h2>
+<div class="section" id="correlation-matrix">
+<span id="ode-linear-miscellanea-stochastic-response-correlation-matrix"></span><h3><span class="section-number">22.2.1. </span>Correlation matrix<a class="headerlink" href="#correlation-matrix" title="Permalink to this heading">#</a></h3>
+<p>Using the general expression of the solution <a class="reference internal" href="#equation-eq-ode-system-linear-sol">(22.2)</a> of the linear system <a class="reference internal" href="#equation-eq-ode-system-linear">(22.1)</a>, the following relation holds for the correlation <span class="math notranslate nohighlight">\(\mathbf{R}_{\mathbf{x}\mathbf{x}}(t,\tau) := \mathbb{E}[ \mathbf{x}(t) \mathbf{x}^*(\tau) ]\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{R}_{\mathbf{x}\mathbf{x}}(t, \tau) = \boldsymbol\Phi(t,t_0) \mathbf{P}_0 \boldsymbol\Phi^*(t,t_0) + \int_{\lambda=t_0}^{t} \int_{\chi=t_0}^{\tau}  \boldsymbol\Phi(t,\lambda) \mathbf{B}(\lambda) \mathbf{R}_{\mathbf{u}\mathbf{u}}(\lambda, \chi) \mathbf{B}^*(\chi) \boldsymbol\Phi^*(\tau,\chi)  d \lambda \, d \chi \ ,\]</div>
+<p>or for <span class="math notranslate nohighlight">\(\mathbf{P}_{\mathbf{x}\mathbf{x}}(t) := \mathbf{R}_{\mathbf{x} \mathbf{x}}(t,t)\)</span></p>
+<div class="math notranslate nohighlight">
+\[\mathbf{P}_{\mathbf{x}\mathbf{x}}(t) = \boldsymbol\Phi(t,t_0) \mathbf{P}_0 \boldsymbol\Phi^*(t,t_0) + \int_{\lambda=t_0}^{t} \int_{\chi=t_0}^{t}  \boldsymbol\Phi(t,\lambda) \mathbf{B}(\lambda) \mathbf{R}_{\mathbf{u}\mathbf{u}}(\lambda, \chi) \mathbf{B}^*(\chi) \boldsymbol\Phi^*(t,\chi)  d \lambda \, d \chi \ .\]</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Details<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathbf{R}_{\mathbf{x} \mathbf{x}}(t, \tau) 
+  &amp; = \mathbb{E}\left[ \mathbf{x}(t) \mathbf{x}^*(\tau) \right] = \\
+  &amp; = \mathbb{E} \left[ \boldsymbol\Phi(t,t_0) \mathbf{x_0} \mathbf{x_0}^* \boldsymbol\Phi^*(t,t_0) \right] + \\
+  &amp; + \mathbb{E}\left[ \int_{\lambda=t_0}^{t}  \boldsymbol\Phi(t,\lambda) \mathbf{B}(\lambda) \mathbf{u}(\lambda) d \lambda \, \mathbf{x_0}^* \boldsymbol\Phi^*(t,t_0) \right] + \\
+  &amp; + \mathbb{E}\left[ \boldsymbol\Phi(t,t_0) \mathbf{x_0} \int_{\lambda=t_0}^{t} \mathbf{u}^*(\lambda) \mathbf{B}^*(\lambda)  \boldsymbol\Phi^*(t,\lambda) d\lambda \right] + \\
+  &amp; + \mathbb{E}\left[ \int_{\lambda=t_0}^{t}  \boldsymbol\Phi(t,\lambda) \mathbf{B}(\lambda) \mathbf{u}(\lambda) d \lambda \left( \int_{\chi=t_0}^{\tau}  \boldsymbol\Phi(\tau,\chi) \mathbf{B}(\chi) \mathbf{u}(\chi) d \chi \right)^* \right] \ ,
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">and applying the expectation opearator only on stochastic functions,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathbf{R}_{\mathbf{x} \mathbf{x}}(t, \tau) 
+  &amp; = \boldsymbol\Phi(t,t_0) \mathbb{E} \left[  \mathbf{x_0} \mathbf{x_0}^* \right] \boldsymbol\Phi^*(t,t_0) + \\
+  &amp; + \int_{\lambda=t_0}^{t}  \boldsymbol\Phi(t,\lambda) \mathbf{B}(\lambda) \mathbb{E} \left[ \mathbf{u}(\lambda) \mathbf{x}^*_0 \right] d \lambda \boldsymbol\Phi^*(t,t_0) + \\
+  &amp; + \boldsymbol\Phi(t,t_0) \int_{\lambda=t_0}^{t} \mathbb{E}\left[ \mathbf{x_0} \mathbf{u}^*(\lambda) \right] \mathbf{B}^*(\lambda)  \boldsymbol\Phi^*(t,\lambda) d\lambda  + \\
+  &amp; + \int_{\lambda=t_0}^{t} \int_{\chi=t_0}^{\tau}  \boldsymbol\Phi(t,\lambda) \mathbf{B}(\lambda) \mathbb{E}\left[ \mathbf{u}(\lambda) \mathbf{u}^*(\chi) \right]  \mathbf{B}^*(\chi) \boldsymbol\Phi^*(\tau,\chi)  d \lambda \, d \chi \ .
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">Assuming uncorrelated input noise and uncertainty on the initial conditions, <span class="math notranslate nohighlight">\(\mathbb{E}[ \mathbf{u}(t) \mathbf{x}^*_0 ] = \mathbf{0}\)</span>, and thus</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{R}_{\mathbf{x}\mathbf{x}}(t, \tau) = \boldsymbol\Phi(t,t_0) \mathbf{P}_0 \boldsymbol\Phi^*(t,t_0) + \int_{\lambda=t_0}^{t} \int_{\chi=t_0}^{\tau}  \boldsymbol\Phi(t,\lambda) \mathbf{B}(\lambda) \mathbf{R}_{\mathbf{u}\mathbf{u}}(\lambda, \chi) \mathbf{B}^*(\chi) \boldsymbol\Phi^*(\tau,\chi)  d \lambda \, d \chi \ ,\]</div>
+<p class="sd-card-text">with the definition</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{P}_{\mathbf{x}\mathbf{x}}(t) := \mathbf{R}_{\mathbf{x}\mathbf{x}}(t,t) \ .\]</div>
+</div>
+</details><p>If the input is a white noise, <span class="math notranslate nohighlight">\(\mathbf{R}_{\mathbf{u} \mathbf{u}}(t,\tau) = \mathbf{U}(t) \delta(t - \tau)\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{P}_{\mathbf{x}\mathbf{x}}(t) = \boldsymbol\Phi(t,t_0) \mathbf{P}_0 \boldsymbol\Phi^*(t,t_0) + \int_{\lambda=t_0}^{t} \boldsymbol\Phi(t,\lambda) \mathbf{B}(\lambda) \mathbf{U}(\lambda) \mathbf{B}^*(\lambda) \boldsymbol\Phi^*(\tau,\lambda)  d \lambda \]</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Details<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+&amp; \int_{\lambda=t_0}^{t} \int_{\chi=t_0}^{\tau}  \boldsymbol\Phi(t,\lambda) \mathbf{B}(\lambda) \mathbf{R}_{\mathbf{u}\mathbf{u}}(\lambda, \chi) \mathbf{B}^*(\chi) \boldsymbol\Phi^*(\tau,\chi)  d \lambda \, d \chi = \\
+&amp; = \int_{\lambda=t_0}^{t} \int_{\chi=t_0}^{\tau}  \boldsymbol\Phi(t,\lambda) \mathbf{B}(\lambda) \mathbf{U}(\lambda) \delta(\lambda-\chi) \mathbf{B}^*(\chi) \boldsymbol\Phi^*(\tau,\chi)  d \lambda \, d \chi = \\
+&amp; = \int_{\lambda=t_0}^{\min\{ t, \tau\}} \boldsymbol\Phi(t,\lambda) \mathbf{B}(\lambda) \mathbf{U}(\lambda) \mathbf{B}^*(\lambda) \boldsymbol\Phi^*(\tau,\lambda)  d \lambda \ ,
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\int_{\chi=t_0}^{\tau} \delta(\lambda-\chi) \mathbf{B}^*(\chi) \boldsymbol\Phi^*(\tau,\chi) d \chi =
+\left\{ \begin{aligned}  
+   \mathbf{B}^*(\lambda) \boldsymbol\Phi^*(\tau,\lambda) &amp; \quad , \quad \text{if } \ \lambda \in [ t_0, \tau ] \\
+   0 &amp; \quad , \quad \text{otherwise} \\
+\end{aligned} \right.\end{split}\]</div>
+</div>
+</details><div class="section" id="lyapunov-equation-of-the-correlation-matrix">
+<span id="ode-linear-miscellanea-stochastic-response-correlation-matrix-lyapunov"></span><h4><span class="section-number">22.2.1.1. </span>Lyapunov equation of the correlation matrix<a class="headerlink" href="#lyapunov-equation-of-the-correlation-matrix" title="Permalink to this heading">#</a></h4>
+<p>Matrix <span class="math notranslate nohighlight">\(\mathbf{P}(t)\)</span> satisfies the following Lyapunov equation,</p>
+<div class="math notranslate nohighlight" id="equation-eq-lyapunov-correlation">
+<span class="eqno">(22.3)<a class="headerlink" href="#equation-eq-lyapunov-correlation" title="Permalink to this equation">#</a></span>\[\dot{\mathbf{P}} = \mathbf{A} \mathbf{P} + \mathbf{P} \mathbf{A}^* + \mathbf{B} \mathbf{U} \mathbf{B}^* \ .\]</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Details<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+ \frac{d \mathbf{P}}{d t} 
+ &amp; = \partial_t \boldsymbol\Phi \mathbf{P}_0 \boldsymbol\Phi + \boldsymbol\Phi \mathbf{P}_0 \partial_t \boldsymbol\Phi + \underbrace{\boldsymbol\Phi(t,t)}_{\mathbf{I}} \mathbf{B}(t) \mathbf{U}(t) \mathbf{B}^*(t) \underbrace{\boldsymbol\Phi(t,t)}_{=\mathbf{I}} + \\
+ &amp; + \int_{\lambda=t_0}^{t} \left\{ \partial_t  \boldsymbol\Phi(t,\lambda) \mathbf{B}(\lambda) \mathbf{U}(\lambda) \mathbf{B}^*(\lambda) \boldsymbol\Phi^*(\tau,\lambda) + \boldsymbol\Phi(t,\lambda) \mathbf{B}(\lambda) \mathbf{U}(\lambda) \mathbf{B}^*(\lambda) \partial_t \boldsymbol\Phi^*(\tau,\lambda) \right\} d \lambda = \\
+ &amp; = \mathbf{B}(t) \mathbf{U}(t) \mathbf{B}^*(t) + \mathbf{A}(t) \underbrace{\left[ \boldsymbol\Phi(t,t_0) \mathbf{P}_0 \boldsymbol\Phi^*(t,t_0) + \int_{\lambda=t_0}^{t} \boldsymbol\Phi(t,\lambda) \mathbf{B}(\lambda) \mathbf{U}(\lambda) \mathbf{B}^*(\lambda) \boldsymbol\Phi(t,\lambda) \right]}_{=\mathbf{P}(t)} + \left[ \dots \right]^* \mathbf{A}^*(t) = \\
+ &amp; = \mathbf{A} \mathbf{P} + \mathbf{P} \mathbf{A}^* + \mathbf{B} \mathbf{U} \mathbf{B}^* \ .
+\end{aligned}\end{split}\]</div>
+</div>
+</details></div>
+</div>
 </div>
 </div>
 
@@ -576,7 +741,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./ch/linear-algebra"
+            path: "./ch/ode"
         },
         predefinedOutput: true
     }
@@ -594,20 +759,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="linear-systems.html"
+       href="intro.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">4. </span>Linear Systems</p>
+        <p class="prev-next-title"><span class="section-number">21. </span>Introduction to Ordinary Differential Equations</p>
       </div>
     </a>
     <a class="right-next"
-       href="spectral-symmetric.html"
+       href="lti.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">5.1. </span>Spectral decomposition of symmetric matrices</p>
+        <p class="prev-next-title"><span class="section-number">23. </span>Linear Time-Invariant Systems</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -617,6 +782,27 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#general-solution">22.1. General solution</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stochastic-response">22.2. Stochastic response</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#correlation-matrix">22.2.1. Correlation matrix</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lyapunov-equation-of-the-correlation-matrix">22.2.1.1. Lyapunov equation of the correlation matrix</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
