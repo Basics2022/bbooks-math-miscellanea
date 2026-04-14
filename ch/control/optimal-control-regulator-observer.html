@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>39.1. Optimal control &#8212; basics - math</title>
+    <title>39.1.4. Combination of controller and observer &#8212; basics - math</title>
   
   
   
@@ -67,12 +67,12 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/control/optimal-control';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/control/optimal-control-regulator-observer';</script>
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="39.1.1. Full-state feedback" href="optimal-control-full-state.html" />
-    <link rel="prev" title="39. Introduction to control methods" href="intro.html" />
+    <link rel="next" title="39.1.5. Kalman filter" href="kalman.html" />
+    <link rel="prev" title="39.1.3. Sub-optimal control for output feedback" href="optimal-control-output.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -307,11 +307,11 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Control</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">39. Introduction to control methods</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">39.1. Optimal control</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="optimal-control.html">39.1. Optimal control</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="optimal-control-full-state.html">39.1.1. Full-state feedback</a></li>
 <li class="toctree-l3"><a class="reference internal" href="optimal-control-observer.html">39.1.2. Optimal observer for deterministic disturbances</a></li>
 <li class="toctree-l3"><a class="reference internal" href="optimal-control-output.html">39.1.3. Sub-optimal control for output feedback</a></li>
-<li class="toctree-l3"><a class="reference internal" href="optimal-control-regulator-observer.html">39.1.4. Combination of controller and observer</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">39.1.4. Combination of controller and observer</a></li>
 <li class="toctree-l3"><a class="reference internal" href="kalman.html">39.1.5. Kalman filter</a></li>
 </ul>
 </li>
@@ -396,7 +396,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/edit/main/ch/control/optimal-control.md" target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/edit/main/ch/control/optimal-control-regulator-observer.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -413,7 +413,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/issues/new?title=Issue%20on%20page%20%2Fch/control/optimal-control.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/issues/new?title=Issue%20on%20page%20%2Fch/control/optimal-control-regulator-observer.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -443,7 +443,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/ch/control/optimal-control.md" target="_blank"
+      <li><a href="../../_sources/ch/control/optimal-control-regulator-observer.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -514,7 +514,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -525,11 +527,24 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Optimal control</h1>
+    <h1>Combination of controller and observer</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#separation-principle">39.1.4.1. Separation principle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spillover">39.1.4.2. Spillover</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#design-reduced-system-and-full-system">39.1.4.2.1. Design reduced system and full system</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#design-reduced-system-observer-and-full-system">39.1.4.2.2. Design reduced system, observer and full system</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -539,24 +554,102 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="optimal-control">
-<span id="control-optimal"></span><h1><span class="section-number">39.1. </span>Optimal control<a class="headerlink" href="#optimal-control" title="Permalink to this heading">#</a></h1>
-<ul class="simple">
-<li><p>Deterministic/stochastic signals</p></li>
-<li><p>Full-state feedback, observer and full-state on observed state, output feedback</p></li>
-</ul>
-<p><strong>Deterministic signals.</strong></p>
-<ul class="simple">
-<li><p><a class="reference internal" href="optimal-control-full-state.html#control-optimal-full-state-fb"><span class="std std-ref">Full-state feedback</span></a>, <span class="math notranslate nohighlight">\(\mathbf{u} = - \mathbf{K} \mathbf{x}\)</span></p></li>
-<li><p><a class="reference internal" href="optimal-control-observer.html#control-optimal-observer"><span class="std std-ref">Observer</span></a>, for state estimation</p></li>
-<li><p><a class="reference internal" href="optimal-control-regulator-observer.html#control-controller-observer"><span class="std std-ref">Full-state feed back on the observed state</span></a>, <span class="math notranslate nohighlight">\(\mathbf{u} = - \mathbf{K} \mathbf{o}\)</span></p></li>
-<li><p><a class="reference internal" href="optimal-control-output.html#control-optimal-output-fb"><span class="std std-ref">Output feedback</span></a>, <span class="math notranslate nohighlight">\(\mathbf{u} = - \mathbf{K} \mathbf{y}\)</span></p></li>
-</ul>
-<p><strong>Stochastic signals.</strong></p>
-<ul class="simple">
-<li><p><a class="reference internal" href="kalman.html#control-kalman"><span class="std std-ref">Kalman filter</span></a>, i.e. optimal observer w.r.t. white noise system exogenous input and measurement noise</p></li>
-</ul>
-<div class="toctree-wrapper compound">
+  <div class="tex2jax_ignore mathjax_ignore section" id="combination-of-controller-and-observer">
+<span id="control-controller-observer"></span><h1><span class="section-number">39.1.4. </span>Combination of controller and observer<a class="headerlink" href="#combination-of-controller-and-observer" title="Permalink to this heading">#</a></h1>
+<p>Full-state feed-back or the observed state builds the controller on the observed state. As an example, an <span class="xref myst">optimal full-state controller</span> is designed as the state was available, to find matrix <span class="math notranslate nohighlight">\(\mathbf{G}\)</span>; a state observer is designed to get the observed state <span class="math notranslate nohighlight">\(\mathbf{o}(t)\)</span>, through the design of a matrix <span class="math notranslate nohighlight">\(\mathbf{L}\)</span> as in <a class="reference internal" href="kalman.html#control-kalman"><span class="std std-ref">Kalman filter</span></a>; the feed-back on the observed state produces the control <span class="math notranslate nohighlight">\(\mathbf{u}(t) = - \mathbf{G} \mathbf{o}(t)\)</span>.</p>
+<p>Two different cases are discussed here:</p>
+<ol class="arabic simple">
+<li><p>the whole state is used to design the control law, as it’s the case of small-systems with few states/degrees of freedom. In this situation, a <strong>separation principle</strong> holds, i.e. the state estimator design and the control design can be performed independently, as the eigenvalues of the closed-loop system are the eigenvalues of the closed-loop matrix <span class="math notranslate nohighlight">\(\mathbf{A} - \mathbf{B} \mathbf{G}\)</span> and the observer <span class="math notranslate nohighlight">\(\mathbf{A} - \mathbf{L} \mathbf{C}\)</span></p></li>
+<li><p>a reduced state is used to design the control law, as it’s the case of large-dimensional systems or continuous systems (as deformable bodies, whose nomber of degrees of freedom is infinite). For these systems, a subset of states is used for control design, in order to reduce the computational burden. In this situation, separation principle doesn’t hold and <strong>spill-over</strong> may occur between states.</p></li>
+</ol>
+<div class="section" id="separation-principle">
+<span id="control-controller-observer-separation-principle"></span><h2><span class="section-number">39.1.4.1. </span>Separation principle<a class="headerlink" href="#separation-principle" title="Permalink to this heading">#</a></h2>
+<p>System</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{cases}
+  \dot{\mathbf{x}} = \mathbf{A} \mathbf{x} + \mathbf{B}_u \mathbf{u} + \mathbf{B}_d \mathbf{d} \\
+       \mathbf{y}  = \mathbf{C} \mathbf{x} + \mathbf{D}_u \mathbf{u} + \mathbf{D}_d \mathbf{d} + \mathbf{D}_r \mathbf{r} \\
+\end{cases}\end{split}\]</div>
+<p>Observer</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{cases}
+  \dot{\mathbf{o}} = \mathbf{A} \mathbf{o} + \mathbf{B}_u \mathbf{u} + \mathbf{L} ( \mathbf{y} - \mathbf{y}_o ) \\
+       \mathbf{y}_o= \mathbf{C} \mathbf{o} + \mathbf{D}_u \mathbf{u} \ .
+\end{cases}\end{split}\]</div>
+<p>with the error dynamics, <span class="math notranslate nohighlight">\(\mathbf{e} := \mathbf{x} - \mathbf{o}\)</span></p>
+<div class="math notranslate nohighlight">
+\[
+  \dot{\mathbf{e}} = \left( \mathbf{A} - \mathbf{L} \mathbf{C} \right) \mathbf{e} + \left( \mathbf{B}_d - \mathbf{L} \mathbf{D}_d \right) \mathbf{d} - \mathbf{L} \mathbf{D}_r \mathbf{r} 
+\]</div>
+<p>and with the control law <span class="math notranslate nohighlight">\(\mathbf{u} = - \mathbf{G} \mathbf{o} = - \mathbf{G} \left( \mathbf{x} - \mathbf{e} \right)\)</span>. The augmented system with state <span class="math notranslate nohighlight">\(\{ \mathbf{x}, \mathbf{e} \}\)</span> reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\frac{d}{dt} \begin{bmatrix} \mathbf{x} \\ \mathbf{e} \end{bmatrix} = 
+\begin{bmatrix} \mathbf{A} - \mathbf{B}_u \mathbf{G} &amp; \mathbf{B}_u \mathbf{G} \\ \mathbf{0} &amp; \mathbf{A} - \mathbf{L} \mathbf{C} \end{bmatrix} 
+\begin{bmatrix} \mathbf{x} \\ \mathbf{e} \end{bmatrix} + 
+\begin{bmatrix} \mathbf{B}_d &amp; \mathbf{0} \\ \mathbf{B}_d - \mathbf{L} \mathbf{D}_d &amp; - \mathbf{L} \mathbf{D}_r \end{bmatrix} 
+\begin{bmatrix} \mathbf{d} \\ \mathbf{r} \end{bmatrix} \ .
+\end{split}\]</div>
+<p>The matrix of the system is a block triangular matrix, and thus its eigenvalues are the union of the eigenvalues of the diagonal blocks, i.e. the eigenvalues of the closed-loop matrix <span class="math notranslate nohighlight">\(\mathbf{A} - \mathbf{B}_u \mathbf{G}\)</span>, and the matrix of the observer <span class="math notranslate nohighlight">\(\mathbf{A} - \mathbf{L} \mathbf{C}\)</span>. Thus, for the modal stability of the system, the observer and the ccontroller can be designed independently.</p>
+</div>
+<div class="section" id="spillover">
+<span id="control-controller-observer-spillover"></span><h2><span class="section-number">39.1.4.2. </span>Spillover<a class="headerlink" href="#spillover" title="Permalink to this heading">#</a></h2>
+<div class="section" id="design-reduced-system-and-full-system">
+<span id="control-controller-observer-spillover-reduced-sys"></span><h3><span class="section-number">39.1.4.2.1. </span>Design reduced system and full system<a class="headerlink" href="#design-reduced-system-and-full-system" title="Permalink to this heading">#</a></h3>
+<p>Let <span class="math notranslate nohighlight">\(\mathbf{x}_1\)</span> the state of the reduced system used for the design, and <span class="math notranslate nohighlight">\(\mathbf{x}_2\)</span> the “residual” state of the large-dimensional system used for verification, or as a detailed mathematical model of the system of interest. Let the dynamical system be</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{cases}
+  \dot{\mathbf{x}}_1 = \mathbf{A}_1 \mathbf{x}_1 + \mathbf{B}_{1u} \mathbf{u} \\
+  \dot{\mathbf{x}}_2 = \mathbf{A}_2 \mathbf{x}_2 + \mathbf{B}_{2u} \mathbf{u} \\
+  \mathbf{y}         = \mathbf{C}_1 \mathbf{x}_1 + \mathbf{C}_2 \mathbf{x}_2 + \mathbf{D}_{u} \mathbf{u}  \\
+\end{cases}\end{split}\]</div>
+<p>and the optimal control designed on the reduced system, so that the input is <span class="math notranslate nohighlight">\(\mathbf{u} = - \mathbf{G} \mathbf{x}_1\)</span>. The equations governing the closed-loop dynamics of the detailed system reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+\frac{d}{dt} \begin{bmatrix} \mathbf{x}_1 \\ \mathbf{x}_2 \end{bmatrix} &amp; =
+\begin{bmatrix}
+\mathbf{A}_1 - \mathbf{B}_{1u} \mathbf{G} &amp; \cdot \\
+ - \mathbf{B}_{2u} \mathbf{G}  &amp; \mathbf{A}_2  \\
+\end{bmatrix}
+\begin{bmatrix} \mathbf{x}_1 \\ \mathbf{x}_2 \end{bmatrix} \\
+\mathbf{y} &amp; = \begin{bmatrix} \mathbf{C}_1 - \mathbf{D}_u \mathbf{G} &amp; \mathbf{C}_2 \end{bmatrix} \begin{bmatrix} \mathbf{x}_1 \\ \mathbf{x}_2 \end{bmatrix}
+\end{aligned}\end{split}\]</div>
+<p>The matrix of the system is block triangular, so that the eigenvalues of the system are the union of the eigenvalues of the closed loop matrix designed on the reduced system <span class="math notranslate nohighlight">\(\mathbf{A}_1 - \mathbf{B}_{1u} \mathbf{G}\)</span>, and the matrix of the residual detailed system <span class="math notranslate nohighlight">\(\mathbf{A}_2\)</span>. In order to get a stable system, the reduced system must contain all the open-loop unstable dynamics, as the matrix <span class="math notranslate nohighlight">\(\mathbf{A}_2\)</span> must be stable.</p>
+</div>
+<div class="section" id="design-reduced-system-observer-and-full-system">
+<span id="control-controller-observer-spillover-reduced-sys-observer"></span><h3><span class="section-number">39.1.4.2.2. </span>Design reduced system, observer and full system<a class="headerlink" href="#design-reduced-system-observer-and-full-system" title="Permalink to this heading">#</a></h3>
+<p>Let <span class="math notranslate nohighlight">\(\mathbf{x}_1\)</span> the state of the reduced system used for the design, and <span class="math notranslate nohighlight">\(\mathbf{x}_2\)</span> the “residual” state of the large-dimensional system used for verification, or as a detailed mathematical model of the system of interest. Let the dynamical system be</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{cases}
+  \dot{\mathbf{x}}_1 = \mathbf{A}_1 \mathbf{x}_1 + \mathbf{B}_{1u} \mathbf{u} \\
+  \dot{\mathbf{x}}_2 = \mathbf{A}_2 \mathbf{x}_2 + \mathbf{B}_{2u} \mathbf{u} \\
+  \mathbf{y}         = \mathbf{C}_1 \mathbf{x}_1 + \mathbf{C}_2 \mathbf{x}_2 + \mathbf{D}_{u} \mathbf{u}  \\
+\end{cases}\end{split}\]</div>
+<p>and the observer designed on the low-dimensional system</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{cases}
+  \dot{\mathbf{o}} = \mathbf{A}_1 \mathbf{o} + \mathbf{B}_{1u} \mathbf{u} + \mathbf{L} \left( \mathbf{y} - \mathbf{y}_o \right) \\
+  \mathbf{y}_o     = \mathbf{C}_1 \mathbf{o} + \mathbf{D}_{1u} \mathbf{u}
+\end{cases}\end{split}\]</div>
+<p>so that</p>
+<div class="math notranslate nohighlight">
+\[\dot{\mathbf{o}} = \left( \mathbf{A}_1 - \mathbf{L} \mathbf{C}_1 \right) \mathbf{o} + \mathbf{L} \mathbf{C}_1 \mathbf{x}_1 + \mathbf{L} \mathbf{C}_2 \mathbf{x}_2 + \left( \mathbf{B}_{1u} - \mathbf{L} \mathbf{D}_{u} \right) \mathbf{u} \ ,\]</div>
+<p>and the dynamical equation of the error <span class="math notranslate nohighlight">\(\mathbf{e} := \mathbf{x}_1 - \mathbf{o}\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[\dot{\mathbf{e}} = \left( \mathbf{A}_1 - \mathbf{L} \mathbf{C}_1 \right) \mathbf{e} - \mathbf{L} \mathbf{C}_2 \mathbf{x}_2  \ .\]</div>
+<p>The input is proportional to the observed state, <span class="math notranslate nohighlight">\(\mathbf{u} = - \mathbf{G} \mathbf{o}\)</span>. Thus, the augmented system reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\frac{d}{dt} \begin{bmatrix} \mathbf{x}_1 \\ \mathbf{x}_2 \\ \mathbf{e} \end{bmatrix} =
+\begin{bmatrix}
+\mathbf{A}_1 - \mathbf{B}_{1u} \mathbf{G} &amp; \cdot &amp; \mathbf{B}_{1u} \mathbf{G} \\
+ - \mathbf{B}_{2u} \mathbf{G}  &amp; \mathbf{A}_2 &amp; \mathbf{B}_{2u} \mathbf{G} \\
+ \cdot &amp; - \mathbf{L} \mathbf{C}_2 &amp; \mathbf{A}_1 - \mathbf{L} \mathbf{C}_1
+\end{bmatrix}
+\begin{bmatrix} \mathbf{x}_1 \\ \mathbf{x}_2 \\ \mathbf{e} \end{bmatrix} \ .
+\end{split}\]</div>
+<p>The matrix of the system is not block triangular, as the dynamics of the “residual” state of the large-dimensional system and the reconstruction error are coupled. The eigenvalue of the systems are non-trivial as they’re not anymore the eigenvalue of the diagonal blocks.</p>
+</div>
 </div>
 </div>
 
@@ -591,20 +684,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="intro.html"
+       href="optimal-control-output.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">39. </span>Introduction to control methods</p>
+        <p class="prev-next-title"><span class="section-number">39.1.3. </span>Sub-optimal control for output feedback</p>
       </div>
     </a>
     <a class="right-next"
-       href="optimal-control-full-state.html"
+       href="kalman.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">39.1.1. </span>Full-state feedback</p>
+        <p class="prev-next-title"><span class="section-number">39.1.5. </span>Kalman filter</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -614,6 +707,25 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#separation-principle">39.1.4.1. Separation principle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spillover">39.1.4.2. Spillover</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#design-reduced-system-and-full-system">39.1.4.2.1. Design reduced system and full system</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#design-reduced-system-observer-and-full-system">39.1.4.2.2. Design reduced system, observer and full system</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
