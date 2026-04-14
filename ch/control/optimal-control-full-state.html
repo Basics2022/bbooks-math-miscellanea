@@ -71,7 +71,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="39.1.2. Optimal observer for deterministic disturbances" href="optimal-control-observer.html" />
+    <link rel="next" title="39.1.2. Full-state feedback (OLD)" href="optimal-control-full-state-old.html" />
     <link rel="prev" title="39.1. Optimal control" href="optimal-control.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -309,9 +309,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">39. Introduction to control methods</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2 current active has-children"><a class="reference internal" href="optimal-control.html">39.1. Optimal control</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l3 current active"><a class="current reference internal" href="#">39.1.1. Full-state feedback</a></li>
-<li class="toctree-l3"><a class="reference internal" href="optimal-control-observer.html">39.1.2. Optimal observer for deterministic disturbances</a></li>
-<li class="toctree-l3"><a class="reference internal" href="optimal-control-output.html">39.1.3. Sub-optimal control for output feedback</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kalman.html">39.1.4. Kalman filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optimal-control-full-state-old.html">39.1.2. Full-state feedback (OLD)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optimal-control-observer.html">39.1.3. Optimal observer for deterministic disturbances</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optimal-control-output.html">39.1.4. Sub-optimal control for output feedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optimal-control-regulator-observer.html">39.1.5. Combination of controller and observer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kalman.html">39.1.6. Kalman filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hjb.html">39.1.7. Hamilton Bellman Jacobi equation</a></li>
 </ul>
 </li>
 </ul>
@@ -536,7 +539,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generic-ode">39.1.1.1. Generic ODE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generic-ode-without-exogenous-inputs">39.1.1.1. Generic ODE without exogenous inputs</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lti">39.1.1.2. LTI</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#infinite-horizon-full-state-feedback">39.1.1.2.1. Infinite-horizon full-state feedback</a></li>
 </ul>
@@ -555,9 +558,64 @@ document.write(`
   <div class="tex2jax_ignore mathjax_ignore section" id="full-state-feedback">
 <span id="control-optimal-full-state-fb"></span><h1><span class="section-number">39.1.1. </span>Full-state feedback<a class="headerlink" href="#full-state-feedback" title="Permalink to this heading">#</a></h1>
 <p>Optimal control can be recast as a <strong>constrained optimization problem</strong>, <span class="math notranslate nohighlight">\(J\)</span>, where an extreme - optimum - of an objective function must be found, subject to constraints that include the equations of motion. Some constraints may be included into an augmented objective function <span class="math notranslate nohighlight">\(\widetilde{J}\)</span> with the methods of <a class="reference internal" href="../optimization/intro.html#optimization-constrained-lagrange-multipliers"><span class="std std-ref">Lagrange multipliers</span></a>.</p>
-<p><strong>Finite time vs. Infinite time horizon.</strong></p>
-<div class="section" id="generic-ode">
-<span id="control-optimal-full-state-fb-ode"></span><h2><span class="section-number">39.1.1.1. </span>Generic ODE<a class="headerlink" href="#generic-ode" title="Permalink to this heading">#</a></h2>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Different models - governing equations<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<ul>
+<li><p class="sd-card-text">Generic ODE</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{M} \dot{\mathbf{x}} = \mathbf{f}(\mathbf{x}, \mathbf{u})\]</div>
+</li>
+<li><p class="sd-card-text">Linear ODE for deterministic signals</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{cases}
+     \dot{\mathbf{x}} = \mathbf{A} \mathbf{x} + \mathbf{B}_u \mathbf{u} + \mathbf{B}_d \mathbf{d} \\
+          \mathbf{y}  = \mathbf{C} \mathbf{x} + \mathbf{D}_u \mathbf{u} + \mathbf{D}_d \mathbf{d} + \mathbf{D}_r \mathbf{r}
+   \end{cases}\end{split}\]</div>
+</li>
+<li><p class="sd-card-text">Linear SDE for stochastic signals. Exogenous inputs like disturbances <span class="math notranslate nohighlight">\(\mathbf{d}\)</span> and measuerement noise <span class="math notranslate nohighlight">\(\mathbf{r}\)</span> can be treated as stochastic processes. Thus, the equations are stochastic equations. As an example, if these noise are <strong>white noise</strong> they can be interpreted as the time derivative of Wiener processes, and the SDE can be written as</p>
+<div class="math notranslate nohighlight">
+\[ d \mathbf{x} = \mathbf{A} \mathbf{x} \, dt + \mathbf{B}_u \mathbf{u} \, dt + \mathbf{B}_d d \mathbf{w}_d \ ,\]</div>
+<p class="sd-card-text">begin “<span class="math notranslate nohighlight">\(d \mathbf{w}_d = \mathbf{d} \, dt\)</span>”. While this may look like a useless trick, it helps us recallling that <span class="math notranslate nohighlight">\(| d \mathbf{w}_d |^2 \sim dt\)</span>, when evaluating covariances.</p>
+</li>
+</ul>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Different approaches to the solution<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Different approaches to the solution can be used, and help for a detailed comprehension of the topics.</p>
+<ul>
+<li><p class="sd-card-text">Variational apporach to constrained optimization,</p>
+<div class="math notranslate nohighlight">
+\[J = \int_{\tau=t}^{T} C(\mathbf{x}(\tau), \mathbf{u}(\tau)) d \tau +  D(\mathbf{x}(T)) - \int_{\tau=0}^{T} \boldsymbol\lambda^T \left( \dot{\mathbf{x}} - \mathbf{f}(\mathbf{x},\mathbf{u}) \right) \ ,\]</div>
+<p class="sd-card-text">where the equations of motion are constraints inserted in the objective function with the method of Lagrange multipliers.</p>
+</li>
+<li><p class="sd-card-text">Hamilton-Bellman-Jacobi equation</p>
+<div class="math notranslate nohighlight">
+\[V(\mathbf{x}_t, t) = \int_{\tau=t}^{T} C(\mathbf{x}(\tau), \mathbf{u}(\tau)) d \tau +  D(\mathbf{x}(T)) \ ,\]</div>
+<p class="sd-card-text">with the dynamics of the system subject to the governing equation <span class="math notranslate nohighlight">\(\dot{\mathbf{x}} = \mathbf{f}(\mathbf{x},\mathbf{u})\)</span>, and  the initial condition for the value function - the tail cost function - <span class="math notranslate nohighlight">\(x(t) = x_t\)</span>. These constraints can be explicitly applied if an expression of the solution of the dynamical equation exists, or they can be added with the method of Lagrange multipliers.</p>
+</li>
+<li><p class="sd-card-text">…</p></li>
+</ul>
+<p class="sd-card-text">A common choice of the running cost <span class="math notranslate nohighlight">\(C(\mathbf{x},\mathbf{u})\)</span> and the final cost <span class="math notranslate nohighlight">\(D(\mathbf{x}(T))\)</span> are</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+C(\mathbf{x}(\tau),\mathbf{u}(\tau)) &amp; = \frac{1}{2}\left\{ \mathbf{x}^T(\tau) \mathbf{Q} \mathbf{x}(\tau) + \mathbf{u}^T(\tau) \mathbf{R} \mathbf{u}(\tau)  \right\} \\
+D(\mathbf{x}(T)) &amp; = \frac{1}{2} \mathbf{x}^T(T) \mathbf{Q}_T \mathbf{x}(T)  \ .
+\end{aligned}\end{split}\]</div>
+</div>
+</details><p><strong>Finite time vs. Infinite time horizon.</strong></p>
+<p>…</p>
+<div class="section" id="generic-ode-without-exogenous-inputs">
+<span id="control-optimal-full-state-fb-ode"></span><h2><span class="section-number">39.1.1.1. </span>Generic ODE without exogenous inputs<a class="headerlink" href="#generic-ode-without-exogenous-inputs" title="Permalink to this heading">#</a></h2>
 <div class="math notranslate nohighlight">
 \[\mathbf{M} \dot{\mathbf{x}} = \mathbf{f}(\mathbf{x}, \mathbf{u}) \ ,\]</div>
 <p>with initial condition <span class="math notranslate nohighlight">\(\mathbf{x}(0) = \mathbf{x}_0\)</span>.</p>
@@ -751,11 +809,11 @@ $$\dot{\mathbf{P}} = - \mathbf{P} \left( \mathbf{A} - \mathbf{B} \mathbf{R}^{-1}
       </div>
     </a>
     <a class="right-next"
-       href="optimal-control-observer.html"
+       href="optimal-control-full-state-old.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">39.1.2. </span>Optimal observer for deterministic disturbances</p>
+        <p class="prev-next-title"><span class="section-number">39.1.2. </span>Full-state feedback (OLD)</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -774,7 +832,7 @@ $$\dot{\mathbf{P}} = - \mathbf{P} \left( \mathbf{A} - \mathbf{B} \mathbf{R}^{-1}
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generic-ode">39.1.1.1. Generic ODE</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generic-ode-without-exogenous-inputs">39.1.1.1. Generic ODE without exogenous inputs</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lti">39.1.1.2. LTI</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#infinite-horizon-full-state-feedback">39.1.1.2.1. Infinite-horizon full-state feedback</a></li>
 </ul>

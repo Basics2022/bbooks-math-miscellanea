@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>39. Introduction to control methods &#8212; basics - math</title>
+    <title>39.1.7. Hamilton Bellman Jacobi equation &#8212; basics - math</title>
   
   
   
@@ -65,12 +65,14 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/control/intro';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/control/hjb';</script>
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="39.1. Optimal control" href="optimal-control.html" />
-    <link rel="prev" title="38. Optimization" href="../optimization/intro.html" />
+    <link rel="next" title="40. Introduction to Reinforcement Learning" href="../rl/intro.html" />
+    <link rel="prev" title="39.1.6. Kalman filter" href="kalman.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -304,15 +306,15 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Control</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">39. Introduction to control methods</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="optimal-control.html">39.1. Optimal control</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">39. Introduction to control methods</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="optimal-control.html">39.1. Optimal control</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="optimal-control-full-state.html">39.1.1. Full-state feedback</a></li>
 <li class="toctree-l3"><a class="reference internal" href="optimal-control-full-state-old.html">39.1.2. Full-state feedback (OLD)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="optimal-control-observer.html">39.1.3. Optimal observer for deterministic disturbances</a></li>
 <li class="toctree-l3"><a class="reference internal" href="optimal-control-output.html">39.1.4. Sub-optimal control for output feedback</a></li>
 <li class="toctree-l3"><a class="reference internal" href="optimal-control-regulator-observer.html">39.1.5. Combination of controller and observer</a></li>
 <li class="toctree-l3"><a class="reference internal" href="kalman.html">39.1.6. Kalman filter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="hjb.html">39.1.7. Hamilton Bellman Jacobi equation</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">39.1.7. Hamilton Bellman Jacobi equation</a></li>
 </ul>
 </li>
 </ul>
@@ -396,7 +398,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/edit/main/ch/control/intro.md" target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/edit/main/ch/control/hjb.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -413,7 +415,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/issues/new?title=Issue%20on%20page%20%2Fch/control/intro.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/issues/new?title=Issue%20on%20page%20%2Fch/control/hjb.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -443,7 +445,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/ch/control/intro.md" target="_blank"
+      <li><a href="../../_sources/ch/control/hjb.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -525,7 +527,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Introduction to control methods</h1>
+    <h1>Hamilton Bellman Jacobi equation</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -539,22 +541,34 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="introduction-to-control-methods">
-<span id="control"></span><h1><span class="section-number">39. </span>Introduction to control methods<a class="headerlink" href="#introduction-to-control-methods" title="Permalink to this heading">#</a></h1>
-<p><strong>Domain.</strong></p>
-<ul class="simple">
-<li><p>Frequency domain for linear systems: root locus, <a class="reference internal" href="../ode/lti-stability-and-feedback.html#ode-lti-stability-fb-siso-nyquist"><span class="std std-ref">Nyquist criterion</span></a> and Bode criteria,…</p></li>
-<li><p>Time domain: <a class="reference internal" href="optimal-control.html#control-optimal"><span class="std std-ref">optimal control</span></a>, robust optimal control,…</p></li>
-</ul>
-<p><strong>Full-state, partial-state feedback.</strong></p>
-<ul class="simple">
-<li><p>Full-state feedback: the complete state of the system can be observed and used for the feedback</p></li>
-<li><p>Partial-state feedback</p></li>
-</ul>
-<p><strong>Observers</strong>, e.g. <a class="reference internal" href="observer.html#control-observer-kalman"><span class="std std-ref">Kalman filter</span></a>, tries to estimate the state of a system from its output. Later, this estimatio can be used for feedback.</p>
-<div class="toctree-wrapper compound">
+  <div class="tex2jax_ignore mathjax_ignore section" id="hamilton-bellman-jacobi-equation">
+<span id="hamilton-bellman-jacobi"></span><h1><span class="section-number">39.1.7. </span>Hamilton Bellman Jacobi equation<a class="headerlink" href="#hamilton-bellman-jacobi-equation" title="Permalink to this heading">#</a></h1>
+<p>Let a dynamical system</p>
+<div class="math notranslate nohighlight">
+\[\dot{\mathbf{x}} = \mathbf{f}(\mathbf{x}, \mathbf{u}) \ ,\]</div>
+<p>with initial conditions <span class="math notranslate nohighlight">\(\mathbf{x}(0) = \mathbf{x}_0\)</span>. Let a <strong>value function</strong> <span class="math notranslate nohighlight">\(V(\mathbf{x}_t, t)\)</span> defined as</p>
+<div class="math notranslate nohighlight">
+\[V(\mathbf{x}_t, t) = \int_{\tau=t}^{T} C(\mathbf{x}(\tau), \mathbf{u}(\tau)) d \tau +  D(\mathbf{x}(T)) \ ,\]</div>
+<p>quantifying a cost for <span class="math notranslate nohighlight">\(\tau \in [t, T]\)</span>, subject to the dynamical equations. Value function has two arguments, the “initial time” <span class="math notranslate nohighlight">\(t\)</span> and the state of the system at that time <span class="math notranslate nohighlight">\(\mathbf{x}_t\)</span>. The dynamical equations are a constraint that can be introduced into the value function with the method of Lagrange multipliers</p>
+<div class="math notranslate nohighlight">
+\[\widetilde{V}(\mathbf{x}_t, t, \boldsymbol{\lambda}) = \int_{\tau=t}^{T} C(\mathbf{x}(\tau), \mathbf{u}(\tau)) d \tau +  D(\mathbf{x}(T)) - \int_{\tau=t}^T \boldsymbol\lambda^T(\tau) \left( \dot{\mathbf{x}}(\tau) - \mathbf{f}(\mathbf{x}(\tau), \mathbf{u}(\tau)) \right) d \tau \ .\]</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Method 1. Non-augmented value function<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
 </div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Method 2. Augmented value function<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
 </div>
+</details></div>
 
     <script type="text/x-thebe-config">
     {
@@ -587,20 +601,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../optimization/intro.html"
+       href="kalman.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">38. </span>Optimization</p>
+        <p class="prev-next-title"><span class="section-number">39.1.6. </span>Kalman filter</p>
       </div>
     </a>
     <a class="right-next"
-       href="optimal-control.html"
+       href="../rl/intro.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">39.1. </span>Optimal control</p>
+        <p class="prev-next-title"><span class="section-number">40. </span>Introduction to Reinforcement Learning</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
