@@ -135,6 +135,7 @@ parts:
       - file: ch/control/optimal-control-full-state
       - file: ch/control/optimal-control-observer
       - file: ch/control/optimal-control-output
+      - file: ch/control/optimal-control-regulator-observer
       - file: ch/control/kalman
 - caption: Reinforcement Learning
   numbered: True

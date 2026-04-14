@@ -6,7 +6,8 @@
 
 **Deterministic signals.**
 * [Full-state feedback](control:optimal:full-state-fb), $\mathbf{u} = - \mathbf{K} \mathbf{x}$
-* [Observer](control:optimal:observer), and full-state feed back on the observed state, $\mathbf{u} = - \mathbf{K} \mathbf{o}$
+* [Observer](control:optimal:observer), for state estimation
+* [Full-state feed back on the observed state](control:controller-observer), $\mathbf{u} = - \mathbf{K} \mathbf{o}$
 * [Output feedback](control:optimal:output-fb), $\mathbf{u} = - \mathbf{K} \mathbf{y}$
 
 **Stochastic signals.**
