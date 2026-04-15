@@ -76,6 +76,15 @@ const thebe_selector_output = ".output, .cell_output"
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPXX63Z3XR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-JPXX63Z3XR');
+</script>
+
   
   
   <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
@@ -587,12 +596,12 @@ Different approaches to the solution<div class="sd-summary-down docutils">
 <ul>
 <li><p class="sd-card-text">Variational apporach to constrained optimization,</p>
 <div class="math notranslate nohighlight">
-\[J = \int_{\tau=t}^{T} C(\mathbf{x}(\tau), \mathbf{u}(\tau)) d \tau +  D(\mathbf{x}(T)) - \int_{\tau=0}^{T} \boldsymbol\lambda^T \left( \dot{\mathbf{x}} - \mathbf{f}(\mathbf{x},\mathbf{u}) \right) \ ,\]</div>
+\[J(\mathbf{x},\mathbf{u}) = \int_{\tau=t}^{T} C(\mathbf{x}(\tau), \mathbf{u}(\tau)) d \tau +  D(\mathbf{x}(T)) - \int_{\tau=0}^{T} \boldsymbol\lambda^T \left( \dot{\mathbf{x}} - \mathbf{f}(\mathbf{x},\mathbf{u}) \right) \ ,\]</div>
 <p class="sd-card-text">where the equations of motion are constraints inserted in the objective function with the method of Lagrange multipliers.</p>
 </li>
 <li><p class="sd-card-text">Hamilton-Bellman-Jacobi equation</p>
 <div class="math notranslate nohighlight">
-\[V(\mathbf{x}_t, t) = \int_{\tau=t}^{T} C(\mathbf{x}(\tau), \mathbf{u}(\tau)) d \tau +  D(\mathbf{x}(T)) \ ,\]</div>
+\[V(\mathbf{x}_t, t; \mathbf{u}) = \int_{\tau=t}^{T} C(\mathbf{x}(\tau), \mathbf{u}(\tau)) d \tau +  D(\mathbf{x}(T)) \ ,\]</div>
 <p class="sd-card-text">with the dynamics of the system subject to the governing equation <span class="math notranslate nohighlight">\(\dot{\mathbf{x}} = \mathbf{f}(\mathbf{x},\mathbf{u})\)</span>, and  the initial condition for the value function - the tail cost function - <span class="math notranslate nohighlight">\(x(t) = x_t\)</span>. These constraints can be explicitly applied if an expression of the solution of the dynamical equation exists, or they can be added with the method of Lagrange multipliers.</p>
 </li>
 <li><p class="sd-card-text">…</p></li>
@@ -624,33 +633,34 @@ Constrained optimization<div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
 <div class="math notranslate nohighlight">
-\[\widetilde{J} = \int_{\tau=0}^{T} C\left( \mathbf{x}(\tau), \mathbf{u}(\tau) \right) \, d\tau + D\left( \mathbf{x}(T) \right) - \int_{\tau=0}^{T} \boldsymbol\lambda^T \left( \mathbf{M} \dot{\mathbf{x}} - \mathbf{f}(\mathbf{x}(\tau), \mathbf{u}(\tau)) \right) \, d \tau \ .\]</div>
+\[\widetilde{J}(\mathbf{x},\mathbf{u}; \boldsymbol\lambda) = \int_{\tau=0}^{T} C\left( \mathbf{x}(\tau), \mathbf{u}(\tau) \right) \, d\tau + D\left( \mathbf{x}(T) \right) - \int_{\tau=0}^{T} \boldsymbol\lambda^T \left( \mathbf{M} \dot{\mathbf{x}} - \mathbf{f}(\mathbf{x}(\tau), \mathbf{u}(\tau)) \right) \, d \tau \ .\]</div>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
   0 = \delta \widetilde{J} 
-  &amp; = \int_{t=0}^{T} \delta \mathbf{x}^T \left( \partial_\mathbf{x} C + \partial_{\mathbf{x}} \mathbf{f}^T \boldsymbol\lambda + \mathbf{M}^T \dot{\boldsymbol{\lambda}}\right) \\
-  &amp; + \int_{t=0}^{T} \delta \mathbf{u}^T \left( \partial_\mathbf{u} C + \partial_{\mathbf{u}} \mathbf{f}^T \boldsymbol\lambda \right) \\
-  &amp; + \delta \mathbf{x}^T(T) \mathbf{Q}_T \mathbf{x}(T) \\
-  &amp; + \int_{t=0}^{T} \delta \boldsymbol\lambda^T ( \mathbf{M} \dot{\mathbf{x}} - \mathbf{f}(\mathbf{x}, \mathbf{u}) ) \\
-  &amp; - \left. \delta \mathbf{x} \mathbf{M}^T \boldsymbol\lambda \right|_{t=0}^{T}
+  &amp; = \int_{t=0}^{T} \delta \mathbf{x}^T \left( \partial_\mathbf{x} C + \partial_{\mathbf{x}} \mathbf{f}^T \boldsymbol\lambda + \mathbf{M}^T \dot{\boldsymbol{\lambda}}\right) d \tau + \\
+  &amp; + \int_{t=0}^{T} \delta \mathbf{u}^T \left( \partial_\mathbf{u} C + \partial_{\mathbf{u}} \mathbf{f}^T \boldsymbol\lambda \right) d \tau + \\
+  &amp; + \delta \mathbf{x}^T(T) \partial_{\mathbf{x}_T} D + \\
+  &amp; + \int_{t=0}^{T} \delta \boldsymbol\lambda^T ( \mathbf{M} \dot{\mathbf{x}} - \mathbf{f}(\mathbf{x}, \mathbf{u}) ) d \tau + \\
+  &amp; - \left. \delta \mathbf{x} \mathbf{M}^T \boldsymbol\lambda \right|_{t=0}^{T} \ .
 \end{aligned}\end{split}\]</div>
 <p class="sd-card-text">So that</p>
 <div class="math notranslate nohighlight" id="equation-eq-optimal-ode">
 <span class="eqno">(43.1)<a class="headerlink" href="#equation-eq-optimal-ode" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
  \delta \boldsymbol\lambda(t): &amp; \quad \mathbf{M}   \dot{\mathbf{x}} = \mathbf{f} \\
                                &amp; \quad \mathbf{x}(0) = \mathbf{x}_0 \\
- \delta \mathbf{x}(t)        : &amp; \quad \mathbf{M}^T \dot{\boldsymbol{\lambda}} = -\partial_{\mathbf{x}} \mathbf{f}^T \boldsymbol\lambda - \mathbf{S} \mathbf{u} - \mathbf{Q} \mathbf{x} \\
- \delta \mathbf{x}(T)        : &amp; \quad \mathbf{M}^T \boldsymbol\lambda(T) = \mathbf{Q}_T \mathbf{x}(T) \\
- \delta \mathbf{u}(t)        : &amp; \quad \mathbf{u} = - \mathbf{R}^{-1} \left( \mathbf{S}^T \mathbf{x} + \partial_\mathbf{u} \mathbf{f}^T \boldsymbol\lambda \right) \ .
+ \delta \mathbf{x}(t)        : &amp; \quad \mathbf{M}^T \dot{\boldsymbol{\lambda}} = -\partial_{\mathbf{x}} \mathbf{f}^T \boldsymbol\lambda - \partial_{\mathbf{x}} C \\
+ \delta \mathbf{x}(T)        : &amp; \quad \mathbf{M}^T \boldsymbol\lambda(T) = \partial_{\mathbf{x}_T} D \\
+ \delta \mathbf{u}(t)        : &amp; \quad \mathbf{0} = \partial_\mathbf{u} C + \partial_\mathbf{u} \mathbf{f}^T \boldsymbol\lambda \ .
 \end{aligned}\end{split}\]</div>
-</div>
-</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
-<summary class="sd-summary-title sd-card-header">
-Solution of the problem<div class="sd-summary-down docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="sd-summary-up docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The equations can be recast after the definition of the Hamiltonian of the system <span class="math notranslate nohighlight">\(H(\mathbf{x},\mathbf{u},\boldsymbol\lambda) = C(\mathbf{x},\mathbf{u}) + \boldsymbol\lambda^T \mathbf{f}(\mathbf{x},\mathbf{u})\)</span> as</p>
+<div class="math notranslate nohighlight" id="equation-eq-optimal-ode-hamiltonian">
+<span class="eqno">(43.2)<a class="headerlink" href="#equation-eq-optimal-ode-hamiltonian" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+ \delta \boldsymbol\lambda(t): &amp; \quad \mathbf{0} = - \mathbf{M} \dot{\mathbf{x}} + \partial_{\boldsymbol\lambda} H = - \mathbf{M} \dot{\mathbf{x}} + \mathbf{f} \\
+                               &amp; \quad \mathbf{x}(0) = \mathbf{x}_0 \\
+ \delta \mathbf{x}(t)        : &amp; \quad \mathbf{M}^T \dot{\boldsymbol{\lambda}} = - \partial_{\mathbf{x}} H \\
+ \delta \mathbf{x}(T)        : &amp; \quad \mathbf{M}^T \boldsymbol\lambda(T) = \partial_{\mathbf{x}_T} D \\
+ \delta \mathbf{u}(t)        : &amp; \quad \mathbf{0} = \partial_\mathbf{u} H \ .
+\end{aligned}\end{split}\]</div>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
 <summary class="sd-summary-title sd-card-header">
 Gradient descent<div class="sd-summary-down docutils">
@@ -674,7 +684,64 @@ HJB equation - Evaluation equation<div class="sd-summary-down docutils">
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Without dynamical equations as a constraint introduced with Lagrange multipliers<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[V(\mathbf{x}_t, t) = \int_{\tau=t}^{T} C(\mathbf{x}(\tau), \mathbf{u}(\tau)) d \tau +  D(\mathbf{x}(T)) \ ,\]</div>
+<p class="sd-card-text">subject to the dynamical equations of motion. The value function is a function of two arguments, <span class="math notranslate nohighlight">\(\mathbf{x}_t\)</span>, and <span class="math notranslate nohighlight">\(t\)</span>, and the first argument is a function of <span class="math notranslate nohighlight">\(t\)</span>. Thus the ordinary derivative w.r.t. time <span class="math notranslate nohighlight">\(t\)</span> reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+  \frac{d}{dt} V(\mathbf{x}_t, t) 
+  &amp; = \partial_t V(\mathbf{x}_t,t) +  \partial_\mathbf{x} V \, \dot{\mathbf{x}}   
+    = \partial_t V(\mathbf{x}_t,t) +  \partial_\mathbf{x} V \, \mathbf{f} \ , 
+\end{aligned}\]</div>
+<p class="sd-card-text">or, using the definition and the rule of derivative for integrals</p>
+<div class="math notranslate nohighlight">
+\[
+  \frac{d}{dt} V(\mathbf{x}_t, t) = - C(\mathbf{x}(t), \mathbf{u}(t)) \ .
+\]</div>
+<p class="sd-card-text">Comparing the two expressions of the time derivative, Hamilton-Bellman-Jacobi equation for evaluating a given control <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> follows</p>
+<div class="math notranslate nohighlight">
+\[0 = \partial_t V(\mathbf{x}_t, t) + \partial_{\mathbf{x}} V(\mathbf{x}_t, t) \, \mathbf{f}(\mathbf{x}_t, \mathbf{u}_t) + C(\mathbf{x}_t, \mathbf{u}_t) \ .\]</div>
 </div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+With dynamical equations as a constraint introduced with Lagrange multipliers<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+  V(\mathbf{x}_t, t; \boldsymbol\lambda)
+  &amp; = \int_{\tau=t}^{T} C(\mathbf{x}(\tau), \mathbf{u}(\tau)) d \tau +  D(\mathbf{x}(T)) - \int_{\tau=t}^{T} \boldsymbol\lambda^T ( \mathbf{M} \dot{\mathbf{x}} - \mathbf{f} ) d \tau \ ,
+\end{aligned}\]</div>
+<p class="sd-card-text">so that the variation (where’s the variation w.r.t. <span class="math notranslate nohighlight">\(t\)</span>? Integration extreme is not prescribed) reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \delta V(\mathbf{x}_t, t; \mathbf{u}, \boldsymbol\lambda)
+  &amp; = \int_{\tau=t}^{T} \left\{ \delta \mathbf{x}^T \partial_{\mathbf{x}} C + \delta \mathbf{u}^T \partial_{\mathbf{u}} C \right\} d \tau + \delta \mathbf{x}_T \partial_{\mathbf{x}_T} D(\mathbf{x}(T)) + \\
+  &amp; - \int_{\tau=t}^{T} \delta \boldsymbol\lambda^T ( \mathbf{M} \dot{\mathbf{x}} - \mathbf{f} ) d \tau + \int_{\tau=t}^T \delta \mathbf{x}^T \mathbf{M}^T \dot{\boldsymbol\lambda} \, d \tau + \\
+  &amp; - \delta \mathbf{x}^T(T) \mathbf{M}^T \boldsymbol\lambda(T) + \delta \mathbf{x}^T_t \mathbf{M}^T \boldsymbol\lambda(t) + \\
+  &amp; + \int_{\tau=t}^{T} \left\{ \delta \mathbf{x}^T \partial_{\mathbf{x}} \mathbf{f}^T \boldsymbol\lambda + \delta \mathbf{u}^T \partial_{\mathbf{u}} \mathbf{f}^T \boldsymbol\lambda \right\} d \tau
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">All the variations but <span class="math notranslate nohighlight">\(\delta \mathbf{x}_t\)</span> are identically zero if the equations <a class="reference internal" href="#equation-eq-optimal-ode">(43.1)</a> are satisfied, the variation w.r.t. <span class="math notranslate nohighlight">\(\delta \mathbf{x}_t\)</span> shows that the sensitivity to the initial state in the value function <span class="math notranslate nohighlight">\(\mathbf{x}_t\)</span> equals the value of the Lagrange multiplier <span class="math notranslate nohighlight">\(\boldsymbol\lambda(t)\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\nabla_{\mathbf{x}_t} V(\mathbf{x}_t, t; ...) = \boldsymbol\lambda(t) \ ,\]</div>
+<p class="sd-card-text">with <span class="math notranslate nohighlight">\(\boldsymbol\lambda(t)\)</span> part of the solution of the equations <a class="reference internal" href="#equation-eq-optimal-ode">(43.1)</a>. Thus the Lagrange multiplier <span class="math notranslate nohighlight">\(\boldsymbol\lambda(t)\)</span> provides an information (first order, sensitivity) about the change in the value function <span class="math notranslate nohighlight">\(V(\mathbf{x}_t, t)\)</span> for small changes of the intial state <span class="math notranslate nohighlight">\(\mathbf{x}_t\)</span>, i.e.</p>
+<div class="math notranslate nohighlight">
+\[\delta_{\mathbf{x}_t} V(\mathbf{x}_t, t) \sim \delta \mathbf{x}_t^T \nabla_{\mathbf{x}_t} V + o(|\delta \mathbf{x}_t|) =  \delta \mathbf{x}^T_t \boldsymbol\lambda(t) + o(|\delta \mathbf{x}_t|) \ .\]</div>
+<p class="sd-card-text"><strong>todo</strong></p>
+<ul class="simple">
+<li><p class="sd-card-text">useful to exploit adjoint info for sensitivity</p></li>
+</ul>
+</div>
+</details></div>
 </details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
 <summary class="sd-summary-title sd-card-header">
 HJB equation - Optimality equation<div class="sd-summary-down docutils">
@@ -682,6 +749,30 @@ HJB equation - Optimality equation<div class="sd-summary-down docutils">
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  V^*(\mathbf{x}_t, t) = \min_{\mathbf{u}} V(\mathbf{x}_t, t) =
+  &amp; = \min_{\mathbf{u}} \left\{ \int_{\tau=t}^{T} C(\mathbf{x}(\tau), \mathbf{u}(\tau)) d \tau +  D(\mathbf{x}(T)) \right\} = \\
+  &amp; =                           \int_{\tau=t}^{T} C(\mathbf{x}(\tau), \mathbf{u}^*(\tau)) d \tau +  D(\mathbf{x}(T)) \ ,
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">subject to the dynamical equations of motion. The value function is a function of two arguments, <span class="math notranslate nohighlight">\(\mathbf{x}_t\)</span>, and <span class="math notranslate nohighlight">\(t\)</span>, and the first argument is a function of <span class="math notranslate nohighlight">\(t\)</span>. Thus the ordinary derivative w.r.t. time <span class="math notranslate nohighlight">\(t\)</span> reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+  \frac{d}{dt} V^*(\mathbf{x}_t, t) 
+  &amp; = \partial_t V^*(\mathbf{x}_t,t) +  \partial_\mathbf{x} V^* \, \dot{\mathbf{x}}   
+    = \partial_t V^*(\mathbf{x}_t,t) +  \partial_\mathbf{x} V^* \, \mathbf{f}(\mathbf{x}_t,\mathbf{u}^*_t) \ , 
+\end{aligned}\]</div>
+<p class="sd-card-text">or, using the definition and the rule of derivative for integrals</p>
+<div class="math notranslate nohighlight">
+\[
+  \frac{d}{dt} V^*(\mathbf{x}_t, t) = - C(\mathbf{x}(t), \mathbf{u}^*(t)) \ .
+\]</div>
+<p class="sd-card-text">Comparing the two expressions of the time derivative, Hamilton-Bellman-Jacobi equation for evaluating a given control <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> follows</p>
+<div class="math notranslate nohighlight">
+\[0 = \partial_t V^*(\mathbf{x}_t, t) + \partial_{\mathbf{x}} V^*(\mathbf{x}_t, t) \, \mathbf{f}(\mathbf{x}_t, \mathbf{u}^*_t) + C(\mathbf{x}_t, \mathbf{u}^*_t) \ ,\]</div>
+<p class="sd-card-text">or</p>
+<div class="math notranslate nohighlight">
+\[0 = \partial_t V^*(\mathbf{x}_t, t) + \min_{\mathbf{u}} \left\{ \partial_{\mathbf{x}} V^*(\mathbf{x}_t, t) \, \mathbf{f}(\mathbf{x}_t, \mathbf{u}_t) + C(\mathbf{x}_t, \mathbf{u}_t) \right\} \ .\]</div>
 </div>
 </details></div>
 <div class="section" id="linear-system">

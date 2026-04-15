@@ -33,13 +33,13 @@ Different approaches to the solution can be used, and help for a detailed compre
 
 * Variational apporach to constrained optimization,
 
-   $$J = \int_{\tau=t}^{T} C(\mathbf{x}(\tau), \mathbf{u}(\tau)) d \tau +  D(\mathbf{x}(T)) - \int_{\tau=0}^{T} \boldsymbol\lambda^T \left( \dot{\mathbf{x}} - \mathbf{f}(\mathbf{x},\mathbf{u}) \right) \ ,$$
+   $$J(\mathbf{x},\mathbf{u}) = \int_{\tau=t}^{T} C(\mathbf{x}(\tau), \mathbf{u}(\tau)) d \tau +  D(\mathbf{x}(T)) - \int_{\tau=0}^{T} \boldsymbol\lambda^T \left( \dot{\mathbf{x}} - \mathbf{f}(\mathbf{x},\mathbf{u}) \right) \ ,$$
 
    where the equations of motion are constraints inserted in the objective function with the method of Lagrange multipliers.
 
 * Hamilton-Bellman-Jacobi equation
 
-   $$V(\mathbf{x}_t, t) = \int_{\tau=t}^{T} C(\mathbf{x}(\tau), \mathbf{u}(\tau)) d \tau +  D(\mathbf{x}(T)) \ ,$$
+   $$V(\mathbf{x}_t, t; \mathbf{u}) = \int_{\tau=t}^{T} C(\mathbf{x}(\tau), \mathbf{u}(\tau)) d \tau +  D(\mathbf{x}(T)) \ ,$$
 
    with the dynamics of the system subject to the governing equation $\dot{\mathbf{x}} = \mathbf{f}(\mathbf{x},\mathbf{u})$, and  the initial condition for the value function - the tail cost function - $x(t) = x_t$. These constraints can be explicitly applied if an expression of the solution of the dynamical equation exists, or they can be added with the method of Lagrange multipliers.
 
@@ -75,18 +75,18 @@ $$J = \int_{t=0}^{T} \dfrac{1}{2} \begin{bmatrix} \mathbf{x}^T & \mathbf{u}^T \e
 
 with $\mathbf{Q} \ge 0$, and $\mathbf{R} > 0$ and symmetric.
 
-```{dropdown} Constrained optimization
+````{dropdown} Constrained optimization
 :open:
 
-$$\widetilde{J} = \int_{\tau=0}^{T} C\left( \mathbf{x}(\tau), \mathbf{u}(\tau) \right) \, d\tau + D\left( \mathbf{x}(T) \right) - \int_{\tau=0}^{T} \boldsymbol\lambda^T \left( \mathbf{M} \dot{\mathbf{x}} - \mathbf{f}(\mathbf{x}(\tau), \mathbf{u}(\tau)) \right) \, d \tau \ .$$
+$$\widetilde{J}(\mathbf{x},\mathbf{u}; \boldsymbol\lambda) = \int_{\tau=0}^{T} C\left( \mathbf{x}(\tau), \mathbf{u}(\tau) \right) \, d\tau + D\left( \mathbf{x}(T) \right) - \int_{\tau=0}^{T} \boldsymbol\lambda^T \left( \mathbf{M} \dot{\mathbf{x}} - \mathbf{f}(\mathbf{x}(\tau), \mathbf{u}(\tau)) \right) \, d \tau \ .$$
 
 $$\begin{aligned}
   0 = \delta \widetilde{J} 
-  & = \int_{t=0}^{T} \delta \mathbf{x}^T \left( \partial_\mathbf{x} C + \partial_{\mathbf{x}} \mathbf{f}^T \boldsymbol\lambda + \mathbf{M}^T \dot{\boldsymbol{\lambda}}\right) \\
-  & + \int_{t=0}^{T} \delta \mathbf{u}^T \left( \partial_\mathbf{u} C + \partial_{\mathbf{u}} \mathbf{f}^T \boldsymbol\lambda \right) \\
-  & + \delta \mathbf{x}^T(T) \mathbf{Q}_T \mathbf{x}(T) \\
-  & + \int_{t=0}^{T} \delta \boldsymbol\lambda^T ( \mathbf{M} \dot{\mathbf{x}} - \mathbf{f}(\mathbf{x}, \mathbf{u}) ) \\
-  & - \left. \delta \mathbf{x} \mathbf{M}^T \boldsymbol\lambda \right|_{t=0}^{T}
+  & = \int_{t=0}^{T} \delta \mathbf{x}^T \left( \partial_\mathbf{x} C + \partial_{\mathbf{x}} \mathbf{f}^T \boldsymbol\lambda + \mathbf{M}^T \dot{\boldsymbol{\lambda}}\right) d \tau + \\
+  & + \int_{t=0}^{T} \delta \mathbf{u}^T \left( \partial_\mathbf{u} C + \partial_{\mathbf{u}} \mathbf{f}^T \boldsymbol\lambda \right) d \tau + \\
+  & + \delta \mathbf{x}^T(T) \partial_{\mathbf{x}_T} D + \\
+  & + \int_{t=0}^{T} \delta \boldsymbol\lambda^T ( \mathbf{M} \dot{\mathbf{x}} - \mathbf{f}(\mathbf{x}, \mathbf{u}) ) d \tau + \\
+  & - \left. \delta \mathbf{x} \mathbf{M}^T \boldsymbol\lambda \right|_{t=0}^{T} \ .
 \end{aligned}$$
 
 So that
@@ -94,15 +94,21 @@ So that
 $$\begin{aligned}
  \delta \boldsymbol\lambda(t): & \quad \mathbf{M}   \dot{\mathbf{x}} = \mathbf{f} \\
                                & \quad \mathbf{x}(0) = \mathbf{x}_0 \\
- \delta \mathbf{x}(t)        : & \quad \mathbf{M}^T \dot{\boldsymbol{\lambda}} = -\partial_{\mathbf{x}} \mathbf{f}^T \boldsymbol\lambda - \mathbf{S} \mathbf{u} - \mathbf{Q} \mathbf{x} \\
- \delta \mathbf{x}(T)        : & \quad \mathbf{M}^T \boldsymbol\lambda(T) = \mathbf{Q}_T \mathbf{x}(T) \\
- \delta \mathbf{u}(t)        : & \quad \mathbf{u} = - \mathbf{R}^{-1} \left( \mathbf{S}^T \mathbf{x} + \partial_\mathbf{u} \mathbf{f}^T \boldsymbol\lambda \right) \ .
+ \delta \mathbf{x}(t)        : & \quad \mathbf{M}^T \dot{\boldsymbol{\lambda}} = -\partial_{\mathbf{x}} \mathbf{f}^T \boldsymbol\lambda - \partial_{\mathbf{x}} C \\
+ \delta \mathbf{x}(T)        : & \quad \mathbf{M}^T \boldsymbol\lambda(T) = \partial_{\mathbf{x}_T} D \\
+ \delta \mathbf{u}(t)        : & \quad \mathbf{0} = \partial_\mathbf{u} C + \partial_\mathbf{u} \mathbf{f}^T \boldsymbol\lambda \ .
 \end{aligned}$$ (eq:optimal:ode)
 
-```
+The equations can be recast after the definition of the Hamiltonian of the system $H(\mathbf{x},\mathbf{u},\boldsymbol\lambda) = C(\mathbf{x},\mathbf{u}) + \boldsymbol\lambda^T \mathbf{f}(\mathbf{x},\mathbf{u})$ as
 
-````{dropdown} Solution of the problem
-:open:
+$$\begin{aligned}
+ \delta \boldsymbol\lambda(t): & \quad \mathbf{0} = - \mathbf{M} \dot{\mathbf{x}} + \partial_{\boldsymbol\lambda} H = - \mathbf{M} \dot{\mathbf{x}} + \mathbf{f} \\
+                               & \quad \mathbf{x}(0) = \mathbf{x}_0 \\
+ \delta \mathbf{x}(t)        : & \quad \mathbf{M}^T \dot{\boldsymbol{\lambda}} = - \partial_{\mathbf{x}} H \\
+ \delta \mathbf{x}(T)        : & \quad \mathbf{M}^T \boldsymbol\lambda(T) = \partial_{\mathbf{x}_T} D \\
+ \delta \mathbf{u}(t)        : & \quad \mathbf{0} = \partial_\mathbf{u} H \ .
+\end{aligned}$$ (eq:optimal:ode:hamiltonian)
+
 
 ```{dropdown} Gradient descent
 :open:
@@ -114,19 +120,104 @@ $$\begin{aligned}
 * Repeat previous steps with the updated control law, until convergence.
 
 ```
+
 ````
 
-```{dropdown} HJB equation - Evaluation equation
+````{dropdown} HJB equation - Evaluation equation
 :open:
 
+```{dropdown} Without dynamical equations as a constraint introduced with Lagrange multipliers
+:open:
+
+$$V(\mathbf{x}_t, t) = \int_{\tau=t}^{T} C(\mathbf{x}(\tau), \mathbf{u}(\tau)) d \tau +  D(\mathbf{x}(T)) \ ,$$
+
+subject to the dynamical equations of motion. The value function is a function of two arguments, $\mathbf{x}_t$, and $t$, and the first argument is a function of $t$. Thus the ordinary derivative w.r.t. time $t$ reads
+
+$$\begin{aligned}
+  \frac{d}{dt} V(\mathbf{x}_t, t) 
+  & = \partial_t V(\mathbf{x}_t,t) +  \partial_\mathbf{x} V \, \dot{\mathbf{x}}   
+    = \partial_t V(\mathbf{x}_t,t) +  \partial_\mathbf{x} V \, \mathbf{f} \ , 
+\end{aligned}$$
+
+or, using the definition and the rule of derivative for integrals
+
+$$
+  \frac{d}{dt} V(\mathbf{x}_t, t) = - C(\mathbf{x}(t), \mathbf{u}(t)) \ .
+$$
+
+Comparing the two expressions of the time derivative, Hamilton-Bellman-Jacobi equation for evaluating a given control $\mathbf{u}$ follows
+
+$$0 = \partial_t V(\mathbf{x}_t, t) + \partial_{\mathbf{x}} V(\mathbf{x}_t, t) \, \mathbf{f}(\mathbf{x}_t, \mathbf{u}_t) + C(\mathbf{x}_t, \mathbf{u}_t) \ .$$
 
 ```
 
-```{dropdown} HJB equation - Optimality equation
+```{dropdown} With dynamical equations as a constraint introduced with Lagrange multipliers
 :open:
 
+$$\begin{aligned}
+  V(\mathbf{x}_t, t; \boldsymbol\lambda)
+  & = \int_{\tau=t}^{T} C(\mathbf{x}(\tau), \mathbf{u}(\tau)) d \tau +  D(\mathbf{x}(T)) - \int_{\tau=t}^{T} \boldsymbol\lambda^T ( \mathbf{M} \dot{\mathbf{x}} - \mathbf{f} ) d \tau \ ,
+\end{aligned}$$
+
+so that the variation (where's the variation w.r.t. $t$? Integration extreme is not prescribed) reads
+
+$$\begin{aligned}
+  \delta V(\mathbf{x}_t, t; \mathbf{u}, \boldsymbol\lambda)
+  & = \int_{\tau=t}^{T} \left\{ \delta \mathbf{x}^T \partial_{\mathbf{x}} C + \delta \mathbf{u}^T \partial_{\mathbf{u}} C \right\} d \tau + \delta \mathbf{x}_T \partial_{\mathbf{x}_T} D(\mathbf{x}(T)) + \\
+  & - \int_{\tau=t}^{T} \delta \boldsymbol\lambda^T ( \mathbf{M} \dot{\mathbf{x}} - \mathbf{f} ) d \tau + \int_{\tau=t}^T \delta \mathbf{x}^T \mathbf{M}^T \dot{\boldsymbol\lambda} \, d \tau + \\
+  & - \delta \mathbf{x}^T(T) \mathbf{M}^T \boldsymbol\lambda(T) + \delta \mathbf{x}^T_t \mathbf{M}^T \boldsymbol\lambda(t) + \\
+  & + \int_{\tau=t}^{T} \left\{ \delta \mathbf{x}^T \partial_{\mathbf{x}} \mathbf{f}^T \boldsymbol\lambda + \delta \mathbf{u}^T \partial_{\mathbf{u}} \mathbf{f}^T \boldsymbol\lambda \right\} d \tau
+\end{aligned}$$
+
+All the variations but $\delta \mathbf{x}_t$ are identically zero if the equations {eq}`eq:optimal:ode` are satisfied, the variation w.r.t. $\delta \mathbf{x}_t$ shows that the sensitivity to the initial state in the value function $\mathbf{x}_t$ equals the value of the Lagrange multiplier $\boldsymbol\lambda(t)$,
+
+$$\nabla_{\mathbf{x}_t} V(\mathbf{x}_t, t; ...) = \boldsymbol\lambda(t) \ ,$$
+
+with $\boldsymbol\lambda(t)$ part of the solution of the equations {eq}`eq:optimal:ode`. Thus the Lagrange multiplier $\boldsymbol\lambda(t)$ provides an information (first order, sensitivity) about the change in the value function $V(\mathbf{x}_t, t)$ for small changes of the intial state $\mathbf{x}_t$, i.e.
+
+$$\delta_{\mathbf{x}_t} V(\mathbf{x}_t, t) \sim \delta \mathbf{x}_t^T \nabla_{\mathbf{x}_t} V + o(|\delta \mathbf{x}_t|) =  \delta \mathbf{x}^T_t \boldsymbol\lambda(t) + o(|\delta \mathbf{x}_t|) \ .$$
+
+**todo**
+
+* useful to exploit adjoint info for sensitivity
 
 ```
+
+````
+
+````{dropdown} HJB equation - Optimality equation
+:open:
+
+$$\begin{aligned}
+  V^*(\mathbf{x}_t, t) = \min_{\mathbf{u}} V(\mathbf{x}_t, t) =
+  & = \min_{\mathbf{u}} \left\{ \int_{\tau=t}^{T} C(\mathbf{x}(\tau), \mathbf{u}(\tau)) d \tau +  D(\mathbf{x}(T)) \right\} = \\
+  & =                           \int_{\tau=t}^{T} C(\mathbf{x}(\tau), \mathbf{u}^*(\tau)) d \tau +  D(\mathbf{x}(T)) \ ,
+\end{aligned}$$
+
+subject to the dynamical equations of motion. The value function is a function of two arguments, $\mathbf{x}_t$, and $t$, and the first argument is a function of $t$. Thus the ordinary derivative w.r.t. time $t$ reads
+
+$$\begin{aligned}
+  \frac{d}{dt} V^*(\mathbf{x}_t, t) 
+  & = \partial_t V^*(\mathbf{x}_t,t) +  \partial_\mathbf{x} V^* \, \dot{\mathbf{x}}   
+    = \partial_t V^*(\mathbf{x}_t,t) +  \partial_\mathbf{x} V^* \, \mathbf{f}(\mathbf{x}_t,\mathbf{u}^*_t) \ , 
+\end{aligned}$$
+
+or, using the definition and the rule of derivative for integrals
+
+$$
+  \frac{d}{dt} V^*(\mathbf{x}_t, t) = - C(\mathbf{x}(t), \mathbf{u}^*(t)) \ .
+$$
+
+Comparing the two expressions of the time derivative, Hamilton-Bellman-Jacobi equation for evaluating a given control $\mathbf{u}$ follows
+
+$$0 = \partial_t V^*(\mathbf{x}_t, t) + \partial_{\mathbf{x}} V^*(\mathbf{x}_t, t) \, \mathbf{f}(\mathbf{x}_t, \mathbf{u}^*_t) + C(\mathbf{x}_t, \mathbf{u}^*_t) \ ,$$
+
+or
+
+$$0 = \partial_t V^*(\mathbf{x}_t, t) + \min_{\mathbf{u}} \left\{ \partial_{\mathbf{x}} V^*(\mathbf{x}_t, t) \, \mathbf{f}(\mathbf{x}_t, \mathbf{u}_t) + C(\mathbf{x}_t, \mathbf{u}_t) \right\} \ .$$
+
+
+````
 
 
 (control:optimal:full-state-fb:lti)=
