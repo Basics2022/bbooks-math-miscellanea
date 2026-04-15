@@ -76,15 +76,6 @@ const thebe_selector_output = ".output, .cell_output"
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPXX63Z3XR"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-JPXX63Z3XR');
-</script>
-
   
   
   <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
@@ -595,7 +586,7 @@ Constrained optimization<div class="sd-summary-down docutils">
 \end{aligned}\end{split}\]</div>
 <p class="sd-card-text">So that</p>
 <div class="math notranslate nohighlight" id="equation-eq-optimal-ode">
-<span class="eqno">(43.4)<a class="headerlink" href="#equation-eq-optimal-ode" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+<span class="eqno">(43.2)<a class="headerlink" href="#equation-eq-optimal-ode" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
  \delta \boldsymbol\lambda(t): &amp; \quad \mathbf{M}   \dot{\mathbf{x}} = \mathbf{f} \\
                                &amp; \quad \mathbf{x}(0) = \mathbf{x}_0 \\
  \delta \mathbf{x}(t)        : &amp; \quad \mathbf{M}^T \dot{\boldsymbol{\lambda}} = -\partial_{\mathbf{x}} \mathbf{f}^T \boldsymbol\lambda - \mathbf{S} \mathbf{u} - \mathbf{Q} \mathbf{x} \\
@@ -643,7 +634,7 @@ Gradient descent<div class="sd-summary-down docutils">
 <div class="math notranslate nohighlight">
 \[\begin{split}J = \int_{t=0}^{T} \dfrac{1}{2} \begin{bmatrix} \mathbf{x}^T &amp; \mathbf{u}^T \end{bmatrix} \begin{bmatrix}  \mathbf{Q} &amp; \mathbf{S} \\ \mathbf{S}^T &amp; \mathbf{R} \end{bmatrix} \begin{bmatrix} \mathbf{x} \\ \mathbf{u} \end{bmatrix} \, dt + \frac{1}{2} \mathbf{x}^T(T) \mathbf{Q}_T \mathbf{x}(T) \end{split}\]</div>
 <div class="math notranslate nohighlight" id="equation-eq-optimal-lti-eqns">
-<span class="eqno">(43.5)<a class="headerlink" href="#equation-eq-optimal-lti-eqns" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{cases}
+<span class="eqno">(43.3)<a class="headerlink" href="#equation-eq-optimal-lti-eqns" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{cases}
   \dot{\mathbf{x}} = \mathbf{A} \mathbf{x} + \mathbf{B} \mathbf{u} \\
        \mathbf{y}  = \mathbf{C} \mathbf{x} + \mathbf{D} \mathbf{u} \\
 \end{cases}\end{split}\]</div>
@@ -654,9 +645,9 @@ Constrained optimization<div class="sd-summary-down docutils">
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">As <span class="math notranslate nohighlight">\(\mathbf{f}(\mathbf{x},\mathbf{u}) = \mathbf{A} \mathbf{x} + \mathbf{B}\mathbf{u}\)</span>, here <span class="math notranslate nohighlight">\(\partial_{\mathbf{x}} \mathbf{f} = \mathbf{A}\)</span> and <span class="math notranslate nohighlight">\(\partial_{\mathbf{u}} \mathbf{f} = \mathbf{B}\)</span>. For the linear system <a class="reference internal" href="optimal-control-full-state.html#equation-eq-optimal-lti-eqns">(43.2)</a> <span class="math notranslate nohighlight">\(\mathbf{M} = \mathbf{I}\)</span>. Thus the equations <a class="reference internal" href="optimal-control-full-state.html#equation-eq-optimal-ode">(43.1)</a> become</p>
+<p class="sd-card-text">As <span class="math notranslate nohighlight">\(\mathbf{f}(\mathbf{x},\mathbf{u}) = \mathbf{A} \mathbf{x} + \mathbf{B}\mathbf{u}\)</span>, here <span class="math notranslate nohighlight">\(\partial_{\mathbf{x}} \mathbf{f} = \mathbf{A}\)</span> and <span class="math notranslate nohighlight">\(\partial_{\mathbf{u}} \mathbf{f} = \mathbf{B}\)</span>. For the linear system <code class="xref eq docutils literal notranslate"><span class="pre">eq:optimal:lti:eqns</span></code> <span class="math notranslate nohighlight">\(\mathbf{M} = \mathbf{I}\)</span>. Thus the equations <a class="reference internal" href="optimal-control-full-state.html#equation-eq-optimal-ode">(43.1)</a> become</p>
 <div class="math notranslate nohighlight" id="equation-eq-optimal-lti">
-<span class="eqno">(43.6)<a class="headerlink" href="#equation-eq-optimal-lti" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+<span class="eqno">(43.4)<a class="headerlink" href="#equation-eq-optimal-lti" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
  \delta \boldsymbol\lambda(t): &amp; \quad \mathbf{M}   \dot{\mathbf{x}} = \mathbf{f} \\
                                &amp; \quad \mathbf{x}(0) = \mathbf{x}_0 \\
  \delta \mathbf{x}(t)        : &amp; \quad \mathbf{M}^T \dot{\boldsymbol{\lambda}} = -\mathbf{A}^T \boldsymbol\lambda - \mathbf{S} \mathbf{u} - \mathbf{Q} \mathbf{x} \\
@@ -694,7 +685,7 @@ Using <a class="reference internal" href="../calculus-variations/intro.html#calc
 <p>and comparing the two different expressions of <span class="math notranslate nohighlight">\(\dot{\boldsymbol{\lambda}}\)</span>, if the equality holds for any <span class="math notranslate nohighlight">\(\mathbf{x}\)</span>, the <strong>dynamical Riccati equation</strong> for <span class="math notranslate nohighlight">\(\mathbf{P}\)</span> is derived as</p>
 <div class="math notranslate nohighlight">
 \[\dot{\mathbf{P}} + \mathbf{P} \widetilde{\mathbf{A}} + \widetilde{\mathbf{A}}^T \mathbf{P} - \mathbf{P} \mathbf{B} \mathbf{R}^{-1} \mathbf{B}^T \mathbf{P} + \widetilde{\mathbf{Q}} = \mathbf{0} \ ,\]</div>
-<p>where <span class="math notranslate nohighlight">\(\widetilde{\mathbf{A}} = \mathbf{A} - \mathbf{B} \mathbf{R}^{-1} \mathbf{S}^T \)</span> and <span class="math notranslate nohighlight">\(\widetilde{\mathbf{Q}} = \mathbf{Q} - \mathbf{S} \mathbf{R}^{-1} \mathbf{S}^T\)</span>. Riccati equation is a non-linear dynamical matrix equation in <span class="math notranslate nohighlight">\(\mathbf{P}\)</span>. Algorithms for computing the solution of dynamical and algebraic equation exists, see <a class="reference internal" href="optimal-control-full-state.html#control-optimal-riccati">Example 43.1</a>.</p>
+<p>where <span class="math notranslate nohighlight">\(\widetilde{\mathbf{A}} = \mathbf{A} - \mathbf{B} \mathbf{R}^{-1} \mathbf{S}^T \)</span> and <span class="math notranslate nohighlight">\(\widetilde{\mathbf{Q}} = \mathbf{Q} - \mathbf{S} \mathbf{R}^{-1} \mathbf{S}^T\)</span>. Riccati equation is a non-linear dynamical matrix equation in <span class="math notranslate nohighlight">\(\mathbf{P}\)</span>. Algorithms for computing the solution of dynamical and algebraic equation exists, see <code class="xref prf prf-ref docutils literal notranslate"><span class="pre">control-optimal-riccati</span></code>.</p>
 <!--
 $$\dot{\mathbf{P}} = - \mathbf{P} \left( \mathbf{A} - \mathbf{B} \mathbf{R}^{-1} \mathbf{S}^T \right) - \left( \mathbf{A} - \mathbf{B} \mathbf{R}^{-1} \mathbf{S}^T \right)^T \mathbf{P} + \mathbf{P} \mathbf{B} \mathbf{R}^{-1} \mathbf{B}^T \mathbf{P} - \left( \mathbf{Q} - \mathbf{S} \mathbf{R}^{-1} \mathbf{S}^T \right)$$
 -->
@@ -706,7 +697,7 @@ $$\dot{\mathbf{P}} = - \mathbf{P} \left( \mathbf{A} - \mathbf{B} \mathbf{R}^{-1}
 \[\mathbf{u} = - \mathbf{G} \mathbf{x} \ ,\]</div>
 <p>with <span class="math notranslate nohighlight">\(\mathbf{G} = \mathbf{R}^{-1} \left( \mathbf{S}^T + \mathbf{B}^T \mathbf{P} \right)\)</span>.</p>
 <div class="proof example admonition" id="control-optimal-riccati">
-<p class="admonition-title"><span class="caption-number">Example 43.2 </span> (Solution of Riccati equation)</p>
+<p class="admonition-title"><span class="caption-number">Example 43.1 </span> (Solution of Riccati equation)</p>
 <div class="example-content section" id="proof-content">
 <p>…</p>
 </div>
