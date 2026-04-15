@@ -33,13 +33,13 @@ Different approaches to the solution can be used, and help for a detailed compre
 
 * Variational apporach to constrained optimization,
 
-   $$J = \int_{\tau=t}^{T} C(\mathbf{x}(\tau), \mathbf{u}(\tau)) d \tau +  D(\mathbf{x}(T)) - \int_{\tau=0}^{T} \boldsymbol\lambda^T \left( \dot{\mathbf{x}} - \mathbf{f}(\mathbf{x},\mathbf{u}) \right) \ ,$$
+   $$J(\mathbf{x},\mathbf{u}) = \int_{\tau=t}^{T} C(\mathbf{x}(\tau), \mathbf{u}(\tau)) d \tau +  D(\mathbf{x}(T)) - \int_{\tau=0}^{T} \boldsymbol\lambda^T \left( \dot{\mathbf{x}} - \mathbf{f}(\mathbf{x},\mathbf{u}) \right) \ ,$$
 
    where the equations of motion are constraints inserted in the objective function with the method of Lagrange multipliers.
 
 * Hamilton-Bellman-Jacobi equation
 
-   $$V(\mathbf{x}_t, t) = \int_{\tau=t}^{T} C(\mathbf{x}(\tau), \mathbf{u}(\tau)) d \tau +  D(\mathbf{x}(T)) \ ,$$
+   $$V(\mathbf{x}_t, t; \mathbf{u}) = \int_{\tau=t}^{T} C(\mathbf{x}(\tau), \mathbf{u}(\tau)) d \tau +  D(\mathbf{x}(T)) \ ,$$
 
    with the dynamics of the system subject to the governing equation $\dot{\mathbf{x}} = \mathbf{f}(\mathbf{x},\mathbf{u})$, and  the initial condition for the value function - the tail cost function - $x(t) = x_t$. These constraints can be explicitly applied if an expression of the solution of the dynamical equation exists, or they can be added with the method of Lagrange multipliers.
 
@@ -75,19 +75,18 @@ $$J = \int_{t=0}^{T} \dfrac{1}{2} \begin{bmatrix} \mathbf{x}^T & \mathbf{u}^T \e
 
 with $\mathbf{Q} \ge 0$, and $\mathbf{R} > 0$ and symmetric.
 
-```{dropdown} Constrained optimization
+````{dropdown} Constrained optimization
 :open:
 
-$$\widetilde{J} = \frac{1}{2} \int_{t=0}^{T} \begin{bmatrix} \mathbf{x} \\ \mathbf{u} \end{bmatrix}^T \begin{bmatrix}  \mathbf{Q} & \mathbf{S} \\ \mathbf{S}^T & \mathbf{R} \end{bmatrix} \begin{bmatrix} \mathbf{x} \\ \mathbf{u} \end{bmatrix} \, dt + \frac{1}{2} \mathbf{x}^T(T) \mathbf{Q}_T \mathbf{x}(T) - \int_{t=0}^{T} \boldsymbol\lambda^T \left( \mathbf{M} \dot{\mathbf{x}} - \mathbf{f}(\mathbf{x}, \mathbf{u}) \right) $$
+$$\widetilde{J}(\mathbf{x},\mathbf{u}; \boldsymbol\lambda) = \int_{\tau=0}^{T} C\left( \mathbf{x}(\tau), \mathbf{u}(\tau) \right) \, d\tau + D\left( \mathbf{x}(T) \right) - \int_{\tau=0}^{T} \boldsymbol\lambda^T \left( \mathbf{M} \dot{\mathbf{x}} - \mathbf{f}(\mathbf{x}(\tau), \mathbf{u}(\tau)) \right) \, d \tau \ .$$
 
 $$\begin{aligned}
   0 = \delta \widetilde{J} 
-  & = \\
-  & = \int_{t=0}^{T} \delta \mathbf{x}^T \left( \mathbf{Q}   \mathbf{x} + \mathbf{S} \mathbf{u} + \partial_{\mathbf{x}} \mathbf{f}^T \boldsymbol\lambda + \mathbf{M}^T \dot{\boldsymbol{\lambda}}\right) \\
-  & + \int_{t=0}^{T} \delta \mathbf{u}^T \left( \mathbf{S}^T \mathbf{x} + \mathbf{R} \mathbf{u} + \partial_{\mathbf{u}} \mathbf{f}^T \boldsymbol\lambda \right) \\
-  & + \delta \mathbf{x}^T(T) \mathbf{Q}_T \mathbf{x}(T) \\
-  & + \int_{t=0}^{T} \delta \boldsymbol\lambda^T ( \mathbf{M} \dot{\mathbf{x}} - \mathbf{f}(\mathbf{x}, \mathbf{u}) ) \\
-  & - \left. \delta \mathbf{x} \mathbf{M}^T \boldsymbol\lambda \right|_{t=0}^{T}
+  & = \int_{t=0}^{T} \delta \mathbf{x}^T \left( \partial_\mathbf{x} C + \partial_{\mathbf{x}} \mathbf{f}^T \boldsymbol\lambda + \mathbf{M}^T \dot{\boldsymbol{\lambda}}\right) d \tau + \\
+  & + \int_{t=0}^{T} \delta \mathbf{u}^T \left( \partial_\mathbf{u} C + \partial_{\mathbf{u}} \mathbf{f}^T \boldsymbol\lambda \right) d \tau + \\
+  & + \delta \mathbf{x}^T(T) \partial_{\mathbf{x}_T} D + \\
+  & + \int_{t=0}^{T} \delta \boldsymbol\lambda^T ( \mathbf{M} \dot{\mathbf{x}} - \mathbf{f}(\mathbf{x}, \mathbf{u}) ) d \tau + \\
+  & - \left. \delta \mathbf{x} \mathbf{M}^T \boldsymbol\lambda \right|_{t=0}^{T} \ .
 \end{aligned}$$
 
 So that
@@ -95,24 +94,21 @@ So that
 $$\begin{aligned}
  \delta \boldsymbol\lambda(t): & \quad \mathbf{M}   \dot{\mathbf{x}} = \mathbf{f} \\
                                & \quad \mathbf{x}(0) = \mathbf{x}_0 \\
- \delta \mathbf{x}(t)        : & \quad \mathbf{M}^T \dot{\boldsymbol{\lambda}} = -\partial_{\mathbf{x}} \mathbf{f}^T \boldsymbol\lambda - \mathbf{S} \mathbf{u} - \mathbf{Q} \mathbf{x} \\
- \delta \mathbf{x}(T)        : & \quad \mathbf{M}^T \boldsymbol\lambda(T) = \mathbf{Q}_T \mathbf{x}(T) \\
- \delta \mathbf{u}(t)        : & \quad \mathbf{u} = - \mathbf{R}^{-1} \left( \mathbf{S}^T \mathbf{x} + \partial_\mathbf{u} \mathbf{f}^T \boldsymbol\lambda \right) \ .
+ \delta \mathbf{x}(t)        : & \quad \mathbf{M}^T \dot{\boldsymbol{\lambda}} = -\partial_{\mathbf{x}} \mathbf{f}^T \boldsymbol\lambda - \partial_{\mathbf{x}} C \\
+ \delta \mathbf{x}(T)        : & \quad \mathbf{M}^T \boldsymbol\lambda(T) = \partial_{\mathbf{x}_T} D \\
+ \delta \mathbf{u}(t)        : & \quad \mathbf{0} = \partial_\mathbf{u} C + \partial_\mathbf{u} \mathbf{f}^T \boldsymbol\lambda \ .
 \end{aligned}$$ (eq:optimal:ode)
 
-```
+The equations can be recast after the definition of the Hamiltonian of the system $H(\mathbf{x},\mathbf{u},\boldsymbol\lambda) = C(\mathbf{x},\mathbf{u}) + \boldsymbol\lambda^T \mathbf{f}(\mathbf{x},\mathbf{u})$ as
 
-````{dropdown} Solution of the problem
-:open:
+$$\begin{aligned}
+ \delta \boldsymbol\lambda(t): & \quad \mathbf{0} = - \mathbf{M} \dot{\mathbf{x}} + \partial_{\boldsymbol\lambda} H = - \mathbf{M} \dot{\mathbf{x}} + \mathbf{f} \\
+                               & \quad \mathbf{x}(0) = \mathbf{x}_0 \\
+ \delta \mathbf{x}(t)        : & \quad \mathbf{M}^T \dot{\boldsymbol{\lambda}} = - \partial_{\mathbf{x}} H \\
+ \delta \mathbf{x}(T)        : & \quad \mathbf{M}^T \boldsymbol\lambda(T) = \partial_{\mathbf{x}_T} D \\
+ \delta \mathbf{u}(t)        : & \quad \mathbf{0} = \partial_\mathbf{u} H \ .
+\end{aligned}$$ (eq:optimal:ode:hamiltonian)
 
-```{dropdown} Replacing $\ \mathbf{u}$
-:open:
-
-$$\begin{bmatrix} \mathbf{M} & \\ & \mathbf{M}^T \end{bmatrix} \begin{bmatrix} \dot{\mathbf{x}} \\ \dot{\boldsymbol{\lambda}} \end{bmatrix} = \begin{bmatrix} \mathbf{f} \\ - \partial_{\mathbf{x}} \mathbf{f}^T \boldsymbol\lambda - \mathbf{S} \mathbf{u} - \mathbf{Q} \mathbf{x} \end{bmatrix} \ ,$$
-
-with $\mathbf{u} = - \mathbf{R}^{-1} \left( \mathbf{S}^T \mathbf{x} + \partial_\mathbf{u} \mathbf{f}^T \boldsymbol\lambda \right)$.
-
-```
 
 ```{dropdown} Gradient descent
 :open:
@@ -125,96 +121,105 @@ with $\mathbf{u} = - \mathbf{R}^{-1} \left( \mathbf{S}^T \mathbf{x} + \partial_\
 
 ```
 
+````
+
+````{dropdown} HJB equation - Evaluation equation
+:open:
+
+```{dropdown} Without dynamical equations as a constraint introduced with Lagrange multipliers
+:open:
+
+$$V(\mathbf{x}_t, t) = \int_{\tau=t}^{T} C(\mathbf{x}(\tau), \mathbf{u}(\tau)) d \tau +  D(\mathbf{x}(T)) \ ,$$
+
+subject to the dynamical equations of motion. The value function is a function of two arguments, $\mathbf{x}_t$, and $t$, and the first argument is a function of $t$. Thus the ordinary derivative w.r.t. time $t$ reads
+
+$$\begin{aligned}
+  \frac{d}{dt} V(\mathbf{x}_t, t) 
+  & = \partial_t V(\mathbf{x}_t,t) +  \partial_\mathbf{x} V \, \dot{\mathbf{x}}   
+    = \partial_t V(\mathbf{x}_t,t) +  \partial_\mathbf{x} V \, \mathbf{f} \ , 
+\end{aligned}$$
+
+or, using the definition and the rule of derivative for integrals
+
+$$
+  \frac{d}{dt} V(\mathbf{x}_t, t) = - C(\mathbf{x}(t), \mathbf{u}(t)) \ .
+$$
+
+Comparing the two expressions of the time derivative, Hamilton-Bellman-Jacobi equation for evaluating a given control $\mathbf{u}$ follows
+
+$$0 = \partial_t V(\mathbf{x}_t, t) + \partial_{\mathbf{x}} V(\mathbf{x}_t, t) \, \mathbf{f}(\mathbf{x}_t, \mathbf{u}_t) + C(\mathbf{x}_t, \mathbf{u}_t) \ .$$
+
+```
+
+```{dropdown} With dynamical equations as a constraint introduced with Lagrange multipliers
+:open:
+
+$$\begin{aligned}
+  V(\mathbf{x}_t, t; \boldsymbol\lambda)
+  & = \int_{\tau=t}^{T} C(\mathbf{x}(\tau), \mathbf{u}(\tau)) d \tau +  D(\mathbf{x}(T)) - \int_{\tau=t}^{T} \boldsymbol\lambda^T ( \mathbf{M} \dot{\mathbf{x}} - \mathbf{f} ) d \tau \ ,
+\end{aligned}$$
+
+so that the variation (where's the variation w.r.t. $t$? Integration extreme is not prescribed) reads
+
+$$\begin{aligned}
+  \delta V(\mathbf{x}_t, t; \mathbf{u}, \boldsymbol\lambda)
+  & = \int_{\tau=t}^{T} \left\{ \delta \mathbf{x}^T \partial_{\mathbf{x}} C + \delta \mathbf{u}^T \partial_{\mathbf{u}} C \right\} d \tau + \delta \mathbf{x}_T \partial_{\mathbf{x}_T} D(\mathbf{x}(T)) + \\
+  & - \int_{\tau=t}^{T} \delta \boldsymbol\lambda^T ( \mathbf{M} \dot{\mathbf{x}} - \mathbf{f} ) d \tau + \int_{\tau=t}^T \delta \mathbf{x}^T \mathbf{M}^T \dot{\boldsymbol\lambda} \, d \tau + \\
+  & - \delta \mathbf{x}^T(T) \mathbf{M}^T \boldsymbol\lambda(T) + \delta \mathbf{x}^T_t \mathbf{M}^T \boldsymbol\lambda(t) + \\
+  & + \int_{\tau=t}^{T} \left\{ \delta \mathbf{x}^T \partial_{\mathbf{x}} \mathbf{f}^T \boldsymbol\lambda + \delta \mathbf{u}^T \partial_{\mathbf{u}} \mathbf{f}^T \boldsymbol\lambda \right\} d \tau
+\end{aligned}$$
+
+All the variations but $\delta \mathbf{x}_t$ are identically zero if the equations {eq}`eq:optimal:ode` are satisfied, the variation w.r.t. $\delta \mathbf{x}_t$ shows that the sensitivity to the initial state in the value function $\mathbf{x}_t$ equals the value of the Lagrange multiplier $\boldsymbol\lambda(t)$,
+
+$$\nabla_{\mathbf{x}_t} V(\mathbf{x}_t, t; ...) = \boldsymbol\lambda(t) \ ,$$
+
+with $\boldsymbol\lambda(t)$ part of the solution of the equations {eq}`eq:optimal:ode`. Thus the Lagrange multiplier $\boldsymbol\lambda(t)$ provides an information (first order, sensitivity) about the change in the value function $V(\mathbf{x}_t, t)$ for small changes of the intial state $\mathbf{x}_t$, i.e.
+
+$$\delta_{\mathbf{x}_t} V(\mathbf{x}_t, t) \sim \delta \mathbf{x}_t^T \nabla_{\mathbf{x}_t} V + o(|\delta \mathbf{x}_t|) =  \delta \mathbf{x}^T_t \boldsymbol\lambda(t) + o(|\delta \mathbf{x}_t|) \ .$$
+
+**todo**
+
+* useful to exploit adjoint info for sensitivity
+
+```
+
+````
+
+````{dropdown} HJB equation - Optimality equation
+:open:
+
+$$\begin{aligned}
+  V^*(\mathbf{x}_t, t) = \min_{\mathbf{u}} V(\mathbf{x}_t, t) =
+  & = \min_{\mathbf{u}} \left\{ \int_{\tau=t}^{T} C(\mathbf{x}(\tau), \mathbf{u}(\tau)) d \tau +  D(\mathbf{x}(T)) \right\} = \\
+  & =                           \int_{\tau=t}^{T} C(\mathbf{x}(\tau), \mathbf{u}^*(\tau)) d \tau +  D(\mathbf{x}(T)) \ ,
+\end{aligned}$$
+
+subject to the dynamical equations of motion. The value function is a function of two arguments, $\mathbf{x}_t$, and $t$, and the first argument is a function of $t$. Thus the ordinary derivative w.r.t. time $t$ reads
+
+$$\begin{aligned}
+  \frac{d}{dt} V^*(\mathbf{x}_t, t) 
+  & = \partial_t V^*(\mathbf{x}_t,t) +  \partial_\mathbf{x} V^* \, \dot{\mathbf{x}}   
+    = \partial_t V^*(\mathbf{x}_t,t) +  \partial_\mathbf{x} V^* \, \mathbf{f}(\mathbf{x}_t,\mathbf{u}^*_t) \ , 
+\end{aligned}$$
+
+or, using the definition and the rule of derivative for integrals
+
+$$
+  \frac{d}{dt} V^*(\mathbf{x}_t, t) = - C(\mathbf{x}(t), \mathbf{u}^*(t)) \ .
+$$
+
+Comparing the two expressions of the time derivative, Hamilton-Bellman-Jacobi equation for evaluating a given control $\mathbf{u}$ follows
+
+$$0 = \partial_t V^*(\mathbf{x}_t, t) + \partial_{\mathbf{x}} V^*(\mathbf{x}_t, t) \, \mathbf{f}(\mathbf{x}_t, \mathbf{u}^*_t) + C(\mathbf{x}_t, \mathbf{u}^*_t) \ ,$$
+
+or
+
+$$0 = \partial_t V^*(\mathbf{x}_t, t) + \min_{\mathbf{u}} \left\{ \partial_{\mathbf{x}} V^*(\mathbf{x}_t, t) \, \mathbf{f}(\mathbf{x}_t, \mathbf{u}_t) + C(\mathbf{x}_t, \mathbf{u}_t) \right\} \ .$$
+
 
 ````
 
 
 (control:optimal:full-state-fb:lti)=
-## LTI
-
-$$J = \int_{t=0}^{T} \dfrac{1}{2} \begin{bmatrix} \mathbf{x}^T & \mathbf{u}^T \end{bmatrix} \begin{bmatrix}  \mathbf{Q} & \mathbf{S} \\ \mathbf{S}^T & \mathbf{R} \end{bmatrix} \begin{bmatrix} \mathbf{x} \\ \mathbf{u} \end{bmatrix} \, dt + \frac{1}{2} \mathbf{x}^T(T) \mathbf{Q}_T \mathbf{x}(T) $$
-
-$$\begin{cases}
-  \dot{\mathbf{x}} = \mathbf{A} \mathbf{x} + \mathbf{B} \mathbf{u} \\
-       \mathbf{y}  = \mathbf{C} \mathbf{x} + \mathbf{D} \mathbf{u} \\
-\end{cases}$$ (eq:optimal:lti:eqns)
-
-```{dropdown} Constrained optimization
-:open:
-
-As $\mathbf{f}(\mathbf{x},\mathbf{u}) = \mathbf{A} \mathbf{x} + \mathbf{B}\mathbf{u}$, here $\partial_{\mathbf{x}} \mathbf{f} = \mathbf{A}$ and $\partial_{\mathbf{u}} \mathbf{f} = \mathbf{B}$. For the linear system {eq}`eq:optimal:lti:eqns` $\mathbf{M} = \mathbf{I}$. Thus the equations {eq}`eq:optimal:ode` become
-
-$$\begin{aligned}
- \delta \boldsymbol\lambda(t): & \quad \mathbf{M}   \dot{\mathbf{x}} = \mathbf{f} \\
-                               & \quad \mathbf{x}(0) = \mathbf{x}_0 \\
- \delta \mathbf{x}(t)        : & \quad \mathbf{M}^T \dot{\boldsymbol{\lambda}} = -\mathbf{A}^T \boldsymbol\lambda - \mathbf{S} \mathbf{u} - \mathbf{Q} \mathbf{x} \\
- \delta \mathbf{x}(T)        : & \quad \mathbf{M}^T \boldsymbol\lambda(T) = \mathbf{Q}_T \mathbf{x}(T) \\
- \delta \mathbf{u}(t)        : & \quad \mathbf{u} = - \mathbf{R}^{-1} \left( \mathbf{S}^T \mathbf{x} + \mathbf{B}^T \boldsymbol\lambda \right) \ .
-\end{aligned}$$ (eq:optimal:lti)
-
-
-```
-
-(control:optimal:full-state-fb:lti:infinite-time)=
-### Infinite-horizon full-state feedback
-
-No need for an [observer](control:observer). The system is assumed to be stable. The augmented cost function reads 
-
-$$\widetilde{J}(\mathbf{x}, \mathbf{u}; \boldsymbol{\lambda}) = \int_{t=0}^{+\infty} \left\{ \dfrac{1}{2} \mathbf{x}^T \mathbf{Q} \mathbf{x} + \mathbf{x}^T \mathbf{S} \mathbf{u} + \dfrac{1}{2} \mathbf{u}^T \mathbf{R} \mathbf{u} - \boldsymbol{\lambda}^T (\dot{\mathbf{x}} - \mathbf{A} \mathbf{x} - \mathbf{B}  \mathbf{u} ) \right\} \, dt \ ,$$
-
-with given initial conditions $\mathbf{x}(0) = \mathbf{x}_0$, so that $\delta \mathbf{x}_0 = \mathbf{0}$.
-Using [calculus of variations](calculus-variations:intro), the variations of the cost function w.r.t. $\mathbf{x}$, $\mathbf{u}$, $\boldsymbol{\lambda}$ read
-
-$$\begin{aligned}
- \delta_{\mathbf{x}}           : & \quad  \mathbf{Q} \mathbf{x} + \mathbf{S} \mathbf{u} + \dot{\boldsymbol{\lambda}} + \mathbf{A}^T \boldsymbol{\lambda} = \mathbf{0} \\
- \delta_{\mathbf{u}}           : & \quad  \mathbf{S}^T \mathbf{x} + \mathbf{R} \mathbf{u} + \mathbf{B}^T \boldsymbol{\lambda} = \mathbf{0} \\
- \delta_{\boldsymbol{\lambda}} : & \quad  \dot{\mathbf{x}} - \mathbf{A} \mathbf{x} - \mathbf{B} \mathbf{u} = \mathbf{0} \\
-\end{aligned}$$
-
-From the variation w.r.t. $\mathbf{u}$, since $\mathbf{R} > 0$ and thus innvertible,
-
-$$\mathbf{u} = - \mathbf{R}^{-1} \left( \mathbf{S}^T \mathbf{x} + \mathbf{B}^T \boldsymbol{\lambda} \right)$$
-
-Now, assuming the relation $\boldsymbol{\lambda} = \mathbf{P} \mathbf{x}$, it follows
-
-$$\begin{aligned}
-  \dot{\boldsymbol{\lambda}} 
-  & = - \mathbf{Q} \mathbf{x} - \mathbf{S} \mathbf{u} - \mathbf{A}^T \boldsymbol{\lambda} = \\
-  & = \left\{ - \mathbf{Q}+ \mathbf{S} \mathbf{R}^{-1} \left( \mathbf{S}^T + \mathbf{B}^T \mathbf{P} \right) - \mathbf{A}^T \mathbf{P} \right\} \mathbf{x}  \\
-  \dot{\boldsymbol{\lambda}}
-  & = \dot{\mathbf{P}} \mathbf{x} + \mathbf{P} \dot{\mathbf{x}} = \\
-  & = \dot{\mathbf{P}} \mathbf{x} + \mathbf{P} \left( \mathbf{A} \mathbf{x} + \mathbf{B} \mathbf{u} \right) = \\
-  & = \left\{ \dot{\mathbf{P}} + \mathbf{P} \left[ \mathbf{A} - \mathbf{B} \mathbf{R}^{-1} \left( \mathbf{S}^T + \mathbf{B}^T \mathbf{P} \right)  \right] \right\} \mathbf{x} \ ,
-\end{aligned}$$
-
-and comparing the two different expressions of $\dot{\boldsymbol{\lambda}}$, if the equality holds for any $\mathbf{x}$, the **dynamical Riccati equation** for $\mathbf{P}$ is derived as
-
-$$\dot{\mathbf{P}} + \mathbf{P} \widetilde{\mathbf{A}} + \widetilde{\mathbf{A}}^T \mathbf{P} - \mathbf{P} \mathbf{B} \mathbf{R}^{-1} \mathbf{B}^T \mathbf{P} + \widetilde{\mathbf{Q}} = \mathbf{0} \ ,$$
-
-where $\widetilde{\mathbf{A}} = \mathbf{A} - \mathbf{B} \mathbf{R}^{-1} \mathbf{S}^T $ and $\widetilde{\mathbf{Q}} = \mathbf{Q} - \mathbf{S} \mathbf{R}^{-1} \mathbf{S}^T$. Riccati equation is a non-linear dynamical matrix equation in $\mathbf{P}$. Algorithms for computing the solution of dynamical and algebraic equation exists, see {prf:ref}`control-optimal-riccati`.
-
-<!--
-$$\dot{\mathbf{P}} = - \mathbf{P} \left( \mathbf{A} - \mathbf{B} \mathbf{R}^{-1} \mathbf{S}^T \right) - \left( \mathbf{A} - \mathbf{B} \mathbf{R}^{-1} \mathbf{S}^T \right)^T \mathbf{P} + \mathbf{P} \mathbf{B} \mathbf{R}^{-1} \mathbf{B}^T \mathbf{P} - \left( \mathbf{Q} - \mathbf{S} \mathbf{R}^{-1} \mathbf{S}^T \right)$$
--->
-
-Once $\mathbf{P}$ is evaluated, the control law reads
-
-$$\mathbf{u} = - \mathbf{R}^{-1} \left( \mathbf{S}^T + \mathbf{B}^T \mathbf{P} \right) \mathbf{x} \ .$$
-
-For infinite-horizone, the algebraic equation (ARE) for the steady state is solved after setting $\dot{\mathbf{P}} = \mathbf{0}$, the solution for a LTI system is a constant matrix $\mathbf{P}$, and thus the control law is a proportional feedback on the full-state of the system,
-
-$$\mathbf{u} = - \mathbf{G} \mathbf{x} \ ,$$
-
-with $\mathbf{G} = \mathbf{R}^{-1} \left( \mathbf{S}^T + \mathbf{B}^T \mathbf{P} \right)$.
-
-```{prf:example} Solution of Riccati equation
-:label: control-optimal-riccati
-...
-
-```
-
-**Properties.** **todo**
-- $\mathbf{P}$ symmetric? definite positive? ...
-- ...
-
+## Linear system
 

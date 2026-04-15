@@ -574,7 +574,7 @@ document.write(`
 <h2><span class="section-number">43.1.6.1. </span>Error dynamics<a class="headerlink" href="#error-dynamics" title="Permalink to this heading">#</a></h2>
 <p>Let the error be defined as <span class="math notranslate nohighlight">\(\mathbf{e} := \mathbf{x} - \mathbf{o}\)</span>, its dynamical equation reads</p>
 <div class="math notranslate nohighlight" id="equation-eq-kalman-error-eq">
-<span class="eqno">(43.7)<a class="headerlink" href="#equation-eq-kalman-error-eq" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+<span class="eqno">(43.6)<a class="headerlink" href="#equation-eq-kalman-error-eq" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
   \dot{\mathbf{e}} &amp; = \left( \mathbf{A} - \mathbf{L} \mathbf{C} \right)  \mathbf{e} + \left( \mathbf{B}_d - \mathbf{L} \mathbf{D}_d \right) \mathbf{d} - \mathbf{L} \mathbf{D}_r \mathbf{r} \\
   \dot{\mathbf{e}} &amp; = \mathbf{A}_e \mathbf{e} + \mathbf{B}_{ed} \mathbf{d} + \mathbf{B}_{er} \mathbf{r} \\
   \dot{\mathbf{e}} &amp; = \mathbf{A}_e \mathbf{e} + \boldsymbol\xi \ ,
@@ -595,7 +595,7 @@ Details<div class="sd-summary-down docutils">
   &amp; = \left( \mathbf{A} - \mathbf{L} \mathbf{C} \right)  \mathbf{e} + \left( \mathbf{B}_d - \mathbf{L} \mathbf{D}_d \right) \mathbf{d} - \mathbf{L} \mathbf{D}_r \mathbf{r}
 \end{aligned}\end{split}\]</div>
 </div>
-</details><p>Let the exogenous input <span class="math notranslate nohighlight">\(\mathbf{d}\)</span> and the measurement input <span class="math notranslate nohighlight">\(\mathbf{r}\)</span> be random signals, thus the input <span class="math notranslate nohighlight">\(\boldsymbol\xi\)</span> of the error dynamical equation <a class="reference internal" href="#equation-eq-kalman-error-eq">(43.7)</a> is a random signal with correlation</p>
+</details><p>Let the exogenous input <span class="math notranslate nohighlight">\(\mathbf{d}\)</span> and the measurement input <span class="math notranslate nohighlight">\(\mathbf{r}\)</span> be random signals, thus the input <span class="math notranslate nohighlight">\(\boldsymbol\xi\)</span> of the error dynamical equation <a class="reference internal" href="#equation-eq-kalman-error-eq">(43.6)</a> is a random signal with correlation</p>
 <!--
 $$\mathbb{E}\left[ \boldsymbol\xi(t) \boldsymbol\xi^*(\tau) \right] =
    \left( \mathbf{B}_d - \mathbf{L} \mathbf{D}_d \right)   \mathbb{E}\left[ \mathbf{d} \mathbf{d}^*  \right] \left( \mathbf{B}_d - \mathbf{L} \mathbf{D}_d \right)^*
@@ -612,7 +612,7 @@ $$
  &amp; + \mathbf{B}_{er} \mathbf{R}_{\mathbf{r}\mathbf{d}}(t,\tau) \mathbf{B}_{ed}^*
    + \mathbf{B}_{er} \mathbf{R}_{\mathbf{r}\mathbf{r}}(t,\tau) \mathbf{B}_{er}^*
 \end{aligned}\end{split}\]</div>
-<p>Using the general results for linear systems for <strong>white noise</strong> as an input <span class="math notranslate nohighlight">\(\boldsymbol\xi\)</span>, the covariance matrix <span class="math notranslate nohighlight">\(\mathbf{P}_{\mathbf{e}}(t) := \mathbf{R}_{\mathbf{e}\mathbf{e}}(t,t)\)</span> of the error - governed by eqaution <a class="reference internal" href="#equation-eq-kalman-error-eq">(43.7)</a> - satisfies the Lyapunov equation <a class="reference internal" href="../ode/ode-linear-systems.html#equation-eq-lyapunov-correlation">(23.3)</a></p>
+<p>Using the general results for linear systems for <strong>white noise</strong> as an input <span class="math notranslate nohighlight">\(\boldsymbol\xi\)</span>, the covariance matrix <span class="math notranslate nohighlight">\(\mathbf{P}_{\mathbf{e}}(t) := \mathbf{R}_{\mathbf{e}\mathbf{e}}(t,t)\)</span> of the error - governed by eqaution <a class="reference internal" href="#equation-eq-kalman-error-eq">(43.6)</a> - satisfies the Lyapunov equation <a class="reference internal" href="../ode/ode-linear-systems.html#equation-eq-lyapunov-correlation">(23.3)</a></p>
 <div class="math notranslate nohighlight">
 \[\dot{\mathbf{P}}_{\mathbf{e}} = \mathbf{A}_e \mathbf{P}_{\mathbf{e}} + \mathbf{P}_{\mathbf{e}} \mathbf{A}_e^* + \boldsymbol\sigma_{\xi}^2 \ ,\]</div>
 <p>being</p>
