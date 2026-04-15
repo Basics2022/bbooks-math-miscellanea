@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>39.1.1. Full-state feedback &#8212; basics - math</title>
+    <title>42.1.1. Full-state feedback &#8212; basics - math</title>
   
   
   
@@ -71,8 +71,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="39.1.2. Full-state feedback (OLD)" href="optimal-control-full-state-old.html" />
-    <link rel="prev" title="39.1. Optimal control" href="optimal-control.html" />
+    <link rel="next" title="42.1.2. Full-state feedback (OLD)" href="optimal-control-full-state-old.html" />
+    <link rel="prev" title="42.1. Optimal control" href="optimal-control.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -244,77 +244,80 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../ode/lti.html">23. Linear Time-Invariant Systems</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ode/lti-response.html">24. LTI system response</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ode/lti-stability-and-feedback.html">25. LTI: stability and feedback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ode/observability-detectability.html">26. Observability and Detectability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ode/controllability-reachability.html">27. Reachability and Controllability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ode/lyapunov-equation.html">28. Lyapunov equation</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Partial Differential Equations</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../pde/intro.html">26. Introduction to Partial Differential Equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pde/elliptic.html">27. Elliptic equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pde/parabolic.html">28. Parabolic equations</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/hyperbolic.html">29. Hyperbolic equations</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-intro.html">29.1. Hyperbolic problems and conservation laws</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-dimensions.html">29.2. Hyperbolic problems - dimensions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-1d-scalar-linear.html">29.3. Scalar linear equation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-1d-vector-linear.html">29.4. Linear vector equation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-1d-scalar-nonlinear.html">29.5. Scalar non-linear equation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/characteristics.html">29.6. Method of characteristics</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../pde/hyperbolic-nd.html">29.7. Hyperbolic problems in multi-dimensional domains</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-draft.html">29.7.1. General hyperbolic problem</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-psys.html">29.7.2. P-system</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-euler.html">29.7.3. Euler equations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-shallow-water.html">29.7.4. Shallow water</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/intro.html">29. Introduction to Partial Differential Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/elliptic.html">30. Elliptic equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/parabolic.html">31. Parabolic equations</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/hyperbolic.html">32. Hyperbolic equations</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-intro.html">32.1. Hyperbolic problems and conservation laws</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-dimensions.html">32.2. Hyperbolic problems - dimensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-1d-scalar-linear.html">32.3. Scalar linear equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-1d-vector-linear.html">32.4. Linear vector equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-1d-scalar-nonlinear.html">32.5. Scalar non-linear equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/characteristics.html">32.6. Method of characteristics</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../pde/hyperbolic-nd.html">32.7. Hyperbolic problems in multi-dimensional domains</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-draft.html">32.7.1. General hyperbolic problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-psys.html">32.7.2. P-system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-euler.html">32.7.3. Euler equations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-shallow-water.html">32.7.4. Shallow water</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-riemann-pb.html">29.8. Riemann problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-entropy.html">29.9. Physical solution in hyperbolic problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-convexity.html">29.10. Convexity in hyperbolic problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-non-convex.html">29.11. Non-convex hyperbolic problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-riemann-pb.html">32.8. Riemann problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-entropy.html">32.9. Physical solution in hyperbolic problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-convexity.html">32.10. Convexity in hyperbolic problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-non-convex.html">32.11. Non-convex hyperbolic problems</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../pde/nc.html">30. Navier-Cauchy equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pde/ns.html">31. Navier-Stokes equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pde/ale.html">32. Arbitrary Lagrangian-Eulerian description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/nc.html">33. Navier-Cauchy equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/ns.html">34. Navier-Stokes equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/ale.html">35. Arbitrary Lagrangian-Eulerian description</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Numerical Methods for PDEs</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../pde/numerics.html">33. Introduction to numerical methods for PDEs</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/fem.html">34. Finite Element Method</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../pde/fem-poisson-1d.html">34.1. 1-dimensional Poisson equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/numerics.html">36. Introduction to numerical methods for PDEs</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/fem.html">37. Finite Element Method</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pde/fem-poisson-1d.html">37.1. 1-dimensional Poisson equation</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/fvm.html">35. Finite Volume Method</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../pde/fvm-poisson-1d.html">35.1. 1-dimensional Poisson equation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/fvm-hyperbolic-pde.html">35.2. FVM for hyperbolic problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/fvm-hyperbolic-bc.html">35.3. Boundary conditions in hyperbolic problems</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../pde/fvm-hyperbolic-examples.html">35.4. Examples of FVM for hyperbolic problems</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../pde/psys-1d.html">35.4.1. 1-dimensional P-system</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../pde/euler-1d.html">35.4.2. 1-dimensional Euler equations for Perfect Ideal Gas</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../pde/euler-quasi-1d.html">35.4.3. Quasi 1-dimensional Euler equations for Perfect Ideal Gas</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../pde/euler-1d-ale-piston.html">35.4.4. 1-dimensional Euler equations for Perfect Ideal Gas on moving mesh (ALE)</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/fvm.html">38. Finite Volume Method</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pde/fvm-poisson-1d.html">38.1. 1-dimensional Poisson equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/fvm-hyperbolic-pde.html">38.2. FVM for hyperbolic problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/fvm-hyperbolic-bc.html">38.3. Boundary conditions in hyperbolic problems</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../pde/fvm-hyperbolic-examples.html">38.4. Examples of FVM for hyperbolic problems</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../pde/psys-1d.html">38.4.1. 1-dimensional P-system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/euler-1d.html">38.4.2. 1-dimensional Euler equations for Perfect Ideal Gas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/euler-quasi-1d.html">38.4.3. Quasi 1-dimensional Euler equations for Perfect Ideal Gas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/euler-1d-ale-piston.html">38.4.4. 1-dimensional Euler equations for Perfect Ideal Gas on moving mesh (ALE)</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../pde/bem.html">36. Boundary Element Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/bem.html">39. Boundary Element Method</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Boundary Methods for PDEs</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../pde/bem-poisson-helmholtz-waves.html">37. Green’s function method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/bem-poisson-helmholtz-waves.html">40. Green’s function method</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Optimization</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../optimization/intro.html">38. Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../optimization/intro.html">41. Optimization</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Control</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">39. Introduction to control methods</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active has-children"><a class="reference internal" href="optimal-control.html">39.1. Optimal control</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l3 current active"><a class="current reference internal" href="#">39.1.1. Full-state feedback</a></li>
-<li class="toctree-l3"><a class="reference internal" href="optimal-control-full-state-old.html">39.1.2. Full-state feedback (OLD)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="optimal-control-observer.html">39.1.3. Optimal observer for deterministic disturbances</a></li>
-<li class="toctree-l3"><a class="reference internal" href="optimal-control-output.html">39.1.4. Sub-optimal control for output feedback</a></li>
-<li class="toctree-l3"><a class="reference internal" href="optimal-control-regulator-observer.html">39.1.5. Combination of controller and observer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kalman.html">39.1.6. Kalman filter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="hjb.html">39.1.7. Hamilton Bellman Jacobi equation</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">42. Introduction to control methods</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="optimal-control.html">42.1. Optimal control</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">42.1.1. Full-state feedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optimal-control-full-state-old.html">42.1.2. Full-state feedback (OLD)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optimal-control-observer.html">42.1.3. Optimal observer for deterministic disturbances</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optimal-control-output.html">42.1.4. Sub-optimal control for output feedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optimal-control-regulator-observer.html">42.1.5. Combination of controller and observer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kalman.html">42.1.6. Kalman filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hjb.html">42.1.7. Hamilton Bellman Jacobi equation</a></li>
 </ul>
 </li>
 </ul>
@@ -322,11 +325,11 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Reinforcement Learning</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../rl/intro.html">40. Introduction to Reinforcement Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rl/mdp.html">41. Markov Processes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_sol_dp_lp.html">42. Methods of solution of MPD: DP and LP</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_sol_rl.html">43. Methods of solution of MPD: RL</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_large_continuous.html">44. Large or Continuous MDPs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/intro.html">43. Introduction to Reinforcement Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp.html">44. Markov Processes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_sol_dp_lp.html">45. Methods of solution of MPD: DP and LP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_sol_rl.html">46. Methods of solution of MPD: RL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_large_continuous.html">47. Large or Continuous MDPs</a></li>
 </ul>
 
     </div>
@@ -539,9 +542,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generic-ode-without-exogenous-inputs">39.1.1.1. Generic ODE without exogenous inputs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lti">39.1.1.2. LTI</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#infinite-horizon-full-state-feedback">39.1.1.2.1. Infinite-horizon full-state feedback</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generic-ode-without-exogenous-inputs">42.1.1.1. Generic ODE without exogenous inputs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lti">42.1.1.2. LTI</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#infinite-horizon-full-state-feedback">42.1.1.2.1. Infinite-horizon full-state feedback</a></li>
 </ul>
 </li>
 </ul>
@@ -556,7 +559,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="full-state-feedback">
-<span id="control-optimal-full-state-fb"></span><h1><span class="section-number">39.1.1. </span>Full-state feedback<a class="headerlink" href="#full-state-feedback" title="Permalink to this heading">#</a></h1>
+<span id="control-optimal-full-state-fb"></span><h1><span class="section-number">42.1.1. </span>Full-state feedback<a class="headerlink" href="#full-state-feedback" title="Permalink to this heading">#</a></h1>
 <p>Optimal control can be recast as a <strong>constrained optimization problem</strong>, <span class="math notranslate nohighlight">\(J\)</span>, where an extreme - optimum - of an objective function must be found, subject to constraints that include the equations of motion. Some constraints may be included into an augmented objective function <span class="math notranslate nohighlight">\(\widetilde{J}\)</span> with the methods of <a class="reference internal" href="../optimization/intro.html#optimization-constrained-lagrange-multipliers"><span class="std std-ref">Lagrange multipliers</span></a>.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
 <summary class="sd-summary-title sd-card-header">
@@ -615,7 +618,7 @@ D(\mathbf{x}(T)) &amp; = \frac{1}{2} \mathbf{x}^T(T) \mathbf{Q}_T \mathbf{x}(T) 
 </details><p><strong>Finite time vs. Infinite time horizon.</strong></p>
 <p>…</p>
 <div class="section" id="generic-ode-without-exogenous-inputs">
-<span id="control-optimal-full-state-fb-ode"></span><h2><span class="section-number">39.1.1.1. </span>Generic ODE without exogenous inputs<a class="headerlink" href="#generic-ode-without-exogenous-inputs" title="Permalink to this heading">#</a></h2>
+<span id="control-optimal-full-state-fb-ode"></span><h2><span class="section-number">42.1.1.1. </span>Generic ODE without exogenous inputs<a class="headerlink" href="#generic-ode-without-exogenous-inputs" title="Permalink to this heading">#</a></h2>
 <div class="math notranslate nohighlight">
 \[\mathbf{M} \dot{\mathbf{x}} = \mathbf{f}(\mathbf{x}, \mathbf{u}) \ ,\]</div>
 <p>with initial condition <span class="math notranslate nohighlight">\(\mathbf{x}(0) = \mathbf{x}_0\)</span>.</p>
@@ -645,7 +648,7 @@ Constrained optimization<div class="sd-summary-down docutils">
 \end{aligned}\end{split}\]</div>
 <p class="sd-card-text">So that</p>
 <div class="math notranslate nohighlight" id="equation-eq-optimal-ode">
-<span class="eqno">(39.1)<a class="headerlink" href="#equation-eq-optimal-ode" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+<span class="eqno">(42.1)<a class="headerlink" href="#equation-eq-optimal-ode" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
  \delta \boldsymbol\lambda(t): &amp; \quad \mathbf{M}   \dot{\mathbf{x}} = \mathbf{f} \\
                                &amp; \quad \mathbf{x}(0) = \mathbf{x}_0 \\
  \delta \mathbf{x}(t)        : &amp; \quad \mathbf{M}^T \dot{\boldsymbol{\lambda}} = -\partial_{\mathbf{x}} \mathbf{f}^T \boldsymbol\lambda - \mathbf{S} \mathbf{u} - \mathbf{Q} \mathbf{x} \\
@@ -689,11 +692,11 @@ Gradient descent<div class="sd-summary-down docutils">
 </details></div>
 </details></div>
 <div class="section" id="lti">
-<span id="control-optimal-full-state-fb-lti"></span><h2><span class="section-number">39.1.1.2. </span>LTI<a class="headerlink" href="#lti" title="Permalink to this heading">#</a></h2>
+<span id="control-optimal-full-state-fb-lti"></span><h2><span class="section-number">42.1.1.2. </span>LTI<a class="headerlink" href="#lti" title="Permalink to this heading">#</a></h2>
 <div class="math notranslate nohighlight">
 \[\begin{split}J = \int_{t=0}^{T} \dfrac{1}{2} \begin{bmatrix} \mathbf{x}^T &amp; \mathbf{u}^T \end{bmatrix} \begin{bmatrix}  \mathbf{Q} &amp; \mathbf{S} \\ \mathbf{S}^T &amp; \mathbf{R} \end{bmatrix} \begin{bmatrix} \mathbf{x} \\ \mathbf{u} \end{bmatrix} \, dt + \frac{1}{2} \mathbf{x}^T(T) \mathbf{Q}_T \mathbf{x}(T) \end{split}\]</div>
 <div class="math notranslate nohighlight" id="equation-eq-optimal-lti-eqns">
-<span class="eqno">(39.2)<a class="headerlink" href="#equation-eq-optimal-lti-eqns" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{cases}
+<span class="eqno">(42.2)<a class="headerlink" href="#equation-eq-optimal-lti-eqns" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{cases}
   \dot{\mathbf{x}} = \mathbf{A} \mathbf{x} + \mathbf{B} \mathbf{u} \\
        \mathbf{y}  = \mathbf{C} \mathbf{x} + \mathbf{D} \mathbf{u} \\
 \end{cases}\end{split}\]</div>
@@ -704,9 +707,9 @@ Constrained optimization<div class="sd-summary-down docutils">
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">As <span class="math notranslate nohighlight">\(\mathbf{f}(\mathbf{x},\mathbf{u}) = \mathbf{A} \mathbf{x} + \mathbf{B}\mathbf{u}\)</span>, here <span class="math notranslate nohighlight">\(\partial_{\mathbf{x}} \mathbf{f} = \mathbf{A}\)</span> and <span class="math notranslate nohighlight">\(\partial_{\mathbf{u}} \mathbf{f} = \mathbf{B}\)</span>. For the linear system <a class="reference internal" href="#equation-eq-optimal-lti-eqns">(39.2)</a> <span class="math notranslate nohighlight">\(\mathbf{M} = \mathbf{I}\)</span>. Thus the equations <a class="reference internal" href="#equation-eq-optimal-ode">(39.1)</a> become</p>
+<p class="sd-card-text">As <span class="math notranslate nohighlight">\(\mathbf{f}(\mathbf{x},\mathbf{u}) = \mathbf{A} \mathbf{x} + \mathbf{B}\mathbf{u}\)</span>, here <span class="math notranslate nohighlight">\(\partial_{\mathbf{x}} \mathbf{f} = \mathbf{A}\)</span> and <span class="math notranslate nohighlight">\(\partial_{\mathbf{u}} \mathbf{f} = \mathbf{B}\)</span>. For the linear system <a class="reference internal" href="#equation-eq-optimal-lti-eqns">(42.2)</a> <span class="math notranslate nohighlight">\(\mathbf{M} = \mathbf{I}\)</span>. Thus the equations <a class="reference internal" href="#equation-eq-optimal-ode">(42.1)</a> become</p>
 <div class="math notranslate nohighlight" id="equation-eq-optimal-lti">
-<span class="eqno">(39.3)<a class="headerlink" href="#equation-eq-optimal-lti" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+<span class="eqno">(42.3)<a class="headerlink" href="#equation-eq-optimal-lti" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
  \delta \boldsymbol\lambda(t): &amp; \quad \mathbf{M}   \dot{\mathbf{x}} = \mathbf{f} \\
                                &amp; \quad \mathbf{x}(0) = \mathbf{x}_0 \\
  \delta \mathbf{x}(t)        : &amp; \quad \mathbf{M}^T \dot{\boldsymbol{\lambda}} = -\mathbf{A}^T \boldsymbol\lambda - \mathbf{S} \mathbf{u} - \mathbf{Q} \mathbf{x} \\
@@ -715,7 +718,7 @@ Constrained optimization<div class="sd-summary-down docutils">
 \end{aligned}\end{split}\]</div>
 </div>
 </details><div class="section" id="infinite-horizon-full-state-feedback">
-<span id="control-optimal-full-state-fb-lti-infinite-time"></span><h3><span class="section-number">39.1.1.2.1. </span>Infinite-horizon full-state feedback<a class="headerlink" href="#infinite-horizon-full-state-feedback" title="Permalink to this heading">#</a></h3>
+<span id="control-optimal-full-state-fb-lti-infinite-time"></span><h3><span class="section-number">42.1.1.2.1. </span>Infinite-horizon full-state feedback<a class="headerlink" href="#infinite-horizon-full-state-feedback" title="Permalink to this heading">#</a></h3>
 <p>No need for an <a class="reference internal" href="observer.html#control-observer"><span class="std std-ref">observer</span></a>. The system is assumed to be stable. The augmented cost function reads</p>
 <div class="math notranslate nohighlight">
 \[\widetilde{J}(\mathbf{x}, \mathbf{u}; \boldsymbol{\lambda}) = \int_{t=0}^{+\infty} \left\{ \dfrac{1}{2} \mathbf{x}^T \mathbf{Q} \mathbf{x} + \mathbf{x}^T \mathbf{S} \mathbf{u} + \dfrac{1}{2} \mathbf{u}^T \mathbf{R} \mathbf{u} - \boldsymbol{\lambda}^T (\dot{\mathbf{x}} - \mathbf{A} \mathbf{x} - \mathbf{B}  \mathbf{u} ) \right\} \, dt \ ,\]</div>
@@ -744,7 +747,7 @@ Using <a class="reference internal" href="../calculus-variations/intro.html#calc
 <p>and comparing the two different expressions of <span class="math notranslate nohighlight">\(\dot{\boldsymbol{\lambda}}\)</span>, if the equality holds for any <span class="math notranslate nohighlight">\(\mathbf{x}\)</span>, the <strong>dynamical Riccati equation</strong> for <span class="math notranslate nohighlight">\(\mathbf{P}\)</span> is derived as</p>
 <div class="math notranslate nohighlight">
 \[\dot{\mathbf{P}} + \mathbf{P} \widetilde{\mathbf{A}} + \widetilde{\mathbf{A}}^T \mathbf{P} - \mathbf{P} \mathbf{B} \mathbf{R}^{-1} \mathbf{B}^T \mathbf{P} + \widetilde{\mathbf{Q}} = \mathbf{0} \ ,\]</div>
-<p>where <span class="math notranslate nohighlight">\(\widetilde{\mathbf{A}} = \mathbf{A} - \mathbf{B} \mathbf{R}^{-1} \mathbf{S}^T \)</span> and <span class="math notranslate nohighlight">\(\widetilde{\mathbf{Q}} = \mathbf{Q} - \mathbf{S} \mathbf{R}^{-1} \mathbf{S}^T\)</span>. Riccati equation is a non-linear dynamical matrix equation in <span class="math notranslate nohighlight">\(\mathbf{P}\)</span>. Algorithms for computing the solution of dynamical and algebraic equation exists, see <a class="reference internal" href="#control-optimal-riccati">Example 39.1</a>.</p>
+<p>where <span class="math notranslate nohighlight">\(\widetilde{\mathbf{A}} = \mathbf{A} - \mathbf{B} \mathbf{R}^{-1} \mathbf{S}^T \)</span> and <span class="math notranslate nohighlight">\(\widetilde{\mathbf{Q}} = \mathbf{Q} - \mathbf{S} \mathbf{R}^{-1} \mathbf{S}^T\)</span>. Riccati equation is a non-linear dynamical matrix equation in <span class="math notranslate nohighlight">\(\mathbf{P}\)</span>. Algorithms for computing the solution of dynamical and algebraic equation exists, see <a class="reference internal" href="#control-optimal-riccati">Example 42.1</a>.</p>
 <!--
 $$\dot{\mathbf{P}} = - \mathbf{P} \left( \mathbf{A} - \mathbf{B} \mathbf{R}^{-1} \mathbf{S}^T \right) - \left( \mathbf{A} - \mathbf{B} \mathbf{R}^{-1} \mathbf{S}^T \right)^T \mathbf{P} + \mathbf{P} \mathbf{B} \mathbf{R}^{-1} \mathbf{B}^T \mathbf{P} - \left( \mathbf{Q} - \mathbf{S} \mathbf{R}^{-1} \mathbf{S}^T \right)$$
 -->
@@ -756,7 +759,7 @@ $$\dot{\mathbf{P}} = - \mathbf{P} \left( \mathbf{A} - \mathbf{B} \mathbf{R}^{-1}
 \[\mathbf{u} = - \mathbf{G} \mathbf{x} \ ,\]</div>
 <p>with <span class="math notranslate nohighlight">\(\mathbf{G} = \mathbf{R}^{-1} \left( \mathbf{S}^T + \mathbf{B}^T \mathbf{P} \right)\)</span>.</p>
 <div class="proof example admonition" id="control-optimal-riccati">
-<p class="admonition-title"><span class="caption-number">Example 39.1 </span> (Solution of Riccati equation)</p>
+<p class="admonition-title"><span class="caption-number">Example 42.1 </span> (Solution of Riccati equation)</p>
 <div class="example-content section" id="proof-content">
 <p>…</p>
 </div>
@@ -805,7 +808,7 @@ $$\dot{\mathbf{P}} = - \mathbf{P} \left( \mathbf{A} - \mathbf{B} \mathbf{R}^{-1}
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">39.1. </span>Optimal control</p>
+        <p class="prev-next-title"><span class="section-number">42.1. </span>Optimal control</p>
       </div>
     </a>
     <a class="right-next"
@@ -813,7 +816,7 @@ $$\dot{\mathbf{P}} = - \mathbf{P} \left( \mathbf{A} - \mathbf{B} \mathbf{R}^{-1}
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">39.1.2. </span>Full-state feedback (OLD)</p>
+        <p class="prev-next-title"><span class="section-number">42.1.2. </span>Full-state feedback (OLD)</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -832,9 +835,9 @@ $$\dot{\mathbf{P}} = - \mathbf{P} \left( \mathbf{A} - \mathbf{B} \mathbf{R}^{-1}
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generic-ode-without-exogenous-inputs">39.1.1.1. Generic ODE without exogenous inputs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lti">39.1.1.2. LTI</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#infinite-horizon-full-state-feedback">39.1.1.2.1. Infinite-horizon full-state feedback</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generic-ode-without-exogenous-inputs">42.1.1.1. Generic ODE without exogenous inputs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lti">42.1.1.2. LTI</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#infinite-horizon-full-state-feedback">42.1.1.2.1. Infinite-horizon full-state feedback</a></li>
 </ul>
 </li>
 </ul>
