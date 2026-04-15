@@ -1,7 +1,7 @@
 (math:spectral)=
 # Spectral decomposition
 
-- **Introduction.** What's spectral (or eigenvalue) decomposition? Arbitrarieness. When is it possible? Special matrices. Properties and theorems (Cayley-Hamilton)
+- **Introduction.** What's spectral (or eigenvalue) decomposition? Arbitrarieness. When is it possible? Special matrices. Properties and theorems ([Cayley-Hamilton](cayley-hamilton))
 
    $$\mathbf{A} \mathbf{u}_i = s_i \mathbf{u}_i$$
 
