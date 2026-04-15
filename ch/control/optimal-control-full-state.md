@@ -220,6 +220,136 @@ $$0 = \partial_t V^*(\mathbf{x}_t, t) + \min_{\mathbf{u}} \left\{ \partial_{\mat
 ````
 
 
-(control:optimal:full-state-fb:lti)=
+(control:optimal:full-state-fb:linear)=
 ## Linear system
+
+Let the dynamical equation of a system be
+
+$$\begin{cases}
+ \dot{\mathbf{x}} = \mathbf{A} \mathbf{x} + \mathbf{B} \mathbf{u} \\
+      \mathbf{y}  = \mathbf{C}_y \mathbf{x} + \mathbf{D}_y \mathbf{u} \\
+      \mathbf{z}  = \mathbf{C}_z \mathbf{x} + \mathbf{D}_z \mathbf{u} \ ,
+\end{cases}$$
+
+with measurment output $\mathbf{y}$ and performance output $\mathbf{z}$, and with running and final cost
+
+$$\begin{aligned}
+C(\mathbf{x},\mathbf{u})
+ & = \frac{1}{2} \left( \mathbf{z}^T \mathbf{Q} \mathbf{z} + \mathbf{u}^T \mathbf{R} \mathbf{u} \right) = \\
+ & = \frac{1}{2} \begin{bmatrix} \mathbf{x} \\ \mathbf{u} \end{bmatrix}^T
+               \begin{bmatrix}
+                 \mathbf{C}_z^T \mathbf{Q} \mathbf{C}_z & \mathbf{C}_z^T \mathbf{Q} \mathbf{D}_z \\
+                 \mathbf{D}_z^T \mathbf{Q} \mathbf{C}_z & \mathbf{D}_z^T \mathbf{Q} \mathbf{D}_z + \mathbf{R} \\
+               \end{bmatrix}
+               \begin{bmatrix} \mathbf{x} \\ \mathbf{u} \end{bmatrix} = \\
+ & = \frac{1}{2} \begin{bmatrix} \mathbf{x} \\ \mathbf{u} \end{bmatrix}^T
+               \begin{bmatrix}
+                 \widetilde{\mathbf{Q}} & \mathbf{S} \\
+                 \mathbf{S}^T & \widetilde{\mathbf{R}}
+               \end{bmatrix}
+               \begin{bmatrix} \mathbf{x} \\ \mathbf{u} \end{bmatrix}\ ,
+\end{aligned}$$
+
+$$D(\mathbf{x}_T) = \frac{1}{2} \mathbf{x}^T(T) \mathbf{Q}_T \mathbf{x}(T) \ .$$
+
+The equations {eq}`eq:optimal:ode` become
+
+$$\begin{aligned}
+ \delta \boldsymbol\lambda(t): & \quad \dot{\mathbf{x}} = \mathbf{A} \mathbf{x} + \mathbf{B} \mathbf{u} \\
+                               & \quad \mathbf{x}(0) = \mathbf{x}_0 \\
+ \delta \mathbf{x}(t)        : & \quad \dot{\boldsymbol{\lambda}} = - \mathbf{A}^T \boldsymbol\lambda - \widetilde{\mathbf{Q}} \mathbf{x} - \mathbf{S} \mathbf{u} \\
+ \delta \mathbf{x}(T)        : & \quad \boldsymbol\lambda(T) = \mathbf{Q}_T \mathbf{x}(T) \\
+ \delta \mathbf{u}(t)        : & \quad \mathbf{0} = \widetilde{\mathbf{R}} \mathbf{u} + \mathbf{S}^T \mathbf{x} + \mathbf{B}^T \boldsymbol\lambda \ .
+\end{aligned}$$ (eq:optimal:ode:linear)
+
+The weights onf the control are definite positive, $\widetilde{\mathbf{R}} > 0$, and thus invertible. The control can be written as a function of the state and the co-state as
+
+$$\mathbf{u} = - \widetilde{\mathbf{R}}^{-1} \left( \mathbf{S}^T \mathbf{x} + \mathbf{B}^T \boldsymbol\lambda  \right) \ .$$
+
+Now the closed loop system reads
+
+$$
+\begin{bmatrix} \dot{\mathbf{x}} \\ \dot{\boldsymbol\lambda} \end{bmatrix}
+\begin{bmatrix}
+  \mathbf{A} - \mathbf{B} \widetilde{\mathbf{R}}^{-1} \mathbf{S}^T & - \mathbf{B} \widetilde{\mathbf{R}}^{-1} \mathbf{B}^T \\
+  -\widetilde{\mathbf{Q}} + \mathbf{S} \widetilde{\mathbf{R}}^{-1} \mathbf{S}^T & - \mathbf{A}^T + \mathbf{S} \widetilde{\mathbf{R}}^{-1} \mathbf{B}^T
+\end{bmatrix}
+\begin{bmatrix}      \mathbf{x}  \\      \boldsymbol\lambda  \end{bmatrix} \ ,
+$$
+
+with initial condition $\mathbf{x}(0) = \mathbf{x}_0$ and final condition $\boldsymbol\lambda(T) = \mathbf{Q}_T \mathbf{x}(T)$. The solution can be written as
+
+$$\begin{bmatrix} \mathbf{x}(t) \\ \boldsymbol\lambda(t)  \end{bmatrix} = \boldsymbol\Psi(t,t_0) \begin{bmatrix} \mathbf{x}(t_0) \\ \boldsymbol\lambda(t_0) \end{bmatrix} = \begin{bmatrix} \boldsymbol\Psi_{xx}(t,t_0) & \boldsymbol\Psi_{x\lambda}(t,t_0) \\ \boldsymbol\Psi_{\lambda x}(t,t_0) & \boldsymbol\Psi_{\lambda \lambda}(t,t_0) \end{bmatrix} \begin{bmatrix} \mathbf{x}(t_0) \\ \boldsymbol\lambda(t_0) \end{bmatrix}$$
+
+so that the state in $T$ reads
+
+$$\begin{bmatrix} \mathbf{x}(T) \\ \boldsymbol\lambda(T)  \end{bmatrix} = \begin{bmatrix} \boldsymbol\Psi_{xx}(T,t_0) & \boldsymbol\Psi_{x\lambda}(T,t_0) \\ \boldsymbol\Psi_{\lambda x}(T,t_0) & \boldsymbol\Psi_{\lambda \lambda}(T,t_0) \end{bmatrix} \begin{bmatrix} \mathbf{x}(t_0) \\ \boldsymbol\lambda(t_0) \end{bmatrix}$$
+
+so that
+
+$$\begin{aligned}
+  \mathbf{0}
+  & = - \boldsymbol\lambda_T + \boldsymbol\Psi_{\lambda \lambda}(T,t_0) \boldsymbol\lambda_0 + \boldsymbol\Psi_{\lambda x}(T,t_0) \mathbf{x}_0  = \\
+  & = - \mathbf{Q}_T \mathbf{x}_T + \boldsymbol\Psi_{\lambda \lambda}(T,t_0) \boldsymbol\lambda_0 + \boldsymbol\Psi_{\lambda x}(T,t_0) \mathbf{x}_0  = \\
+  & = - \mathbf{Q}_T \left[ \boldsymbol\Psi_{xx}(T,t_0) \mathbf{x}_0+\boldsymbol\Psi_{x\lambda}(T,t_0) \boldsymbol\lambda_0 \right] + \boldsymbol\Psi_{\lambda \lambda}(T,t_0) \boldsymbol\lambda_0 + \boldsymbol\Psi_{\lambda x}(T,t_0) \mathbf{x}_0  \ ,
+\end{aligned}$$
+
+and thus
+
+$$\boldsymbol\lambda_0 = \left(\boldsymbol\Psi_{\lambda \lambda} - \mathbf{Q} \boldsymbol\Psi_{x\lambda}(T,t_0) \right)^{-1} \left( \mathbf{Q} \boldsymbol\Psi_{xx}(T,t_0) - \boldsymbol\Psi_{\lambda x} \right) \mathbf{x}_0 \ .$$
+
+```{dropdown} ...
+:open:
+
+If (**todo** why?) $\boldsymbol\lambda = \mathbf{P} \mathbf{x}$,  
+
+**Using HJB equation.**
+
+$$V(\mathbf{x}_t,t; \mathbf{u}) = \frac{1}{2} \int_{\tau=t}^{T} \dots  d \tau \, + \frac{1}{2} \mathbf{x}_T^T \mathbf{Q}_T \mathbf{x}_T + \dots$$
+
+**Proportional control.** This should not be an assumption, but a result of the problem *!!!*
+
+If $\mathbf{u} = - \mathbf{G} \mathbf{x}$, the solution of the closed-loop system
+
+$$\dot{\mathbf{x}} = \left( \mathbf{A} - \mathbf{B} \mathbf{G} \right) \mathbf{x}$$
+
+reads $\mathbf{x}(\tau) = \boldsymbol\Psi_c(\tau,t) \mathbf{x}(t)$. The value function becomes
+
+$$\begin{aligned}
+  V(\mathbf{x}_t,t; \mathbf{G})
+  & = \frac{1}{2} \mathbf{x}_t^T \int_{\tau=t}^T \boldsymbol\Phi^T_c(\tau,t) \left( \widetilde{\mathbf{Q}} - \mathbf{G}^T \mathbf{S}^T - \mathbf{S} \mathbf{G} + \mathbf{G}^T \widetilde{\mathbf{R}} \mathbf{G} \right) \boldsymbol\Phi_c(\tau,t) \, d \tau \, \mathbf{x}_t + \frac{1}{2} \mathbf{x}_t^T \boldsymbol\Phi_c^T(T,t) \mathbf{Q}_T \boldsymbol\Phi_c(T,t) \mathbf{x}_t = \\
+  & = \frac{1}{2} \mathbf{x}_t^T \left\{ \int_{\tau=t}^T \boldsymbol\Phi^T_c(\tau,t) \left( \widetilde{\mathbf{Q}} - \mathbf{G}^T \mathbf{S}^T - \mathbf{S} \mathbf{G} + \mathbf{G}^T \widetilde{\mathbf{R}} \mathbf{G} \right) \boldsymbol\Phi_c(\tau,t) \, d \tau + \boldsymbol\Phi_c^T(T,t) \mathbf{Q}_T \boldsymbol\Phi_c(T,t)\right\} \mathbf{x}_t  = \\
+  & = \frac{1}{2} \mathbf{x}_t^T \mathbf{P}(t) \mathbf{x}_t \ .
+\end{aligned}$$
+
+Thus, the costate reads $\boldsymbol\lambda = \nabla_{\mathbf{x}_t} V = \mathbf{P} \mathbf{x}$.
+
+Matrix $\mathbf{P}$ satisfies a [Lyapunov equation](lyapunov-eq),
+
+$$\dot{\mathbf{P}} = \mathbf{A}^T \mathbf{P} + \mathbf{P}\mathbf{A} + \left( \widetilde{\mathbf{Q}} - \mathbf{G}^T \mathbf{S}^T - \mathbf{S} \mathbf{G} + \mathbf{G}^T \widetilde{\mathbf{R}} \mathbf{G} \right) \ ,$$
+
+as it can be easily found by direct computation of the time derivative of $\mathbf{P}$.
+
+
+
+```
+
+
+```{dropdown} Decoupled weights
+:open:
+
+Let $\mathbf{S} = \mathbf{0}$, then $\mathbf{u} = - \widetilde{\mathbf{R}}^{-1} \mathbf{B}^T \boldsymbol\lambda$, and thus the control is a linear combination of the co-state.
+
+The transformation $\mathbf{v} := \mathbf{u} + \widetilde{\mathbf{R}}^{-1} \mathbf{S}^T \mathbf{x}$, make a coupled objective function for the original system a decoupeld objective function for a modified system.
+
+```
+
+**todo**
+* Are $\Psi$ matrices invertible?
+* Properties of the Hamilton matrix...
+* What's a conjugate point?
+* ...
+
+
+
 

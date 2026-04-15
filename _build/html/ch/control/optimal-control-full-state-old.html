@@ -595,7 +595,7 @@ Constrained optimization<div class="sd-summary-down docutils">
 \end{aligned}\end{split}\]</div>
 <p class="sd-card-text">So that</p>
 <div class="math notranslate nohighlight" id="equation-eq-optimal-ode">
-<span class="eqno">(43.3)<a class="headerlink" href="#equation-eq-optimal-ode" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+<span class="eqno">(43.4)<a class="headerlink" href="#equation-eq-optimal-ode" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
  \delta \boldsymbol\lambda(t): &amp; \quad \mathbf{M}   \dot{\mathbf{x}} = \mathbf{f} \\
                                &amp; \quad \mathbf{x}(0) = \mathbf{x}_0 \\
  \delta \mathbf{x}(t)        : &amp; \quad \mathbf{M}^T \dot{\boldsymbol{\lambda}} = -\partial_{\mathbf{x}} \mathbf{f}^T \boldsymbol\lambda - \mathbf{S} \mathbf{u} - \mathbf{Q} \mathbf{x} \\
@@ -643,7 +643,7 @@ Gradient descent<div class="sd-summary-down docutils">
 <div class="math notranslate nohighlight">
 \[\begin{split}J = \int_{t=0}^{T} \dfrac{1}{2} \begin{bmatrix} \mathbf{x}^T &amp; \mathbf{u}^T \end{bmatrix} \begin{bmatrix}  \mathbf{Q} &amp; \mathbf{S} \\ \mathbf{S}^T &amp; \mathbf{R} \end{bmatrix} \begin{bmatrix} \mathbf{x} \\ \mathbf{u} \end{bmatrix} \, dt + \frac{1}{2} \mathbf{x}^T(T) \mathbf{Q}_T \mathbf{x}(T) \end{split}\]</div>
 <div class="math notranslate nohighlight" id="equation-eq-optimal-lti-eqns">
-<span class="eqno">(43.4)<a class="headerlink" href="#equation-eq-optimal-lti-eqns" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{cases}
+<span class="eqno">(43.5)<a class="headerlink" href="#equation-eq-optimal-lti-eqns" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{cases}
   \dot{\mathbf{x}} = \mathbf{A} \mathbf{x} + \mathbf{B} \mathbf{u} \\
        \mathbf{y}  = \mathbf{C} \mathbf{x} + \mathbf{D} \mathbf{u} \\
 \end{cases}\end{split}\]</div>
@@ -656,7 +656,7 @@ Constrained optimization<div class="sd-summary-down docutils">
 </summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text">As <span class="math notranslate nohighlight">\(\mathbf{f}(\mathbf{x},\mathbf{u}) = \mathbf{A} \mathbf{x} + \mathbf{B}\mathbf{u}\)</span>, here <span class="math notranslate nohighlight">\(\partial_{\mathbf{x}} \mathbf{f} = \mathbf{A}\)</span> and <span class="math notranslate nohighlight">\(\partial_{\mathbf{u}} \mathbf{f} = \mathbf{B}\)</span>. For the linear system <code class="xref eq docutils literal notranslate"><span class="pre">eq:optimal:lti:eqns</span></code> <span class="math notranslate nohighlight">\(\mathbf{M} = \mathbf{I}\)</span>. Thus the equations <a class="reference internal" href="optimal-control-full-state.html#equation-eq-optimal-ode">(43.1)</a> become</p>
 <div class="math notranslate nohighlight" id="equation-eq-optimal-lti">
-<span class="eqno">(43.5)<a class="headerlink" href="#equation-eq-optimal-lti" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+<span class="eqno">(43.6)<a class="headerlink" href="#equation-eq-optimal-lti" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
  \delta \boldsymbol\lambda(t): &amp; \quad \mathbf{M}   \dot{\mathbf{x}} = \mathbf{f} \\
                                &amp; \quad \mathbf{x}(0) = \mathbf{x}_0 \\
  \delta \mathbf{x}(t)        : &amp; \quad \mathbf{M}^T \dot{\boldsymbol{\lambda}} = -\mathbf{A}^T \boldsymbol\lambda - \mathbf{S} \mathbf{u} - \mathbf{Q} \mathbf{x} \\

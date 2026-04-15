@@ -776,7 +776,119 @@ HJB equation - Optimality equation<div class="sd-summary-down docutils">
 </div>
 </details></div>
 <div class="section" id="linear-system">
-<span id="control-optimal-full-state-fb-lti"></span><h2><span class="section-number">43.1.1.2. </span>Linear system<a class="headerlink" href="#linear-system" title="Permalink to this heading">#</a></h2>
+<span id="control-optimal-full-state-fb-linear"></span><h2><span class="section-number">43.1.1.2. </span>Linear system<a class="headerlink" href="#linear-system" title="Permalink to this heading">#</a></h2>
+<p>Let the dynamical equation of a system be</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{cases}
+ \dot{\mathbf{x}} = \mathbf{A} \mathbf{x} + \mathbf{B} \mathbf{u} \\
+      \mathbf{y}  = \mathbf{C}_y \mathbf{x} + \mathbf{D}_y \mathbf{u} \\
+      \mathbf{z}  = \mathbf{C}_z \mathbf{x} + \mathbf{D}_z \mathbf{u} \ ,
+\end{cases}\end{split}\]</div>
+<p>with measurment output <span class="math notranslate nohighlight">\(\mathbf{y}\)</span> and performance output <span class="math notranslate nohighlight">\(\mathbf{z}\)</span>, and with running and final cost</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+C(\mathbf{x},\mathbf{u})
+ &amp; = \frac{1}{2} \left( \mathbf{z}^T \mathbf{Q} \mathbf{z} + \mathbf{u}^T \mathbf{R} \mathbf{u} \right) = \\
+ &amp; = \frac{1}{2} \begin{bmatrix} \mathbf{x} \\ \mathbf{u} \end{bmatrix}^T
+               \begin{bmatrix}
+                 \mathbf{C}_z^T \mathbf{Q} \mathbf{C}_z &amp; \mathbf{C}_z^T \mathbf{Q} \mathbf{D}_z \\
+                 \mathbf{D}_z^T \mathbf{Q} \mathbf{C}_z &amp; \mathbf{D}_z^T \mathbf{Q} \mathbf{D}_z + \mathbf{R} \\
+               \end{bmatrix}
+               \begin{bmatrix} \mathbf{x} \\ \mathbf{u} \end{bmatrix} = \\
+ &amp; = \frac{1}{2} \begin{bmatrix} \mathbf{x} \\ \mathbf{u} \end{bmatrix}^T
+               \begin{bmatrix}
+                 \widetilde{\mathbf{Q}} &amp; \mathbf{S} \\
+                 \mathbf{S}^T &amp; \widetilde{\mathbf{R}}
+               \end{bmatrix}
+               \begin{bmatrix} \mathbf{x} \\ \mathbf{u} \end{bmatrix}\ ,
+\end{aligned}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[D(\mathbf{x}_T) = \frac{1}{2} \mathbf{x}^T(T) \mathbf{Q}_T \mathbf{x}(T) \ .\]</div>
+<p>The equations <a class="reference internal" href="#equation-eq-optimal-ode">(43.1)</a> become</p>
+<div class="math notranslate nohighlight" id="equation-eq-optimal-ode-linear">
+<span class="eqno">(43.3)<a class="headerlink" href="#equation-eq-optimal-ode-linear" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+ \delta \boldsymbol\lambda(t): &amp; \quad \dot{\mathbf{x}} = \mathbf{A} \mathbf{x} + \mathbf{B} \mathbf{u} \\
+                               &amp; \quad \mathbf{x}(0) = \mathbf{x}_0 \\
+ \delta \mathbf{x}(t)        : &amp; \quad \dot{\boldsymbol{\lambda}} = - \mathbf{A}^T \boldsymbol\lambda - \widetilde{\mathbf{Q}} \mathbf{x} - \mathbf{S} \mathbf{u} \\
+ \delta \mathbf{x}(T)        : &amp; \quad \boldsymbol\lambda(T) = \mathbf{Q}_T \mathbf{x}(T) \\
+ \delta \mathbf{u}(t)        : &amp; \quad \mathbf{0} = \widetilde{\mathbf{R}} \mathbf{u} + \mathbf{S}^T \mathbf{x} + \mathbf{B}^T \boldsymbol\lambda \ .
+\end{aligned}\end{split}\]</div>
+<p>The weights onf the control are definite positive, <span class="math notranslate nohighlight">\(\widetilde{\mathbf{R}} &gt; 0\)</span>, and thus invertible. The control can be written as a function of the state and the co-state as</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{u} = - \widetilde{\mathbf{R}}^{-1} \left( \mathbf{S}^T \mathbf{x} + \mathbf{B}^T \boldsymbol\lambda  \right) \ .\]</div>
+<p>Now the closed loop system reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix} \dot{\mathbf{x}} \\ \dot{\boldsymbol\lambda} \end{bmatrix}
+\begin{bmatrix}
+  \mathbf{A} - \mathbf{B} \widetilde{\mathbf{R}}^{-1} \mathbf{S}^T &amp; - \mathbf{B} \widetilde{\mathbf{R}}^{-1} \mathbf{B}^T \\
+  -\widetilde{\mathbf{Q}} + \mathbf{S} \widetilde{\mathbf{R}}^{-1} \mathbf{S}^T &amp; - \mathbf{A}^T + \mathbf{S} \widetilde{\mathbf{R}}^{-1} \mathbf{B}^T
+\end{bmatrix}
+\begin{bmatrix}      \mathbf{x}  \\      \boldsymbol\lambda  \end{bmatrix} \ ,
+\end{split}\]</div>
+<p>with initial condition <span class="math notranslate nohighlight">\(\mathbf{x}(0) = \mathbf{x}_0\)</span> and final condition <span class="math notranslate nohighlight">\(\boldsymbol\lambda(T) = \mathbf{Q}_T \mathbf{x}(T)\)</span>. The solution can be written as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{bmatrix} \mathbf{x}(t) \\ \boldsymbol\lambda(t)  \end{bmatrix} = \boldsymbol\Psi(t,t_0) \begin{bmatrix} \mathbf{x}(t_0) \\ \boldsymbol\lambda(t_0) \end{bmatrix} = \begin{bmatrix} \boldsymbol\Psi_{xx}(t,t_0) &amp; \boldsymbol\Psi_{x\lambda}(t,t_0) \\ \boldsymbol\Psi_{\lambda x}(t,t_0) &amp; \boldsymbol\Psi_{\lambda \lambda}(t,t_0) \end{bmatrix} \begin{bmatrix} \mathbf{x}(t_0) \\ \boldsymbol\lambda(t_0) \end{bmatrix}\end{split}\]</div>
+<p>so that the state in <span class="math notranslate nohighlight">\(T\)</span> reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{bmatrix} \mathbf{x}(T) \\ \boldsymbol\lambda(T)  \end{bmatrix} = \begin{bmatrix} \boldsymbol\Psi_{xx}(T,t_0) &amp; \boldsymbol\Psi_{x\lambda}(T,t_0) \\ \boldsymbol\Psi_{\lambda x}(T,t_0) &amp; \boldsymbol\Psi_{\lambda \lambda}(T,t_0) \end{bmatrix} \begin{bmatrix} \mathbf{x}(t_0) \\ \boldsymbol\lambda(t_0) \end{bmatrix}\end{split}\]</div>
+<p>so that</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathbf{0}
+  &amp; = - \boldsymbol\lambda_T + \boldsymbol\Psi_{\lambda \lambda}(T,t_0) \boldsymbol\lambda_0 + \boldsymbol\Psi_{\lambda x}(T,t_0) \mathbf{x}_0  = \\
+  &amp; = - \mathbf{Q}_T \mathbf{x}_T + \boldsymbol\Psi_{\lambda \lambda}(T,t_0) \boldsymbol\lambda_0 + \boldsymbol\Psi_{\lambda x}(T,t_0) \mathbf{x}_0  = \\
+  &amp; = - \mathbf{Q}_T \left[ \boldsymbol\Psi_{xx}(T,t_0) \mathbf{x}_0+\boldsymbol\Psi_{x\lambda}(T,t_0) \boldsymbol\lambda_0 \right] + \boldsymbol\Psi_{\lambda \lambda}(T,t_0) \boldsymbol\lambda_0 + \boldsymbol\Psi_{\lambda x}(T,t_0) \mathbf{x}_0  \ ,
+\end{aligned}\end{split}\]</div>
+<p>and thus</p>
+<div class="math notranslate nohighlight">
+\[\boldsymbol\lambda_0 = \left(\boldsymbol\Psi_{\lambda \lambda} - \mathbf{Q} \boldsymbol\Psi_{x\lambda}(T,t_0) \right)^{-1} \left( \mathbf{Q} \boldsymbol\Psi_{xx}(T,t_0) - \boldsymbol\Psi_{\lambda x} \right) \mathbf{x}_0 \ .\]</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+…<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">If (<strong>todo</strong> why?) <span class="math notranslate nohighlight">\(\boldsymbol\lambda = \mathbf{P} \mathbf{x}\)</span>,</p>
+<p class="sd-card-text"><strong>Using HJB equation.</strong></p>
+<div class="math notranslate nohighlight">
+\[V(\mathbf{x}_t,t; \mathbf{u}) = \frac{1}{2} \int_{\tau=t}^{T} \dots  d \tau \, + \frac{1}{2} \mathbf{x}_T^T \mathbf{Q}_T \mathbf{x}_T + \dots\]</div>
+<p class="sd-card-text"><strong>Proportional control.</strong> This should not be an assumption, but a result of the problem <em>!!!</em></p>
+<p class="sd-card-text">If <span class="math notranslate nohighlight">\(\mathbf{u} = - \mathbf{G} \mathbf{x}\)</span>, the solution of the closed-loop system</p>
+<div class="math notranslate nohighlight">
+\[\dot{\mathbf{x}} = \left( \mathbf{A} - \mathbf{B} \mathbf{G} \right) \mathbf{x}\]</div>
+<p class="sd-card-text">reads <span class="math notranslate nohighlight">\(\mathbf{x}(\tau) = \boldsymbol\Psi_c(\tau,t) \mathbf{x}(t)\)</span>. The value function becomes</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  V(\mathbf{x}_t,t; \mathbf{G})
+  &amp; = \frac{1}{2} \mathbf{x}_t^T \int_{\tau=t}^T \boldsymbol\Phi^T_c(\tau,t) \left( \widetilde{\mathbf{Q}} - \mathbf{G}^T \mathbf{S}^T - \mathbf{S} \mathbf{G} + \mathbf{G}^T \widetilde{\mathbf{R}} \mathbf{G} \right) \boldsymbol\Phi_c(\tau,t) \, d \tau \, \mathbf{x}_t + \frac{1}{2} \mathbf{x}_t^T \boldsymbol\Phi_c^T(T,t) \mathbf{Q}_T \boldsymbol\Phi_c(T,t) \mathbf{x}_t = \\
+  &amp; = \frac{1}{2} \mathbf{x}_t^T \left\{ \int_{\tau=t}^T \boldsymbol\Phi^T_c(\tau,t) \left( \widetilde{\mathbf{Q}} - \mathbf{G}^T \mathbf{S}^T - \mathbf{S} \mathbf{G} + \mathbf{G}^T \widetilde{\mathbf{R}} \mathbf{G} \right) \boldsymbol\Phi_c(\tau,t) \, d \tau + \boldsymbol\Phi_c^T(T,t) \mathbf{Q}_T \boldsymbol\Phi_c(T,t)\right\} \mathbf{x}_t  = \\
+  &amp; = \frac{1}{2} \mathbf{x}_t^T \mathbf{P}(t) \mathbf{x}_t \ .
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">Thus, the costate reads <span class="math notranslate nohighlight">\(\boldsymbol\lambda = \nabla_{\mathbf{x}_t} V = \mathbf{P} \mathbf{x}\)</span>.</p>
+<p class="sd-card-text">Matrix <span class="math notranslate nohighlight">\(\mathbf{P}\)</span> satisfies a <a class="reference internal" href="../ode/lyapunov-equation.html#lyapunov-eq"><span class="std std-ref">Lyapunov equation</span></a>,</p>
+<div class="math notranslate nohighlight">
+\[\dot{\mathbf{P}} = \mathbf{A}^T \mathbf{P} + \mathbf{P}\mathbf{A} + \left( \widetilde{\mathbf{Q}} - \mathbf{G}^T \mathbf{S}^T - \mathbf{S} \mathbf{G} + \mathbf{G}^T \widetilde{\mathbf{R}} \mathbf{G} \right) \ ,\]</div>
+<p class="sd-card-text">as it can be easily found by direct computation of the time derivative of <span class="math notranslate nohighlight">\(\mathbf{P}\)</span>.</p>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Decoupled weights<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Let <span class="math notranslate nohighlight">\(\mathbf{S} = \mathbf{0}\)</span>, then <span class="math notranslate nohighlight">\(\mathbf{u} = - \widetilde{\mathbf{R}}^{-1} \mathbf{B}^T \boldsymbol\lambda\)</span>, and thus the control is a linear combination of the co-state.</p>
+<p class="sd-card-text">The transformation <span class="math notranslate nohighlight">\(\mathbf{v} := \mathbf{u} + \widetilde{\mathbf{R}}^{-1} \mathbf{S}^T \mathbf{x}\)</span>, make a coupled objective function for the original system a decoupeld objective function for a modified system.</p>
+</div>
+</details><p><strong>todo</strong></p>
+<ul class="simple">
+<li><p>Are <span class="math notranslate nohighlight">\(\Psi\)</span> matrices invertible?</p></li>
+<li><p>Properties of the Hamilton matrix…</p></li>
+<li><p>What’s a conjugate point?</p></li>
+<li><p>…</p></li>
+</ul>
 </div>
 </div>
 
