@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>39.1.7. Hamilton Bellman Jacobi equation &#8212; basics - math</title>
+    <title>42.1.7. Hamilton Bellman Jacobi equation &#8212; basics - math</title>
   
   
   
@@ -71,8 +71,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="40. Introduction to Reinforcement Learning" href="../rl/intro.html" />
-    <link rel="prev" title="39.1.6. Kalman filter" href="kalman.html" />
+    <link rel="next" title="43. Introduction to Reinforcement Learning" href="../rl/intro.html" />
+    <link rel="prev" title="42.1.6. Kalman filter" href="kalman.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -244,77 +244,80 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../ode/lti.html">23. Linear Time-Invariant Systems</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ode/lti-response.html">24. LTI system response</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ode/lti-stability-and-feedback.html">25. LTI: stability and feedback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ode/observability-detectability.html">26. Observability and Detectability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ode/controllability-reachability.html">27. Reachability and Controllability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ode/lyapunov-equation.html">28. Lyapunov equation</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Partial Differential Equations</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../pde/intro.html">26. Introduction to Partial Differential Equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pde/elliptic.html">27. Elliptic equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pde/parabolic.html">28. Parabolic equations</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/hyperbolic.html">29. Hyperbolic equations</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-intro.html">29.1. Hyperbolic problems and conservation laws</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-dimensions.html">29.2. Hyperbolic problems - dimensions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-1d-scalar-linear.html">29.3. Scalar linear equation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-1d-vector-linear.html">29.4. Linear vector equation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-1d-scalar-nonlinear.html">29.5. Scalar non-linear equation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/characteristics.html">29.6. Method of characteristics</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../pde/hyperbolic-nd.html">29.7. Hyperbolic problems in multi-dimensional domains</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-draft.html">29.7.1. General hyperbolic problem</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-psys.html">29.7.2. P-system</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-euler.html">29.7.3. Euler equations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-shallow-water.html">29.7.4. Shallow water</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/intro.html">29. Introduction to Partial Differential Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/elliptic.html">30. Elliptic equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/parabolic.html">31. Parabolic equations</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/hyperbolic.html">32. Hyperbolic equations</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-intro.html">32.1. Hyperbolic problems and conservation laws</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-dimensions.html">32.2. Hyperbolic problems - dimensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-1d-scalar-linear.html">32.3. Scalar linear equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-1d-vector-linear.html">32.4. Linear vector equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-1d-scalar-nonlinear.html">32.5. Scalar non-linear equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/characteristics.html">32.6. Method of characteristics</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../pde/hyperbolic-nd.html">32.7. Hyperbolic problems in multi-dimensional domains</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-draft.html">32.7.1. General hyperbolic problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-psys.html">32.7.2. P-system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-euler.html">32.7.3. Euler equations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-shallow-water.html">32.7.4. Shallow water</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-riemann-pb.html">29.8. Riemann problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-entropy.html">29.9. Physical solution in hyperbolic problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-convexity.html">29.10. Convexity in hyperbolic problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-non-convex.html">29.11. Non-convex hyperbolic problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-riemann-pb.html">32.8. Riemann problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-entropy.html">32.9. Physical solution in hyperbolic problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-convexity.html">32.10. Convexity in hyperbolic problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-non-convex.html">32.11. Non-convex hyperbolic problems</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../pde/nc.html">30. Navier-Cauchy equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pde/ns.html">31. Navier-Stokes equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pde/ale.html">32. Arbitrary Lagrangian-Eulerian description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/nc.html">33. Navier-Cauchy equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/ns.html">34. Navier-Stokes equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/ale.html">35. Arbitrary Lagrangian-Eulerian description</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Numerical Methods for PDEs</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../pde/numerics.html">33. Introduction to numerical methods for PDEs</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/fem.html">34. Finite Element Method</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../pde/fem-poisson-1d.html">34.1. 1-dimensional Poisson equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/numerics.html">36. Introduction to numerical methods for PDEs</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/fem.html">37. Finite Element Method</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pde/fem-poisson-1d.html">37.1. 1-dimensional Poisson equation</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/fvm.html">35. Finite Volume Method</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../pde/fvm-poisson-1d.html">35.1. 1-dimensional Poisson equation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/fvm-hyperbolic-pde.html">35.2. FVM for hyperbolic problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/fvm-hyperbolic-bc.html">35.3. Boundary conditions in hyperbolic problems</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../pde/fvm-hyperbolic-examples.html">35.4. Examples of FVM for hyperbolic problems</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../pde/psys-1d.html">35.4.1. 1-dimensional P-system</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../pde/euler-1d.html">35.4.2. 1-dimensional Euler equations for Perfect Ideal Gas</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../pde/euler-quasi-1d.html">35.4.3. Quasi 1-dimensional Euler equations for Perfect Ideal Gas</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../pde/euler-1d-ale-piston.html">35.4.4. 1-dimensional Euler equations for Perfect Ideal Gas on moving mesh (ALE)</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/fvm.html">38. Finite Volume Method</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pde/fvm-poisson-1d.html">38.1. 1-dimensional Poisson equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/fvm-hyperbolic-pde.html">38.2. FVM for hyperbolic problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/fvm-hyperbolic-bc.html">38.3. Boundary conditions in hyperbolic problems</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../pde/fvm-hyperbolic-examples.html">38.4. Examples of FVM for hyperbolic problems</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../pde/psys-1d.html">38.4.1. 1-dimensional P-system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/euler-1d.html">38.4.2. 1-dimensional Euler equations for Perfect Ideal Gas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/euler-quasi-1d.html">38.4.3. Quasi 1-dimensional Euler equations for Perfect Ideal Gas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/euler-1d-ale-piston.html">38.4.4. 1-dimensional Euler equations for Perfect Ideal Gas on moving mesh (ALE)</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../pde/bem.html">36. Boundary Element Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/bem.html">39. Boundary Element Method</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Boundary Methods for PDEs</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../pde/bem-poisson-helmholtz-waves.html">37. Green’s function method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/bem-poisson-helmholtz-waves.html">40. Green’s function method</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Optimization</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../optimization/intro.html">38. Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../optimization/intro.html">41. Optimization</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Control</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">39. Introduction to control methods</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active has-children"><a class="reference internal" href="optimal-control.html">39.1. Optimal control</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="optimal-control-full-state.html">39.1.1. Full-state feedback</a></li>
-<li class="toctree-l3"><a class="reference internal" href="optimal-control-full-state-old.html">39.1.2. Full-state feedback (OLD)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="optimal-control-observer.html">39.1.3. Optimal observer for deterministic disturbances</a></li>
-<li class="toctree-l3"><a class="reference internal" href="optimal-control-output.html">39.1.4. Sub-optimal control for output feedback</a></li>
-<li class="toctree-l3"><a class="reference internal" href="optimal-control-regulator-observer.html">39.1.5. Combination of controller and observer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kalman.html">39.1.6. Kalman filter</a></li>
-<li class="toctree-l3 current active"><a class="current reference internal" href="#">39.1.7. Hamilton Bellman Jacobi equation</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">42. Introduction to control methods</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="optimal-control.html">42.1. Optimal control</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="optimal-control-full-state.html">42.1.1. Full-state feedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optimal-control-full-state-old.html">42.1.2. Full-state feedback (OLD)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optimal-control-observer.html">42.1.3. Optimal observer for deterministic disturbances</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optimal-control-output.html">42.1.4. Sub-optimal control for output feedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optimal-control-regulator-observer.html">42.1.5. Combination of controller and observer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kalman.html">42.1.6. Kalman filter</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">42.1.7. Hamilton Bellman Jacobi equation</a></li>
 </ul>
 </li>
 </ul>
@@ -322,11 +325,11 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Reinforcement Learning</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../rl/intro.html">40. Introduction to Reinforcement Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rl/mdp.html">41. Markov Processes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_sol_dp_lp.html">42. Methods of solution of MPD: DP and LP</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_sol_rl.html">43. Methods of solution of MPD: RL</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_large_continuous.html">44. Large or Continuous MDPs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/intro.html">43. Introduction to Reinforcement Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp.html">44. Markov Processes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_sol_dp_lp.html">45. Methods of solution of MPD: DP and LP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_sol_rl.html">46. Methods of solution of MPD: RL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_large_continuous.html">47. Large or Continuous MDPs</a></li>
 </ul>
 
     </div>
@@ -542,7 +545,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="hamilton-bellman-jacobi-equation">
-<span id="hamilton-bellman-jacobi"></span><h1><span class="section-number">39.1.7. </span>Hamilton Bellman Jacobi equation<a class="headerlink" href="#hamilton-bellman-jacobi-equation" title="Permalink to this heading">#</a></h1>
+<span id="hamilton-bellman-jacobi"></span><h1><span class="section-number">42.1.7. </span>Hamilton Bellman Jacobi equation<a class="headerlink" href="#hamilton-bellman-jacobi-equation" title="Permalink to this heading">#</a></h1>
 <p>Let a dynamical system</p>
 <div class="math notranslate nohighlight">
 \[\dot{\mathbf{x}} = \mathbf{f}(\mathbf{x}, \mathbf{u}) \ ,\]</div>
@@ -606,7 +609,7 @@ Method 2. Augmented value function<div class="sd-summary-down docutils">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">39.1.6. </span>Kalman filter</p>
+        <p class="prev-next-title"><span class="section-number">42.1.6. </span>Kalman filter</p>
       </div>
     </a>
     <a class="right-next"
@@ -614,7 +617,7 @@ Method 2. Augmented value function<div class="sd-summary-down docutils">
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">40. </span>Introduction to Reinforcement Learning</p>
+        <p class="prev-next-title"><span class="section-number">43. </span>Introduction to Reinforcement Learning</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
