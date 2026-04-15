@@ -85,6 +85,30 @@ as $\boldsymbol\Phi(t,t) = \mathbf{I}$, and $\partial_t \boldsymbol\Phi(t,\tau) 
 
 ```
 
+```{dropdown} Controllability for LTI systems
+:open:
+
+For LTI systems $\boldsymbol\Phi(t,t_0) = e^{\mathbf{A}(t-t_0)}$. The controllability Gramian becomes
+
+$$\mathbf{W}_c(t) = \int_{\tau=0}^{t} e^{\mathbf{A} (t-\tau)} \mathbf{B} \mathbf{B}^T e^{\mathbf{A}^T (t-\tau)} d \tau$$
+
+A vector $\mathbf{v}$ belongs to the null space of $\left( e^{\mathbf{A}t} \mathbf{B} \right)^T$ if
+
+$$0 = \mathbf{v}^T e^{\mathbf{A}t} \mathbf{B} \ .$$
+
+Using the definition of the exponential matrix $e^{\mathbf{A}t} := \sum_{n=0}^{+\infty} \frac{\mathbf{A}^n t^n}{n!}$, it follows 
+
+$$0 = \mathbf{v}^T \sum_{n=0}^{+\infty} \frac{\mathbf{A}^n t^n}{n!} \mathbf{B}$$
+
+Thus..., a vector $\mathbf{v}$ is in the null-space of $\mathbf{W}_c$ (symmetric! Be precise and use [orthogonality between range and kernel of the adjoint](math:linear-algebra:thms:RAperpKAh) if it's orthogonal to the columns of the matrix
+
+$$\mathcal{C} = \begin{bmatrix} \mathbf{B} & \mathbf{A} \mathbf{B} & \dots & \mathbf{A}^{n-1} \mathbf{B} \end{bmatrix} \ ,$$
+
+i.e. $\mathbf{v}^T \mathcal{C} = \mathbf{0}$. If the column space of matrix $\mathcal{C}$ spans $\mathbb{R}^n$, then the system is fully controllable.
+
+```
+
+**Obs.** If $\mathbf{v}^T \mathbf{A}^n \mathbf{B}$ for $n = 0:N-1$, thus it holds for all the integer exponent $n \ge N$, as a consequence of the [Cayley-Hamilton theorem](cayley-hamilton), i.e. $\mathbf{A}^n$ can be written as a linear combination of the powers $\mathbf{A}^k$, $k = 0:n-1$.
 
 
 (controllability-reachability:time-discrete)=

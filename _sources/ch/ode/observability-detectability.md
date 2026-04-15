@@ -40,7 +40,7 @@ $$\mathbf{W}_o(t) \, \mathbf{x}_0 = \int_{\tau=t_0}^{t} \boldsymbol\Phi^T(\tau,t
 
 **todo**
 
-* Discuss the pullback of the output to the state space
+* Discuss the **pullback** of the output to the state space (before $\sim$ least-square inversion )
 
 
 ### Detectability
@@ -96,6 +96,29 @@ as $\boldsymbol\Phi(t,t) = \mathbf{I}$, and $\partial_t \boldsymbol\Phi(t,\tau) 
 
 ```
 
+
+```{dropdown} Observability for LTI systems
+:open:
+
+For LTI systems $\boldsymbol\Phi(t,t_0) = e^{\mathbf{A}(t-t_0)}$. The controllability Gramian becomes
+
+$$\mathbf{W}_o(t) = \int_{\tau=0}^{t} e^{\mathbf{A}^T (t-\tau)} \mathbf{C}^T \mathbf{C} e^{\mathbf{A} (t-\tau)} d \tau$$
+
+A vector $\mathbf{v}$ belongs to the null space of $\left( e^{\mathbf{A}^T t} \mathbf{C}^T \right)^T$ if
+
+$$0 = \mathbf{C} e^{\mathbf{A} t} \mathbf{v} \ .$$
+
+Using the definition of the exponential matrix $e^{\mathbf{A}t} := \sum_{n=0}^{+\infty} \frac{\mathbf{A}^n t^n}{n!}$, it follows 
+
+$$0 = \mathbf{C} \sum_{k=0}^{+\infty} \frac{\mathbf{A}^k t^k}{k!} \mathbf{v} $$
+
+Thus..., a vector $\mathbf{v}$ is in the null-space of $\mathbf{W}_o$ (symmetric! Be precise and use [orthogonality between range and kernel of the adjoint](math:linear-algebra:thms:RAperpKAh) if it's orthogonal to the rows of the matrix
+
+$$\mathcal{O} = \begin{bmatrix} \mathbf{C} \\ \mathbf{C} \mathbf{A} \\ \dots \\ \mathbf{C} \mathbf{A}^{n-1} \end{bmatrix} \ ,$$
+
+i.e. $\mathcal{O} \mathbf{v} = \mathbf{0}$. If the row space of matrix $\mathcal{O}$ spans $\mathbb{R}^n$, then the system is fully observable.
+
+```
 
 
 (observability-detectability:time-discrete)=
