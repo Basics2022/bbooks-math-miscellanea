@@ -3,7 +3,7 @@
 
 ## Ordinary differential equations
 
-Exploiting the properties of transforming derivation into product by the complex variable $s$, Laplace transform can be a useful tool in solving [Ordinary differential equations](ode).
+Exploiting the properties of transforming derivation into product by the complex variable $s$, Laplace transform can be a useful tool in solving [Ordinary differential equations](ode:intro).
 
 Linear ODEs are treated in details in the section about [Linear Time-Invariant Systems](ode:lti).
 
@@ -12,7 +12,7 @@ Linear ODEs are treated in details in the section about [Linear Time-Invariant S
 A Cauchy problem governed by a first-order linear differential equation with constant coefficients reads
 
 $$\begin{cases}
-  \dot{u} + a u = f(t)  && \text{for $t > 0$} \\
+  \dot{u} + a u = f(t)  \quad , \quad \text{for $t > 0$} \\
   u(0^-) = u_0 \ .
 \end{cases}$$
 

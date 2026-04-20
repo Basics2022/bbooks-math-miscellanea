@@ -250,10 +250,10 @@ with
 
 $$
 \left| \hat{\boldsymbol{\Lambda}}^{s\, fix}_{i} \right| = 
-\begin{cases} 
-  |\lambda_i| && |\lambda_i| \ge \delta a \\
-  \frac{|\lambda_i|^2}{2 \delta a} + \frac{\delta a}{2} && |\lambda_i| < \delta a \\
-\end{cases}
+\left\{\begin{aligned} 
+  & |\lambda_i| && |\lambda_i| \ge \delta a \\
+  & \frac{|\lambda_i|^2}{2 \delta a} + \frac{\delta a}{2} && |\lambda_i| < \delta a \\
+\end{aligned}\right.
 $$
 
 **todo** *Add discussion about* **numerical dissipation** *and some numerical examples...*
