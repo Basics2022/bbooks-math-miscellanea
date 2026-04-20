@@ -52,21 +52,37 @@ with the optimal matrix of gains, $\mathbf{K} = \mathbf{R}^{-1} \mathbf{B}^T \ma
 
 $$\begin{aligned}
   \mathbf{0}
-  & = \mathbf{A}^T \mathbf{P} + \mathbf{P} \mathbf{A} - \mathbf{K} \mathbf{R} \mathbf{K}^T + \mathbf{Q} = \\
-  & = ( \mathbf{A} + s \mathbf{I} )^T \mathbf{P} + \mathbf{P} ( \mathbf{A} - s \mathbf{I} ) - \mathbf{K} \mathbf{R} \mathbf{K}^T + \mathbf{Q} = \\
-  & = \mathbf{G}^{-T}(-s) \mathbf{P} + \mathbf{P} \mathbf{G}^{-1}(s) - \mathbf{K} \mathbf{R} \mathbf{K}^T + \mathbf{Q} \ .
+  & = \mathbf{A}^T \mathbf{P} + \mathbf{P} \mathbf{A} - \mathbf{K}^T \mathbf{R} \mathbf{K} + \mathbf{Q} = \\
+  & = ( \mathbf{A} + s \mathbf{I} )^T \mathbf{P} + \mathbf{P} ( \mathbf{A} - s \mathbf{I} ) - \mathbf{K}^T \mathbf{R} \mathbf{K} + \mathbf{Q} = \\
+  & = \mathbf{G}^{-T}(-s) \mathbf{P} + \mathbf{P} \mathbf{G}^{-1}(s) - \mathbf{K}^T \mathbf{R} \mathbf{K} + \mathbf{Q} \ .
 \end{aligned}$$
 
 Pre-multiplication by $\mathbf{B}^T \mathbf{G}^T(-s)$ and post-multiplication by $\mathbf{G}(s) \mathbf{B}$ gives
 
 $$\begin{aligned}
   \mathbf{0}
-  & = - \mathbf{B}^T \mathbf{P} \mathbf{G}(s) \mathbf{B} - \mathbf{B}^T \mathbf{G}^T(-s) \mathbf{P} \mathbf{B} - \mathbf{B}^T \mathbf{G}^{T}(-s) \mathbf{K} \mathbf{R} \mathbf{K}^T \mathbf{G}(s) \mathbf{B} + \mathbf{B}^T \mathbf{G}^{T}(-s) \mathbf{Q} \mathbf{G}(s) \mathbf{B} = \\
-  & = - \mathbf{K} \mathbf{R} \mathbf{G}(s) \mathbf{B} - \mathbf{B}^T \mathbf{G}^T(-s) \mathbf{R} \mathbf{K}^T - \mathbf{B}^T \mathbf{G}^{T}(-s) \mathbf{K} \mathbf{R} \mathbf{K}^T \mathbf{G}(s) \mathbf{B} + \mathbf{B}^T \mathbf{G}^{T}(-s) \mathbf{Q} \mathbf{G}(s) \mathbf{B} = \\
-  & = - \mathbf{K} \mathbf{R} \mathbf{H}(s) - \mathbf{H}^T(-s) \mathbf{R} \mathbf{K}^T - \mathbf{H}^{T}(-s) \mathbf{K} \mathbf{R} \mathbf{K}^T \mathbf{H}(s) + \mathbf{H}^{T}(-s) \mathbf{Q} \mathbf{H}(s) = \\
+  & = - \mathbf{B}^T \mathbf{P} \mathbf{G}(s) \mathbf{B} - \mathbf{B}^T \mathbf{G}^T(-s) \mathbf{P} \mathbf{B} - \mathbf{B}^T \mathbf{G}^{T}(-s) \mathbf{K}^T \mathbf{R} \mathbf{K} \mathbf{G}(s) \mathbf{B} + \mathbf{B}^T \mathbf{G}^{T}(-s) \mathbf{Q} \mathbf{G}(s) \mathbf{B} = \\
+  & = - \mathbf{R} \mathbf{K} \mathbf{G}(s) \mathbf{B} - \mathbf{B}^T \mathbf{G}^T(-s) \mathbf{K}^T \mathbf{R} - \mathbf{B}^T \mathbf{G}^{T}(-s) \mathbf{K}^T \mathbf{R} \mathbf{K} \mathbf{G}(s) \mathbf{B} + \mathbf{B}^T \mathbf{G}^{T}(-s) \mathbf{Q} \mathbf{G}(s) \mathbf{B} = \\
+  & = - \mathbf{R} \mathbf{K} \mathbf{H}(s) - \mathbf{H}^T(-s) \mathbf{K}^T \mathbf{R} - \mathbf{H}^{T}(-s) \mathbf{K}^T \mathbf{R} \mathbf{K} \mathbf{H}(s) + \mathbf{H}^{T}(-s) \mathbf{Q} \mathbf{H}(s) \ ,
 \end{aligned}$$
 
-having used the expression of the optimal gain matrix to write $\mathbf{B}^T \mathbf{P} = \mathbf{K} \mathbf{R}$.
+having used the expression of the optimal gain matrix to write $\mathbf{B}^T \mathbf{P} = \mathbf{R} \mathbf{K}$, and defined the open-loop *input* TF matrix $\mathbf{S}(s) := \mathbf{K} \mathbf{H}(s)$. Moving terms with or without $\mathbf{S}(s)$ on two different sides of the equality, and adding \mathbf{R}, and collecting terms, it follows
+
+$$\left[ \mathbf{I} + \mathbf{S}^T(-s) \right] \mathbf{R} \left[ \mathbf{I} + \mathbf{S}(s) \right] = \mathbf{R} + \mathbf{H}^{T}(-s) \mathbf{Q} \mathbf{H}(s) \ .$$
+
+Moving to Fourier domain, $s = j \omega$, and recalling that $\mathbf{S}^T(-j\omega) = \mathbf{S}^*( j \omega ) $,
+
+$$\left[ \mathbf{I} + \mathbf{S}^*(j \omega) \right] \mathbf{R} \left[ \mathbf{I} + \mathbf{S}(j \omega) \right] = \mathbf{R} + \mathbf{H}^*(j\omega) \mathbf{Q} \mathbf{H}(j\omega) \ .$$
+
+**todo** *Notation for semi-definite positive symmetric matrices*
+
+$$\left[ \mathbf{I} + \mathbf{S}^*(j \omega) \right] \mathbf{R} \left[ \mathbf{I} + \mathbf{S}(j \omega) \right] \ge \mathbf{R} \ .$$
+
+For a 1-dimensional state SISO system, $\mathbf{R} = r$, $\mathbf{S}(s) = S(s)$, and thus
+
+$$\left| 1 + S(j\omega) \right|^2 \ge 1 \ .$$
+
+
 
 ```
 
