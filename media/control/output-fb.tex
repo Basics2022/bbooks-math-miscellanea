@@ -1,0 +1,32 @@
+\documentclass[margin=10pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows}
+
+\begin{document}
+
+\tikzstyle{block} = [draw, fill=blue!10, rectangle, minimum height=3em, minimum width=4em]
+\tikzstyle{sum} = [draw, fill=blue!10, circle, node distance=1cm]
+\tikzstyle{input} = [coordinate]
+\tikzstyle{output} = [coordinate]
+
+\begin{tikzpicture}[auto, node distance=2cm,>=latex']
+    % Nodes
+    \node [input, name=input] {};
+    \node [sum, right of=input] (sum) {};
+    \node [block, right of=sum] (controller) {$R(s)$};
+    \node [block, right of=controller, node distance=3cm] (system) {$H(s)$};
+    \node [output, right of=system, node distance=2cm] (output) {};
+
+    % Connections
+    \draw [draw,->] (input) -- node {$y_r(t)$} (sum);
+    \draw [->] (sum) -- node {$e(t)$} (controller);
+    \draw [->] (controller) -- node {$u(t)$} (system);
+    \draw [->] (system) -- node [name=y] {$y(t)$}(output);
+    
+    % Unity Feedback Path
+    % We go from the output branch point (y) down and then back to the sum
+    \draw [->] (y) -- ++(0,-2.0) -| node[pos=0.99] {$-$} (sum);
+    
+\end{tikzpicture}
+
+\end{document}

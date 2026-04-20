@@ -68,12 +68,32 @@ parts:
   chapters:
   - file: ch/ode/intro
   - file: ch/ode/ode-linear-systems
-  - file: ch/ode/lti
-  - file: ch/ode/lti-response
-  - file: ch/ode/lti-stability-and-feedback
-  - file: ch/ode/observability-detectability
-  - file: ch/ode/controllability-reachability
-  - file: ch/ode/lyapunov-equation
+- caption: System Theory
+  numbered: True
+  chapters:
+  - file: ch/system-theory/intro
+  - file: ch/system-theory/lti
+  - file: ch/system-theory/lti-response
+  - file: ch/system-theory/lti-stability-and-feedback
+  - file: ch/system-theory/observability-detectability
+  - file: ch/system-theory/controllability-reachability
+  - file: ch/system-theory/lyapunov-equation
+- caption: Control Theory
+  numbered: True
+  chapters:
+  - file: ch/control/intro
+    sections:
+    - file: ch/control/frequency-domain
+    - file: ch/control/optimal-control
+      sections:
+      - file: ch/control/optimal-control-full-state
+      - file: ch/control/optimal-control-full-state-old
+      - file: ch/control/optimal-control-margins
+      - file: ch/control/optimal-control-observer
+      - file: ch/control/optimal-control-output
+      - file: ch/control/optimal-control-regulator-observer
+      - file: ch/control/kalman
+      - file: ch/control/hjb
 - caption: Partial Differential Equations
   numbered: True
   chapters:
@@ -129,20 +149,6 @@ parts:
   numbered: True
   chapters:
   - file: ch/optimization/intro
-- caption: Control
-  numbered: True
-  chapters:
-  - file: ch/control/intro
-    sections:
-    - file: ch/control/optimal-control
-      sections:
-      - file: ch/control/optimal-control-full-state
-      - file: ch/control/optimal-control-full-state-old
-      - file: ch/control/optimal-control-observer
-      - file: ch/control/optimal-control-output
-      - file: ch/control/optimal-control-regulator-observer
-      - file: ch/control/kalman
-      - file: ch/control/hjb
 - caption: Reinforcement Learning
   numbered: True
   chapters:

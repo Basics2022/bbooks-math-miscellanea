@@ -126,7 +126,7 @@ $$\begin{aligned}
   & = \partial_t u_i + \partial_k F_{ki}(u_\ell) = \\
   & = \partial_t u_i + \partial_{u_{\ell}} F_{ki}(u_\ell) \partial_k u_\ell = \\
   & = \partial_t u_i + A_{i \ell}^{(k)}(u_\ell) \partial_k u_\ell = \\
-  & = \partial_t u_i + \sum_{k=1}^éd} A_{i \ell}^{(k)}(u_\ell) \partial_k u_\ell \ ,
+  & = \partial_t u_i + \sum_{k=1}^{d} A_{i \ell}^{(k)}(u_\ell) \partial_k u_\ell \ ,
 \end{aligned}$$
 
 having defined $A_{i \ell}^{(k)} = \partial_{u_{\ell}} F_{ki}$, or using vector notation

@@ -298,6 +298,72 @@ and thus
 
 $$\boldsymbol\lambda_0 = \left(\boldsymbol\Psi_{\lambda \lambda} - \mathbf{Q} \boldsymbol\Psi_{x\lambda}(T,t_0) \right)^{-1} \left( \mathbf{Q} \boldsymbol\Psi_{xx}(T,t_0) - \boldsymbol\Psi_{\lambda x} \right) \mathbf{x}_0 \ .$$
 
+```{dropdown} Value function and relation $\ \boldsymbol\lambda = \mathbf{P} \mathbf{x}$
+:open:
+
+Let the value function be
+
+$$V(\mathbf{x}_t,t; \mathbf{u}) = \frac{1}{2} \int_{\tau=t}^{T} \left\{ \mathbf{x}^T_\tau \widetilde{\mathbf{Q}}_\tau \mathbf{x}_\tau + \mathbf{x}^T_\tau \mathbf{S}_\tau \mathbf{u}_\tau + \mathbf{u}^T_\tau \mathbf{S}^T_\tau \mathbf{x}_\tau + \mathbf{u}_\tau^T \widetilde{\mathbf{R}}_\tau \mathbf{u}_\tau \right\}  d \tau \, + \frac{1}{2} \mathbf{x}_T^T \mathbf{Q}_T \mathbf{x}_T \ ,$$
+
+subject to the equations of motion as constraints $\dot{\mathbf{x}}_\tau = \mathbf{A}_\tau \mathbf{x}_\tau + \mathbf{B}_\tau \mathbf{u}_\tau$, and the initial condition $\mathbf{x}(t) = \mathbf{x}_t$. This constraint can be introduced either 1) expressing the state $\mathbf{x}_\tau$ as a function of the initial state and the input
+
+$$\mathbf{x}_\tau = \boldsymbol\Phi(\tau,t) \mathbf{x}_t + \int_{\xi=t}^{\tau} \boldsymbol\Phi(\tau,\xi) \mathbf{B}_\xi \mathbf{u}_\xi \, d \xi \ ,$$
+
+or 2) with the methods of Lagrange multipliers. A **co-state** $\boldsymbol\lambda_t$ - corresponding to the Lagrange multiplier - can be evaluated as
+
+$$\boldsymbol\lambda_t = \nabla_{\mathbf{x}_t} V \ .$$
+
+**Method 1.**
+
+$$\begin{aligned}
+  V(\mathbf{x}_t,t; \mathbf{u}) 
+  & = \frac{1}{2} \int_{\tau=t}^{T} \left\{ \left( \boldsymbol\Phi(\tau,t) \mathbf{x}_t + \int_{\xi=t}^{\tau} \boldsymbol\Phi(\tau,\xi) \mathbf{B}_\xi \mathbf{u}_\xi \, d \xi \right)^T \widetilde{\mathbf{Q}}_\tau \left( \boldsymbol\Phi(\tau,t) \mathbf{x}_t + \int_{\xi=t}^{\tau} \boldsymbol\Phi(\tau,\xi) \mathbf{B}_\xi \mathbf{u}_\xi \, d \xi \right) \right\} + \\
+  & + \frac{1}{2} \int_{\tau=t}^{T} \left\{ \left( \boldsymbol\Phi(\tau,t) \mathbf{x}_t + \int_{\xi=t}^{\tau} \boldsymbol\Phi(\tau,\xi) \mathbf{B}_\xi \mathbf{u}_\xi \, d \xi \right)^T \mathbf{S}_\tau \mathbf{u}_\tau \right\} d \tau + \\
+  & + \frac{1}{2} \int_{\tau=t}^{T} \left\{  \mathbf{u}_\tau^T \mathbf{S}_\tau^T \left( \boldsymbol\Phi(\tau,t) \mathbf{x}_t + \int_{\xi=t}^{\tau} \boldsymbol\Phi(\tau,\xi) \mathbf{B}_\xi \mathbf{u}_\xi \, d \xi \right)\right\} d \tau + \\
+  & + \frac{1}{2} \int_{\tau=t}^{T} \mathbf{u}_\tau^T \widetilde{\mathbf{R}}_\tau \mathbf{u}_\tau \,  d \tau + \\
+  & + \frac{1}{2} \left( \boldsymbol\Phi(T,t) \mathbf{x}_t + \int_{\xi=t}^{T} \boldsymbol\Phi(T,\xi) \mathbf{B}_\xi \mathbf{u}_\xi \, d \xi  \right)^T \mathbf{Q}_T \left( \boldsymbol\Phi(T,t) \mathbf{x}_t + \int_{\xi=t}^{T} \boldsymbol\Phi(T,\xi) \mathbf{B}_\xi \mathbf{u}_\xi \, d \xi  \right) = \\
+\end{aligned}$$
+
+and thus
+
+$$\begin{aligned}
+  \boldsymbol\lambda_t 
+  & = \nabla_{\mathbf{x}_t} V = \\
+  & = \int_{\tau=t}^T \left( \boldsymbol\Phi^T(\tau,t) \widetilde{\mathbf{Q}}_\tau \mathbf{x}_\tau + \boldsymbol\Phi^T(\tau,t) \mathbf{S}_\tau \mathbf{u}_\tau \right) \, d \tau + \boldsymbol\Phi^T(T,t) \mathbf{Q}_T \mathbf{x}_T = \\ 
+  & = \left\{ \int_{\tau=t}^T \boldsymbol\Phi(\tau,t)^T \widetilde{\mathbf{Q}}_\tau \boldsymbol\Phi(\tau,t) \, d \tau + \boldsymbol\Phi^T(T,t) \mathbf{Q}_T \boldsymbol\Phi(T,t) \right\} \mathbf{x}_t + \int_{\tau=t}^T \boldsymbol\Phi^T(\tau,t) \mathbf{S}_\tau \mathbf{u}_\tau \, d \tau \ .
+\end{aligned}$$
+
+From optimization, $\mathbf{u}_\tau = - \widetilde{\mathbf{R}}^{-1}_\tau \left( \mathbf{B}_\tau^T \boldsymbol\lambda_\tau + \mathbf{S}^T_\tau \mathbf{x}_\tau \right)$,
+
+**Method 2.**
+
+```
+
+```{dropdown} Optimal control
+:open:
+
+HJB optimality equation
+
+$$0 = \partial_t V^*(\mathbf{x}_t, t) + \min_{\mathbf{u}} \left\{ \partial_{\mathbf{x}} V^*(\mathbf{x}_t, t) \, \mathbf{f}(\mathbf{x}_t, \mathbf{u}_t) + C(\mathbf{x}_t, \mathbf{u}_t) \right\} \ .$$
+
+$$\begin{aligned}
+  \mathbf{0}
+  & = \delta_{\mathbf{u}} V = \\
+  & = \int_{\tau=t}^{T} \left\{ \int_{\xi=t}^\tau \delta \mathbf{u}_\xi^T  \mathbf{B}_\xi^T \boldsymbol\Phi^T(\tau,\xi)  \, d \xi \, \left( \widetilde{\mathbf{Q}}_\tau \mathbf{x}_\tau + \mathbf{S}_\tau \mathbf{u}_\tau \right) + \delta \mathbf{u}_\tau^T \mathbf{S}^T_\tau \mathbf{x}_\tau + \delta \mathbf{u}_\tau^T \widetilde{\mathbf{R}} \mathbf{u}_\tau + \mathbf{B}_\tau^T \boldsymbol\Phi^T(T,\tau) \mathbf{Q}_T \mathbf{x}_T \right\} \, d \tau = \\
+  & \\
+  & = \text{TODO...details about variable swap in the integrals of the first term} = \\
+  & \\
+  & = \int_{\tau=t}^{T} \delta \mathbf{u}_\tau^T \left\{ \mathbf{B}^T_\tau \underbrace{\left( \int_{\xi=\tau}^T \boldsymbol\Phi^T(\xi,\tau) \left( \widetilde{\mathbf{Q}}_\xi \mathbf{x}_\xi + \mathbf{S}_\xi \mathbf{u}_\xi \right) \, d \xi + \boldsymbol\Phi^T(T,\tau) \mathbf{Q} \mathbf{x}_T \right)}_{\boldsymbol\lambda_\tau} + \mathbf{S}^T_\tau \mathbf{x}_\tau + \widetilde{\mathbf{R}} \mathbf{u}_\tau \right\} \, d \tau \ ,
+\end{aligned}$$
+
+and thus, from the arbitrariety of $\delta \mathbf{u}_\tau$, and since $\widetilde{\mathbf{R}}$ is required  to be invertible
+
+$$\mathbf{u}_\tau = - \widetilde{\mathbf{R}}^{-1}_\tau \left( \mathbf{B}_\tau^T \boldsymbol\lambda_\tau + \mathbf{S}^T_\tau \mathbf{x}_\tau \right) \ .$$
+
+
+```
+
+
 ```{dropdown} ...
 :open:
 
@@ -351,5 +417,91 @@ The transformation $\mathbf{v} := \mathbf{u} + \widetilde{\mathbf{R}}^{-1} \math
 * ...
 
 
+
+```{dropdown} Coupled state-input weights
+:open:
+
+$$J = \frac{1}{2} \int_{\tau=0}^{T} \begin{bmatrix} \mathbf{x} \\ \mathbf{u} \end{bmatrix}^T \begin{bmatrix} \mathbf{Q} & \mathbf{S} \\ \mathbf{S}^T & \mathbf{R} \end{bmatrix} \begin{bmatrix} \mathbf{x} \\ \mathbf{u} \end{bmatrix} d \tau + \frac{1}{2} \mathbf{x}_T^T \mathbf{Q}_T \mathbf{x}_T$$
+
+
+```
+
+```{dropdown} Decoupled state-input weights
+:open:
+
+The problem can be decoupled with a transformation
+
+$$\begin{bmatrix} \mathbf{x} \\ \mathbf{u} \end{bmatrix} = \begin{bmatrix} \mathbf{I} & \mathbf{0} \\ \mathbf{T} & \mathbf{I} \end{bmatrix} \begin{bmatrix} \widetilde{\mathbf{x}} \\ \widetilde{\mathbf{u}} \end{bmatrix} $$
+
+so that
+
+$$\begin{aligned}
+  \begin{bmatrix} \mathbf{x} \\ \mathbf{u} \end{bmatrix}^T \begin{bmatrix} \mathbf{Q} & \mathbf{S} \\ \mathbf{S}^T & \mathbf{R} \end{bmatrix} \begin{bmatrix} \mathbf{x} \\ \mathbf{u} \end{bmatrix}
+  & = \begin{bmatrix} \widetilde{\mathbf{x}} \\ \widetilde{\mathbf{u}} \end{bmatrix}^T \begin{bmatrix} \mathbf{I} & \mathbf{T}^T \\ \mathbf{0} & \mathbf{I} \end{bmatrix} \begin{bmatrix} \mathbf{Q} & \mathbf{S} \\ \mathbf{S}^T & \mathbf{R} \end{bmatrix} \begin{bmatrix} \mathbf{I} & \mathbf{0} \\ \mathbf{T} & \mathbf{I} \end{bmatrix}  \begin{bmatrix} \widetilde{\mathbf{x}} \\ \widetilde{\mathbf{u}} \end{bmatrix} = \\
+  & = \begin{bmatrix} \widetilde{\mathbf{x}} \\ \widetilde{\mathbf{u}} \end{bmatrix}^T \begin{bmatrix} \mathbf{Q} + \mathbf{T}^T \mathbf{S}^T & \mathbf{S} + \mathbf{T}^T \mathbf{R} \\ \mathbf{S}^T & \mathbf{R} \end{bmatrix} \begin{bmatrix} \mathbf{I} & \mathbf{0} \\ \mathbf{T} & \mathbf{I} \end{bmatrix}  \begin{bmatrix} \widetilde{\mathbf{x}} \\ \widetilde{\mathbf{u}} \end{bmatrix} = \\ 
+  & = \begin{bmatrix} \widetilde{\mathbf{x}} \\ \widetilde{\mathbf{u}} \end{bmatrix}^T \begin{bmatrix} \mathbf{Q} + \mathbf{T}^T \mathbf{S}^T + \mathbf{S} \mathbf{T} + \mathbf{T}^T \mathbf{R} \mathbf{T} & \mathbf{S} + \mathbf{T}^T \mathbf{R} \\ \mathbf{S}^T + \mathbf{R} \mathbf{T} & \mathbf{R} \end{bmatrix} \begin{bmatrix} \widetilde{\mathbf{x}} \\ \widetilde{\mathbf{u}} \end{bmatrix} \ ,
+\end{aligned}$$
+
+Extra-diagonal terms are identically zero if $\mathbf{T} = - \mathbf{R}^{-1} \mathbf{S}^T$. The coordinate transformation becomes
+
+$$\begin{aligned}
+ \mathbf{x} & = \widetilde{\mathbf{x}} \\
+ \mathbf{u} & = -\mathbf{R}^{-1} \mathbf{S}^T \widetilde{\mathbf{x}} + \widetilde{\mathbf{u}} \\
+\end{aligned}$$
+
+and the running cost reads
+
+$$
+  \begin{bmatrix} \widetilde{\mathbf{x}} \\ \widetilde{\mathbf{u}} \end{bmatrix}^T \begin{bmatrix} \mathbf{Q} - \mathbf{S} \mathbf{R}^{-1} \mathbf{S}^T & \mathbf{0} \\ \mathbf{0} & \mathbf{R} \end{bmatrix} \begin{bmatrix} \widetilde{\mathbf{x}} \\ \widetilde{\mathbf{u}} \end{bmatrix} \ .
+$$
+
+The linear system
+
+$$\begin{aligned}
+  \dot{\mathbf{x}} & = \mathbf{A} \mathbf{x} + \mathbf{B} \mathbf{u} \\
+       \mathbf{y}  & = \mathbf{C} \mathbf{x} + \mathbf{D} \mathbf{u} \\
+\end{aligned}$$
+
+becomes
+
+$$\begin{aligned}
+  \dot{\widetilde{\mathbf{x}}} & = \left( \mathbf{A} - \mathbf{B} \mathbf{R}^{-1} \mathbf{S}^T \right) \widetilde{\mathbf{x}} + \mathbf{B} \widetilde{\mathbf{u}} \\
+       \mathbf{y}  & = \left( \mathbf{C} - \mathbf{D} \mathbf{R}^{-1} \mathbf{S}^T \right) \widetilde{\mathbf{x}} + \mathbf{D} \widetilde{\mathbf{u}} 
+\end{aligned}$$
+
+```
+
+```{dropdown} Decoupled system
+:open:
+
+$$J = \frac{1}{2} \int_{\tau=0}^{T} \begin{bmatrix} \mathbf{x} \\ \widetilde{\mathbf{u}} \end{bmatrix}^T \begin{bmatrix} \hat{\mathbf{Q}} & \mathbf{0} \\ \mathbf{0} & \mathbf{R} \end{bmatrix} \begin{bmatrix} \mathbf{x} \\ \widetilde{\mathbf{u}} \end{bmatrix} d \tau + \frac{1}{2} \mathbf{x}_T^T \mathbf{Q}_T \mathbf{x}_T - \int_{\tau=0}^{t} \boldsymbol\lambda^T \left( \dot{\mathbf{x}} - \hat{\mathbf{A}} \mathbf{x} + \mathbf{B} \widetilde{\mathbf{u}} \right) d \tau .$$
+
+Optimization gives
+
+$$\begin{aligned}
+ \delta \boldsymbol\lambda(t): & \quad \dot{\mathbf{x}} = \hat{\mathbf{A}} \mathbf{x} + \mathbf{B} \widetilde{\mathbf{u}} \\
+                               & \quad \mathbf{x}(0) = \mathbf{x}_0 \\
+ \delta \mathbf{x}(t)        : & \quad \dot{\boldsymbol{\lambda}} = - \hat{\mathbf{A}}^T \boldsymbol\lambda - \hat{\mathbf{Q}} \mathbf{x} \\
+ \delta \mathbf{x}(T)        : & \quad \boldsymbol\lambda(T) = \mathbf{Q}_T \mathbf{x}(T) \\
+ \delta \mathbf{u}(t)        : & \quad \mathbf{0} = \mathbf{R} \widetilde{\mathbf{u}} + \mathbf{B}^T \boldsymbol\lambda \ .
+\end{aligned}$$ (eq:optimal:ode:linear:decoupling)
+
+The modified optimal control reads
+
+$$\widetilde{\mathbf{u}} = - \mathbf{R}^{-1} \mathbf{B}^T \boldsymbol\lambda$$
+
+and thus
+
+$$\mathbf{u} = - \mathbf{R}^{-1} \left( \mathbf{S}^T \mathbf{x} + \mathbf{B}^T \boldsymbol\lambda \right) \ .$$
+
+$$\mathbf{x}(t) = \hat{\boldsymbol\Phi}(t,t_0)\mathbf{x}_0 + \int_{\tau=t_0}^{t} \hat{\boldsymbol\Phi}(t,\tau) \mathbf{B}_\tau \widetilde{\mathbf{u}}(\tau) d \tau \ $$
+
+$$\boldsymbol\lambda_t = \partial_{\mathbf{x}_t} V = \left[ \int_{\tau=t}^{T} \hat{\boldsymbol\Phi}^T(\tau,t) \hat{\mathbf{Q}}_\tau \hat{\boldsymbol\Phi}(\tau,t) \, d \tau + \hat{\boldsymbol\Phi}^T(T,t) \mathbf{Q}_T \hat{\boldsymbol\Phi}(T,t) \right] \mathbf{x}_t = \mathbf{P}(t,T) \mathbf{x}_t \ . $$
+
+```
+
+$$\partial_t \hat{\boldsymbol\Phi}(t,\tau) = \hat{\mathbf{A}}(t)  \hat{\boldsymbol\Phi}(t,\tau) \ .$$
+
+$$\partial_T \mathbf{P}$$
 
 

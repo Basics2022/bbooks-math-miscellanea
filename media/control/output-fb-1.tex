@@ -1,0 +1,56 @@
+\documentclass[margin=10pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric, arrows}
+
+\begin{document}
+
+% Define block styles
+\tikzstyle{block} = [draw, fill=blue!10, rectangle, 
+    minimum height=3em, minimum width=4em]
+\tikzstyle{sum} = [draw, fill=blue!10, circle, node distance=1cm]
+\tikzstyle{input} = [coordinate]
+\tikzstyle{output} = [coordinate]
+\tikzstyle{pinstyle} = [pin edge={to-,thin,black}]
+
+\begin{tikzpicture}[auto, node distance=2cm,>=latex']
+    % --- Nodes ---
+    % Start with the input reference
+    \node [input, name=input] {};
+    
+    % Summing junction
+    \node [sum, right of=input] (sum) {};
+    
+    % Controller Block (C(s))
+    \node [block, right of=sum] (controller) {$C(s)$};
+    
+    % Plant Block (G(s))
+    \node [block, right of=controller, node distance=3cm] (system) {$G(s)$};
+    
+    % Output node
+    \node [output, right of=system, node distance=2cm] (output) {};
+    
+    % Feedback Block (H(s))
+    \node [block, below of=system] (feedback) {$H(s)$};
+
+    % --- Connections ---
+    % Path from input to sum
+    \draw [draw,->] (input) -- node {$r(t)$} (sum);
+    
+    % Path from sum to controller
+    \draw [->] (sum) -- node {$e(t)$} (controller);
+    
+    % Path from controller to plant
+    \draw [->] (controller) -- node {$u(t)$} (system);
+    
+    % Path from plant to output
+    \draw [->] (system) -- node [name=y] {$y(t)$}(output);
+    
+    % Feedback branch point and connection to H(s)
+    \draw [->] (y) |- (feedback);
+    
+    % Path from H(s) back to sum
+    \draw [->] (feedback) -| node[pos=0.99] {$-$} node [near end] {$b(t)$} (sum);
+    
+\end{tikzpicture}
+
+\end{document}
