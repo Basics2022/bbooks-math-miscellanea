@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>31.2.1. Full-state feedback &#8212; basics - math</title>
+    <title>31.3.1. Full-state feedback &#8212; basics - math</title>
   
   
   
@@ -71,8 +71,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="31.2.2. Full-state feedback (OLD)" href="optimal-control-full-state-old.html" />
-    <link rel="prev" title="31.2. Optimal control" href="optimal-control.html" />
+    <link rel="next" title="31.3.2. Full-state feedback (OLD)" href="optimal-control-full-state-old.html" />
+    <link rel="prev" title="31.3. Optimal control" href="optimal-control.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -256,15 +256,17 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Control Theory</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">31. Introduction to control methods</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="frequency-domain.html">31.1. Frequency domain control</a></li>
-<li class="toctree-l2 current active has-children"><a class="reference internal" href="optimal-control.html">31.2. Optimal control</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l3 current active"><a class="current reference internal" href="#">31.2.1. Full-state feedback</a></li>
-<li class="toctree-l3"><a class="reference internal" href="optimal-control-full-state-old.html">31.2.2. Full-state feedback (OLD)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="optimal-control-observer.html">31.2.3. Optimal observer for deterministic disturbances</a></li>
-<li class="toctree-l3"><a class="reference internal" href="optimal-control-output.html">31.2.4. Sub-optimal control for output feedback</a></li>
-<li class="toctree-l3"><a class="reference internal" href="optimal-control-regulator-observer.html">31.2.5. Combination of controller and observer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kalman.html">31.2.6. Kalman filter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="hjb.html">31.2.7. Hamilton Bellman Jacobi equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="closed-loop-requirements-performance.html">31.1. Closed-loop control: requirements and performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="frequency-domain.html">31.2. Frequency domain control</a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="optimal-control.html">31.3. Optimal control</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">31.3.1. Full-state feedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optimal-control-full-state-old.html">31.3.2. Full-state feedback (OLD)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optimal-control-margins.html">31.3.3. Phase and gain margin of optimal control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optimal-control-observer.html">31.3.4. Optimal observer for deterministic disturbances</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optimal-control-output.html">31.3.5. Sub-optimal control for output feedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optimal-control-regulator-observer.html">31.3.6. Combination of controller and observer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kalman.html">31.3.7. Kalman filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hjb.html">31.3.8. Hamilton Bellman Jacobi equation</a></li>
 </ul>
 </li>
 </ul>
@@ -548,8 +550,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generic-ode-without-exogenous-inputs">31.2.1.1. Generic ODE without exogenous inputs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-system">31.2.1.2. Linear system</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generic-ode-without-exogenous-inputs">31.3.1.1. Generic ODE without exogenous inputs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-system">31.3.1.2. Linear system</a></li>
 </ul>
             </nav>
         </div>
@@ -562,7 +564,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="full-state-feedback">
-<span id="control-optimal-full-state-fb"></span><h1><span class="section-number">31.2.1. </span>Full-state feedback<a class="headerlink" href="#full-state-feedback" title="Permalink to this heading">#</a></h1>
+<span id="control-optimal-full-state-fb"></span><h1><span class="section-number">31.3.1. </span>Full-state feedback<a class="headerlink" href="#full-state-feedback" title="Permalink to this heading">#</a></h1>
 <p>Optimal control can be recast as a <strong>constrained optimization problem</strong>, <span class="math notranslate nohighlight">\(J\)</span>, where an extreme - optimum - of an objective function must be found, subject to constraints that include the equations of motion. Some constraints may be included into an augmented objective function <span class="math notranslate nohighlight">\(\widetilde{J}\)</span> with the methods of <a class="reference internal" href="../optimization/intro.html#optimization-constrained-lagrange-multipliers"><span class="std std-ref">Lagrange multipliers</span></a>.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
 <summary class="sd-summary-title sd-card-header">
@@ -621,7 +623,7 @@ D(\mathbf{x}(T)) &amp; = \frac{1}{2} \mathbf{x}^T(T) \mathbf{Q}_T \mathbf{x}(T) 
 </details><p><strong>Finite time vs. Infinite time horizon.</strong></p>
 <p>…</p>
 <div class="section" id="generic-ode-without-exogenous-inputs">
-<span id="control-optimal-full-state-fb-ode"></span><h2><span class="section-number">31.2.1.1. </span>Generic ODE without exogenous inputs<a class="headerlink" href="#generic-ode-without-exogenous-inputs" title="Permalink to this heading">#</a></h2>
+<span id="control-optimal-full-state-fb-ode"></span><h2><span class="section-number">31.3.1.1. </span>Generic ODE without exogenous inputs<a class="headerlink" href="#generic-ode-without-exogenous-inputs" title="Permalink to this heading">#</a></h2>
 <div class="math notranslate nohighlight">
 \[\mathbf{M} \dot{\mathbf{x}} = \mathbf{f}(\mathbf{x}, \mathbf{u}) \ ,\]</div>
 <p>with initial condition <span class="math notranslate nohighlight">\(\mathbf{x}(0) = \mathbf{x}_0\)</span>.</p>
@@ -781,7 +783,7 @@ HJB equation - Optimality equation<div class="sd-summary-down docutils">
 </div>
 </details></div>
 <div class="section" id="linear-system">
-<span id="control-optimal-full-state-fb-linear"></span><h2><span class="section-number">31.2.1.2. </span>Linear system<a class="headerlink" href="#linear-system" title="Permalink to this heading">#</a></h2>
+<span id="control-optimal-full-state-fb-linear"></span><h2><span class="section-number">31.3.1.2. </span>Linear system<a class="headerlink" href="#linear-system" title="Permalink to this heading">#</a></h2>
 <p>Let the dynamical equation of a system be</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{cases}
@@ -1079,7 +1081,7 @@ Decoupled system<div class="sd-summary-down docutils">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">31.2. </span>Optimal control</p>
+        <p class="prev-next-title"><span class="section-number">31.3. </span>Optimal control</p>
       </div>
     </a>
     <a class="right-next"
@@ -1087,7 +1089,7 @@ Decoupled system<div class="sd-summary-down docutils">
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">31.2.2. </span>Full-state feedback (OLD)</p>
+        <p class="prev-next-title"><span class="section-number">31.3.2. </span>Full-state feedback (OLD)</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1106,8 +1108,8 @@ Decoupled system<div class="sd-summary-down docutils">
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generic-ode-without-exogenous-inputs">31.2.1.1. Generic ODE without exogenous inputs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-system">31.2.1.2. Linear system</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generic-ode-without-exogenous-inputs">31.3.1.1. Generic ODE without exogenous inputs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-system">31.3.1.2. Linear system</a></li>
 </ul>
   </nav></div>
 

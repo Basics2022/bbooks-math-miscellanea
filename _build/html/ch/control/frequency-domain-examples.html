@@ -1,0 +1,1012 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Examples of control systems in frequency domain &#8212; basics - math</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/style.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="https://cdn.plot.ly/plotly-lates.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/control/frequency-domain-examples';</script>
+    <link rel="shortcut icon" href="../../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPXX63Z3XR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-JPXX63Z3XR');
+</script>
+
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.svg" class="logo__image only-light" alt="basics - math - Home"/>
+    <script>document.write(`<img src="../../_static/logo-dark.svg" class="logo__image only-dark" alt="basics - math - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Linear Algebra</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../linear-algebra/intro.html">1. Introduction to Linear Algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linear-algebra/matrices.html">2. Matrices</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../linear-algebra/matrix-factorization.html">3. Matrix factorizations</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../linear-algebra/svd.html">3.3. Singular Value Decomposition</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../linear-algebra/linear-systems.html">4. Linear Systems</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../linear-algebra/spectral.html">5. Spectral decomposition</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../linear-algebra/spectral-symmetric.html">5.1. Spectral decomposition of symmetric matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linear-algebra/spectral-sensitivity.html">5.2. Sensitivity of spectral decomposition</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../linear-algebra/cayley-hamilton.html">6. Cayley-Hamilton theorem</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Multivariable Calculus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../multivariable/intro.html">7. Introduction to multi-variable calculus</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Differential Geometry</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../differential-geometry/intro.html">8. Introduction to Differential Geometry</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Vector and Tensor Algebra and Calculus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/algebra.html">9. Tensor Algebra</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean.html">10. Tensor Calculus in Euclidean Spaces</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean-cartesian.html">10.5. Tensor Calculus in Euclidean Spaces - Cartesian coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean-cylindrical.html">10.6. Tensor Calculus in Euclidean Spaces - cylindrical coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean-spherical.html">10.7. Tensor Calculus in Euclidean Spaces - Spehrical coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/tensor-invariants.html">11. Tensor Invariants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/algebra-rotation-tensors.html">12. Unitary and rotation tensors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/algebra-isotropic-tensors.html">13. Isotropic Tensors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/time-derivative-of-integrals.html">14. Time derivative of integrals over moving domains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/calculus-identities.html">15. Calculus identities</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Functional Analysis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../functional-analysis/intro.html">16. Introduction to Functional Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functional-analysis/dirac-delta.html">17. Dirac’s delta</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Complex Calculus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../complex/analysis.html">18. Complex Analysis</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../complex/laplace.html">19. Laplace Transform</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../complex/laplace-def-thm.html">19.1. Definition and Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../complex/laplace-applications.html">19.2. Applications of Laplace Transform</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../complex/fourier.html">20. Fourier Transforms</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../complex/fourier-series.html">20.1. Fourier Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../complex/fourier-transform.html">20.2. Fourier Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../complex/fourier-transforms.html">20.3. Relations between Fourier transforms</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Calculus of Variations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../calculus-variations/intro.html">21. Introduction to Calculus of Variations</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Ordinary Differential Equations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ode/intro.html">22. Introduction to Ordinary Differential Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ode/ode-linear-systems.html">23. Linear systems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">System Theory</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../system-theory/intro.html">24. Introduction to System Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system-theory/lti.html">25. Linear Time-Invariant Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system-theory/lti-response.html">26. LTI system response</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system-theory/lti-stability-and-feedback.html">27. LTI: stability and feedback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system-theory/observability-detectability.html">28. Observability and Detectability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system-theory/controllability-reachability.html">29. Reachability and Controllability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system-theory/lyapunov-equation.html">30. Lyapunov equation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Control Theory</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="intro.html">31. Introduction to control methods</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="closed-loop-requirements-performance.html">31.1. Closed-loop control: requirements and performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="frequency-domain.html">31.2. Frequency domain control</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="optimal-control.html">31.3. Optimal control</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="optimal-control-full-state.html">31.3.1. Full-state feedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optimal-control-full-state-old.html">31.3.2. Full-state feedback (OLD)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optimal-control-margins.html">31.3.3. Phase and gain margin of optimal control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optimal-control-observer.html">31.3.4. Optimal observer for deterministic disturbances</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optimal-control-output.html">31.3.5. Sub-optimal control for output feedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optimal-control-regulator-observer.html">31.3.6. Combination of controller and observer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kalman.html">31.3.7. Kalman filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hjb.html">31.3.8. Hamilton Bellman Jacobi equation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Partial Differential Equations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../pde/intro.html">32. Introduction to Partial Differential Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/elliptic.html">33. Elliptic equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/parabolic.html">34. Parabolic equations</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/hyperbolic.html">35. Hyperbolic equations</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-intro.html">35.1. Hyperbolic problems and conservation laws</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-dimensions.html">35.2. Hyperbolic problems - dimensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-1d-scalar-linear.html">35.3. Scalar linear equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-1d-vector-linear.html">35.4. Linear vector equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-1d-scalar-nonlinear.html">35.5. Scalar non-linear equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/characteristics.html">35.6. Method of characteristics</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../pde/hyperbolic-nd.html">35.7. Hyperbolic problems in multi-dimensional domains</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-draft.html">35.7.1. General hyperbolic problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-psys.html">35.7.2. P-system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-euler.html">35.7.3. Euler equations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-shallow-water.html">35.7.4. Shallow water</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-riemann-pb.html">35.8. Riemann problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-entropy.html">35.9. Physical solution in hyperbolic problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-convexity.html">35.10. Convexity in hyperbolic problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-non-convex.html">35.11. Non-convex hyperbolic problems</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/nc.html">36. Navier-Cauchy equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/ns.html">37. Navier-Stokes equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/ale.html">38. Arbitrary Lagrangian-Eulerian description</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Numerical Methods for PDEs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../pde/numerics.html">39. Introduction to numerical methods for PDEs</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/fem.html">40. Finite Element Method</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pde/fem-poisson-1d.html">40.1. 1-dimensional Poisson equation</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/fvm.html">41. Finite Volume Method</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pde/fvm-poisson-1d.html">41.1. 1-dimensional Poisson equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/fvm-hyperbolic-pde.html">41.2. FVM for hyperbolic problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/fvm-hyperbolic-bc.html">41.3. Boundary conditions in hyperbolic problems</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../pde/fvm-hyperbolic-examples.html">41.4. Examples of FVM for hyperbolic problems</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../pde/psys-1d.html">41.4.1. 1-dimensional P-system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/euler-1d.html">41.4.2. 1-dimensional Euler equations for Perfect Ideal Gas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/euler-quasi-1d.html">41.4.3. Quasi 1-dimensional Euler equations for Perfect Ideal Gas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/euler-1d-ale-piston.html">41.4.4. 1-dimensional Euler equations for Perfect Ideal Gas on moving mesh (ALE)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/bem.html">42. Boundary Element Method</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Boundary Methods for PDEs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../pde/bem-poisson-helmholtz-waves.html">43. Green’s function method</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Optimization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../optimization/intro.html">44. Optimization</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reinforcement Learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../rl/intro.html">45. Introduction to Reinforcement Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp.html">46. Markov Processes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_sol_dp_lp.html">47. Methods of solution of MPD: DP and LP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_sol_rl.html">48. Methods of solution of MPD: RL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_large_continuous.html">49. Large or Continuous MDPs</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Basics2022/bbooks-math-miscellanea/blob/master/ch/control/frequency-domain-examples.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/edit/main/ch/control/frequency-domain-examples.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/issues/new?title=Issue%20on%20page%20%2Fch/control/frequency-domain-examples.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/ch/control/frequency-domain-examples.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Examples of control systems in frequency domain</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#libraries">Libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plants">Plants</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-stable-system">Example 1. Stable system</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-unstable-system">Example 2. Unstable system</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3">Example 3.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4">Example 4.</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="tex2jax_ignore mathjax_ignore section" id="examples-of-control-systems-in-frequency-domain">
+<h1>Examples of control systems in frequency domain<a class="headerlink" href="#examples-of-control-systems-in-frequency-domain" title="Permalink to this heading">#</a></h1>
+<div class="section" id="libraries">
+<h2>Libraries<a class="headerlink" href="#libraries" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install the control library if running in Colab</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">control</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>control
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy</span> <span class="k">as</span> <span class="nn">sp</span>
+<span class="kn">import</span> <span class="nn">control</span> <span class="k">as</span> <span class="nn">ct</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="plants">
+<h2>Plants<a class="headerlink" href="#plants" title="Permalink to this heading">#</a></h2>
+<p>A set of plants are defined here using <span class="math notranslate nohighlight">\(\text{tf(num, den)}\)</span> function of <span class="math notranslate nohighlight">\(\texttt{control}\)</span> library, and investigated in the following sections.</p>
+<div class="math notranslate nohighlight">
+\[G_1(s) = \frac{1}{s^2 + 2 s + 10} = \frac{1}{(s + (1+3j))(s + (1-3j))}\]</div>
+<div class="math notranslate nohighlight">
+\[G_2(s) = \frac{1}{s^2 +   s - 2 } = \frac{1}{(s - 1)(s + 2)}\]</div>
+<div class="math notranslate nohighlight">
+\[G_3(s) = \dots \text{todo: describe Padé approximation}\]</div>
+<div class="math notranslate nohighlight">
+\[G_4(s) = \frac{-s + 2}{s^2 + 2 s + 10}\]</div>
+<p><span class="math notranslate nohighlight">\(G_1\)</span> is stable, <span class="math notranslate nohighlight">\(G_2\)</span> is unstable as it has a pole in <span class="math notranslate nohighlight">\(s = 1\)</span>, <span class="math notranslate nohighlight">\(G_3\)</span> has a time delay (or its Padé approximation), <span class="math notranslate nohighlight">\(G_4\)</span> has non-minimal phase.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define a collection of plants to test</span>
+<span class="n">plants</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;stable&quot;</span><span class="p">:</span> <span class="n">ct</span><span class="o">.</span><span class="n">tf</span><span class="p">([</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">]),</span>                   <span class="c1"># Standard 2nd order</span>
+    <span class="s2">&quot;unstable&quot;</span><span class="p">:</span> <span class="n">ct</span><span class="o">.</span><span class="n">tf</span><span class="p">([</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">]),</span>                <span class="c1"># Pole at s=2</span>
+    <span class="s2">&quot;with_delay&quot;</span><span class="p">:</span> <span class="n">ct</span><span class="o">.</span><span class="n">tf</span><span class="p">([</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span> <span class="o">*</span> <span class="n">ct</span><span class="o">.</span><span class="n">tf</span><span class="p">(</span><span class="o">*</span><span class="n">ct</span><span class="o">.</span><span class="n">pade</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">2</span><span class="p">)),</span> <span class="c1"># 0.5s delay</span>
+    <span class="s2">&quot;non_minimal_phase&quot;</span><span class="p">:</span> <span class="n">ct</span><span class="o">.</span><span class="n">tf</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">]),</span>    <span class="c1"># RHP zero at s=2</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="example-1-stable-system">
+<h3>Example 1. Stable system<a class="headerlink" href="#example-1-stable-system" title="Permalink to this heading">#</a></h3>
+<p>The forced response of the system in Laplace domain</p>
+<div class="math notranslate nohighlight">
+\[x(s) = \frac{1}{s^2 + 2 s + 10} u(s) \ ,\]</div>
+<p>has a realization in time domain as</p>
+<div class="math notranslate nohighlight">
+\[\ddot{x}(t) + 2 \dot{x}(t) + 10 x(t) = u(t) \ ,\]</div>
+<p>It can be interpreted as a mass-damper-spring system, i.e. a LTI second order system with positive mass, damping coefficient and spring stiffness.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plant_name</span> <span class="o">=</span> <span class="s2">&quot;stable&quot;</span> 
+<span class="n">G</span> <span class="o">=</span> <span class="n">plants</span><span class="p">[</span><span class="n">plant_name</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Investigating </span><span class="si">{</span><span class="n">plant_name</span><span class="si">}</span><span class="s2"> plant:</span><span class="se">\n</span><span class="s2">G(s) = </span><span class="si">{</span><span class="n">G</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Investigating stable plant:
+G(s) = 
+      1
+--------------
+s^2 + 2 s + 10
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">K</span> <span class="o">=</span> <span class="mf">5.0</span>  <span class="c1"># Regulator Gain</span>
+<span class="n">L</span> <span class="o">=</span> <span class="n">K</span> <span class="o">*</span> <span class="n">G</span>
+
+<span class="c1"># Calculate Stability Margins</span>
+<span class="n">gm</span><span class="p">,</span> <span class="n">pm</span><span class="p">,</span> <span class="n">wg</span><span class="p">,</span> <span class="n">wp</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">margin</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+
+<span class="c1"># Plotting</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">ct</span><span class="o">.</span><span class="n">nyquist_plot</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+
+<span class="n">theta_v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">x_circle</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta_v</span><span class="p">)</span>
+<span class="n">y_circle</span> <span class="o">=</span>      <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta_v</span><span class="p">)</span>
+
+<span class="c1"># Aesthetics and Labels</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;rx&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Critical Point (-1, 0)&#39;</span><span class="p">)</span> <span class="c1"># , fontweight=&#39;bold&#39;) # )</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_circle</span><span class="p">,</span> <span class="n">y_circle</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Nyquist Diagram (Gain K = </span><span class="si">{</span><span class="n">K</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Real Axis&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Imaginary Axis&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">ct</span><span class="o">.</span><span class="n">bode_plot</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">margins</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Phase Margin: </span><span class="si">{</span><span class="n">pm</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">° at </span><span class="si">{</span><span class="n">wp</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> rad/s&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Gain Margin: </span><span class="si">{</span><span class="n">gm</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> at </span><span class="si">{</span><span class="n">wg</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> rad/s&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Phase Margin: inf° at nan rad/s
+Gain Margin: inf at nan rad/s
+</pre></div>
+</div>
+<img alt="../../_images/e7346f1a349a92934f1c8ac989b36c807b0f5fb7207206f24631e0c69d314536.png" src="../../_images/e7346f1a349a92934f1c8ac989b36c807b0f5fb7207206f24631e0c69d314536.png" />
+<img alt="../../_images/53d4307d373c1d0c7b515c7de22d4c75674bfa0b212f995622aee3888086bf5b.png" src="../../_images/53d4307d373c1d0c7b515c7de22d4c75674bfa0b212f995622aee3888086bf5b.png" />
+</div>
+</div>
+</div>
+<div class="section" id="example-2-unstable-system">
+<h3>Example 2. Unstable system<a class="headerlink" href="#example-2-unstable-system" title="Permalink to this heading">#</a></h3>
+<p>The forced response of the system in Laplace domain</p>
+<div class="math notranslate nohighlight">
+\[x(s) = \frac{1}{s^2 + s - 2} u(s) \ ,\]</div>
+<p>has a realization in time domain as</p>
+<div class="math notranslate nohighlight">
+\[\ddot{x}(t) + \dot{x}(t) - 2 x(t) = u(t) \ ,\]</div>
+<p>i.e. it can be interpreted as the linearized equation of inverted-pendulum system around its unstable equilibrium,</p>
+<div class="math notranslate nohighlight">
+\[m \ell^2 \ddot{\theta} + c \dot{\theta} - mg \ell \sin \theta = C(t) \ ,\]</div>
+<p>with <span class="math notranslate nohighlight">\(\sin \theta \sim \theta\)</span>, for <span class="math notranslate nohighlight">\(\theta \approx \overline{\theta} = 0\)</span>. Thus the linearized equation reads</p>
+<div class="math notranslate nohighlight">
+\[\ddot{\theta} + \frac{c}{m \ell^2} \dot{\theta} - \frac{g}{\ell} \theta = \frac{1}{m \ell^2} C(t) \ .\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="mf">1.</span>
+<span class="n">zeros</span> <span class="o">=</span> <span class="p">[</span><span class="mf">.2</span><span class="p">,</span> <span class="mf">.2</span><span class="p">]</span>
+<span class="n">poles</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+
+<span class="n">K</span> <span class="o">=</span> <span class="n">k</span> <span class="o">*</span> <span class="n">ct</span><span class="o">.</span><span class="n">tf</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">poly</span><span class="p">(</span><span class="n">zeros</span><span class="p">),</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="o">*</span> <span class="n">ct</span><span class="o">.</span><span class="n">tf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">poly</span><span class="p">(</span><span class="n">poles</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">K</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  s^2 - 0.4 s + 0.04
+----------------------
+s^4 - 20 s^3 + 100 s^2
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plant_name</span> <span class="o">=</span> <span class="s2">&quot;unstable&quot;</span> 
+<span class="n">G</span> <span class="o">=</span> <span class="n">plants</span><span class="p">[</span><span class="n">plant_name</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Investigating </span><span class="si">{</span><span class="n">plant_name</span><span class="si">}</span><span class="s2"> plant:</span><span class="se">\n</span><span class="s2">G(s) = </span><span class="si">{</span><span class="n">G</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># k, z, p = -10., 1, 10</span>
+<span class="c1"># K = ct.tf([1, z], [1, p, 0]) * k</span>
+
+<span class="c1">#&gt; Proportional controller</span>
+<span class="n">K</span> <span class="o">=</span> <span class="mf">10.</span>
+
+<span class="c1">#&gt; With integral</span>
+<span class="n">k</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="mf">50.</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span>
+<span class="n">K</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">tf</span><span class="p">([</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="n">p</span><span class="p">])</span> <span class="o">*</span> <span class="n">k</span>
+
+<span class="c1"># print(K)</span>
+
+<span class="c1"># 2. Design the Regulator</span>
+<span class="c1"># We use two zeros at s=0.5 to &#39;pull&#39; the phase up early</span>
+<span class="c1"># and two high-frequency poles at s=20 to filter noise.</span>
+<span class="n">zeros</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">.2</span><span class="p">,</span> <span class="o">-</span><span class="mf">.2</span><span class="p">]</span>
+<span class="n">poles</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="o">-</span><span class="mi">20</span><span class="p">]</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mi">250</span> <span class="c1"># High gain is usually needed to &#39;catch&#39; the unstable system</span>
+
+<span class="n">K</span> <span class="o">=</span> <span class="n">k</span> <span class="o">*</span> <span class="n">ct</span><span class="o">.</span><span class="n">tf</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">poly</span><span class="p">(</span><span class="n">zeros</span><span class="p">),</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="o">*</span> <span class="n">ct</span><span class="o">.</span><span class="n">tf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">poly</span><span class="p">(</span><span class="n">poles</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">K</span><span class="p">)</span>
+
+<span class="c1">#&gt; Open-loop TF</span>
+<span class="n">L</span> <span class="o">=</span> <span class="n">G</span> <span class="o">*</span> <span class="n">K</span>
+
+<span class="c1"># 3. Check Stability</span>
+<span class="n">gm</span><span class="p">,</span> <span class="n">pm</span><span class="p">,</span> <span class="n">wg</span><span class="p">,</span> <span class="n">wp</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">margin</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Phase Margin: </span><span class="si">{</span><span class="n">pm</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> deg&quot;</span><span class="p">)</span>
+
+<span class="c1"># Plotting</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">ct</span><span class="o">.</span><span class="n">nyquist_plot</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+
+<span class="n">theta_v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">x_circle</span> <span class="o">=</span>      <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta_v</span><span class="p">)</span>
+<span class="n">y_circle</span> <span class="o">=</span>      <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta_v</span><span class="p">)</span>
+
+<span class="c1"># Aesthetics and Labels</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;rx&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Critical Point (-1, 0)&#39;</span><span class="p">)</span> <span class="c1"># , fontweight=&#39;bold&#39;) # )</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_circle</span><span class="p">,</span> <span class="n">y_circle</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Nyquist Diagram&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Real Axis&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Imaginary Axis&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="kn">from</span> <span class="nn">control.matlab</span> <span class="kn">import</span> <span class="n">bode</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">mag</span><span class="p">,</span> <span class="n">phase</span><span class="p">,</span> <span class="n">omega</span> <span class="o">=</span> <span class="n">bode</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+<span class="c1"># ct.bode_plot(L, margins=True)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">omega</span><span class="p">,</span> <span class="n">mag</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">omega</span><span class="p">,</span> <span class="n">phase</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Bode diagram of the open-loop TF $L(s) = G(s)R(s)$&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">Lc</span> <span class="o">=</span> <span class="n">L</span> <span class="o">/</span> <span class="p">(</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">L</span> <span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">Lc</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ct</span><span class="o">.</span><span class="n">pole</span><span class="p">(</span><span class="n">Lc</span><span class="p">))</span>
+
+<span class="c1"># fig, ax = plt.subplots(1,1, figsize=(5, 5))</span>
+<span class="c1"># ct.bode_plot(1/(1+L), margins=True)</span>
+<span class="c1"># ax.grid(True)</span>
+
+<span class="c1"># print(f&quot;Phase Margin: {pm:.2f}° at {wp:.2f} rad/s&quot;)</span>
+<span class="c1"># print(f&quot;Gain Margin: {gm:.2f} at {wg:.2f} rad/s&quot;)</span>
+<span class="c1"># plt.show()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Investigating unstable plant:
+G(s) = 
+     1
+-----------
+s^2 + s - 2
+
+
+ 250 s^2 + 100 s + 10
+----------------------
+s^4 + 40 s^3 + 400 s^2
+
+Phase Margin: -109.43 deg
+</pre></div>
+</div>
+<img alt="../../_images/2d3f484dc341573f74dab8f4c14a3b03faac24938dd2560b05e6896a93d3eda8.png" src="../../_images/2d3f484dc341573f74dab8f4c14a3b03faac24938dd2560b05e6896a93d3eda8.png" />
+<img alt="../../_images/a14960d1c40008d9b39461461c5d8e2a654b9435e79dd07657bedbcf46b92139.png" src="../../_images/a14960d1c40008d9b39461461c5d8e2a654b9435e79dd07657bedbcf46b92139.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                         250 s^8 + 1.035e+04 s^7 + 1.136e+05 s^6 + 1.242e+05 s^5 - 1.636e+05 s^4 - 7.68e+04 s^3 - 8000 s^2
+----------------------------------------------------------------------------------------------------------------------------------------------------
+s^12 + 82 s^11 + 2557 s^10 + 3.656e+04 s^9 + 2.167e+05 s^8 + 2.251e+05 s^7 - 4.848e+05 s^6 - 3.878e+05 s^5 + 4.764e+05 s^4 - 7.68e+04 s^3 - 8000 s^2
+
+[-20.03283507+8.02421483e-01j -20.03283507-8.02421483e-01j
+ -20.        +1.44610683e-05j -20.        -1.44610683e-05j
+  -2.        +0.00000000e+00j  -1.78671608+0.00000000e+00j
+   1.        +0.00000000e+00j   0.59393755+0.00000000e+00j
+   0.3295801 +0.00000000e+00j  -0.07113144+0.00000000e+00j
+   0.        +0.00000000e+00j   0.        +0.00000000e+00j]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&gt; Impulse response</span>
+<span class="n">t</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">impulse_response</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">L</span><span class="p">),)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Impulse response&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1">#&gt; Step response</span>
+<span class="n">t</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">step_response</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">L</span><span class="p">),)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Step response&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/090fbdff78af5a732e958fc0bc44394df9dafb8d563da8ae2c448c8c1e226fab.png" src="../../_images/090fbdff78af5a732e958fc0bc44394df9dafb8d563da8ae2c448c8c1e226fab.png" />
+<img alt="../../_images/40c3c1df80a614bf5b6512b489fce805b6100d57dd2a27c6c6923010bb47f0c8.png" src="../../_images/40c3c1df80a614bf5b6512b489fce805b6100d57dd2a27c6c6923010bb47f0c8.png" />
+</div>
+</div>
+</div>
+<div class="section" id="example-3">
+<h3>Example 3.<a class="headerlink" href="#example-3" title="Permalink to this heading">#</a></h3>
+</div>
+<div class="section" id="example-4">
+<h3>Example 4.<a class="headerlink" href="#example-4" title="Permalink to this heading">#</a></h3>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./ch/control"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#libraries">Libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plants">Plants</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-stable-system">Example 1. Stable system</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-unstable-system">Example 2. Unstable system</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3">Example 3.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-4">Example 4.</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By basics
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

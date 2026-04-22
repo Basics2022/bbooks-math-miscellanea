@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>31.2.3. Phase and gain margin of optimal control &#8212; basics - math</title>
+    <title>31.3.3. Phase and gain margin of optimal control &#8212; basics - math</title>
   
   
   
@@ -71,8 +71,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="31.2.4. Optimal observer for deterministic disturbances" href="optimal-control-observer.html" />
-    <link rel="prev" title="31.2.2. Full-state feedback (OLD)" href="optimal-control-full-state-old.html" />
+    <link rel="next" title="31.3.4. Optimal observer for deterministic disturbances" href="optimal-control-observer.html" />
+    <link rel="prev" title="31.3.2. Full-state feedback (OLD)" href="optimal-control-full-state-old.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -256,16 +256,17 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Control Theory</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">31. Introduction to control methods</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="frequency-domain.html">31.1. Frequency domain control</a></li>
-<li class="toctree-l2 current active has-children"><a class="reference internal" href="optimal-control.html">31.2. Optimal control</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="optimal-control-full-state.html">31.2.1. Full-state feedback</a></li>
-<li class="toctree-l3"><a class="reference internal" href="optimal-control-full-state-old.html">31.2.2. Full-state feedback (OLD)</a></li>
-<li class="toctree-l3 current active"><a class="current reference internal" href="#">31.2.3. Phase and gain margin of optimal control</a></li>
-<li class="toctree-l3"><a class="reference internal" href="optimal-control-observer.html">31.2.4. Optimal observer for deterministic disturbances</a></li>
-<li class="toctree-l3"><a class="reference internal" href="optimal-control-output.html">31.2.5. Sub-optimal control for output feedback</a></li>
-<li class="toctree-l3"><a class="reference internal" href="optimal-control-regulator-observer.html">31.2.6. Combination of controller and observer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kalman.html">31.2.7. Kalman filter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="hjb.html">31.2.8. Hamilton Bellman Jacobi equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="closed-loop-requirements-performance.html">31.1. Closed-loop control: requirements and performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="frequency-domain.html">31.2. Frequency domain control</a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="optimal-control.html">31.3. Optimal control</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="optimal-control-full-state.html">31.3.1. Full-state feedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optimal-control-full-state-old.html">31.3.2. Full-state feedback (OLD)</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">31.3.3. Phase and gain margin of optimal control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optimal-control-observer.html">31.3.4. Optimal observer for deterministic disturbances</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optimal-control-output.html">31.3.5. Sub-optimal control for output feedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optimal-control-regulator-observer.html">31.3.6. Combination of controller and observer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kalman.html">31.3.7. Kalman filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hjb.html">31.3.8. Hamilton Bellman Jacobi equation</a></li>
 </ul>
 </li>
 </ul>
@@ -549,8 +550,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#siso">31.2.3.1. SISO</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mimo">31.2.3.2. MIMO</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#siso">31.3.3.1. SISO</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mimo">31.3.3.2. MIMO</a></li>
 </ul>
             </nav>
         </div>
@@ -563,18 +564,20 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="phase-and-gain-margin-of-optimal-control">
-<span id="control-optimal-margins"></span><h1><span class="section-number">31.2.3. </span>Phase and gain margin of optimal control<a class="headerlink" href="#phase-and-gain-margin-of-optimal-control" title="Permalink to this heading">#</a></h1>
+<span id="control-optimal-margins"></span><h1><span class="section-number">31.3.3. </span>Phase and gain margin of optimal control<a class="headerlink" href="#phase-and-gain-margin-of-optimal-control" title="Permalink to this heading">#</a></h1>
 <p>Some results are available for phase and gain margin of optimal control, on the input side. <strong>todo</strong> <em>discuss</em>
 The relationship between the actual input to the plant <span class="math notranslate nohighlight">\(u\)</span> and an additive input error <span class="math notranslate nohighlight">\(\Delta u\)</span> reads</p>
 <div class="math notranslate nohighlight">
 \[u = \Delta u + u_c = \Delta u + K e = \Delta u + K (x_{ref} - x) = \Delta u + K x_{ref} + K H u \ ,\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-optimal-input-siso-tfs">
+<span class="eqno">(31.10)<a class="headerlink" href="#equation-eq-optimal-input-siso-tfs" title="Permalink to this equation">#</a></span>\[u = \frac{1}{1 + K H(s)} \Delta u(s) + \frac{K}{1 + KH(s)} x_{ref}(s) \ ,\]</div>
 <p>for a SISO or</p>
-<div class="math notranslate nohighlight">
-\[\mathbf{u} = \left[ \mathbf{I} + \mathbf{K}(s) \mathbf{H}(s) \right]^{-1} \Delta\mathbf{u} + \left[ \mathbf{I} + \mathbf{K}(s) \mathbf{H}(s) \right]^{-1} \mathbf{K}(s) \mathbf{x}_{ref} \ ,\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-optimal-input-mimo-tfs">
+<span class="eqno">(31.11)<a class="headerlink" href="#equation-eq-optimal-input-mimo-tfs" title="Permalink to this equation">#</a></span>\[\mathbf{u} = \left[ \mathbf{I} + \mathbf{K}(s) \mathbf{H}(s) \right]^{-1} \Delta\mathbf{u} + \left[ \mathbf{I} + \mathbf{K}(s) \mathbf{H}(s) \right]^{-1} \mathbf{K}(s) \mathbf{x}_{ref} \ ,\]</div>
 <p>for a MIMO system. The additive input error <span class="math notranslate nohighlight">\(\Delta u\)</span> can be thought as the difference between the ideal/design condition, due to un-modelled parts, failures, and any other form of discrepancy to the model altering the gain and the phase (adding delay) of the ideal control <span class="math notranslate nohighlight">\(u_c\)</span>.</p>
 <div class="figure align-center" id="fig-optimal-control-margin-block">
 <img alt="Block diagram for the optimal control margins" src="../../_images/optimal-control-margin-1.png" />
-<p class="caption"><span class="caption-number">Fig. 31.2 </span><span class="caption-text">Block diagram of optimal control closed-loop system with retroaction on the error <span class="math notranslate nohighlight">\(e = x_{ref} - x\)</span> on the full state.</span><a class="headerlink" href="#fig-optimal-control-margin-block" title="Permalink to this image">#</a></p>
+<p class="caption"><span class="caption-number">Fig. 31.3 </span><span class="caption-text">Block diagram of optimal control closed-loop system with retroaction on the error <span class="math notranslate nohighlight">\(e = x_{ref} - x\)</span> on the full state.</span><a class="headerlink" href="#fig-optimal-control-margin-block" title="Permalink to this image">#</a></p>
 </div>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
@@ -588,14 +591,16 @@ Details<div class="sd-summary-down docutils">
 \[u = \Delta u + u_c = \Delta u + K e = \Delta u + K (x_{ref} - x) = \Delta u + K x_{ref} + K H u \ ,\]</div>
 <p class="sd-card-text">and thus</p>
 <div class="math notranslate nohighlight">
-\[u = \frac{1}{1+K H} \Delta u + \frac{K}{1 + K H} x_{ref} \ .\]</div>
+\[u(s) = \frac{1}{1+K H(s)} \Delta u(s) + \frac{K}{1 + K H(s)} x_{ref}(s) \ .\]</div>
 <p class="sd-card-text">For a MIMO systems, TFs are matrix TFs and thus matrix inversion is required (as the division between matrix makes no sense at all),</p>
 <div class="math notranslate nohighlight">
-\[\mathbf{u} = \left[ \mathbf{I} + \mathbf{K}(s) \mathbf{H}(s) \right]^{-1} \Delta\mathbf{u} + \left[ \mathbf{I} + \mathbf{K}(s) \mathbf{H}(s) \right]^{-1} \mathbf{K}(s) \mathbf{x}_{ref} \ .\]</div>
+\[\mathbf{u}(s) = \left[ \mathbf{I} + \mathbf{K} \mathbf{H}(s) \right]^{-1} \Delta\mathbf{u}(s) + \left[ \mathbf{I} + \mathbf{K} \mathbf{H}(s) \right]^{-1} \mathbf{K} \mathbf{x}_{ref}(s) \ .\]</div>
 </div>
 </details><div class="section" id="siso">
-<span id="control-optimal-margins-siso"></span><h2><span class="section-number">31.2.3.1. </span>SISO<a class="headerlink" href="#siso" title="Permalink to this heading">#</a></h2>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<span id="control-optimal-margins-siso"></span><h2><span class="section-number">31.3.3.1. </span>SISO<a class="headerlink" href="#siso" title="Permalink to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[\left| 1 + S(j\omega) \right|^2 \ge 1 \ .\]</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Details<div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
@@ -636,7 +641,10 @@ Details<div class="sd-summary-down docutils">
 </div>
 </details></div>
 <div class="section" id="mimo">
-<span id="id1"></span><h2><span class="section-number">31.2.3.2. </span>MIMO<a class="headerlink" href="#mimo" title="Permalink to this heading">#</a></h2>
+<span id="control-optimal-margins-mimo"></span><h2><span class="section-number">31.3.3.2. </span>MIMO<a class="headerlink" href="#mimo" title="Permalink to this heading">#</a></h2>
+<div class="math notranslate nohighlight">
+\[\left[ \mathbf{I} + \mathbf{S}^*(j \omega) \right] \mathbf{R} \left[ \mathbf{I} + \mathbf{S}(j \omega) \right] \ge \mathbf{R} \ .\]</div>
+<p>with <span class="math notranslate nohighlight">\(\mathbf{H}(s) = (s \mathbf{I} - \mathbf{A})^{-1} \mathbf{B}\)</span>, and <span class="math notranslate nohighlight">\(\mathbf{S}(s) = \mathbf{K} \mathbf{H}(s)\)</span> the open-loop TF between <span class="math notranslate nohighlight">\(\Delta \mathbf{u}\)</span> and the ideal control loop <span class="math notranslate nohighlight">\(\mathbf{u}_c\)</span>, and <span class="math notranslate nohighlight">\(\mathbf{I} + \mathbf{S}(s)\)</span> the (inverse of the) transfer function between <span class="math notranslate nohighlight">\(\Delta \mathbf{u}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{u}\)</span>, as shown in <a class="reference internal" href="#equation-eq-optimal-input-mimo-tfs">(31.11)</a>.</p>
 </div>
 </div>
 
@@ -676,7 +684,7 @@ Details<div class="sd-summary-down docutils">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">31.2.2. </span>Full-state feedback (OLD)</p>
+        <p class="prev-next-title"><span class="section-number">31.3.2. </span>Full-state feedback (OLD)</p>
       </div>
     </a>
     <a class="right-next"
@@ -684,7 +692,7 @@ Details<div class="sd-summary-down docutils">
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">31.2.4. </span>Optimal observer for deterministic disturbances</p>
+        <p class="prev-next-title"><span class="section-number">31.3.4. </span>Optimal observer for deterministic disturbances</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -703,8 +711,8 @@ Details<div class="sd-summary-down docutils">
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#siso">31.2.3.1. SISO</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mimo">31.2.3.2. MIMO</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#siso">31.3.3.1. SISO</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mimo">31.3.3.2. MIMO</a></li>
 </ul>
   </nav></div>
 
