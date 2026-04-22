@@ -6,9 +6,11 @@ The relationship between the actual input to the plant $u$ and an additive input
 
 $$u = \Delta u + u_c = \Delta u + K e = \Delta u + K (x_{ref} - x) = \Delta u + K x_{ref} + K H u \ ,$$
 
+$$u = \frac{1}{1 + K H(s)} \Delta u(s) + \frac{K}{1 + KH(s)} x_{ref}(s) \ ,$$ (eq:optimal:input:siso:tfs)
+
 for a SISO or
 
-$$\mathbf{u} = \left[ \mathbf{I} + \mathbf{K}(s) \mathbf{H}(s) \right]^{-1} \Delta\mathbf{u} + \left[ \mathbf{I} + \mathbf{K}(s) \mathbf{H}(s) \right]^{-1} \mathbf{K}(s) \mathbf{x}_{ref} \ ,$$
+$$\mathbf{u} = \left[ \mathbf{I} + \mathbf{K}(s) \mathbf{H}(s) \right]^{-1} \Delta\mathbf{u} + \left[ \mathbf{I} + \mathbf{K}(s) \mathbf{H}(s) \right]^{-1} \mathbf{K}(s) \mathbf{x}_{ref} \ ,$$ (eq:optimal:input:mimo:tfs)
 
 for a MIMO system. The additive input error $\Delta u$ can be thought as the difference between the ideal/design condition, due to un-modelled parts, failures, and any other form of discrepancy to the model altering the gain and the phase (adding delay) of the ideal control $u_c$.
 
@@ -30,19 +32,21 @@ $$u = \Delta u + u_c = \Delta u + K e = \Delta u + K (x_{ref} - x) = \Delta u + 
 
 and thus
 
-$$u = \frac{1}{1+K H} \Delta u + \frac{K}{1 + K H} x_{ref} \ .$$
+$$u(s) = \frac{1}{1+K H(s)} \Delta u(s) + \frac{K}{1 + K H(s)} x_{ref}(s) \ .$$
 
 For a MIMO systems, TFs are matrix TFs and thus matrix inversion is required (as the division between matrix makes no sense at all),
 
-$$\mathbf{u} = \left[ \mathbf{I} + \mathbf{K}(s) \mathbf{H}(s) \right]^{-1} \Delta\mathbf{u} + \left[ \mathbf{I} + \mathbf{K}(s) \mathbf{H}(s) \right]^{-1} \mathbf{K}(s) \mathbf{x}_{ref} \ .$$
+$$\mathbf{u}(s) = \left[ \mathbf{I} + \mathbf{K} \mathbf{H}(s) \right]^{-1} \Delta\mathbf{u}(s) + \left[ \mathbf{I} + \mathbf{K} \mathbf{H}(s) \right]^{-1} \mathbf{K} \mathbf{x}_{ref}(s) \ .$$
 
 ```
 
 (control:optimal:margins:siso)=
 ## SISO
 
+
+$$\left| 1 + S(j\omega) \right|^2 \ge 1 \ .$$
+
 ```{dropdown} Details
-:open:
 
 Starting from the algebraic Lyapunov equation for the matrix $\mathbf{P}$
 
@@ -87,9 +91,11 @@ $$\left| 1 + S(j\omega) \right|^2 \ge 1 \ .$$
 ```
 
 
-(control:optimal:margins:siso)=
+(control:optimal:margins:mimo)=
 ## MIMO
 
+$$\left[ \mathbf{I} + \mathbf{S}^*(j \omega) \right] \mathbf{R} \left[ \mathbf{I} + \mathbf{S}(j \omega) \right] \ge \mathbf{R} \ .$$
 
+with $\mathbf{H}(s) = (s \mathbf{I} - \mathbf{A})^{-1} \mathbf{B}$, and $\mathbf{S}(s) = \mathbf{K} \mathbf{H}(s)$ the open-loop TF between $\Delta \mathbf{u}$ and the ideal control loop $\mathbf{u}_c$, and $\mathbf{I} + \mathbf{S}(s)$ the (inverse of the) transfer function between $\Delta \mathbf{u}$ and $\mathbf{u}$, as shown in {eq}`eq:optimal:input:mimo:tfs`.
 
 

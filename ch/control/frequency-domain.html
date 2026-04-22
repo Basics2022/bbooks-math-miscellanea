@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>31.1. Frequency domain control &#8212; basics - math</title>
+    <title>31.2. Frequency domain control &#8212; basics - math</title>
   
   
   
@@ -71,8 +71,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="31.2. Optimal control" href="optimal-control.html" />
-    <link rel="prev" title="31. Introduction to control methods" href="intro.html" />
+    <link rel="next" title="31.3. Optimal control" href="optimal-control.html" />
+    <link rel="prev" title="31.1. Closed-loop control: requirements and performance" href="closed-loop-requirements-performance.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -256,16 +256,17 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Control Theory</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">31. Introduction to control methods</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">31.1. Frequency domain control</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="optimal-control.html">31.2. Optimal control</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="optimal-control-full-state.html">31.2.1. Full-state feedback</a></li>
-<li class="toctree-l3"><a class="reference internal" href="optimal-control-full-state-old.html">31.2.2. Full-state feedback (OLD)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="optimal-control-margins.html">31.2.3. Phase and gain margin of optimal control</a></li>
-<li class="toctree-l3"><a class="reference internal" href="optimal-control-observer.html">31.2.4. Optimal observer for deterministic disturbances</a></li>
-<li class="toctree-l3"><a class="reference internal" href="optimal-control-output.html">31.2.5. Sub-optimal control for output feedback</a></li>
-<li class="toctree-l3"><a class="reference internal" href="optimal-control-regulator-observer.html">31.2.6. Combination of controller and observer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kalman.html">31.2.7. Kalman filter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="hjb.html">31.2.8. Hamilton Bellman Jacobi equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="closed-loop-requirements-performance.html">31.1. Closed-loop control: requirements and performance</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">31.2. Frequency domain control</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="optimal-control.html">31.3. Optimal control</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="optimal-control-full-state.html">31.3.1. Full-state feedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optimal-control-full-state-old.html">31.3.2. Full-state feedback (OLD)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optimal-control-margins.html">31.3.3. Phase and gain margin of optimal control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optimal-control-observer.html">31.3.4. Optimal observer for deterministic disturbances</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optimal-control-output.html">31.3.5. Sub-optimal control for output feedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optimal-control-regulator-observer.html">31.3.6. Combination of controller and observer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kalman.html">31.3.7. Kalman filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hjb.html">31.3.8. Hamilton Bellman Jacobi equation</a></li>
 </ul>
 </li>
 </ul>
@@ -549,12 +550,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stability-of-closed-loop-siso-systems">31.1.1. Stability of closed-loop SISO systems</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cauchy-argument-principle">31.1.1.1. Cauchy argument principle</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nyquist-stability-criterion">31.1.1.2. Nyquist stability criterion</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bode-stability-criterion-for-minimal-phase-systems">31.1.1.3. Bode stability criterion for minimal phase systems</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-margin">31.1.1.4. Phase margin</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gain-margin">31.1.1.5. Gain margin</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stability-of-closed-loop-siso-systems">31.2.1. Stability of closed-loop SISO systems</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cauchy-argument-principle">31.2.1.1. Cauchy argument principle</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nyquist-stability-criterion">31.2.1.2. Nyquist stability criterion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bode-stability-criterion-for-minimal-phase-systems">31.2.1.3. Bode stability criterion for minimal phase systems</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-margin">31.2.1.4. Phase margin</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gain-margin">31.2.1.5. Gain margin</a></li>
 </ul>
 </li>
 </ul>
@@ -569,10 +570,10 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="frequency-domain-control">
-<span id="control-frequency"></span><h1><span class="section-number">31.1. </span>Frequency domain control<a class="headerlink" href="#frequency-domain-control" title="Permalink to this heading">#</a></h1>
+<span id="control-frequency"></span><h1><span class="section-number">31.2. </span>Frequency domain control<a class="headerlink" href="#frequency-domain-control" title="Permalink to this heading">#</a></h1>
 <div class="section" id="stability-of-closed-loop-siso-systems">
-<span id="control-frequency-siso"></span><h2><span class="section-number">31.1.1. </span>Stability of closed-loop SISO systems<a class="headerlink" href="#stability-of-closed-loop-siso-systems" title="Permalink to this heading">#</a></h2>
-<p>Let <span class="math notranslate nohighlight">\(L(s) = G(s) R(s)\)</span> the open-loop transfer function of the the system represented in <a class="reference internal" href="#fig-nyquist-block"><span class="std std-numref">Fig. 31.1</span></a>: the system is explicitly represented as a combination of a plant with transfer function <span class="math notranslate nohighlight">\(G(s)\)</span> and a regulator with transfer function <span class="math notranslate nohighlight">\(R(s)\)</span>. The output of the system <span class="math notranslate nohighlight">\(y\)</span>, and the error <span class="math notranslate nohighlight">\(e = y - y_{ref}\)</span> are related with the reference signals as</p>
+<span id="control-frequency-siso"></span><h2><span class="section-number">31.2.1. </span>Stability of closed-loop SISO systems<a class="headerlink" href="#stability-of-closed-loop-siso-systems" title="Permalink to this heading">#</a></h2>
+<p>Let <span class="math notranslate nohighlight">\(L(s) = G(s) R(s)\)</span> the open-loop transfer function of the the system represented in <code class="xref std std-numref docutils literal notranslate"><span class="pre">fig-nyquist-block</span></code>: the system is explicitly represented as a combination of a plant with transfer function <span class="math notranslate nohighlight">\(G(s)\)</span> and a regulator with transfer function <span class="math notranslate nohighlight">\(R(s)\)</span>. The output of the system <span class="math notranslate nohighlight">\(y\)</span>, and the error <span class="math notranslate nohighlight">\(e = y - y_{ref}\)</span> are related with the reference signals as</p>
 <div class="math notranslate nohighlight" id="equation-eq-nyquist-tfs">
 <span class="eqno">(31.1)<a class="headerlink" href="#equation-eq-nyquist-tfs" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
   y(s) &amp; = \frac{L(s)}{1 + L(s)} y_{ref}(s) \\
@@ -580,7 +581,7 @@ document.write(`
 \end{aligned}\end{split}\]</div>
 <div class="figure align-center" id="fig-nyquist-block">
 <img alt="Nyquist theorem block diagram" src="../../_images/control-reference-nyquist.png" />
-<p class="caption"><span class="caption-number">Fig. 31.1 </span><span class="caption-text">Block diagram of the closed-loop system with retroaction on the output error <span class="math notranslate nohighlight">\(e = y_{ref} - y\)</span>. Here, <span class="math notranslate nohighlight">\(G(s)\)</span> is the plant transfer function, <span class="math notranslate nohighlight">\(R(s)\)</span> is the regulator transfer function (that can be designed to control a given plant), and <span class="math notranslate nohighlight">\(L(s) = G(s) R(s)\)</span> is defined as the open-loop transfer function.</span><a class="headerlink" href="#fig-nyquist-block" title="Permalink to this image">#</a></p>
+<p class="caption"><span class="caption-number">Fig. 31.2 </span><span class="caption-text">Block diagram of the closed-loop system with retroaction on the output error <span class="math notranslate nohighlight">\(e = y_{ref} - y\)</span>. Here, <span class="math notranslate nohighlight">\(G(s)\)</span> is the plant transfer function, <span class="math notranslate nohighlight">\(R(s)\)</span> is the regulator transfer function (that can be designed to control a given plant), and <span class="math notranslate nohighlight">\(L(s) = G(s) R(s)\)</span> is defined as the open-loop transfer function.</span><a class="headerlink" href="#fig-nyquist-block" title="Permalink to this image">#</a></p>
 </div>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
@@ -605,7 +606,7 @@ Details<div class="sd-summary-down docutils">
 \[e(s) = \frac{1}{1 + L(s)} y_{ref} \ .\]</div>
 </div>
 </details><div class="section" id="cauchy-argument-principle">
-<span id="control-frequency-siso-cauchy-argument"></span><h3><span class="section-number">31.1.1.1. </span>Cauchy argument principle<a class="headerlink" href="#cauchy-argument-principle" title="Permalink to this heading">#</a></h3>
+<span id="control-frequency-siso-cauchy-argument"></span><h3><span class="section-number">31.2.1.1. </span>Cauchy argument principle<a class="headerlink" href="#cauchy-argument-principle" title="Permalink to this heading">#</a></h3>
 <p>For the <a class="reference internal" href="../complex/analysis.html#complex-analysis-mero-fun-cauchy-argument-principle"><span class="std std-ref">Cauchy argument principle</span></a>, the difference of argument of function <span class="math notranslate nohighlight">\(F(s)\)</span> when <span class="math notranslate nohighlight">\(s\)</span> performs a counter-clockwise loop over th contour <span class="math notranslate nohighlight">\(\Gamma\)</span> enclosing poles <span class="math notranslate nohighlight">\(p_n\)</span>, and zeros <span class="math notranslate nohighlight">\(z_d\)</span> of the function <span class="math notranslate nohighlight">\(F(s)\)</span> reads</p>
 <div class="math notranslate nohighlight">
 \[\Delta \text{arg} \{ F(s) \} = \sum_{n} \text{arg}(s - z_n) - \sum_{d} \text{arg}(s-p_d) = Z 2 \pi - P 2 \pi = (Z-P) 2 \pi \ , \]</div>
@@ -615,7 +616,7 @@ Details<div class="sd-summary-down docutils">
 <p>loops around the origin <span class="math notranslate nohighlight">\(0+i 0\)</span> of the complex plane.</p>
 </div>
 <div class="section" id="nyquist-stability-criterion">
-<span id="control-frequency-siso-nyquist"></span><h3><span class="section-number">31.1.1.2. </span>Nyquist stability criterion<a class="headerlink" href="#nyquist-stability-criterion" title="Permalink to this heading">#</a></h3>
+<span id="control-frequency-siso-nyquist"></span><h3><span class="section-number">31.2.1.2. </span>Nyquist stability criterion<a class="headerlink" href="#nyquist-stability-criterion" title="Permalink to this heading">#</a></h3>
 <p>Nyquist stability criterion provides the conditions for the stability of the closed loop transfer functions <a class="reference internal" href="#equation-eq-nyquist-tfs">(31.1)</a>. As shown in section about <a class="reference internal" href="../system-theory/lti-stability-and-feedback.html#ode-lti-stability-fb"><span class="std std-ref">stability of LTI systems</span></a>, a linear system is asymptotically stable if all of its poles have negative real parts.</p>
 <p>All the closed-loop transfer functions have the same poles (as they have the same denominator, except for <em>dangerous</em> cancellations not changing the stability but the observability or the controllability <strong>todo</strong> <em>Discuss</em>).</p>
 <p>The poles of the closed loop systems are the zeros of the function <span class="math notranslate nohighlight">\(1 + L(s)\)</span>. If the closed-loop system is asymptotically stable, it must have no pole with positive real part. As the complex variable <span class="math notranslate nohighlight">\(s\)</span> performs a clockwise (and thus, the signs of the relation change w.r.t. Cauchy argument criterion) loop over <strong>Nyquist path</strong> (semicircle in the RHS half-plane; then <strong>todo</strong> discuss the case where poles and zeros are on the imaginary axis…deform the path…). No zero of <span class="math notranslate nohighlight">\(1 + G(s)\)</span> with positive real part means <span class="math notranslate nohighlight">\(Z = 0\)</span>. Using the relation between poles, zeros and loops around the origin given by Cauchy argument principle <a class="reference internal" href="#equation-eq-cauchy-arg-principle">(31.2)</a>, and recalling the opposite direction, it follows that</p>
@@ -629,7 +630,7 @@ Details<div class="sd-summary-down docutils">
 </div>
 </div></div>
 <div class="section" id="bode-stability-criterion-for-minimal-phase-systems">
-<span id="control-siso-bode"></span><h3><span class="section-number">31.1.1.3. </span>Bode stability criterion for minimal phase systems<a class="headerlink" href="#bode-stability-criterion-for-minimal-phase-systems" title="Permalink to this heading">#</a></h3>
+<span id="control-siso-bode"></span><h3><span class="section-number">31.2.1.3. </span>Bode stability criterion for minimal phase systems<a class="headerlink" href="#bode-stability-criterion-for-minimal-phase-systems" title="Permalink to this heading">#</a></h3>
 <div class="proof definition admonition" id="def-minimal-phase">
 <p class="admonition-title"><span class="caption-number">Definition 31.1 </span> (Minimal phase systems)</p>
 <div class="definition-content section" id="proof-content">
@@ -643,10 +644,10 @@ Details<div class="sd-summary-down docutils">
 </div>
 </div></div>
 <div class="section" id="phase-margin">
-<span id="control-siso-phase-margin"></span><h3><span class="section-number">31.1.1.4. </span>Phase margin<a class="headerlink" href="#phase-margin" title="Permalink to this heading">#</a></h3>
+<span id="control-siso-phase-margin"></span><h3><span class="section-number">31.2.1.4. </span>Phase margin<a class="headerlink" href="#phase-margin" title="Permalink to this heading">#</a></h3>
 </div>
 <div class="section" id="gain-margin">
-<span id="control-siso-gain-margin"></span><h3><span class="section-number">31.1.1.5. </span>Gain margin<a class="headerlink" href="#gain-margin" title="Permalink to this heading">#</a></h3>
+<span id="control-siso-gain-margin"></span><h3><span class="section-number">31.2.1.5. </span>Gain margin<a class="headerlink" href="#gain-margin" title="Permalink to this heading">#</a></h3>
 </div>
 </div>
 </div>
@@ -682,12 +683,12 @@ Details<div class="sd-summary-down docutils">
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="intro.html"
+       href="closed-loop-requirements-performance.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">31. </span>Introduction to control methods</p>
+        <p class="prev-next-title"><span class="section-number">31.1. </span>Closed-loop control: requirements and performance</p>
       </div>
     </a>
     <a class="right-next"
@@ -695,7 +696,7 @@ Details<div class="sd-summary-down docutils">
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">31.2. </span>Optimal control</p>
+        <p class="prev-next-title"><span class="section-number">31.3. </span>Optimal control</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -714,12 +715,12 @@ Details<div class="sd-summary-down docutils">
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stability-of-closed-loop-siso-systems">31.1.1. Stability of closed-loop SISO systems</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cauchy-argument-principle">31.1.1.1. Cauchy argument principle</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nyquist-stability-criterion">31.1.1.2. Nyquist stability criterion</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bode-stability-criterion-for-minimal-phase-systems">31.1.1.3. Bode stability criterion for minimal phase systems</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-margin">31.1.1.4. Phase margin</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gain-margin">31.1.1.5. Gain margin</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stability-of-closed-loop-siso-systems">31.2.1. Stability of closed-loop SISO systems</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cauchy-argument-principle">31.2.1.1. Cauchy argument principle</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nyquist-stability-criterion">31.2.1.2. Nyquist stability criterion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bode-stability-criterion-for-minimal-phase-systems">31.2.1.3. Bode stability criterion for minimal phase systems</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-margin">31.2.1.4. Phase margin</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gain-margin">31.2.1.5. Gain margin</a></li>
 </ul>
 </li>
 </ul>
