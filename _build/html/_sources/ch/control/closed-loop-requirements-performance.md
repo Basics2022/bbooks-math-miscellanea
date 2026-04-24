@@ -46,6 +46,10 @@ $$
 \begin{bmatrix} r \\ \Delta u \\ d \\ n \end{bmatrix} \ .
 $$
 
+**Two-degrees of freedom problem.** Typical design procedure:
+* Design $R$ to provide load/noise performance
+* Design $F$ to provide tracking performance
+
 **Simplified model.** If 
 * there's no feed-forward, i.e. $\mathbf{F} = \mathbf{I}$ or $F = 1$ for a SISO,
 * the measurement noise is additive on an ideal output, the TF is $\mathbf{y} = \mathbf{G} \mathbf{u} + \mathbf{G}_d \mathbf{d} + \mathbf{n}$, i.e.$\mathbf{G}_n = \mathbf{I}$ or $G_n(s) = 1$ for a SISO,
@@ -93,10 +97,7 @@ For a SISO, beside process noise $\mathbf{d}$ that may have its own dynamics, th
   $$CS = \frac{R}{1 + GR} \ ,$$
 
 
-
-
 ```{dropdown} Details
-:open:
 
 **Output.**
 
@@ -162,4 +163,17 @@ $$\begin{aligned}
 
 ```
 
+## Constraints
+
+$$S(s) + T(s) = 1$$
+
+It's not possible to make $S(s)$ and $T(s)$ small at the same time. Usually,
+
+* $S(s)$ small at low frequency to get small error in the band of the reference and filtering low-frequency measurement noise on the inp 
+* $T(s)$ small at high frequency to filter high-frequency noise from $\Delta u$ to $u$ (usually $r$ has no high-frequency content, so there should be little issues in filtering out the effect of reference signal to the output).
+
+## Goals
+
+* Tracking performance
+* ...
 

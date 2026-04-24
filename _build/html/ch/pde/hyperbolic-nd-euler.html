@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>35.7.3. Euler equations &#8212; basics - math</title>
+    <title>36.7.3. Euler equations &#8212; basics - math</title>
   
   
   
@@ -71,8 +71,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="35.7.4. Shallow water" href="hyperbolic-nd-shallow-water.html" />
-    <link rel="prev" title="35.7.2. P-system" href="hyperbolic-nd-psys.html" />
+    <link rel="next" title="36.7.4. Shallow water" href="hyperbolic-nd-shallow-water.html" />
+    <link rel="prev" title="36.7.2. P-system" href="hyperbolic-nd-psys.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -251,20 +251,23 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../system-theory/lti-stability-and-feedback.html">27. LTI: stability and feedback</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../system-theory/observability-detectability.html">28. Observability and Detectability</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../system-theory/controllability-reachability.html">29. Reachability and Controllability</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../system-theory/lyapunov-equation.html">30. Lyapunov equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system-theory/kalman-decomposition.html">30. Kalman decomposition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system-theory/lyapunov-equation.html">31. Lyapunov equation</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Control Theory</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../control/intro.html">31. Introduction to control methods</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../control/frequency-domain.html">31.1. Frequency domain control</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../control/optimal-control.html">31.2. Optimal control</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../control/optimal-control-full-state.html">31.2.1. Full-state feedback</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../control/optimal-control-full-state-old.html">31.2.2. Full-state feedback (OLD)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../control/optimal-control-observer.html">31.2.3. Optimal observer for deterministic disturbances</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../control/optimal-control-output.html">31.2.4. Sub-optimal control for output feedback</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../control/optimal-control-regulator-observer.html">31.2.5. Combination of controller and observer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../control/kalman.html">31.2.6. Kalman filter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../control/hjb.html">31.2.7. Hamilton Bellman Jacobi equation</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../control/intro.html">32. Introduction to control methods</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../control/closed-loop-requirements-performance.html">32.1. Closed-loop control: requirements and performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control/frequency-domain.html">32.2. Frequency domain control</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../control/optimal-control.html">32.3. Optimal control</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../control/optimal-control-full-state.html">32.3.1. Full-state feedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../control/optimal-control-full-state-old.html">32.3.2. Full-state feedback (OLD)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../control/optimal-control-margins.html">32.3.3. Phase and gain margin of optimal control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../control/optimal-control-observer.html">32.3.4. Optimal observer for deterministic disturbances</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../control/optimal-control-output.html">32.3.5. Sub-optimal control for output feedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../control/optimal-control-regulator-observer.html">32.3.6. Combination of controller and observer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../control/kalman.html">32.3.7. Kalman filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../control/hjb.html">32.3.8. Hamilton Bellman Jacobi equation</a></li>
 </ul>
 </li>
 </ul>
@@ -272,70 +275,70 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Partial Differential Equations</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="intro.html">32. Introduction to Partial Differential Equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="elliptic.html">33. Elliptic equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="parabolic.html">34. Parabolic equations</a></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="hyperbolic.html">35. Hyperbolic equations</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="hyperbolic-intro.html">35.1. Hyperbolic problems and conservation laws</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hyperbolic-dimensions.html">35.2. Hyperbolic problems - dimensions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hyperbolic-1d-scalar-linear.html">35.3. Scalar linear equation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hyperbolic-1d-vector-linear.html">35.4. Linear vector equation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hyperbolic-1d-scalar-nonlinear.html">35.5. Scalar non-linear equation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="characteristics.html">35.6. Method of characteristics</a></li>
-<li class="toctree-l2 current active has-children"><a class="reference internal" href="hyperbolic-nd.html">35.7. Hyperbolic problems in multi-dimensional domains</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="hyperbolic-nd-draft.html">35.7.1. General hyperbolic problem</a></li>
-<li class="toctree-l3"><a class="reference internal" href="hyperbolic-nd-psys.html">35.7.2. P-system</a></li>
-<li class="toctree-l3 current active"><a class="current reference internal" href="#">35.7.3. Euler equations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="hyperbolic-nd-shallow-water.html">35.7.4. Shallow water</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">33. Introduction to Partial Differential Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="elliptic.html">34. Elliptic equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parabolic.html">35. Parabolic equations</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="hyperbolic.html">36. Hyperbolic equations</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="hyperbolic-intro.html">36.1. Hyperbolic problems and conservation laws</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hyperbolic-dimensions.html">36.2. Hyperbolic problems - dimensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hyperbolic-1d-scalar-linear.html">36.3. Scalar linear equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hyperbolic-1d-vector-linear.html">36.4. Linear vector equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hyperbolic-1d-scalar-nonlinear.html">36.5. Scalar non-linear equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="characteristics.html">36.6. Method of characteristics</a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="hyperbolic-nd.html">36.7. Hyperbolic problems in multi-dimensional domains</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="hyperbolic-nd-draft.html">36.7.1. General hyperbolic problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hyperbolic-nd-psys.html">36.7.2. P-system</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">36.7.3. Euler equations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hyperbolic-nd-shallow-water.html">36.7.4. Shallow water</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="hyperbolic-riemann-pb.html">35.8. Riemann problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hyperbolic-entropy.html">35.9. Physical solution in hyperbolic problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hyperbolic-convexity.html">35.10. Convexity in hyperbolic problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hyperbolic-non-convex.html">35.11. Non-convex hyperbolic problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hyperbolic-riemann-pb.html">36.8. Riemann problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hyperbolic-entropy.html">36.9. Physical solution in hyperbolic problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hyperbolic-convexity.html">36.10. Convexity in hyperbolic problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hyperbolic-non-convex.html">36.11. Non-convex hyperbolic problems</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="nc.html">36. Navier-Cauchy equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ns.html">37. Navier-Stokes equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ale.html">38. Arbitrary Lagrangian-Eulerian description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nc.html">37. Navier-Cauchy equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ns.html">38. Navier-Stokes equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ale.html">39. Arbitrary Lagrangian-Eulerian description</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Numerical Methods for PDEs</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="numerics.html">39. Introduction to numerical methods for PDEs</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="fem.html">40. Finite Element Method</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="fem-poisson-1d.html">40.1. 1-dimensional Poisson equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numerics.html">40. Introduction to numerical methods for PDEs</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="fem.html">41. Finite Element Method</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="fem-poisson-1d.html">41.1. 1-dimensional Poisson equation</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="fvm.html">41. Finite Volume Method</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="fvm-poisson-1d.html">41.1. 1-dimensional Poisson equation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fvm-hyperbolic-pde.html">41.2. FVM for hyperbolic problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fvm-hyperbolic-bc.html">41.3. Boundary conditions in hyperbolic problems</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="fvm-hyperbolic-examples.html">41.4. Examples of FVM for hyperbolic problems</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="psys-1d.html">41.4.1. 1-dimensional P-system</a></li>
-<li class="toctree-l3"><a class="reference internal" href="euler-1d.html">41.4.2. 1-dimensional Euler equations for Perfect Ideal Gas</a></li>
-<li class="toctree-l3"><a class="reference internal" href="euler-quasi-1d.html">41.4.3. Quasi 1-dimensional Euler equations for Perfect Ideal Gas</a></li>
-<li class="toctree-l3"><a class="reference internal" href="euler-1d-ale-piston.html">41.4.4. 1-dimensional Euler equations for Perfect Ideal Gas on moving mesh (ALE)</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="fvm.html">42. Finite Volume Method</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="fvm-poisson-1d.html">42.1. 1-dimensional Poisson equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fvm-hyperbolic-pde.html">42.2. FVM for hyperbolic problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fvm-hyperbolic-bc.html">42.3. Boundary conditions in hyperbolic problems</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="fvm-hyperbolic-examples.html">42.4. Examples of FVM for hyperbolic problems</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="psys-1d.html">42.4.1. 1-dimensional P-system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="euler-1d.html">42.4.2. 1-dimensional Euler equations for Perfect Ideal Gas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="euler-quasi-1d.html">42.4.3. Quasi 1-dimensional Euler equations for Perfect Ideal Gas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="euler-1d-ale-piston.html">42.4.4. 1-dimensional Euler equations for Perfect Ideal Gas on moving mesh (ALE)</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="bem.html">42. Boundary Element Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bem.html">43. Boundary Element Method</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Boundary Methods for PDEs</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="bem-poisson-helmholtz-waves.html">43. Green’s function method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bem-poisson-helmholtz-waves.html">44. Green’s function method</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Optimization</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../optimization/intro.html">44. Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../optimization/intro.html">45. Optimization</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Reinforcement Learning</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../rl/intro.html">45. Introduction to Reinforcement Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rl/mdp.html">46. Markov Processes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_sol_dp_lp.html">47. Methods of solution of MPD: DP and LP</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_sol_rl.html">48. Methods of solution of MPD: RL</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_large_continuous.html">49. Large or Continuous MDPs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/intro.html">46. Introduction to Reinforcement Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp.html">47. Markov Processes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_sol_dp_lp.html">48. Methods of solution of MPD: DP and LP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_sol_rl.html">49. Methods of solution of MPD: RL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_large_continuous.html">50. Large or Continuous MDPs</a></li>
 </ul>
 
     </div>
@@ -548,22 +551,22 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thermodynamics-and-constitutive-equations">35.7.3.1. Thermodynamics and constitutive equations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integral-equations">35.7.3.2. Integral equations</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jump-conditions">35.7.3.2.1. Jump conditions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thermodynamics-and-constitutive-equations">36.7.3.1. Thermodynamics and constitutive equations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integral-equations">36.7.3.2. Integral equations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jump-conditions">36.7.3.2.1. Jump conditions</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differential-equations">35.7.3.3. Differential equations</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conservative-form">35.7.3.3.1. Conservative form</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convective-forms">35.7.3.3.2. Convective forms</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spectral-decomposition">35.7.3.3.3. Spectral decomposition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differential-equations">36.7.3.3. Differential equations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conservative-form">36.7.3.3.1. Conservative form</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convective-forms">36.7.3.3.2. Convective forms</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spectral-decomposition">36.7.3.3.3. Spectral decomposition</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#riemann-problem">35.7.3.4. Riemann problem</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linearization-roe-intermediate-state">35.7.3.4.1. Linearization - Roe intermediate state</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#riemann-problem">36.7.3.4. Riemann problem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linearization-roe-intermediate-state">36.7.3.4.1. Linearization - Roe intermediate state</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boundary-conditions">35.7.3.5. Boundary conditions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boundary-conditions">36.7.3.5. Boundary conditions</a></li>
 </ul>
             </nav>
         </div>
@@ -576,9 +579,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="euler-equations">
-<span id="pde-hyperbolic-nd-euler"></span><h1><span class="section-number">35.7.3. </span>Euler equations<a class="headerlink" href="#euler-equations" title="Permalink to this heading">#</a></h1>
+<span id="pde-hyperbolic-nd-euler"></span><h1><span class="section-number">36.7.3. </span>Euler equations<a class="headerlink" href="#euler-equations" title="Permalink to this heading">#</a></h1>
 <div class="section" id="thermodynamics-and-constitutive-equations">
-<span id="pde-hyperbolic-nd-euler-thermodynamics"></span><h2><span class="section-number">35.7.3.1. </span>Thermodynamics and constitutive equations<a class="headerlink" href="#thermodynamics-and-constitutive-equations" title="Permalink to this heading">#</a></h2>
+<span id="pde-hyperbolic-nd-euler-thermodynamics"></span><h2><span class="section-number">36.7.3.1. </span>Thermodynamics and constitutive equations<a class="headerlink" href="#thermodynamics-and-constitutive-equations" title="Permalink to this heading">#</a></h2>
 <p><strong>todo</strong> <em>Reference to <a class="reference external" href="https://basics2022.github.io/bbooks-physics-thermodynamics/intro.html">Physics: Thermodynamics</a> bbook</em></p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
 <summary class="sd-summary-title sd-card-header">
@@ -596,12 +599,12 @@ Principles of thermodynamics and differential of the internal energy<div class="
 </summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text">The differential of the internal energy as a function of <span class="math notranslate nohighlight">\(s, \rho\)</span> as independent thermodynamic variables, <span class="math notranslate nohighlight">\(e(\rho, s)\)</span> reads</p>
 <div class="math notranslate nohighlight" id="equation-eq-pde-hyperbolic-euler-first-principle">
-<span class="eqno">(35.3)<a class="headerlink" href="#equation-eq-pde-hyperbolic-euler-first-principle" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(36.3)<a class="headerlink" href="#equation-eq-pde-hyperbolic-euler-first-principle" title="Permalink to this equation">#</a></span>\[
   de = T \, ds + \frac{p}{\rho^2} d \rho \ ,
 \]</div>
 <p class="sd-card-text">from the principles of thermodynamics, and the definition of the entropy <span class="math notranslate nohighlight">\(s\)</span> in classical thermodynamics. Following <a class="reference external" href="https://basics2022.github.io/bbooks-physics-thermodynamics/ch/principles-gibbs-phase-rule.html">Gibbs’ mathematical foundation of classical thermodynamics</a>, the partial derivatives of the internal energy can be related to temperature, pressure and density</p>
 <div class="math notranslate nohighlight" id="equation-eq-pde-hyperbolic-euler-first-principle-partial-ders">
-<span class="eqno">(35.4)<a class="headerlink" href="#equation-eq-pde-hyperbolic-euler-first-principle-partial-ders" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(36.4)<a class="headerlink" href="#equation-eq-pde-hyperbolic-euler-first-principle-partial-ders" title="Permalink to this equation">#</a></span>\[
   T = \left( \frac{\partial e}{\partial s} \right)_\rho
   \quad , \quad
   \frac{p}{\rho^2} =  \left( \frac{\partial e}{\partial \rho} \right)_s .
@@ -616,10 +619,10 @@ Speed of sound, <span class="math notranslate nohighlight">\(\ a(\rho, s)\)</spa
 </summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text">As it should be clear from the study of Euler equations as an hyperbolic system  the speed of sound <span class="math notranslate nohighlight">\(a\)</span> can be defined as</p>
 <div class="math notranslate nohighlight" id="equation-eq-pde-hyperbolic-euler-speed-of-sound-rho-s">
-<span class="eqno">(35.5)<a class="headerlink" href="#equation-eq-pde-hyperbolic-euler-speed-of-sound-rho-s" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(36.5)<a class="headerlink" href="#equation-eq-pde-hyperbolic-euler-speed-of-sound-rho-s" title="Permalink to this equation">#</a></span>\[
   a^2(\rho, s) = \left( \frac{\partial p}{\partial \rho} \right)_s \ .
 \]</div>
-<p class="sd-card-text">As an example, the definition of the speed of sound appears in two of the eigenvalues of the system, as shown in <a class="reference internal" href="#equation-eq-pde-hyperbolic-differential-convective-euler-rho-u-s-eigval">(35.16)</a> using the convective form <a class="reference internal" href="#equation-eq-pde-hyperbolic-differential-convective-euler-rho-u-s-mat">(35.15)</a> of the equations using <span class="math notranslate nohighlight">\((\rho, \vec{u}, s)\)</span> as primary variables.</p>
+<p class="sd-card-text">As an example, the definition of the speed of sound appears in two of the eigenvalues of the system, as shown in <a class="reference internal" href="#equation-eq-pde-hyperbolic-differential-convective-euler-rho-u-s-eigval">(36.16)</a> using the convective form <a class="reference internal" href="#equation-eq-pde-hyperbolic-differential-convective-euler-rho-u-s-mat">(36.15)</a> of the equations using <span class="math notranslate nohighlight">\((\rho, \vec{u}, s)\)</span> as primary variables.</p>
 </div>
 </details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
 <summary class="sd-summary-title sd-card-header">
@@ -631,7 +634,7 @@ Speed of sound, and change of independent thermodynamic variables<div class="sd-
 <p class="sd-card-text">All the relations in this box mainly exploit <strong>rule of derivatives of composite functions</strong> and basic thermodynamic relations.</p>
 <p class="sd-card-text">As an example, if the pressure is defined as a function of <span class="math notranslate nohighlight">\((\rho, e)\)</span>, and the relation <span class="math notranslate nohighlight">\(e(\rho,s)\)</span> is known, with pressure can be written as <span class="math notranslate nohighlight">\(p(\rho, e) = p(\rho, e(\rho,s))\)</span>. With the derivation of the composite function, an alternative expression of the speed of sound follows</p>
 <div class="math notranslate nohighlight" id="equation-eq-pde-hyperbolic-euler-speed-of-sound-rho-e">
-<span class="eqno">(35.6)<a class="headerlink" href="#equation-eq-pde-hyperbolic-euler-speed-of-sound-rho-e" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+<span class="eqno">(36.6)<a class="headerlink" href="#equation-eq-pde-hyperbolic-euler-speed-of-sound-rho-e" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
   a^2
   &amp; = \left( \frac{\partial p}{\partial \rho} \right)_s = \\
   &amp; = \left( \frac{\partial p}{\partial \rho} \right)_e + \left( \frac{\partial e}{\partial \rho} \right)_s \left( \frac{\partial p}{\partial e} \right)_\rho = \\
@@ -657,14 +660,14 @@ Constitutive equations for an ideal Newtonian fluid<div class="sd-summary-down d
 </div>
 </details></div>
 <div class="section" id="integral-equations">
-<span id="pde-hyperbolic-nd-euler-integral"></span><h2><span class="section-number">35.7.3.2. </span>Integral equations<a class="headerlink" href="#integral-equations" title="Permalink to this heading">#</a></h2>
+<span id="pde-hyperbolic-nd-euler-integral"></span><h2><span class="section-number">36.7.3.2. </span>Integral equations<a class="headerlink" href="#integral-equations" title="Permalink to this heading">#</a></h2>
 <p>Conservative variables and flux are respectively</p>
 <div class="math notranslate nohighlight" id="equation-eq-pde-hyperbolic-cons-vars-euler">
-<span class="eqno">(35.7)<a class="headerlink" href="#equation-eq-pde-hyperbolic-cons-vars-euler" title="Permalink to this equation">#</a></span>\[\begin{split}
+<span class="eqno">(36.7)<a class="headerlink" href="#equation-eq-pde-hyperbolic-cons-vars-euler" title="Permalink to this equation">#</a></span>\[\begin{split}
 \mathbf{u} = \begin{bmatrix} \rho \\ \vec{m} \\ E^t \end{bmatrix}
 \end{split}\]</div>
 <div class="math notranslate nohighlight" id="equation-eq-pde-hyperbolic-flux-euler">
-<span class="eqno">(35.8)<a class="headerlink" href="#equation-eq-pde-hyperbolic-flux-euler" title="Permalink to this equation">#</a></span>\[\begin{split}
+<span class="eqno">(36.8)<a class="headerlink" href="#equation-eq-pde-hyperbolic-flux-euler" title="Permalink to this equation">#</a></span>\[\begin{split}
 \mathbf{F} = \begin{bmatrix} \vec{m} \\ \frac{\vec{m} \otimes \vec{m}}{\rho} + p \mathbb{I} \\ H^t \frac{\vec{m}}{\rho} \end{bmatrix}
 \end{split}\]</div>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
@@ -708,27 +711,27 @@ Integral equations for an arbitrary domain <span class="math notranslate nohighl
 \end{aligned}\end{split}\]</div>
 </div>
 </details><div class="section" id="jump-conditions">
-<span id="pde-hyperbolic-nd-euler-integral-jump"></span><h3><span class="section-number">35.7.3.2.1. </span>Jump conditions<a class="headerlink" href="#jump-conditions" title="Permalink to this heading">#</a></h3>
-<p>Jump conditions <a class="reference internal" href="hyperbolic-nd-draft.html#equation-eq-pde-hyperbolic-jump">(35.1)</a> for Euler equations read</p>
+<span id="pde-hyperbolic-nd-euler-integral-jump"></span><h3><span class="section-number">36.7.3.2.1. </span>Jump conditions<a class="headerlink" href="#jump-conditions" title="Permalink to this heading">#</a></h3>
+<p>Jump conditions <a class="reference internal" href="hyperbolic-nd-draft.html#equation-eq-pde-hyperbolic-jump">(36.1)</a> for Euler equations read</p>
 <div class="math notranslate nohighlight" id="equation-eq-pde-hyperbolic-jump-euler">
-<span class="eqno">(35.9)<a class="headerlink" href="#equation-eq-pde-hyperbolic-jump-euler" title="Permalink to this equation">#</a></span>\[\begin{split}
+<span class="eqno">(36.9)<a class="headerlink" href="#equation-eq-pde-hyperbolic-jump-euler" title="Permalink to this equation">#</a></span>\[\begin{split}
   \vec{v}_b \cdot \hat{n} \left[ \left( \begin{matrix} \rho \\ \vec{m} \\ E^t \end{matrix} \right) \right] = \hat{n} \cdot \left[ \left( \begin{matrix} \vec{m} \\\frac{\vec{m} \vec{m}}{\rho} + p \\ H^t \frac{\vec{m}}{\rho} \end{matrix} \right) \right]
 \end{split}\]</div>
 </div>
 </div>
 <div class="section" id="differential-equations">
-<span id="pde-hyperbolic-nd-euler-differential"></span><h2><span class="section-number">35.7.3.3. </span>Differential equations<a class="headerlink" href="#differential-equations" title="Permalink to this heading">#</a></h2>
+<span id="pde-hyperbolic-nd-euler-differential"></span><h2><span class="section-number">36.7.3.3. </span>Differential equations<a class="headerlink" href="#differential-equations" title="Permalink to this heading">#</a></h2>
 <p>In regions where the fields are smooth, from integral to differential equations using <a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean.html#tensor-calculus-integrals-theorems"><span class="std std-ref">theorems of differential calculus</span></a></p>
 <div class="section" id="conservative-form">
-<span id="pde-hyperbolic-nd-euler-differential-conservative"></span><h3><span class="section-number">35.7.3.3.1. </span>Conservative form<a class="headerlink" href="#conservative-form" title="Permalink to this heading">#</a></h3>
-<p>Conservative form of the differential equations immediately follows introducing the expressions <a class="reference internal" href="#equation-eq-pde-hyperbolic-cons-vars-euler">(35.7)</a> of the conservative variables and <a class="reference internal" href="#equation-eq-pde-hyperbolic-flux-euler">(35.8)</a> of the flux in the general expression of the conservative form of hyperbolic problems <a class="reference internal" href="hyperbolic-nd-draft.html#equation-eq-pde-hyperbolic-differential-conservative">(35.2)</a></p>
+<span id="pde-hyperbolic-nd-euler-differential-conservative"></span><h3><span class="section-number">36.7.3.3.1. </span>Conservative form<a class="headerlink" href="#conservative-form" title="Permalink to this heading">#</a></h3>
+<p>Conservative form of the differential equations immediately follows introducing the expressions <a class="reference internal" href="#equation-eq-pde-hyperbolic-cons-vars-euler">(36.7)</a> of the conservative variables and <a class="reference internal" href="#equation-eq-pde-hyperbolic-flux-euler">(36.8)</a> of the flux in the general expression of the conservative form of hyperbolic problems <a class="reference internal" href="hyperbolic-nd-draft.html#equation-eq-pde-hyperbolic-differential-conservative">(36.2)</a></p>
 <div class="math notranslate nohighlight" id="equation-eq-pde-hyperbolic-differential-conservative-euler">
-<span class="eqno">(35.10)<a class="headerlink" href="#equation-eq-pde-hyperbolic-differential-conservative-euler" title="Permalink to this equation">#</a></span>\[\begin{split}
+<span class="eqno">(36.10)<a class="headerlink" href="#equation-eq-pde-hyperbolic-differential-conservative-euler" title="Permalink to this equation">#</a></span>\[\begin{split}
   \partial_t \begin{bmatrix}  \rho \\ \vec{m} \\ E^t \end{bmatrix} + \nabla \cdot \begin{bmatrix} \vec{m} \\ \frac{\vec{m}\otimes\vec{m}}{\rho} + p \mathbb{I} \\ H^t \frac{\vec{m}}{\rho}  \end{bmatrix} = \mathbf{0} \ .
 \end{split}\]</div>
 </div>
 <div class="section" id="convective-forms">
-<span id="pde-hyperbolic-nd-euler-differential-convective"></span><h3><span class="section-number">35.7.3.3.2. </span>Convective forms<a class="headerlink" href="#convective-forms" title="Permalink to this heading">#</a></h3>
+<span id="pde-hyperbolic-nd-euler-differential-convective"></span><h3><span class="section-number">36.7.3.3.2. </span>Convective forms<a class="headerlink" href="#convective-forms" title="Permalink to this heading">#</a></h3>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
 <summary class="sd-summary-title sd-card-header">
 Convective form with conservative variables<div class="sd-summary-down docutils">
@@ -753,7 +756,7 @@ Convective form with conservative variables<div class="sd-summary-down docutils"
 \end{cases}\end{split}\]</div>
 <p class="sd-card-text">and using the matrix formalism</p>
 <div class="math notranslate nohighlight" id="equation-eq-pde-hyperbolic-differential-convective-euler-cons-vars-mat">
-<span class="eqno">(35.11)<a class="headerlink" href="#equation-eq-pde-hyperbolic-differential-convective-euler-cons-vars-mat" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+<span class="eqno">(36.11)<a class="headerlink" href="#equation-eq-pde-hyperbolic-differential-convective-euler-cons-vars-mat" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
   \partial_t \begin{bmatrix} \rho \\ m_x \\ m_y \\ E^t \end{bmatrix} 
  &amp; + \begin{bmatrix}
   0 &amp; 1  &amp; 0 &amp; 0 \\
@@ -777,14 +780,14 @@ Convective form with primary variables <span class="math notranslate nohighlight
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
 <div class="math notranslate nohighlight" id="equation-eq-pde-hyperbolic-differential-convective-euler-rho-u-e">
-<span class="eqno">(35.12)<a class="headerlink" href="#equation-eq-pde-hyperbolic-differential-convective-euler-rho-u-e" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{cases}
+<span class="eqno">(36.12)<a class="headerlink" href="#equation-eq-pde-hyperbolic-differential-convective-euler-rho-u-e" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{cases}
   \partial_t \rho + \rho \nabla \cdot \vec{u} + \vec{u} \cdot \nabla \rho = 0 \\
   \partial_t \vec{u} + \vec{u} \cdot \nabla \vec{u} + \frac{1}{\rho} \nabla p = \vec{0} \\
   \partial_t e + \vec{u} \cdot \nabla e + \frac{1}{\rho} p \nabla \cdot \vec{u} = 0 \ .
 \end{cases}\end{split}\]</div>
 <p class="sd-card-text">or using Cartesian coordinates and matrix formalism</p>
 <div class="math notranslate nohighlight" id="equation-eq-pde-hyperbolic-differential-convective-euler-rho-u-e-mat">
-<span class="eqno">(35.13)<a class="headerlink" href="#equation-eq-pde-hyperbolic-differential-convective-euler-rho-u-e-mat" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+<span class="eqno">(36.13)<a class="headerlink" href="#equation-eq-pde-hyperbolic-differential-convective-euler-rho-u-e-mat" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
   \partial_t \begin{bmatrix} \rho \\ u \\ v \\ e \end{bmatrix}
  + \begin{bmatrix}
    u                      &amp; \rho            &amp; \cdot &amp; \cdot \\
@@ -809,14 +812,14 @@ Convective form with primary variables <span class="math notranslate nohighlight
 </summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text">Using the thermodynamic relation <span class="math notranslate nohighlight">\(de = T ds + \frac{p}{\rho^2} d \rho\)</span> and combining mass and internal energy equations, the differential equation <span class="math notranslate nohighlight">\(D_t s = 0\)</span> follows for the entropy, having introduced the material derivative <span class="math notranslate nohighlight">\(D_t \_ = \partial_t \_ + \vec{u} \cdot \nabla \_\)</span>. The convective form of the equations becomes</p>
 <div class="math notranslate nohighlight" id="equation-eq-pde-hyperbolic-differential-convective-euler-rho-u-s">
-<span class="eqno">(35.14)<a class="headerlink" href="#equation-eq-pde-hyperbolic-differential-convective-euler-rho-u-s" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{cases}
+<span class="eqno">(36.14)<a class="headerlink" href="#equation-eq-pde-hyperbolic-differential-convective-euler-rho-u-s" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{cases}
   \partial_t \rho + \rho \nabla \cdot \vec{u} + \vec{u} \cdot \nabla \rho = 0 \\
   \partial_t \vec{u} + \vec{u} \cdot \nabla \vec{u} + \frac{1}{\rho} \nabla p = \vec{0} \\
   \partial_t s + \vec{u} \cdot \nabla s = 0 \ .
 \end{cases}\end{split}\]</div>
 <p class="sd-card-text">or using Cartesian coordinates and matrix formalism in a 2-dimensional domain</p>
 <div class="math notranslate nohighlight" id="equation-eq-pde-hyperbolic-differential-convective-euler-rho-u-s-mat">
-<span class="eqno">(35.15)<a class="headerlink" href="#equation-eq-pde-hyperbolic-differential-convective-euler-rho-u-s-mat" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+<span class="eqno">(36.15)<a class="headerlink" href="#equation-eq-pde-hyperbolic-differential-convective-euler-rho-u-s-mat" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
   \partial_t \begin{bmatrix} \rho \\ u \\ v \\ s \end{bmatrix}
  + \begin{bmatrix}
    u                      &amp; \rho            &amp; \cdot &amp; \cdot \\
@@ -844,16 +847,16 @@ Convective form with primary variables <span class="math notranslate nohighlight
 <p class="sd-card-text">as the zeros of the following equation,</p>
 <div class="math notranslate nohighlight">
 \[0 = | \mathbf{A}_{\hat{n}}^{\mathbf{v}} - s \mathbf{I}_4| = ( u_n - s )^2 \left( ( u_n - s )^2 - \left.\frac{\partial p}{\partial \rho}\right|_s \right) = ( u_n - s )^2 \left( ( u_n - s )^2 - a^2 \right) \ ,\]</div>
-<p class="sd-card-text">having used the definition of the spped of sound <a class="reference internal" href="#equation-eq-pde-hyperbolic-euler-speed-of-sound-rho-s">(35.5)</a>. Thus the <strong>eigenvalues of the system</strong> are</p>
+<p class="sd-card-text">having used the definition of the spped of sound <a class="reference internal" href="#equation-eq-pde-hyperbolic-euler-speed-of-sound-rho-s">(36.5)</a>. Thus the <strong>eigenvalues of the system</strong> are</p>
 <div class="math notranslate nohighlight" id="equation-eq-pde-hyperbolic-differential-convective-euler-rho-u-s-eigval">
-<span class="eqno">(35.16)<a class="headerlink" href="#equation-eq-pde-hyperbolic-differential-convective-euler-rho-u-s-eigval" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+<span class="eqno">(36.16)<a class="headerlink" href="#equation-eq-pde-hyperbolic-differential-convective-euler-rho-u-s-eigval" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
   s_{1,4} &amp; = u_n \mp a \\
   s_{2,3} &amp; = u_n \ .
 \end{aligned}\end{split}\]</div>
 </div>
 </details></div>
 <div class="section" id="spectral-decomposition">
-<span id="pde-hyperbolic-nd-euler-differential-spectrum"></span><h3><span class="section-number">35.7.3.3.3. </span>Spectral decomposition<a class="headerlink" href="#spectral-decomposition" title="Permalink to this heading">#</a></h3>
+<span id="pde-hyperbolic-nd-euler-differential-spectrum"></span><h3><span class="section-number">36.7.3.3.3. </span>Spectral decomposition<a class="headerlink" href="#spectral-decomposition" title="Permalink to this heading">#</a></h3>
 <p>It may be convenient to evaluate the spectrum using physical variables <span class="math notranslate nohighlight">\(\mathbf{v} = (\rho, \vec{u}, e)\)</span> and then use the rules for the spectral decomposition after a <a class="reference internal" href="hyperbolic-nd-draft.html#pde-hyperbolic-nd-draft-characteristics-spectrum-change-vars"><span class="std std-ref">change of variables</span></a> to get the spectrum in terms of the conservative variables.</p>
 <p><strong>Transformation of variables.</strong> The tranformation between physical variables <span class="math notranslate nohighlight">\(\mathbf{v} = (\rho, \vec{u}, e)\)</span> and the conservative variables <span class="math notranslate nohighlight">\(\mathbf{u} = ( \rho, \vec{m}, E^t )\)</span> reads</p>
 <div class="math notranslate nohighlight">
@@ -906,7 +909,7 @@ Eigenvalues<div class="sd-summary-down docutils">
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">In a 2-dimensional domain, the system of equations is 4-dimensional. As shown with the convective form <a class="reference internal" href="#equation-eq-pde-hyperbolic-differential-convective-euler-rho-u-s-mat">(35.15)</a> using <span class="math notranslate nohighlight">\((\rho, \vec{u}, s)\)</span> as primary variables, the eigenvalues of the system are</p>
+<p class="sd-card-text">In a 2-dimensional domain, the system of equations is 4-dimensional. As shown with the convective form <a class="reference internal" href="#equation-eq-pde-hyperbolic-differential-convective-euler-rho-u-s-mat">(36.15)</a> using <span class="math notranslate nohighlight">\((\rho, \vec{u}, s)\)</span> as primary variables, the eigenvalues of the system are</p>
 <div class="math notranslate nohighlight">
 \[\left\{ u_n - a, u_n, u_n, u_n + a \right\} \ .\]</div>
 <p class="sd-card-text">In a 3-dimensional domain, the system of equations is 5-dimensional, and its eigenvalues are</p>
@@ -963,7 +966,7 @@ Details for <span class="math notranslate nohighlight">\( \ d\)</span>-dimension
   \cdot &amp; \frac{p}{\rho}\mathbf{n}^T &amp; \pm a
 \end{bmatrix} \begin{bmatrix} \tilde{\rho} \\ \tilde{\mathbf{u}} \\ \tilde{e} \end{bmatrix} \ ,
 \end{split}\]</div>
-<p class="sd-card-text">has the non-trivial solution - it should be easy to prove it recalling the expression <a class="reference internal" href="#equation-eq-pde-hyperbolic-euler-speed-of-sound-rho-e">(35.6)</a> of the speed of sound</p>
+<p class="sd-card-text">has the non-trivial solution - it should be easy to prove it recalling the expression <a class="reference internal" href="#equation-eq-pde-hyperbolic-euler-speed-of-sound-rho-e">(36.6)</a> of the speed of sound</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{bmatrix} \tilde{\rho}_{1,d+2} \\ \tilde{\vec{u}}_{1,d+2} \\ \tilde{e}_{1,d+2} \end{bmatrix} =
@@ -1141,19 +1144,19 @@ Some algebra<div class="sd-summary-down docutils">
 </div>
 </div>
 <div class="section" id="riemann-problem">
-<span id="pde-hyperbolic-nd-euler-riemann"></span><h2><span class="section-number">35.7.3.4. </span>Riemann problem<a class="headerlink" href="#riemann-problem" title="Permalink to this heading">#</a></h2>
+<span id="pde-hyperbolic-nd-euler-riemann"></span><h2><span class="section-number">36.7.3.4. </span>Riemann problem<a class="headerlink" href="#riemann-problem" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Useful in numerical schemes in finite volume methods, using Godunov flux</p></li>
 </ul>
 <div class="section" id="linearization-roe-intermediate-state">
-<span id="pde-hyperbolic-nd-euler-riemann-roe"></span><h3><span class="section-number">35.7.3.4.1. </span>Linearization - Roe intermediate state<a class="headerlink" href="#linearization-roe-intermediate-state" title="Permalink to this heading">#</a></h3>
+<span id="pde-hyperbolic-nd-euler-riemann-roe"></span><h3><span class="section-number">36.7.3.4.1. </span>Linearization - Roe intermediate state<a class="headerlink" href="#linearization-roe-intermediate-state" title="Permalink to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Local linearization of the problem, to reduce the computational cost of solving non-linear Riemann problems at all the interfaces in a grid in FVM</p></li>
 </ul>
 </div>
 </div>
 <div class="section" id="boundary-conditions">
-<span id="pde-hyperbolic-nd-euler-bc"></span><h2><span class="section-number">35.7.3.5. </span>Boundary conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this heading">#</a></h2>
+<span id="pde-hyperbolic-nd-euler-bc"></span><h2><span class="section-number">36.7.3.5. </span>Boundary conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>characteristic-based</p></li>
 <li><p>wall</p></li>
@@ -1198,7 +1201,7 @@ Some algebra<div class="sd-summary-down docutils">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">35.7.2. </span>P-system</p>
+        <p class="prev-next-title"><span class="section-number">36.7.2. </span>P-system</p>
       </div>
     </a>
     <a class="right-next"
@@ -1206,7 +1209,7 @@ Some algebra<div class="sd-summary-down docutils">
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">35.7.4. </span>Shallow water</p>
+        <p class="prev-next-title"><span class="section-number">36.7.4. </span>Shallow water</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1225,22 +1228,22 @@ Some algebra<div class="sd-summary-down docutils">
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thermodynamics-and-constitutive-equations">35.7.3.1. Thermodynamics and constitutive equations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integral-equations">35.7.3.2. Integral equations</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jump-conditions">35.7.3.2.1. Jump conditions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#thermodynamics-and-constitutive-equations">36.7.3.1. Thermodynamics and constitutive equations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integral-equations">36.7.3.2. Integral equations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jump-conditions">36.7.3.2.1. Jump conditions</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differential-equations">35.7.3.3. Differential equations</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conservative-form">35.7.3.3.1. Conservative form</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convective-forms">35.7.3.3.2. Convective forms</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spectral-decomposition">35.7.3.3.3. Spectral decomposition</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differential-equations">36.7.3.3. Differential equations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conservative-form">36.7.3.3.1. Conservative form</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convective-forms">36.7.3.3.2. Convective forms</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spectral-decomposition">36.7.3.3.3. Spectral decomposition</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#riemann-problem">35.7.3.4. Riemann problem</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linearization-roe-intermediate-state">35.7.3.4.1. Linearization - Roe intermediate state</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#riemann-problem">36.7.3.4. Riemann problem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linearization-roe-intermediate-state">36.7.3.4.1. Linearization - Roe intermediate state</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boundary-conditions">35.7.3.5. Boundary conditions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boundary-conditions">36.7.3.5. Boundary conditions</a></li>
 </ul>
   </nav></div>
 
