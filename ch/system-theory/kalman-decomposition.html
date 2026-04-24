@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>32.3.7. Kalman filter &#8212; basics - math</title>
+    <title>30. Kalman decomposition &#8212; basics - math</title>
   
   
   
@@ -67,12 +67,12 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/control/kalman';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/system-theory/kalman-decomposition';</script>
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="32.3.8. Hamilton Bellman Jacobi equation" href="hjb.html" />
-    <link rel="prev" title="32.3.6. Combination of controller and observer" href="optimal-control-regulator-observer.html" />
+    <link rel="next" title="31. Lyapunov equation" href="lyapunov-equation.html" />
+    <link rel="prev" title="29. Reachability and Controllability" href="controllability-reachability.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -244,30 +244,30 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../ode/ode-linear-systems.html">23. Linear systems</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">System Theory</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../system-theory/intro.html">24. Introduction to System Theory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../system-theory/lti.html">25. Linear Time-Invariant Systems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../system-theory/lti-response.html">26. LTI system response</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../system-theory/lti-stability-and-feedback.html">27. LTI: stability and feedback</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../system-theory/observability-detectability.html">28. Observability and Detectability</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../system-theory/controllability-reachability.html">29. Reachability and Controllability</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../system-theory/kalman-decomposition.html">30. Kalman decomposition</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../system-theory/lyapunov-equation.html">31. Lyapunov equation</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">24. Introduction to System Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lti.html">25. Linear Time-Invariant Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lti-response.html">26. LTI system response</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lti-stability-and-feedback.html">27. LTI: stability and feedback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="observability-detectability.html">28. Observability and Detectability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controllability-reachability.html">29. Reachability and Controllability</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">30. Kalman decomposition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lyapunov-equation.html">31. Lyapunov equation</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Control Theory</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">32. Introduction to control methods</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="closed-loop-requirements-performance.html">32.1. Closed-loop control: requirements and performance</a></li>
-<li class="toctree-l2"><a class="reference internal" href="frequency-domain.html">32.2. Frequency domain control</a></li>
-<li class="toctree-l2 current active has-children"><a class="reference internal" href="optimal-control.html">32.3. Optimal control</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="optimal-control-full-state.html">32.3.1. Full-state feedback</a></li>
-<li class="toctree-l3"><a class="reference internal" href="optimal-control-full-state-old.html">32.3.2. Full-state feedback (OLD)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="optimal-control-margins.html">32.3.3. Phase and gain margin of optimal control</a></li>
-<li class="toctree-l3"><a class="reference internal" href="optimal-control-observer.html">32.3.4. Optimal observer for deterministic disturbances</a></li>
-<li class="toctree-l3"><a class="reference internal" href="optimal-control-output.html">32.3.5. Sub-optimal control for output feedback</a></li>
-<li class="toctree-l3"><a class="reference internal" href="optimal-control-regulator-observer.html">32.3.6. Combination of controller and observer</a></li>
-<li class="toctree-l3 current active"><a class="current reference internal" href="#">32.3.7. Kalman filter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="hjb.html">32.3.8. Hamilton Bellman Jacobi equation</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../control/intro.html">32. Introduction to control methods</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../control/closed-loop-requirements-performance.html">32.1. Closed-loop control: requirements and performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control/frequency-domain.html">32.2. Frequency domain control</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../control/optimal-control.html">32.3. Optimal control</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../control/optimal-control-full-state.html">32.3.1. Full-state feedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../control/optimal-control-full-state-old.html">32.3.2. Full-state feedback (OLD)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../control/optimal-control-margins.html">32.3.3. Phase and gain margin of optimal control</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../control/optimal-control-observer.html">32.3.4. Optimal observer for deterministic disturbances</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../control/optimal-control-output.html">32.3.5. Sub-optimal control for output feedback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../control/optimal-control-regulator-observer.html">32.3.6. Combination of controller and observer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../control/kalman.html">32.3.7. Kalman filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../control/hjb.html">32.3.8. Hamilton Bellman Jacobi equation</a></li>
 </ul>
 </li>
 </ul>
@@ -410,7 +410,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/edit/main/ch/control/kalman.md" target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/edit/main/ch/system-theory/kalman-decomposition.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -427,7 +427,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/issues/new?title=Issue%20on%20page%20%2Fch/control/kalman.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/issues/new?title=Issue%20on%20page%20%2Fch/system-theory/kalman-decomposition.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -457,7 +457,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/ch/control/kalman.md" target="_blank"
+      <li><a href="../../_sources/ch/system-theory/kalman-decomposition.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -541,7 +541,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Kalman filter</h1>
+    <h1>Kalman decomposition</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -551,8 +551,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-dynamics">32.3.7.1. Error dynamics</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimality-conditions">32.3.7.2. Optimality conditions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#controllability">30.1. Controllability</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#observability">30.2. Observability</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#system-theory-kalman-decomposition-kalman">30.3. Kalman decomposition</a></li>
 </ul>
             </nav>
         </div>
@@ -564,79 +565,192 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="kalman-filter">
-<span id="control-kalman"></span><h1><span class="section-number">32.3.7. </span>Kalman filter<a class="headerlink" href="#kalman-filter" title="Permalink to this heading">#</a></h1>
-<p>Kalman filter is an optimal state estimator, in terms of minimum-variance error reconstruction. It has the structure of a state observer. Let the linear system</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{cases}
-  \dot{\mathbf{x}} = \mathbf{A} \mathbf{x} + \mathbf{B} \mathbf{u} + \mathbf{B}_d \mathbf{d} \\
-  \mathbf{y} = \mathbf{C} \mathbf{x} + \mathbf{D}_u \mathbf{u} + \mathbf{D}_d \mathbf{d} + \mathbf{D}_r \mathbf{r} \  ,
-\end{cases}\end{split}\]</div>
-<p>Kalman filter for time-continuous systems has the structure</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{cases}
-  \dot{\mathbf{o}} = \mathbf{A} \mathbf{o} + \mathbf{B} \mathbf{u} + \mathbf{L} ( \mathbf{y} - \mathbf{y}_o ) \\
-  \mathbf{y}_o = \mathbf{C} \mathbf{o} + \mathbf{D}_u \mathbf{u}
-\end{cases}\end{split}\]</div>
-<div class="section" id="error-dynamics">
-<h2><span class="section-number">32.3.7.1. </span>Error dynamics<a class="headerlink" href="#error-dynamics" title="Permalink to this heading">#</a></h2>
-<p>Let the error be defined as <span class="math notranslate nohighlight">\(\mathbf{e} := \mathbf{x} - \mathbf{o}\)</span>, its dynamical equation reads</p>
-<div class="math notranslate nohighlight" id="equation-eq-kalman-error-eq">
-<span class="eqno">(32.12)<a class="headerlink" href="#equation-eq-kalman-error-eq" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
-  \dot{\mathbf{e}} &amp; = \left( \mathbf{A} - \mathbf{L} \mathbf{C} \right)  \mathbf{e} + \left( \mathbf{B}_d - \mathbf{L} \mathbf{D}_d \right) \mathbf{d} - \mathbf{L} \mathbf{D}_r \mathbf{r} \\
-  \dot{\mathbf{e}} &amp; = \mathbf{A}_e \mathbf{e} + \mathbf{B}_{ed} \mathbf{d} + \mathbf{B}_{er} \mathbf{r} \\
-  \dot{\mathbf{e}} &amp; = \mathbf{A}_e \mathbf{e} + \boldsymbol\xi \ ,
-\end{aligned}\end{split}\]</div>
-<p>with the definition of the noise input in the dynamical equation of the error, <span class="math notranslate nohighlight">\(\boldsymbol\xi = \left( \mathbf{B}_d - \mathbf{L} \mathbf{D}_d \right) \mathbf{d} - \mathbf{L} \mathbf{D}_r \mathbf{r}\)</span>.</p>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+  <div class="tex2jax_ignore mathjax_ignore section" id="kalman-decomposition">
+<span id="system-theory-kalman-decomposition"></span><h1><span class="section-number">30. </span>Kalman decomposition<a class="headerlink" href="#kalman-decomposition" title="Permalink to this heading">#</a></h1>
+<p>In this section, <a class="reference internal" href="../linear-algebra/svd.html#math-svd"><span class="std std-ref">singular value decomposition</span></a> of the Gramians of <a class="reference internal" href="observability-detectability.html#observability-detectability"><span class="std std-ref">observability</span></a> and <a class="reference internal" href="controllability-reachability.html#controllability-reachability"><span class="std std-ref">controllability</span></a> helps in the decomposition of a LTI system in its non-observable/observable and controllable/non-controllable parts.</p>
+<p><span class="math notranslate nohighlight">\(A\)</span><strong>-invariance</strong> of <span class="math notranslate nohighlight">\(\text{Ran}(\mathbf{W}_c)\)</span> and <span class="math notranslate nohighlight">\(\text{Ker}(\mathbf{W}_o)\)</span> is exploited.</p>
+<p><strong>todo</strong> <em>Infinite-horizon time, or steady-state conditions, are discussed here?</em></p>
+<div class="section" id="controllability">
+<span id="system-theory-kalman-decomposition-controllability"></span><h2><span class="section-number">30.1. </span>Controllability<a class="headerlink" href="#controllability" title="Permalink to this heading">#</a></h2>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
 <summary class="sd-summary-title sd-card-header">
-Details<div class="sd-summary-down docutils">
+Controllability<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Let <span class="math notranslate nohighlight">\(\mathbf{W}_c\)</span> the controllability Gramian of a LTI system. Controllable states belong to the range of <span class="math notranslate nohighlight">\(W_c\)</span>. Controllable states define a sub-space of <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, being <span class="math notranslate nohighlight">\(\mathbf{x} \in \mathbb{R}^n\)</span>. Singular value decomposition (or spectral decomposition) of the semi-poisitive definite symmetric Gramian matrix,</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{W}_C = \mathbf{U}_C \boldsymbol\Sigma_C \mathbf{U}_C^* \ ,\]</div>
+<p class="sd-card-text">provides a decomposition of <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> into the controllable sub-space and its orthogonal complement, with</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{W}_C = [ \, \mathbf{U}_c \, | \, \mathbf{U}_{\overline{c}} \, ] \begin{bmatrix} \boldsymbol\Sigma_c &amp; \cdot \\ \cdot &amp; \cdot \end{bmatrix} \begin{bmatrix} \mathbf{U}_c^* \\ \mathbf{U}_{\overline{c}} \end{bmatrix} \ ,\end{split}\]</div>
+<p class="sd-card-text">with the columns of <span class="math notranslate nohighlight">\(\mathbf{U}_c\)</span> as a base of the controllable sub-space. Introducing a change of variable of the state</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{x} = \mathbf{U}_C \mathbf{x}_1 \ ,\]</div>
+<p class="sd-card-text">the LTI system becomes</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \dot{\mathbf{x}}_1 &amp; = \mathbf{U}_C^* \mathbf{A} \mathbf{U}_C \mathbf{x}_1 + \mathbf{U}_C^* \mathbf{B} \mathbf{u} \\
+       \mathbf{y}    &amp; = \mathbf{C} \mathbf{U}_C \mathbf{x}_1 + \mathbf{D} \mathbf{u} \ .
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">and thus</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+ \frac{d}{dt} \begin{bmatrix} \mathbf{x}_{1,c} \\ \mathbf{x}_{1,\overline{c}} \end{bmatrix} &amp; = \begin{bmatrix} \mathbf{U}_c^* \mathbf{A} \mathbf{U}_c &amp; \mathbf{U}_c^* \mathbf{A} \mathbf{U}_{\overline{c}} \\ \mathbf{0} &amp; \mathbf{U}_{\overline{c}}^* \mathbf{A} \mathbf{U}_{\overline{c}} \end{bmatrix} \begin{bmatrix} \mathbf{x}_{1,c} \\ \mathbf{x}_{1,\overline{c}} \end{bmatrix} + \begin{bmatrix} \mathbf{U}_c^* \mathbf{B} \\ \mathbf{0} \end{bmatrix} \mathbf{u} \\ 
+  \mathbf{y} &amp; = \begin{bmatrix} \mathbf{C} \mathbf{U}_c &amp; \mathbf{C} \mathbf{U}_{\overline{c}} \end{bmatrix} \begin{bmatrix} \mathbf{x}_{1,c} \\ \mathbf{x}_{1, \overline{c}} \end{bmatrix} + \mathbf{D} \mathbf{u} \ .
+\end{aligned}\end{split}\]</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Properties<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The columns of the matrix <span class="math notranslate nohighlight">\(\mathscr{C} = [ \, \mathbf{B} \, | \, \mathbf{A} \mathbf{B} \, | \, \dots \, | \, \mathbf{A}^{n-1} \mathbf{B} \, ]\)</span> are linear combinations of the range of <span class="math notranslate nohighlight">\(\mathbf{W}_C\)</span>, i.e. of the columns of <span class="math notranslate nohighlight">\(\mathbf{U}_c\)</span>, and thus they’re orthogonal w.r.t. the columns of <span class="math notranslate nohighlight">\(\mathbf{U}_{\overline{c}}\)</span>. It follows that</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathbf{U}_{\overline{c}}^* \mathbf{B} &amp; = \mathbf{0} \\
+  \mathbf{U}_{\overline{c}}^* \mathbf{A}^k \mathbf{B} &amp; = \mathbf{0} \quad , \quad \forall k \in \mathbb{N} \\
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">as <span class="math notranslate nohighlight">\(\mathbf{U}^*_{\overline{c}} \mathbf{A}^k \mathbf{B} = \mathbf{U}_{\overline{c}}^* \mathbf{U}_c \boldsymbol\alpha\)</span> and <span class="math notranslate nohighlight">\(\mathbf{U}_{\overline{c}}^* \mathbf{U}_c = \mathbf{0}\)</span></p>
+</div>
+</details></div>
+<div class="section" id="observability">
+<span id="system-theory-kalman-decomposition-observability"></span><h2><span class="section-number">30.2. </span>Observability<a class="headerlink" href="#observability" title="Permalink to this heading">#</a></h2>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Observability<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Let <span class="math notranslate nohighlight">\(\mathbf{W}_o\)</span> the observability Gramian of a LTI system. Non-observable states belong to the kernel of <span class="math notranslate nohighlight">\(W_o\)</span>. Non-observable states define a sub-space of <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span>, being <span class="math notranslate nohighlight">\(\mathbf{x} \in \mathbb{R}^n\)</span>. Singular value decomposition (or spectral decomposition) of the semi-poisitive definite symmetric Gramian matrix,</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{W}_O = \mathbf{U}_O \boldsymbol\Sigma_O \mathbf{U}_O^* \ ,\]</div>
+<p class="sd-card-text">provides a decomposition of <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span> into the non-observable sub-space and its orthogonal complement, with</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{W}_O = [ \, \mathbf{U}_o \, | \, \mathbf{U}_{\overline{o}} \, ] \begin{bmatrix} \boldsymbol\Sigma_o &amp; \cdot \\ \cdot &amp; \cdot \end{bmatrix} \begin{bmatrix} \mathbf{U}_o^* \\ \mathbf{U}_{\overline{o}} \end{bmatrix} \ ,\end{split}\]</div>
+<p class="sd-card-text">with the columns of <span class="math notranslate nohighlight">\(\mathbf{U}_{\overline{o}}\)</span> as a base of the non-observable sub-space. Introducing a change of variable of the state</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{x} = \mathbf{U}_o \mathbf{x}_1 \ ,\]</div>
+<p class="sd-card-text">the LTI system becomes</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \dot{\mathbf{x}}_1 &amp; = \mathbf{U}_O^* \mathbf{A} \mathbf{U}_O \mathbf{x}_1 + \mathbf{U}_O^* \mathbf{B} \mathbf{u} \\
+       \mathbf{y}    &amp; = \mathbf{C} \mathbf{U}_O \mathbf{x}_1 + \mathbf{D} \mathbf{u} \ .
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">and thus</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+ \frac{d}{dt} \begin{bmatrix} \mathbf{x}_{1,o} \\ \mathbf{x}_{1,\overline{o}} \end{bmatrix} &amp; = \begin{bmatrix} \mathbf{U}_o^* \mathbf{A} \mathbf{U}_o &amp; \mathbf{0} \\ \mathbf{U}_{\overline{o}}^* \mathbf{A} \mathbf{U}_{o} &amp; \mathbf{U}_{\overline{o}}^* \mathbf{A} \mathbf{U}_{\overline{o}} \end{bmatrix} \begin{bmatrix} \mathbf{x}_{1,o} \\ \mathbf{x}_{1,\overline{o}} \end{bmatrix} + \begin{bmatrix} \mathbf{U}_o^* \mathbf{B} \\ \mathbf{U}_{\overline{o}}^* \mathbf{B} \end{bmatrix} \mathbf{u} \\ 
+  \mathbf{y} &amp; = \begin{bmatrix} \mathbf{C} \mathbf{U}_o &amp; \mathbf{0} \end{bmatrix} \begin{bmatrix} \mathbf{x}_{1,o} \\ \mathbf{x}_{1, \overline{o}} \end{bmatrix} + \mathbf{D} \mathbf{u} \ ,
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">as <span class="math notranslate nohighlight">\(\mathbf{U}_o^* \mathbf{A} \mathbf{U}_{\overline{o}} = \mathbf{0}\)</span> (see below).</p>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Properties<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The kernel of the observability Gramian is the sub-space of vectors <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> so that <span class="math notranslate nohighlight">\(\mathscr{O} \mathbf{v} = \mathbf{0}\)</span>, with</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathscr{O} = \begin{bmatrix} \mathbf{C} \\ \mathbf{C} \mathbf{A} \\ \dots \\ \mathbf{C} \mathbf{A}^{n-1} \end{bmatrix} \ .\end{split}\]</div>
+<p class="sd-card-text">It follows that</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+   \mathbf{C} \mathbf{U}_{\overline{o}} &amp; = \mathbf{0} \\
+   \mathbf{C} \mathbf{A}^k \mathbf{U}_{\overline{o}}  &amp; = \mathbf{0} \quad , \quad \forall k \in \mathbb{N} \\
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">so that the rows of <span class="math notranslate nohighlight">\(\mathbf{C}\)</span> and the rows of <span class="math notranslate nohighlight">\(\mathbf{C} \mathbf{A}^k\)</span> are linear combinations of the columns of <span class="math notranslate nohighlight">\(\mathbf{U}_o\)</span>, i.e. the columns of <span class="math notranslate nohighlight">\(\left( \mathbf{C} \mathbf{A}^k \right)^*\)</span> are linear combinations of the columns of <span class="math notranslate nohighlight">\(\mathbf{U}_o\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\left( \mathbf{C} \mathbf{A}^k \right)^* = \mathbf{U}_o \boldsymbol\alpha \ , \]</div>
+<p class="sd-card-text">or</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{C} \mathbf{A}^k = \boldsymbol\alpha^* \mathbf{U}_o^* \ .\]</div>
+<p class="sd-card-text">As the property holds for every <span class="math notranslate nohighlight">\(k \in \mathbb{N}\)</span>, the following holds as well</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{U}_o^* \mathbf{A} \mathbf{U}_{\overline{o}} \ .\]</div>
+</div>
+</details></div>
+<div class="section" id="system-theory-kalman-decomposition-kalman">
+<span id="id1"></span><h2><span class="section-number">30.3. </span>Kalman decomposition<a class="headerlink" href="#system-theory-kalman-decomposition-kalman" title="Permalink to this heading">#</a></h2>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Kalman decomposition<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">A first decomposition is applied for controllability. Two further decompositions for observability follows on the controllable and non-controllable parts of the system.</p>
+<p class="sd-card-text">The first change of coordinates with the singular value decomposition of the controllability Gramian</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{x} = \begin{bmatrix} \mathbf{U}_c &amp; \mathbf{U}_{\overline{c}} \end{bmatrix} \begin{bmatrix} \mathbf{x}_{1,c} \\ \mathbf{x}_{1,\overline{c}} \end{bmatrix}\end{split}\]</div>
+<p class="sd-card-text">gives</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+ \frac{d}{dt} \begin{bmatrix} \mathbf{x}_{1,c} \\ \mathbf{x}_{1,\overline{c}} \end{bmatrix} &amp; = \begin{bmatrix} \mathbf{U}_c^* \mathbf{A} \mathbf{U}_c &amp; \mathbf{U}_c^* \mathbf{A} \mathbf{U}_{\overline{c}} \\ \mathbf{0} &amp; \mathbf{U}_{\overline{c}}^* \mathbf{A} \mathbf{U}_{\overline{c}} \end{bmatrix} \begin{bmatrix} \mathbf{x}_{1,c} \\ \mathbf{x}_{1,\overline{c}} \end{bmatrix} + \begin{bmatrix} \mathbf{U}_c^* \mathbf{B} \\ \mathbf{0} \end{bmatrix} \mathbf{u} \\ 
+  \mathbf{y} &amp; = \begin{bmatrix} \mathbf{C} \mathbf{U}_c &amp; \mathbf{C} \mathbf{U}_{\overline{c}} \end{bmatrix} \begin{bmatrix} \mathbf{x}_{1,c} \\ \mathbf{x}_{1, \overline{c}} \end{bmatrix} + \mathbf{D} \mathbf{u} \ .
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">Then the controllable variables and the non-controllable variables are further transformed as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathbf{x}_{1,c} &amp; = \mathbf{U}_O^c \mathbf{x}_{2,c} = \begin{bmatrix} \mathbf{U}_o^c &amp; \mathbf{U}_{\overline{o}}^c \end{bmatrix} \begin{bmatrix} \mathbf{x}_{c,o} \\ \mathbf{x}_{c,\overline{o}} \end{bmatrix} \\
+  \mathbf{x}_{1,\overline{c}} &amp; = \mathbf{U}_O^{\overline{c}} \mathbf{x}_{2,\overline{c}} = \begin{bmatrix} \mathbf{U}_o^{\overline{c}} &amp; \mathbf{U}_{\overline{o}}^{\overline{c}} \end{bmatrix} \begin{bmatrix} \mathbf{x}_{\overline{c},o} \\ \mathbf{x}_{\overline{c},\overline{o}} \end{bmatrix} \ ,
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">or</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{bmatrix} \mathbf{x}_{1,c} \\ \mathbf{x}_{1,\overline{c}} \end{bmatrix} = \begin{bmatrix} \mathbf{U}_o^c &amp; \mathbf{U}_{\overline{o}}^{c} &amp; \cdot &amp; \cdot \\ \cdot &amp; \cdot &amp; \mathbf{U}_o^{\overline{c}} &amp; \mathbf{U}_{\overline{o}}^{\overline{c}} \end{bmatrix} \begin{bmatrix} \mathbf{x}_{co} \\ \mathbf{x}_{c\overline{o}} \\ \mathbf{x}_{\overline{c}o} \\ \mathbf{x}_{\overline{c}\overline{o}} \end{bmatrix} \ .\end{split}\]</div>
+<p class="sd-card-text">with <span class="math notranslate nohighlight">\(\mathbf{W}_{c,1}(\mathbf{A}_{cc}, \mathbf{C}_c) = \mathbf{U}_O^{c} \boldsymbol\Sigma_{c,1} \mathbf{U}_O^{c *}\)</span>, and <span class="math notranslate nohighlight">\(\mathbf{W}_{\overline{c},1}(\mathbf{A}_{\overline{c}\overline{c}}, \mathbf{C}_{\overline{c}}) = \mathbf{U}_O^{\overline{c}} \boldsymbol\Sigma_{\overline{c},1} \mathbf{U}_O^{\overline{c} *}\)</span>.</p>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-kebab-horizontal" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M6 12a2 2 0 11-4 0 2 2 0 014 0zm8 0a2 2 0 11-4 0 2 2 0 014 0zm6 2a2 2 0 100-4 2 2 0 000 4z"></path></svg><div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">For the non-controllable space, the non-observable part <span class="math notranslate nohighlight">\(\mathbf{U}_{\overline{o}}^{\overline{c}}\)</span> satisfies</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{C}_{\overline{c}} \mathbf{A}_{\overline{c}\overline{c}}^k \mathbf{U}_{\overline{o}}^{\overline{c}} = \mathbf{0} \ .\]</div>
+<p class="sd-card-text">Thus, the matrix</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{bmatrix} \mathbf{0} \\ \mathbf{U}_{\overline{o}}^{\overline{c}} \end{bmatrix} \ ,\end{split}\]</div>
+<p class="sd-card-text">satisfies</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{C}_1 \mathbf{A}_1 \begin{bmatrix} \mathbf{0} \\ \mathbf{U}_{\overline{o}}^{\overline{c}}  \end{bmatrix} = \mathbf{0} \ ,\end{split}\]</div>
+<p class="sd-card-text">and thus the columns of this matrix belongs to the non-observable subspace of <span class="math notranslate nohighlight">\(\mathbf{A}_1\)</span>. Recalling the first transformation, <span class="math notranslate nohighlight">\(\mathbf{A}_1 = \mathbf{U}_C^* \mathbf{A} \mathbf{U}_C\)</span>, <span class="math notranslate nohighlight">\(\mathbf{C}_1 = \mathbf{C} \mathbf{U}_C\)</span>, it follows that</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{C} \mathbf{A} \mathbf{U}_C \begin{bmatrix} \mathbf{0} \\ \mathbf{U}_{\overline{o}}^{\overline{c}}  \end{bmatrix} = \mathbf{0} \ ,\end{split}\]</div>
+<p class="sd-card-text">and the expression of the non-controllable, non-observable subspace. If the vector <span class="math notranslate nohighlight">\(\begin{bmatrix} \mathbf{0} \\ \mathbf{U}_{\overline{o}}^{\overline{c}} \end{bmatrix}\)</span> belongs to the kernel <span class="math notranslate nohighlight">\(\mathbf{W}_{o,1}\)</span>, thus also the vector <span class="math notranslate nohighlight">\(\mathbf{A}_1 \begin{bmatrix} \mathbf{0} \\ \mathbf{U}_{\overline{o}}^{\overline{c}} \end{bmatrix}\)</span> belongs to the kernel of <span class="math notranslate nohighlight">\(\mathbf{W}_{o,1}\)</span> for the <span class="math notranslate nohighlight">\(\mathbf{A}_1\)</span>-invariance of the kernel of <span class="math notranslate nohighlight">\(\mathbf{W}_{o,1}\)</span>. Thus, this vector is orthogonal to the vectors of the observability complement, <strong>todo</strong> <em>Prove that the columns of the following matrices are a basis of the observability complement</em></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{bmatrix} \mathbf{U}_{o}^{c} \\ \mathbf{0} \end{bmatrix} \quad , \quad \begin{bmatrix} \mathbf{0} \\ \mathbf{U}_o^{\overline{c}} \end{bmatrix} \ .\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{0} = \begin{bmatrix} \mathbf{U}_o^{c *} &amp; \mathbf{0} \end{bmatrix} \begin{bmatrix} \mathbf{A}_{cc} &amp; \mathbf{A}_{c\overline{c}} \\ \mathbf{0} &amp; \mathbf{A}_{\overline{c}\overline{c}} \end{bmatrix} \begin{bmatrix} \mathbf{0} \\ \mathbf{U}_{\overline{o}}^{\overline{c}} \end{bmatrix} = \mathbf{U}_o^{c *} \mathbf{A}_{c \overline{c}} \mathbf{U}_{\overline{o}}^{\overline{c}} \ .\end{split}\]</div>
+<p class="sd-card-text">provides an orthogonality condition between the observable-controllable and non-observable and non-controllable part of the system.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{0} = \begin{bmatrix} \mathbf{0} &amp; \mathbf{U}_o^{\overline{c} *} \end{bmatrix} \begin{bmatrix} \mathbf{A}_{cc} &amp; \mathbf{A}_{c\overline{c}} \\ \mathbf{0} &amp; \mathbf{A}_{\overline{c}\overline{c}} \end{bmatrix} \begin{bmatrix} \mathbf{0} \\ \mathbf{U}_{\overline{o}}^{\overline{c}} \end{bmatrix} = \mathbf{U}_o^{\overline{c} *} \mathbf{A}_{\overline{c} \overline{c}} \mathbf{U}_{\overline{o}}^{\overline{c}} \ .\end{split}\]</div>
+<p class="sd-card-text">was already known as a property of the observability partition.</p>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Transformation and properties of Gramian matrices<div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
-  \dot{\mathbf{e}}
-  &amp; = \dot{\mathbf{x}} - \dot{\mathbf{o}} = \\
-  &amp; = \mathbf{A} \mathbf{x} + \mathbf{B} \mathbf{u} + \mathbf{B}_d \mathbf{d} - \left( \mathbf{A} \mathbf{o} + \mathbf{B} \mathbf{u} + \mathbf{L} ( \mathbf{y} - \mathbf{y}_o )\right) = \\
-  &amp; = \left( \mathbf{A} - \mathbf{L} \mathbf{C} \right)  \mathbf{e} + \left( \mathbf{B}_d - \mathbf{L} \mathbf{D}_d \right) \mathbf{d} - \mathbf{L} \mathbf{D}_r \mathbf{r}
+  \mathbf{W}_{C,1} &amp; = \mathbf{U}_C \mathbf{W}_C \mathbf{U}_C^* \\
+  \mathbf{W}_{O,1} &amp; = \mathbf{U}^*_C \mathbf{W}_O \mathbf{U}_C
 \end{aligned}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\mathbf{A}_1 = \mathbf{U}_C \mathbf{A} \mathbf{U}_C^*\]</div>
 </div>
-</details><p>Let the exogenous input <span class="math notranslate nohighlight">\(\mathbf{d}\)</span> and the measurement input <span class="math notranslate nohighlight">\(\mathbf{r}\)</span> be random signals, thus the input <span class="math notranslate nohighlight">\(\boldsymbol\xi\)</span> of the error dynamical equation <a class="reference internal" href="#equation-eq-kalman-error-eq">(32.12)</a> is a random signal with correlation</p>
-<!--
-$$\mathbb{E}\left[ \boldsymbol\xi(t) \boldsymbol\xi^*(\tau) \right] =
-   \left( \mathbf{B}_d - \mathbf{L} \mathbf{D}_d \right)   \mathbb{E}\left[ \mathbf{d} \mathbf{d}^*  \right] \left( \mathbf{B}_d - \mathbf{L} \mathbf{D}_d \right)^*
- - \left( \mathbf{B}_d - \mathbf{L} \mathbf{D}_d \right)   \mathbb{E}\left[ \mathbf{d} \mathbf{r}^*  \right] \left(                \mathbf{L} \mathbf{D}_r \right)^*
- - \left(                \mathbf{L} \mathbf{D}_r \right)   \mathbb{E}\left[ \mathbf{r} \mathbf{d}^*  \right] \left( \mathbf{B}_d - \mathbf{L} \mathbf{D}_d \right)^*
- + \left(                \mathbf{L} \mathbf{D}_r \right)   \mathbb{E}\left[ \mathbf{r} \mathbf{r}^*  \right] \left(                \mathbf{L} \mathbf{D}_r \right)^*
-$$
--->
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-\mathbf{R}_{\boldsymbol\xi \boldsymbol\xi}(t,\tau) := \mathbb{E}\left[ \boldsymbol\xi(t) \boldsymbol\xi^*(\tau) \right]
- &amp; = \mathbf{B}_{ed} \mathbf{R}_{\mathbf{d}\mathbf{d}}(t,\tau) \mathbf{B}_{ed}^*
-   + \mathbf{B}_{ed} \mathbf{R}_{\mathbf{d}\mathbf{r}}(t,\tau) \mathbf{B}_{er}^* + \\
- &amp; + \mathbf{B}_{er} \mathbf{R}_{\mathbf{r}\mathbf{d}}(t,\tau) \mathbf{B}_{ed}^*
-   + \mathbf{B}_{er} \mathbf{R}_{\mathbf{r}\mathbf{r}}(t,\tau) \mathbf{B}_{er}^*
-\end{aligned}\end{split}\]</div>
-<p>Using the general results for linear systems for <strong>white noise</strong> as an input <span class="math notranslate nohighlight">\(\boldsymbol\xi\)</span>, the covariance matrix <span class="math notranslate nohighlight">\(\mathbf{P}_{\mathbf{e}}(t) := \mathbf{R}_{\mathbf{e}\mathbf{e}}(t,t)\)</span> of the error - governed by eqaution <a class="reference internal" href="#equation-eq-kalman-error-eq">(32.12)</a> - satisfies the Lyapunov equation <a class="reference internal" href="../ode/ode-linear-systems.html#equation-eq-lyapunov-correlation">(23.3)</a></p>
-<div class="math notranslate nohighlight">
-\[\dot{\mathbf{P}}_{\mathbf{e}} = \mathbf{A}_e \mathbf{P}_{\mathbf{e}} + \mathbf{P}_{\mathbf{e}} \mathbf{A}_e^* + \boldsymbol\sigma_{\xi}^2 \ ,\]</div>
-<p>being</p>
-<div class="math notranslate nohighlight">
-\[\boldsymbol\sigma_{xi}^2 = \dots \]</div>
-</div>
-<div class="section" id="optimality-conditions">
-<h2><span class="section-number">32.3.7.2. </span>Optimality conditions<a class="headerlink" href="#optimality-conditions" title="Permalink to this heading">#</a></h2>
-<p>…</p>
-<div class="math notranslate nohighlight">
-\[\mathbf{L} = \]</div>
-<ul class="simple">
-<li><p>duality with the optimal control…</p></li>
-<li><p>…</p></li>
-</ul>
-</div>
+</details></div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -652,7 +766,7 @@ $$
         },
         kernelOptions: {
             name: "python3",
-            path: "./ch/control"
+            path: "./ch/system-theory"
         },
         predefinedOutput: true
     }
@@ -670,20 +784,20 @@ $$
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="optimal-control-regulator-observer.html"
+       href="controllability-reachability.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">32.3.6. </span>Combination of controller and observer</p>
+        <p class="prev-next-title"><span class="section-number">29. </span>Reachability and Controllability</p>
       </div>
     </a>
     <a class="right-next"
-       href="hjb.html"
+       href="lyapunov-equation.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">32.3.8. </span>Hamilton Bellman Jacobi equation</p>
+        <p class="prev-next-title"><span class="section-number">31. </span>Lyapunov equation</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -702,8 +816,9 @@ $$
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-dynamics">32.3.7.1. Error dynamics</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimality-conditions">32.3.7.2. Optimality conditions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#controllability">30.1. Controllability</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#observability">30.2. Observability</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#system-theory-kalman-decomposition-kalman">30.3. Kalman decomposition</a></li>
 </ul>
   </nav></div>
 
