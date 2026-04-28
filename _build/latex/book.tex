@@ -85,7 +85,7 @@
         
 
 \title{basics - math}
-\date{Apr 20, 2026}
+\date{Apr 28, 2026}
 \release{}
 \author{basics}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -4942,6 +4942,10 @@ System theory shifts the focus from solving individual equations to analyzing th
 \sphinxAtStartPar
 \sphinxstylestrong{Controllability and Observability.}
 
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Time, Laplace and Fourier domains.} Realizations,…
+
 \end{itemize}
 
 \sphinxstepscope
@@ -5752,6 +5756,346 @@ i.e. \(\mathbf{v}^T \mathcal{C} = \mathbf{0}\). If the column space of matrix \(
 \sphinxstepscope
 
 
+\chapter{Kalman decomposition}
+\label{\detokenize{ch/system-theory/kalman-decomposition:kalman-decomposition}}\label{\detokenize{ch/system-theory/kalman-decomposition:system-theory-kalman-decomposition}}\label{\detokenize{ch/system-theory/kalman-decomposition::doc}}
+\sphinxAtStartPar
+In this section, {\hyperref[\detokenize{ch/linear-algebra/svd:math-svd}]{\sphinxcrossref{\DUrole{std,std-ref}{singular value decomposition}}}} of the Gramians of {\hyperref[\detokenize{ch/system-theory/observability-detectability:observability-detectability}]{\sphinxcrossref{\DUrole{std,std-ref}{observability}}}} and {\hyperref[\detokenize{ch/system-theory/controllability-reachability:controllability-reachability}]{\sphinxcrossref{\DUrole{std,std-ref}{controllability}}}} helps in the decomposition of a LTI system in its non\sphinxhyphen{}observable/observable and controllable/non\sphinxhyphen{}controllable parts.
+
+\sphinxAtStartPar
+\(A\)\sphinxstylestrong{\sphinxhyphen{}invariance} of \(\text{Ran}(\mathbf{W}_c)\) and \(\text{Ker}(\mathbf{W}_o)\) is exploited.
+
+\sphinxAtStartPar
+\sphinxstylestrong{todo} \sphinxstyleemphasis{Infinite\sphinxhyphen{}horizon time, or steady\sphinxhyphen{}state conditions, are discussed here?}
+
+
+\section{Controllability}
+\label{\detokenize{ch/system-theory/kalman-decomposition:controllability}}\label{\detokenize{ch/system-theory/kalman-decomposition:system-theory-kalman-decomposition-controllability}}\subsubsection*{Controllability}
+
+\sphinxAtStartPar
+Let \(\mathbf{W}_c\) the controllability Gramian of a LTI system. Controllable states belong to the range of \(W_c\). Controllable states define a sub\sphinxhyphen{}space of \(\mathbb{R}^n\), being \(\mathbf{x} \in \mathbb{R}^n\). Singular value decomposition (or spectral decomposition) of the semi\sphinxhyphen{}poisitive definite symmetric Gramian matrix,
+\begin{equation*}
+\begin{split}\mathbf{W}_C = \mathbf{U}_C \boldsymbol\Sigma_C \mathbf{U}_C^* \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+provides a decomposition of \(\mathbb{R}^n\) into the controllable sub\sphinxhyphen{}space and its orthogonal complement, with
+\begin{equation*}
+\begin{split}\mathbf{W}_C = [ \, \mathbf{U}_c \, | \, \mathbf{U}_{\overline{c}} \, ] \begin{bmatrix} \boldsymbol\Sigma_c & \cdot \\ \cdot & \cdot \end{bmatrix} \begin{bmatrix} \mathbf{U}_c^* \\ \mathbf{U}_{\overline{c}} \end{bmatrix} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+with the columns of \(\mathbf{U}_c\) as a base of the controllable sub\sphinxhyphen{}space. Introducing a change of variable of the state
+\begin{equation*}
+\begin{split}\mathbf{x} = \mathbf{U}_C \mathbf{x}_1 \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+the LTI system becomes
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \dot{\mathbf{x}}_1 & = \mathbf{U}_C^* \mathbf{A} \mathbf{U}_C \mathbf{x}_1 + \mathbf{U}_C^* \mathbf{B} \mathbf{u} \\
+       \mathbf{y}    & = \mathbf{C} \mathbf{U}_C \mathbf{x}_1 + \mathbf{D} \mathbf{u} \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and thus
+\begin{equation*}
+\begin{split}\begin{aligned}
+ \frac{d}{dt} \begin{bmatrix} \mathbf{x}_{1,c} \\ \mathbf{x}_{1,\overline{c}} \end{bmatrix} & = \begin{bmatrix} \mathbf{U}_c^* \mathbf{A} \mathbf{U}_c & \mathbf{U}_c^* \mathbf{A} \mathbf{U}_{\overline{c}} \\ \mathbf{0} & \mathbf{U}_{\overline{c}}^* \mathbf{A} \mathbf{U}_{\overline{c}} \end{bmatrix} \begin{bmatrix} \mathbf{x}_{1,c} \\ \mathbf{x}_{1,\overline{c}} \end{bmatrix} + \begin{bmatrix} \mathbf{U}_c^* \mathbf{B} \\ \mathbf{0} \end{bmatrix} \mathbf{u} \\ 
+  \mathbf{y} & = \begin{bmatrix} \mathbf{C} \mathbf{U}_c & \mathbf{C} \mathbf{U}_{\overline{c}} \end{bmatrix} \begin{bmatrix} \mathbf{x}_{1,c} \\ \mathbf{x}_{1, \overline{c}} \end{bmatrix} + \mathbf{D} \mathbf{u} \ .
+\end{aligned}\end{split}
+\end{equation*}\subsubsection*{Properties}
+
+\sphinxAtStartPar
+The columns of the matrix \(\mathscr{C} = [ \, \mathbf{B} \, | \, \mathbf{A} \mathbf{B} \, | \, \dots \, | \, \mathbf{A}^{n-1} \mathbf{B} \, ]\) are linear combinations of the range of \(\mathbf{W}_C\), i.e. of the columns of \(\mathbf{U}_c\), and thus they’re orthogonal w.r.t. the columns of \(\mathbf{U}_{\overline{c}}\). It follows that
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{U}_{\overline{c}}^* \mathbf{B} & = \mathbf{0} \\
+  \mathbf{U}_{\overline{c}}^* \mathbf{A}^k \mathbf{B} & = \mathbf{0} \quad , \quad \forall k \in \mathbb{N} \\
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+as \(\mathbf{U}^*_{\overline{c}} \mathbf{A}^k \mathbf{B} = \mathbf{U}_{\overline{c}}^* \mathbf{U}_c \boldsymbol\alpha\) and \(\mathbf{U}_{\overline{c}}^* \mathbf{U}_c = \mathbf{0}\)
+
+
+\section{Observability}
+\label{\detokenize{ch/system-theory/kalman-decomposition:observability}}\label{\detokenize{ch/system-theory/kalman-decomposition:system-theory-kalman-decomposition-observability}}\subsubsection*{Observability}
+
+\sphinxAtStartPar
+Let \(\mathbf{W}_o\) the observability Gramian of a LTI system. Non\sphinxhyphen{}observable states belong to the kernel of \(W_o\). Non\sphinxhyphen{}observable states define a sub\sphinxhyphen{}space of \(\mathbb{R}^n\), being \(\mathbf{x} \in \mathbb{R}^n\). Singular value decomposition (or spectral decomposition) of the semi\sphinxhyphen{}poisitive definite symmetric Gramian matrix,
+\begin{equation*}
+\begin{split}\mathbf{W}_O = \mathbf{U}_O \boldsymbol\Sigma_O \mathbf{U}_O^* \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+provides a decomposition of \(\mathbb{R}^n\) into the non\sphinxhyphen{}observable sub\sphinxhyphen{}space and its orthogonal complement, with
+\begin{equation*}
+\begin{split}\mathbf{W}_O = [ \, \mathbf{U}_o \, | \, \mathbf{U}_{\overline{o}} \, ] \begin{bmatrix} \boldsymbol\Sigma_o & \cdot \\ \cdot & \cdot \end{bmatrix} \begin{bmatrix} \mathbf{U}_o^* \\ \mathbf{U}_{\overline{o}} \end{bmatrix} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+with the columns of \(\mathbf{U}_{\overline{o}}\) as a base of the non\sphinxhyphen{}observable sub\sphinxhyphen{}space. Introducing a change of variable of the state
+\begin{equation*}
+\begin{split}\mathbf{x} = \mathbf{U}_o \mathbf{x}_1 \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+the LTI system becomes
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \dot{\mathbf{x}}_1 & = \mathbf{U}_O^* \mathbf{A} \mathbf{U}_O \mathbf{x}_1 + \mathbf{U}_O^* \mathbf{B} \mathbf{u} \\
+       \mathbf{y}    & = \mathbf{C} \mathbf{U}_O \mathbf{x}_1 + \mathbf{D} \mathbf{u} \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and thus
+\begin{equation*}
+\begin{split}\begin{aligned}
+ \frac{d}{dt} \begin{bmatrix} \mathbf{x}_{1,o} \\ \mathbf{x}_{1,\overline{o}} \end{bmatrix} & = \begin{bmatrix} \mathbf{U}_o^* \mathbf{A} \mathbf{U}_o & \mathbf{0} \\ \mathbf{U}_{\overline{o}}^* \mathbf{A} \mathbf{U}_{o} & \mathbf{U}_{\overline{o}}^* \mathbf{A} \mathbf{U}_{\overline{o}} \end{bmatrix} \begin{bmatrix} \mathbf{x}_{1,o} \\ \mathbf{x}_{1,\overline{o}} \end{bmatrix} + \begin{bmatrix} \mathbf{U}_o^* \mathbf{B} \\ \mathbf{U}_{\overline{o}}^* \mathbf{B} \end{bmatrix} \mathbf{u} \\ 
+  \mathbf{y} & = \begin{bmatrix} \mathbf{C} \mathbf{U}_o & \mathbf{0} \end{bmatrix} \begin{bmatrix} \mathbf{x}_{1,o} \\ \mathbf{x}_{1, \overline{o}} \end{bmatrix} + \mathbf{D} \mathbf{u} \ ,
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+as \(\mathbf{U}_o^* \mathbf{A} \mathbf{U}_{\overline{o}} = \mathbf{0}\) (see below).
+\subsubsection*{Properties}
+
+\sphinxAtStartPar
+The kernel of the observability Gramian is the sub\sphinxhyphen{}space of vectors \(\mathbf{v}\) so that \(\mathscr{O} \mathbf{v} = \mathbf{0}\), with
+\begin{equation*}
+\begin{split}\mathscr{O} = \begin{bmatrix} \mathbf{C} \\ \mathbf{C} \mathbf{A} \\ \dots \\ \mathbf{C} \mathbf{A}^{n-1} \end{bmatrix} \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+It follows that
+\begin{equation*}
+\begin{split}\begin{aligned}
+   \mathbf{C} \mathbf{U}_{\overline{o}} & = \mathbf{0} \\
+   \mathbf{C} \mathbf{A}^k \mathbf{U}_{\overline{o}}  & = \mathbf{0} \quad , \quad \forall k \in \mathbb{N} \\
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+so that the rows of \(\mathbf{C}\) and the rows of \(\mathbf{C} \mathbf{A}^k\) are linear combinations of the columns of \(\mathbf{U}_o\), i.e. the columns of \(\left( \mathbf{C} \mathbf{A}^k \right)^*\) are linear combinations of the columns of \(\mathbf{U}_o\),
+\begin{equation*}
+\begin{split}\left( \mathbf{C} \mathbf{A}^k \right)^* = \mathbf{U}_o \boldsymbol\alpha \ , \end{split}
+\end{equation*}
+\sphinxAtStartPar
+or
+\begin{equation*}
+\begin{split}\mathbf{C} \mathbf{A}^k = \boldsymbol\alpha^* \mathbf{U}_o^* \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+As the property holds for every \(k \in \mathbb{N}\), the following holds as well
+\begin{equation*}
+\begin{split}\mathbf{U}_o^* \mathbf{A} \mathbf{U}_{\overline{o}} \ .\end{split}
+\end{equation*}
+
+\section{Kalman decomposition}
+\label{\detokenize{ch/system-theory/kalman-decomposition:system-theory-kalman-decomposition-kalman}}\label{\detokenize{ch/system-theory/kalman-decomposition:id1}}
+\sphinxAtStartPar
+Let
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\(\mathbf{U}_1\) spanning the \sphinxstylestrong{reachable} and \sphinxstylestrong{non\sphinxhyphen{}observable sub\sphinxhyphen{}psace}, \(R \cap \overline{O}\)
+
+\item {} 
+\sphinxAtStartPar
+\(\mathbf{U}_2\) complementing \(\mathbf{U}_1\) to get the reachable sub\sphinxhyphen{}sspace \(R\)
+
+\item {} 
+\sphinxAtStartPar
+\(\mathbf{U}_3\) complementing \(\mathbf{U}_3\) to get the non\sphinxhyphen{}observable sub\sphinxhyphen{}space \(O\)
+
+\item {} 
+\sphinxAtStartPar
+\(\mathbf{U}_4\) complementing \(\mathbf{U}_1\), \(\mathbf{U}_2\), \(\mathbf{U}_3\) to get \(\mathbb{R}^n\)
+
+\end{itemize}
+
+\sphinxAtStartPar
+The columns of \(\mathbf{U}_1\) and \(\mathbf{U}_3\) form a vector basis of the non\sphinxhyphen{}observable sub\sphinxhyphen{}space. The columns of \(\mathbf{U}_1\) and \(\mathbf{U}_2\) form a vector basis of the reachable subspace.
+
+\sphinxAtStartPar
+A coordinate transfromation of the form
+\begin{equation*}
+\begin{split}\mathbf{x} = \mathbf{T} \mathbf{x} = \begin{bmatrix} \ \mathbf{U}_1 & \mathbf{U}_2 & \mathbf{U}_3 & \mathbf{U}_4 \ \end{bmatrix} \mathbf{z} = \begin{bmatrix} \ \mathbf{U}_1 & \mathbf{U}_2 & \mathbf{U}_3 & \mathbf{U}_4 \ \end{bmatrix} \begin{bmatrix} \mathbf{z}_1 \\ \mathbf{z}_2 \\ \mathbf{z}_3 \\ \mathbf{z}_4 \end{bmatrix} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+produce a transformed system with the following structure
+\begin{equation*}
+\begin{split}\left\{\begin{aligned}
+  \frac{d}{dt} \begin{bmatrix} \mathbf{z}_1 \\ \mathbf{z}_2 \\ \mathbf{z}_3 \\ \mathbf{z}_4 \end{bmatrix} & =
+  \begin{bmatrix} 
+     \mathbf{A}_{11} & \mathbf{A}_{12} & \mathbf{A}_{13} & \mathbf{A}_{14} \\ 
+     \mathbf{0}      & \mathbf{A}_{22} & \mathbf{0}      & \mathbf{A}_{24} \\ 
+     \mathbf{0}      & \mathbf{0}      & \mathbf{A}_{33} & \mathbf{A}_{34} \\ 
+     \mathbf{0}      & \mathbf{0}      & \mathbf{0}      & \mathbf{A}_{44} \\ 
+  \end{bmatrix}
+  \begin{bmatrix} \mathbf{z}_1 \\ \mathbf{z}_2 \\ \mathbf{z}_3 \\ \mathbf{z}_4 \end{bmatrix} +
+  \begin{bmatrix} \mathbf{B}_1 \\ \mathbf{B}_2 \\ \mathbf{0} \\ \mathbf{0} \end{bmatrix} \mathbf{u} \\
+  \mathbf{y} & = \begin{bmatrix} \ \mathbf{0} & \mathbf{C}_2 & \mathbf{0} & \mathbf{C}_4 \end{bmatrix}
+  \begin{bmatrix} \mathbf{z}_1 \\ \mathbf{z}_2 \\ \mathbf{z}_3 \\ \mathbf{z}_4 \end{bmatrix} +
+  \mathbf{D} \mathbf{u} 
+\end{aligned}\right.\end{split}
+\end{equation*}\subsubsection*{Details}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Columns of \(\ \mathbf{T}\).} Here the columns of \(\mathbf{U}_1\) are assumed to be a set of unit normal vectors, \(\mathbf{U}_1^* \mathbf{U}_1 = \mathbf{I}\). Without this assumption, Gram\sphinxhyphen{}Schmidt orthogonalization process ensure a orthogonal basis \(\boldsymbol\Phi_1\) exists and the basis in \(\mathbf{U}_1\) can be written as a linear combination of the columns of \(\boldsymbol\Phi_1\), i.e. \(\mathbf{U}_1 = \boldsymbol\Phi_1 \boldsymbol\alpha_1\), with non\sphinxhyphen{}singular \(\boldsymbol\alpha_1\). Columns of \(\mathbf{U}_2\) are linearly independent from the columns of \(\mathbf{U}_1\) to form a basis of the reachable sub\sphinxhyphen{}space. Columns \(\mathbf{U}_3\) are linearly independent from the columns of \(\mathbf{U}_1\) to form a basis of the non\sphinxhyphen{}observable sub\sphinxhyphen{}space. In general, they’re not unit orthogonal but a unit orthogonal basis can be found, to get
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{U}_2 & = \boldsymbol\Phi_2 \boldsymbol\alpha_2 + \mathbf{U}_1 \boldsymbol\alpha_{12} \\
+  \mathbf{U}_3 & = \boldsymbol\Phi_3 \boldsymbol\alpha_3 + \mathbf{U}_1 \boldsymbol\alpha_{13} \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+In general, the columns of \(\boldsymbol\Phi_2\) and \(\boldsymbol\Phi_3\) are not mutually orthogonal, as the reachable sub\sphinxhyphen{}space and the non\sphinxhyphen{}observable sub\sphinxhyphen{}space are not orthogonal, \(\boldsymbol\Phi_2^* \boldsymbol\Phi_3 \ne \mathbf{0}\). The columns of the complement \(\mathbf{U}_4\) are assumed to be unit normal vectors, orthogonal w.r.t. the columns of \(\mathbf{U}_1\), \(\mathbf{U}_2\), \(\mathbf{U}_3\) (and of \(\boldsymbol\Phi_2\), \(\boldsymbol\Phi_3\)).
+
+\sphinxAtStartPar
+\sphinxstylestrong{Recast \(\ \mathbf{T}\).}
+\begin{equation*}
+\begin{split}
+\mathbf{T} = \begin{bmatrix} \ \mathbf{U}_1 & \boldsymbol\Phi_2 & \boldsymbol\Phi_3 & \mathbf{U}_4 \ \end{bmatrix}
+\begin{bmatrix}
+  \mathbf{I} & \boldsymbol\alpha_{12} & \boldsymbol\alpha_{13} & \cdot \\
+  \cdot      & \boldsymbol\alpha_{2 } & \cdot                  & \cdot \\
+  \cdot      & \cdot                  & \boldsymbol\alpha_{3 } & \cdot \\
+  \cdot      & \cdot                  & \cdot                  & \mathbf{I}
+\end{bmatrix} =
+\boldsymbol\Phi \boldsymbol\alpha
+\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Inverse \(\ \mathbf{T}^{-1}\).}
+\begin{equation*}
+\begin{split}\mathbf{T}^{-1} = \boldsymbol\alpha^{-1} \boldsymbol\Phi^{-1} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+with
+\begin{equation*}
+\begin{split}\boldsymbol\alpha^{-1} & = 
+\begin{bmatrix}
+  \mathbf{I} &-\boldsymbol\alpha_{12}\boldsymbol\alpha_{2 }^{-1}      &-\boldsymbol\alpha_{13}\boldsymbol\alpha_{3 }^{-1}      & \cdot \\
+  \cdot      & \boldsymbol\alpha_{2 }^{-1} & \cdot                       & \cdot \\
+  \cdot      & \cdot                       & \boldsymbol\alpha_{3 }^{-1} & \cdot \\
+  \cdot      & \cdot                       & \cdot                       & \mathbf{I}
+\end{bmatrix}\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\boldsymbol\Phi^{-1} & =
+\begin{bmatrix}
+  \mathbf{U}_1^* \\
+  \left[ \left( \mathbf{I} - \boldsymbol\Phi_3 \boldsymbol\Phi_3^* \right) \boldsymbol\Phi_2 \left( \mathbf{I} - \boldsymbol\Phi_2^* \boldsymbol\Phi_3 \boldsymbol\Phi_3^* \boldsymbol\Phi_2 \right)^{-1} \right]^* \\
+  \left[ \left( \mathbf{I} - \boldsymbol\Phi_2 \boldsymbol\Phi_2^* \right) \boldsymbol\Phi_3 \left( \mathbf{I} - \boldsymbol\Phi_3^* \boldsymbol\Phi_2 \boldsymbol\Phi_2^* \boldsymbol\Phi_3 \right)^{-1} \right]^* \\
+  \mathbf{U}_4^* 
+\end{bmatrix}
+\end{split}
+\end{equation*}\subsubsection*{Details}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Transformed matrices: matrix \(\hat{\mathbf{C}}\).}
+\begin{equation*}
+\begin{split}\hat{\mathbf{C}} = \mathbf{C} \mathbf{T} = \mathbf{C} \boldsymbol\Phi \boldsymbol\alpha\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\mathbf{C} \boldsymbol\Phi = \mathbf{C} \begin{bmatrix} \ \mathbf{U}_1 & \boldsymbol\Phi_2 & \boldsymbol\Phi_3 & \mathbf{U}_4 \ \end{bmatrix} = \begin{bmatrix} \ \mathbf{0}   & \mathbf{C} \boldsymbol\Phi_2 & \mathbf{0} & \mathbf{C} \mathbf{U}_4 \ \end{bmatrix} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+as \(\mathbf{C} \mathbf{U}_1 = \mathbf{0}\), \(\mathbf{C} \boldsymbol\Phi_3 = \mathbf{0}\). Looking at the structures of the matrices \(\mathbf{C} \boldsymbol\Phi\) and \(\boldsymbol\alpha\),
+\begin{equation*}
+\begin{split}
+\begin{bmatrix} \cdot & \ast & \cdot & \ast \end{bmatrix}
+\begin{bmatrix} 
+  \ast  & \ast  & \ast  & \cdot \\
+  \cdot & \ast  & \cdot & \cdot \\
+  \cdot & \cdot & \ast  & \cdot \\
+  \cdot & \cdot & \cdot & \ast  \\
+\end{bmatrix} = 
+\begin{bmatrix} \cdot & \ast & \cdot & \ast \end{bmatrix} \ ,
+\end{split}
+\end{equation*}
+\sphinxAtStartPar
+it’s easy to show that this multiplication preserves the structure of the matrix \(\mathbf{C}\boldsymbol\Phi\). Explicitly evaluating the non\sphinxhyphen{}zero blocks, the transformed matrix reads
+\begin{equation*}
+\begin{split}\hat{\mathbf{C}} = \begin{bmatrix} \ \mathbf{0} & \mathbf{C} \boldsymbol\Phi_2 \boldsymbol\alpha_2 & \mathbf{0} & \mathbf{C}\mathbf{U}_4 \ \end{bmatrix}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Transformed matrices: matrix \(\hat{\mathbf{B}}\).}
+\begin{equation*}
+\begin{split}\hat{\mathbf{B}} =  \mathbf{T}^{-1} \mathbf{B} = \boldsymbol\alpha^{-1} \boldsymbol\Phi^{-1} \mathbf{B}\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}
+\boldsymbol\Phi^{-1} \mathbf{B} = 
+\begin{bmatrix}
+  \mathbf{U}_1^* \\
+  \left[ \left( \mathbf{I} - \boldsymbol\Phi_3 \boldsymbol\Phi_3^* \right) \boldsymbol\Phi_2 \left( \mathbf{I} - \boldsymbol\Phi_2^* \boldsymbol\Phi_3 \boldsymbol\Phi_3^* \boldsymbol\Phi_2 \right)^{-1} \right]^* \\
+  \left[ \left( \mathbf{I} - \boldsymbol\Phi_2 \boldsymbol\Phi_2^* \right) \boldsymbol\Phi_3 \left( \mathbf{I} - \boldsymbol\Phi_3^* \boldsymbol\Phi_2 \boldsymbol\Phi_2^* \boldsymbol\Phi_3 \right)^{-1} \right]^* \\
+  \mathbf{U}_4^* 
+\end{bmatrix} \mathbf{B}
+\end{split}
+\end{equation*}
+\sphinxAtStartPar
+as \(\mathbf{U}_1^* \mathbf{B} = \mathbf{0}\), \(\left[ \left( \mathbf{I} - \boldsymbol\Phi_2 \boldsymbol\Phi_2^* \right) \boldsymbol\Phi_3 \right]^* \mathbf{B}  = \mathbf{0}\). The last relation holds, as \(\left( \mathbf{I} - \boldsymbol\Phi_2 \boldsymbol\Phi_2^* \right) \boldsymbol\Phi_3\) is the orthogonal projection of \(\boldsymbol\Phi_3\) perpendicular to the vectors \(\boldsymbol\Phi_2\). Since this projection is perpendicular both to \(\mathbf{U}_1\) and to \(\boldsymbol\Phi_2\) (that generates the reachable sub\sphinxhyphen{}space), it follows that \(\left[ \left( \mathbf{I} - \boldsymbol\Phi_2 \boldsymbol\Phi_2^* \right) \boldsymbol\Phi_3 \right]^* \mathbf{B} = \mathbf{0}\). The same argument gives \(\mathbf{U}_4^* \mathbf{B} = \mathbf{0}\), and thus
+\begin{equation*}
+\begin{split}\boldsymbol\Phi^{-1} \mathbf{B} = \begin{bmatrix} \ \ast \ \\ \ \ast \ \\ \ \cdot \ \\ \ \cdot \ \end{bmatrix} \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Looking at the structure of the matrices \(\boldsymbol\alpha^{-1}\) and \(\boldsymbol\Phi^{-1} \mathbf{B}\), it’s easy to show that their matrix multiplication preserves the structure
+\begin{equation*}
+\begin{split}
+\begin{bmatrix} 
+  \ast  & \ast  & \ast  & \cdot \\
+  \cdot & \ast  & \cdot & \cdot \\
+  \cdot & \cdot & \ast  & \cdot \\
+  \cdot & \cdot & \cdot & \ast  \\
+\end{bmatrix} 
+\begin{bmatrix} \ \ast \ \\ \ \ast \ \\ \ \cdot \ \\ \ \cdot \ \end{bmatrix} = 
+\begin{bmatrix} \ \ast \ \\ \ \ast \ \\ \ \cdot \ \\ \ \cdot \ \end{bmatrix} \ .
+\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Transformed matrices: matrix \(\hat{\mathbf{A}}\).}
+
+\sphinxAtStartPar
+The structure of the matrix arises from \(\mathbf{A}\)\sphinxhyphen{}invariance of reachability and controllability sub\sphinxhyphen{}spaces and from the properties
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \overline{\mathbf{r}}^* \mathbf{A} \mathbf{r} & = 0 \\
+            \mathbf{o}^*  \mathbf{A} \overline{\mathbf{o}} & = 0 \ ,
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and recalling that \(\mathbf{U}_1: \, r \overline{o}\), \((\mathbf{I}-\boldsymbol\Phi_3 \boldsymbol\Phi_3)^* \boldsymbol\Phi_2: r o \, \), \((\mathbf{I}-\boldsymbol\Phi_2 \boldsymbol\Phi_2)^* \boldsymbol\Phi_3: \, \overline{r} \overline{o}\), \(\mathbf{U}_4: \, \overline{r} o\).
+Focusing on \(\boldsymbol\Phi^{-1} \mathbf{A} \boldsymbol\Phi\) first
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \boldsymbol\Phi^{-1} \mathbf{A} \boldsymbol\Phi 
+  & = 
+\begin{bmatrix}
+  \mathbf{U}_1^* \\
+  \left[ \left( \mathbf{I} - \boldsymbol\Phi_3 \boldsymbol\Phi_3^* \right) \boldsymbol\Phi_2 \left( \mathbf{I} - \boldsymbol\Phi_2^* \boldsymbol\Phi_3 \boldsymbol\Phi_3^* \boldsymbol\Phi_2 \right)^{-1} \right]^* \\
+  \left[ \left( \mathbf{I} - \boldsymbol\Phi_2 \boldsymbol\Phi_2^* \right) \boldsymbol\Phi_3 \left( \mathbf{I} - \boldsymbol\Phi_3^* \boldsymbol\Phi_2 \boldsymbol\Phi_2^* \boldsymbol\Phi_3 \right)^{-1} \right]^* \\
+  \mathbf{U}_4^* 
+\end{bmatrix} 
+\mathbf{A}
+\begin{bmatrix} \ \mathbf{U}_1 & \boldsymbol\Phi_2 & \boldsymbol\Phi_3 & \mathbf{U}_4 \ \end{bmatrix} = \\
+  & = 
+  \begin{bmatrix}
+    \ast  & \ast  & \ast  & \ast  \\
+    \cdot & \ast  & \cdot & \ast  \\
+    \cdot & \cdot & \ast  & \ast  \\
+    \cdot & \cdot & \cdot & \ast 
+  \end{bmatrix}
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Pre\sphinxhyphen{} and post\sphinxhyphen{}multiplication by \(\boldsymbol\alpha^{-1}\) and \(\boldsymbol\alpha\) preserves the structure of \(\boldsymbol\Phi^{-1} \mathbf{A} \boldsymbol\Phi\) to have
+\begin{equation*}
+\begin{split}
+\hat{\mathbf{A}} = 
+\begin{bmatrix} 
+   \mathbf{A}_{11} & \mathbf{A}_{12} & \mathbf{A}_{13} & \mathbf{A}_{14} \\ 
+   \mathbf{0}      & \mathbf{A}_{22} & \mathbf{0}      & \mathbf{A}_{24} \\ 
+   \mathbf{0}      & \mathbf{0}      & \mathbf{A}_{33} & \mathbf{A}_{34} \\ 
+   \mathbf{0}      & \mathbf{0}      & \mathbf{0}      & \mathbf{A}_{44} \\ 
+\end{bmatrix} \ .
+\end{split}
+\end{equation*}
+
+
+\sphinxstepscope
+
+
 \chapter{Lyapunov equation}
 \label{\detokenize{ch/system-theory/lyapunov-equation:lyapunov-equation}}\label{\detokenize{ch/system-theory/lyapunov-equation:lyapunov-eq}}\label{\detokenize{ch/system-theory/lyapunov-equation::doc}}
 \sphinxAtStartPar
@@ -5860,11 +6204,293 @@ Partial\sphinxhyphen{}state feedback
 \sphinxstepscope
 
 
+\section{Closed\sphinxhyphen{}loop control: requirements and performance}
+\label{\detokenize{ch/control/closed-loop-requirements-performance:closed-loop-control-requirements-and-performance}}\label{\detokenize{ch/control/closed-loop-requirements-performance:control-closed-loop-requirements-performance}}\label{\detokenize{ch/control/closed-loop-requirements-performance::doc}}
+\sphinxAtStartPar
+Let the transfer function of the system be
+\begin{equation*}
+\begin{split}\mathbf{y} = \mathbf{G} \mathbf{u} + \mathbf{G}_d \mathbf{d} + \mathbf{G}_n \mathbf{n} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+linking the control input \(\mathbf{u}\), and the exogenous inputs ( process disturbances \(\mathbf{d}\), and measurement noise \(\mathbf{n}\)) to the output \(\mathbf{y}\). Let control disturbance \(\Delta \mathbf{u}\) on the ideal control \(\mathbf{u}_c\) be additive, \(\mathbf{u} = \mathbf{u}_c + \Delta \mathbf{u}\). Let \(\mathbf{F}\) be a feed\sphinxhyphen{}forward system from reference \(\mathbf{r}\) to the reference output \(\mathbf{y}_{\text{ref}}\) that is compared with the output of the system \(\mathbf{y}\) to define the error \(\mathbf{e} = \mathbf{y}_{\text{ref}} - \mathbf{y}\) feeding the regulator \(\mathbf{R}\).
+
+\begin{figure}[htbp]
+\centering
+\capstart
+
+\noindent\sphinxincludegraphics{{closed-loop-tfs}.png}
+\caption{Block diagram of the closed\sphinxhyphen{}loop system}\label{\detokenize{ch/control/closed-loop-requirements-performance:fig-closed-loop-tfs}}\end{figure}
+
+\sphinxAtStartPar
+Closed\sphinxhyphen{}loop performance usually deals with the relation between the output \(\mathbf{y}\), the tracking error \(\mathbf{e}\), and the ideal control input \(\mathbf{u}_c\) (the output of he regulator; that’s what we need to care about for controller response, performance, saturation,…) w.r.t. the reference signal \(\mathbf{r}\) and the exogenous inputs \(\Delta \mathbf{u}\), \(\mathbf{d}\), \(\mathbf{r}\), in terms of:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+tracking of the reference
+
+\item {} 
+\sphinxAtStartPar
+control performance
+
+\item {} 
+\sphinxAtStartPar
+disturbance suppression/noise rejection (on both the output and the input control)
+
+\end{itemize}
+
+\sphinxAtStartPar
+For a MIMO
+\begin{equation*}
+\begin{split}
+\begin{bmatrix} \mathbf{y} \\ \mathbf{e} \\ \mathbf{u}_c \end{bmatrix} =
+\begin{bmatrix} \left[ \mathbf{I} + \mathbf{G} \mathbf{R} \right]^{-1} & \cdot & \cdot \\ \cdot & \left[ \mathbf{I} + \mathbf{G} \mathbf{R} \right]^{-1} & \cdot \\ \cdot & \cdot &\left[ \mathbf{I} + \mathbf{R} \mathbf{G} \right]^{-1} \end{bmatrix}
+\begin{bmatrix}
+  \mathbf{G} \mathbf{R} \mathbf{F} & \mathbf{G} & \mathbf{G}_d & \mathbf{G}_n \\
+                        \mathbf{F} & -            \mathbf{G} & -            \mathbf{G}_d & -            \mathbf{G}_n \\
+             \mathbf{R} \mathbf{F} & - \mathbf{R} \mathbf{G} & - \mathbf{R} \mathbf{G}_d & - \mathbf{R} \mathbf{G}_n \\
+\end{bmatrix}
+\begin{bmatrix} \mathbf{r} \\ \Delta \mathbf{u} \\ \mathbf{d} \\ \mathbf{n} \end{bmatrix} \ .
+\end{split}
+\end{equation*}
+\sphinxAtStartPar
+For a SISO
+\begin{equation*}
+\begin{split}
+\begin{bmatrix} y \\ e \\ u_c \end{bmatrix} =
+\frac{1}{1+GR} \begin{bmatrix}
+ GRF & G & G_d & G_n \\
+   F & -   G & -   G_d & -   G_n \\
+ R F & - R G & - R G_d & - R G_n 
+ \end{bmatrix}
+\begin{bmatrix} r \\ \Delta u \\ d \\ n \end{bmatrix} \ .
+\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Two\sphinxhyphen{}degrees of freedom problem.} Typical design procedure:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Design \(R\) to provide load/noise performance
+
+\item {} 
+\sphinxAtStartPar
+Design \(F\) to provide tracking performance
+
+\end{itemize}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Simplified model.} If
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+there’s no feed\sphinxhyphen{}forward, i.e. \(\mathbf{F} = \mathbf{I}\) or \(F = 1\) for a SISO,
+
+\item {} 
+\sphinxAtStartPar
+the measurement noise is additive on an ideal output, the TF is \(\mathbf{y} = \mathbf{G} \mathbf{u} + \mathbf{G}_d \mathbf{d} + \mathbf{n}\), i.e.\(\mathbf{G}_n = \mathbf{I}\) or \(G_n(s) = 1\) for a SISO,
+
+\end{itemize}
+
+\sphinxAtStartPar
+for a MIMO
+\begin{equation*}
+\begin{split}
+\begin{bmatrix} \mathbf{y} \\ \mathbf{e} \\ \mathbf{u}_c \end{bmatrix} =
+\begin{bmatrix} \left[ \mathbf{I} + \mathbf{G} \mathbf{R} \right]^{-1} & \cdot & \cdot \\ \cdot & \left[ \mathbf{I} + \mathbf{G} \mathbf{R} \right]^{-1} & \cdot \\ \cdot & \cdot & \left[ \mathbf{I} + \mathbf{R} \mathbf{G} \right]^{-1} \end{bmatrix}
+\begin{bmatrix}
+  \mathbf{G} \mathbf{R} & \mathbf{G} & \mathbf{G}_d & \mathbf{I} \\
+             \mathbf{I} & -            \mathbf{G} & -            \mathbf{G}_d & - \mathbf{I} \\
+             \mathbf{R} & - \mathbf{R} \mathbf{G} & - \mathbf{R} \mathbf{G}_d & - \mathbf{R} \\
+\end{bmatrix}
+\begin{bmatrix} \mathbf{r} \\ \Delta \mathbf{u} \\ \mathbf{d} \\ \mathbf{n} \end{bmatrix} \ ,
+\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and for a SISO
+\begin{equation*}
+\begin{split}
+\begin{bmatrix} y \\ e \\ u_c \end{bmatrix} =
+\frac{1}{1+GR} \begin{bmatrix}
+ G R & G & G_d & 1 \\
+ 1 & -   G & -   G_d & - 1 \\
+ R & - R G & - R G_d & - R 
+\end{bmatrix}
+\begin{bmatrix} r \\ \Delta u \\ d \\ n \end{bmatrix} \ .
+\end{split}
+\end{equation*}
+\sphinxAtStartPar
+For a SISO, beside process noise \(\mathbf{d}\) that may have its own dynamics, the performance of the closed loop system is defined by 4 transfer functions only, \sphinxstylestrong{“the gang of the 4”},
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+sensitivity function (\(\mathbf{y}(\mathbf{n})\), \(\mathbf{e}(\mathbf{r})\), \(\mathbf{e}(\mathbf{n})\))
+\begin{equation*}
+\begin{split}S = \frac{1}{1 + GR} \ ,\end{split}
+\end{equation*}
+\item {} 
+\sphinxAtStartPar
+complementary sensitivity (\(\mathbf{y}(\mathbf{r})\), \(\mathbf{u}_c(\Delta \mathbf{u})\))
+\begin{equation*}
+\begin{split}T = \frac{GR}{1 + GR} \ ,\end{split}
+\end{equation*}
+\item {} 
+\sphinxAtStartPar
+load sensitivity (\(\mathbf{y}(\Delta \mathbf{u})\), \(\mathbf{e}(\Delta \mathbf{u})\))
+\begin{equation*}
+\begin{split}PS = \frac{G}{1 + GR} \ ,\end{split}
+\end{equation*}
+\item {} 
+\sphinxAtStartPar
+noise sensitivity (\(\mathbf{u}_c(\Delta \mathbf{r})\), \(\mathbf{u}_c(\Delta \mathbf{n})\))
+\begin{equation*}
+\begin{split}CS = \frac{R}{1 + GR} \ ,\end{split}
+\end{equation*}
+\end{itemize}
+\subsubsection*{Details}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Output.}
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{y}
+  & = \mathbf{G} \mathbf{u} + \mathbf{G}_d \mathbf{d} + \mathbf{G}_n \mathbf{n} = \\
+  & = \mathbf{G} \left( \mathbf{u}_c + \Delta \mathbf{u} \right) + \mathbf{G}_d \mathbf{d} + \mathbf{G}_n \mathbf{n} = \\
+  & = \mathbf{G} \mathbf{R} \mathbf{e} + \mathbf{G} \Delta \mathbf{u} + \mathbf{G}_d \mathbf{d} + \mathbf{G}_n \mathbf{n} = \\
+  & = \mathbf{G} \mathbf{R} \left( \mathbf{y}_{\text{ref}} - \mathbf{y} \right) + \mathbf{G} \Delta \mathbf{u} + \mathbf{G}_d \mathbf{d} + \mathbf{G}_n \mathbf{n} = \\
+  & = \mathbf{G} \mathbf{R} \mathbf{F} \mathbf{r} - \mathbf{G} \mathbf{R} \mathbf{y} + \mathbf{G} \Delta \mathbf{u} + \mathbf{G}_d \mathbf{d} + \mathbf{G}_n \mathbf{n} \ ,
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and thus
+\begin{equation*}
+\begin{split}\begin{aligned}
+\mathbf{y}
+  & = \left[ \mathbf{I} + \mathbf{G}\mathbf{R} \right]^{-1} \mathbf{G} \mathbf{R} \mathbf{F} \,        \mathbf{r} + \\
+  & + \left[ \mathbf{I} + \mathbf{G}\mathbf{R} \right]^{-1} \mathbf{G}                       \, \Delta \mathbf{u} + \\
+  & + \left[ \mathbf{I} + \mathbf{G}\mathbf{R} \right]^{-1} \mathbf{G}_d                     \,        \mathbf{d} + \\
+  & + \left[ \mathbf{I} + \mathbf{G}\mathbf{R} \right]^{-1} \mathbf{G}_n                     \,        \mathbf{n} \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Error.}
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{e}
+  & = \mathbf{F} \mathbf{r} - \mathbf{y} = \\
+  & = \mathbf{F} \mathbf{r} - \left(  \mathbf{G} \mathbf{u} + \mathbf{G}_d \mathbf{d} + \mathbf{G}_n \mathbf{n} \right) = \\
+  & = \mathbf{F} \mathbf{r} - \mathbf{G} \mathbf{u}_c - \mathbf{G} \Delta \mathbf{u} - \mathbf{G}_d \mathbf{d} - \mathbf{G}_n \mathbf{n} = \\
+  & = \mathbf{F} \mathbf{r} - \mathbf{G} \mathbf{R} \mathbf{e} - \mathbf{G} \Delta \mathbf{u} - \mathbf{G}_d \mathbf{d} - \mathbf{G}_n \mathbf{n} \ ,
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and thus
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{e}
+  & = \left[ \mathbf{I} + \mathbf{G} \mathbf{R} \right]^{-1} \mathbf{F}   \, \mathbf{r} + \\
+  & - \left[ \mathbf{I} + \mathbf{G} \mathbf{R} \right]^{-1} \mathbf{G}   \, \Delta  \mathbf{u} + \\
+  & - \left[ \mathbf{I} + \mathbf{G} \mathbf{R} \right]^{-1} \mathbf{G}_d \, \mathbf{d} + \\
+  & - \left[ \mathbf{I} + \mathbf{G} \mathbf{R} \right]^{-1} \mathbf{G}_r \, \mathbf{r} \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Input.}
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{u}_c 
+  & = \mathbf{R} \mathbf{F} \mathbf{r} - \mathbf{R} \mathbf{y} = \\
+  & = \mathbf{R} \mathbf{F} \mathbf{r} - \mathbf{R} \left( \mathbf{G} \mathbf{u} + \mathbf{G}_d \mathbf{d} + \mathbf{G}_n \mathbf{n} \right) = \\
+  & = \mathbf{R} \mathbf{F} \mathbf{r} - \mathbf{R} \mathbf{G} \mathbf{u}_c - \mathbf{R} \mathbf{G} \Delta \mathbf{u} - \mathbf{R} \left( \mathbf{G}_d \mathbf{d} + \mathbf{G}_n \mathbf{n} \right) \ ,
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and thus
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{u}_c
+  & = \left[ \mathbf{I} + \mathbf{R} \mathbf{G} \right]^{-1} \mathbf{R} \mathbf{F}   \, \mathbf{r} + \\
+  & - \left[ \mathbf{I} + \mathbf{R} \mathbf{G} \right]^{-1} \mathbf{R} \mathbf{G}   \, \Delta  \mathbf{u} + \\
+  & - \left[ \mathbf{I} + \mathbf{R} \mathbf{G} \right]^{-1} \mathbf{R} \mathbf{G}_d \, \mathbf{d} + \\
+  & - \left[ \mathbf{I} + \mathbf{R} \mathbf{G} \right]^{-1} \mathbf{R} \mathbf{G}_r \, \mathbf{r} \ .
+\end{aligned}\end{split}
+\end{equation*}
+
+\subsection{Constraints}
+\label{\detokenize{ch/control/closed-loop-requirements-performance:constraints}}\begin{equation*}
+\begin{split}S(s) + T(s) = 1\end{split}
+\end{equation*}
+\sphinxAtStartPar
+It’s not possible to make \(S(s)\) and \(T(s)\) small at the same time. Usually,
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\(S(s)\) small at low frequency to get small error in the band of the reference and filtering low\sphinxhyphen{}frequency measurement noise on the inp
+
+\item {} 
+\sphinxAtStartPar
+\(T(s)\) small at high frequency to filter high\sphinxhyphen{}frequency noise from \(\Delta u\) to \(u\) (usually \(r\) has no high\sphinxhyphen{}frequency content, so there should be little issues in filtering out the effect of reference signal to the output).
+
+\end{itemize}
+
+
+\subsection{Goals}
+\label{\detokenize{ch/control/closed-loop-requirements-performance:goals}}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Tracking performance
+
+\item {} 
+\sphinxAtStartPar
+…
+
+\end{itemize}
+
+\sphinxstepscope
+
+
 \section{Frequency domain control}
 \label{\detokenize{ch/control/frequency-domain:frequency-domain-control}}\label{\detokenize{ch/control/frequency-domain:control-frequency}}\label{\detokenize{ch/control/frequency-domain::doc}}
 
 \subsection{Stability of closed\sphinxhyphen{}loop SISO systems}
 \label{\detokenize{ch/control/frequency-domain:stability-of-closed-loop-siso-systems}}\label{\detokenize{ch/control/frequency-domain:control-frequency-siso}}
+\sphinxAtStartPar
+Let \(L(s) = G(s) R(s)\) the open\sphinxhyphen{}loop transfer function of the the system represented in \sphinxcode{\sphinxupquote{fig\sphinxhyphen{}nyquist\sphinxhyphen{}block}}: the system is explicitly represented as a combination of a plant with transfer function \(G(s)\) and a regulator with transfer function \(R(s)\). The output of the system \(y\), and the error \(e = y - y_{ref}\) are related with the reference signals as
+\begin{equation}\label{equation:ch/control/frequency-domain:eq:nyquist:tfs}
+\begin{split}\begin{aligned}
+  y(s) & = \frac{L(s)}{1 + L(s)} y_{ref}(s) \\
+  e(s) & = \frac{ 1  }{1 + L(s)} y_{ref}(s) \ .
+\end{aligned}\end{split}
+\end{equation}
+\begin{figure}[htbp]
+\centering
+\capstart
+
+\noindent\sphinxincludegraphics{{control-reference-nyquist}.png}
+\caption{Block diagram of the closed\sphinxhyphen{}loop system with retroaction on the output error \(e = y_{ref} - y\). Here, \(G(s)\) is the plant transfer function, \(R(s)\) is the regulator transfer function (that can be designed to control a given plant), and \(L(s) = G(s) R(s)\) is defined as the open\sphinxhyphen{}loop transfer function.}\label{\detokenize{ch/control/frequency-domain:fig-nyquist-block}}\end{figure}
+\subsubsection*{Details}
+
+\sphinxAtStartPar
+In Laplace domain, neglecting here the initial conditions,
+\begin{equation*}
+\begin{split}\begin{aligned}
+  y = G u = G R e = G R ( y_{ref} - y ) \ ,
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and thus, with \(L = G R\) and SISO system (so that TF are not matrix but scalar functions)
+\begin{equation*}
+\begin{split}y(s) = \frac{L(s)}{1 + L(s)} y_{ref}(s) \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+For the output error,
+\begin{equation*}
+\begin{split}e(s) = y_{ref} - y = y_{ref} - G R e \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and thus
+\begin{equation*}
+\begin{split}e(s) = \frac{1}{1 + L(s)} y_{ref} \ .\end{split}
+\end{equation*}
 
 \subsubsection{Cauchy argument principle}
 \label{\detokenize{ch/control/frequency-domain:cauchy-argument-principle}}\label{\detokenize{ch/control/frequency-domain:control-frequency-siso-cauchy-argument}}
@@ -5885,22 +6511,20 @@ loops around the origin \(0+i 0\) of the complex plane.
 \subsubsection{Nyquist stability criterion}
 \label{\detokenize{ch/control/frequency-domain:nyquist-stability-criterion}}\label{\detokenize{ch/control/frequency-domain:control-frequency-siso-nyquist}}
 \sphinxAtStartPar
-Nyquist stability criterion provides some conditions for the stability of a closed loop transfer function
-\begin{equation*}
-\begin{split}G_c(s) := \dfrac{G(s)}{1+G(s)} \ , \end{split}
-\end{equation*}
-\sphinxAtStartPar
-being \(G(s)\) the open loop transfer function, and the feedback with the opposite of the output (\(y = G(s) \left( u - y \right)\)).
+Nyquist stability criterion provides the conditions for the stability of the closed loop transfer functions \eqref{equation:ch/control/frequency-domain:eq:nyquist:tfs}. As shown in section about {\hyperref[\detokenize{ch/system-theory/lti-stability-and-feedback:ode-lti-stability-fb}]{\sphinxcrossref{\DUrole{std,std-ref}{stability of LTI systems}}}}, a linear system is asymptotically stable if all of its poles have negative real parts.
 
 \sphinxAtStartPar
-The poles of the closed loop systems are the zeros of the function \(1 + G(s)\). If the closed\sphinxhyphen{}loop system is asymptotically stable, it must have no pole with positive real part. As the complex variable \(s\) performs a clockwise (and thus, the signs of the relation change w.r.t. Cauchy argument criterion) loop over \sphinxstylestrong{Nyquist path} (semicircle in the RHS half\sphinxhyphen{}plane; then \sphinxstylestrong{todo} discuss the case where poles and zeros are on the imaginary axis…deform the path…). No zero of \(1 + G(s)\) with positive real part means \(Z = 0\). Using the relation between poles, zeros and loops around the origin given by Cauchy argument principle \eqref{equation:ch/control/frequency-domain:eq:cauchy-arg-principle}, and recalling the opposite direction, it follows that
+All the closed\sphinxhyphen{}loop transfer functions have the same poles (as they have the same denominator, except for \sphinxstyleemphasis{dangerous} cancellations not changing the stability but the observability or the controllability \sphinxstylestrong{todo} \sphinxstyleemphasis{Discuss}).
+
+\sphinxAtStartPar
+The poles of the closed loop systems are the zeros of the function \(1 + L(s)\). If the closed\sphinxhyphen{}loop system is asymptotically stable, it must have no pole with positive real part. As the complex variable \(s\) performs a clockwise (and thus, the signs of the relation change w.r.t. Cauchy argument criterion) loop over \sphinxstylestrong{Nyquist path} (semicircle in the RHS half\sphinxhyphen{}plane; then \sphinxstylestrong{todo} discuss the case where poles and zeros are on the imaginary axis…deform the path…). No zero of \(1 + G(s)\) with positive real part means \(Z = 0\). Using the relation between poles, zeros and loops around the origin given by Cauchy argument principle \eqref{equation:ch/control/frequency-domain:eq:cauchy-arg-principle}, and recalling the opposite direction, it follows that
 \begin{equation*}
 \begin{split}N = P \ ,\end{split}
 \end{equation*}
 \sphinxAtStartPar
 in order to have \(Z = 0\), i.e. the diagram of \(1+G(s)\) must perform \(N\) counter\sphinxhyphen{}clockwise loops around \(0+i0\) equal to the number of its poles with positive real parts. As the poles of \(1+ G(s)\) are the same as the poles of \(G(s)\), it’s possible to formulate Nyquist criterion looking at \(G(s)\), as
 \label{ch/control/frequency-domain:thm-nyquist}
-\begin{sphinxadmonition}{note}{Theorem 31.1.1 (Nyquist theorem)}
+\begin{sphinxadmonition}{note}{Theorem 32.2.1 (Nyquist theorem)}
 
 
 
@@ -5910,11 +6534,8 @@ In order for the closed\sphinxhyphen{}loop system to be asymptotically stable, t
 
 
 \subsubsection{Bode stability criterion for minimal phase systems}
-\label{\detokenize{ch/control/frequency-domain:bode-stability-criterion-for-minimal-phase-systems}}\label{\detokenize{ch/control/frequency-domain:control-siso-bode}}
-\sphinxAtStartPar
-\sphinxstylestrong{Minimal phase systems}
-\label{ch/control/frequency-domain:def-minimal-phase}
-\begin{sphinxadmonition}{note}{Definition 31.1.1 (Minimal phase systems)}
+\label{\detokenize{ch/control/frequency-domain:bode-stability-criterion-for-minimal-phase-systems}}\label{\detokenize{ch/control/frequency-domain:control-siso-bode}}\label{ch/control/frequency-domain:def-minimal-phase}
+\begin{sphinxadmonition}{note}{Definition 32.2.1 (Minimal phase systems)}
 
 
 
@@ -5925,7 +6546,7 @@ In order for the closed\sphinxhyphen{}loop system to be asymptotically stable, t
 \sphinxAtStartPar
 …
 \label{ch/control/frequency-domain:thm-bode}
-\begin{sphinxadmonition}{note}{Theorem 31.1.2 (Bode stability criterion)}
+\begin{sphinxadmonition}{note}{Theorem 32.2.2 (Bode stability criterion)}
 
 
 
@@ -6682,7 +7303,7 @@ and comparing the two different expressions of \(\dot{\boldsymbol{\lambda}}\), i
 \begin{split}\dot{\mathbf{P}} + \mathbf{P} \widetilde{\mathbf{A}} + \widetilde{\mathbf{A}}^T \mathbf{P} - \mathbf{P} \mathbf{B} \mathbf{R}^{-1} \mathbf{B}^T \mathbf{P} + \widetilde{\mathbf{Q}} = \mathbf{0} \ ,\end{split}
 \end{equation*}
 \sphinxAtStartPar
-where \(\widetilde{\mathbf{A}} = \mathbf{A} - \mathbf{B} \mathbf{R}^{-1} \mathbf{S}^T \) and \(\widetilde{\mathbf{Q}} = \mathbf{Q} - \mathbf{S} \mathbf{R}^{-1} \mathbf{S}^T\). Riccati equation is a non\sphinxhyphen{}linear dynamical matrix equation in \(\mathbf{P}\). Algorithms for computing the solution of dynamical and algebraic equation exists, see {\hyperref[\detokenize{ch/control/optimal-control-full-state-old:control-optimal-riccati}]{\sphinxcrossref{Example 31.2.1}}}.
+where \(\widetilde{\mathbf{A}} = \mathbf{A} - \mathbf{B} \mathbf{R}^{-1} \mathbf{S}^T \) and \(\widetilde{\mathbf{Q}} = \mathbf{Q} - \mathbf{S} \mathbf{R}^{-1} \mathbf{S}^T\). Riccati equation is a non\sphinxhyphen{}linear dynamical matrix equation in \(\mathbf{P}\). Algorithms for computing the solution of dynamical and algebraic equation exists, see {\hyperref[\detokenize{ch/control/optimal-control-full-state-old:control-optimal-riccati}]{\sphinxcrossref{Example 32.3.1}}}.
 
 
 
@@ -6699,7 +7320,7 @@ For infinite\sphinxhyphen{}horizone, the algebraic equation (ARE) for the steady
 \sphinxAtStartPar
 with \(\mathbf{G} = \mathbf{R}^{-1} \left( \mathbf{S}^T + \mathbf{B}^T \mathbf{P} \right)\).
 \label{ch/control/optimal-control-full-state-old:control-optimal-riccati}
-\begin{sphinxadmonition}{note}{Example 31.2.1 (Solution of Riccati equation)}
+\begin{sphinxadmonition}{note}{Example 32.3.1 (Solution of Riccati equation)}
 
 
 
@@ -6719,6 +7340,109 @@ with \(\mathbf{G} = \mathbf{R}^{-1} \left( \mathbf{S}^T + \mathbf{B}^T \mathbf{P
 …
 
 \end{itemize}
+
+\sphinxstepscope
+
+
+\subsection{Phase and gain margin of optimal control}
+\label{\detokenize{ch/control/optimal-control-margins:phase-and-gain-margin-of-optimal-control}}\label{\detokenize{ch/control/optimal-control-margins:control-optimal-margins}}\label{\detokenize{ch/control/optimal-control-margins::doc}}
+\sphinxAtStartPar
+Some results are available for phase and gain margin of optimal control, on the input side. \sphinxstylestrong{todo} \sphinxstyleemphasis{discuss}
+The relationship between the actual input to the plant \(u\) and an additive input error \(\Delta u\) reads
+\begin{equation*}
+\begin{split}u = \Delta u + u_c = \Delta u + K e = \Delta u + K (x_{ref} - x) = \Delta u + K x_{ref} + K H u \ ,\end{split}
+\end{equation*}\begin{equation}\label{equation:ch/control/optimal-control-margins:eq:optimal:input:siso:tfs}
+\begin{split}u = \frac{1}{1 + K H(s)} \Delta u(s) + \frac{K}{1 + KH(s)} x_{ref}(s) \ ,\end{split}
+\end{equation}
+\sphinxAtStartPar
+for a SISO or
+\begin{equation}\label{equation:ch/control/optimal-control-margins:eq:optimal:input:mimo:tfs}
+\begin{split}\mathbf{u} = \left[ \mathbf{I} + \mathbf{K}(s) \mathbf{H}(s) \right]^{-1} \Delta\mathbf{u} + \left[ \mathbf{I} + \mathbf{K}(s) \mathbf{H}(s) \right]^{-1} \mathbf{K}(s) \mathbf{x}_{ref} \ ,\end{split}
+\end{equation}
+\sphinxAtStartPar
+for a MIMO system. The additive input error \(\Delta u\) can be thought as the difference between the ideal/design condition, due to un\sphinxhyphen{}modelled parts, failures, and any other form of discrepancy to the model altering the gain and the phase (adding delay) of the ideal control \(u_c\).
+
+\begin{figure}[htbp]
+\centering
+\capstart
+
+\noindent\sphinxincludegraphics{{optimal-control-margin-1}.png}
+\caption{Block diagram of optimal control closed\sphinxhyphen{}loop system with retroaction on the error \(e = x_{ref} - x\) on the full state.}\label{\detokenize{ch/control/optimal-control-margins:fig-optimal-control-margin-block}}\end{figure}
+\subsubsection*{Details}
+
+\sphinxAtStartPar
+For a SISO system, the relation between \(u\) and \(\Delta u\) reads
+\begin{equation*}
+\begin{split}u = \Delta u + u_c = \Delta u + K e = \Delta u + K (x_{ref} - x) = \Delta u + K x_{ref} + K H u \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and thus
+\begin{equation*}
+\begin{split}u(s) = \frac{1}{1+K H(s)} \Delta u(s) + \frac{K}{1 + K H(s)} x_{ref}(s) \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+For a MIMO systems, TFs are matrix TFs and thus matrix inversion is required (as the division between matrix makes no sense at all),
+\begin{equation*}
+\begin{split}\mathbf{u}(s) = \left[ \mathbf{I} + \mathbf{K} \mathbf{H}(s) \right]^{-1} \Delta\mathbf{u}(s) + \left[ \mathbf{I} + \mathbf{K} \mathbf{H}(s) \right]^{-1} \mathbf{K} \mathbf{x}_{ref}(s) \ .\end{split}
+\end{equation*}
+
+\subsubsection{SISO}
+\label{\detokenize{ch/control/optimal-control-margins:siso}}\label{\detokenize{ch/control/optimal-control-margins:control-optimal-margins-siso}}\begin{equation*}
+\begin{split}\left| 1 + S(j\omega) \right|^2 \ge 1 \ .\end{split}
+\end{equation*}\subsubsection*{Details}
+
+\sphinxAtStartPar
+Starting from the algebraic Lyapunov equation for the matrix \(\mathbf{P}\)
+\begin{equation*}
+\begin{split}\mathbf{0} = \mathbf{A}^T \mathbf{P} + \mathbf{P} \mathbf{A} - \mathbf{K} \mathbf{R} \mathbf{K}^T + \mathbf{Q} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+with the optimal matrix of gains, \(\mathbf{K} = \mathbf{R}^{-1} \mathbf{B}^T \mathbf{P}\). Adding and subtracting \(s \mathbf{I} \mathbf{P}\), and defining the matrix \(\mathbf{G}(s) = ( s \mathbf{I} - \mathbf{A} )^{-1}\),
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{0}
+  & = \mathbf{A}^T \mathbf{P} + \mathbf{P} \mathbf{A} - \mathbf{K}^T \mathbf{R} \mathbf{K} + \mathbf{Q} = \\
+  & = ( \mathbf{A} + s \mathbf{I} )^T \mathbf{P} + \mathbf{P} ( \mathbf{A} - s \mathbf{I} ) - \mathbf{K}^T \mathbf{R} \mathbf{K} + \mathbf{Q} = \\
+  & = \mathbf{G}^{-T}(-s) \mathbf{P} + \mathbf{P} \mathbf{G}^{-1}(s) - \mathbf{K}^T \mathbf{R} \mathbf{K} + \mathbf{Q} \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Pre\sphinxhyphen{}multiplication by \(\mathbf{B}^T \mathbf{G}^T(-s)\) and post\sphinxhyphen{}multiplication by \(\mathbf{G}(s) \mathbf{B}\) gives
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{0}
+  & = - \mathbf{B}^T \mathbf{P} \mathbf{G}(s) \mathbf{B} - \mathbf{B}^T \mathbf{G}^T(-s) \mathbf{P} \mathbf{B} - \mathbf{B}^T \mathbf{G}^{T}(-s) \mathbf{K}^T \mathbf{R} \mathbf{K} \mathbf{G}(s) \mathbf{B} + \mathbf{B}^T \mathbf{G}^{T}(-s) \mathbf{Q} \mathbf{G}(s) \mathbf{B} = \\
+  & = - \mathbf{R} \mathbf{K} \mathbf{G}(s) \mathbf{B} - \mathbf{B}^T \mathbf{G}^T(-s) \mathbf{K}^T \mathbf{R} - \mathbf{B}^T \mathbf{G}^{T}(-s) \mathbf{K}^T \mathbf{R} \mathbf{K} \mathbf{G}(s) \mathbf{B} + \mathbf{B}^T \mathbf{G}^{T}(-s) \mathbf{Q} \mathbf{G}(s) \mathbf{B} = \\
+  & = - \mathbf{R} \mathbf{K} \mathbf{H}(s) - \mathbf{H}^T(-s) \mathbf{K}^T \mathbf{R} - \mathbf{H}^{T}(-s) \mathbf{K}^T \mathbf{R} \mathbf{K} \mathbf{H}(s) + \mathbf{H}^{T}(-s) \mathbf{Q} \mathbf{H}(s) \ ,
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+having used the expression of the optimal gain matrix to write \(\mathbf{B}^T \mathbf{P} = \mathbf{R} \mathbf{K}\), and defined the open\sphinxhyphen{}loop \sphinxstyleemphasis{input} TF matrix \(\mathbf{S}(s) := \mathbf{K} \mathbf{H}(s)\). Moving terms with or without \(\mathbf{S}(s)\) on two different sides of the equality, and adding \textbackslash{}mathbf\{R\}, and collecting terms, it follows
+\begin{equation*}
+\begin{split}\left[ \mathbf{I} + \mathbf{S}^T(-s) \right] \mathbf{R} \left[ \mathbf{I} + \mathbf{S}(s) \right] = \mathbf{R} + \mathbf{H}^{T}(-s) \mathbf{Q} \mathbf{H}(s) \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Moving to Fourier domain, \(s = j \omega\), and recalling that \(\mathbf{S}^T(-j\omega) = \mathbf{S}^*( j \omega ) \),
+\begin{equation*}
+\begin{split}\left[ \mathbf{I} + \mathbf{S}^*(j \omega) \right] \mathbf{R} \left[ \mathbf{I} + \mathbf{S}(j \omega) \right] = \mathbf{R} + \mathbf{H}^*(j\omega) \mathbf{Q} \mathbf{H}(j\omega) \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{todo} \sphinxstyleemphasis{Notation for semi\sphinxhyphen{}definite positive symmetric matrices}
+\begin{equation*}
+\begin{split}\left[ \mathbf{I} + \mathbf{S}^*(j \omega) \right] \mathbf{R} \left[ \mathbf{I} + \mathbf{S}(j \omega) \right] \ge \mathbf{R} \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+For a 1\sphinxhyphen{}dimensional state SISO system, \(\mathbf{R} = r\), \(\mathbf{S}(s) = S(s)\), and thus
+\begin{equation*}
+\begin{split}\left| 1 + S(j\omega) \right|^2 \ge 1 \ .\end{split}
+\end{equation*}
+
+\subsubsection{MIMO}
+\label{\detokenize{ch/control/optimal-control-margins:mimo}}\label{\detokenize{ch/control/optimal-control-margins:control-optimal-margins-mimo}}\begin{equation*}
+\begin{split}\left[ \mathbf{I} + \mathbf{S}^*(j \omega) \right] \mathbf{R} \left[ \mathbf{I} + \mathbf{S}(j \omega) \right] \ge \mathbf{R} \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+with \(\mathbf{H}(s) = (s \mathbf{I} - \mathbf{A})^{-1} \mathbf{B}\), and \(\mathbf{S}(s) = \mathbf{K} \mathbf{H}(s)\) the open\sphinxhyphen{}loop TF between \(\Delta \mathbf{u}\) and the ideal control loop \(\mathbf{u}_c\), and \(\mathbf{I} + \mathbf{S}(s)\) the (inverse of the) transfer function between \(\Delta \mathbf{u}\) and \(\mathbf{u}\), as shown in \eqref{equation:ch/control/optimal-control-margins:eq:optimal:input:mimo:tfs}.
 
 \sphinxstepscope
 
@@ -7723,7 +8447,7 @@ the solution is in the \(S_i\) region is
 \begin{equation*}
 \begin{split}u_i(x,t) = \sum_{\lambda_k > \frac{x}{t}} R_{ik} q_{a,k} +  \sum_{\lambda_k < \frac{x}{t}} R_{ik} q_{b,k}\end{split}
 \end{equation*}\label{ch/pde/hyperbolic-dimensions:example-0}
-\begin{sphinxadmonition}{note}{Example 35.2.1 (Linear(ized) P\sphinxhyphen{}system)}
+\begin{sphinxadmonition}{note}{Example 36.2.1 (Linear(ized) P\sphinxhyphen{}system)}
 
 
 
@@ -7761,17 +8485,17 @@ The linear(ized) P\sphinxhyphen{}system around a uniform reference state \(\over
 Subsonic: the two families of characteristic lines have opposite direction; supersonic: the two families of characteristic lines have the same direction.
 \end{sphinxadmonition}
 \label{ch/pde/hyperbolic-dimensions:example-1}
-\begin{sphinxadmonition}{note}{Example 35.2.2 (Linearized shallow water equations)}
+\begin{sphinxadmonition}{note}{Example 36.2.2 (Linearized shallow water equations)}
 
 
 \end{sphinxadmonition}
 \label{ch/pde/hyperbolic-dimensions:example-2}
-\begin{sphinxadmonition}{note}{Example 35.2.3 (Linearized Euler equations (acoustics))}
+\begin{sphinxadmonition}{note}{Example 36.2.3 (Linearized Euler equations (acoustics))}
 
 
 \end{sphinxadmonition}
 \label{ch/pde/hyperbolic-dimensions:example-3}
-\begin{sphinxadmonition}{note}{Example 35.2.4 (Wave equation)}
+\begin{sphinxadmonition}{note}{Example 36.2.4 (Wave equation)}
 
 
 
@@ -7866,7 +8590,7 @@ Different descritpions of integral problem,
   & = \partial_t u_i + \partial_{x_k} u_m \partial_{u_m} F_{ki} (u_l) = \\
 \end{aligned}\end{split}
 \end{equation*}\label{ch/pde/hyperbolic-dimensions:example-4}
-\begin{sphinxadmonition}{note}{Example 35.2.5 (P\sphinxhyphen{}system in 1\sphinxhyphen{}dimensional domain)}
+\begin{sphinxadmonition}{note}{Example 36.2.5 (P\sphinxhyphen{}system in 1\sphinxhyphen{}dimensional domain)}
 
 
 \begin{equation*}
@@ -7900,7 +8624,7 @@ with \(\partial_x P = a^2 \partial_x \rho\),
 \end{aligned}\end{split}
 \end{equation*}\end{sphinxadmonition}
 \label{ch/pde/hyperbolic-dimensions:example-5}
-\begin{sphinxadmonition}{note}{Example 35.2.6 (Euler equations in 1\sphinxhyphen{}dimensional domain)}
+\begin{sphinxadmonition}{note}{Example 36.2.6 (Euler equations in 1\sphinxhyphen{}dimensional domain)}
 
 
 
@@ -8016,7 +8740,7 @@ being
 \begin{split}\mathbf{L} = \dots \end{split}
 \end{equation*}\end{sphinxadmonition}
 \label{ch/pde/hyperbolic-dimensions:example-6}
-\begin{sphinxadmonition}{note}{Example 35.2.7 (Shallow water equation in \protect\(1\protect\)\sphinxhyphen{}dimensional domain)}
+\begin{sphinxadmonition}{note}{Example 36.2.7 (Shallow water equation in \protect\(1\protect\)\sphinxhyphen{}dimensional domain)}
 
 
 
@@ -8090,7 +8814,7 @@ and integration in \(z\)\sphinxhyphen{}direction \sphinxstylestrong{todo} Explic
 \begin{split}0 = |\mathbf{A}(\mathbf{u}) - s^2 \mathbf{I}| = -s \left( 2 u - s \right) + u^2 - g \eta = (s-u)^2 - g  \eta \ .\end{split}
 \end{equation*}\end{sphinxadmonition}
 \label{ch/pde/hyperbolic-dimensions:example-7}
-\begin{sphinxadmonition}{note}{Example 35.2.8 (P\sphinxhyphen{}system in n\sphinxhyphen{}dimensional domain)}
+\begin{sphinxadmonition}{note}{Example 36.2.8 (P\sphinxhyphen{}system in n\sphinxhyphen{}dimensional domain)}
 
 
 \begin{itemize}
@@ -8110,7 +8834,7 @@ Physical variables: e.g. \((\rho, \vec{u})\), \((P, \vec{u})\),…
 \end{cases}\end{split}
 \end{equation*}\end{sphinxadmonition}
 \label{ch/pde/hyperbolic-dimensions:example-8}
-\begin{sphinxadmonition}{note}{Example 35.2.9 (Euler system in n\sphinxhyphen{}dimensional domain)}
+\begin{sphinxadmonition}{note}{Example 36.2.9 (Euler system in n\sphinxhyphen{}dimensional domain)}
 
 
 \begin{itemize}
@@ -8139,7 +8863,7 @@ where \(\Pi\) represents the pressure field as a function of the conservative va
 and \(P\) the pressure field expressed by the \sphinxstylestrong{equation of state of the fluid} as a function of density and internal energy per unit mass as the pair of independent variables determining the thermodynamic state.
 \end{sphinxadmonition}
 \label{ch/pde/hyperbolic-dimensions:example-9}
-\begin{sphinxadmonition}{note}{Example 35.2.10 (Shallow water equations in 2\sphinxhyphen{}dimensional domain)}
+\begin{sphinxadmonition}{note}{Example 36.2.10 (Shallow water equations in 2\sphinxhyphen{}dimensional domain)}
 
 
 \begin{equation*}
@@ -12139,7 +12863,7 @@ The \sphinxstylestrong{integral formulation} of the problem for all the boundary
 \begin{equation}\label{equation:ch/pde/numerics:eq:example:pde:poisson:integral}
 \begin{split}0 = - \oint_{\partial \Omega} \hat{n} \cdot \vec{q} + \int_{\Omega} f \ .\end{split}
 \end{equation}\label{ch/pde/numerics:pde:ex:fvm}
-\begin{sphinxadmonition}{note}{Example 39.1 (Finite volume methods)}
+\begin{sphinxadmonition}{note}{Example 40.1 (Finite volume methods)}
 
 
 
@@ -12155,7 +12879,7 @@ evaluating volume integrals with the internal variables of the cell \(\Omega_k\)
 \end{equation*}
 \sphinxAtStartPar
 Different numerical methods differs in the evaluation of fluxes and sources.
-FVM is \sphinxstylestrong{conservative} as it evaluate flux at interfaces and then distribute it to neighoring cells, see {\hyperref[\detokenize{ch/pde/fvm:fvm:property:conservation}]{\sphinxcrossref{Property 41.1}}}. A rough elementwise\sphinxhyphen{}uniform variable with jump at interfaces and diffusive flux,
+FVM is \sphinxstylestrong{conservative} as it evaluate flux at interfaces and then distribute it to neighoring cells, see {\hyperref[\detokenize{ch/pde/fvm:fvm:property:conservation}]{\sphinxcrossref{Property 42.1}}}. A rough elementwise\sphinxhyphen{}uniform variable with jump at interfaces and diffusive flux,
 \begin{equation*}
 \begin{split}F_{ik} = - A_{ik} \, k \, \frac{u_i - u_k}{d_{ik}} \ ,\end{split}
 \end{equation*}
@@ -12173,7 +12897,7 @@ For regular cubic mesh, \(A_{ik} = \Delta x\), \(d_{ik} = \Delta x\), \(V_k = \D
 \begin{split}0 = k \sum_{i \in \Omega_k} \frac{u_i - u_k}{\Delta x^2} + f_k \ ,\end{split}
 \end{equation*}
 \sphinxAtStartPar
-where the summation is exactly equal to the center\sphinxhyphen{}difference stencil for the Laplacian, used in finite difference method {\hyperref[\detokenize{ch/pde/numerics:pde:ex:fdm}]{\sphinxcrossref{Example 39.2}}}.
+where the summation is exactly equal to the center\sphinxhyphen{}difference stencil for the Laplacian, used in finite difference method {\hyperref[\detokenize{ch/pde/numerics:pde:ex:fdm}]{\sphinxcrossref{Example 40.2}}}.
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
@@ -12197,7 +12921,7 @@ Exploiting the arbitrariety of the volume \(V\), the \sphinxstylestrong{strong f
 \sphinxAtStartPar
 only holds in regions of the domain where the functions involved are continuous and differentiable, i.e. everything written in the problem is not meaningful, i.e. at least it exists.
 \label{ch/pde/numerics:pde:ex:fdm}
-\begin{sphinxadmonition}{note}{Example 39.2 (Finite difference methods)}
+\begin{sphinxadmonition}{note}{Example 40.2 (Finite difference methods)}
 
 
 
@@ -12213,7 +12937,7 @@ Finite different method approximates the strong form of the problem, building a 
 \end{aligned}\end{split}
 \end{equation*}
 \sphinxAtStartPar
-and it’s equal to the same expression already provided for the rough finite volume method with regular grid, in {\hyperref[\detokenize{ch/pde/numerics:pde:ex:fvm}]{\sphinxcrossref{Example 39.1}}}
+and it’s equal to the same expression already provided for the rough finite volume method with regular grid, in {\hyperref[\detokenize{ch/pde/numerics:pde:ex:fvm}]{\sphinxcrossref{Example 40.1}}}
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
@@ -12243,7 +12967,7 @@ Using a test function \(w(\vec{r})\) equal to zero on the boundary where essenti
 \sphinxAtStartPar
 compatible with essential boundary conditions.
 \label{ch/pde/numerics:pde:ex:fem}
-\begin{sphinxadmonition}{note}{Example 39.3 (Finite element methods)}
+\begin{sphinxadmonition}{note}{Example 40.3 (Finite element methods)}
 
 
 
@@ -12649,7 +13373,7 @@ Try to set different values of Dirichlet boundary conditions, u\_dir
 
 \chapter{Finite Volume Method}
 \label{\detokenize{ch/pde/fvm:finite-volume-method}}\label{\detokenize{ch/pde/fvm:pde-fvm}}\label{\detokenize{ch/pde/fvm::doc}}\label{ch/pde/fvm:fvm:property:conservation}
-\begin{sphinxadmonition}{note}{Property 41.1}
+\begin{sphinxadmonition}{note}{Property 42.1}
 
 
 
@@ -13154,7 +13878,7 @@ being \(\hat{\mathbf{A}}(\mathbf{u}_L, \mathbf{u}_R)\) an approximation of the c
 
 \end{enumerate}
 \label{ch/pde/fvm-hyperbolic-pde:example-0}
-\begin{sphinxadmonition}{note}{Example 41.2.1 (P\sphinxhyphen{}sys. Intermediate state)}
+\begin{sphinxadmonition}{note}{Example 42.2.1 (P\sphinxhyphen{}sys. Intermediate state)}
 
 
 
@@ -13229,7 +13953,7 @@ so that the solution that avoids singularities for \(\rho_L = \rho_R\) (the one 
 Arbitrary intermediate value of the density \(\hat{\rho}\) needs to satisfy consistency, as well. Just as an example, if \(\hat{\rho}\) is chosen to be the average of the densities, \(\hat{\rho} = \frac{1}{2}(\rho_L + \rho_R)\), this is consistent choice.
 \end{sphinxadmonition}
 \label{ch/pde/fvm-hyperbolic-pde:example-1}
-\begin{sphinxadmonition}{note}{Example 41.2.2 (Euler equations. Intermediate state)}
+\begin{sphinxadmonition}{note}{Example 42.2.2 (Euler equations. Intermediate state)}
 
 
 
@@ -13364,7 +14088,7 @@ with
 
 \subsubsection{Domain at rest}
 \label{\detokenize{ch/pde/fvm-hyperbolic-bc:domain-at-rest}}\label{ch/pde/fvm-hyperbolic-bc:example-0}
-\begin{sphinxadmonition}{note}{Example 41.3.1 (Wall for Roe flux in 1\sphinxhyphen{}dimensional P\sphinxhyphen{}sys)}
+\begin{sphinxadmonition}{note}{Example 42.3.1 (Wall for Roe flux in 1\sphinxhyphen{}dimensional P\sphinxhyphen{}sys)}
 
 
 
@@ -13427,7 +14151,7 @@ the upwind matrix evaluated on the Roe intermediate state (no need for entropy f
 i.e. there’s \sphinxstylestrong{no mass flux} across the wall, as the first component of the vector \(\mathbf{F}_\partial\) is zero.
 \end{sphinxadmonition}
 \label{ch/pde/fvm-hyperbolic-bc:example-1}
-\begin{sphinxadmonition}{note}{Example 41.3.2 (Wall for Roe flux in 1\sphinxhyphen{}dimensional Euler equations)}
+\begin{sphinxadmonition}{note}{Example 42.3.2 (Wall for Roe flux in 1\sphinxhyphen{}dimensional Euler equations)}
 
 
 \end{sphinxadmonition}
@@ -14214,9 +14938,9 @@ minimum: if the Hessian evalauted in \(\mathbf{x}^*\) is definite positive,
 \end{itemize}
 
 \sphinxAtStartPar
-Here the formalism \(\partial_{\mathbf{x} \mathbf{x}} f(\mathbf{x}^*) < 0\) indicates that the Hessian matrix is negative definite, see {\hyperref[\detokenize{ch/optimization/intro:optimization:hessian:extreme}]{\sphinxcrossref{Example 44.1.1}}}.
+Here the formalism \(\partial_{\mathbf{x} \mathbf{x}} f(\mathbf{x}^*) < 0\) indicates that the Hessian matrix is negative definite, see {\hyperref[\detokenize{ch/optimization/intro:optimization:hessian:extreme}]{\sphinxcrossref{Example 45.1.1}}}.
 \label{ch/optimization/intro:optimization:hessian:extreme}
-\begin{sphinxadmonition}{note}{Example 44.1.1 (Positive/negative definite Hessian)}
+\begin{sphinxadmonition}{note}{Example 45.1.1 (Positive/negative definite Hessian)}
 
 
 
@@ -14275,7 +14999,7 @@ with constraints, such as
 
 \chapter{Markov Processes}
 \label{\detokenize{ch/rl/mdp:markov-processes}}\label{\detokenize{ch/rl/mdp:rl-mdp}}\label{\detokenize{ch/rl/mdp::doc}}\label{ch/rl/mdp:def:stoch-process}
-\begin{sphinxadmonition}{note}{Definition 46.1 (Stochastic process)}
+\begin{sphinxadmonition}{note}{Definition 47.1 (Stochastic process)}
 
 
 
@@ -14286,7 +15010,7 @@ A stochastic process is as collection of random variables \(X(t)\) defined on a 
 \end{equation*}\end{sphinxadmonition}
 
 \sphinxAtStartPar
-Markov process is a memomry\sphinxhyphen{}less stochastic process (see def {\hyperref[\detokenize{ch/rl/mdp:def:stoch-process}]{\sphinxcrossref{Definition 46.1}}}). For discrete\sphinxhyphen{}time Markov processes, state at time \(n\) only depends on state at time \(n-1\)
+Markov process is a memomry\sphinxhyphen{}less stochastic process (see def {\hyperref[\detokenize{ch/rl/mdp:def:stoch-process}]{\sphinxcrossref{Definition 47.1}}}). For discrete\sphinxhyphen{}time Markov processes, state at time \(n\) only depends on state at time \(n-1\)
 \begin{equation*}
 \begin{split}\langle S, P, \mu \rangle\end{split}
 \end{equation*}
@@ -14588,7 +15312,7 @@ Bellman expectation equation for the action\sphinxhyphen{}value function \(Q^{\p
 \sphinxAtStartPar
 \sphinxstylestrong{Optimal value functions, and optimal policies}
 \label{ch/rl/mdp:def:optimal-value-fcns}
-\begin{sphinxadmonition}{note}{Definition 46.2.1 (Optimal value functions)}
+\begin{sphinxadmonition}{note}{Definition 47.2.1 (Optimal value functions)}
 
 
 
@@ -14611,7 +15335,7 @@ Valus functions define a partial ordering of policies,
 \begin{equation*}
 \begin{split}\pi \ge \pi' \ \text{if} \ V^{\pi}(s) \ge V^{\pi'} \, \forall s \in S \ .\end{split}
 \end{equation*}\label{ch/rl/mdp:theorem-2}
-\begin{sphinxadmonition}{note}{Theorem 46.2.1 (Optimal policies)}
+\begin{sphinxadmonition}{note}{Theorem 47.2.1 (Optimal policies)}
 
 
 
@@ -14647,7 +15371,7 @@ a deterministic optimal policy exists, and it’s found optimizing action\sphinx
 \sphinxAtStartPar
 \sphinxstylestrong{todo}
 \label{ch/rl/mdp:prop:optimal-v-q}
-\begin{sphinxadmonition}{note}{Property 46.2.1 (Property: optimal state\sphinxhyphen{}value and action\sphinxhyphen{}value functions)}
+\begin{sphinxadmonition}{note}{Property 47.2.1 (Property: optimal state\sphinxhyphen{}value and action\sphinxhyphen{}value functions)}
 
 
 \begin{equation}\label{equation:ch/rl/mdp:eq:optimality-condition}
@@ -14659,7 +15383,7 @@ a deterministic optimal policy exists, and it’s found optimizing action\sphinx
 
 \sphinxAtStartPar
 \sphinxstylestrong{Bellman optimality equations.}
-Using {\hyperref[\detokenize{ch/rl/mdp:prop:optimal-v-q}]{\sphinxcrossref{Property 46.2.1}}} and the expression of action\sphinxhyphen{}value function in \eqref{equation:ch/rl/mdp:eq:bellman:q:exp}
+Using {\hyperref[\detokenize{ch/rl/mdp:prop:optimal-v-q}]{\sphinxcrossref{Property 47.2.1}}} and the expression of action\sphinxhyphen{}value function in \eqref{equation:ch/rl/mdp:eq:bellman:q:exp}
 \begin{equation*}
 \begin{split}\begin{aligned}
   V^{*}(s) 
@@ -14826,7 +15550,7 @@ and it “improves the value function” (which value function?) of any state,
 \sphinxAtStartPar
 In stochastic optimization, usually {\hyperref[\detokenize{ch/rl/mdp_sol_rl:rl-mdp-sol-rl-control-improv-eps-greedy}]{\sphinxcrossref{\DUrole{std,std-ref}{\(\varepsilon\)\sphinxhyphen{}greedy improvement}}}} is introduced to improve \sphinxstylestrong{exploration} and try to avoid converging to local optimum.
 \label{ch/rl/mdp_sol_dp_lp:thm:pi}
-\begin{sphinxadmonition}{note}{Theorem 47.2.1 (Policy improvement theorem)}
+\begin{sphinxadmonition}{note}{Theorem 48.2.1 (Policy improvement theorem)}
 
 
 
@@ -15219,7 +15943,7 @@ MC evaluation is model\sphinxhyphen{}free. To keep a model\sphinxhyphen{}free co
 \right.
 \end{split}
 \end{equation*}\label{ch/rl/mdp_sol_rl:theorem-0}
-\begin{sphinxadmonition}{note}{Theorem 48.2.1 (\protect\(\varepsilon\protect\)\sphinxhyphen{}greedy Policy Improvement)}
+\begin{sphinxadmonition}{note}{Theorem 49.2.1 (\protect\(\varepsilon\protect\)\sphinxhyphen{}greedy Policy Improvement)}
 
 
 
@@ -15239,7 +15963,7 @@ For …, the \(\varepsilon\)\sphinxhyphen{}greedy policy \(\pi'\) w.r.t. \(Q^{\p
 \end{equation*}
 \sphinxAtStartPar
 having used in \((1)\) …
-And for the policy improvement theorem {\hyperref[\detokenize{ch/rl/mdp_sol_dp_lp:thm:pi}]{\sphinxcrossref{Theorem 47.2.1}}}, \(V^{\pi'}(s) \ge V(s)\). \sphinxstylestrong{todo} \sphinxstyleemphasis{Check it!}
+And for the policy improvement theorem {\hyperref[\detokenize{ch/rl/mdp_sol_dp_lp:thm:pi}]{\sphinxcrossref{Theorem 48.2.1}}}, \(V^{\pi'}(s) \ge V(s)\). \sphinxstylestrong{todo} \sphinxstyleemphasis{Check it!}
 
 \sphinxAtStartPar
 \sphinxstylestrong{GLIE (Greedy in the Limit of Infinite Exploration)} …
