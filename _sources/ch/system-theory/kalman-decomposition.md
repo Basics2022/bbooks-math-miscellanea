@@ -125,7 +125,195 @@ $$\mathbf{U}_o^* \mathbf{A} \mathbf{U}_{\overline{o}} \ .$$
 
 (system-theory:kalman-decomposition:kalman)=
 ## Kalman decomposition
+Let
 
+* $\mathbf{U}_1$ spanning the **reachable** and **non-observable sub-psace**, $R \cap \overline{O}$
+* $\mathbf{U}_2$ complementing $\mathbf{U}_1$ to get the reachable sub-sspace $R$
+* $\mathbf{U}_3$ complementing $\mathbf{U}_3$ to get the non-observable sub-space $O$
+* $\mathbf{U}_4$ complementing $\mathbf{U}_1$, $\mathbf{U}_2$, $\mathbf{U}_3$ to get $\mathbb{R}^n$
+
+The columns of $\mathbf{U}_1$ and $\mathbf{U}_3$ form a vector basis of the non-observable sub-space. The columns of $\mathbf{U}_1$ and $\mathbf{U}_2$ form a vector basis of the reachable subspace.  
+
+A coordinate transfromation of the form
+
+$$\mathbf{x} = \mathbf{T} \mathbf{x} = \begin{bmatrix} \ \mathbf{U}_1 & \mathbf{U}_2 & \mathbf{U}_3 & \mathbf{U}_4 \ \end{bmatrix} \mathbf{z} = \begin{bmatrix} \ \mathbf{U}_1 & \mathbf{U}_2 & \mathbf{U}_3 & \mathbf{U}_4 \ \end{bmatrix} \begin{bmatrix} \mathbf{z}_1 \\ \mathbf{z}_2 \\ \mathbf{z}_3 \\ \mathbf{z}_4 \end{bmatrix} \ ,$$
+
+produce a transformed system with the following structure
+
+$$\left\{\begin{aligned}
+  \frac{d}{dt} \begin{bmatrix} \mathbf{z}_1 \\ \mathbf{z}_2 \\ \mathbf{z}_3 \\ \mathbf{z}_4 \end{bmatrix} & =
+  \begin{bmatrix} 
+     \mathbf{A}_{11} & \mathbf{A}_{12} & \mathbf{A}_{13} & \mathbf{A}_{14} \\ 
+     \mathbf{0}      & \mathbf{A}_{22} & \mathbf{0}      & \mathbf{A}_{24} \\ 
+     \mathbf{0}      & \mathbf{0}      & \mathbf{A}_{33} & \mathbf{A}_{34} \\ 
+     \mathbf{0}      & \mathbf{0}      & \mathbf{0}      & \mathbf{A}_{44} \\ 
+  \end{bmatrix}
+  \begin{bmatrix} \mathbf{z}_1 \\ \mathbf{z}_2 \\ \mathbf{z}_3 \\ \mathbf{z}_4 \end{bmatrix} +
+  \begin{bmatrix} \mathbf{B}_1 \\ \mathbf{B}_2 \\ \mathbf{0} \\ \mathbf{0} \end{bmatrix} \mathbf{u} \\
+  \mathbf{y} & = \begin{bmatrix} \ \mathbf{0} & \mathbf{C}_2 & \mathbf{0} & \mathbf{C}_4 \end{bmatrix}
+  \begin{bmatrix} \mathbf{z}_1 \\ \mathbf{z}_2 \\ \mathbf{z}_3 \\ \mathbf{z}_4 \end{bmatrix} +
+  \mathbf{D} \mathbf{u} 
+\end{aligned}\right.$$
+
+
+````{dropdown} Details
+:open:
+
+**Columns of $\ \mathbf{T}$.** Here the columns of $\mathbf{U}_1$ are assumed to be a set of unit normal vectors, $\mathbf{U}_1^* \mathbf{U}_1 = \mathbf{I}$. Without this assumption, Gram-Schmidt orthogonalization process ensure a orthogonal basis $\boldsymbol\Phi_1$ exists and the basis in $\mathbf{U}_1$ can be written as a linear combination of the columns of $\boldsymbol\Phi_1$, i.e. $\mathbf{U}_1 = \boldsymbol\Phi_1 \boldsymbol\alpha_1$, with non-singular $\boldsymbol\alpha_1$. Columns of $\mathbf{U}_2$ are linearly independent from the columns of $\mathbf{U}_1$ to form a basis of the reachable sub-space. Columns $\mathbf{U}_3$ are linearly independent from the columns of $\mathbf{U}_1$ to form a basis of the non-observable sub-space. In general, they're not unit orthogonal but a unit orthogonal basis can be found, to get
+
+$$\begin{aligned}
+  \mathbf{U}_2 & = \boldsymbol\Phi_2 \boldsymbol\alpha_2 + \mathbf{U}_1 \boldsymbol\alpha_{12} \\
+  \mathbf{U}_3 & = \boldsymbol\Phi_3 \boldsymbol\alpha_3 + \mathbf{U}_1 \boldsymbol\alpha_{13} \ .
+\end{aligned}$$
+
+In general, the columns of $\boldsymbol\Phi_2$ and $\boldsymbol\Phi_3$ are not mutually orthogonal, as the reachable sub-space and the non-observable sub-space are not orthogonal, $\boldsymbol\Phi_2^* \boldsymbol\Phi_3 \ne \mathbf{0}$. The columns of the complement $\mathbf{U}_4$ are assumed to be unit normal vectors, orthogonal w.r.t. the columns of $\mathbf{U}_1$, $\mathbf{U}_2$, $\mathbf{U}_3$ (and of $\boldsymbol\Phi_2$, $\boldsymbol\Phi_3$).
+
+**Recast $\ \mathbf{T}$.**
+
+$$
+\mathbf{T} = \begin{bmatrix} \ \mathbf{U}_1 & \boldsymbol\Phi_2 & \boldsymbol\Phi_3 & \mathbf{U}_4 \ \end{bmatrix}
+\begin{bmatrix}
+  \mathbf{I} & \boldsymbol\alpha_{12} & \boldsymbol\alpha_{13} & \cdot \\
+  \cdot      & \boldsymbol\alpha_{2 } & \cdot                  & \cdot \\
+  \cdot      & \cdot                  & \boldsymbol\alpha_{3 } & \cdot \\
+  \cdot      & \cdot                  & \cdot                  & \mathbf{I}
+\end{bmatrix} =
+\boldsymbol\Phi \boldsymbol\alpha
+$$
+
+**Inverse $\ \mathbf{T}^{-1}$.**
+
+$$\mathbf{T}^{-1} = \boldsymbol\alpha^{-1} \boldsymbol\Phi^{-1} \ ,$$
+
+with
+
+$$\boldsymbol\alpha^{-1} & = 
+\begin{bmatrix}
+  \mathbf{I} &-\boldsymbol\alpha_{12}\boldsymbol\alpha_{2 }^{-1}      &-\boldsymbol\alpha_{13}\boldsymbol\alpha_{3 }^{-1}      & \cdot \\
+  \cdot      & \boldsymbol\alpha_{2 }^{-1} & \cdot                       & \cdot \\
+  \cdot      & \cdot                       & \boldsymbol\alpha_{3 }^{-1} & \cdot \\
+  \cdot      & \cdot                       & \cdot                       & \mathbf{I}
+\end{bmatrix}$$
+
+$$\boldsymbol\Phi^{-1} & =
+\begin{bmatrix}
+  \mathbf{U}_1^* \\
+  \left[ \left( \mathbf{I} - \boldsymbol\Phi_3 \boldsymbol\Phi_3^* \right) \boldsymbol\Phi_2 \left( \mathbf{I} - \boldsymbol\Phi_2^* \boldsymbol\Phi_3 \boldsymbol\Phi_3^* \boldsymbol\Phi_2 \right)^{-1} \right]^* \\
+  \left[ \left( \mathbf{I} - \boldsymbol\Phi_2 \boldsymbol\Phi_2^* \right) \boldsymbol\Phi_3 \left( \mathbf{I} - \boldsymbol\Phi_3^* \boldsymbol\Phi_2 \boldsymbol\Phi_2^* \boldsymbol\Phi_3 \right)^{-1} \right]^* \\
+  \mathbf{U}_4^* 
+\end{bmatrix}
+$$
+
+```{dropdown} Details
+:open:
+
+
+
+```
+
+**Transformed matrices: matrix $\hat{\mathbf{C}}$.**
+
+
+$$\hat{\mathbf{C}} = \mathbf{C} \mathbf{T} = \mathbf{C} \boldsymbol\Phi \boldsymbol\alpha$$
+
+$$\mathbf{C} \boldsymbol\Phi = \mathbf{C} \begin{bmatrix} \ \mathbf{U}_1 & \boldsymbol\Phi_2 & \boldsymbol\Phi_3 & \mathbf{U}_4 \ \end{bmatrix} = \begin{bmatrix} \ \mathbf{0}   & \mathbf{C} \boldsymbol\Phi_2 & \mathbf{0} & \mathbf{C} \mathbf{U}_4 \ \end{bmatrix} \ ,$$
+
+as $\mathbf{C} \mathbf{U}_1 = \mathbf{0}$, $\mathbf{C} \boldsymbol\Phi_3 = \mathbf{0}$. Looking at the structures of the matrices $\mathbf{C} \boldsymbol\Phi$ and $\boldsymbol\alpha$, 
+
+$$
+\begin{bmatrix} \cdot & \ast & \cdot & \ast \end{bmatrix}
+\begin{bmatrix} 
+  \ast  & \ast  & \ast  & \cdot \\
+  \cdot & \ast  & \cdot & \cdot \\
+  \cdot & \cdot & \ast  & \cdot \\
+  \cdot & \cdot & \cdot & \ast  \\
+\end{bmatrix} = 
+\begin{bmatrix} \cdot & \ast & \cdot & \ast \end{bmatrix} \ ,
+$$
+
+it's easy to show that this multiplication preserves the structure of the matrix $\mathbf{C}\boldsymbol\Phi$. Explicitly evaluating the non-zero blocks, the transformed matrix reads
+
+$$\hat{\mathbf{C}} = \begin{bmatrix} \ \mathbf{0} & \mathbf{C} \boldsymbol\Phi_2 \boldsymbol\alpha_2 & \mathbf{0} & \mathbf{C}\mathbf{U}_4 \ \end{bmatrix}$$
+
+**Transformed matrices: matrix $\hat{\mathbf{B}}$.**
+
+$$\hat{\mathbf{B}} =  \mathbf{T}^{-1} \mathbf{B} = \boldsymbol\alpha^{-1} \boldsymbol\Phi^{-1} \mathbf{B}$$
+
+$$
+\boldsymbol\Phi^{-1} \mathbf{B} = 
+\begin{bmatrix}
+  \mathbf{U}_1^* \\
+  \left[ \left( \mathbf{I} - \boldsymbol\Phi_3 \boldsymbol\Phi_3^* \right) \boldsymbol\Phi_2 \left( \mathbf{I} - \boldsymbol\Phi_2^* \boldsymbol\Phi_3 \boldsymbol\Phi_3^* \boldsymbol\Phi_2 \right)^{-1} \right]^* \\
+  \left[ \left( \mathbf{I} - \boldsymbol\Phi_2 \boldsymbol\Phi_2^* \right) \boldsymbol\Phi_3 \left( \mathbf{I} - \boldsymbol\Phi_3^* \boldsymbol\Phi_2 \boldsymbol\Phi_2^* \boldsymbol\Phi_3 \right)^{-1} \right]^* \\
+  \mathbf{U}_4^* 
+\end{bmatrix} \mathbf{B}
+$$
+
+as $\mathbf{U}_1^* \mathbf{B} = \mathbf{0}$, $\left[ \left( \mathbf{I} - \boldsymbol\Phi_2 \boldsymbol\Phi_2^* \right) \boldsymbol\Phi_3 \right]^* \mathbf{B}  = \mathbf{0}$. The last relation holds, as $\left( \mathbf{I} - \boldsymbol\Phi_2 \boldsymbol\Phi_2^* \right) \boldsymbol\Phi_3$ is the orthogonal projection of $\boldsymbol\Phi_3$ perpendicular to the vectors $\boldsymbol\Phi_2$. Since this projection is perpendicular both to $\mathbf{U}_1$ and to $\boldsymbol\Phi_2$ (that generates the reachable sub-space), it follows that $\left[ \left( \mathbf{I} - \boldsymbol\Phi_2 \boldsymbol\Phi_2^* \right) \boldsymbol\Phi_3 \right]^* \mathbf{B} = \mathbf{0}$. The same argument gives $\mathbf{U}_4^* \mathbf{B} = \mathbf{0}$, and thus
+
+$$\boldsymbol\Phi^{-1} \mathbf{B} = \begin{bmatrix} \ \ast \ \\ \ \ast \ \\ \ \cdot \ \\ \ \cdot \ \end{bmatrix} \ .$$ 
+
+Looking at the structure of the matrices $\boldsymbol\alpha^{-1}$ and $\boldsymbol\Phi^{-1} \mathbf{B}$, it's easy to show that their matrix multiplication preserves the structure
+
+$$
+\begin{bmatrix} 
+  \ast  & \ast  & \ast  & \cdot \\
+  \cdot & \ast  & \cdot & \cdot \\
+  \cdot & \cdot & \ast  & \cdot \\
+  \cdot & \cdot & \cdot & \ast  \\
+\end{bmatrix} 
+\begin{bmatrix} \ \ast \ \\ \ \ast \ \\ \ \cdot \ \\ \ \cdot \ \end{bmatrix} = 
+\begin{bmatrix} \ \ast \ \\ \ \ast \ \\ \ \cdot \ \\ \ \cdot \ \end{bmatrix} \ .
+$$
+
+**Transformed matrices: matrix $\hat{\mathbf{A}}$.**
+
+The structure of the matrix arises from $\mathbf{A}$-invariance of reachability and controllability sub-spaces and from the properties
+
+$$\begin{aligned}
+  \overline{\mathbf{r}}^* \mathbf{A} \mathbf{r} & = 0 \\
+            \mathbf{o}^*  \mathbf{A} \overline{\mathbf{o}} & = 0 \ ,
+\end{aligned}$$
+
+and recalling that $\mathbf{U}_1: \, r \overline{o}$, $(\mathbf{I}-\boldsymbol\Phi_3 \boldsymbol\Phi_3)^* \boldsymbol\Phi_2: r o \, $, $(\mathbf{I}-\boldsymbol\Phi_2 \boldsymbol\Phi_2)^* \boldsymbol\Phi_3: \, \overline{r} \overline{o}$, $\mathbf{U}_4: \, \overline{r} o$.
+Focusing on $\boldsymbol\Phi^{-1} \mathbf{A} \boldsymbol\Phi$ first
+
+$$\begin{aligned}
+  \boldsymbol\Phi^{-1} \mathbf{A} \boldsymbol\Phi 
+  & = 
+\begin{bmatrix}
+  \mathbf{U}_1^* \\
+  \left[ \left( \mathbf{I} - \boldsymbol\Phi_3 \boldsymbol\Phi_3^* \right) \boldsymbol\Phi_2 \left( \mathbf{I} - \boldsymbol\Phi_2^* \boldsymbol\Phi_3 \boldsymbol\Phi_3^* \boldsymbol\Phi_2 \right)^{-1} \right]^* \\
+  \left[ \left( \mathbf{I} - \boldsymbol\Phi_2 \boldsymbol\Phi_2^* \right) \boldsymbol\Phi_3 \left( \mathbf{I} - \boldsymbol\Phi_3^* \boldsymbol\Phi_2 \boldsymbol\Phi_2^* \boldsymbol\Phi_3 \right)^{-1} \right]^* \\
+  \mathbf{U}_4^* 
+\end{bmatrix} 
+\mathbf{A}
+\begin{bmatrix} \ \mathbf{U}_1 & \boldsymbol\Phi_2 & \boldsymbol\Phi_3 & \mathbf{U}_4 \ \end{bmatrix} = \\
+  & = 
+  \begin{bmatrix}
+    \ast  & \ast  & \ast  & \ast  \\
+    \cdot & \ast  & \cdot & \ast  \\
+    \cdot & \cdot & \ast  & \ast  \\
+    \cdot & \cdot & \cdot & \ast 
+  \end{bmatrix}
+\end{aligned}$$
+
+Pre- and post-multiplication by $\boldsymbol\alpha^{-1}$ and $\boldsymbol\alpha$ preserves the structure of $\boldsymbol\Phi^{-1} \mathbf{A} \boldsymbol\Phi$ to have
+
+$$
+\hat{\mathbf{A}} = 
+\begin{bmatrix} 
+   \mathbf{A}_{11} & \mathbf{A}_{12} & \mathbf{A}_{13} & \mathbf{A}_{14} \\ 
+   \mathbf{0}      & \mathbf{A}_{22} & \mathbf{0}      & \mathbf{A}_{24} \\ 
+   \mathbf{0}      & \mathbf{0}      & \mathbf{A}_{33} & \mathbf{A}_{34} \\ 
+   \mathbf{0}      & \mathbf{0}      & \mathbf{0}      & \mathbf{A}_{44} \\ 
+\end{bmatrix} \ .
+$$
+
+````
+
+
+<!--
 ```{dropdown} Kalman decomposition
 :open:
 
@@ -181,13 +369,22 @@ and the expression of the non-controllable, non-observable subspace. If the vect
 
 $$\begin{bmatrix} \mathbf{U}_{o}^{c} \\ \mathbf{0} \end{bmatrix} \quad , \quad \begin{bmatrix} \mathbf{0} \\ \mathbf{U}_o^{\overline{c}} \end{bmatrix} \ .$$
 
+Thus,
+
 $$\mathbf{0} = \begin{bmatrix} \mathbf{U}_o^{c *} & \mathbf{0} \end{bmatrix} \begin{bmatrix} \mathbf{A}_{cc} & \mathbf{A}_{c\overline{c}} \\ \mathbf{0} & \mathbf{A}_{\overline{c}\overline{c}} \end{bmatrix} \begin{bmatrix} \mathbf{0} \\ \mathbf{U}_{\overline{o}}^{\overline{c}} \end{bmatrix} = \mathbf{U}_o^{c *} \mathbf{A}_{c \overline{c}} \mathbf{U}_{\overline{o}}^{\overline{c}} \ .$$
 
-provides an orthogonality condition between the observable-controllable and non-observable and non-controllable part of the system.
+provides an orthogonality condition between the observable-controllable and non-observable and non-controllable part of the system, while
 
 $$\mathbf{0} = \begin{bmatrix} \mathbf{0} & \mathbf{U}_o^{\overline{c} *} \end{bmatrix} \begin{bmatrix} \mathbf{A}_{cc} & \mathbf{A}_{c\overline{c}} \\ \mathbf{0} & \mathbf{A}_{\overline{c}\overline{c}} \end{bmatrix} \begin{bmatrix} \mathbf{0} \\ \mathbf{U}_{\overline{o}}^{\overline{c}} \end{bmatrix} = \mathbf{U}_o^{\overline{c} *} \mathbf{A}_{\overline{c} \overline{c}} \mathbf{U}_{\overline{o}}^{\overline{c}} \ .$$
 
 was already known as a property of the observability partition.
+
+```
+
+```{dropdown}
+:open:
+
+
 
 ```
 
@@ -203,6 +400,7 @@ $$\begin{aligned}
 $$\mathbf{A}_1 = \mathbf{U}_C \mathbf{A} \mathbf{U}_C^*$$
 
 
+
 ```
 
-
+-->

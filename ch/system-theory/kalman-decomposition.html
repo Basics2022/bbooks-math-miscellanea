@@ -678,79 +678,269 @@ Properties<div class="sd-summary-down docutils">
 </details></div>
 <div class="section" id="system-theory-kalman-decomposition-kalman">
 <span id="id1"></span><h2><span class="section-number">30.3. </span>Kalman decomposition<a class="headerlink" href="#system-theory-kalman-decomposition-kalman" title="Permalink to this heading">#</a></h2>
+<p>Let</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mathbf{U}_1\)</span> spanning the <strong>reachable</strong> and <strong>non-observable sub-psace</strong>, <span class="math notranslate nohighlight">\(R \cap \overline{O}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{U}_2\)</span> complementing <span class="math notranslate nohighlight">\(\mathbf{U}_1\)</span> to get the reachable sub-sspace <span class="math notranslate nohighlight">\(R\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{U}_3\)</span> complementing <span class="math notranslate nohighlight">\(\mathbf{U}_3\)</span> to get the non-observable sub-space <span class="math notranslate nohighlight">\(O\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{U}_4\)</span> complementing <span class="math notranslate nohighlight">\(\mathbf{U}_1\)</span>, <span class="math notranslate nohighlight">\(\mathbf{U}_2\)</span>, <span class="math notranslate nohighlight">\(\mathbf{U}_3\)</span> to get <span class="math notranslate nohighlight">\(\mathbb{R}^n\)</span></p></li>
+</ul>
+<p>The columns of <span class="math notranslate nohighlight">\(\mathbf{U}_1\)</span> and <span class="math notranslate nohighlight">\(\mathbf{U}_3\)</span> form a vector basis of the non-observable sub-space. The columns of <span class="math notranslate nohighlight">\(\mathbf{U}_1\)</span> and <span class="math notranslate nohighlight">\(\mathbf{U}_2\)</span> form a vector basis of the reachable subspace.</p>
+<p>A coordinate transfromation of the form</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{x} = \mathbf{T} \mathbf{x} = \begin{bmatrix} \ \mathbf{U}_1 &amp; \mathbf{U}_2 &amp; \mathbf{U}_3 &amp; \mathbf{U}_4 \ \end{bmatrix} \mathbf{z} = \begin{bmatrix} \ \mathbf{U}_1 &amp; \mathbf{U}_2 &amp; \mathbf{U}_3 &amp; \mathbf{U}_4 \ \end{bmatrix} \begin{bmatrix} \mathbf{z}_1 \\ \mathbf{z}_2 \\ \mathbf{z}_3 \\ \mathbf{z}_4 \end{bmatrix} \ ,\end{split}\]</div>
+<p>produce a transformed system with the following structure</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left\{\begin{aligned}
+  \frac{d}{dt} \begin{bmatrix} \mathbf{z}_1 \\ \mathbf{z}_2 \\ \mathbf{z}_3 \\ \mathbf{z}_4 \end{bmatrix} &amp; =
+  \begin{bmatrix} 
+     \mathbf{A}_{11} &amp; \mathbf{A}_{12} &amp; \mathbf{A}_{13} &amp; \mathbf{A}_{14} \\ 
+     \mathbf{0}      &amp; \mathbf{A}_{22} &amp; \mathbf{0}      &amp; \mathbf{A}_{24} \\ 
+     \mathbf{0}      &amp; \mathbf{0}      &amp; \mathbf{A}_{33} &amp; \mathbf{A}_{34} \\ 
+     \mathbf{0}      &amp; \mathbf{0}      &amp; \mathbf{0}      &amp; \mathbf{A}_{44} \\ 
+  \end{bmatrix}
+  \begin{bmatrix} \mathbf{z}_1 \\ \mathbf{z}_2 \\ \mathbf{z}_3 \\ \mathbf{z}_4 \end{bmatrix} +
+  \begin{bmatrix} \mathbf{B}_1 \\ \mathbf{B}_2 \\ \mathbf{0} \\ \mathbf{0} \end{bmatrix} \mathbf{u} \\
+  \mathbf{y} &amp; = \begin{bmatrix} \ \mathbf{0} &amp; \mathbf{C}_2 &amp; \mathbf{0} &amp; \mathbf{C}_4 \end{bmatrix}
+  \begin{bmatrix} \mathbf{z}_1 \\ \mathbf{z}_2 \\ \mathbf{z}_3 \\ \mathbf{z}_4 \end{bmatrix} +
+  \mathbf{D} \mathbf{u} 
+\end{aligned}\right.\end{split}\]</div>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
 <summary class="sd-summary-title sd-card-header">
-Kalman decomposition<div class="sd-summary-down docutils">
+Details<div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">A first decomposition is applied for controllability. Two further decompositions for observability follows on the controllable and non-controllable parts of the system.</p>
-<p class="sd-card-text">The first change of coordinates with the singular value decomposition of the controllability Gramian</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\mathbf{x} = \begin{bmatrix} \mathbf{U}_c &amp; \mathbf{U}_{\overline{c}} \end{bmatrix} \begin{bmatrix} \mathbf{x}_{1,c} \\ \mathbf{x}_{1,\overline{c}} \end{bmatrix}\end{split}\]</div>
-<p class="sd-card-text">gives</p>
+<p class="sd-card-text"><strong>Columns of <span class="math notranslate nohighlight">\(\ \mathbf{T}\)</span>.</strong> Here the columns of <span class="math notranslate nohighlight">\(\mathbf{U}_1\)</span> are assumed to be a set of unit normal vectors, <span class="math notranslate nohighlight">\(\mathbf{U}_1^* \mathbf{U}_1 = \mathbf{I}\)</span>. Without this assumption, Gram-Schmidt orthogonalization process ensure a orthogonal basis <span class="math notranslate nohighlight">\(\boldsymbol\Phi_1\)</span> exists and the basis in <span class="math notranslate nohighlight">\(\mathbf{U}_1\)</span> can be written as a linear combination of the columns of <span class="math notranslate nohighlight">\(\boldsymbol\Phi_1\)</span>, i.e. <span class="math notranslate nohighlight">\(\mathbf{U}_1 = \boldsymbol\Phi_1 \boldsymbol\alpha_1\)</span>, with non-singular <span class="math notranslate nohighlight">\(\boldsymbol\alpha_1\)</span>. Columns of <span class="math notranslate nohighlight">\(\mathbf{U}_2\)</span> are linearly independent from the columns of <span class="math notranslate nohighlight">\(\mathbf{U}_1\)</span> to form a basis of the reachable sub-space. Columns <span class="math notranslate nohighlight">\(\mathbf{U}_3\)</span> are linearly independent from the columns of <span class="math notranslate nohighlight">\(\mathbf{U}_1\)</span> to form a basis of the non-observable sub-space. In general, they’re not unit orthogonal but a unit orthogonal basis can be found, to get</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
- \frac{d}{dt} \begin{bmatrix} \mathbf{x}_{1,c} \\ \mathbf{x}_{1,\overline{c}} \end{bmatrix} &amp; = \begin{bmatrix} \mathbf{U}_c^* \mathbf{A} \mathbf{U}_c &amp; \mathbf{U}_c^* \mathbf{A} \mathbf{U}_{\overline{c}} \\ \mathbf{0} &amp; \mathbf{U}_{\overline{c}}^* \mathbf{A} \mathbf{U}_{\overline{c}} \end{bmatrix} \begin{bmatrix} \mathbf{x}_{1,c} \\ \mathbf{x}_{1,\overline{c}} \end{bmatrix} + \begin{bmatrix} \mathbf{U}_c^* \mathbf{B} \\ \mathbf{0} \end{bmatrix} \mathbf{u} \\ 
-  \mathbf{y} &amp; = \begin{bmatrix} \mathbf{C} \mathbf{U}_c &amp; \mathbf{C} \mathbf{U}_{\overline{c}} \end{bmatrix} \begin{bmatrix} \mathbf{x}_{1,c} \\ \mathbf{x}_{1, \overline{c}} \end{bmatrix} + \mathbf{D} \mathbf{u} \ .
+  \mathbf{U}_2 &amp; = \boldsymbol\Phi_2 \boldsymbol\alpha_2 + \mathbf{U}_1 \boldsymbol\alpha_{12} \\
+  \mathbf{U}_3 &amp; = \boldsymbol\Phi_3 \boldsymbol\alpha_3 + \mathbf{U}_1 \boldsymbol\alpha_{13} \ .
 \end{aligned}\end{split}\]</div>
-<p class="sd-card-text">Then the controllable variables and the non-controllable variables are further transformed as</p>
+<p class="sd-card-text">In general, the columns of <span class="math notranslate nohighlight">\(\boldsymbol\Phi_2\)</span> and <span class="math notranslate nohighlight">\(\boldsymbol\Phi_3\)</span> are not mutually orthogonal, as the reachable sub-space and the non-observable sub-space are not orthogonal, <span class="math notranslate nohighlight">\(\boldsymbol\Phi_2^* \boldsymbol\Phi_3 \ne \mathbf{0}\)</span>. The columns of the complement <span class="math notranslate nohighlight">\(\mathbf{U}_4\)</span> are assumed to be unit normal vectors, orthogonal w.r.t. the columns of <span class="math notranslate nohighlight">\(\mathbf{U}_1\)</span>, <span class="math notranslate nohighlight">\(\mathbf{U}_2\)</span>, <span class="math notranslate nohighlight">\(\mathbf{U}_3\)</span> (and of <span class="math notranslate nohighlight">\(\boldsymbol\Phi_2\)</span>, <span class="math notranslate nohighlight">\(\boldsymbol\Phi_3\)</span>).</p>
+<p class="sd-card-text"><strong>Recast <span class="math notranslate nohighlight">\(\ \mathbf{T}\)</span>.</strong></p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  \mathbf{x}_{1,c} &amp; = \mathbf{U}_O^c \mathbf{x}_{2,c} = \begin{bmatrix} \mathbf{U}_o^c &amp; \mathbf{U}_{\overline{o}}^c \end{bmatrix} \begin{bmatrix} \mathbf{x}_{c,o} \\ \mathbf{x}_{c,\overline{o}} \end{bmatrix} \\
-  \mathbf{x}_{1,\overline{c}} &amp; = \mathbf{U}_O^{\overline{c}} \mathbf{x}_{2,\overline{c}} = \begin{bmatrix} \mathbf{U}_o^{\overline{c}} &amp; \mathbf{U}_{\overline{o}}^{\overline{c}} \end{bmatrix} \begin{bmatrix} \mathbf{x}_{\overline{c},o} \\ \mathbf{x}_{\overline{c},\overline{o}} \end{bmatrix} \ ,
-\end{aligned}\end{split}\]</div>
-<p class="sd-card-text">or</p>
+\[\begin{split}
+\mathbf{T} = \begin{bmatrix} \ \mathbf{U}_1 &amp; \boldsymbol\Phi_2 &amp; \boldsymbol\Phi_3 &amp; \mathbf{U}_4 \ \end{bmatrix}
+\begin{bmatrix}
+  \mathbf{I} &amp; \boldsymbol\alpha_{12} &amp; \boldsymbol\alpha_{13} &amp; \cdot \\
+  \cdot      &amp; \boldsymbol\alpha_{2 } &amp; \cdot                  &amp; \cdot \\
+  \cdot      &amp; \cdot                  &amp; \boldsymbol\alpha_{3 } &amp; \cdot \\
+  \cdot      &amp; \cdot                  &amp; \cdot                  &amp; \mathbf{I}
+\end{bmatrix} =
+\boldsymbol\Phi \boldsymbol\alpha
+\end{split}\]</div>
+<p class="sd-card-text"><strong>Inverse <span class="math notranslate nohighlight">\(\ \mathbf{T}^{-1}\)</span>.</strong></p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\begin{bmatrix} \mathbf{x}_{1,c} \\ \mathbf{x}_{1,\overline{c}} \end{bmatrix} = \begin{bmatrix} \mathbf{U}_o^c &amp; \mathbf{U}_{\overline{o}}^{c} &amp; \cdot &amp; \cdot \\ \cdot &amp; \cdot &amp; \mathbf{U}_o^{\overline{c}} &amp; \mathbf{U}_{\overline{o}}^{\overline{c}} \end{bmatrix} \begin{bmatrix} \mathbf{x}_{co} \\ \mathbf{x}_{c\overline{o}} \\ \mathbf{x}_{\overline{c}o} \\ \mathbf{x}_{\overline{c}\overline{o}} \end{bmatrix} \ .\end{split}\]</div>
-<p class="sd-card-text">with <span class="math notranslate nohighlight">\(\mathbf{W}_{c,1}(\mathbf{A}_{cc}, \mathbf{C}_c) = \mathbf{U}_O^{c} \boldsymbol\Sigma_{c,1} \mathbf{U}_O^{c *}\)</span>, and <span class="math notranslate nohighlight">\(\mathbf{W}_{\overline{c},1}(\mathbf{A}_{\overline{c}\overline{c}}, \mathbf{C}_{\overline{c}}) = \mathbf{U}_O^{\overline{c}} \boldsymbol\Sigma_{\overline{c},1} \mathbf{U}_O^{\overline{c} *}\)</span>.</p>
-</div>
-</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+\[\mathbf{T}^{-1} = \boldsymbol\alpha^{-1} \boldsymbol\Phi^{-1} \ ,\]</div>
+<p class="sd-card-text">with</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\boldsymbol\alpha^{-1} &amp; = 
+\begin{bmatrix}
+  \mathbf{I} &amp;-\boldsymbol\alpha_{12}\boldsymbol\alpha_{2 }^{-1}      &amp;-\boldsymbol\alpha_{13}\boldsymbol\alpha_{3 }^{-1}      &amp; \cdot \\
+  \cdot      &amp; \boldsymbol\alpha_{2 }^{-1} &amp; \cdot                       &amp; \cdot \\
+  \cdot      &amp; \cdot                       &amp; \boldsymbol\alpha_{3 }^{-1} &amp; \cdot \\
+  \cdot      &amp; \cdot                       &amp; \cdot                       &amp; \mathbf{I}
+\end{bmatrix}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\boldsymbol\Phi^{-1} &amp; =
+\begin{bmatrix}
+  \mathbf{U}_1^* \\
+  \left[ \left( \mathbf{I} - \boldsymbol\Phi_3 \boldsymbol\Phi_3^* \right) \boldsymbol\Phi_2 \left( \mathbf{I} - \boldsymbol\Phi_2^* \boldsymbol\Phi_3 \boldsymbol\Phi_3^* \boldsymbol\Phi_2 \right)^{-1} \right]^* \\
+  \left[ \left( \mathbf{I} - \boldsymbol\Phi_2 \boldsymbol\Phi_2^* \right) \boldsymbol\Phi_3 \left( \mathbf{I} - \boldsymbol\Phi_3^* \boldsymbol\Phi_2 \boldsymbol\Phi_2^* \boldsymbol\Phi_3 \right)^{-1} \right]^* \\
+  \mathbf{U}_4^* 
+\end{bmatrix}
+\end{split}\]</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
 <summary class="sd-summary-title sd-card-header">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-kebab-horizontal" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M6 12a2 2 0 11-4 0 2 2 0 014 0zm8 0a2 2 0 11-4 0 2 2 0 014 0zm6 2a2 2 0 100-4 2 2 0 000 4z"></path></svg><div class="sd-summary-down docutils">
+Details<div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">For the non-controllable space, the non-observable part <span class="math notranslate nohighlight">\(\mathbf{U}_{\overline{o}}^{\overline{c}}\)</span> satisfies</p>
-<div class="math notranslate nohighlight">
-\[\mathbf{C}_{\overline{c}} \mathbf{A}_{\overline{c}\overline{c}}^k \mathbf{U}_{\overline{o}}^{\overline{c}} = \mathbf{0} \ .\]</div>
-<p class="sd-card-text">Thus, the matrix</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{bmatrix} \mathbf{0} \\ \mathbf{U}_{\overline{o}}^{\overline{c}} \end{bmatrix} \ ,\end{split}\]</div>
-<p class="sd-card-text">satisfies</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\mathbf{C}_1 \mathbf{A}_1 \begin{bmatrix} \mathbf{0} \\ \mathbf{U}_{\overline{o}}^{\overline{c}}  \end{bmatrix} = \mathbf{0} \ ,\end{split}\]</div>
-<p class="sd-card-text">and thus the columns of this matrix belongs to the non-observable subspace of <span class="math notranslate nohighlight">\(\mathbf{A}_1\)</span>. Recalling the first transformation, <span class="math notranslate nohighlight">\(\mathbf{A}_1 = \mathbf{U}_C^* \mathbf{A} \mathbf{U}_C\)</span>, <span class="math notranslate nohighlight">\(\mathbf{C}_1 = \mathbf{C} \mathbf{U}_C\)</span>, it follows that</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\mathbf{C} \mathbf{A} \mathbf{U}_C \begin{bmatrix} \mathbf{0} \\ \mathbf{U}_{\overline{o}}^{\overline{c}}  \end{bmatrix} = \mathbf{0} \ ,\end{split}\]</div>
-<p class="sd-card-text">and the expression of the non-controllable, non-observable subspace. If the vector <span class="math notranslate nohighlight">\(\begin{bmatrix} \mathbf{0} \\ \mathbf{U}_{\overline{o}}^{\overline{c}} \end{bmatrix}\)</span> belongs to the kernel <span class="math notranslate nohighlight">\(\mathbf{W}_{o,1}\)</span>, thus also the vector <span class="math notranslate nohighlight">\(\mathbf{A}_1 \begin{bmatrix} \mathbf{0} \\ \mathbf{U}_{\overline{o}}^{\overline{c}} \end{bmatrix}\)</span> belongs to the kernel of <span class="math notranslate nohighlight">\(\mathbf{W}_{o,1}\)</span> for the <span class="math notranslate nohighlight">\(\mathbf{A}_1\)</span>-invariance of the kernel of <span class="math notranslate nohighlight">\(\mathbf{W}_{o,1}\)</span>. Thus, this vector is orthogonal to the vectors of the observability complement, <strong>todo</strong> <em>Prove that the columns of the following matrices are a basis of the observability complement</em></p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{bmatrix} \mathbf{U}_{o}^{c} \\ \mathbf{0} \end{bmatrix} \quad , \quad \begin{bmatrix} \mathbf{0} \\ \mathbf{U}_o^{\overline{c}} \end{bmatrix} \ .\end{split}\]</div>
-<div class="math notranslate nohighlight">
-\[\begin{split}\mathbf{0} = \begin{bmatrix} \mathbf{U}_o^{c *} &amp; \mathbf{0} \end{bmatrix} \begin{bmatrix} \mathbf{A}_{cc} &amp; \mathbf{A}_{c\overline{c}} \\ \mathbf{0} &amp; \mathbf{A}_{\overline{c}\overline{c}} \end{bmatrix} \begin{bmatrix} \mathbf{0} \\ \mathbf{U}_{\overline{o}}^{\overline{c}} \end{bmatrix} = \mathbf{U}_o^{c *} \mathbf{A}_{c \overline{c}} \mathbf{U}_{\overline{o}}^{\overline{c}} \ .\end{split}\]</div>
-<p class="sd-card-text">provides an orthogonality condition between the observable-controllable and non-observable and non-controllable part of the system.</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\mathbf{0} = \begin{bmatrix} \mathbf{0} &amp; \mathbf{U}_o^{\overline{c} *} \end{bmatrix} \begin{bmatrix} \mathbf{A}_{cc} &amp; \mathbf{A}_{c\overline{c}} \\ \mathbf{0} &amp; \mathbf{A}_{\overline{c}\overline{c}} \end{bmatrix} \begin{bmatrix} \mathbf{0} \\ \mathbf{U}_{\overline{o}}^{\overline{c}} \end{bmatrix} = \mathbf{U}_o^{\overline{c} *} \mathbf{A}_{\overline{c} \overline{c}} \mathbf{U}_{\overline{o}}^{\overline{c}} \ .\end{split}\]</div>
-<p class="sd-card-text">was already known as a property of the observability partition.</p>
 </div>
-</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
-<summary class="sd-summary-title sd-card-header">
-Transformation and properties of Gramian matrices<div class="sd-summary-down docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="sd-summary-up docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="sd-summary-content sd-card-body docutils">
+</details><p class="sd-card-text"><strong>Transformed matrices: matrix <span class="math notranslate nohighlight">\(\hat{\mathbf{C}}\)</span>.</strong></p>
+<div class="math notranslate nohighlight">
+\[\hat{\mathbf{C}} = \mathbf{C} \mathbf{T} = \mathbf{C} \boldsymbol\Phi \boldsymbol\alpha\]</div>
+<div class="math notranslate nohighlight">
+\[\mathbf{C} \boldsymbol\Phi = \mathbf{C} \begin{bmatrix} \ \mathbf{U}_1 &amp; \boldsymbol\Phi_2 &amp; \boldsymbol\Phi_3 &amp; \mathbf{U}_4 \ \end{bmatrix} = \begin{bmatrix} \ \mathbf{0}   &amp; \mathbf{C} \boldsymbol\Phi_2 &amp; \mathbf{0} &amp; \mathbf{C} \mathbf{U}_4 \ \end{bmatrix} \ ,\]</div>
+<p class="sd-card-text">as <span class="math notranslate nohighlight">\(\mathbf{C} \mathbf{U}_1 = \mathbf{0}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{C} \boldsymbol\Phi_3 = \mathbf{0}\)</span>. Looking at the structures of the matrices <span class="math notranslate nohighlight">\(\mathbf{C} \boldsymbol\Phi\)</span> and <span class="math notranslate nohighlight">\(\boldsymbol\alpha\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix} \cdot &amp; \ast &amp; \cdot &amp; \ast \end{bmatrix}
+\begin{bmatrix} 
+  \ast  &amp; \ast  &amp; \ast  &amp; \cdot \\
+  \cdot &amp; \ast  &amp; \cdot &amp; \cdot \\
+  \cdot &amp; \cdot &amp; \ast  &amp; \cdot \\
+  \cdot &amp; \cdot &amp; \cdot &amp; \ast  \\
+\end{bmatrix} = 
+\begin{bmatrix} \cdot &amp; \ast &amp; \cdot &amp; \ast \end{bmatrix} \ ,
+\end{split}\]</div>
+<p class="sd-card-text">it’s easy to show that this multiplication preserves the structure of the matrix <span class="math notranslate nohighlight">\(\mathbf{C}\boldsymbol\Phi\)</span>. Explicitly evaluating the non-zero blocks, the transformed matrix reads</p>
+<div class="math notranslate nohighlight">
+\[\hat{\mathbf{C}} = \begin{bmatrix} \ \mathbf{0} &amp; \mathbf{C} \boldsymbol\Phi_2 \boldsymbol\alpha_2 &amp; \mathbf{0} &amp; \mathbf{C}\mathbf{U}_4 \ \end{bmatrix}\]</div>
+<p class="sd-card-text"><strong>Transformed matrices: matrix <span class="math notranslate nohighlight">\(\hat{\mathbf{B}}\)</span>.</strong></p>
+<div class="math notranslate nohighlight">
+\[\hat{\mathbf{B}} =  \mathbf{T}^{-1} \mathbf{B} = \boldsymbol\alpha^{-1} \boldsymbol\Phi^{-1} \mathbf{B}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\boldsymbol\Phi^{-1} \mathbf{B} = 
+\begin{bmatrix}
+  \mathbf{U}_1^* \\
+  \left[ \left( \mathbf{I} - \boldsymbol\Phi_3 \boldsymbol\Phi_3^* \right) \boldsymbol\Phi_2 \left( \mathbf{I} - \boldsymbol\Phi_2^* \boldsymbol\Phi_3 \boldsymbol\Phi_3^* \boldsymbol\Phi_2 \right)^{-1} \right]^* \\
+  \left[ \left( \mathbf{I} - \boldsymbol\Phi_2 \boldsymbol\Phi_2^* \right) \boldsymbol\Phi_3 \left( \mathbf{I} - \boldsymbol\Phi_3^* \boldsymbol\Phi_2 \boldsymbol\Phi_2^* \boldsymbol\Phi_3 \right)^{-1} \right]^* \\
+  \mathbf{U}_4^* 
+\end{bmatrix} \mathbf{B}
+\end{split}\]</div>
+<p class="sd-card-text">as <span class="math notranslate nohighlight">\(\mathbf{U}_1^* \mathbf{B} = \mathbf{0}\)</span>, <span class="math notranslate nohighlight">\(\left[ \left( \mathbf{I} - \boldsymbol\Phi_2 \boldsymbol\Phi_2^* \right) \boldsymbol\Phi_3 \right]^* \mathbf{B}  = \mathbf{0}\)</span>. The last relation holds, as <span class="math notranslate nohighlight">\(\left( \mathbf{I} - \boldsymbol\Phi_2 \boldsymbol\Phi_2^* \right) \boldsymbol\Phi_3\)</span> is the orthogonal projection of <span class="math notranslate nohighlight">\(\boldsymbol\Phi_3\)</span> perpendicular to the vectors <span class="math notranslate nohighlight">\(\boldsymbol\Phi_2\)</span>. Since this projection is perpendicular both to <span class="math notranslate nohighlight">\(\mathbf{U}_1\)</span> and to <span class="math notranslate nohighlight">\(\boldsymbol\Phi_2\)</span> (that generates the reachable sub-space), it follows that <span class="math notranslate nohighlight">\(\left[ \left( \mathbf{I} - \boldsymbol\Phi_2 \boldsymbol\Phi_2^* \right) \boldsymbol\Phi_3 \right]^* \mathbf{B} = \mathbf{0}\)</span>. The same argument gives <span class="math notranslate nohighlight">\(\mathbf{U}_4^* \mathbf{B} = \mathbf{0}\)</span>, and thus</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\boldsymbol\Phi^{-1} \mathbf{B} = \begin{bmatrix} \ \ast \ \\ \ \ast \ \\ \ \cdot \ \\ \ \cdot \ \end{bmatrix} \ .\end{split}\]</div>
+<p class="sd-card-text">Looking at the structure of the matrices <span class="math notranslate nohighlight">\(\boldsymbol\alpha^{-1}\)</span> and <span class="math notranslate nohighlight">\(\boldsymbol\Phi^{-1} \mathbf{B}\)</span>, it’s easy to show that their matrix multiplication preserves the structure</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix} 
+  \ast  &amp; \ast  &amp; \ast  &amp; \cdot \\
+  \cdot &amp; \ast  &amp; \cdot &amp; \cdot \\
+  \cdot &amp; \cdot &amp; \ast  &amp; \cdot \\
+  \cdot &amp; \cdot &amp; \cdot &amp; \ast  \\
+\end{bmatrix} 
+\begin{bmatrix} \ \ast \ \\ \ \ast \ \\ \ \cdot \ \\ \ \cdot \ \end{bmatrix} = 
+\begin{bmatrix} \ \ast \ \\ \ \ast \ \\ \ \cdot \ \\ \ \cdot \ \end{bmatrix} \ .
+\end{split}\]</div>
+<p class="sd-card-text"><strong>Transformed matrices: matrix <span class="math notranslate nohighlight">\(\hat{\mathbf{A}}\)</span>.</strong></p>
+<p class="sd-card-text">The structure of the matrix arises from <span class="math notranslate nohighlight">\(\mathbf{A}\)</span>-invariance of reachability and controllability sub-spaces and from the properties</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
-  \mathbf{W}_{C,1} &amp; = \mathbf{U}_C \mathbf{W}_C \mathbf{U}_C^* \\
-  \mathbf{W}_{O,1} &amp; = \mathbf{U}^*_C \mathbf{W}_O \mathbf{U}_C
+  \overline{\mathbf{r}}^* \mathbf{A} \mathbf{r} &amp; = 0 \\
+            \mathbf{o}^*  \mathbf{A} \overline{\mathbf{o}} &amp; = 0 \ ,
 \end{aligned}\end{split}\]</div>
+<p class="sd-card-text">and recalling that <span class="math notranslate nohighlight">\(\mathbf{U}_1: \, r \overline{o}\)</span>, <span class="math notranslate nohighlight">\((\mathbf{I}-\boldsymbol\Phi_3 \boldsymbol\Phi_3)^* \boldsymbol\Phi_2: r o \, \)</span>, <span class="math notranslate nohighlight">\((\mathbf{I}-\boldsymbol\Phi_2 \boldsymbol\Phi_2)^* \boldsymbol\Phi_3: \, \overline{r} \overline{o}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{U}_4: \, \overline{r} o\)</span>.
+Focusing on <span class="math notranslate nohighlight">\(\boldsymbol\Phi^{-1} \mathbf{A} \boldsymbol\Phi\)</span> first</p>
 <div class="math notranslate nohighlight">
-\[\mathbf{A}_1 = \mathbf{U}_C \mathbf{A} \mathbf{U}_C^*\]</div>
+\[\begin{split}\begin{aligned}
+  \boldsymbol\Phi^{-1} \mathbf{A} \boldsymbol\Phi 
+  &amp; = 
+\begin{bmatrix}
+  \mathbf{U}_1^* \\
+  \left[ \left( \mathbf{I} - \boldsymbol\Phi_3 \boldsymbol\Phi_3^* \right) \boldsymbol\Phi_2 \left( \mathbf{I} - \boldsymbol\Phi_2^* \boldsymbol\Phi_3 \boldsymbol\Phi_3^* \boldsymbol\Phi_2 \right)^{-1} \right]^* \\
+  \left[ \left( \mathbf{I} - \boldsymbol\Phi_2 \boldsymbol\Phi_2^* \right) \boldsymbol\Phi_3 \left( \mathbf{I} - \boldsymbol\Phi_3^* \boldsymbol\Phi_2 \boldsymbol\Phi_2^* \boldsymbol\Phi_3 \right)^{-1} \right]^* \\
+  \mathbf{U}_4^* 
+\end{bmatrix} 
+\mathbf{A}
+\begin{bmatrix} \ \mathbf{U}_1 &amp; \boldsymbol\Phi_2 &amp; \boldsymbol\Phi_3 &amp; \mathbf{U}_4 \ \end{bmatrix} = \\
+  &amp; = 
+  \begin{bmatrix}
+    \ast  &amp; \ast  &amp; \ast  &amp; \ast  \\
+    \cdot &amp; \ast  &amp; \cdot &amp; \ast  \\
+    \cdot &amp; \cdot &amp; \ast  &amp; \ast  \\
+    \cdot &amp; \cdot &amp; \cdot &amp; \ast 
+  \end{bmatrix}
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">Pre- and post-multiplication by <span class="math notranslate nohighlight">\(\boldsymbol\alpha^{-1}\)</span> and <span class="math notranslate nohighlight">\(\boldsymbol\alpha\)</span> preserves the structure of <span class="math notranslate nohighlight">\(\boldsymbol\Phi^{-1} \mathbf{A} \boldsymbol\Phi\)</span> to have</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\hat{\mathbf{A}} = 
+\begin{bmatrix} 
+   \mathbf{A}_{11} &amp; \mathbf{A}_{12} &amp; \mathbf{A}_{13} &amp; \mathbf{A}_{14} \\ 
+   \mathbf{0}      &amp; \mathbf{A}_{22} &amp; \mathbf{0}      &amp; \mathbf{A}_{24} \\ 
+   \mathbf{0}      &amp; \mathbf{0}      &amp; \mathbf{A}_{33} &amp; \mathbf{A}_{34} \\ 
+   \mathbf{0}      &amp; \mathbf{0}      &amp; \mathbf{0}      &amp; \mathbf{A}_{44} \\ 
+\end{bmatrix} \ .
+\end{split}\]</div>
 </div>
-</details></div>
+</details><!--
+```{dropdown} Kalman decomposition
+:open:
+
+A first decomposition is applied for controllability. Two further decompositions for observability follows on the controllable and non-controllable parts of the system.
+
+The first change of coordinates with the singular value decomposition of the controllability Gramian 
+
+$$\mathbf{x} = \begin{bmatrix} \mathbf{U}_c & \mathbf{U}_{\overline{c}} \end{bmatrix} \begin{bmatrix} \mathbf{x}_{1,c} \\ \mathbf{x}_{1,\overline{c}} \end{bmatrix}$$
+
+gives
+
+$$\begin{aligned}
+ \frac{d}{dt} \begin{bmatrix} \mathbf{x}_{1,c} \\ \mathbf{x}_{1,\overline{c}} \end{bmatrix} & = \begin{bmatrix} \mathbf{U}_c^* \mathbf{A} \mathbf{U}_c & \mathbf{U}_c^* \mathbf{A} \mathbf{U}_{\overline{c}} \\ \mathbf{0} & \mathbf{U}_{\overline{c}}^* \mathbf{A} \mathbf{U}_{\overline{c}} \end{bmatrix} \begin{bmatrix} \mathbf{x}_{1,c} \\ \mathbf{x}_{1,\overline{c}} \end{bmatrix} + \begin{bmatrix} \mathbf{U}_c^* \mathbf{B} \\ \mathbf{0} \end{bmatrix} \mathbf{u} \\ 
+  \mathbf{y} & = \begin{bmatrix} \mathbf{C} \mathbf{U}_c & \mathbf{C} \mathbf{U}_{\overline{c}} \end{bmatrix} \begin{bmatrix} \mathbf{x}_{1,c} \\ \mathbf{x}_{1, \overline{c}} \end{bmatrix} + \mathbf{D} \mathbf{u} \ .
+\end{aligned}$$
+
+Then the controllable variables and the non-controllable variables are further transformed as
+
+$$\begin{aligned}
+  \mathbf{x}_{1,c} & = \mathbf{U}_O^c \mathbf{x}_{2,c} = \begin{bmatrix} \mathbf{U}_o^c & \mathbf{U}_{\overline{o}}^c \end{bmatrix} \begin{bmatrix} \mathbf{x}_{c,o} \\ \mathbf{x}_{c,\overline{o}} \end{bmatrix} \\
+  \mathbf{x}_{1,\overline{c}} & = \mathbf{U}_O^{\overline{c}} \mathbf{x}_{2,\overline{c}} = \begin{bmatrix} \mathbf{U}_o^{\overline{c}} & \mathbf{U}_{\overline{o}}^{\overline{c}} \end{bmatrix} \begin{bmatrix} \mathbf{x}_{\overline{c},o} \\ \mathbf{x}_{\overline{c},\overline{o}} \end{bmatrix} \ ,
+\end{aligned}$$
+
+or
+
+$$\begin{bmatrix} \mathbf{x}_{1,c} \\ \mathbf{x}_{1,\overline{c}} \end{bmatrix} = \begin{bmatrix} \mathbf{U}_o^c & \mathbf{U}_{\overline{o}}^{c} & \cdot & \cdot \\ \cdot & \cdot & \mathbf{U}_o^{\overline{c}} & \mathbf{U}_{\overline{o}}^{\overline{c}} \end{bmatrix} \begin{bmatrix} \mathbf{x}_{co} \\ \mathbf{x}_{c\overline{o}} \\ \mathbf{x}_{\overline{c}o} \\ \mathbf{x}_{\overline{c}\overline{o}} \end{bmatrix} \ .$$
+
+with $\mathbf{W}_{c,1}(\mathbf{A}_{cc}, \mathbf{C}_c) = \mathbf{U}_O^{c} \boldsymbol\Sigma_{c,1} \mathbf{U}_O^{c *}$, and $\mathbf{W}_{\overline{c},1}(\mathbf{A}_{\overline{c}\overline{c}}, \mathbf{C}_{\overline{c}}) = \mathbf{U}_O^{\overline{c}} \boldsymbol\Sigma_{\overline{c},1} \mathbf{U}_O^{\overline{c} *}$.
+
+
+```
+
+```{dropdown}
+:open:
+
+For the non-controllable space, the non-observable part $\mathbf{U}_{\overline{o}}^{\overline{c}}$ satisfies
+
+$$\mathbf{C}_{\overline{c}} \mathbf{A}_{\overline{c}\overline{c}}^k \mathbf{U}_{\overline{o}}^{\overline{c}} = \mathbf{0} \ .$$
+
+Thus, the matrix
+
+$$\begin{bmatrix} \mathbf{0} \\ \mathbf{U}_{\overline{o}}^{\overline{c}} \end{bmatrix} \ ,$$
+
+satisfies
+
+$$\mathbf{C}_1 \mathbf{A}_1 \begin{bmatrix} \mathbf{0} \\ \mathbf{U}_{\overline{o}}^{\overline{c}}  \end{bmatrix} = \mathbf{0} \ ,$$
+
+and thus the columns of this matrix belongs to the non-observable subspace of $\mathbf{A}_1$. Recalling the first transformation, $\mathbf{A}_1 = \mathbf{U}_C^* \mathbf{A} \mathbf{U}_C$, $\mathbf{C}_1 = \mathbf{C} \mathbf{U}_C$, it follows that 
+
+$$\mathbf{C} \mathbf{A} \mathbf{U}_C \begin{bmatrix} \mathbf{0} \\ \mathbf{U}_{\overline{o}}^{\overline{c}}  \end{bmatrix} = \mathbf{0} \ ,$$
+
+and the expression of the non-controllable, non-observable subspace. If the vector $\begin{bmatrix} \mathbf{0} \\ \mathbf{U}_{\overline{o}}^{\overline{c}} \end{bmatrix}$ belongs to the kernel $\mathbf{W}_{o,1}$, thus also the vector $\mathbf{A}_1 \begin{bmatrix} \mathbf{0} \\ \mathbf{U}_{\overline{o}}^{\overline{c}} \end{bmatrix}$ belongs to the kernel of $\mathbf{W}_{o,1}$ for the $\mathbf{A}_1$-invariance of the kernel of $\mathbf{W}_{o,1}$. Thus, this vector is orthogonal to the vectors of the observability complement, **todo** *Prove that the columns of the following matrices are a basis of the observability complement*
+
+$$\begin{bmatrix} \mathbf{U}_{o}^{c} \\ \mathbf{0} \end{bmatrix} \quad , \quad \begin{bmatrix} \mathbf{0} \\ \mathbf{U}_o^{\overline{c}} \end{bmatrix} \ .$$
+
+Thus,
+
+$$\mathbf{0} = \begin{bmatrix} \mathbf{U}_o^{c *} & \mathbf{0} \end{bmatrix} \begin{bmatrix} \mathbf{A}_{cc} & \mathbf{A}_{c\overline{c}} \\ \mathbf{0} & \mathbf{A}_{\overline{c}\overline{c}} \end{bmatrix} \begin{bmatrix} \mathbf{0} \\ \mathbf{U}_{\overline{o}}^{\overline{c}} \end{bmatrix} = \mathbf{U}_o^{c *} \mathbf{A}_{c \overline{c}} \mathbf{U}_{\overline{o}}^{\overline{c}} \ .$$
+
+provides an orthogonality condition between the observable-controllable and non-observable and non-controllable part of the system, while
+
+$$\mathbf{0} = \begin{bmatrix} \mathbf{0} & \mathbf{U}_o^{\overline{c} *} \end{bmatrix} \begin{bmatrix} \mathbf{A}_{cc} & \mathbf{A}_{c\overline{c}} \\ \mathbf{0} & \mathbf{A}_{\overline{c}\overline{c}} \end{bmatrix} \begin{bmatrix} \mathbf{0} \\ \mathbf{U}_{\overline{o}}^{\overline{c}} \end{bmatrix} = \mathbf{U}_o^{\overline{c} *} \mathbf{A}_{\overline{c} \overline{c}} \mathbf{U}_{\overline{o}}^{\overline{c}} \ .$$
+
+was already known as a property of the observability partition.
+
+```
+
+```{dropdown}
+:open:
+
+
+
+```
+
+
+```{dropdown} Transformation and properties of Gramian matrices
+:open:
+
+$$\begin{aligned}
+  \mathbf{W}_{C,1} & = \mathbf{U}_C \mathbf{W}_C \mathbf{U}_C^* \\
+  \mathbf{W}_{O,1} & = \mathbf{U}^*_C \mathbf{W}_O \mathbf{U}_C
+\end{aligned}$$
+
+$$\mathbf{A}_1 = \mathbf{U}_C \mathbf{A} \mathbf{U}_C^*$$
+
+
+
+```
+
+-->
+</div>
 </div>
 
     <script type="text/x-thebe-config">
