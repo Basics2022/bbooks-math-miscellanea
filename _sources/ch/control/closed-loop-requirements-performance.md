@@ -1,15 +1,15 @@
 (control:closed-loop:requirements-performance)=
 # Closed-loop control: requirements and performance
 
-| Requirement/Performance       | ...                                             | ... |
-| :---------------------------- | :---------------------------------------------- | :-- |
-| Stability                     | Nyquist criterion                               |     |
-| Robustness                    | Stability margins                               |     |
-| Reference tracking            | Type of the system. Integrators in open-loop TF |     |
-| Measurement noise suppression |                                                 |     |
-| Input load                    |                                                 |     |
-| Input noise suppression       |                                                 |     |
-| Transient performance         |                                                 |     |
+| Requirement/Performance       | ...                                                    | ... |
+| :---------------------------- | :----------------------------------------------------- | :-- |
+| Stability                     | Nyquist criterion on the open-loop TF $L(s)$           |     |
+| Robustness                    | Stability margins                                      |     |
+| Reference tracking            | Type of the system. Integrators in open-loop TF $L(s)$ |     |
+| Measurement noise suppression |                                                        |     |
+| Input load                    |                                                        |     |
+| Input noise suppression       |                                                        |     |
+| Transient performance         |                                                        |     |
 
 
 Let the transfer function of the system be
