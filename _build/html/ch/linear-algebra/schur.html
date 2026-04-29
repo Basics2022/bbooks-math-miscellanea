@@ -276,8 +276,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l3"><a class="reference internal" href="../control/optimal-control-observer.html">34.3.4. Optimal observer for deterministic disturbances</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../control/optimal-control-output.html">34.3.5. Sub-optimal control for output feedback</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../control/optimal-control-regulator-observer.html">34.3.6. Combination of controller and observer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../control/kalman.html">34.3.7. Kalman filter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../control/hjb.html">34.3.8. Hamilton Bellman Jacobi equation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../control/optimal-control-ref-tracking.html">34.3.7. Optimal control for reference tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../control/kalman.html">34.3.8. Kalman filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../control/hjb.html">34.3.9. Hamilton Bellman Jacobi equation</a></li>
 </ul>
 </li>
 </ul>
@@ -607,7 +608,7 @@ Proof by induction<div class="sd-summary-down docutils">
   &amp; = \underbrace{\mathbf{V} \begin{bmatrix} 1 &amp; \mathbf{0}^* \\ \mathbf{0} &amp; \mathbf{Q}_1 \ \end{bmatrix}}_{=\mathbf{Q}} \underbrace{\begin{bmatrix} s_1 &amp; \mathbf{a}_1^* \\ \mathbf{0} &amp; \mathbf{U}_1 \end{bmatrix}}_{= \mathbf{U}} \underbrace{\begin{bmatrix} 1 &amp; \mathbf{0}^* \\ \mathbf{0} &amp; \mathbf{Q}_1^* \end{bmatrix} \mathbf{V}^*}_{=\mathbf{Q}^*} = \\
   &amp; = \mathbf{Q} \mathbf{U} \mathbf{Q}^* \ .
 \end{aligned}\end{split}\]</div>
-<p class="sd-card-text">As the existence of Schur decomposition for <span class="math notranslate nohighlight">\(\mathbf{A}_1 \in \mathbb{C}^{n-1,n-1}\)</span> implies the existence of Schur decomposition for <span class="math notranslate nohighlight">\(\mthbf{A} \in \mathbb{C}^{n,n}\)</span>, the proof is complete.</p>
+<p class="sd-card-text">As the existence of Schur decomposition for <span class="math notranslate nohighlight">\(\mathbf{A}_1 \in \mathbb{C}^{n-1,n-1}\)</span> implies the existence of Schur decomposition for <span class="math notranslate nohighlight">\(\mathbf{A} \in \mathbb{C}^{n,n}\)</span>, the proof is complete.</p>
 </div>
 </details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
 <summary class="sd-summary-title sd-card-header">

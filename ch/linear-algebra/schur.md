@@ -45,7 +45,7 @@ $$\begin{aligned}
   & = \mathbf{Q} \mathbf{U} \mathbf{Q}^* \ .
 \end{aligned}$$
 
-As the existence of Schur decomposition for $\mathbf{A}_1 \in \mathbb{C}^{n-1,n-1}$ implies the existence of Schur decomposition for $\mthbf{A} \in \mathbb{C}^{n,n}$, the proof is complete.
+As the existence of Schur decomposition for $\mathbf{A}_1 \in \mathbb{C}^{n-1,n-1}$ implies the existence of Schur decomposition for $\mathbf{A} \in \mathbb{C}^{n,n}$, the proof is complete.
 
 [^induction-ref]: **todo** Add a reference to induction in math notes, in sections about logics, either for [high-school](https://basics2022.github.io/bbooks-math-miscellanea-hs/intro.html) or in this personal notes. Find something in the old .pdf material.
 

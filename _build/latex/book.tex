@@ -85,7 +85,7 @@
         
 
 \title{basics - math}
-\date{Apr 28, 2026}
+\date{Apr 29, 2026}
 \release{}
 \author{basics}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -321,6 +321,85 @@ with \(\mathbf{L}\) lower triangular matrix. And thus quite easy to “invert”
 \sphinxstepscope
 
 
+\section{Schur decomposition}
+\label{\detokenize{ch/linear-algebra/schur:schur-decomposition}}\label{\detokenize{ch/linear-algebra/schur:math-schur}}\label{\detokenize{ch/linear-algebra/schur::doc}}
+\sphinxAtStartPar
+Any square matrix \(\mathbf{A} \in \mathbb{C}^{n,n}\) can be written as
+\begin{equation*}
+\begin{split}\mathbf{A} = \mathbf{Q} \mathbf{U} \mathbf{Q}^* \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+with \(\mathbf{U}\) upper triangular and \(\mathbf{Q}\) unitary, s.t. \(\mathbf{Q}^{-1} = \mathbf{Q}^*\).
+\subsubsection*{Proof by induction}
+
+\sphinxAtStartPar
+This proof uses induction%
+\begin{footnote}[1]\sphinxAtStartFootnote
+\sphinxstylestrong{todo} Add a reference to induction in math notes, in sections about logics, either for \sphinxhref{https://basics2022.github.io/bbooks-math-miscellanea-hs/intro.html}{high\sphinxhyphen{}school} or in this personal notes. Find something in the old .pdf material.
+%
+\end{footnote} on the dimension of the matrix \(\mathbf{A} \in \mathbb{C}^{n,n}\). For \(n = 1\), the transformation is trivial
+\begin{equation*}
+\begin{split}A = 1 \cdot A \cdot 1 \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Now, let’s prove the relation for \(n\), assuming that it’s true for \(n-1\). A vector \(\mathbf{v}_1 \in \mathbb{C}\) s.t. \(\mathbf{A} \mathbf{v}_1 = s_1 \mathbf{v}_1\) exists for some \(s_1 \in \mathbb{C}\). Then it’s possible to build a orthonormal basis of \textbackslash{}mathbb\{C\}\textasciicircum{}\{n\}, complementing \(\mathbf{v}_1\),
+\begin{equation*}
+\begin{split}\mathbf{V} = \begin{bmatrix} \ \mathbf{v}_1 & \mathbf{v}_2 & \dots & \mathbf{v}_n \ \end{bmatrix} \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Evaluating the product \(\mathbf{V}^* \mathbf{A} \mathbf{V}\),
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{V}^* \mathbf{A} \mathbf{V}
+  & = \begin{bmatrix} \mathbf{v}_1^* \\ \mathbf{v}_2^* \\ \dots \\ \mathbf{v}_n^* \end{bmatrix} \mathbf{A} \begin{bmatrix} \ \mathbf{v}_1 & \mathbf{v}_2 & \dots & \mathbf{v}_n \ \end{bmatrix} = \\
+  & = \begin{bmatrix} \mathbf{v}_1^* \\ \mathbf{v}_2^* \\ \dots \\ \mathbf{v}_n^* \end{bmatrix} \begin{bmatrix} \ \mathbf{A} \mathbf{v}_1 & \mathbf{A} \mathbf{v}_2 & \dots & \mathbf{A} \mathbf{v}_n \ \end{bmatrix} = \\
+  & = \begin{bmatrix} \mathbf{v}_1^* \\ \mathbf{v}_2^* \\ \dots \\ \mathbf{v}_n^* \end{bmatrix} \begin{bmatrix} \ s_1 \mathbf{v}_1 & \mathbf{A} \mathbf{v}_2 & \dots & \mathbf{A} \mathbf{v}_n \ \end{bmatrix} = \\
+  & = \begin{bmatrix}
+    s_1 & \mathbf{v}_1^* \mathbf{A} \mathbf{v}_2 & \dots & \mathbf{v}_1^* \mathbf{A} \mathbf{v}_n \\
+      0 & \mathbf{v}_2^* \mathbf{A} \mathbf{v}_2 & \dots & \mathbf{v}_2^* \mathbf{A} \mathbf{v}_n \\
+  \dots & \dots                                  & \dots & \dots                                  \\
+      0 & \mathbf{v}_n^* \mathbf{A} \mathbf{v}_2 & \dots & \mathbf{v}_n^* \mathbf{A} \mathbf{v}_n
+    \end{bmatrix} = \\
+  & = \begin{bmatrix} s_1 & \mathbf{a}_1^* \\ \mathbf{0} & \mathbf{A}_1 \end{bmatrix} = \mathbf{T}
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Thus \(\mathbf{A} = \mathbf{V} \mathbf{T} \mathbf{V}^*\). Induction assumes that \(\mathbf{A}_1 = \mathbf{Q}_1 \mathbf{U}_1 \mathbf{Q}_1^*\), so that
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{A} 
+  & = \mathbf{V} \mathbf{T} \mathbf{V}^* = \\
+  & = \mathbf{V} \begin{bmatrix} s_1 & \mathbf{a}_1^* \\ \mathbf{0} & \mathbf{A}_1 \end{bmatrix} \mathbf{V}^* = \\
+  & = \mathbf{V} \begin{bmatrix} s_1 & \mathbf{a}_1^* \\ \mathbf{0} & \mathbf{Q}_1 \mathbf{U}_1 \mathbf{Q}_1^* \end{bmatrix} \mathbf{V}^* = \\
+  & = \underbrace{\mathbf{V} \begin{bmatrix} 1 & \mathbf{0}^* \\ \mathbf{0} & \mathbf{Q}_1 \ \end{bmatrix}}_{=\mathbf{Q}} \underbrace{\begin{bmatrix} s_1 & \mathbf{a}_1^* \\ \mathbf{0} & \mathbf{U}_1 \end{bmatrix}}_{= \mathbf{U}} \underbrace{\begin{bmatrix} 1 & \mathbf{0}^* \\ \mathbf{0} & \mathbf{Q}_1^* \end{bmatrix} \mathbf{V}^*}_{=\mathbf{Q}^*} = \\
+  & = \mathbf{Q} \mathbf{U} \mathbf{Q}^* \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+As the existence of Schur decomposition for \(\mathbf{A}_1 \in \mathbb{C}^{n-1,n-1}\) implies the existence of Schur decomposition for \(\mathbf{A} \in \mathbb{C}^{n,n}\), the proof is complete.
+\subsubsection*{Lemma}
+
+\sphinxAtStartPar
+For every matrix \(\mathbf{A} \in \mathbb{C}^{n,n}\), there is a vector \(\mathbf{v} \in \mathbb{C}^n\), \(\mathbf{v} \ne \mathbf{0}\), so that \(\mathbf{A} \mathbf{v} = a \mathbf{v}\), for some value of \(a \in \mathbb{C}\). This relation holds for non\sphinxhyphen{}trivial vectors \(\mathbf{v}\) if
+\begin{equation*}
+\begin{split}\left( \mathbf{A} - s \mathbf{I} \right) \mathbf{v} = \mathbf{0} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+i.e. \(\mathbf{v} \in \text{Ker}\left( \mathbf{A} - s \mathbf{I} \right)\), i.e. \(\text{Ker}\left( \mathbf{A} - s \mathbf{I} \right)\) is not empty.
+This is true if
+\begin{equation*}
+\begin{split}0 = \left| \mathbf{A} - s \mathbf{I} \right| \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+This is a polynomial equation of degree \(n\) and thus, for the {\hyperref[\detokenize{ch/complex/algebra:complex-algebra-fundamental-theorem}]{\sphinxcrossref{\DUrole{std,std-ref}{fundamental theorem of algebra}}}}, it has at least one complex solution, \(s = \overline{s}\). For \(s = \overline{s}\), a vector \(\mathbf{v}\) satisfying \(\mathbf{A} \mathbf{v} = \overline{s} \mathbf{v}\).
+
+
+\bigskip\hrule\bigskip
+
+
+\sphinxstepscope
+
+
 \section{Singular Value Decomposition}
 \label{\detokenize{ch/linear-algebra/svd:singular-value-decomposition}}\label{\detokenize{ch/linear-algebra/svd:math-svd}}\label{\detokenize{ch/linear-algebra/svd::doc}}
 \sphinxAtStartPar
@@ -373,7 +452,7 @@ with \(k = \min(m,n)\).
 \subsubsection{Norms and optimization}
 \label{\detokenize{ch/linear-algebra/svd:norms-and-optimization}}
 \sphinxAtStartPar
-If \(L^2\)\sphinxhyphen{}norm is used for vector norms, see {\hyperref[\detokenize{ch/linear-algebra/svd:svd-optimization-norm}]{\sphinxcrossref{Example 3.3.1}}}
+If \(L^2\)\sphinxhyphen{}norm is used for vector norms, see {\hyperref[\detokenize{ch/linear-algebra/svd:svd-optimization-norm}]{\sphinxcrossref{Example 3.4.1}}}
 \begin{equation*}
 \begin{split}\text{Find } \max_{||\mathbf{x}||=1} ||\mathbf{A} \mathbf{x}||^2\end{split}
 \end{equation*}\begin{equation*}
@@ -412,7 +491,7 @@ and the response of the system is \(\mathbf{y}_1 = \sigma_1 \mathbf{u}_1\) as
 \end{equation*}
 \end{itemize}
 \label{ch/linear-algebra/svd:svd-optimization-norm}
-\begin{sphinxadmonition}{note}{Example 3.3.1 (Other norms \sphinxhyphen{} variations of the \protect\(L^2\protect\)\sphinxhyphen{}norm)}
+\begin{sphinxadmonition}{note}{Example 3.4.1 (Other norms \sphinxhyphen{} variations of the \protect\(L^2\protect\)\sphinxhyphen{}norm)}
 
 
 
@@ -3173,6 +3252,17 @@ It’s possible to write the \(T\)\sphinxhyphen{}periodic Dirac’s delta train 
 \sphinxstepscope
 
 
+\chapter{Complex Algebra}
+\label{\detokenize{ch/complex/algebra:complex-algebra}}\label{\detokenize{ch/complex/algebra:id1}}\label{\detokenize{ch/complex/algebra::doc}}
+
+\section{Fundamental Theorem of Algebra}
+\label{\detokenize{ch/complex/algebra:fundamental-theorem-of-algebra}}\label{\detokenize{ch/complex/algebra:complex-algebra-fundamental-theorem}}
+\sphinxAtStartPar
+See \sphinxhref{https://basics2022.github.io/bbooks-math-miscellanea-hs/ch/precalculus/polynomials.html\#teorema-fondamentale-dell-algebra}{Teorema fondamentale dell’algebra}
+
+\sphinxstepscope
+
+
 \chapter{Complex Analysis}
 \label{\detokenize{ch/complex/analysis:complex-analysis}}\label{\detokenize{ch/complex/analysis:id1}}\label{\detokenize{ch/complex/analysis::doc}}
 
@@ -3210,7 +3300,7 @@ Given a line \(\gamma \in \mathbb{C}\), whose parametric form is \(z(s)\), with 
 
 \section{Holomorphic Functions \sphinxhyphen{} Analytic Functions}
 \label{\detokenize{ch/complex/analysis:holomorphic-functions-analytic-functions}}\label{\detokenize{ch/complex/analysis:complex-analysis-holo-fun}}\label{ch/complex/analysis:definition-0}
-\begin{sphinxadmonition}{note}{Definition 18.2.1}
+\begin{sphinxadmonition}{note}{Definition 19.2.1}
 
 
 
@@ -3308,7 +3398,7 @@ Since \(z^n\) is analytic everywhere (\sphinxstylestrong{todo} \sphinxstyleempha
 
 \section{Meromorphic functions}
 \label{\detokenize{ch/complex/analysis:meromorphic-functions}}\label{\detokenize{ch/complex/analysis:complex-analysis-mero-fun}}\label{ch/complex/analysis:definition-1}
-\begin{sphinxadmonition}{note}{Definition 18.4.1}
+\begin{sphinxadmonition}{note}{Definition 19.4.1}
 
 
 
@@ -3319,7 +3409,7 @@ A meromorphic function in a domain is a function holomorphic everywhere except f
 
 \subsection{Singularities}
 \label{\detokenize{ch/complex/analysis:singularities}}\label{\detokenize{ch/complex/analysis:complex-analysis-singularities}}\label{ch/complex/analysis:definition-2}
-\begin{sphinxadmonition}{note}{Definition 18.4.2 (Pole)}
+\begin{sphinxadmonition}{note}{Definition 19.4.2 (Pole)}
 
 
 
@@ -3335,7 +3425,7 @@ with \(\phi(z)\) holomorphic in \(\phi(a) \ne 0\)
 \sphinxAtStartPar
 \sphinxstylestrong{Examples.} …
 \label{ch/complex/analysis:definition-3}
-\begin{sphinxadmonition}{note}{Definition 18.4.3 (Branch)}
+\begin{sphinxadmonition}{note}{Definition 19.4.3 (Branch)}
 
 
 \end{sphinxadmonition}
@@ -3343,7 +3433,7 @@ with \(\phi(z)\) holomorphic in \(\phi(a) \ne 0\)
 \sphinxAtStartPar
 \sphinxstylestrong{Examples.} \(f(z) = z^{\frac{1}{2}}\)
 \label{ch/complex/analysis:definition-4}
-\begin{sphinxadmonition}{note}{Definition 18.4.4 (Removable singularities)}
+\begin{sphinxadmonition}{note}{Definition 19.4.4 (Removable singularities)}
 
 
 \end{sphinxadmonition}
@@ -3396,7 +3486,7 @@ Proof readily follows using the {\hyperref[\detokenize{ch/complex/analysis:compl
 
 \subsection{Residues}
 \label{\detokenize{ch/complex/analysis:residues}}\label{\detokenize{ch/complex/analysis:complex-analysis-mero-fun-residues}}\label{ch/complex/analysis:definition-5}
-\begin{sphinxadmonition}{note}{Definition 18.4.5 (Residue)}
+\begin{sphinxadmonition}{note}{Definition 19.4.5 (Residue)}
 
 
 
@@ -3475,7 +3565,7 @@ and then letting \(z \rightarrow a\), so that only the term with \(m-n+1 = 0\) s
 
 \subsection{Residue Theorem}
 \label{\detokenize{ch/complex/analysis:residue-theorem}}\label{\detokenize{ch/complex/analysis:complex-analysis-mero-fun-residues-thm}}\label{ch/complex/analysis:theorem-6}
-\begin{sphinxadmonition}{note}{Theorem 18.4.1 (Residue Theorem)}
+\begin{sphinxadmonition}{note}{Theorem 19.4.1 (Residue Theorem)}
 
 
 
@@ -3784,7 +3874,7 @@ solving problems: sometimes, it can be easier to transform a problem in frequenc
 {\hyperref[\detokenize{ch/complex/fourier-transforms:complex-fourier-transform}]{\sphinxcrossref{\DUrole{std,std-ref}{\sphinxstylestrong{Fourier transform}}}}}. Fourier transform is defined for infinite\sphinxhyphen{}domain non\sphinxhyphen{}periodic, time\sphinxhyphen{}continuous functions, or \sphinxhyphen{} more generally \sphinxhyphen{} continuous functions in the physical domain.
 
 \sphinxAtStartPar
-{\hyperref[\detokenize{ch/complex/fourier-transforms:complex-fourier-transforms}]{\sphinxcrossref{\DUrole{std,std-ref}{\sphinxstylestrong{Relations between Fourier transforms and sampling}}}}}. Fourier series, Fourier transform, discrete time Fourier transform and discrete Fourier transforms are presented, and their relations discussed. Fundamental results about \sphinxstylestrong{evenly\sphinxhyphen{}spaced sampling} seamlessly follows, as \sphinxstylestrong{Shannon\sphinxhyphen{}Nyquist theorem}, {\hyperref[\detokenize{ch/complex/fourier-transforms:thm-shannon-nyquist}]{\sphinxcrossref{Theorem 20.3.1}}}, shows.
+{\hyperref[\detokenize{ch/complex/fourier-transforms:complex-fourier-transforms}]{\sphinxcrossref{\DUrole{std,std-ref}{\sphinxstylestrong{Relations between Fourier transforms and sampling}}}}}. Fourier series, Fourier transform, discrete time Fourier transform and discrete Fourier transforms are presented, and their relations discussed. Fundamental results about \sphinxstylestrong{evenly\sphinxhyphen{}spaced sampling} seamlessly follows, as \sphinxstylestrong{Shannon\sphinxhyphen{}Nyquist theorem}, {\hyperref[\detokenize{ch/complex/fourier-transforms:thm-shannon-nyquist}]{\sphinxcrossref{Theorem 21.3.1}}}, shows.
 
 \sphinxAtStartPar
 Different Fourier transforms exist, depending if the original function is:
@@ -3881,7 +3971,7 @@ T & \hfill \text{if $ k = 0$}
 \sphinxAtStartPar
 \sphinxstylestrong{Final value.}
 \label{ch/complex/fourier-transform:transform:fourier:convolution}
-\begin{sphinxadmonition}{note}{Property 20.2.1 (Transform of convolution)}
+\begin{sphinxadmonition}{note}{Property 21.2.1 (Transform of convolution)}
 
 
 \begin{equation*}
@@ -4279,7 +4369,7 @@ i.e. equals the periodic sum of the Fourier of the original function, with perio
 \sphinxAtStartPar
 From this last sentence and from the {\hyperref[\detokenize{ch/complex/fourier-transforms:complex-fourier-useful-properties-symmetry}]{\sphinxcrossref{\DUrole{std,std-ref}{symmetry properties of Fourier transform}}}}, \sphinxstylestrong{Nyquist\sphinxhyphen{}Shannon sampling theorem} follows seamlessly.
 \label{ch/complex/fourier-transforms:thm-shannon-nyquist}
-\begin{sphinxadmonition}{note}{Theorem 20.3.1 (Nyquist\sphinxhyphen{}Shannon sampling theorem)}
+\begin{sphinxadmonition}{note}{Theorem 21.3.1 (Nyquist\sphinxhyphen{}Shannon sampling theorem)}
 
 
 
@@ -4599,7 +4689,7 @@ where Einstein’s summation notation of repeated index is used. Euler\sphinxhyp
 \begin{equation*}
 \begin{split}\dfrac{d}{dx} \left[ L - q' \dfrac{\partial L}{\partial q'} \right] = \dfrac{\partial L}{\partial x} \ .\end{split}
 \end{equation*}\label{ch/calculus-variations/intro:example-0}
-\begin{sphinxadmonition}{note}{Example 21.1.1 (Euler\sphinxhyphen{}Beltrami with \protect\(L(q'(x),q(x),x)\protect\), Hamiltonian, energy and E.Noether)}
+\begin{sphinxadmonition}{note}{Example 22.1.1 (Euler\sphinxhyphen{}Beltrami with \protect\(L(q'(x),q(x),x)\protect\), Hamiltonian, energy and E.Noether)}
 
 
 
@@ -4623,7 +4713,7 @@ In mechanics, if \(\partial_t L = 0\), the Hamiltonian is a constant of motion. 
 \sphinxAtStartPar
 \sphinxstylestrong{Classical examples.}
 \label{ch/calculus-variations/intro:example-1}
-\begin{sphinxadmonition}{note}{Example 21.1.2 (Brachistochrone)}
+\begin{sphinxadmonition}{note}{Example 22.1.2 (Brachistochrone)}
 
 
 
@@ -4669,12 +4759,12 @@ Squaring \(2 g C^2 = \frac{1}{y(1+y'^2)}\), it’s possible to write
 Making the substitution \(y(x)' = \dots\)
 \end{sphinxadmonition}
 \label{ch/calculus-variations/intro:example-2}
-\begin{sphinxadmonition}{note}{Example 21.1.3 (Catenary)}
+\begin{sphinxadmonition}{note}{Example 22.1.3 (Catenary)}
 
 
 \end{sphinxadmonition}
 \label{ch/calculus-variations/intro:example-3}
-\begin{sphinxadmonition}{note}{Example 21.1.4 (Isoperimetric problem)}
+\begin{sphinxadmonition}{note}{Example 22.1.4 (Isoperimetric problem)}
 
 
 \end{sphinxadmonition}
@@ -5066,9 +5156,9 @@ Assuming it’s possible swap derivative operator and summation (when?), it’s 
 \end{aligned}\end{split}
 \end{equation*}
 \sphinxAtStartPar
-for all the values of \(s\) for which \(-s\mathbf{I} + \mathbf{A}\) is asymptotically stable, i.e. has all the eignevalues (thus, assuming that the matrix \(\mathbf{A}\) can be diagonalizable. What happens if not? Exploit other matrix decompositions to draw conclusions) with negative real parts, and thus for all the values of \(s > \max \text{re}\{ s_k(\mathbf{A}) \}\), as it’s shown in {\hyperref[\detokenize{ch/system-theory/lti:matrix-stability-spectrum}]{\sphinxcrossref{Example 25.2.1}}}
+for all the values of \(s\) for which \(-s\mathbf{I} + \mathbf{A}\) is asymptotically stable, i.e. has all the eignevalues (thus, assuming that the matrix \(\mathbf{A}\) can be diagonalizable. What happens if not? Exploit other matrix decompositions to draw conclusions) with negative real parts, and thus for all the values of \(s > \max \text{re}\{ s_k(\mathbf{A}) \}\), as it’s shown in {\hyperref[\detokenize{ch/system-theory/lti:matrix-stability-spectrum}]{\sphinxcrossref{Example 26.2.1}}}
 \label{ch/system-theory/lti:matrix-stability-spectrum}
-\begin{sphinxadmonition}{note}{Example 25.2.1 (Asymptotic stability of a matrix \protect\(\ \mathbf{A}\protect\))}
+\begin{sphinxadmonition}{note}{Example 26.2.1 (Asymptotic stability of a matrix \protect\(\ \mathbf{A}\protect\))}
 
 
 
@@ -5362,7 +5452,7 @@ Using average over time as an approximation of the probability average
 \end{aligned}\end{split}
 \end{equation*}
 \sphinxAtStartPar
-For asymptotically stable systems subject to periodic forcing, response to non\sphinxhyphen{}homogenoeus initial conditions vanishes while the forced response can be written either in Fourier or in time domain, exploiting the property of the transform of convolution {\hyperref[\detokenize{ch/complex/fourier-transform:transform:fourier:convolution}]{\sphinxcrossref{Property 20.2.1}}}, as
+For asymptotically stable systems subject to periodic forcing, response to non\sphinxhyphen{}homogenoeus initial conditions vanishes while the forced response can be written either in Fourier or in time domain, exploiting the property of the transform of convolution {\hyperref[\detokenize{ch/complex/fourier-transform:transform:fourier:convolution}]{\sphinxcrossref{Property 21.2.1}}}, as
 \begin{equation*}
 \begin{split}\begin{aligned}
   \mathbf{y}(f) = \mathbf{H}(f) \, \mathbf{u}(f) \qquad , \qquad
@@ -5427,7 +5517,7 @@ while for a pole \(p_d\) with multiplicity \(m_d> 1\) all the terms \(\propto \f
 \begin{equation*}
 \begin{split}G(s) = \sum_{d=1}^{N} \dfrac{A_d}{(p_d-s)^{e_d}} \ , \end{split}
 \end{equation*}\label{ch/system-theory/lti-stability-and-feedback:example-0}
-\begin{sphinxadmonition}{note}{Example 27.1.1 (Sum of partial fractions of a TF with poles with multiplicity \protect\(> 1\protect\))}
+\begin{sphinxadmonition}{note}{Example 28.1.1 (Sum of partial fractions of a TF with poles with multiplicity \protect\(> 1\protect\))}
 
 
 
@@ -5759,10 +5849,37 @@ i.e. \(\mathbf{v}^T \mathcal{C} = \mathbf{0}\). If the column space of matrix \(
 \chapter{Kalman decomposition}
 \label{\detokenize{ch/system-theory/kalman-decomposition:kalman-decomposition}}\label{\detokenize{ch/system-theory/kalman-decomposition:system-theory-kalman-decomposition}}\label{\detokenize{ch/system-theory/kalman-decomposition::doc}}
 \sphinxAtStartPar
-In this section, {\hyperref[\detokenize{ch/linear-algebra/svd:math-svd}]{\sphinxcrossref{\DUrole{std,std-ref}{singular value decomposition}}}} of the Gramians of {\hyperref[\detokenize{ch/system-theory/observability-detectability:observability-detectability}]{\sphinxcrossref{\DUrole{std,std-ref}{observability}}}} and {\hyperref[\detokenize{ch/system-theory/controllability-reachability:controllability-reachability}]{\sphinxcrossref{\DUrole{std,std-ref}{controllability}}}} helps in the decomposition of a LTI system in its non\sphinxhyphen{}observable/observable and controllable/non\sphinxhyphen{}controllable parts.
+{\hyperref[\detokenize{ch/system-theory/controllability-reachability:controllability-reachability}]{\sphinxcrossref{\DUrole{std,std-ref}{Controllability}}}} and {\hyperref[\detokenize{ch/system-theory/observability-detectability:observability-detectability}]{\sphinxcrossref{\DUrole{std,std-ref}{Non\sphinxhyphen{}observability}}}} properties define two sub\sphinxhyphen{}spaces of the state space, \(\mathbb{R}^n\). The complements of these subpsaces define subspaces as well.
+
+\sphinxAtStartPar
+\sphinxstylestrong{Kalman decomposition} applies a coordinate transformation in order to make explicit the existence of:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\(X_1\), non\sphinxhyphen{}observable and reachable sub\sphinxhyphen{}space, \(X_1 := X_{\overline{o}} \cap X_r\)
+
+\item {} 
+\sphinxAtStartPar
+\(X_2\), the complement of \(X_1\) w.r.t. the reachable sub\sphinxhyphen{}space, i.e. \(X_1 \cup X_2 = X_r\)
+
+\item {} 
+\sphinxAtStartPar
+\(X_3\), the complement of \(X_1\) w.r.t. the non\sphinxhyphen{}observable sub\sphinxhyphen{}space, i.e. \(X_1 \cup X_3 = X_{\overline{o}}\)
+
+\item {} 
+\sphinxAtStartPar
+\(X_4\), the complement of \(X_1\), \(X_2\), \(X_3\) w.r.t. the state\sphinxhyphen{}space \(\mathbb{R}^n\).
+
+\end{itemize}
 
 \sphinxAtStartPar
 \(A\)\sphinxstylestrong{\sphinxhyphen{}invariance} of \(\text{Ran}(\mathbf{W}_c)\) and \(\text{Ker}(\mathbf{W}_o)\) is exploited.
+
+\sphinxAtStartPar
+In this section, {\hyperref[\detokenize{ch/linear-algebra/svd:math-svd}]{\sphinxcrossref{\DUrole{std,std-ref}{singular value decomposition}}}} of the Gramians of {\hyperref[\detokenize{ch/system-theory/observability-detectability:observability-detectability}]{\sphinxcrossref{\DUrole{std,std-ref}{observability}}}} and {\hyperref[\detokenize{ch/system-theory/controllability-reachability:controllability-reachability}]{\sphinxcrossref{\DUrole{std,std-ref}{controllability}}}} helps in the decomposition of a LTI system in its non\sphinxhyphen{}observable/observable and controllable/non\sphinxhyphen{}controllable parts.
+
+\sphinxAtStartPar
+\sphinxstylestrong{todo} \sphinxstyleemphasis{SVD may help or not, but that’s not the point here. We’re supposed to know how to find an orthonormal basis, and if we can’t remember how to do it, we’re supposed to find a the method we like the most to do that. Orthonormal basis are not even strictly required here. Moreover, SVD of symmetric (semi) definite positive matrices coincides with spectral decomposition…}
 
 \sphinxAtStartPar
 \sphinxstylestrong{todo} \sphinxstyleemphasis{Infinite\sphinxhyphen{}horizon time, or steady\sphinxhyphen{}state conditions, are discussed here?}
@@ -6126,6 +6243,198 @@ Variance of the state in linear system forced by white Gaussian noise
 \sphinxstepscope
 
 
+\chapter{Order reduction of dynamical systems}
+\label{\detokenize{ch/system-theory/order-reduction:order-reduction-of-dynamical-systems}}\label{\detokenize{ch/system-theory/order-reduction:order-reduction-intro}}\label{\detokenize{ch/system-theory/order-reduction::doc}}
+\sphinxAtStartPar
+Classes of order reduction methods:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Modal methods.} Modal methods are often useful for mechanical systems, whose governing equations are second order differential equations with symmetric mass and stiffness matrices.%
+\begin{footnote}[1]\sphinxAtStartFootnote
+Modal methods can be used for non\sphinxhyphen{}symmetric systems as well, relying on spectral decomposition of the adjoint problem (or, equivalently, to left eigenvectors).
+%
+\end{footnote}
+
+\sphinxAtStartPar
+The behavior of a mechanical system can be often represented as a superposition of independent mass\sphinxhyphen{}damper\sphinxhyphen{}spring systems, with their individual proper eigenvalue (for under\sphinxhyphen{}damped systems, frequency and damping, \(s_k = \sigma_k + j \omega_k\)), and their shape determined by the eigenvector \(\mathbf{u}_k\) (or better, usually a pair of complex conjugate eigenvalues and eigenvectors).
+
+\sphinxAtStartPar
+If the spectrum of the forcing is known, with \(\omega_{f,max}\) as the maximum frequency of the forcing, it’s possible to split the modes of the system in slow (or dynamical) modes \sphinxhyphen{} showing dynamical response to forcing, and whose natural frequency is \(\omega < \omega_{f,max}\) \sphinxhyphen{}, and fast modes (or static) \sphinxhyphen{} showing static response to forcing, and thus whose natural frequency is \(\omega \gg \omega_{f,max}\).
+
+\sphinxAtStartPar
+Two methods of modal order reduction follows: 1) \sphinxhref{https://basics2022.github.io/bbooks-physics-continuum-mechanics/ch/solids/small-displacements-numerics.html\#truncation-and-direct-recovery-of-loads}{truncation of fast modes}; 2) \sphinxhref{https://basics2022.github.io/bbooks-physics-continuum-mechanics/ch/solids/small-displacements-numerics.html\#mode-acceleration-and-static-recovery-of-fast-modes}{static recovery of fast modes}. These methods are discussed in the notes about \sphinxhref{https://basics2022.github.io/bbooks-physics-continuum-mechanics/ch/solids/small-displacements-numerics.html}{modal methods in structural mechanics}.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{{\hyperref[\detokenize{ch/system-theory/order-reduction-balanced-truncation:order-reduction-balanced-truncation}]{\sphinxcrossref{\DUrole{std,std-ref}{Balanced truncation}}}}.} Balanced truncation relies on coordinate transformation that scales the problem to equally weight reachability and observability properties. Once the coordinates have been transformed, the reduced order model is obtained truncating every modes whose reachability/controllability is below a desired threshold.
+
+\item {} 
+\sphinxAtStartPar
+\sphinxstylestrong{Energy\sphinxhyphen{}based.} POD…
+
+\item {} 
+\sphinxAtStartPar
+…\sphinxstyleemphasis{Koopman,…}
+
+\end{itemize}
+
+\sphinxAtStartPar
+These methods can be combined in sequences of order reductions.
+
+
+\bigskip\hrule\bigskip
+
+
+\sphinxstepscope
+
+
+\section{Balanced truncation}
+\label{\detokenize{ch/system-theory/order-reduction-balanced-truncation:balanced-truncation}}\label{\detokenize{ch/system-theory/order-reduction-balanced-truncation:order-reduction-balanced-truncation}}\label{\detokenize{ch/system-theory/order-reduction-balanced-truncation::doc}}
+\sphinxAtStartPar
+While {\hyperref[\detokenize{ch/system-theory/kalman-decomposition::doc}]{\sphinxcrossref{\DUrole{doc,std,std-doc}{Kalman decomposition}}}} provides the theoretical results for the existence of 4 subspaces of a linear dynamical system, and the transformation of coordinates that partition the dynamical systems using reachability and (non\sphinxhyphen{})observatilibty as criteria, this decomposition is likely to be almost useless in many applications: it relies on a sharp distinction between zero and non\sphinxhyphen{}zero observability/controllability while these properties can be represented with non\sphinxhyphen{}binary numbers but real numbers, and suffers from the limits of finite algebra (the result of a numerical algorithm involving real numbers is unlikely to be \(0\), and thus it’s likely that we need to answer questions like “is \(10^{-9}\) zero enough?” in some step of the algorithm). Moreover, the most interesting part of the system is likely to be the reachable and observable part%
+\begin{footnote}[1]\sphinxAtStartFootnote
+The non\sphinxhyphen{}observable or non\sphinxhyphen{}controllable parts of a system should not contain any unstable dynamics, otherwise it can be measured by the sensors, and/or controlled by the actuators. Observability and controllability are strictly related to the choice of sensors and actuators. If any uncontrollable unstable dynamics exists, a different choice of actuators may solve this issue. If any unobservable unstable dynamics exists, a different choice of sensors may solve the issue.
+%
+\end{footnote}: balanced truncation doesn’t suffer from the issues of a full Kalman decomposition while ranking dynamics of the system using controllability and reachability as a criterion.
+
+\sphinxAtStartPar
+For finite\sphinxhyphen{}time horizon problems, controllability Gramian \(\mathbf{W}_c\) and observability Gramian \(\mathbf{W}_o\) can be computed as the solution of the Lyapunov equation
+\begin{equation*}
+\begin{split}\begin{aligned}
+ \mathbf{0} & = \mathbf{A} \mathbf{W}_c + \mathbf{W}_c \mathbf{A}^T + \mathbf{B} \mathbf{B}^T \\
+ \mathbf{0} & = \mathbf{A}^T \mathbf{W}_o + \mathbf{W}_o \mathbf{A} + \mathbf{C}^T \mathbf{C} \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Balanced truncation exploits two pairs of combined scaling+rotation transformations, obtained with {\hyperref[\detokenize{ch/linear-algebra/svd:math-svd}]{\sphinxcrossref{\DUrole{std,std-ref}{singular value decomposition}}}} of the Gramians of the system.
+
+\sphinxAtStartPar
+\sphinxstylestrong{Method 1.}
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Singular value decomposition of the controllability Gramian \(\mathbf{W}_c = \mathbf{U}_c \boldsymbol\Sigma_c^2 \mathbf{U}_c^*\)
+
+\item {} 
+\sphinxAtStartPar
+First coordinate transformation, \(\mathbf{x} = \mathbf{T}_c \mathbf{x}_1\), with \(\mathbf{T}_c = \mathbf{U}_c \boldsymbol\Sigma_c\), so that  \(\mathbf{A}_1 = \mathbf{T}_c^{-1} \mathbf{A} \mathbf{T}_c\), and the observability Gramian of the transformed system can be expressed as \(\mathbf{W}_{o,1} = \mathbf{T}_c^{T} \mathbf{W}_o \mathbf{T}_c\)
+
+\item {} 
+\sphinxAtStartPar
+Singular value decomposition of \(\mathbf{W}_{o,1} = \mathbf{U}_{o,1} \boldsymbol\Sigma_{o,1}^2 \mathbf{U}_{o,1}^*\)
+
+\item {} 
+\sphinxAtStartPar
+Second transformation \(\mathbf{x}_1 = \mathbf{T}_o \mathbf{x}_2\), with \(\mathbf{T}_o = \mathbf{U}_{o,1} \boldsymbol\Sigma_{o,1}^{-1/2}\)
+
+\item {} 
+\sphinxAtStartPar
+Thus, the Gramians in the twice transformed system, with \(\mathbf{T} = \mathbf{T}_c \mathbf{T}_o\), read
+\begin{equation*}
+\begin{split}\begin{aligned}
+    \mathbf{W}_{c,2} & = \mathbf{T}^{-1} \mathbf{W}_{c} \mathbf{T}^{-T} = \left( \boldsymbol\Sigma_{o,1}^{1/2} \mathbf{U}_{o,1}^* \boldsymbol\Sigma_c^{-1} \mathbf{U}_c^* \right) \left( \mathbf{U}_c \boldsymbol\Sigma_c^2 \mathbf{U}_c^* \right) \left( \mathbf{U}_c \boldsymbol\Sigma_c^{-1} \mathbf{U}_{o,1} \boldsymbol \Sigma_{o,1}^{1/2} \right) & = \boldsymbol\Sigma_{o,1}  \\
+    \mathbf{W}_{o,2} & = \mathbf{T}_o^T \mathbf{W}_{o,1} \mathbf{T}_o = \left( \boldsymbol\Sigma_{o,1}^{-1/2} \mathbf{U}_{o,1}^* \right) \left( \mathbf{U}_{o,1} \boldsymbol\Sigma_{o,1}^2 \mathbf{U}_{o,1}^* \right) \left( \mathbf{U}_{o,1} \boldsymbol\Sigma_{o,1}^{-1/2} \right) & = \boldsymbol\Sigma_{o,1} \ ,
+  \end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+i.e. they’re equal. The pair of transformations makes Gramians equal and diagonal, and the elements of the diagonal \sphinxhyphen{} called \sphinxstylestrong{Hankel values} of the system \sphinxhyphen{} simultaneously measure the controllability and the observability of the system.
+
+\end{itemize}
+
+\sphinxAtStartPar
+\sphinxstylestrong{todo} \sphinxstyleemphasis{here inverse of the diagonal singular value matrices are assumed to exists, i.e. there’s no non\sphinxhyphen{}observable or non\sphinxhyphen{}controllable state.}
+
+\sphinxAtStartPar
+The transformed system is then partitioned as
+\begin{equation*}
+\begin{split}\left\{
+\begin{aligned}
+  \frac{d}{dt} \begin{bmatrix} \mathbf{z}_1 \\ \mathbf{z}_2 \end{bmatrix} & = 
+               \begin{bmatrix} \mathbf{A}_{11} & \mathbf{A}_{12} \\ \mathbf{A}_{21} & \mathbf{A}_{22} \end{bmatrix}
+               \begin{bmatrix} \mathbf{z}_1 \\ \mathbf{z}_2 \end{bmatrix} + 
+               \begin{bmatrix} \mathbf{B}_{1} \\ \mathbf{B}_{2} \end{bmatrix} \mathbf{u} \\
+\mathbf{y} & = \begin{bmatrix} \mathbf{C}_1 & \mathbf{C}_2 \end{bmatrix} 
+               \begin{bmatrix} \mathbf{z}_1 \\ \mathbf{z}_2 \end{bmatrix} + \mathbf{D} \mathbf{u}  
+\end{aligned}
+\right.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+with \(\mathbf{x} = \mathbf{T} \mathbf{z}\), and thus
+\begin{equation*}
+\begin{split}\mathbf{z} = \mathbf{T}^{-1} \mathbf{x} = \boldsymbol\Sigma_{o,1}^{1/2} \mathbf{U}_{o,1}^* \boldsymbol\Sigma_c^{-1} \mathbf{U}_c^*\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\begin{aligned}
+\begin{bmatrix} \mathbf{z}_1 \\ \mathbf{z}_2 \end{bmatrix}
+ & =
+\begin{bmatrix} \boldsymbol\Sigma_{o,1;1}^{1/2} & \mathbf{0} \\ \mathbf{0} & \boldsymbol\Sigma_{o,1;2}^{1/2} \end{bmatrix}
+\begin{bmatrix} \mathbf{U}_{o,1;11}^* & \mathbf{U}_{o,1;12}^* \\ \mathbf{U}_{o,1;21}^* & \mathbf{U}_{o,1;22}^* \end{bmatrix}
+\begin{bmatrix} \boldsymbol\Sigma_{c  ;1}^{-1 } & \mathbf{0} \\ \mathbf{0} & \boldsymbol\Sigma_{c;2}^{-1} \end{bmatrix}
+\begin{bmatrix} \mathbf{U}_{c;11}^* & \mathbf{U}_{c;12}^* \\ \mathbf{U}_{c;21}^* & \mathbf{U}_{c;22}^* \end{bmatrix}
+ \mathbf{x} = \\
+ & =
+\begin{bmatrix} \boldsymbol\Sigma_{o,1;1}^{1/2}\mathbf{U}_{o,1;11}^* & \boldsymbol\Sigma_{o,1;1}^{1/2}\mathbf{U}_{o,1;12}^* \\ \boldsymbol\Sigma_{o,1;2}^{1/2} \mathbf{U}_{o,1;21}^* & \boldsymbol\Sigma_{o,1;2}^{1/2} \mathbf{U}_{o,1;22}^* \end{bmatrix}
+\begin{bmatrix} \boldsymbol\Sigma_{c  ;1}^{-1 }\mathbf{U}_{c;11}^* & \boldsymbol\Sigma_{c  ;1}^{-1 }\mathbf{U}_{c;12}^* \\ \boldsymbol\Sigma_{c;2}^{-1}\mathbf{U}_{c;21}^* & \boldsymbol\Sigma_{c;2}^{-1}\mathbf{U}_{c;22}^* \end{bmatrix}
+ \mathbf{x} = \\
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{todo} \sphinxstyleemphasis{Show if this algorithm allows to compute only the desired part of the svd, allowing the incremental computation, and not requiring the full svd computation}
+\subsubsection*{Transformation of Gramians}
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \hat{\mathbf{W}}_c & = \int e^{\hat{\mathbf{A}}t} \hat{\mathbf{B}} \hat{\mathbf{B}}^T e^{\hat{\mathbf{A}}^T t} = \mathbf{T}^{-1} \mathbf{W}_c \mathbf{T}^{-T} \\
+  \hat{\mathbf{W}}_o & = \int e^{\hat{\mathbf{A}}^T t} \hat{\mathbf{C}}^T \hat{\mathbf{C}} e^{\hat{\mathbf{A}} t} = \mathbf{T}^{T} \mathbf{W}_o \mathbf{T} \\
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+as for \(\mathbf{x} = \mathbf{T} \hat{\mathbf{x}}\), \(\hat{\mathbf{A}} = \mathbf{T}^{-1} \mathbf{A} \mathbf{T}\), \(\hat{\mathbf{B}} = \mathbf{T}^{-1} \mathbf{B}\), \(\hat{\mathbf{C}} = \mathbf{C} \mathbf{T}\), \(\hat{\mathbf{D}} = \mathbf{D}\).
+
+\sphinxAtStartPar
+\sphinxstylestrong{Method 2.}
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Cholesky decomposition (for positive semi\sphinxhyphen{}definite matrices) of the controllability and observability Gramians \(\mathbf{W}_c = \mathbf{L}_c \mathbf{L}_c^*\), \(\mathbf{W}_o = \mathbf{L}_o \mathbf{L}_o^*\)
+
+\item {} 
+\sphinxAtStartPar
+Compute the SVD of the product of the Cholesky factors, \(\mathbf{L}_o^* \mathbf{L}_c = \mathbf{U} \boldsymbol\Sigma \mathbf{V}^*\)
+
+\item {} 
+\sphinxAtStartPar
+Partition
+\begin{equation*}
+\begin{split}
+    \boldsymbol\Sigma = \begin{bmatrix} \boldsymbol\Sigma_1 & \mathbf{0} \\ \mathbf{0} & \boldsymbol\Sigma_2 \end{bmatrix}
+    \quad , \quad \mathbf{U} = \begin{bmatrix} \ \mathbf{U}_1 & \mathbf{U}_2 \ \end{bmatrix}
+    \quad , \quad \mathbf{V} = \begin{bmatrix} \ \mathbf{V}_1 & \mathbf{V}_2 \ \end{bmatrix}
+    \end{split}
+\end{equation*}
+\item {} 
+\sphinxAtStartPar
+Projection matrices \(\mathbf{T} = \mathbf{L}_c \mathbf{V}_1 \boldsymbol\Sigma_1^{-1/2}\), \(\widetilde{\mathbf{T}} = \boldsymbol\Sigma_1^{-1/2} \mathbf{U}_1^* \mathbf{L}_o^*\)%
+\begin{footnote}[2]\sphinxAtStartFootnote
+This can be interpreted as a \sphinxstylestrong{Petrov\sphinxhyphen{}Galerkin} projection (\sphinxstylestrong{todo} \sphinxstyleemphasis{link to Finite Element Method?}), i.e. a model reduction with different base and test basis: here, base vectors are the columns of the matrix \(\mathbf{T}\) while test vectors are the rows of the matrix \(\widetilde{\mathbf{T}}\).
+%
+\end{footnote},
+\begin{equation*}
+\begin{split}\begin{aligned}
+      \mathbf{A}_r & = \widetilde{\mathbf{T}} \mathbf{A} \mathbf{T} \\
+      \mathbf{B}_r & = \widetilde{\mathbf{T}} \mathbf{B}            \\
+      \mathbf{C}_r & =                        \mathbf{C} \mathbf{T} \\
+      \mathbf{D}_r & =                        \mathbf{D}            \\
+    \end{aligned}\end{split}
+\end{equation*}
+\end{itemize}
+
+
+\bigskip\hrule\bigskip
+
+
+\sphinxstepscope
+
+
 \part{Control Theory}
 
 \sphinxstepscope
@@ -6206,6 +6515,96 @@ Partial\sphinxhyphen{}state feedback
 
 \section{Closed\sphinxhyphen{}loop control: requirements and performance}
 \label{\detokenize{ch/control/closed-loop-requirements-performance:closed-loop-control-requirements-and-performance}}\label{\detokenize{ch/control/closed-loop-requirements-performance:control-closed-loop-requirements-performance}}\label{\detokenize{ch/control/closed-loop-requirements-performance::doc}}
+
+\begin{savenotes}\sphinxattablestart
+\centering
+\begin{tabulary}{\linewidth}[t]{|T|T|T|}
+\hline
+\sphinxstyletheadfamily 
+\sphinxAtStartPar
+Requirement/Performance
+&\sphinxstyletheadfamily 
+\sphinxAtStartPar
+…
+&\sphinxstyletheadfamily 
+\sphinxAtStartPar
+…
+\\
+\hline
+\sphinxAtStartPar
+Stability
+&
+\sphinxAtStartPar
+Nyquist criterion on the open\sphinxhyphen{}loop TF \(L(s)\)
+&
+\sphinxAtStartPar
+
+\\
+\hline
+\sphinxAtStartPar
+Robustness
+&
+\sphinxAtStartPar
+Stability margins
+&
+\sphinxAtStartPar
+
+\\
+\hline
+\sphinxAtStartPar
+Reference tracking
+&
+\sphinxAtStartPar
+Type of the system. Integrators in open\sphinxhyphen{}loop TF \(L(s)\)
+&
+\sphinxAtStartPar
+
+\\
+\hline
+\sphinxAtStartPar
+Measurement noise suppression
+&
+\sphinxAtStartPar
+
+&
+\sphinxAtStartPar
+
+\\
+\hline
+\sphinxAtStartPar
+Input load
+&
+\sphinxAtStartPar
+
+&
+\sphinxAtStartPar
+
+\\
+\hline
+\sphinxAtStartPar
+Input noise suppression
+&
+\sphinxAtStartPar
+
+&
+\sphinxAtStartPar
+
+\\
+\hline
+\sphinxAtStartPar
+Transient performance
+&
+\sphinxAtStartPar
+
+&
+\sphinxAtStartPar
+
+\\
+\hline
+\end{tabulary}
+\par
+\sphinxattableend\end{savenotes}
+
 \sphinxAtStartPar
 Let the transfer function of the system be
 \begin{equation*}
@@ -6448,13 +6847,96 @@ Tracking performance
 \sphinxstepscope
 
 
+\subsection{Stability (SISO)}
+\label{\detokenize{ch/control/closed-loop-requirements-performance-siso-stability:stability-siso}}\label{\detokenize{ch/control/closed-loop-requirements-performance-siso-stability:control-closed-loop-requirements-performance-siso-stability}}\label{\detokenize{ch/control/closed-loop-requirements-performance-siso-stability::doc}}
+\sphinxAtStartPar
+See {\hyperref[\detokenize{ch/control/frequency-domain:control-frequency-siso-nyquist}]{\sphinxcrossref{\DUrole{std,std-ref}{Nyquist}}}} and {\hyperref[\detokenize{ch/control/frequency-domain:control-siso-bode}]{\sphinxcrossref{\DUrole{std,std-ref}{Bode}}}} stability criterion in {\hyperref[\detokenize{ch/control/frequency-domain:control-frequency}]{\sphinxcrossref{\DUrole{std,std-ref}{Frequency domain control}}}} design.
+
+\sphinxstepscope
+
+
+\subsection{Reference tracking (SISO)}
+\label{\detokenize{ch/control/closed-loop-requirements-performance-siso-ref-tracking:reference-tracking-siso}}\label{\detokenize{ch/control/closed-loop-requirements-performance-siso-ref-tracking:control-closed-loop-requirements-performance-siso-ref-tracking}}\label{\detokenize{ch/control/closed-loop-requirements-performance-siso-ref-tracking::doc}}
+\sphinxAtStartPar
+Setting \(\mathbf{F} = \mathbf{I}\) in \hyperref[\detokenize{ch/control/closed-loop-requirements-performance:fig-closed-loop-tfs}]{Fig.\@ \ref{\detokenize{ch/control/closed-loop-requirements-performance:fig-closed-loop-tfs}}}, and neglecting disturbances, the transfer functions between the output and the reference and between the tracking error and the reference signal are
+\begin{equation*}
+\begin{split}\begin{aligned}
+  E(s) & = \frac{1}{1 + G(s) R(s)} Y_{\text{ref}}(s) \\
+  Y(s) & = \frac{G(s)R(s)}{1 + G(s) R(s)} Y_{\text{ref}}(s) \\
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Polynomial forcing.}
+\subsubsection*{Laplace transform of polynomial signals}
+
+\sphinxAtStartPar
+Laplace transform of (casual) polynomial signals immediately follows from the transform of a Dirac’s delta and the property of the Laplace transform of the integral of a function,
+\begin{equation*}
+\begin{split}\mathscr{L}\left\{ \int_{\tau=0}^{t} f(\tau) \, d \tau \right\} = \frac{F(s)}{s} \ , \end{split}
+\end{equation*}
+\sphinxAtStartPar
+being \(F(s)\) the Laplace transform of function \(f(t)\). Indeed, a ramp can be interpreted as the integral of a Dirac’s delta, a casual parabolic signal is the integral of the ramp, and so on.
+
+\sphinxAtStartPar
+\sphinxstylestrong{Dirac’s delta.}
+\begin{equation*}
+\begin{split}F_{-1} := F_{\delta} = \mathscr{L} \{ \delta(t) \} = \int_{t = 0^-}^{+\infty} \delta(t) e^{-st} dt  = 1 \ . \end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Step.} Step is the integral of the Dirac’s delta.
+\begin{equation*}
+\begin{split}F_0 := F_{\text{step}} = \mathscr{L} \{ 1 \} = \frac{1}{s} \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Ramp.} Step is the integral of the Dirac’s delta.
+\begin{equation*}
+\begin{split}F_1 := F_{\text{ramp}} = \mathscr{L} \{ t \} = \frac{1}{s^2} \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Signal \(t^n\), \(n \in \mathbb{N}\).}
+\begin{equation*}
+\begin{split}\mathscr{L} \left\{ t^n \right\} = \frac{1}{s^{n+1}} \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Limit of the tracking error of polynomial forcing, for \(t \rightarrow +\infty\).}
+Assuming the system is stable, the free\sphinxhyphen{}response to initial condition vanishes. Using \sphinxstylestrong{final value} property of Laplace transform (see {\hyperref[\detokenize{ch/complex/laplace-def-thm:complex-laplace-def-thm}]{\sphinxcrossref{\DUrole{std,std-ref}{Laplace transform definition and properties}}}}),
+\begin{equation*}
+\begin{split}\lim_{t \rightarrow + \infty} e(t) = \lim_{s \rightarrow 0} s E(s) \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Let the open\sphinxhyphen{}loop transfer function \(L(s) = G(s) R(s)\) be \(L(s) = \frac{N(s)}{s^p D(s)}\), having explicitly written the integrators (the factors \(\frac{1}{s}\) in the denominator of the TF), so that \(D(0) \ne 0\), \(N(s) \ne 0\). For casual systems \(|N| \le p + |D|\). The closed\sphinxhyphen{}loop function reads
+\begin{equation*}
+\begin{split}\frac{1}{1 + L(s)} = \frac{s^p D(s)}{ s^p D(s) + N(s) } \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Let \(Y_{\text{ref}}(s) = C_0 + \frac{C_1}{s} + \dots + \frac{C_{m+1}}{s^{m+1}}\) the Laplace transform of a \(m\)\sphinxhyphen{}degree polynomial reference, the limit value of the tracking error reads
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \lim_{t \rightarrow + \infty} e(t) 
+  & = \lim_{s \rightarrow 0} s E(s) = \\
+  & = \lim_{s \rightarrow 0} \frac{ s^{p+1} D(s) }{ s^p D(s) + N(s) } \left( C_0 + \frac{C_1}{s} + \dots + \frac{C_{m+1}}{s^{m+1}} \right) = \\
+  & = \lim_{s \rightarrow 0} \frac{ s^{p-m} D(s) }{ s^p D(s) + N(s) } \left( s^{m+1}C_0 + s^m C_1 + \dots + C_{m+1} \right) = \\
+  & = \left\{
+  \begin{aligned}
+    & 0                 && \ , \qquad p > m \\
+    & \frac{D(0)}{N(0)} && \ , \qquad p = m \\
+    & +\infty           && \ , \qquad p < m \\
+  \end{aligned} \right.
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Type of the system.}
+
+\sphinxstepscope
+
+
 \section{Frequency domain control}
 \label{\detokenize{ch/control/frequency-domain:frequency-domain-control}}\label{\detokenize{ch/control/frequency-domain:control-frequency}}\label{\detokenize{ch/control/frequency-domain::doc}}
 
 \subsection{Stability of closed\sphinxhyphen{}loop SISO systems}
 \label{\detokenize{ch/control/frequency-domain:stability-of-closed-loop-siso-systems}}\label{\detokenize{ch/control/frequency-domain:control-frequency-siso}}
 \sphinxAtStartPar
-Let \(L(s) = G(s) R(s)\) the open\sphinxhyphen{}loop transfer function of the the system represented in \sphinxcode{\sphinxupquote{fig\sphinxhyphen{}nyquist\sphinxhyphen{}block}}: the system is explicitly represented as a combination of a plant with transfer function \(G(s)\) and a regulator with transfer function \(R(s)\). The output of the system \(y\), and the error \(e = y - y_{ref}\) are related with the reference signals as
+Let \(L(s) = G(s) R(s)\) the open\sphinxhyphen{}loop transfer function of the the system represented in \hyperref[\detokenize{ch/control/frequency-domain:fig-nyquist-block}]{Fig.\@ \ref{\detokenize{ch/control/frequency-domain:fig-nyquist-block}}}: the system is explicitly represented as a combination of a plant with transfer function \(G(s)\) and a regulator with transfer function \(R(s)\). The output of the system \(y\), and the error \(e = y - y_{ref}\) are related with the reference signals as
 \begin{equation}\label{equation:ch/control/frequency-domain:eq:nyquist:tfs}
 \begin{split}\begin{aligned}
   y(s) & = \frac{L(s)}{1 + L(s)} y_{ref}(s) \\
@@ -6524,7 +7006,7 @@ The poles of the closed loop systems are the zeros of the function \(1 + L(s)\).
 \sphinxAtStartPar
 in order to have \(Z = 0\), i.e. the diagram of \(1+G(s)\) must perform \(N\) counter\sphinxhyphen{}clockwise loops around \(0+i0\) equal to the number of its poles with positive real parts. As the poles of \(1+ G(s)\) are the same as the poles of \(G(s)\), it’s possible to formulate Nyquist criterion looking at \(G(s)\), as
 \label{ch/control/frequency-domain:thm-nyquist}
-\begin{sphinxadmonition}{note}{Theorem 32.2.1 (Nyquist theorem)}
+\begin{sphinxadmonition}{note}{Theorem 34.2.1 (Nyquist theorem)}
 
 
 
@@ -6535,7 +7017,7 @@ In order for the closed\sphinxhyphen{}loop system to be asymptotically stable, t
 
 \subsubsection{Bode stability criterion for minimal phase systems}
 \label{\detokenize{ch/control/frequency-domain:bode-stability-criterion-for-minimal-phase-systems}}\label{\detokenize{ch/control/frequency-domain:control-siso-bode}}\label{ch/control/frequency-domain:def-minimal-phase}
-\begin{sphinxadmonition}{note}{Definition 32.2.1 (Minimal phase systems)}
+\begin{sphinxadmonition}{note}{Definition 34.2.1 (Minimal phase systems)}
 
 
 
@@ -6546,7 +7028,7 @@ In order for the closed\sphinxhyphen{}loop system to be asymptotically stable, t
 \sphinxAtStartPar
 …
 \label{ch/control/frequency-domain:thm-bode}
-\begin{sphinxadmonition}{note}{Theorem 32.2.2 (Bode stability criterion)}
+\begin{sphinxadmonition}{note}{Theorem 34.2.2 (Bode stability criterion)}
 
 
 
@@ -6572,6 +7054,10 @@ Deterministic/stochastic signals
 \item {} 
 \sphinxAtStartPar
 Full\sphinxhyphen{}state feedback, observer and full\sphinxhyphen{}state on observed state, output feedback
+
+\item {} 
+\sphinxAtStartPar
+Regulator (targeting zero state \(\mathbf{x} = \mathbf{0}\)), or {\hyperref[\detokenize{ch/control/optimal-control-ref-tracking:control-optimal-ref-tracking}]{\sphinxcrossref{\DUrole{std,std-ref}{reference tracking}}}} (targeting zero error of the output w.r.t. a reference input of the closed\sphinxhyphen{}loop system \(\mathbf{y}_{\text{ref}}\))
 
 \end{itemize}
 
@@ -7303,7 +7789,7 @@ and comparing the two different expressions of \(\dot{\boldsymbol{\lambda}}\), i
 \begin{split}\dot{\mathbf{P}} + \mathbf{P} \widetilde{\mathbf{A}} + \widetilde{\mathbf{A}}^T \mathbf{P} - \mathbf{P} \mathbf{B} \mathbf{R}^{-1} \mathbf{B}^T \mathbf{P} + \widetilde{\mathbf{Q}} = \mathbf{0} \ ,\end{split}
 \end{equation*}
 \sphinxAtStartPar
-where \(\widetilde{\mathbf{A}} = \mathbf{A} - \mathbf{B} \mathbf{R}^{-1} \mathbf{S}^T \) and \(\widetilde{\mathbf{Q}} = \mathbf{Q} - \mathbf{S} \mathbf{R}^{-1} \mathbf{S}^T\). Riccati equation is a non\sphinxhyphen{}linear dynamical matrix equation in \(\mathbf{P}\). Algorithms for computing the solution of dynamical and algebraic equation exists, see {\hyperref[\detokenize{ch/control/optimal-control-full-state-old:control-optimal-riccati}]{\sphinxcrossref{Example 32.3.1}}}.
+where \(\widetilde{\mathbf{A}} = \mathbf{A} - \mathbf{B} \mathbf{R}^{-1} \mathbf{S}^T \) and \(\widetilde{\mathbf{Q}} = \mathbf{Q} - \mathbf{S} \mathbf{R}^{-1} \mathbf{S}^T\). Riccati equation is a non\sphinxhyphen{}linear dynamical matrix equation in \(\mathbf{P}\). Algorithms for computing the solution of dynamical and algebraic equation exists, see {\hyperref[\detokenize{ch/control/optimal-control-full-state-old:control-optimal-riccati}]{\sphinxcrossref{Example 34.3.1}}}.
 
 
 
@@ -7320,7 +7806,7 @@ For infinite\sphinxhyphen{}horizone, the algebraic equation (ARE) for the steady
 \sphinxAtStartPar
 with \(\mathbf{G} = \mathbf{R}^{-1} \left( \mathbf{S}^T + \mathbf{B}^T \mathbf{P} \right)\).
 \label{ch/control/optimal-control-full-state-old:control-optimal-riccati}
-\begin{sphinxadmonition}{note}{Example 32.3.1 (Solution of Riccati equation)}
+\begin{sphinxadmonition}{note}{Example 34.3.1 (Solution of Riccati equation)}
 
 
 
@@ -7620,6 +8106,213 @@ The input is proportional to the observed state, \(\mathbf{u} = - \mathbf{G} \ma
 \end{equation*}
 \sphinxAtStartPar
 The matrix of the system is not block triangular, as the dynamics of the “residual” state of the large\sphinxhyphen{}dimensional system and the reconstruction error are coupled. The eigenvalue of the systems are non\sphinxhyphen{}trivial as they’re not anymore the eigenvalue of the diagonal blocks.
+
+\sphinxstepscope
+
+
+\subsection{Optimal control for reference tracking}
+\label{\detokenize{ch/control/optimal-control-ref-tracking:optimal-control-for-reference-tracking}}\label{\detokenize{ch/control/optimal-control-ref-tracking:control-optimal-ref-tracking}}\label{\detokenize{ch/control/optimal-control-ref-tracking::doc}}
+\sphinxAtStartPar
+See \sphinxhref{https://colab.research.google.com/drive/1G5nu\_jUEZgmja0SmA0I1rcPOVZKKu4oZ?authuser=1\#scrollTo=nJXJBxc1LWic}{this Colab} on my personal GDrive, until this is not included in this Jupyter book.
+
+\sphinxAtStartPar
+In order to get perfect asymptotic tracking of polynomial reference signals with degree \(m\) with optimal control, the original system must be augmented with the dynamical equations of \(m+1\) integral errors. This process is shown for {\hyperref[\detokenize{ch/control/optimal-control-ref-tracking:control-optimal-ref-tracking-step}]{\sphinxcrossref{\DUrole{std,std-ref}{tracking step reference}}}} with the augmentation of the original system with a single integrator and for {\hyperref[\detokenize{ch/control/optimal-control-ref-tracking:control-optimal-ref-tracking-ramp}]{\sphinxcrossref{\DUrole{std,std-ref}{tracking ramp reference}}}} with the augmentation with a double integrator.
+
+\sphinxAtStartPar
+This procedure is somehow equivalent to the addition of integrators in open\sphinxhyphen{}loop transfer function, as discussed in the section about {\hyperref[\detokenize{ch/control/closed-loop-requirements-performance-siso-ref-tracking:control-closed-loop-requirements-performance-siso-ref-tracking}]{\sphinxcrossref{\DUrole{std,std-ref}{reference tracking as a performance of a closed\sphinxhyphen{}loop system}}}}.
+
+
+\subsubsection{Augmented system for tracking step reference signal \sphinxhyphen{} integrator}
+\label{\detokenize{ch/control/optimal-control-ref-tracking:augmented-system-for-tracking-step-reference-signal-integrator}}\label{\detokenize{ch/control/optimal-control-ref-tracking:control-optimal-ref-tracking-step}}
+\sphinxAtStartPar
+Let \(\mathbf{y}_{\text{ref}}\) a reference signal. An augmented system can be defined in order to use optimal control for tracking the desired reference signal.
+\begin{equation*}
+\begin{split}\begin{aligned}
+ \dot{\mathbf{x}} & = \mathbf{A} \mathbf{x} + \mathbf{B} \mathbf{u} \\
+      \mathbf{y}  & = \mathbf{C} \mathbf{x} + \mathbf{D} \mathbf{u}
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+the state\sphinxhyphen{}space representation of the plant. Let \(\mathbf{y}_{ref}\) a desired output and the integral error
+\begin{equation*}
+\begin{split}\mathbf{e}(t) := \int_{\tau=0}^{t} \left\{ \mathbf{y}(\tau) - \mathbf{y}_{ref}(\tau) \right\} d \tau \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+as a new state with dynamical equation
+\begin{equation*}
+\begin{split}\dot{\mathbf{e}} = \mathbf{y}(t) - \mathbf{y}_{ref}(t) = \mathbf{C} \mathbf{x} + \mathbf{D} \mathbf{u} - \mathbf{y}_{ref} \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+The optimal control is applied to the augmented system
+\begin{equation*}
+\begin{split}\underbrace{\begin{bmatrix} \dot{\mathbf{x}} \\ \dot{\mathbf{e}} \end{bmatrix}}_{\dot{\mathbf{z}}} = \underbrace{\begin{bmatrix} \mathbf{A} & \cdot \\ \mathbf{C} & \cdot \end{bmatrix}}_{\hat{\mathbf{A}}} \underbrace{\begin{bmatrix} \mathbf{x} \\ \mathbf{e} \end{bmatrix}}_{\mathbf{z}} + \underbrace{\begin{bmatrix} \mathbf{B} \\ \mathbf{D} \end{bmatrix}}_{\hat{\mathbf{B}}_u} \mathbf{u} + \underbrace{\begin{bmatrix} \cdot \\ -\mathbf{I} \end{bmatrix}}_{\hat{\mathbf{B}}_{ref}} \mathbf{y}_{ref}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Optimal control framework provides the opitmal gain matrix \(\hat{\mathbf{K}}\), so that \(\mathbf{u} = - \hat{\mathbf{K}} \mathbf{z}\) and the closed loop system becomes
+\begin{equation*}
+\begin{split}\dot{\mathbf{z}} = \left( \hat{\mathbf{A}} - \hat{\mathbf{B}}_u \hat{\mathbf{K}} \right) \mathbf{z} + \hat{\mathbf{B}}_{ref} \mathbf{y}_{ref} \ .\end{split}
+\end{equation*}\subsubsection*{\protect\(\lim_{t \rightarrow +\infty} e(t)\protect\)}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Transfer function.} From the reference signal to the tracking error,
+\begin{equation*}
+\begin{split}\mathbf{e}(s) = \mathbf{y}_{\text{ref}} - \mathbf{G}_k(s) \frac{\mathbf{e}}{s}\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\mathbf{e}(s) = \left[ \mathbf{I} + \frac{1}{s} \mathbf{G}_k(s) \right]^{-1} \mathbf{y}_{\text{ref}}(s)\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Final value theorem.}
+\begin{equation*}
+\begin{split}\lim_{t \rightarrow +\infty} \mathbf{e}(t) = \lim_{s \rightarrow 0} s \mathbf{e}(s)\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Let \(\mathbf{y}_{\text{ref}}\) a polynomial reference input, \(\mathbf{y}_{\text{ref}} = \mathbf{C}_{-1} \delta(t) + \sum_{k=0}^{m} \mathbf{C}_k t^k\) then its Laplace transform reads \(\mathbf{y}_{\text{ref}}(s) = \sum_{k=-1}^{m} \frac{\mathbf{C}_k}{s^{k+1}}\)
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \lim_{t \rightarrow +\infty} \mathbf{e}(t) 
+  & = \lim_{s \rightarrow 0} s \mathbf{e}(s) = \\
+  & = \lim_{s \rightarrow 0} s \left[ \mathbf{I} + \frac{1}{s} \mathbf{G}_k(s) \right]^{-1} \left( \sum_{k=-1}^{m} \frac{\mathbf{C}_k}{s^{k+1}} \right) = \\
+  & = \lim_{s \rightarrow 0} s \cdot s \, \mathbf{G}_k^{-1}(s) \left( \sum_{k=-1}^{m} \frac{\mathbf{C}_k}{s^{k+1}} \right) \ ,
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and thus, if
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\(m = 0\) (i.e. linear combination of Dirac’s delta and a step) the asymptotic value of the tracking error is zero;
+
+\item {} 
+\sphinxAtStartPar
+\(m = 1\) (i.e. up to a ramp) the asymptotic value of the tracking error is constant, \(\mathbf{G}_k^{-1}(0) \mathbf{C}_1\);
+
+\item {} 
+\sphinxAtStartPar
+\(m > 1\) the tracking error goes to infinity.
+
+\end{itemize}
+
+\begin{figure}[htbp]
+\centering
+\capstart
+
+\noindent\sphinxincludegraphics{{optimal-control-tracking-step}.png}
+\caption{Caption}\label{\detokenize{ch/control/optimal-control-ref-tracking:fig-optimal-tracking-step}}\end{figure}
+
+
+\subsubsection{Augmented system for tracking ramp reference signal \sphinxhyphen{} double integrator}
+\label{\detokenize{ch/control/optimal-control-ref-tracking:augmented-system-for-tracking-ramp-reference-signal-double-integrator}}\label{\detokenize{ch/control/optimal-control-ref-tracking:control-optimal-ref-tracking-ramp}}
+\sphinxAtStartPar
+Let \(\mathbf{y}_{\text{ref}}\) a reference signal. An augmented system can be defined in order to used optimal control. Let
+\begin{equation*}
+\begin{split}\begin{aligned}
+ \dot{\mathbf{x}} & = \mathbf{A} \mathbf{x} + \mathbf{B} \mathbf{u} \\
+      \mathbf{y}  & = \mathbf{C} \mathbf{x} + \mathbf{D} \mathbf{u}
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+the state\sphinxhyphen{}space representation of the plant. Let \(\mathbf{y}_{ref}\) a desired output and the integral error
+\begin{equation*}
+\begin{split}\mathbf{e}_1(t) := \int_{\tau=0}^{t} \left\{ \mathbf{y}(\tau) - \mathbf{y}_{ref}(\tau) \right\} d \tau \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+as a new state with dynamical equation
+\begin{equation*}
+\begin{split}\dot{\mathbf{e}}_1 = \mathbf{y}(t) - \mathbf{y}_{ref}(t) = \mathbf{C} \mathbf{x} + \mathbf{D} \mathbf{u} - \mathbf{y}_{ref} \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+The second augmenting state is defined as
+\begin{equation*}
+\begin{split}\mathbf{e}_2(t) := \int_{\tau=0}^{t} \mathbf{e}_1(\tau) \, d\tau \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+so that the dynamical equation is
+\begin{equation*}
+\begin{split}\dot{\mathbf{e}}_2 = \mathbf{e}_1 \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+The optimal control is applied to the augmented system
+\begin{equation*}
+\begin{split}\underbrace{\begin{bmatrix} \dot{\mathbf{x}} \\ \dot{\mathbf{e}}_1 \\ \dot{\mathbf{e}}_2 \end{bmatrix}}_{\dot{\mathbf{z}}} = \underbrace{\begin{bmatrix} \mathbf{A} & \cdot & \cdot \\ \mathbf{C} & \cdot & \cdot \\ \cdot & \mathbf{I} & \cdot \end{bmatrix}}_{\hat{\mathbf{A}}} \underbrace{\begin{bmatrix} \mathbf{x} \\ \mathbf{e}_1 \\ \mathbf{e}_2 \end{bmatrix}}_{\mathbf{z}} + \underbrace{\begin{bmatrix} \mathbf{B} \\ \mathbf{D} \\ \cdot \end{bmatrix}}_{\hat{\mathbf{B}}_u} \mathbf{u} + \underbrace{\begin{bmatrix} \cdot \\ -\mathbf{I} \\ \cdot \end{bmatrix}}_{\hat{\mathbf{B}}_{ref}} \mathbf{y}_{ref}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Optimal control framework provides the opitmal gain matrix \(\hat{\mathbf{K}}\), so that \(\mathbf{u} = - \hat{\mathbf{K}} \mathbf{z}\) and the closed loop system becomes
+
+\sphinxAtStartPar
+…
+\subsubsection*{\protect\(\lim_{t \rightarrow +\infty} e(t)\protect\)}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Transfer function.} The closed\sphinxhyphen{}loop system reads
+\begin{equation*}
+\begin{split}\begin{aligned}
+  s \mathbf{x} & = \mathbf{A} \mathbf{x} + \mathbf{B} \mathbf{u} = \\
+               & = \left( \mathbf{A} - \mathbf{B} \mathbf{K} \right) \mathbf{x} - \mathbf{B} \mathbf{K}_1 \mathbf{z}_1 - \mathbf{B} \mathbf{K}_2 \mathbf{z}_2 \\
+  \mathbf{y} & = \left( \mathbf{C} - \mathbf{D} \mathbf{K}_u \right) \mathbf{x} - \mathbf{D} \mathbf{K}_1 \mathbf{z}_1 - \mathbf{D} \mathbf{K}_2 \mathbf{z}_2 \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+so that
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{x} 
+  & = \left( s \mathbf{I} - \mathbf{A} + \mathbf{B} \mathbf{K} \right)^{-1} \left[ - \mathbf{B} \mathbf{K}_1 \mathbf{z}_1 - \mathbf{B} \mathbf{K}_2 \mathbf{z}_2 \right] = \\ 
+  & = \dots 
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and \(\mathbf{y} = \mathbf{G}_1(s) \mathbf{K}_1 \mathbf{z}_1 + \mathbf{G}_2(s) \mathbf{K}_2 \mathbf{z}_2\).
+
+\sphinxAtStartPar
+From the reference signal to the tracking error,
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{e}(s)
+  & = \mathbf{y}_{\text{ref}} - \mathbf{y} = \\
+  & = \mathbf{y}_{\text{ref}} - \mathbf{G}(s) \mathbf{K}_1 \mathbf{z}_1 - \mathbf{G}(s) \mathbf{K}_2 \mathbf{z}_2 = \\
+  & = \mathbf{y}_{\text{ref}} - \mathbf{G}_1(s) \frac{\mathbf{e}}{s} - \mathbf{G}_2(s) \frac{\mathbf{e}}{s^2} \ ,
+\end{aligned}\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\mathbf{e}(s) = \left[ \mathbf{I} + \frac{1}{s} \mathbf{G}_1(s) + \frac{1}{s^2} \mathbf{G}_2(s) \right]^{-1} \mathbf{y}_{\text{ref}}(s)\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Final value theorem.}
+\begin{equation*}
+\begin{split}\lim_{t \rightarrow +\infty} \mathbf{e}(t) = \lim_{s \rightarrow 0} s \mathbf{e}(s)\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Let \(\mathbf{y}_{\text{ref}}\) a polynomial reference input, \(\mathbf{y}_{\text{ref}} = \mathbf{C}_{-1} \delta(t) + \sum_{k=0}^{m} \mathbf{C}_k t^k\) then its Laplace transform reads \(\mathbf{y}_{\text{ref}}(s) = \sum_{k=-1}^{m} \frac{\mathbf{C}_k}{s^{k+1}}\)
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \lim_{t \rightarrow +\infty} \mathbf{e}(t) 
+  & = \lim_{s \rightarrow 0} s \mathbf{e}(s) = \\
+  & = \lim_{s \rightarrow 0} s \left[ \mathbf{I} + \frac{1}{s} \mathbf{G}_1(s) + \frac{1}{s^2} \mathbf{G}_2(s) \right]^{-1} \left( \sum_{k=-1}^{m} \frac{\mathbf{C}_k}{s^{k+1}} \right) = \\
+  & = \lim_{s \rightarrow 0} s \cdot s^2 \, \mathbf{G}_2^{-1}(s) \left( \sum_{k=-1}^{m} \frac{\mathbf{C}_k}{s^{k+1}} \right) \ ,
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and thus, if
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\(m = 1\) (i.e. linear combination of Dirac’s delta, step, and ramp) the asymptotic value of the tracking error is zero;
+
+\item {} 
+\sphinxAtStartPar
+\(m = 2\) (i.e. up to a parabolic input, \(\dots + \mathbf{C}_2 t^2\)) the asymptotic value of the tracking error is constant, \(\mathbf{G}_2^{-1}(0) \mathbf{C}_2\);
+
+\item {} 
+\sphinxAtStartPar
+\(m > 2\) the tracking error goes to infinity.
+
+\end{itemize}
+
+\begin{figure}[htbp]
+\centering
+\capstart
+
+\noindent\sphinxincludegraphics{{optimal-control-tracking-ramp}.png}
+\caption{Caption}\label{\detokenize{ch/control/optimal-control-ref-tracking:fig-optimal-tracking-ramp}}\end{figure}
 
 \sphinxstepscope
 
@@ -8447,7 +9140,7 @@ the solution is in the \(S_i\) region is
 \begin{equation*}
 \begin{split}u_i(x,t) = \sum_{\lambda_k > \frac{x}{t}} R_{ik} q_{a,k} +  \sum_{\lambda_k < \frac{x}{t}} R_{ik} q_{b,k}\end{split}
 \end{equation*}\label{ch/pde/hyperbolic-dimensions:example-0}
-\begin{sphinxadmonition}{note}{Example 36.2.1 (Linear(ized) P\sphinxhyphen{}system)}
+\begin{sphinxadmonition}{note}{Example 38.2.1 (Linear(ized) P\sphinxhyphen{}system)}
 
 
 
@@ -8485,17 +9178,17 @@ The linear(ized) P\sphinxhyphen{}system around a uniform reference state \(\over
 Subsonic: the two families of characteristic lines have opposite direction; supersonic: the two families of characteristic lines have the same direction.
 \end{sphinxadmonition}
 \label{ch/pde/hyperbolic-dimensions:example-1}
-\begin{sphinxadmonition}{note}{Example 36.2.2 (Linearized shallow water equations)}
+\begin{sphinxadmonition}{note}{Example 38.2.2 (Linearized shallow water equations)}
 
 
 \end{sphinxadmonition}
 \label{ch/pde/hyperbolic-dimensions:example-2}
-\begin{sphinxadmonition}{note}{Example 36.2.3 (Linearized Euler equations (acoustics))}
+\begin{sphinxadmonition}{note}{Example 38.2.3 (Linearized Euler equations (acoustics))}
 
 
 \end{sphinxadmonition}
 \label{ch/pde/hyperbolic-dimensions:example-3}
-\begin{sphinxadmonition}{note}{Example 36.2.4 (Wave equation)}
+\begin{sphinxadmonition}{note}{Example 38.2.4 (Wave equation)}
 
 
 
@@ -8590,7 +9283,7 @@ Different descritpions of integral problem,
   & = \partial_t u_i + \partial_{x_k} u_m \partial_{u_m} F_{ki} (u_l) = \\
 \end{aligned}\end{split}
 \end{equation*}\label{ch/pde/hyperbolic-dimensions:example-4}
-\begin{sphinxadmonition}{note}{Example 36.2.5 (P\sphinxhyphen{}system in 1\sphinxhyphen{}dimensional domain)}
+\begin{sphinxadmonition}{note}{Example 38.2.5 (P\sphinxhyphen{}system in 1\sphinxhyphen{}dimensional domain)}
 
 
 \begin{equation*}
@@ -8624,7 +9317,7 @@ with \(\partial_x P = a^2 \partial_x \rho\),
 \end{aligned}\end{split}
 \end{equation*}\end{sphinxadmonition}
 \label{ch/pde/hyperbolic-dimensions:example-5}
-\begin{sphinxadmonition}{note}{Example 36.2.6 (Euler equations in 1\sphinxhyphen{}dimensional domain)}
+\begin{sphinxadmonition}{note}{Example 38.2.6 (Euler equations in 1\sphinxhyphen{}dimensional domain)}
 
 
 
@@ -8740,7 +9433,7 @@ being
 \begin{split}\mathbf{L} = \dots \end{split}
 \end{equation*}\end{sphinxadmonition}
 \label{ch/pde/hyperbolic-dimensions:example-6}
-\begin{sphinxadmonition}{note}{Example 36.2.7 (Shallow water equation in \protect\(1\protect\)\sphinxhyphen{}dimensional domain)}
+\begin{sphinxadmonition}{note}{Example 38.2.7 (Shallow water equation in \protect\(1\protect\)\sphinxhyphen{}dimensional domain)}
 
 
 
@@ -8814,7 +9507,7 @@ and integration in \(z\)\sphinxhyphen{}direction \sphinxstylestrong{todo} Explic
 \begin{split}0 = |\mathbf{A}(\mathbf{u}) - s^2 \mathbf{I}| = -s \left( 2 u - s \right) + u^2 - g \eta = (s-u)^2 - g  \eta \ .\end{split}
 \end{equation*}\end{sphinxadmonition}
 \label{ch/pde/hyperbolic-dimensions:example-7}
-\begin{sphinxadmonition}{note}{Example 36.2.8 (P\sphinxhyphen{}system in n\sphinxhyphen{}dimensional domain)}
+\begin{sphinxadmonition}{note}{Example 38.2.8 (P\sphinxhyphen{}system in n\sphinxhyphen{}dimensional domain)}
 
 
 \begin{itemize}
@@ -8834,7 +9527,7 @@ Physical variables: e.g. \((\rho, \vec{u})\), \((P, \vec{u})\),…
 \end{cases}\end{split}
 \end{equation*}\end{sphinxadmonition}
 \label{ch/pde/hyperbolic-dimensions:example-8}
-\begin{sphinxadmonition}{note}{Example 36.2.9 (Euler system in n\sphinxhyphen{}dimensional domain)}
+\begin{sphinxadmonition}{note}{Example 38.2.9 (Euler system in n\sphinxhyphen{}dimensional domain)}
 
 
 \begin{itemize}
@@ -8863,7 +9556,7 @@ where \(\Pi\) represents the pressure field as a function of the conservative va
 and \(P\) the pressure field expressed by the \sphinxstylestrong{equation of state of the fluid} as a function of density and internal energy per unit mass as the pair of independent variables determining the thermodynamic state.
 \end{sphinxadmonition}
 \label{ch/pde/hyperbolic-dimensions:example-9}
-\begin{sphinxadmonition}{note}{Example 36.2.10 (Shallow water equations in 2\sphinxhyphen{}dimensional domain)}
+\begin{sphinxadmonition}{note}{Example 38.2.10 (Shallow water equations in 2\sphinxhyphen{}dimensional domain)}
 
 
 \begin{equation*}
@@ -12863,7 +13556,7 @@ The \sphinxstylestrong{integral formulation} of the problem for all the boundary
 \begin{equation}\label{equation:ch/pde/numerics:eq:example:pde:poisson:integral}
 \begin{split}0 = - \oint_{\partial \Omega} \hat{n} \cdot \vec{q} + \int_{\Omega} f \ .\end{split}
 \end{equation}\label{ch/pde/numerics:pde:ex:fvm}
-\begin{sphinxadmonition}{note}{Example 40.1 (Finite volume methods)}
+\begin{sphinxadmonition}{note}{Example 42.1 (Finite volume methods)}
 
 
 
@@ -12879,7 +13572,7 @@ evaluating volume integrals with the internal variables of the cell \(\Omega_k\)
 \end{equation*}
 \sphinxAtStartPar
 Different numerical methods differs in the evaluation of fluxes and sources.
-FVM is \sphinxstylestrong{conservative} as it evaluate flux at interfaces and then distribute it to neighoring cells, see {\hyperref[\detokenize{ch/pde/fvm:fvm:property:conservation}]{\sphinxcrossref{Property 42.1}}}. A rough elementwise\sphinxhyphen{}uniform variable with jump at interfaces and diffusive flux,
+FVM is \sphinxstylestrong{conservative} as it evaluate flux at interfaces and then distribute it to neighoring cells, see {\hyperref[\detokenize{ch/pde/fvm:fvm:property:conservation}]{\sphinxcrossref{Property 44.1}}}. A rough elementwise\sphinxhyphen{}uniform variable with jump at interfaces and diffusive flux,
 \begin{equation*}
 \begin{split}F_{ik} = - A_{ik} \, k \, \frac{u_i - u_k}{d_{ik}} \ ,\end{split}
 \end{equation*}
@@ -12897,7 +13590,7 @@ For regular cubic mesh, \(A_{ik} = \Delta x\), \(d_{ik} = \Delta x\), \(V_k = \D
 \begin{split}0 = k \sum_{i \in \Omega_k} \frac{u_i - u_k}{\Delta x^2} + f_k \ ,\end{split}
 \end{equation*}
 \sphinxAtStartPar
-where the summation is exactly equal to the center\sphinxhyphen{}difference stencil for the Laplacian, used in finite difference method {\hyperref[\detokenize{ch/pde/numerics:pde:ex:fdm}]{\sphinxcrossref{Example 40.2}}}.
+where the summation is exactly equal to the center\sphinxhyphen{}difference stencil for the Laplacian, used in finite difference method {\hyperref[\detokenize{ch/pde/numerics:pde:ex:fdm}]{\sphinxcrossref{Example 42.2}}}.
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
@@ -12921,7 +13614,7 @@ Exploiting the arbitrariety of the volume \(V\), the \sphinxstylestrong{strong f
 \sphinxAtStartPar
 only holds in regions of the domain where the functions involved are continuous and differentiable, i.e. everything written in the problem is not meaningful, i.e. at least it exists.
 \label{ch/pde/numerics:pde:ex:fdm}
-\begin{sphinxadmonition}{note}{Example 40.2 (Finite difference methods)}
+\begin{sphinxadmonition}{note}{Example 42.2 (Finite difference methods)}
 
 
 
@@ -12937,7 +13630,7 @@ Finite different method approximates the strong form of the problem, building a 
 \end{aligned}\end{split}
 \end{equation*}
 \sphinxAtStartPar
-and it’s equal to the same expression already provided for the rough finite volume method with regular grid, in {\hyperref[\detokenize{ch/pde/numerics:pde:ex:fvm}]{\sphinxcrossref{Example 40.1}}}
+and it’s equal to the same expression already provided for the rough finite volume method with regular grid, in {\hyperref[\detokenize{ch/pde/numerics:pde:ex:fvm}]{\sphinxcrossref{Example 42.1}}}
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
@@ -12967,7 +13660,7 @@ Using a test function \(w(\vec{r})\) equal to zero on the boundary where essenti
 \sphinxAtStartPar
 compatible with essential boundary conditions.
 \label{ch/pde/numerics:pde:ex:fem}
-\begin{sphinxadmonition}{note}{Example 40.3 (Finite element methods)}
+\begin{sphinxadmonition}{note}{Example 42.3 (Finite element methods)}
 
 
 
@@ -13373,7 +14066,7 @@ Try to set different values of Dirichlet boundary conditions, u\_dir
 
 \chapter{Finite Volume Method}
 \label{\detokenize{ch/pde/fvm:finite-volume-method}}\label{\detokenize{ch/pde/fvm:pde-fvm}}\label{\detokenize{ch/pde/fvm::doc}}\label{ch/pde/fvm:fvm:property:conservation}
-\begin{sphinxadmonition}{note}{Property 42.1}
+\begin{sphinxadmonition}{note}{Property 44.1}
 
 
 
@@ -13878,7 +14571,7 @@ being \(\hat{\mathbf{A}}(\mathbf{u}_L, \mathbf{u}_R)\) an approximation of the c
 
 \end{enumerate}
 \label{ch/pde/fvm-hyperbolic-pde:example-0}
-\begin{sphinxadmonition}{note}{Example 42.2.1 (P\sphinxhyphen{}sys. Intermediate state)}
+\begin{sphinxadmonition}{note}{Example 44.2.1 (P\sphinxhyphen{}sys. Intermediate state)}
 
 
 
@@ -13953,7 +14646,7 @@ so that the solution that avoids singularities for \(\rho_L = \rho_R\) (the one 
 Arbitrary intermediate value of the density \(\hat{\rho}\) needs to satisfy consistency, as well. Just as an example, if \(\hat{\rho}\) is chosen to be the average of the densities, \(\hat{\rho} = \frac{1}{2}(\rho_L + \rho_R)\), this is consistent choice.
 \end{sphinxadmonition}
 \label{ch/pde/fvm-hyperbolic-pde:example-1}
-\begin{sphinxadmonition}{note}{Example 42.2.2 (Euler equations. Intermediate state)}
+\begin{sphinxadmonition}{note}{Example 44.2.2 (Euler equations. Intermediate state)}
 
 
 
@@ -14088,7 +14781,7 @@ with
 
 \subsubsection{Domain at rest}
 \label{\detokenize{ch/pde/fvm-hyperbolic-bc:domain-at-rest}}\label{ch/pde/fvm-hyperbolic-bc:example-0}
-\begin{sphinxadmonition}{note}{Example 42.3.1 (Wall for Roe flux in 1\sphinxhyphen{}dimensional P\sphinxhyphen{}sys)}
+\begin{sphinxadmonition}{note}{Example 44.3.1 (Wall for Roe flux in 1\sphinxhyphen{}dimensional P\sphinxhyphen{}sys)}
 
 
 
@@ -14151,7 +14844,7 @@ the upwind matrix evaluated on the Roe intermediate state (no need for entropy f
 i.e. there’s \sphinxstylestrong{no mass flux} across the wall, as the first component of the vector \(\mathbf{F}_\partial\) is zero.
 \end{sphinxadmonition}
 \label{ch/pde/fvm-hyperbolic-bc:example-1}
-\begin{sphinxadmonition}{note}{Example 42.3.2 (Wall for Roe flux in 1\sphinxhyphen{}dimensional Euler equations)}
+\begin{sphinxadmonition}{note}{Example 44.3.2 (Wall for Roe flux in 1\sphinxhyphen{}dimensional Euler equations)}
 
 
 \end{sphinxadmonition}
@@ -14938,9 +15631,9 @@ minimum: if the Hessian evalauted in \(\mathbf{x}^*\) is definite positive,
 \end{itemize}
 
 \sphinxAtStartPar
-Here the formalism \(\partial_{\mathbf{x} \mathbf{x}} f(\mathbf{x}^*) < 0\) indicates that the Hessian matrix is negative definite, see {\hyperref[\detokenize{ch/optimization/intro:optimization:hessian:extreme}]{\sphinxcrossref{Example 45.1.1}}}.
+Here the formalism \(\partial_{\mathbf{x} \mathbf{x}} f(\mathbf{x}^*) < 0\) indicates that the Hessian matrix is negative definite, see {\hyperref[\detokenize{ch/optimization/intro:optimization:hessian:extreme}]{\sphinxcrossref{Example 47.1.1}}}.
 \label{ch/optimization/intro:optimization:hessian:extreme}
-\begin{sphinxadmonition}{note}{Example 45.1.1 (Positive/negative definite Hessian)}
+\begin{sphinxadmonition}{note}{Example 47.1.1 (Positive/negative definite Hessian)}
 
 
 
@@ -14999,7 +15692,7 @@ with constraints, such as
 
 \chapter{Markov Processes}
 \label{\detokenize{ch/rl/mdp:markov-processes}}\label{\detokenize{ch/rl/mdp:rl-mdp}}\label{\detokenize{ch/rl/mdp::doc}}\label{ch/rl/mdp:def:stoch-process}
-\begin{sphinxadmonition}{note}{Definition 47.1 (Stochastic process)}
+\begin{sphinxadmonition}{note}{Definition 49.1 (Stochastic process)}
 
 
 
@@ -15010,7 +15703,7 @@ A stochastic process is as collection of random variables \(X(t)\) defined on a 
 \end{equation*}\end{sphinxadmonition}
 
 \sphinxAtStartPar
-Markov process is a memomry\sphinxhyphen{}less stochastic process (see def {\hyperref[\detokenize{ch/rl/mdp:def:stoch-process}]{\sphinxcrossref{Definition 47.1}}}). For discrete\sphinxhyphen{}time Markov processes, state at time \(n\) only depends on state at time \(n-1\)
+Markov process is a memomry\sphinxhyphen{}less stochastic process (see def {\hyperref[\detokenize{ch/rl/mdp:def:stoch-process}]{\sphinxcrossref{Definition 49.1}}}). For discrete\sphinxhyphen{}time Markov processes, state at time \(n\) only depends on state at time \(n-1\)
 \begin{equation*}
 \begin{split}\langle S, P, \mu \rangle\end{split}
 \end{equation*}
@@ -15312,7 +16005,7 @@ Bellman expectation equation for the action\sphinxhyphen{}value function \(Q^{\p
 \sphinxAtStartPar
 \sphinxstylestrong{Optimal value functions, and optimal policies}
 \label{ch/rl/mdp:def:optimal-value-fcns}
-\begin{sphinxadmonition}{note}{Definition 47.2.1 (Optimal value functions)}
+\begin{sphinxadmonition}{note}{Definition 49.2.1 (Optimal value functions)}
 
 
 
@@ -15335,7 +16028,7 @@ Valus functions define a partial ordering of policies,
 \begin{equation*}
 \begin{split}\pi \ge \pi' \ \text{if} \ V^{\pi}(s) \ge V^{\pi'} \, \forall s \in S \ .\end{split}
 \end{equation*}\label{ch/rl/mdp:theorem-2}
-\begin{sphinxadmonition}{note}{Theorem 47.2.1 (Optimal policies)}
+\begin{sphinxadmonition}{note}{Theorem 49.2.1 (Optimal policies)}
 
 
 
@@ -15371,7 +16064,7 @@ a deterministic optimal policy exists, and it’s found optimizing action\sphinx
 \sphinxAtStartPar
 \sphinxstylestrong{todo}
 \label{ch/rl/mdp:prop:optimal-v-q}
-\begin{sphinxadmonition}{note}{Property 47.2.1 (Property: optimal state\sphinxhyphen{}value and action\sphinxhyphen{}value functions)}
+\begin{sphinxadmonition}{note}{Property 49.2.1 (Property: optimal state\sphinxhyphen{}value and action\sphinxhyphen{}value functions)}
 
 
 \begin{equation}\label{equation:ch/rl/mdp:eq:optimality-condition}
@@ -15383,7 +16076,7 @@ a deterministic optimal policy exists, and it’s found optimizing action\sphinx
 
 \sphinxAtStartPar
 \sphinxstylestrong{Bellman optimality equations.}
-Using {\hyperref[\detokenize{ch/rl/mdp:prop:optimal-v-q}]{\sphinxcrossref{Property 47.2.1}}} and the expression of action\sphinxhyphen{}value function in \eqref{equation:ch/rl/mdp:eq:bellman:q:exp}
+Using {\hyperref[\detokenize{ch/rl/mdp:prop:optimal-v-q}]{\sphinxcrossref{Property 49.2.1}}} and the expression of action\sphinxhyphen{}value function in \eqref{equation:ch/rl/mdp:eq:bellman:q:exp}
 \begin{equation*}
 \begin{split}\begin{aligned}
   V^{*}(s) 
@@ -15550,7 +16243,7 @@ and it “improves the value function” (which value function?) of any state,
 \sphinxAtStartPar
 In stochastic optimization, usually {\hyperref[\detokenize{ch/rl/mdp_sol_rl:rl-mdp-sol-rl-control-improv-eps-greedy}]{\sphinxcrossref{\DUrole{std,std-ref}{\(\varepsilon\)\sphinxhyphen{}greedy improvement}}}} is introduced to improve \sphinxstylestrong{exploration} and try to avoid converging to local optimum.
 \label{ch/rl/mdp_sol_dp_lp:thm:pi}
-\begin{sphinxadmonition}{note}{Theorem 48.2.1 (Policy improvement theorem)}
+\begin{sphinxadmonition}{note}{Theorem 50.2.1 (Policy improvement theorem)}
 
 
 
@@ -15943,7 +16636,7 @@ MC evaluation is model\sphinxhyphen{}free. To keep a model\sphinxhyphen{}free co
 \right.
 \end{split}
 \end{equation*}\label{ch/rl/mdp_sol_rl:theorem-0}
-\begin{sphinxadmonition}{note}{Theorem 49.2.1 (\protect\(\varepsilon\protect\)\sphinxhyphen{}greedy Policy Improvement)}
+\begin{sphinxadmonition}{note}{Theorem 51.2.1 (\protect\(\varepsilon\protect\)\sphinxhyphen{}greedy Policy Improvement)}
 
 
 
@@ -15963,7 +16656,7 @@ For …, the \(\varepsilon\)\sphinxhyphen{}greedy policy \(\pi'\) w.r.t. \(Q^{\p
 \end{equation*}
 \sphinxAtStartPar
 having used in \((1)\) …
-And for the policy improvement theorem {\hyperref[\detokenize{ch/rl/mdp_sol_dp_lp:thm:pi}]{\sphinxcrossref{Theorem 48.2.1}}}, \(V^{\pi'}(s) \ge V(s)\). \sphinxstylestrong{todo} \sphinxstyleemphasis{Check it!}
+And for the policy improvement theorem {\hyperref[\detokenize{ch/rl/mdp_sol_dp_lp:thm:pi}]{\sphinxcrossref{Theorem 50.2.1}}}, \(V^{\pi'}(s) \ge V(s)\). \sphinxstylestrong{todo} \sphinxstyleemphasis{Check it!}
 
 \sphinxAtStartPar
 \sphinxstylestrong{GLIE (Greedy in the Limit of Infinite Exploration)} …
