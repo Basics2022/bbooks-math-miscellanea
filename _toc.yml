@@ -88,25 +88,24 @@ parts:
   numbered: True
   chapters:
   - file: ch/control/intro
+  - file: ch/control/closed-loop-requirements-performance
     sections:
-    - file: ch/control/closed-loop-requirements-performance
+    - file: ch/control/closed-loop-requirements-performance-siso-stability
+    - file: ch/control/closed-loop-requirements-performance-siso-ref-tracking
+  - file: ch/control/frequency-domain
+  - file: ch/control/optimal-control
+    sections:
+    - file: ch/control/optimal-control-full-state
+    - file: ch/control/optimal-control-full-state-old
+    - file: ch/control/optimal-control-margins
+    - file: ch/control/optimal-control-observer
+    - file: ch/control/optimal-control-output
+    - file: ch/control/optimal-control-regulator-observer
+    - file: ch/control/optimal-control-ref-tracking
       sections:
-      - file: ch/control/closed-loop-requirements-performance-siso-stability
-      - file: ch/control/closed-loop-requirements-performance-siso-ref-tracking
-    - file: ch/control/frequency-domain
-    - file: ch/control/optimal-control
-      sections:
-      - file: ch/control/optimal-control-full-state
-      - file: ch/control/optimal-control-full-state-old
-      - file: ch/control/optimal-control-margins
-      - file: ch/control/optimal-control-observer
-      - file: ch/control/optimal-control-output
-      - file: ch/control/optimal-control-regulator-observer
-      - file: ch/control/optimal-control-ref-tracking
-        sections:
-        - file: ch/control/optimal-control-ref-tracking-example
-      - file: ch/control/kalman
-      - file: ch/control/hjb
+      - file: ch/control/optimal-control-ref-tracking-example
+    - file: ch/control/kalman
+    - file: ch/control/hjb
 - caption: Partial Differential Equations
   numbered: True
   chapters:

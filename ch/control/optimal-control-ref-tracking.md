@@ -5,9 +5,9 @@
 See [this Colab](https://colab.research.google.com/drive/1G5nu_jUEZgmja0SmA0I1rcPOVZKKu4oZ?authuser=1#scrollTo=nJXJBxc1LWic) on my personal GDrive, until this is not included in this Jupyter book.
 -->
 
-In order to get perfect asymptotic tracking of polynomial reference signals with degree $m$ with optimal control, the original system must be augmented with the dynamical equations of $m+1$ integral errors. This process is shown for [tracking step reference](control:optimal:ref-tracking:step) with the augmentation of the original system with a single integrator and for [tracking ramp reference](control:optimal:ref-tracking:ramp) with the augmentation with a double integrator.
+In order to get perfect asymptotic tracking of polynomial reference signals with degree $m$ with optimal control, the original system must be **augmented** with the dynamical equations of $m+1$ **integral errors**. This process is shown for [tracking step reference](control:optimal:ref-tracking:step) with the augmentation of the original system with a single integrator and for [tracking ramp reference](control:optimal:ref-tracking:ramp) with the augmentation with a double integrator.
 
-This procedure is somehow equivalent to the addition of integrators in open-loop transfer function, as discussed in the section about [reference tracking as a performance of a closed-loop system](control:closed-loop:requirements-performance:siso:ref-tracking).
+This procedure is somehow equivalent to the **addition of integrators in open-loop transfer function**, as discussed in the section about [reference tracking as a performance of a closed-loop system](control:closed-loop:requirements-performance:siso:ref-tracking).
 
 An example about optimal control for reference tracking in a mass-damper-spring system is shown in the [next section](control:optimal:ref-tracking:example), as a **Jupyter notebook** that can be opened, run, and modified in **Colab**.
 

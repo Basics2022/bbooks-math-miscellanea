@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>34.2. Frequency domain control &#8212; basics - math</title>
+    <title>36. Frequency domain control &#8212; basics - math</title>
   
   
   
@@ -71,8 +71,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="34.3. Optimal control" href="optimal-control.html" />
-    <link rel="prev" title="34.1.4. Reference tracking (SISO)" href="closed-loop-requirements-performance-siso-ref-tracking.html" />
+    <link rel="next" title="37. Optimal control" href="optimal-control.html" />
+    <link rel="prev" title="35.4. Reference tracking (SISO)" href="closed-loop-requirements-performance-siso-ref-tracking.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -262,94 +262,95 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Control Theory</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">34. Introduction to control methods</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 has-children"><a class="reference internal" href="closed-loop-requirements-performance.html">34.1. Closed-loop control: requirements and performance</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="closed-loop-requirements-performance-siso-stability.html">34.1.3. Stability (SISO)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="closed-loop-requirements-performance-siso-ref-tracking.html">34.1.4. Reference tracking (SISO)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">34. Introduction to control methods</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="closed-loop-requirements-performance.html">35. Closed-loop control: requirements and performance</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="closed-loop-requirements-performance-siso-stability.html">35.3. Stability (SISO)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="closed-loop-requirements-performance-siso-ref-tracking.html">35.4. Reference tracking (SISO)</a></li>
 </ul>
 </li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">34.2. Frequency domain control</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="optimal-control.html">34.3. Optimal control</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="optimal-control-full-state.html">34.3.1. Full-state feedback</a></li>
-<li class="toctree-l3"><a class="reference internal" href="optimal-control-full-state-old.html">34.3.2. Full-state feedback (OLD)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="optimal-control-margins.html">34.3.3. Phase and gain margin of optimal control</a></li>
-<li class="toctree-l3"><a class="reference internal" href="optimal-control-observer.html">34.3.4. Optimal observer for deterministic disturbances</a></li>
-<li class="toctree-l3"><a class="reference internal" href="optimal-control-output.html">34.3.5. Sub-optimal control for output feedback</a></li>
-<li class="toctree-l3"><a class="reference internal" href="optimal-control-regulator-observer.html">34.3.6. Combination of controller and observer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="optimal-control-ref-tracking.html">34.3.7. Optimal control for reference tracking</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kalman.html">34.3.8. Kalman filter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="hjb.html">34.3.9. Hamilton Bellman Jacobi equation</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">36. Frequency domain control</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="optimal-control.html">37. Optimal control</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="optimal-control-full-state.html">37.1. Full-state feedback</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimal-control-full-state-old.html">37.2. Full-state feedback (OLD)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimal-control-margins.html">37.3. Phase and gain margin of optimal control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimal-control-observer.html">37.4. Optimal observer for deterministic disturbances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimal-control-output.html">37.5. Sub-optimal control for output feedback</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimal-control-regulator-observer.html">37.6. Combination of controller and observer</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="optimal-control-ref-tracking.html">37.7. Optimal control for reference tracking</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="optimal-control-ref-tracking-example.html">37.7.3. Example of optimal control for tracking reference input</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="kalman.html">37.8. Kalman filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hjb.html">37.9. Hamilton Bellman Jacobi equation</a></li>
 </ul>
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Partial Differential Equations</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../pde/intro.html">35. Introduction to Partial Differential Equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pde/elliptic.html">36. Elliptic equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pde/parabolic.html">37. Parabolic equations</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/hyperbolic.html">38. Hyperbolic equations</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-intro.html">38.1. Hyperbolic problems and conservation laws</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-dimensions.html">38.2. Hyperbolic problems - dimensions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-1d-scalar-linear.html">38.3. Scalar linear equation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-1d-vector-linear.html">38.4. Linear vector equation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-1d-scalar-nonlinear.html">38.5. Scalar non-linear equation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/characteristics.html">38.6. Method of characteristics</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../pde/hyperbolic-nd.html">38.7. Hyperbolic problems in multi-dimensional domains</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-draft.html">38.7.1. General hyperbolic problem</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-psys.html">38.7.2. P-system</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-euler.html">38.7.3. Euler equations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-shallow-water.html">38.7.4. Shallow water</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/intro.html">38. Introduction to Partial Differential Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/elliptic.html">39. Elliptic equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/parabolic.html">40. Parabolic equations</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/hyperbolic.html">41. Hyperbolic equations</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-intro.html">41.1. Hyperbolic problems and conservation laws</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-dimensions.html">41.2. Hyperbolic problems - dimensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-1d-scalar-linear.html">41.3. Scalar linear equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-1d-vector-linear.html">41.4. Linear vector equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-1d-scalar-nonlinear.html">41.5. Scalar non-linear equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/characteristics.html">41.6. Method of characteristics</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../pde/hyperbolic-nd.html">41.7. Hyperbolic problems in multi-dimensional domains</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-draft.html">41.7.1. General hyperbolic problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-psys.html">41.7.2. P-system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-euler.html">41.7.3. Euler equations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-shallow-water.html">41.7.4. Shallow water</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-riemann-pb.html">38.8. Riemann problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-entropy.html">38.9. Physical solution in hyperbolic problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-convexity.html">38.10. Convexity in hyperbolic problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-non-convex.html">38.11. Non-convex hyperbolic problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-riemann-pb.html">41.8. Riemann problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-entropy.html">41.9. Physical solution in hyperbolic problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-convexity.html">41.10. Convexity in hyperbolic problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-non-convex.html">41.11. Non-convex hyperbolic problems</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../pde/nc.html">39. Navier-Cauchy equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pde/ns.html">40. Navier-Stokes equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pde/ale.html">41. Arbitrary Lagrangian-Eulerian description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/nc.html">42. Navier-Cauchy equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/ns.html">43. Navier-Stokes equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/ale.html">44. Arbitrary Lagrangian-Eulerian description</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Numerical Methods for PDEs</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../pde/numerics.html">42. Introduction to numerical methods for PDEs</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/fem.html">43. Finite Element Method</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../pde/fem-poisson-1d.html">43.1. 1-dimensional Poisson equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/numerics.html">45. Introduction to numerical methods for PDEs</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/fem.html">46. Finite Element Method</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pde/fem-poisson-1d.html">46.1. 1-dimensional Poisson equation</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/fvm.html">44. Finite Volume Method</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../pde/fvm-poisson-1d.html">44.1. 1-dimensional Poisson equation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/fvm-hyperbolic-pde.html">44.2. FVM for hyperbolic problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/fvm-hyperbolic-bc.html">44.3. Boundary conditions in hyperbolic problems</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../pde/fvm-hyperbolic-examples.html">44.4. Examples of FVM for hyperbolic problems</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../pde/psys-1d.html">44.4.1. 1-dimensional P-system</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../pde/euler-1d.html">44.4.2. 1-dimensional Euler equations for Perfect Ideal Gas</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../pde/euler-quasi-1d.html">44.4.3. Quasi 1-dimensional Euler equations for Perfect Ideal Gas</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../pde/euler-1d-ale-piston.html">44.4.4. 1-dimensional Euler equations for Perfect Ideal Gas on moving mesh (ALE)</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/fvm.html">47. Finite Volume Method</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pde/fvm-poisson-1d.html">47.1. 1-dimensional Poisson equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/fvm-hyperbolic-pde.html">47.2. FVM for hyperbolic problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/fvm-hyperbolic-bc.html">47.3. Boundary conditions in hyperbolic problems</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../pde/fvm-hyperbolic-examples.html">47.4. Examples of FVM for hyperbolic problems</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../pde/psys-1d.html">47.4.1. 1-dimensional P-system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/euler-1d.html">47.4.2. 1-dimensional Euler equations for Perfect Ideal Gas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/euler-quasi-1d.html">47.4.3. Quasi 1-dimensional Euler equations for Perfect Ideal Gas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/euler-1d-ale-piston.html">47.4.4. 1-dimensional Euler equations for Perfect Ideal Gas on moving mesh (ALE)</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../pde/bem.html">45. Boundary Element Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/bem.html">48. Boundary Element Method</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Boundary Methods for PDEs</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../pde/bem-poisson-helmholtz-waves.html">46. Green’s function method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/bem-poisson-helmholtz-waves.html">49. Green’s function method</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Optimization</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../optimization/intro.html">47. Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../optimization/intro.html">50. Optimization</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Reinforcement Learning</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../rl/intro.html">48. Introduction to Reinforcement Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rl/mdp.html">49. Markov Processes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_sol_dp_lp.html">50. Methods of solution of MPD: DP and LP</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_sol_rl.html">51. Methods of solution of MPD: RL</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_large_continuous.html">52. Large or Continuous MDPs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/intro.html">51. Introduction to Reinforcement Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp.html">52. Markov Processes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_sol_dp_lp.html">53. Methods of solution of MPD: DP and LP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_sol_rl.html">54. Methods of solution of MPD: RL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_large_continuous.html">55. Large or Continuous MDPs</a></li>
 </ul>
 
     </div>
@@ -562,12 +563,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stability-of-closed-loop-siso-systems">34.2.1. Stability of closed-loop SISO systems</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cauchy-argument-principle">34.2.1.1. Cauchy argument principle</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nyquist-stability-criterion">34.2.1.2. Nyquist stability criterion</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bode-stability-criterion-for-minimal-phase-systems">34.2.1.3. Bode stability criterion for minimal phase systems</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-margin">34.2.1.4. Phase margin</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gain-margin">34.2.1.5. Gain margin</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stability-of-closed-loop-siso-systems">36.1. Stability of closed-loop SISO systems</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cauchy-argument-principle">36.1.1. Cauchy argument principle</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nyquist-stability-criterion">36.1.2. Nyquist stability criterion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bode-stability-criterion-for-minimal-phase-systems">36.1.3. Bode stability criterion for minimal phase systems</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-margin">36.1.4. Phase margin</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gain-margin">36.1.5. Gain margin</a></li>
 </ul>
 </li>
 </ul>
@@ -582,18 +583,18 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="frequency-domain-control">
-<span id="control-frequency"></span><h1><span class="section-number">34.2. </span>Frequency domain control<a class="headerlink" href="#frequency-domain-control" title="Permalink to this heading">#</a></h1>
+<span id="control-frequency"></span><h1><span class="section-number">36. </span>Frequency domain control<a class="headerlink" href="#frequency-domain-control" title="Permalink to this heading">#</a></h1>
 <div class="section" id="stability-of-closed-loop-siso-systems">
-<span id="control-frequency-siso"></span><h2><span class="section-number">34.2.1. </span>Stability of closed-loop SISO systems<a class="headerlink" href="#stability-of-closed-loop-siso-systems" title="Permalink to this heading">#</a></h2>
-<p>Let <span class="math notranslate nohighlight">\(L(s) = G(s) R(s)\)</span> the open-loop transfer function of the the system represented in <a class="reference internal" href="#fig-nyquist-block"><span class="std std-numref">Fig. 34.2</span></a>: the system is explicitly represented as a combination of a plant with transfer function <span class="math notranslate nohighlight">\(G(s)\)</span> and a regulator with transfer function <span class="math notranslate nohighlight">\(R(s)\)</span>. The output of the system <span class="math notranslate nohighlight">\(y\)</span>, and the error <span class="math notranslate nohighlight">\(e = y - y_{ref}\)</span> are related with the reference signals as</p>
+<span id="control-frequency-siso"></span><h2><span class="section-number">36.1. </span>Stability of closed-loop SISO systems<a class="headerlink" href="#stability-of-closed-loop-siso-systems" title="Permalink to this heading">#</a></h2>
+<p>Let <span class="math notranslate nohighlight">\(L(s) = G(s) R(s)\)</span> the open-loop transfer function of the the system represented in <a class="reference internal" href="#fig-nyquist-block"><span class="std std-numref">Fig. 36.1</span></a>: the system is explicitly represented as a combination of a plant with transfer function <span class="math notranslate nohighlight">\(G(s)\)</span> and a regulator with transfer function <span class="math notranslate nohighlight">\(R(s)\)</span>. The output of the system <span class="math notranslate nohighlight">\(y\)</span>, and the error <span class="math notranslate nohighlight">\(e = y - y_{ref}\)</span> are related with the reference signals as</p>
 <div class="math notranslate nohighlight" id="equation-eq-nyquist-tfs">
-<span class="eqno">(34.1)<a class="headerlink" href="#equation-eq-nyquist-tfs" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+<span class="eqno">(36.1)<a class="headerlink" href="#equation-eq-nyquist-tfs" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
   y(s) &amp; = \frac{L(s)}{1 + L(s)} y_{ref}(s) \\
   e(s) &amp; = \frac{ 1  }{1 + L(s)} y_{ref}(s) \ .
 \end{aligned}\end{split}\]</div>
 <div class="figure align-center" id="fig-nyquist-block">
 <img alt="Nyquist theorem block diagram" src="../../_images/control-reference-nyquist.png" />
-<p class="caption"><span class="caption-number">Fig. 34.2 </span><span class="caption-text">Block diagram of the closed-loop system with retroaction on the output error <span class="math notranslate nohighlight">\(e = y_{ref} - y\)</span>. Here, <span class="math notranslate nohighlight">\(G(s)\)</span> is the plant transfer function, <span class="math notranslate nohighlight">\(R(s)\)</span> is the regulator transfer function (that can be designed to control a given plant), and <span class="math notranslate nohighlight">\(L(s) = G(s) R(s)\)</span> is defined as the open-loop transfer function.</span><a class="headerlink" href="#fig-nyquist-block" title="Permalink to this image">#</a></p>
+<p class="caption"><span class="caption-number">Fig. 36.1 </span><span class="caption-text">Block diagram of the closed-loop system with retroaction on the output error <span class="math notranslate nohighlight">\(e = y_{ref} - y\)</span>. Here, <span class="math notranslate nohighlight">\(G(s)\)</span> is the plant transfer function, <span class="math notranslate nohighlight">\(R(s)\)</span> is the regulator transfer function (that can be designed to control a given plant), and <span class="math notranslate nohighlight">\(L(s) = G(s) R(s)\)</span> is defined as the open-loop transfer function.</span><a class="headerlink" href="#fig-nyquist-block" title="Permalink to this image">#</a></p>
 </div>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
@@ -618,48 +619,48 @@ Details<div class="sd-summary-down docutils">
 \[e(s) = \frac{1}{1 + L(s)} y_{ref} \ .\]</div>
 </div>
 </details><div class="section" id="cauchy-argument-principle">
-<span id="control-frequency-siso-cauchy-argument"></span><h3><span class="section-number">34.2.1.1. </span>Cauchy argument principle<a class="headerlink" href="#cauchy-argument-principle" title="Permalink to this heading">#</a></h3>
+<span id="control-frequency-siso-cauchy-argument"></span><h3><span class="section-number">36.1.1. </span>Cauchy argument principle<a class="headerlink" href="#cauchy-argument-principle" title="Permalink to this heading">#</a></h3>
 <p>For the <a class="reference internal" href="../complex/analysis.html#complex-analysis-mero-fun-cauchy-argument-principle"><span class="std std-ref">Cauchy argument principle</span></a>, the difference of argument of function <span class="math notranslate nohighlight">\(F(s)\)</span> when <span class="math notranslate nohighlight">\(s\)</span> performs a counter-clockwise loop over th contour <span class="math notranslate nohighlight">\(\Gamma\)</span> enclosing poles <span class="math notranslate nohighlight">\(p_n\)</span>, and zeros <span class="math notranslate nohighlight">\(z_d\)</span> of the function <span class="math notranslate nohighlight">\(F(s)\)</span> reads</p>
 <div class="math notranslate nohighlight">
 \[\Delta \text{arg} \{ F(s) \} = \sum_{n} \text{arg}(s - z_n) - \sum_{d} \text{arg}(s-p_d) = Z 2 \pi - P 2 \pi = (Z-P) 2 \pi \ , \]</div>
 <p>and thus the the diagram of function <span class="math notranslate nohighlight">\(F(s)\)</span> performs</p>
 <div class="math notranslate nohighlight" id="equation-eq-cauchy-arg-principle">
-<span class="eqno">(34.2)<a class="headerlink" href="#equation-eq-cauchy-arg-principle" title="Permalink to this equation">#</a></span>\[N =  Z - P\]</div>
+<span class="eqno">(36.2)<a class="headerlink" href="#equation-eq-cauchy-arg-principle" title="Permalink to this equation">#</a></span>\[N =  Z - P\]</div>
 <p>loops around the origin <span class="math notranslate nohighlight">\(0+i 0\)</span> of the complex plane.</p>
 </div>
 <div class="section" id="nyquist-stability-criterion">
-<span id="control-frequency-siso-nyquist"></span><h3><span class="section-number">34.2.1.2. </span>Nyquist stability criterion<a class="headerlink" href="#nyquist-stability-criterion" title="Permalink to this heading">#</a></h3>
-<p>Nyquist stability criterion provides the conditions for the stability of the closed loop transfer functions <a class="reference internal" href="#equation-eq-nyquist-tfs">(34.1)</a>. As shown in section about <a class="reference internal" href="../system-theory/lti-stability-and-feedback.html#ode-lti-stability-fb"><span class="std std-ref">stability of LTI systems</span></a>, a linear system is asymptotically stable if all of its poles have negative real parts.</p>
+<span id="control-frequency-siso-nyquist"></span><h3><span class="section-number">36.1.2. </span>Nyquist stability criterion<a class="headerlink" href="#nyquist-stability-criterion" title="Permalink to this heading">#</a></h3>
+<p>Nyquist stability criterion provides the conditions for the stability of the closed loop transfer functions <a class="reference internal" href="#equation-eq-nyquist-tfs">(36.1)</a>. As shown in section about <a class="reference internal" href="../system-theory/lti-stability-and-feedback.html#ode-lti-stability-fb"><span class="std std-ref">stability of LTI systems</span></a>, a linear system is asymptotically stable if all of its poles have negative real parts.</p>
 <p>All the closed-loop transfer functions have the same poles (as they have the same denominator, except for <em>dangerous</em> cancellations not changing the stability but the observability or the controllability <strong>todo</strong> <em>Discuss</em>).</p>
-<p>The poles of the closed loop systems are the zeros of the function <span class="math notranslate nohighlight">\(1 + L(s)\)</span>. If the closed-loop system is asymptotically stable, it must have no pole with positive real part. As the complex variable <span class="math notranslate nohighlight">\(s\)</span> performs a clockwise (and thus, the signs of the relation change w.r.t. Cauchy argument criterion) loop over <strong>Nyquist path</strong> (semicircle in the RHS half-plane; then <strong>todo</strong> discuss the case where poles and zeros are on the imaginary axis…deform the path…). No zero of <span class="math notranslate nohighlight">\(1 + G(s)\)</span> with positive real part means <span class="math notranslate nohighlight">\(Z = 0\)</span>. Using the relation between poles, zeros and loops around the origin given by Cauchy argument principle <a class="reference internal" href="#equation-eq-cauchy-arg-principle">(34.2)</a>, and recalling the opposite direction, it follows that</p>
+<p>The poles of the closed loop systems are the zeros of the function <span class="math notranslate nohighlight">\(1 + L(s)\)</span>. If the closed-loop system is asymptotically stable, it must have no pole with positive real part. As the complex variable <span class="math notranslate nohighlight">\(s\)</span> performs a clockwise (and thus, the signs of the relation change w.r.t. Cauchy argument criterion) loop over <strong>Nyquist path</strong> (semicircle in the RHS half-plane; then <strong>todo</strong> discuss the case where poles and zeros are on the imaginary axis…deform the path…). No zero of <span class="math notranslate nohighlight">\(1 + G(s)\)</span> with positive real part means <span class="math notranslate nohighlight">\(Z = 0\)</span>. Using the relation between poles, zeros and loops around the origin given by Cauchy argument principle <a class="reference internal" href="#equation-eq-cauchy-arg-principle">(36.2)</a>, and recalling the opposite direction, it follows that</p>
 <div class="math notranslate nohighlight">
 \[N = P \ ,\]</div>
 <p>in order to have <span class="math notranslate nohighlight">\(Z = 0\)</span>, i.e. the diagram of <span class="math notranslate nohighlight">\(1+G(s)\)</span> must perform <span class="math notranslate nohighlight">\(N\)</span> counter-clockwise loops around <span class="math notranslate nohighlight">\(0+i0\)</span> equal to the number of its poles with positive real parts. As the poles of <span class="math notranslate nohighlight">\(1+ G(s)\)</span> are the same as the poles of <span class="math notranslate nohighlight">\(G(s)\)</span>, it’s possible to formulate Nyquist criterion looking at <span class="math notranslate nohighlight">\(G(s)\)</span>, as</p>
 <div class="proof theorem admonition" id="thm-nyquist">
-<p class="admonition-title"><span class="caption-number">Theorem 34.1 </span> (Nyquist theorem)</p>
+<p class="admonition-title"><span class="caption-number">Theorem 36.1 </span> (Nyquist theorem)</p>
 <div class="theorem-content section" id="proof-content">
 <p>In order for the closed-loop system to be asymptotically stable, the diagram of the open-loop transfer function <span class="math notranslate nohighlight">\(G(s)\)</span> must perform a number <span class="math notranslate nohighlight">\(N\)</span> of counter-clocwise loops around the <em>critical point</em> <span class="math notranslate nohighlight">\(-1 + i \, 0\)</span> equal to the number of its zeros with positve real part.</p>
 </div>
 </div></div>
 <div class="section" id="bode-stability-criterion-for-minimal-phase-systems">
-<span id="control-siso-bode"></span><h3><span class="section-number">34.2.1.3. </span>Bode stability criterion for minimal phase systems<a class="headerlink" href="#bode-stability-criterion-for-minimal-phase-systems" title="Permalink to this heading">#</a></h3>
+<span id="control-siso-bode"></span><h3><span class="section-number">36.1.3. </span>Bode stability criterion for minimal phase systems<a class="headerlink" href="#bode-stability-criterion-for-minimal-phase-systems" title="Permalink to this heading">#</a></h3>
 <div class="proof definition admonition" id="def-minimal-phase">
-<p class="admonition-title"><span class="caption-number">Definition 34.1 </span> (Minimal phase systems)</p>
+<p class="admonition-title"><span class="caption-number">Definition 36.1 </span> (Minimal phase systems)</p>
 <div class="definition-content section" id="proof-content">
 <p>…</p>
 </div>
 </div><p>…</p>
 <div class="proof theorem admonition" id="thm-bode">
-<p class="admonition-title"><span class="caption-number">Theorem 34.2 </span> (Bode stability criterion)</p>
+<p class="admonition-title"><span class="caption-number">Theorem 36.2 </span> (Bode stability criterion)</p>
 <div class="theorem-content section" id="proof-content">
 <p>…</p>
 </div>
 </div></div>
 <div class="section" id="phase-margin">
-<span id="control-siso-phase-margin"></span><h3><span class="section-number">34.2.1.4. </span>Phase margin<a class="headerlink" href="#phase-margin" title="Permalink to this heading">#</a></h3>
+<span id="control-siso-phase-margin"></span><h3><span class="section-number">36.1.4. </span>Phase margin<a class="headerlink" href="#phase-margin" title="Permalink to this heading">#</a></h3>
 </div>
 <div class="section" id="gain-margin">
-<span id="control-siso-gain-margin"></span><h3><span class="section-number">34.2.1.5. </span>Gain margin<a class="headerlink" href="#gain-margin" title="Permalink to this heading">#</a></h3>
+<span id="control-siso-gain-margin"></span><h3><span class="section-number">36.1.5. </span>Gain margin<a class="headerlink" href="#gain-margin" title="Permalink to this heading">#</a></h3>
 </div>
 </div>
 </div>
@@ -700,7 +701,7 @@ Details<div class="sd-summary-down docutils">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">34.1.4. </span>Reference tracking (SISO)</p>
+        <p class="prev-next-title"><span class="section-number">35.4. </span>Reference tracking (SISO)</p>
       </div>
     </a>
     <a class="right-next"
@@ -708,7 +709,7 @@ Details<div class="sd-summary-down docutils">
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">34.3. </span>Optimal control</p>
+        <p class="prev-next-title"><span class="section-number">37. </span>Optimal control</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -727,12 +728,12 @@ Details<div class="sd-summary-down docutils">
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stability-of-closed-loop-siso-systems">34.2.1. Stability of closed-loop SISO systems</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cauchy-argument-principle">34.2.1.1. Cauchy argument principle</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nyquist-stability-criterion">34.2.1.2. Nyquist stability criterion</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bode-stability-criterion-for-minimal-phase-systems">34.2.1.3. Bode stability criterion for minimal phase systems</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-margin">34.2.1.4. Phase margin</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gain-margin">34.2.1.5. Gain margin</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#stability-of-closed-loop-siso-systems">36.1. Stability of closed-loop SISO systems</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cauchy-argument-principle">36.1.1. Cauchy argument principle</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nyquist-stability-criterion">36.1.2. Nyquist stability criterion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bode-stability-criterion-for-minimal-phase-systems">36.1.3. Bode stability criterion for minimal phase systems</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-margin">36.1.4. Phase margin</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gain-margin">36.1.5. Gain margin</a></li>
 </ul>
 </li>
 </ul>
