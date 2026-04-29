@@ -1,9 +1,19 @@
 (system-theory:kalman-decomposition)=
 # Kalman decomposition
 
-In this section, [singular value decomposition](math:svd) of the Gramians of [observability](observability-detectability) and [controllability](controllability-reachability) helps in the decomposition of a LTI system in its non-observable/observable and controllable/non-controllable parts.
+[Controllability](controllability-reachability) and [Non-observability](observability-detectability) properties define two sub-spaces of the state space, $\mathbb{R}^n$. The complements of these subpsaces define subspaces as well.
+
+**Kalman decomposition** applies a coordinate transformation in order to make explicit the existence of:
+* $X_1$, non-observable and reachable sub-space, $X_1 := X_{\overline{o}} \cap X_r$
+* $X_2$, the complement of $X_1$ w.r.t. the reachable sub-space, i.e. $X_1 \cup X_2 = X_r$
+* $X_3$, the complement of $X_1$ w.r.t. the non-observable sub-space, i.e. $X_1 \cup X_3 = X_{\overline{o}}$
+* $X_4$, the complement of $X_1$, $X_2$, $X_3$ w.r.t. the state-space $\mathbb{R}^n$.
 
 $A$**-invariance** of $\text{Ran}(\mathbf{W}_c)$ and $\text{Ker}(\mathbf{W}_o)$ is exploited.
+
+In this section, [singular value decomposition](math:svd) of the Gramians of [observability](observability-detectability) and [controllability](controllability-reachability) helps in the decomposition of a LTI system in its non-observable/observable and controllable/non-controllable parts.
+
+**todo** *SVD may help or not, but that's not the point here. We're supposed to know how to find an orthonormal basis, and if we can't remember how to do it, we're supposed to find a the method we like the most to do that. Orthonormal basis are not even strictly required here. Moreover, SVD of symmetric (semi) definite positive matrices coincides with spectral decomposition...*
 
 **todo** *Infinite-horizon time, or steady-state conditions, are discussed here?*
 
