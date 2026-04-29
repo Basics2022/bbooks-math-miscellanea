@@ -103,6 +103,8 @@ parts:
       - file: ch/control/optimal-control-output
       - file: ch/control/optimal-control-regulator-observer
       - file: ch/control/optimal-control-ref-tracking
+        sections:
+        - file: ch/control/optimal-control-ref-tracking-example
       - file: ch/control/kalman
       - file: ch/control/hjb
 - caption: Partial Differential Equations
