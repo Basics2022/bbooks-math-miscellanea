@@ -11,6 +11,7 @@ parts:
   - file: ch/linear-algebra/matrices
   - file: ch/linear-algebra/matrix-factorization
     sections:
+    - file: ch/linear-algebra/schur
     - file: ch/linear-algebra/svd
   - file: ch/linear-algebra/linear-systems
   - file: ch/linear-algebra/spectral
@@ -49,6 +50,7 @@ parts:
 - caption: Complex Calculus
   numbered: True
   chapters:
+  - file: ch/complex/algebra
   - file: ch/complex/analysis
   - file: ch/complex/laplace
     sections:
@@ -79,12 +81,18 @@ parts:
   - file: ch/system-theory/controllability-reachability
   - file: ch/system-theory/kalman-decomposition
   - file: ch/system-theory/lyapunov-equation
+  - file: ch/system-theory/order-reduction
+    sections:
+    - file: ch/system-theory/order-reduction-balanced-truncation
 - caption: Control Theory
   numbered: True
   chapters:
   - file: ch/control/intro
     sections:
     - file: ch/control/closed-loop-requirements-performance
+      sections:
+      - file: ch/control/closed-loop-requirements-performance-siso-stability
+      - file: ch/control/closed-loop-requirements-performance-siso-ref-tracking
     - file: ch/control/frequency-domain
     - file: ch/control/optimal-control
       sections:
