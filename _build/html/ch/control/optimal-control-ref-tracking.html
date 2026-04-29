@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>34. Introduction to control methods &#8212; basics - math</title>
+    <title>34.3.7. Optimal control for reference tracking &#8212; basics - math</title>
   
   
   
@@ -65,12 +65,14 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/control/intro';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/control/optimal-control-ref-tracking';</script>
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="34.1. Closed-loop control: requirements and performance" href="closed-loop-requirements-performance.html" />
-    <link rel="prev" title="33.1. Balanced truncation" href="../system-theory/order-reduction-balanced-truncation.html" />
+    <link rel="next" title="34.3.8. Kalman filter" href="kalman.html" />
+    <link rel="prev" title="34.3.6. Combination of controller and observer" href="optimal-control-regulator-observer.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -260,21 +262,21 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Control Theory</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">34. Introduction to control methods</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">34. Introduction to control methods</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2 has-children"><a class="reference internal" href="closed-loop-requirements-performance.html">34.1. Closed-loop control: requirements and performance</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="closed-loop-requirements-performance-siso-stability.html">34.1.3. Stability (SISO)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="closed-loop-requirements-performance-siso-ref-tracking.html">34.1.4. Reference tracking (SISO)</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="frequency-domain.html">34.2. Frequency domain control</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="optimal-control.html">34.3. Optimal control</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="optimal-control.html">34.3. Optimal control</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="optimal-control-full-state.html">34.3.1. Full-state feedback</a></li>
 <li class="toctree-l3"><a class="reference internal" href="optimal-control-full-state-old.html">34.3.2. Full-state feedback (OLD)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="optimal-control-margins.html">34.3.3. Phase and gain margin of optimal control</a></li>
 <li class="toctree-l3"><a class="reference internal" href="optimal-control-observer.html">34.3.4. Optimal observer for deterministic disturbances</a></li>
 <li class="toctree-l3"><a class="reference internal" href="optimal-control-output.html">34.3.5. Sub-optimal control for output feedback</a></li>
 <li class="toctree-l3"><a class="reference internal" href="optimal-control-regulator-observer.html">34.3.6. Combination of controller and observer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="optimal-control-ref-tracking.html">34.3.7. Optimal control for reference tracking</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">34.3.7. Optimal control for reference tracking</a></li>
 <li class="toctree-l3"><a class="reference internal" href="kalman.html">34.3.8. Kalman filter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="hjb.html">34.3.9. Hamilton Bellman Jacobi equation</a></li>
 </ul>
@@ -419,7 +421,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/edit/main/ch/control/intro.md" target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/edit/main/ch/control/optimal-control-ref-tracking.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -436,7 +438,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/issues/new?title=Issue%20on%20page%20%2Fch/control/intro.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/issues/new?title=Issue%20on%20page%20%2Fch/control/optimal-control-ref-tracking.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -466,7 +468,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/ch/control/intro.md" target="_blank"
+      <li><a href="../../_sources/ch/control/optimal-control-ref-tracking.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -537,7 +539,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -548,11 +552,20 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Introduction to control methods</h1>
+    <h1>Optimal control for reference tracking</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#augmented-system-for-tracking-step-reference-signal-integrator">34.3.7.1. Augmented system for tracking step reference signal - integrator</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#augmented-system-for-tracking-ramp-reference-signal-double-integrator">34.3.7.2. Augmented system for tracking ramp reference signal - double integrator</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -562,51 +575,145 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="introduction-to-control-methods">
-<span id="control-intro"></span><h1><span class="section-number">34. </span>Introduction to control methods<a class="headerlink" href="#introduction-to-control-methods" title="Permalink to this heading">#</a></h1>
-<p>System behavior is treated in detailed in <a class="reference internal" href="../system-theory/intro.html#system-theory-intro"><span class="std std-ref">System Theory</span></a> section. Control theory targets a desired behavior of the system, ensuring stability and performance (in terms of desired output, error, response velocity, input effort, robustness to noise and model uncertainty,…)</p>
-<div class="tip admonition">
-<p class="admonition-title">Links</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="../ode/intro.html#ode-intro"><span class="std std-ref">Ordinary differential equations</span></a></p></li>
-<li><p><a class="reference internal" href="../system-theory/intro.html#system-theory-intro"><span class="std std-ref">System theory</span></a></p></li>
-</ul>
-</div>
+  <div class="tex2jax_ignore mathjax_ignore section" id="optimal-control-for-reference-tracking">
+<span id="control-optimal-ref-tracking"></span><h1><span class="section-number">34.3.7. </span>Optimal control for reference tracking<a class="headerlink" href="#optimal-control-for-reference-tracking" title="Permalink to this heading">#</a></h1>
+<p>See <a class="reference external" href="https://colab.research.google.com/drive/1G5nu_jUEZgmja0SmA0I1rcPOVZKKu4oZ?authuser=1#scrollTo=nJXJBxc1LWic">this Colab</a> on my personal GDrive, until this is not included in this Jupyter book.</p>
+<p>In order to get perfect asymptotic tracking of polynomial reference signals with degree <span class="math notranslate nohighlight">\(m\)</span> with optimal control, the original system must be augmented with the dynamical equations of <span class="math notranslate nohighlight">\(m+1\)</span> integral errors. This process is shown for <a class="reference internal" href="#control-optimal-ref-tracking-step"><span class="std std-ref">tracking step reference</span></a> with the augmentation of the original system with a single integrator and for <a class="reference internal" href="#control-optimal-ref-tracking-ramp"><span class="std std-ref">tracking ramp reference</span></a> with the augmentation with a double integrator.</p>
+<p>This procedure is somehow equivalent to the addition of integrators in open-loop transfer function, as discussed in the section about <a class="reference internal" href="closed-loop-requirements-performance-siso-ref-tracking.html#control-closed-loop-requirements-performance-siso-ref-tracking"><span class="std std-ref">reference tracking as a performance of a closed-loop system</span></a>.</p>
+<div class="section" id="augmented-system-for-tracking-step-reference-signal-integrator">
+<span id="control-optimal-ref-tracking-step"></span><h2><span class="section-number">34.3.7.1. </span>Augmented system for tracking step reference signal - integrator<a class="headerlink" href="#augmented-system-for-tracking-step-reference-signal-integrator" title="Permalink to this heading">#</a></h2>
+<p>Let <span class="math notranslate nohighlight">\(\mathbf{y}_{\text{ref}}\)</span> a reference signal. An augmented system can be defined in order to use optimal control for tracking the desired reference signal.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+ \dot{\mathbf{x}} &amp; = \mathbf{A} \mathbf{x} + \mathbf{B} \mathbf{u} \\
+      \mathbf{y}  &amp; = \mathbf{C} \mathbf{x} + \mathbf{D} \mathbf{u}
+\end{aligned}\end{split}\]</div>
+<p>the state-space representation of the plant. Let <span class="math notranslate nohighlight">\(\mathbf{y}_{ref}\)</span> a desired output and the integral error</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{e}(t) := \int_{\tau=0}^{t} \left\{ \mathbf{y}(\tau) - \mathbf{y}_{ref}(\tau) \right\} d \tau \ ,\]</div>
+<p>as a new state with dynamical equation</p>
+<div class="math notranslate nohighlight">
+\[\dot{\mathbf{e}} = \mathbf{y}(t) - \mathbf{y}_{ref}(t) = \mathbf{C} \mathbf{x} + \mathbf{D} \mathbf{u} - \mathbf{y}_{ref} \ .\]</div>
+<p>The optimal control is applied to the augmented system</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\underbrace{\begin{bmatrix} \dot{\mathbf{x}} \\ \dot{\mathbf{e}} \end{bmatrix}}_{\dot{\mathbf{z}}} = \underbrace{\begin{bmatrix} \mathbf{A} &amp; \cdot \\ \mathbf{C} &amp; \cdot \end{bmatrix}}_{\hat{\mathbf{A}}} \underbrace{\begin{bmatrix} \mathbf{x} \\ \mathbf{e} \end{bmatrix}}_{\mathbf{z}} + \underbrace{\begin{bmatrix} \mathbf{B} \\ \mathbf{D} \end{bmatrix}}_{\hat{\mathbf{B}}_u} \mathbf{u} + \underbrace{\begin{bmatrix} \cdot \\ -\mathbf{I} \end{bmatrix}}_{\hat{\mathbf{B}}_{ref}} \mathbf{y}_{ref}\end{split}\]</div>
+<p>Optimal control framework provides the opitmal gain matrix <span class="math notranslate nohighlight">\(\hat{\mathbf{K}}\)</span>, so that <span class="math notranslate nohighlight">\(\mathbf{u} = - \hat{\mathbf{K}} \mathbf{z}\)</span> and the closed loop system becomes</p>
+<div class="math notranslate nohighlight">
+\[\dot{\mathbf{z}} = \left( \hat{\mathbf{A}} - \hat{\mathbf{B}}_u \hat{\mathbf{K}} \right) \mathbf{z} + \hat{\mathbf{B}}_{ref} \mathbf{y}_{ref} \ .\]</div>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
 <summary class="sd-summary-title sd-card-header">
-Table of contents<div class="sd-summary-down docutils">
+<span class="math notranslate nohighlight">\(\lim_{t \rightarrow +\infty} e(t)\)</span><div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><strong>Transfer function.</strong> From the reference signal to the tracking error,</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{e}(s) = \mathbf{y}_{\text{ref}} - \mathbf{G}_k(s) \frac{\mathbf{e}}{s}\]</div>
+<div class="math notranslate nohighlight">
+\[\mathbf{e}(s) = \left[ \mathbf{I} + \frac{1}{s} \mathbf{G}_k(s) \right]^{-1} \mathbf{y}_{\text{ref}}(s)\]</div>
+<p class="sd-card-text"><strong>Final value theorem.</strong></p>
+<div class="math notranslate nohighlight">
+\[\lim_{t \rightarrow +\infty} \mathbf{e}(t) = \lim_{s \rightarrow 0} s \mathbf{e}(s)\]</div>
+<p class="sd-card-text">Let <span class="math notranslate nohighlight">\(\mathbf{y}_{\text{ref}}\)</span> a polynomial reference input, <span class="math notranslate nohighlight">\(\mathbf{y}_{\text{ref}} = \mathbf{C}_{-1} \delta(t) + \sum_{k=0}^{m} \mathbf{C}_k t^k\)</span> then its Laplace transform reads <span class="math notranslate nohighlight">\(\mathbf{y}_{\text{ref}}(s) = \sum_{k=-1}^{m} \frac{\mathbf{C}_k}{s^{k+1}}\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \lim_{t \rightarrow +\infty} \mathbf{e}(t) 
+  &amp; = \lim_{s \rightarrow 0} s \mathbf{e}(s) = \\
+  &amp; = \lim_{s \rightarrow 0} s \left[ \mathbf{I} + \frac{1}{s} \mathbf{G}_k(s) \right]^{-1} \left( \sum_{k=-1}^{m} \frac{\mathbf{C}_k}{s^{k+1}} \right) = \\
+  &amp; = \lim_{s \rightarrow 0} s \cdot s \, \mathbf{G}_k^{-1}(s) \left( \sum_{k=-1}^{m} \frac{\mathbf{C}_k}{s^{k+1}} \right) \ ,
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">and thus, if</p>
 <ul class="simple">
-<li><p class="sd-card-text">Frequency domain control of linear systems</p></li>
-<li><p class="sd-card-text">State estimation and observer</p></li>
-<li><p class="sd-card-text">Optimal control</p></li>
-<li><p class="sd-card-text">System identification</p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(m = 0\)</span> (i.e. linear combination of Dirac’s delta and a step) the asymptotic value of the tracking error is zero;</p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(m = 1\)</span> (i.e. up to a ramp) the asymptotic value of the tracking error is constant, <span class="math notranslate nohighlight">\(\mathbf{G}_k^{-1}(0) \mathbf{C}_1\)</span>;</p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(m &gt; 1\)</span> the tracking error goes to infinity.</p></li>
 </ul>
 </div>
-</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+</details><div class="figure align-center" id="fig-optimal-tracking-step">
+<img alt="Optimal control. Reference tracking for step" src="../../_images/optimal-control-tracking-step.png" />
+<p class="caption"><span class="caption-number">Fig. 34.4 </span><span class="caption-text">Caption</span><a class="headerlink" href="#fig-optimal-tracking-step" title="Permalink to this image">#</a></p>
+</div>
+</div>
+<div class="section" id="augmented-system-for-tracking-ramp-reference-signal-double-integrator">
+<span id="control-optimal-ref-tracking-ramp"></span><h2><span class="section-number">34.3.7.2. </span>Augmented system for tracking ramp reference signal - double integrator<a class="headerlink" href="#augmented-system-for-tracking-ramp-reference-signal-double-integrator" title="Permalink to this heading">#</a></h2>
+<p>Let <span class="math notranslate nohighlight">\(\mathbf{y}_{\text{ref}}\)</span> a reference signal. An augmented system can be defined in order to used optimal control. Let</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+ \dot{\mathbf{x}} &amp; = \mathbf{A} \mathbf{x} + \mathbf{B} \mathbf{u} \\
+      \mathbf{y}  &amp; = \mathbf{C} \mathbf{x} + \mathbf{D} \mathbf{u}
+\end{aligned}\end{split}\]</div>
+<p>the state-space representation of the plant. Let <span class="math notranslate nohighlight">\(\mathbf{y}_{ref}\)</span> a desired output and the integral error</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{e}_1(t) := \int_{\tau=0}^{t} \left\{ \mathbf{y}(\tau) - \mathbf{y}_{ref}(\tau) \right\} d \tau \ ,\]</div>
+<p>as a new state with dynamical equation</p>
+<div class="math notranslate nohighlight">
+\[\dot{\mathbf{e}}_1 = \mathbf{y}(t) - \mathbf{y}_{ref}(t) = \mathbf{C} \mathbf{x} + \mathbf{D} \mathbf{u} - \mathbf{y}_{ref} \ .\]</div>
+<p>The second augmenting state is defined as</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{e}_2(t) := \int_{\tau=0}^{t} \mathbf{e}_1(\tau) \, d\tau \ ,\]</div>
+<p>so that the dynamical equation is</p>
+<div class="math notranslate nohighlight">
+\[\dot{\mathbf{e}}_2 = \mathbf{e}_1 \ .\]</div>
+<p>The optimal control is applied to the augmented system</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\underbrace{\begin{bmatrix} \dot{\mathbf{x}} \\ \dot{\mathbf{e}}_1 \\ \dot{\mathbf{e}}_2 \end{bmatrix}}_{\dot{\mathbf{z}}} = \underbrace{\begin{bmatrix} \mathbf{A} &amp; \cdot &amp; \cdot \\ \mathbf{C} &amp; \cdot &amp; \cdot \\ \cdot &amp; \mathbf{I} &amp; \cdot \end{bmatrix}}_{\hat{\mathbf{A}}} \underbrace{\begin{bmatrix} \mathbf{x} \\ \mathbf{e}_1 \\ \mathbf{e}_2 \end{bmatrix}}_{\mathbf{z}} + \underbrace{\begin{bmatrix} \mathbf{B} \\ \mathbf{D} \\ \cdot \end{bmatrix}}_{\hat{\mathbf{B}}_u} \mathbf{u} + \underbrace{\begin{bmatrix} \cdot \\ -\mathbf{I} \\ \cdot \end{bmatrix}}_{\hat{\mathbf{B}}_{ref}} \mathbf{y}_{ref}\end{split}\]</div>
+<p>Optimal control framework provides the opitmal gain matrix <span class="math notranslate nohighlight">\(\hat{\mathbf{K}}\)</span>, so that <span class="math notranslate nohighlight">\(\mathbf{u} = - \hat{\mathbf{K}} \mathbf{z}\)</span> and the closed loop system becomes</p>
+<p>…</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
 <summary class="sd-summary-title sd-card-header">
-Features<div class="sd-summary-down docutils">
+<span class="math notranslate nohighlight">\(\lim_{t \rightarrow +\infty} e(t)\)</span><div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text"><strong>Domain.</strong></p>
+<p class="sd-card-text"><strong>Transfer function.</strong> The closed-loop system reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  s \mathbf{x} &amp; = \mathbf{A} \mathbf{x} + \mathbf{B} \mathbf{u} = \\
+               &amp; = \left( \mathbf{A} - \mathbf{B} \mathbf{K} \right) \mathbf{x} - \mathbf{B} \mathbf{K}_1 \mathbf{z}_1 - \mathbf{B} \mathbf{K}_2 \mathbf{z}_2 \\
+  \mathbf{y} &amp; = \left( \mathbf{C} - \mathbf{D} \mathbf{K}_u \right) \mathbf{x} - \mathbf{D} \mathbf{K}_1 \mathbf{z}_1 - \mathbf{D} \mathbf{K}_2 \mathbf{z}_2 \ .
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">so that</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathbf{x} 
+  &amp; = \left( s \mathbf{I} - \mathbf{A} + \mathbf{B} \mathbf{K} \right)^{-1} \left[ - \mathbf{B} \mathbf{K}_1 \mathbf{z}_1 - \mathbf{B} \mathbf{K}_2 \mathbf{z}_2 \right] = \\ 
+  &amp; = \dots 
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">and <span class="math notranslate nohighlight">\(\mathbf{y} = \mathbf{G}_1(s) \mathbf{K}_1 \mathbf{z}_1 + \mathbf{G}_2(s) \mathbf{K}_2 \mathbf{z}_2\)</span>.</p>
+<p class="sd-card-text">From the reference signal to the tracking error,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathbf{e}(s)
+  &amp; = \mathbf{y}_{\text{ref}} - \mathbf{y} = \\
+  &amp; = \mathbf{y}_{\text{ref}} - \mathbf{G}(s) \mathbf{K}_1 \mathbf{z}_1 - \mathbf{G}(s) \mathbf{K}_2 \mathbf{z}_2 = \\
+  &amp; = \mathbf{y}_{\text{ref}} - \mathbf{G}_1(s) \frac{\mathbf{e}}{s} - \mathbf{G}_2(s) \frac{\mathbf{e}}{s^2} \ ,
+\end{aligned}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\mathbf{e}(s) = \left[ \mathbf{I} + \frac{1}{s} \mathbf{G}_1(s) + \frac{1}{s^2} \mathbf{G}_2(s) \right]^{-1} \mathbf{y}_{\text{ref}}(s)\]</div>
+<p class="sd-card-text"><strong>Final value theorem.</strong></p>
+<div class="math notranslate nohighlight">
+\[\lim_{t \rightarrow +\infty} \mathbf{e}(t) = \lim_{s \rightarrow 0} s \mathbf{e}(s)\]</div>
+<p class="sd-card-text">Let <span class="math notranslate nohighlight">\(\mathbf{y}_{\text{ref}}\)</span> a polynomial reference input, <span class="math notranslate nohighlight">\(\mathbf{y}_{\text{ref}} = \mathbf{C}_{-1} \delta(t) + \sum_{k=0}^{m} \mathbf{C}_k t^k\)</span> then its Laplace transform reads <span class="math notranslate nohighlight">\(\mathbf{y}_{\text{ref}}(s) = \sum_{k=-1}^{m} \frac{\mathbf{C}_k}{s^{k+1}}\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \lim_{t \rightarrow +\infty} \mathbf{e}(t) 
+  &amp; = \lim_{s \rightarrow 0} s \mathbf{e}(s) = \\
+  &amp; = \lim_{s \rightarrow 0} s \left[ \mathbf{I} + \frac{1}{s} \mathbf{G}_1(s) + \frac{1}{s^2} \mathbf{G}_2(s) \right]^{-1} \left( \sum_{k=-1}^{m} \frac{\mathbf{C}_k}{s^{k+1}} \right) = \\
+  &amp; = \lim_{s \rightarrow 0} s \cdot s^2 \, \mathbf{G}_2^{-1}(s) \left( \sum_{k=-1}^{m} \frac{\mathbf{C}_k}{s^{k+1}} \right) \ ,
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">and thus, if</p>
 <ul class="simple">
-<li><p class="sd-card-text">Frequency domain for linear systems: root locus, <span class="xref myst">Nyquist criterion</span> and Bode criteria,…</p></li>
-<li><p class="sd-card-text">Time domain: <a class="reference internal" href="optimal-control.html#control-optimal"><span class="std std-ref">optimal control</span></a>, robust optimal control,…</p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(m = 1\)</span> (i.e. linear combination of Dirac’s delta, step, and ramp) the asymptotic value of the tracking error is zero;</p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(m = 2\)</span> (i.e. up to a parabolic input, <span class="math notranslate nohighlight">\(\dots + \mathbf{C}_2 t^2\)</span>) the asymptotic value of the tracking error is constant, <span class="math notranslate nohighlight">\(\mathbf{G}_2^{-1}(0) \mathbf{C}_2\)</span>;</p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(m &gt; 2\)</span> the tracking error goes to infinity.</p></li>
 </ul>
-<p class="sd-card-text"><strong>Full-state, partial-state feedback.</strong></p>
-<ul class="simple">
-<li><p class="sd-card-text">Full-state feedback: the complete state of the system can be observed and used for the feedback</p></li>
-<li><p class="sd-card-text">Partial-state feedback</p></li>
-</ul>
-<p class="sd-card-text"><strong>Observers</strong>, e.g. <a class="reference internal" href="observer.html#control-observer-kalman"><span class="std std-ref">Kalman filter</span></a>, tries to estimate the state of a system from its output. Later, this estimatio can be used for feedback.</p>
-<p class="sd-card-text"><strong>Model-based/model-free control.</strong></p>
 </div>
-</details><div class="toctree-wrapper compound">
+</details><div class="figure align-center" id="fig-optimal-tracking-ramp">
+<img alt="Optimal control. Reference tracking for ramp" src="../../_images/optimal-control-tracking-ramp.png" />
+<p class="caption"><span class="caption-number">Fig. 34.5 </span><span class="caption-text">Caption</span><a class="headerlink" href="#fig-optimal-tracking-ramp" title="Permalink to this image">#</a></p>
+</div>
 </div>
 </div>
 
@@ -641,20 +748,20 @@ Features<div class="sd-summary-down docutils">
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../system-theory/order-reduction-balanced-truncation.html"
+       href="optimal-control-regulator-observer.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">33.1. </span>Balanced truncation</p>
+        <p class="prev-next-title"><span class="section-number">34.3.6. </span>Combination of controller and observer</p>
       </div>
     </a>
     <a class="right-next"
-       href="closed-loop-requirements-performance.html"
+       href="kalman.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">34.1. </span>Closed-loop control: requirements and performance</p>
+        <p class="prev-next-title"><span class="section-number">34.3.8. </span>Kalman filter</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -664,6 +771,21 @@ Features<div class="sd-summary-down docutils">
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#augmented-system-for-tracking-step-reference-signal-integrator">34.3.7.1. Augmented system for tracking step reference signal - integrator</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#augmented-system-for-tracking-ramp-reference-signal-double-integrator">34.3.7.2. Augmented system for tracking ramp reference signal - double integrator</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

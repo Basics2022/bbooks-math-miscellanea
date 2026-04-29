@@ -276,8 +276,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l3"><a class="reference internal" href="optimal-control-observer.html">34.3.4. Optimal observer for deterministic disturbances</a></li>
 <li class="toctree-l3"><a class="reference internal" href="optimal-control-output.html">34.3.5. Sub-optimal control for output feedback</a></li>
 <li class="toctree-l3"><a class="reference internal" href="optimal-control-regulator-observer.html">34.3.6. Combination of controller and observer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kalman.html">34.3.7. Kalman filter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="hjb.html">34.3.8. Hamilton Bellman Jacobi equation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optimal-control-ref-tracking.html">34.3.7. Optimal control for reference tracking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kalman.html">34.3.8. Kalman filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hjb.html">34.3.9. Hamilton Bellman Jacobi equation</a></li>
 </ul>
 </li>
 </ul>
@@ -568,6 +569,7 @@ document.write(`
 <ul class="simple">
 <li><p>Deterministic/stochastic signals</p></li>
 <li><p>Full-state feedback, observer and full-state on observed state, output feedback</p></li>
+<li><p>Regulator (targeting zero state <span class="math notranslate nohighlight">\(\mathbf{x} = \mathbf{0}\)</span>), or <a class="reference internal" href="optimal-control-ref-tracking.html#control-optimal-ref-tracking"><span class="std std-ref">reference tracking</span></a> (targeting zero error of the output w.r.t. a reference input of the closed-loop system <span class="math notranslate nohighlight">\(\mathbf{y}_{\text{ref}}\)</span>)</p></li>
 </ul>
 <p><strong>Deterministic signals.</strong></p>
 <ul class="simple">

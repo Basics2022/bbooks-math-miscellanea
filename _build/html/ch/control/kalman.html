@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>34.3.7. Kalman filter &#8212; basics - math</title>
+    <title>34.3.8. Kalman filter &#8212; basics - math</title>
   
   
   
@@ -71,8 +71,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="34.3.8. Hamilton Bellman Jacobi equation" href="hjb.html" />
-    <link rel="prev" title="34.3.6. Combination of controller and observer" href="optimal-control-regulator-observer.html" />
+    <link rel="next" title="34.3.9. Hamilton Bellman Jacobi equation" href="hjb.html" />
+    <link rel="prev" title="34.3.7. Optimal control for reference tracking" href="optimal-control-ref-tracking.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -276,8 +276,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l3"><a class="reference internal" href="optimal-control-observer.html">34.3.4. Optimal observer for deterministic disturbances</a></li>
 <li class="toctree-l3"><a class="reference internal" href="optimal-control-output.html">34.3.5. Sub-optimal control for output feedback</a></li>
 <li class="toctree-l3"><a class="reference internal" href="optimal-control-regulator-observer.html">34.3.6. Combination of controller and observer</a></li>
-<li class="toctree-l3 current active"><a class="current reference internal" href="#">34.3.7. Kalman filter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="hjb.html">34.3.8. Hamilton Bellman Jacobi equation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optimal-control-ref-tracking.html">34.3.7. Optimal control for reference tracking</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">34.3.8. Kalman filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hjb.html">34.3.9. Hamilton Bellman Jacobi equation</a></li>
 </ul>
 </li>
 </ul>
@@ -561,8 +562,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-dynamics">34.3.7.1. Error dynamics</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimality-conditions">34.3.7.2. Optimality conditions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-dynamics">34.3.8.1. Error dynamics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimality-conditions">34.3.8.2. Optimality conditions</a></li>
 </ul>
             </nav>
         </div>
@@ -575,7 +576,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="kalman-filter">
-<span id="control-kalman"></span><h1><span class="section-number">34.3.7. </span>Kalman filter<a class="headerlink" href="#kalman-filter" title="Permalink to this heading">#</a></h1>
+<span id="control-kalman"></span><h1><span class="section-number">34.3.8. </span>Kalman filter<a class="headerlink" href="#kalman-filter" title="Permalink to this heading">#</a></h1>
 <p>Kalman filter is an optimal state estimator, in terms of minimum-variance error reconstruction. It has the structure of a state observer. Let the linear system</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{cases}
@@ -589,7 +590,7 @@ document.write(`
   \mathbf{y}_o = \mathbf{C} \mathbf{o} + \mathbf{D}_u \mathbf{u}
 \end{cases}\end{split}\]</div>
 <div class="section" id="error-dynamics">
-<h2><span class="section-number">34.3.7.1. </span>Error dynamics<a class="headerlink" href="#error-dynamics" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">34.3.8.1. </span>Error dynamics<a class="headerlink" href="#error-dynamics" title="Permalink to this heading">#</a></h2>
 <p>Let the error be defined as <span class="math notranslate nohighlight">\(\mathbf{e} := \mathbf{x} - \mathbf{o}\)</span>, its dynamical equation reads</p>
 <div class="math notranslate nohighlight" id="equation-eq-kalman-error-eq">
 <span class="eqno">(34.12)<a class="headerlink" href="#equation-eq-kalman-error-eq" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
@@ -638,7 +639,7 @@ $$
 \[\boldsymbol\sigma_{xi}^2 = \dots \]</div>
 </div>
 <div class="section" id="optimality-conditions">
-<h2><span class="section-number">34.3.7.2. </span>Optimality conditions<a class="headerlink" href="#optimality-conditions" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">34.3.8.2. </span>Optimality conditions<a class="headerlink" href="#optimality-conditions" title="Permalink to this heading">#</a></h2>
 <p>…</p>
 <div class="math notranslate nohighlight">
 \[\mathbf{L} = \]</div>
@@ -680,12 +681,12 @@ $$
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="optimal-control-regulator-observer.html"
+       href="optimal-control-ref-tracking.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">34.3.6. </span>Combination of controller and observer</p>
+        <p class="prev-next-title"><span class="section-number">34.3.7. </span>Optimal control for reference tracking</p>
       </div>
     </a>
     <a class="right-next"
@@ -693,7 +694,7 @@ $$
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">34.3.8. </span>Hamilton Bellman Jacobi equation</p>
+        <p class="prev-next-title"><span class="section-number">34.3.9. </span>Hamilton Bellman Jacobi equation</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -712,8 +713,8 @@ $$
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-dynamics">34.3.7.1. Error dynamics</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimality-conditions">34.3.7.2. Optimality conditions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-dynamics">34.3.8.1. Error dynamics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimality-conditions">34.3.8.2. Optimality conditions</a></li>
 </ul>
   </nav></div>
 

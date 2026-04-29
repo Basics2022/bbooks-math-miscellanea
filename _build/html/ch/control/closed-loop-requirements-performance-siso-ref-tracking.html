@@ -65,6 +65,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'ch/control/closed-loop-requirements-performance-siso-ref-tracking';</script>
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -563,6 +565,59 @@ document.write(`
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="reference-tracking-siso">
 <span id="control-closed-loop-requirements-performance-siso-ref-tracking"></span><h1><span class="section-number">34.1.4. </span>Reference tracking (SISO)<a class="headerlink" href="#reference-tracking-siso" title="Permalink to this heading">#</a></h1>
+<p>Setting <span class="math notranslate nohighlight">\(\mathbf{F} = \mathbf{I}\)</span> in <a class="reference internal" href="closed-loop-requirements-performance.html#fig-closed-loop-tfs"><span class="std std-numref">Fig. 34.1</span></a>, and neglecting disturbances, the transfer functions between the output and the reference and between the tracking error and the reference signal are</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  E(s) &amp; = \frac{1}{1 + G(s) R(s)} Y_{\text{ref}}(s) \\
+  Y(s) &amp; = \frac{G(s)R(s)}{1 + G(s) R(s)} Y_{\text{ref}}(s) \\
+\end{aligned}\end{split}\]</div>
+<p><strong>Polynomial forcing.</strong></p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Laplace transform of polynomial signals<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Laplace transform of (casual) polynomial signals immediately follows from the transform of a Dirac’s delta and the property of the Laplace transform of the integral of a function,</p>
+<div class="math notranslate nohighlight">
+\[\mathscr{L}\left\{ \int_{\tau=0}^{t} f(\tau) \, d \tau \right\} = \frac{F(s)}{s} \ , \]</div>
+<p class="sd-card-text">being <span class="math notranslate nohighlight">\(F(s)\)</span> the Laplace transform of function <span class="math notranslate nohighlight">\(f(t)\)</span>. Indeed, a ramp can be interpreted as the integral of a Dirac’s delta, a casual parabolic signal is the integral of the ramp, and so on.</p>
+<p class="sd-card-text"><strong>Dirac’s delta.</strong></p>
+<div class="math notranslate nohighlight">
+\[F_{-1} := F_{\delta} = \mathscr{L} \{ \delta(t) \} = \int_{t = 0^-}^{+\infty} \delta(t) e^{-st} dt  = 1 \ . \]</div>
+<p class="sd-card-text"><strong>Step.</strong> Step is the integral of the Dirac’s delta.</p>
+<div class="math notranslate nohighlight">
+\[F_0 := F_{\text{step}} = \mathscr{L} \{ 1 \} = \frac{1}{s} \ .\]</div>
+<p class="sd-card-text"><strong>Ramp.</strong> Step is the integral of the Dirac’s delta.</p>
+<div class="math notranslate nohighlight">
+\[F_1 := F_{\text{ramp}} = \mathscr{L} \{ t \} = \frac{1}{s^2} \ .\]</div>
+<p class="sd-card-text"><strong>Signal <span class="math notranslate nohighlight">\(t^n\)</span>, <span class="math notranslate nohighlight">\(n \in \mathbb{N}\)</span>.</strong></p>
+<div class="math notranslate nohighlight">
+\[\mathscr{L} \left\{ t^n \right\} = \frac{1}{s^{n+1}} \ .\]</div>
+</div>
+</details><p><strong>Limit of the tracking error of polynomial forcing, for <span class="math notranslate nohighlight">\(t \rightarrow +\infty\)</span>.</strong>
+Assuming the system is stable, the free-response to initial condition vanishes. Using <strong>final value</strong> property of Laplace transform (see <a class="reference internal" href="../complex/laplace-def-thm.html#complex-laplace-def-thm"><span class="std std-ref">Laplace transform definition and properties</span></a>),</p>
+<div class="math notranslate nohighlight">
+\[\lim_{t \rightarrow + \infty} e(t) = \lim_{s \rightarrow 0} s E(s) \ .\]</div>
+<p>Let the open-loop transfer function <span class="math notranslate nohighlight">\(L(s) = G(s) R(s)\)</span> be <span class="math notranslate nohighlight">\(L(s) = \frac{N(s)}{s^p D(s)}\)</span>, having explicitly written the integrators (the factors <span class="math notranslate nohighlight">\(\frac{1}{s}\)</span> in the denominator of the TF), so that <span class="math notranslate nohighlight">\(D(0) \ne 0\)</span>, <span class="math notranslate nohighlight">\(N(s) \ne 0\)</span>. For casual systems <span class="math notranslate nohighlight">\(|N| \le p + |D|\)</span>. The closed-loop function reads</p>
+<div class="math notranslate nohighlight">
+\[\frac{1}{1 + L(s)} = \frac{s^p D(s)}{ s^p D(s) + N(s) } \ .\]</div>
+<p>Let <span class="math notranslate nohighlight">\(Y_{\text{ref}}(s) = C_0 + \frac{C_1}{s} + \dots + \frac{C_{m+1}}{s^{m+1}}\)</span> the Laplace transform of a <span class="math notranslate nohighlight">\(m\)</span>-degree polynomial reference, the limit value of the tracking error reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \lim_{t \rightarrow + \infty} e(t) 
+  &amp; = \lim_{s \rightarrow 0} s E(s) = \\
+  &amp; = \lim_{s \rightarrow 0} \frac{ s^{p+1} D(s) }{ s^p D(s) + N(s) } \left( C_0 + \frac{C_1}{s} + \dots + \frac{C_{m+1}}{s^{m+1}} \right) = \\
+  &amp; = \lim_{s \rightarrow 0} \frac{ s^{p-m} D(s) }{ s^p D(s) + N(s) } \left( s^{m+1}C_0 + s^m C_1 + \dots + C_{m+1} \right) = \\
+  &amp; = \left\{
+  \begin{aligned}
+    &amp; 0                 &amp;&amp; \ , \qquad p &gt; m \\
+    &amp; \frac{D(0)}{N(0)} &amp;&amp; \ , \qquad p = m \\
+    &amp; +\infty           &amp;&amp; \ , \qquad p &lt; m \\
+  \end{aligned} \right.
+\end{aligned}\end{split}\]</div>
+<p><strong>Type of the system.</strong></p>
 </div>
 
     <script type="text/x-thebe-config">
