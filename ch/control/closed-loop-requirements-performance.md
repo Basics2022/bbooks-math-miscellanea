@@ -103,7 +103,7 @@ For a SISO, beside process noise $\mathbf{d}$ that may have its own dynamics, th
 
   $$PS = \frac{G}{1 + GR} \ ,$$
 
-* noise sensitivity ($\mathbf{u}_c(\Delta \mathbf{r})$, $\mathbf{u}_c(\Delta \mathbf{n})$)
+* noise sensitivity ($\mathbf{u}_c(\mathbf{r})$, $\mathbf{u}_c(\mathbf{n})$)
 
   $$CS = \frac{R}{1 + GR} \ ,$$
 
