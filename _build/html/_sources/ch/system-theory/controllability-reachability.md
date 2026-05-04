@@ -62,6 +62,15 @@ having introduced the definition of the **controllability Gramian**, $\mathbf{W}
 
 ```
 
+```{prf:definition} Controllability Gramian
+:label: def:controllability-gramian
+
+$$
+\mathbf{W}_c(t,t_0) := \int_{\tau=t_0}^{t} \boldsymbol\Phi(\tau,t_0) \mathbf{B}(\tau) \mathbf{B}^T(\tau) \boldsymbol\Phi^T(\tau,t_0) d \tau
+$$ (eq:controllability-gramian:def)
+
+```
+
 Controllability Gramian satisfies the [Lyapunov equation](lyapunov-eq)
 
 $$

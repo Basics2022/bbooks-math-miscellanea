@@ -42,6 +42,14 @@ $$\mathbf{W}_o(t) \, \mathbf{x}_0 = \int_{\tau=t_0}^{t} \boldsymbol\Phi^T(\tau,t
 
 * Discuss the **pullback** of the output to the state space (before $\sim$ least-square inversion )
 
+```{prf:definition} Observability Gramian
+:label: def:observability-gramian
+
+$$
+\mathbf{W}_o(t) := \int_{\tau=t_0}^{t} \boldsymbol\Phi^T(\tau,t_0) \mathbf{C}^T(\tau) \mathbf{C}(\tau) \boldsymbol\Phi(\tau,t_0) d \tau
+$$ (eq:observability-gramian:def)
+
+```
 
 ### Detectability
 
