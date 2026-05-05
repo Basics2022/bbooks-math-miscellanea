@@ -571,7 +571,8 @@ document.write(`
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="shape-filter">
 <span id="system-theory-shape-filter"></span><h1><span class="section-number">35. </span>Shape filter<a class="headerlink" href="#shape-filter" title="Permalink to this heading">#</a></h1>
-<p>From the <a class="reference internal" href="lti-response.html#ode-lti-response-stochastic"><span class="std std-ref">response of LTI systems to stochastic input</span></a>, the auto-correlation of a zero-mean stationary process <span class="math notranslate nohighlight">\(x(t)\)</span> (and thus its auto-covariance) reads</p>
+<p><strong>Response of a LTI to stochastic inputs.</strong>
+From the <a class="reference internal" href="lti-response.html#ode-lti-response-stochastic"><span class="std std-ref">response of LTI systems to stochastic input</span></a>, the auto-correlation of a zero-mean stationary process <span class="math notranslate nohighlight">\(x(t)\)</span> (and thus its auto-covariance) reads</p>
 <div class="math notranslate nohighlight">
 \[\mathbf{R}_{\mathbf{x} \mathbf{x}}(\tau) = \mathbb{E}\left[ \mathbf{x}_t \mathbf{x}^*_{t + \tau} \right] \ .\]</div>
 <p>Fourier transform of this auto-correlation is defined as its <strong>power spectral density, PSD</strong>,</p>
@@ -581,8 +582,22 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[\mathbf{y}(s) = \mathbf{H}(s) \mathbf{u}(s) \ ,\]</div>
 <p>the PSD of the output can be written as a function of the PSD of the input and the Fourier transform of the transfer function as</p>
+<div class="math notranslate nohighlight" id="equation-eq-psd-io-vector">
+<span class="eqno">(35.1)<a class="headerlink" href="#equation-eq-psd-io-vector" title="Permalink to this equation">#</a></span>\[\boldsymbol\Phi_{\mathbf{y}\mathbf{y}} (f) = \overline{\mathbf{H}}(f) \boldsymbol\Phi_{\mathbf{u}\mathbf{u}}(f) \mathbf{H}^T(f) \ .\]</div>
+<p><strong>SISO system.</strong> The transfer function is a scalar function for a SISO system, and thus</p>
+<div class="math notranslate nohighlight" id="equation-eq-psd-io-scalar">
+<span class="eqno">(35.2)<a class="headerlink" href="#equation-eq-psd-io-scalar" title="Permalink to this equation">#</a></span>\[\Phi_{yy}(f) = \overline{H}(f) \Phi_{uu}(f) H(f) = \left| H(f) \right|^2 \Phi_{uu}(f) \ ,\]</div>
+<p>as the product of a complex number by its complex cojugate is equal to the square of its modulus.</p>
+<p><strong>White noise.</strong>
+A <a class="reference external" href="https://basics2022.github.io/bbooks-statistics/ch/prob/white-noise.html">white noise</a> <span class="math notranslate nohighlight">\(\xi(t)\)</span> can be defined as a random process with</p>
+<ul class="simple">
+<li><p>zero expected value, <span class="math notranslate nohighlight">\(\mathbb{E}[\xi_t] = 0\)</span></p></li>
+<li><p>Dirac’s delta auto-correlation, <span class="math notranslate nohighlight">\(\mathbb{E}[\xi_t \xi_{t+\tau}] = \delta(\tau)\)</span>.</p></li>
+</ul>
+<p><a class="reference internal" href="../functional-analysis/dirac-delta.html#functional-analysis-dirac-delta"><span class="std std-ref">Fourier transform of a Dirac’s delta</span></a> is <span class="math notranslate nohighlight">\(1\)</span>, and thus the PSD of a white noise is</p>
 <div class="math notranslate nohighlight">
-\[\boldsymbol\Phi_{\mathbf{y}\mathbf{y}} (f) = \overline{\mathbf{H}}(f) \boldsymbol\Phi_{\mathbf{u}\mathbf{u}}(f) \mathbf{H}^T(f) \ .\]</div>
+\[\boldsymbol\Phi_{\xi \xi}(f) = 1 \ .\]</div>
+<p><strong>SISO shape filter.</strong> A process <span class="math notranslate nohighlight">\(y(t)\)</span> with the desired PSD <span class="math notranslate nohighlight">\(\Phi_{yy}(f)\)</span> is the output of a shape filter - a dynamical system - with TF <span class="math notranslate nohighlight">\(H(f)\)</span> satisfying the relation <span class="math notranslate nohighlight">\(|H(f)|^2 = \Phi_{yy}(f)\)</span>, fed by a white noise with unit autocovariance. This can be immediately proved inserting <span class="math notranslate nohighlight">\(\Phi_{uu}(f) = 1\)</span> in the relation <a class="reference internal" href="#equation-eq-psd-io-scalar">(35.2)</a>.</p>
 </div>
 
     <script type="text/x-thebe-config">
