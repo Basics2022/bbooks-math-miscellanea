@@ -65,6 +65,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'ch/control/optimal-control-observer-gaussian';</script>
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -570,7 +572,101 @@ document.write(`
   <div class="tex2jax_ignore mathjax_ignore section" id="optimal-observer-for-stochastic-gaussian-disturbance">
 <span id="control-optimal-observer-stochastic"></span><h1><span class="section-number">39.5. </span>Optimal observer for stochastic Gaussian disturbance<a class="headerlink" href="#optimal-observer-for-stochastic-gaussian-disturbance" title="Permalink to this heading">#</a></h1>
 <p>Non-Gaussian disturbances can be obtained as the output of <span class="xref myst">shape filters</span> with Gaussian inputs.</p>
+<p>From the equations of the plant</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{cases}
+ \dot{\mathbf{x}} = \mathbf{A} \mathbf{x} + \mathbf{B} \mathbf{u} + \mathbf{B}_d \mathbf{d} \\
+ \mathbf{y}       = \mathbf{C} \mathbf{x} + \mathbf{D} \mathbf{u} + \mathbf{D}_d \mathbf{d} + \mathbf{D}_r \mathbf{r}
+\end{cases}\end{split}\]</div>
+<p>and the observer</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{cases}
+ \dot{\mathbf{o}} = \mathbf{A} \mathbf{o} + \mathbf{B} \mathbf{u} + \mathbf{L} \left( \mathbf{y} - \mathbf{y}_o \right) \\
+ \mathbf{y}_o     = \mathbf{C} \mathbf{o} + \mathbf{D} \mathbf{u} 
+\end{cases}\end{split}\]</div>
+<p>the dynamical equation of the error, <span class="math notranslate nohighlight">\(\mathbf{e} = \mathbf{o} - \mathbf{x}\)</span>, follows</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \dot{\mathbf{e}} 
+  &amp; = \dot{\mathbf{o}} - \dot{\mathbf{x}} = \\
+  &amp; = \mathbf{A} \mathbf{o} + \mathbf{B} \mathbf{u} + \mathbf{L} \left[ \mathbf{C} \mathbf{x} + \mathbf{D} \mathbf{u} + \mathbf{D}_d \mathbf{d} + \mathbf{D}_r \mathbf{r} - \mathbf{C} \mathbf{o} - \mathbf{D} \mathbf{u} \right] - \mathbf{A} \mathbf{x} - \mathbf{B} \mathbf{u} - \mathbf{B}_d \mathbf{d} = \\
+  &amp; = \left( \mathbf{A} - \mathbf{L} \mathbf{C} \right) \mathbf{e} + \left( \mathbf{L} \mathbf{D}_d - \mathbf{B}_d \right) \mathbf{d} + \mathbf{L} \mathbf{D}_r \mathbf{r} = \\
+  &amp; = \overline{\mathbf{A}} \mathbf{e} + \begin{bmatrix} \ \overline{\mathbf{B}}_d &amp; \overline{\mathbf{B}}_r \end{bmatrix} \begin{bmatrix} \mathbf{d} \\ \mathbf{r} \end{bmatrix}  = \\
+  &amp; = \overline{\mathbf{A}} \mathbf{e} + \overline{\mathbf{B}} \begin{bmatrix} \mathbf{d} \\ \mathbf{r} \end{bmatrix} \ .
+\end{aligned}\end{split}\]</div>
+<p>Let the distrubances be a white noise, then the <a class="reference internal" href="../ode/ode-linear-systems.html#ode-linear-miscellanea-stochastic-response-correlation-matrix-lyapunov"><span class="std std-ref">Lyapunov equation for the autocorrelation matrix of the state</span></a> reads</p>
+<div class="math notranslate nohighlight">
+\[\dot{\mathbf{R}}_{\mathbf{e}\mathbf{e}} = \overline{\mathbf{A}}(\mathbf{L}) \mathbf{R}_{\mathbf{e}\mathbf{e}} + \mathbf{R}_{\mathbf{e}\mathbf{e}} \overline{\mathbf{A}}^T(\mathbf{L}) + \overline{\mathbf{B}}(\mathbf{L}) \mathbf{W} \overline{\mathbf{B}}^T (\mathbf{L})\ ,\]</div>
+<p>with <span class="math notranslate nohighlight">\(\mathbf{W}\)</span> the matrix of the cross-correlations of the white noise distrubances,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{W} = \begin{bmatrix}
+\mathbf{W}_{\mathbf{d}\mathbf{d}} &amp; \mathbf{W}_{\mathbf{d}\mathbf{r}} \\
+\mathbf{W}_{\mathbf{r}\mathbf{d}} &amp; \mathbf{W}_{\mathbf{r}\mathbf{r}}
+\end{bmatrix} \ .
+\end{split}\]</div>
+<p>If stationary conditions are reached, the autocorrelation matrix of the error must satisfy the algebraic version of the Lyapunov equation</p>
+<div class="math notranslate nohighlight" id="equation-eq-observer-error-lyapunov-algebraic">
+<span class="eqno">(39.10)<a class="headerlink" href="#equation-eq-observer-error-lyapunov-algebraic" title="Permalink to this equation">#</a></span>\[\mathbf{0} = \overline{\mathbf{A}} (\mathbf{L})\mathbf{R}_{\mathbf{e}\mathbf{e}} + \mathbf{R}_{\mathbf{e}\mathbf{e}} \overline{\mathbf{A}}^T (\mathbf{L})+ \overline{\mathbf{B}}(\mathbf{L}) \mathbf{W} \overline{\mathbf{B}}^T(\mathbf{L}) \ .\]</div>
+<p><strong>Optimal observer.</strong> The optimal observer is defined as the observer that makes the estimation error minimum. As an example, the error can be measured as the weighted trace of the auto-correlation of the error. The constrained optimization problem reads</p>
+<div class="math notranslate nohighlight">
+\[\min_{\mathbf{L}} \text{Tr}\left( \mathbf{W}_{\mathbf{e}} \mathbf{R}_{\mathbf{e}\mathbf{e}} \right) \ ,\]</div>
+<p>subject to Lyapunov equation as a constraint.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Details of the constrained optimization<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The optimal solution is found, setting equal to zero the derivatives of the objective function</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\widetilde{J} = \text{Tr}\left( \mathbf{W}_{\mathbf{e}} \mathbf{R}_{\mathbf{e}\mathbf{e}} + \boldsymbol\Lambda\left\{ (\mathbf{A} - \mathbf{L}\mathbf{C}) \mathbf{R} + \mathbf{R} ( \mathbf{A} - \mathbf{L} \mathbf{C} )^T + \begin{bmatrix} \mathbf{L} \mathbf{D}_d - \mathbf{B}_d &amp; \mathbf{L} \mathbf{D}_r \end{bmatrix} \mathbf{W} \begin{bmatrix} \mathbf{D}_d^T \mathbf{L}^T - \mathbf{B}_d^T \\ \mathbf{D}_r^T  \mathbf{L}^T \end{bmatrix}  \right\} \right) \ ,\end{split}\]</div>
+<p class="sd-card-text">w.r.t. the matrices <span class="math notranslate nohighlight">\(\mathbf{L}\)</span>, <span class="math notranslate nohighlight">\(\boldsymbol\Lambda\)</span>, <span class="math notranslate nohighlight">\(\mathbf{R}\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+ \mathbf{0} &amp; = \frac{\partial \widetilde{J}}{\partial \mathbf{R}} = \mathbf{W}_{\mathbf{e}}^T + (\mathbf{A} - \mathbf{L}\mathbf{C})^T \boldsymbol\Lambda^T + (\mathbf{A}-\mathbf{L}\mathbf{C})\boldsymbol\Lambda^T \\
+ \mathbf{0} &amp; = \frac{\partial \widetilde{J}}{\partial \boldsymbol\Lambda} = \text{algebraic Lyapunov equation for $\mathbf{R}_{\mathbf{e}\mathbf{e}}$} \\
+ \mathbf{0} &amp; = \frac{\partial \widetilde{J}}{\partial \mathbf{L}} = - ( \mathbf{C} \mathbf{R} \boldsymbol\Lambda )^T - \boldsymbol\Lambda \mathbf{R} \mathbf{C}^T + \\
+  &amp; \qquad \qquad + \boldsymbol\Lambda^T \mathbf{L} \left( \mathbf{D}_d \mathbf{W}_{dd} \mathbf{D}^T_d \right)^T + \boldsymbol\Lambda \mathbf{L} \left( \mathbf{D}_d \mathbf{W}_{dd} \mathbf{D}^T_d \right) + \\
+  &amp; \qquad \qquad + \boldsymbol\Lambda^T \mathbf{L} \left( \mathbf{D}_r \mathbf{W}_{rr} \mathbf{D}^T_r \right)^T + \boldsymbol\Lambda \mathbf{L} \left( \mathbf{D}_r \mathbf{W}_{rr} \mathbf{D}^T_r \right) + \\
+  &amp; \qquad \qquad + \boldsymbol\Lambda^T \mathbf{L} \left( \mathbf{D}_r \mathbf{W}_{rd} \mathbf{D}^T_d \right)^T + \boldsymbol\Lambda \mathbf{L} \left( \mathbf{D}_r \mathbf{W}_{rd} \mathbf{D}^T_d \right) + \\
+  &amp; \qquad \qquad + \boldsymbol\Lambda^T \mathbf{L} \left( \mathbf{D}_d \mathbf{W}_{dr} \mathbf{D}^T_r \right)^T + \boldsymbol\Lambda \mathbf{L} \left( \mathbf{D}_d \mathbf{W}_{dr} \mathbf{D}^T_r \right) + \\
+  &amp; \qquad \qquad - \boldsymbol\Lambda \mathbf{B}_d \mathbf{W}_{dd} \mathbf{D}_d^T - \boldsymbol\Lambda^T \mathbf{B}_d \mathbf{W}_{dd} \mathbf{D}_d^T + \\
+  &amp; \qquad \qquad - \boldsymbol\Lambda \mathbf{B}_d \mathbf{W}_{dr} \mathbf{D}_r^T - \boldsymbol\Lambda \mathbf{B}_d \mathbf{W}_{dr} \mathbf{D}_r^T
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">Collecing the symmetric (<strong>todo</strong> why this assumption?) matrix <span class="math notranslate nohighlight">\(\boldsymbol\Lambda\)</span> (is it possible to collect this matrix and set the other factor to zero?)</p>
+<div class="math notranslate nohighlight" id="equation-eq-observer-gauss-l">
+<span class="eqno">(39.11)<a class="headerlink" href="#equation-eq-observer-gauss-l" title="Permalink to this equation">#</a></span>\[\mathbf{L} = \left[ \mathbf{R}_{\mathbf{e}\mathbf{e}} \mathbf{C}^T + \mathbf{B}_d \left( \mathbf{W}_{dd} \mathbf{D}_d^T + \mathbf{W}_{dr} \mathbf{D}_r^T \right) \right] \left[ 
+  \mathbf{D}_d \mathbf{W}_{dd} \mathbf{D}^T_d +
+  \mathbf{D}_d \mathbf{W}_{dr} \mathbf{D}^T_r +
+  \mathbf{D}_r \mathbf{W}_{rd} \mathbf{D}^T_d +
+  \mathbf{D}_r \mathbf{W}_{rr} \mathbf{D}^T_r
+\right]^{-1} \ ,\]</div>
+<p class="sd-card-text">Replacing the expression <a class="reference internal" href="#equation-eq-observer-gauss-l">(39.11)</a> of the <span class="math notranslate nohighlight">\(\mathbf{L}\)</span> matrix into the algebraic Lyapunov equation <a class="reference internal" href="#equation-eq-observer-error-lyapunov-algebraic">(39.10)</a> for the autocorrelation <span class="math notranslate nohighlight">\(\mathbf{R}_{\mathbf{e}\mathbf{e}}\)</span>, a Riccati equation in <span class="math notranslate nohighlight">\(\mathbf{R}_{\mathbf{e} \mathbf{e}}\)</span> appears.</p>
 </div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Derivatives w.r.t. a matrix<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[\frac{\partial \text{Tr}(\mathbf{A} \mathbf{B})}{\partial \mathbf{A}} = \frac{\partial \text{Tr}(\mathbf{A} \mathbf{B})}{\partial A_{ij}} = \dfrac{\partial ( A_{ab} B_{ba} )}{\partial A_{ij}} = \delta_{ai} \delta_{bj} B_{ba} = B_{ji} = \mathbf{B}^T\]</div>
+<div class="math notranslate nohighlight">
+\[\frac{\partial \text{Tr}(\mathbf{A} \mathbf{B})}{\partial \mathbf{B}} = \frac{\partial \text{Tr}(\mathbf{A} \mathbf{B})}{\partial B_{ij}} = \dfrac{\partial ( A_{ab} B_{ba} )}{\partial B_{ij}} = A_{ab} \delta_{ib} \delta_{aj} = A_{ji} = \mathbf{A}^T\]</div>
+<div class="math notranslate nohighlight">
+\[\frac{\partial \text{Tr}(\mathbf{A} \mathbf{B}^T)}{\partial \mathbf{B}} = \frac{\partial \text{Tr}(\mathbf{A} \mathbf{B})}{\partial B_{ij}} = \dfrac{\partial ( A_{ab} B_{ab} )}{\partial B_{ij}} = A_{ab} \delta_{ia} \delta_{bj} = A_{ij} = \mathbf{A}\]</div>
+<div class="math notranslate nohighlight">
+\[\frac{\partial \text{Tr}(\mathbf{A} \mathbf{B} \mathbf{A}^T)}{\partial \mathbf{A}} = \frac{\partial \text{Tr}(\mathbf{A} \mathbf{B} \mathbf{A}^T)}{\partial A_{ij}} = \dfrac{\partial ( A_{ab} B_{bc} A_{ac} )}{\partial A_{ij}} = B_{jc} A_{ic} + A_{ib} B_{bj} = \mathbf{A} \mathbf{B}^T + \mathbf{A} \mathbf{B} \ .\]</div>
+<div class="math notranslate nohighlight">
+\[\frac{\partial \text{Tr}(\mathbf{A} \mathbf{B} \mathbf{C})}{\partial \mathbf{B}} = \frac{\partial \text{Tr}(\mathbf{A} \mathbf{B} \mathbf{C})}{\partial B_{ij}} = \dfrac{\partial ( A_{ab} B_{bc} C_{ca} )}{\partial B_{ij}} = A_{ai} C_{ja} = \mathbf{A}^T \mathbf{C}^T \ .\]</div>
+<div class="math notranslate nohighlight">
+\[\frac{\partial \text{Tr}(\mathbf{C} \mathbf{A} \mathbf{B} \mathbf{A}^T)}{\partial \mathbf{A}} = \frac{\partial \text{Tr}(\mathbf{C} \mathbf{A} \mathbf{B} \mathbf{A}^T)}{\partial A_{ij}} = \dfrac{\partial ( C_{ab} A_{bc} B_{cd} A_{ad} )}{\partial A_{ij}} = C_{ai} B_{jd} A_{ad} + C_{ib} A_{bc} B_{cj} = \mathbf{C}^T \mathbf{A} \mathbf{B}^T + \mathbf{C} \mathbf{A} \mathbf{B} \ .\]</div>
+<div class="math notranslate nohighlight">
+\[\text{Tr}(\mathbf{A} \mathbf{B}) = A_{ij} B_{ji} = \text{Tr}( \mathbf{B} \mathbf{A} )\]</div>
+</div>
+</details></div>
 
     <script type="text/x-thebe-config">
     {
