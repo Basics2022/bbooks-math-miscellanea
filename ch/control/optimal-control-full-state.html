@@ -754,10 +754,10 @@ With dynamical equations as a constraint introduced with Lagrange multipliers<di
   &amp; - \delta \mathbf{x}^T(T) \mathbf{M}^T \boldsymbol\lambda(T) + \delta \mathbf{x}^T_t \mathbf{M}^T \boldsymbol\lambda(t) + \\
   &amp; + \int_{\tau=t}^{T} \left\{ \delta \mathbf{x}^T \partial_{\mathbf{x}} \mathbf{f}^T \boldsymbol\lambda + \delta \mathbf{u}^T \partial_{\mathbf{u}} \mathbf{f}^T \boldsymbol\lambda \right\} d \tau
 \end{aligned}\end{split}\]</div>
-<p class="sd-card-text">All the variations but <span class="math notranslate nohighlight">\(\delta \mathbf{x}_t\)</span> are identically zero if the equations <a class="reference internal" href="optimal-control-full-state-old.html#equation-eq-optimal-ode">(39.5)</a> are satisfied, the variation w.r.t. <span class="math notranslate nohighlight">\(\delta \mathbf{x}_t\)</span> shows that the sensitivity to the initial state in the value function <span class="math notranslate nohighlight">\(\mathbf{x}_t\)</span> equals the value of the Lagrange multiplier <span class="math notranslate nohighlight">\(\boldsymbol\lambda(t)\)</span>,</p>
+<p class="sd-card-text">All the variations but <span class="math notranslate nohighlight">\(\delta \mathbf{x}_t\)</span> are identically zero if the equations <a class="reference internal" href="#equation-eq-optimal-ode">(39.1)</a> are satisfied, the variation w.r.t. <span class="math notranslate nohighlight">\(\delta \mathbf{x}_t\)</span> shows that the sensitivity to the initial state in the value function <span class="math notranslate nohighlight">\(\mathbf{x}_t\)</span> equals the value of the Lagrange multiplier <span class="math notranslate nohighlight">\(\boldsymbol\lambda(t)\)</span>,</p>
 <div class="math notranslate nohighlight">
 \[\nabla_{\mathbf{x}_t} V(\mathbf{x}_t, t; ...) = \boldsymbol\lambda(t) \ ,\]</div>
-<p class="sd-card-text">with <span class="math notranslate nohighlight">\(\boldsymbol\lambda(t)\)</span> part of the solution of the equations <a class="reference internal" href="optimal-control-full-state-old.html#equation-eq-optimal-ode">(39.5)</a>. Thus the Lagrange multiplier <span class="math notranslate nohighlight">\(\boldsymbol\lambda(t)\)</span> provides an information (first order, sensitivity) about the change in the value function <span class="math notranslate nohighlight">\(V(\mathbf{x}_t, t)\)</span> for small changes of the intial state <span class="math notranslate nohighlight">\(\mathbf{x}_t\)</span>, i.e.</p>
+<p class="sd-card-text">with <span class="math notranslate nohighlight">\(\boldsymbol\lambda(t)\)</span> part of the solution of the equations <a class="reference internal" href="#equation-eq-optimal-ode">(39.1)</a>. Thus the Lagrange multiplier <span class="math notranslate nohighlight">\(\boldsymbol\lambda(t)\)</span> provides an information (first order, sensitivity) about the change in the value function <span class="math notranslate nohighlight">\(V(\mathbf{x}_t, t)\)</span> for small changes of the intial state <span class="math notranslate nohighlight">\(\mathbf{x}_t\)</span>, i.e.</p>
 <div class="math notranslate nohighlight">
 \[\delta_{\mathbf{x}_t} V(\mathbf{x}_t, t) \sim \delta \mathbf{x}_t^T \nabla_{\mathbf{x}_t} V + o(|\delta \mathbf{x}_t|) =  \delta \mathbf{x}^T_t \boldsymbol\lambda(t) + o(|\delta \mathbf{x}_t|) \ .\]</div>
 <p class="sd-card-text"><strong>todo</strong></p>
@@ -828,7 +828,7 @@ C(\mathbf{x},\mathbf{u})
 \end{aligned}\end{split}\]</div>
 <div class="math notranslate nohighlight">
 \[D(\mathbf{x}_T) = \frac{1}{2} \mathbf{x}^T(T) \mathbf{Q}_T \mathbf{x}(T) \ .\]</div>
-<p>The equations <a class="reference internal" href="optimal-control-full-state-old.html#equation-eq-optimal-ode">(39.5)</a> become</p>
+<p>The equations <a class="reference internal" href="#equation-eq-optimal-ode">(39.1)</a> become</p>
 <div class="math notranslate nohighlight" id="equation-eq-optimal-ode-linear">
 <span class="eqno">(39.3)<a class="headerlink" href="#equation-eq-optimal-ode-linear" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
  \delta \boldsymbol\lambda(t): &amp; \quad \dot{\mathbf{x}} = \mathbf{A} \mathbf{x} + \mathbf{B} \mathbf{u} \\
@@ -955,6 +955,9 @@ Optimal control<div class="sd-summary-down docutils">
 <p class="sd-card-text">Matrix <span class="math notranslate nohighlight">\(\mathbf{P}\)</span> satisfies a <a class="reference internal" href="../system-theory/lyapunov-equation.html#lyapunov-eq"><span class="std std-ref">Lyapunov equation</span></a>,</p>
 <div class="math notranslate nohighlight">
 \[\dot{\mathbf{P}} = \mathbf{A}^T \mathbf{P} + \mathbf{P}\mathbf{A} + \left( \widetilde{\mathbf{Q}} - \mathbf{G}^T \mathbf{S}^T - \mathbf{S} \mathbf{G} + \mathbf{G}^T \widetilde{\mathbf{R}} \mathbf{G} \right) \ ,\]</div>
+<p class="sd-card-text">with final conditions</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{P}(T) = \mathbf{Q}_T \ ,\]</div>
 <p class="sd-card-text">as it can be easily found by direct computation of the time derivative of <span class="math notranslate nohighlight">\(\mathbf{P}\)</span>.</p>
 </div>
 </details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
@@ -1055,11 +1058,72 @@ Decoupled system<div class="sd-summary-down docutils">
 <div class="math notranslate nohighlight">
 \[\boldsymbol\lambda_t = \partial_{\mathbf{x}_t} V = \left[ \int_{\tau=t}^{T} \hat{\boldsymbol\Phi}^T(\tau,t) \hat{\mathbf{Q}}_\tau \hat{\boldsymbol\Phi}(\tau,t) \, d \tau + \hat{\boldsymbol\Phi}^T(T,t) \mathbf{Q}_T \hat{\boldsymbol\Phi}(T,t) \right] \mathbf{x}_t = \mathbf{P}(t,T) \mathbf{x}_t \ . \]</div>
 </div>
-</details><div class="math notranslate nohighlight">
-\[\partial_t \hat{\boldsymbol\Phi}(t,\tau) = \hat{\mathbf{A}}(t)  \hat{\boldsymbol\Phi}(t,\tau) \ .\]</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Lyapunov and Riccati equations<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Control law in the uncoupled coordinates,</p>
 <div class="math notranslate nohighlight">
-\[\partial_T \mathbf{P}\]</div>
+\[\begin{split}\begin{aligned}
+  \widetilde{\mathbf{u}}
+  &amp; = - \mathbf{R}^{-1} \mathbf{B}^T \boldsymbol\lambda = \\
+  &amp; = - \mathbf{R}^{-1} \mathbf{B}^T \mathbf{P} \mathbf{x} = \\
+  &amp; = - \widetilde{\mathbf{K}} \mathbf{x} \ ,
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">and</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathbf{u} 
+  &amp; = \widetilde{\mathbf{u}} - \mathbf{R}^{-1} \mathbf{S}^T \mathbf{x} = \\
+  &amp; = - \mathbf{R}^{-1} \left( \mathbf{B}^T \mathbf{P} + \mathbf{S}^T \right) \mathbf{x} = \\
+  &amp; = - \mathbf{K} \mathbf{x} \ .
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">so that <span class="math notranslate nohighlight">\(\mathbf{R}^{-1} \mathbf{B}^T \mathbf{P} = \mathbf{K} - \mathbf{R}^{-1} \mathbf{S}^T\)</span>.</p>
+<p class="sd-card-text">Relation between the co-state an the state</p>
+<div class="math notranslate nohighlight">
+\[\boldsymbol\lambda = \mathbf{P} \mathbf{x} \ .\]</div>
+<p class="sd-card-text">State and co-state dynamical equations</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \dot{\mathbf{x}} &amp; = \hat{\mathbf{A}} \mathbf{x} + \mathbf{B} \widetilde{\mathbf{u}} \\
+  \dot{\boldsymbol\lambda} &amp; = - \hat{\mathbf{A}}^T \boldsymbol{\lambda} - \hat{\mathbf{Q}} \mathbf{x} \\
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text"><strong>Riccati equation for <span class="math notranslate nohighlight">\(\boldsymbol\lambda\)</span>.</strong></p>
+<div class="math notranslate nohighlight">
+\[-\hat{\mathbf{A}}^T \mathbf{P} \mathbf{x} - \hat{\mathbf{Q}} \mathbf{x} = \dot{\mathbf{P}} \mathbf{x} + \mathbf{P} \hat{\mathbf{A}} \mathbf{x} - \mathbf{P} \mathbf{B} \mathbf{R}^{-1} \mathbf{B}^T \mathbf{P} \mathbf{x} \ . \]</div>
+<p class="sd-card-text">For arbitrary <span class="math notranslate nohighlight">\(\mathbf{x}\)</span>, Riccati equation follows</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+\mathbf{0} 
+ &amp; = \dot{\mathbf{P}} + \mathbf{P} \hat{\mathbf{A}} + \hat{\mathbf{A}}^T \mathbf{P} + \hat{\mathbf{Q}} - \mathbf{P} \mathbf{B} \mathbf{R}^{-1} \mathbf{B}^T \mathbf{P} = \\
+ &amp; = \dot{\mathbf{P}} + \mathbf{P} \left( \mathbf{A} - \mathbf{B} \mathbf{R}^{-1} \mathbf{S}^T \right) + \left( \mathbf{A} - \mathbf{B} \mathbf{R}^{-1} \mathbf{S}^T \right)^T \mathbf{P} + \left( \mathbf{Q} - \mathbf{S} \mathbf{R}^{-1} \mathbf{S}^T \right) - \mathbf{P} \mathbf{B} \mathbf{R}^{-1} \mathbf{B}^T \mathbf{P} \ .
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text"><strong>Lyapunov equation for <span class="math notranslate nohighlight">\(\boldsymbol\lambda\)</span>.</strong> Replacing <span class="math notranslate nohighlight">\(\mathbf{K} = \mathbf{R}^{-1} \mathbf{B}^T \mathbf{P}\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+ \mathbf{0} 
+  &amp; = \dot{\mathbf{P}} + \mathbf{P} \mathbf{A} - \mathbf{K}^T \mathbf{S}^T + \mathbf{S} \mathbf{R}^{-1} \mathbf{S}^T + \mathbf{A}^T \mathbf{P} - \mathbf{S} \mathbf{K} + \mathbf{S} \mathbf{R}^{-1} \mathbf{S}^T + \mathbf{Q} - \mathbf{S} \mathbf{R}^{-1} \mathbf{S}^T - \left( \mathbf{K} - \mathbf{R}^{-1} \mathbf{S}^T \right)^T \mathbf{R} \left( \mathbf{K} - \mathbf{R}^{-1} \mathbf{S}^T \right) = \\
+  &amp; = \dot{\mathbf{P}} + \mathbf{P} \mathbf{A} + \mathbf{A}^T \mathbf{P} + \mathbf{Q} + \mathbf{S}\mathbf{R}^{-1} \mathbf{S} - \mathbf{S} \mathbf{K} - \mathbf{K}^T \mathbf{S}^T - \mathbf{K}^T \mathbf{R} \mathbf{K} + \mathbf{S} \mathbf{R}^{-1} \mathbf{R} \mathbf{K} + \mathbf{K}^T \mathbf{R} \mathbf{R}^{-1} \mathbf{S}^T - \mathbf{S} \mathbf{R}^{-1} \mathbf{R} \mathbf{R}^{-1} \mathbf{S}^T = \\
+  &amp; = \dot{\mathbf{P}} + \mathbf{P} \mathbf{A} + \mathbf{A}^T \mathbf{P} + \mathbf{Q} - \mathbf{K}^T \mathbf{R} \mathbf{K} \ .
+\end{aligned}\end{split}\]</div>
 </div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+…<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[\partial_t \hat{\boldsymbol\Phi}(t,\tau) = \hat{\mathbf{A}}(t)  \hat{\boldsymbol\Phi}(t,\tau) \ .\]</div>
+<!--
+$$\partial_T \mathbf{P}$$
+-->
+</div>
+</details></div>
 </div>
 
     <script type="text/x-thebe-config">
