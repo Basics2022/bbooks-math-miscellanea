@@ -1,4 +1,4 @@
-(control:optimal:observer)=
+(control:optimal:observer:deterministic)=
 # Optimal observer for deterministic disturbances
 
 $$\begin{cases}

@@ -13,6 +13,8 @@ $A$**-invariance** of $\text{Ran}(\mathbf{W}_c)$ and $\text{Ker}(\mathbf{W}_o)$ 
 
 In this section, [singular value decomposition](math:svd) of the Gramians of [observability](observability-detectability) and [controllability](controllability-reachability) helps in the decomposition of a LTI system in its non-observable/observable and controllable/non-controllable parts.
 
+As shown in the section about [coordinate transformation](system-theory:coordinate:transformation), in the [Kalman decomposition subsection](system-theory:coordinate:transformation:tf), only the observable and controllable parts appear in the input-output transfer function of the system.
+
 **todo** *SVD may help or not, but that's not the point here. We're supposed to know how to find an orthonormal basis, and if we can't remember how to do it, we're supposed to find a the method we like the most to do that. Orthonormal basis are not even strictly required here. Moreover, SVD of symmetric (semi) definite positive matrices coincides with spectral decomposition...*
 
 **todo** *Infinite-horizon time, or steady-state conditions, are discussed here?*

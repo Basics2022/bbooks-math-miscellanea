@@ -85,6 +85,7 @@ parts:
   - file: ch/system-theory/order-reduction
     sections:
     - file: ch/system-theory/order-reduction-balanced-truncation
+  - file: ch/system-theory/shape-filter
 - caption: Control Theory
   numbered: True
   chapters:
@@ -99,7 +100,8 @@ parts:
     - file: ch/control/optimal-control-full-state
     - file: ch/control/optimal-control-full-state-old
     - file: ch/control/optimal-control-margins
-    - file: ch/control/optimal-control-observer
+    - file: ch/control/optimal-control-observer-deterministic
+    - file: ch/control/optimal-control-observer-gaussian
     - file: ch/control/optimal-control-output
     - file: ch/control/optimal-control-regulator-observer
     - file: ch/control/optimal-control-ref-tracking
@@ -107,6 +109,7 @@ parts:
       - file: ch/control/optimal-control-ref-tracking-example
     - file: ch/control/kalman
     - file: ch/control/hjb
+  - file: ch/control/pole-placement
 - caption: Partial Differential Equations
   numbered: True
   chapters:
