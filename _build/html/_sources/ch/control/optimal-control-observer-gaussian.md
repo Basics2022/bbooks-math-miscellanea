@@ -2,6 +2,9 @@
 # Optimal observer for stochastic Gaussian disturbance
 
 Non-Gaussian disturbances can be obtained as the output of [shape filters](system-theroy:shape-filter) with Gaussian inputs.
+**todo** *Is Gaussian a synonimous of white noise here?* If so, the sentence above should be:
+"Non-white noise disturbances can be obtained as the output of [shape filters](system-theory:shape-filter) with white noise inputs."
+
 
 From the equations of the plant
 

@@ -199,312 +199,334 @@
 \contentsline {chapter}{\numberline {26}Linear Time\sphinxhyphen {}Invariant Systems}{131}{chapter.26}%
 \contentsline {section}{\numberline {26.1}Impulsive force}{132}{section.26.1}%
 \contentsline {section}{\numberline {26.2}Properties}{132}{section.26.2}%
-\contentsline {chapter}{\numberline {27}LTI system response}{135}{chapter.27}%
-\contentsline {section}{\numberline {27.1}LTI}{135}{section.27.1}%
-\contentsline {section}{\numberline {27.2}Response of LTI systems}{135}{section.27.2}%
-\contentsline {section}{\numberline {27.3}Equilibria}{136}{section.27.3}%
-\contentsline {section}{\numberline {27.4}Stability}{137}{section.27.4}%
-\contentsline {section}{\numberline {27.5}Response to integrable input \sphinxhyphen {} and Laplace transform}{137}{section.27.5}%
-\contentsline {section}{\numberline {27.6}Response to periodic input of stable systems \sphinxhyphen {} and Fourier transform}{137}{section.27.6}%
-\contentsline {section}{\numberline {27.7}Response to stochastic input of stable systems}{137}{section.27.7}%
-\contentsline {subsection}{\numberline {27.7.1}Assumptions}{137}{subsection.27.7.1}%
-\contentsline {subsection}{\numberline {27.7.2}Expected value}{137}{subsection.27.7.2}%
-\contentsline {section}{\numberline {27.8}Analysis of response of LTI in Fourier domain}{138}{section.27.8}%
-\contentsline {subsection}{\numberline {27.8.1}Stationary Ergodic processes}{138}{subsection.27.8.1}%
-\contentsline {chapter}{\numberline {28}LTI: stability and feedback}{141}{chapter.28}%
-\contentsline {section}{\numberline {28.1}Stability of a LTI \sphinxhyphen {} SISO}{141}{section.28.1}%
-\contentsline {subsection}{\numberline {28.1.1}Transfer function}{141}{subsection.28.1.1}%
-\contentsline {subsection}{\numberline {28.1.2}Stability w.r.t. non\sphinxhyphen {}zero initial conditions \sphinxhyphen {} or w.r.t. implusive input \sphinxhyphen {} in time domain}{142}{subsection.28.1.2}%
-\contentsline {chapter}{\numberline {29}Observability and Detectability}{143}{chapter.29}%
-\contentsline {section}{\numberline {29.1}Time\sphinxhyphen {}continuous linear systems}{143}{section.29.1}%
-\contentsline {subsection}{\numberline {29.1.1}Observability}{143}{subsection.29.1.1}%
-\contentsline {subsection}{\numberline {29.1.2}Detectability}{144}{subsection.29.1.2}%
-\contentsline {section}{\numberline {29.2}Time\sphinxhyphen {}discrete linear systems}{145}{section.29.2}%
-\contentsline {chapter}{\numberline {30}Reachability and Controllability}{147}{chapter.30}%
+\contentsline {chapter}{\numberline {27}Coordinate transformation}{135}{chapter.27}%
+\contentsline {section}{\numberline {27.1}General transformation}{135}{section.27.1}%
+\contentsline {subsection}{\numberline {27.1.1}Characteristic polynomial}{135}{subsection.27.1.1}%
+\contentsline {subsection}{\numberline {27.1.2}Gramians}{135}{subsection.27.1.2}%
+\contentsline {section}{\numberline {27.2}Example of transformations}{136}{section.27.2}%
+\contentsline {subsection}{\numberline {27.2.1}Diagonalization}{136}{subsection.27.2.1}%
+\contentsline {subsection}{\numberline {27.2.2}Kalman decomposition}{137}{subsection.27.2.2}%
+\contentsline {subsubsection}{Transfer function}{138}{subsubsection*.53}%
+\contentsline {chapter}{\numberline {28}LTI system response}{139}{chapter.28}%
+\contentsline {section}{\numberline {28.1}LTI}{139}{section.28.1}%
+\contentsline {section}{\numberline {28.2}Response of LTI systems}{139}{section.28.2}%
+\contentsline {section}{\numberline {28.3}Equilibria}{140}{section.28.3}%
+\contentsline {section}{\numberline {28.4}Stability}{141}{section.28.4}%
+\contentsline {section}{\numberline {28.5}Response to integrable input \sphinxhyphen {} and Laplace transform}{141}{section.28.5}%
+\contentsline {section}{\numberline {28.6}Response to periodic input of stable systems \sphinxhyphen {} and Fourier transform}{141}{section.28.6}%
+\contentsline {section}{\numberline {28.7}Response to stochastic input of stable systems}{141}{section.28.7}%
+\contentsline {subsection}{\numberline {28.7.1}Assumptions}{141}{subsection.28.7.1}%
+\contentsline {subsection}{\numberline {28.7.2}Expected value}{141}{subsection.28.7.2}%
+\contentsline {section}{\numberline {28.8}Analysis of response of LTI in Fourier domain}{142}{section.28.8}%
+\contentsline {subsection}{\numberline {28.8.1}Stationary Ergodic processes}{142}{subsection.28.8.1}%
+\contentsline {chapter}{\numberline {29}LTI: stability and feedback}{145}{chapter.29}%
+\contentsline {section}{\numberline {29.1}Stability of a LTI \sphinxhyphen {} SISO}{145}{section.29.1}%
+\contentsline {subsection}{\numberline {29.1.1}Transfer function}{145}{subsection.29.1.1}%
+\contentsline {subsection}{\numberline {29.1.2}Stability w.r.t. non\sphinxhyphen {}zero initial conditions \sphinxhyphen {} or w.r.t. implusive input \sphinxhyphen {} in time domain}{146}{subsection.29.1.2}%
+\contentsline {chapter}{\numberline {30}Observability and Detectability}{147}{chapter.30}%
 \contentsline {section}{\numberline {30.1}Time\sphinxhyphen {}continuous linear systems}{147}{section.30.1}%
-\contentsline {subsection}{\numberline {30.1.1}Reachability}{147}{subsection.30.1.1}%
-\contentsline {subsection}{\numberline {30.1.2}Controllability}{147}{subsection.30.1.2}%
+\contentsline {subsection}{\numberline {30.1.1}Observability}{147}{subsection.30.1.1}%
+\contentsline {subsection}{\numberline {30.1.2}Detectability}{148}{subsection.30.1.2}%
 \contentsline {section}{\numberline {30.2}Time\sphinxhyphen {}discrete linear systems}{149}{section.30.2}%
-\contentsline {chapter}{\numberline {31}Kalman decomposition}{151}{chapter.31}%
-\contentsline {section}{\numberline {31.1}Controllability}{151}{section.31.1}%
-\contentsline {section}{\numberline {31.2}Observability}{152}{section.31.2}%
-\contentsline {section}{\numberline {31.3}Kalman decomposition}{153}{section.31.3}%
-\contentsline {chapter}{\numberline {32}Lyapunov equation}{157}{chapter.32}%
-\contentsline {chapter}{\numberline {33}Order reduction of dynamical systems}{159}{chapter.33}%
-\contentsline {section}{\numberline {33.1}Balanced truncation}{159}{section.33.1}%
-\contentsline {part}{X\hspace {1em}Control Theory}{163}{part.10}%
-\contentsline {chapter}{\numberline {34}Introduction to control methods}{165}{chapter.34}%
-\contentsline {section}{\numberline {34.1}Closed\sphinxhyphen {}loop control: requirements and performance}{166}{section.34.1}%
-\contentsline {subsection}{\numberline {34.1.1}Constraints}{169}{subsection.34.1.1}%
-\contentsline {subsection}{\numberline {34.1.2}Goals}{169}{subsection.34.1.2}%
-\contentsline {subsection}{\numberline {34.1.3}Stability (SISO)}{169}{subsection.34.1.3}%
-\contentsline {subsection}{\numberline {34.1.4}Reference tracking (SISO)}{169}{subsection.34.1.4}%
-\contentsline {section}{\numberline {34.2}Frequency domain control}{170}{section.34.2}%
-\contentsline {subsection}{\numberline {34.2.1}Stability of closed\sphinxhyphen {}loop SISO systems}{170}{subsection.34.2.1}%
-\contentsline {subsubsection}{Cauchy argument principle}{172}{subsubsection*.56}%
-\contentsline {subsubsection}{Nyquist stability criterion}{172}{subsubsection*.57}%
-\contentsline {subsubsection}{Bode stability criterion for minimal phase systems}{173}{subsubsection*.58}%
-\contentsline {subsubsection}{Phase margin}{173}{subsubsection*.59}%
-\contentsline {subsubsection}{Gain margin}{173}{subsubsection*.60}%
-\contentsline {section}{\numberline {34.3}Optimal control}{173}{section.34.3}%
-\contentsline {subsection}{\numberline {34.3.1}Full\sphinxhyphen {}state feedback}{173}{subsection.34.3.1}%
-\contentsline {subsubsection}{Generic ODE without exogenous inputs}{175}{subsubsection*.61}%
-\contentsline {subsubsection}{Linear system}{177}{subsubsection*.62}%
-\contentsline {subsection}{\numberline {34.3.2}Full\sphinxhyphen {}state feedback (OLD)}{182}{subsection.34.3.2}%
-\contentsline {subsubsection}{Generic ODE without exogenous inputs}{182}{subsubsection*.63}%
-\contentsline {subsubsection}{LTI}{183}{subsubsection*.64}%
-\contentsline {paragraph}{Infinite\sphinxhyphen {}horizon full\sphinxhyphen {}state feedback}{184}{paragraph*.65}%
-\contentsline {subsection}{\numberline {34.3.3}Phase and gain margin of optimal control}{185}{subsection.34.3.3}%
-\contentsline {subsubsection}{SISO}{185}{subsubsection*.66}%
-\contentsline {subsubsection}{MIMO}{187}{subsubsection*.67}%
-\contentsline {subsection}{\numberline {34.3.4}Optimal observer for deterministic disturbances}{187}{subsection.34.3.4}%
-\contentsline {subsection}{\numberline {34.3.5}Sub\sphinxhyphen {}optimal control for output feedback}{187}{subsection.34.3.5}%
-\contentsline {subsection}{\numberline {34.3.6}Combination of controller and observer}{187}{subsection.34.3.6}%
-\contentsline {subsubsection}{Separation principle}{188}{subsubsection*.68}%
-\contentsline {subsubsection}{Spillover}{188}{subsubsection*.69}%
-\contentsline {paragraph}{Design reduced system and full system}{188}{paragraph*.70}%
-\contentsline {paragraph}{Design reduced system, observer and full system}{189}{paragraph*.71}%
-\contentsline {subsection}{\numberline {34.3.7}Optimal control for reference tracking}{189}{subsection.34.3.7}%
-\contentsline {subsubsection}{Augmented system for tracking step reference signal \sphinxhyphen {} integrator}{189}{subsubsection*.72}%
-\contentsline {subsubsection}{Augmented system for tracking ramp reference signal \sphinxhyphen {} double integrator}{190}{subsubsection*.73}%
-\contentsline {subsection}{\numberline {34.3.8}Kalman filter}{192}{subsection.34.3.8}%
-\contentsline {subsubsection}{Error dynamics}{193}{subsubsection*.74}%
-\contentsline {subsubsection}{Optimality conditions}{193}{subsubsection*.75}%
-\contentsline {subsection}{\numberline {34.3.9}Hamilton Bellman Jacobi equation}{193}{subsection.34.3.9}%
-\contentsline {part}{XI\hspace {1em}Partial Differential Equations}{195}{part.11}%
-\contentsline {chapter}{\numberline {35}Introduction to Partial Differential Equations}{197}{chapter.35}%
-\contentsline {section}{\numberline {35.1}Examples}{197}{section.35.1}%
-\contentsline {section}{\numberline {35.2}Balance equations in physics}{198}{section.35.2}%
-\contentsline {chapter}{\numberline {36}Elliptic equations}{201}{chapter.36}%
-\contentsline {section}{\numberline {36.1}Poisson equation}{201}{section.36.1}%
-\contentsline {subsection}{\numberline {36.1.1}Weak formulation}{201}{subsection.36.1.1}%
-\contentsline {subsection}{\numberline {36.1.2}Existence and uniqueness}{202}{subsection.36.1.2}%
-\contentsline {chapter}{\numberline {37}Parabolic equations}{205}{chapter.37}%
-\contentsline {section}{\numberline {37.1}Heat equation}{205}{section.37.1}%
-\contentsline {subsection}{\numberline {37.1.1}Weak formulation}{205}{subsection.37.1.1}%
-\contentsline {chapter}{\numberline {38}Hyperbolic equations}{207}{chapter.38}%
-\contentsline {section}{\numberline {38.1}Hyperbolic problems and conservation laws}{208}{section.38.1}%
-\contentsline {subsection}{\numberline {38.1.1}Integral equations}{208}{subsection.38.1.1}%
-\contentsline {subsection}{\numberline {38.1.2}Jump relations}{208}{subsection.38.1.2}%
-\contentsline {subsection}{\numberline {38.1.3}Differential equations}{209}{subsection.38.1.3}%
-\contentsline {section}{\numberline {38.2}Hyperbolic problems \sphinxhyphen {} dimensions}{209}{section.38.2}%
-\contentsline {subsection}{\numberline {38.2.1}Scalar linear}{209}{subsection.38.2.1}%
-\contentsline {subsubsection}{1\sphinxhyphen {}dimensional}{209}{subsubsection*.77}%
-\contentsline {subsection}{\numberline {38.2.2}Scalar non\sphinxhyphen {}linear}{209}{subsection.38.2.2}%
-\contentsline {subsection}{\numberline {38.2.3}System linear}{209}{subsection.38.2.3}%
-\contentsline {subsubsection}{1\sphinxhyphen {}dimensional}{209}{subsubsection*.78}%
-\contentsline {paragraph}{Method of characteristics}{210}{paragraph*.79}%
-\contentsline {paragraph}{Domain of influence and domain of dependence}{210}{paragraph*.80}%
-\contentsline {paragraph}{Riemann problem}{210}{paragraph*.81}%
-\contentsline {subsection}{\numberline {38.2.4}System non\sphinxhyphen {}linear}{213}{subsection.38.2.4}%
-\contentsline {subsubsection}{1\sphinxhyphen {}dimensional space}{213}{subsubsection*.82}%
-\contentsline {subsection}{\numberline {38.2.5}n\sphinxhyphen {}dimensional space}{213}{subsection.38.2.5}%
-\contentsline {section}{\numberline {38.3}Scalar linear equation}{217}{section.38.3}%
-\contentsline {section}{\numberline {38.4}Linear vector equation}{218}{section.38.4}%
-\contentsline {section}{\numberline {38.5}Scalar non\sphinxhyphen {}linear equation}{219}{section.38.5}%
-\contentsline {subsection}{\numberline {38.5.1}Examples}{219}{subsection.38.5.1}%
-\contentsline {subsubsection}{Burgers’s equation}{219}{subsubsection*.83}%
-\contentsline {paragraph}{Differential equation and integral balance}{219}{paragraph*.84}%
-\contentsline {paragraph}{Jump condition}{220}{paragraph*.86}%
-\contentsline {paragraph}{Characteristics}{220}{paragraph*.87}%
-\contentsline {paragraph}{Riemann problem}{220}{paragraph*.89}%
-\contentsline {paragraph}{Boundary conditions}{221}{paragraph*.91}%
-\contentsline {section}{\numberline {38.6}Method of characteristics}{222}{section.38.6}%
-\contentsline {subsection}{\numberline {38.6.1}Scalar multi\sphinxhyphen {}dimensional problem}{222}{subsection.38.6.1}%
-\contentsline {subsection}{\numberline {38.6.2}Vector multi\sphinxhyphen {}dimensional problem}{222}{subsection.38.6.2}%
-\contentsline {subsubsection}{Taylor expansion of a solution}{223}{subsubsection*.92}%
-\contentsline {subsubsection}{Examples}{224}{subsubsection*.93}%
-\contentsline {paragraph}{Isothermal compressible flow \sphinxhyphen {} 2d}{224}{paragraph*.94}%
-\contentsline {paragraph}{Euler equations for homoentropic inviscid compressible flows \sphinxhyphen {} 2d}{232}{paragraph*.95}%
-\contentsline {paragraph}{Euler equations for inviscid compressible flows \sphinxhyphen {} 2d}{233}{paragraph*.96}%
-\contentsline {paragraph}{Shallow water \sphinxhyphen {} 2d}{241}{paragraph*.97}%
-\contentsline {section}{\numberline {38.7}Hyperbolic problems in multi\sphinxhyphen {}dimensional domains}{241}{section.38.7}%
-\contentsline {subsection}{\numberline {38.7.1}General hyperbolic problem}{242}{subsection.38.7.1}%
-\contentsline {subsubsection}{Integral equations}{242}{subsubsection*.98}%
-\contentsline {paragraph}{Jump conditions}{242}{paragraph*.99}%
-\contentsline {subsubsection}{Differential equations}{243}{subsubsection*.100}%
-\contentsline {subsubsection}{Conservative form}{243}{subsubsection*.101}%
-\contentsline {subsubsection}{Method of characteristics}{244}{subsubsection*.102}%
-\contentsline {paragraph}{Spectral decomposition}{244}{paragraph*.103}%
-\contentsline {paragraph}{Change of variables}{246}{paragraph*.104}%
-\contentsline {subsubsection}{Riemann problem}{248}{subsubsection*.106}%
-\contentsline {paragraph}{Linearization \sphinxhyphen {} Roe intermediate state}{248}{paragraph*.107}%
-\contentsline {subsubsection}{Boundary conditions}{248}{subsubsection*.108}%
-\contentsline {subsection}{\numberline {38.7.2}P\sphinxhyphen {}system}{248}{subsection.38.7.2}%
-\contentsline {subsection}{\numberline {38.7.3}Euler equations}{248}{subsection.38.7.3}%
-\contentsline {subsubsection}{Thermodynamics and constitutive equations}{248}{subsubsection*.109}%
-\contentsline {subsubsection}{Integral equations}{249}{subsubsection*.110}%
-\contentsline {paragraph}{Jump conditions}{250}{paragraph*.111}%
-\contentsline {subsubsection}{Differential equations}{251}{subsubsection*.112}%
-\contentsline {paragraph}{Conservative form}{251}{paragraph*.113}%
-\contentsline {paragraph}{Convective forms}{251}{paragraph*.114}%
-\contentsline {paragraph}{Spectral decomposition}{252}{paragraph*.115}%
-\contentsline {subsubsection}{Riemann problem}{256}{subsubsection*.116}%
-\contentsline {paragraph}{Linearization \sphinxhyphen {} Roe intermediate state}{256}{paragraph*.117}%
-\contentsline {subsubsection}{Boundary conditions}{256}{subsubsection*.118}%
-\contentsline {subsection}{\numberline {38.7.4}Shallow water}{256}{subsection.38.7.4}%
-\contentsline {subsubsection}{Integral equations}{256}{subsubsection*.119}%
-\contentsline {paragraph}{Jump conditions}{256}{paragraph*.120}%
-\contentsline {subsubsection}{Differential equations}{256}{subsubsection*.121}%
-\contentsline {paragraph}{Spectral decomposition}{257}{paragraph*.122}%
-\contentsline {subsubsection}{Riemann problem}{257}{subsubsection*.123}%
-\contentsline {paragraph}{Linearization \sphinxhyphen {} Roe intermediate state}{257}{paragraph*.124}%
-\contentsline {subsubsection}{Boundary conditions}{257}{subsubsection*.125}%
-\contentsline {section}{\numberline {38.8}Riemann problems}{257}{section.38.8}%
-\contentsline {section}{\numberline {38.9}Physical solution in hyperbolic problems}{257}{section.38.9}%
-\contentsline {subsection}{\numberline {38.9.1}Scalar non\sphinxhyphen {}linear equation in 1\sphinxhyphen {}dimensional domain}{258}{subsection.38.9.1}%
-\contentsline {subsubsection}{Burgers’ equation}{259}{subsubsection*.126}%
-\contentsline {subsection}{\numberline {38.9.2}Non\sphinxhyphen {}linear system of equations in 1\sphinxhyphen {}dimensional domain}{259}{subsection.38.9.2}%
-\contentsline {subsubsection}{P\sphinxhyphen {}system}{261}{subsubsection*.127}%
-\contentsline {subsubsection}{Shallow water}{262}{subsubsection*.128}%
-\contentsline {subsubsection}{Euler equations}{262}{subsubsection*.129}%
-\contentsline {section}{\numberline {38.10}Convexity in hyperbolic problems}{262}{section.38.10}%
-\contentsline {subsection}{\numberline {38.10.1}Examples}{262}{subsection.38.10.1}%
-\contentsline {section}{\numberline {38.11}Non\sphinxhyphen {}convex hyperbolic problems}{265}{section.38.11}%
-\contentsline {subsection}{\numberline {38.11.1}Toy problem}{265}{subsection.38.11.1}%
-\contentsline {subsubsection}{Numerical simulation}{265}{subsubsection*.130}%
-\contentsline {paragraph}{Simulation with \((u_L, u_R) = (-1,1)\)}{266}{paragraph*.131}%
-\contentsline {paragraph}{Simulation with \((u_L, u_R) = (1,-1)\)}{266}{paragraph*.132}%
-\contentsline {subsubsection}{Olenik’s criterion}{267}{subsubsection*.133}%
-\contentsline {paragraph}{\((u_L, u_R) = (-1, 1)\)}{268}{paragraph*.134}%
-\contentsline {paragraph}{Characteristic lines in the \(x-t\) plane}{268}{paragraph*.135}%
-\contentsline {paragraph}{\((u_L, u_R) = (1, -1)\)}{269}{paragraph*.136}%
-\contentsline {subsubsection}{Non\sphinxhyphen {}physical solutions for \((u_L, u_R) = (-1, 1)\)}{269}{subsubsection*.137}%
-\contentsline {chapter}{\numberline {39}Navier\sphinxhyphen {}Cauchy equations}{271}{chapter.39}%
-\contentsline {section}{\numberline {39.1}Weak formulation}{271}{section.39.1}%
-\contentsline {chapter}{\numberline {40}Navier\sphinxhyphen {}Stokes equations}{273}{chapter.40}%
-\contentsline {section}{\numberline {40.1}Incompressibility constraint}{273}{section.40.1}%
-\contentsline {subsection}{\numberline {40.1.1}Wave\sphinxhyphen {}vector transformed space}{273}{subsection.40.1.1}%
-\contentsline {section}{\numberline {40.2}Weak formulation of the problem}{274}{section.40.2}%
-\contentsline {subsection}{\numberline {40.2.1}Weak formulation and incompressibility constraint}{274}{subsection.40.2.1}%
-\contentsline {section}{\numberline {40.3}Non\sphinxhyphen {}linear term}{274}{section.40.3}%
-\contentsline {chapter}{\numberline {41}Arbitrary Lagrangian\sphinxhyphen {}Eulerian description}{275}{chapter.41}%
-\contentsline {section}{\numberline {41.1}Integral problem}{275}{section.41.1}%
-\contentsline {section}{\numberline {41.2}Differential problem}{276}{section.41.2}%
-\contentsline {part}{XII\hspace {1em}Numerical Methods for PDEs}{277}{part.12}%
-\contentsline {chapter}{\numberline {42}Introduction to numerical methods for PDEs}{279}{chapter.42}%
-\contentsline {chapter}{\numberline {43}Finite Element Method}{283}{chapter.43}%
-\contentsline {section}{\numberline {43.1}1\sphinxhyphen {}dimensional Poisson equation}{283}{section.43.1}%
-\contentsline {subsection}{\numberline {43.1.1}Strong form of the problem}{283}{subsection.43.1.1}%
-\contentsline {subsection}{\numberline {43.1.2}Weak form of the problem}{283}{subsection.43.1.2}%
-\contentsline {subsubsection}{Poisson equation with Dirichlet boundary conditions}{284}{subsubsection*.139}%
-\contentsline {paragraph}{Finite element method}{284}{paragraph*.140}%
-\contentsline {paragraph}{Slicing the linear system}{286}{paragraph*.142}%
-\contentsline {paragraph}{Augmenting the linear system}{288}{paragraph*.143}%
-\contentsline {chapter}{\numberline {44}Finite Volume Method}{289}{chapter.44}%
-\contentsline {section}{\numberline {44.1}1\sphinxhyphen {}dimensional Poisson equation}{289}{section.44.1}%
-\contentsline {subsection}{\numberline {44.1.1}Integral form of the problem}{289}{subsection.44.1.1}%
-\contentsline {subsection}{\numberline {44.1.2}Domain, volume forcing and boundary conditions}{289}{subsection.44.1.2}%
-\contentsline {subsection}{\numberline {44.1.3}Discrete matheamtical problem}{290}{subsection.44.1.3}%
-\contentsline {subsection}{\numberline {44.1.4}Applying essential boundary conditions}{291}{subsection.44.1.4}%
-\contentsline {subsubsection}{Slicing the linear system}{292}{subsubsection*.144}%
-\contentsline {subsubsection}{Augmenting the linear system}{293}{subsubsection*.145}%
-\contentsline {section}{\numberline {44.2}FVM for hyperbolic problems}{294}{section.44.2}%
-\contentsline {subsection}{\numberline {44.2.1}Numerical fluxes}{295}{subsection.44.2.1}%
-\contentsline {subsubsection}{Godunov flux}{295}{subsubsection*.146}%
-\contentsline {subsubsection}{Roe flux}{295}{subsubsection*.147}%
-\contentsline {subsubsection}{Entropy fix}{298}{subsubsection*.148}%
-\contentsline {section}{\numberline {44.3}Boundary conditions in hyperbolic problems}{298}{section.44.3}%
-\contentsline {subsection}{\numberline {44.3.1}Wall}{298}{subsection.44.3.1}%
-\contentsline {subsubsection}{Domain at rest}{298}{subsubsection*.149}%
-\contentsline {subsubsection}{Moving domain}{299}{subsubsection*.150}%
-\contentsline {subsection}{\numberline {44.3.2}Characteristic\sphinxhyphen {}based boundary conditions}{299}{subsection.44.3.2}%
-\contentsline {section}{\numberline {44.4}Examples of FVM for hyperbolic problems}{299}{section.44.4}%
-\contentsline {subsection}{\numberline {44.4.1}1\sphinxhyphen {}dimensional P\sphinxhyphen {}system}{299}{subsection.44.4.1}%
-\contentsline {subsubsection}{Useful classes for numerical methods}{299}{subsubsection*.151}%
-\contentsline {paragraph}{Basic libraries}{299}{paragraph*.152}%
-\contentsline {paragraph}{Parent class}{299}{paragraph*.153}%
-\contentsline {paragraph}{P\sphinxhyphen {}system class}{300}{paragraph*.154}%
-\contentsline {subsubsection}{Numerical simulation}{300}{subsubsection*.155}%
-\contentsline {paragraph}{System of equations}{300}{paragraph*.156}%
-\contentsline {paragraph}{Domain}{300}{paragraph*.157}%
-\contentsline {paragraph}{Boundary conditions}{300}{paragraph*.158}%
-\contentsline {paragraph}{Simulation parameters}{300}{paragraph*.159}%
-\contentsline {paragraph}{Time loop}{300}{paragraph*.160}%
-\contentsline {paragraph}{Post\sphinxhyphen {}processing}{300}{paragraph*.161}%
-\contentsline {subsection}{\numberline {44.4.2}1\sphinxhyphen {}dimensional Euler equations for Perfect Ideal Gas}{300}{subsection.44.4.2}%
-\contentsline {subsubsection}{Useful classes for numerical methods}{300}{subsubsection*.162}%
-\contentsline {paragraph}{Basic libraries}{300}{paragraph*.163}%
-\contentsline {paragraph}{Parent class}{300}{paragraph*.164}%
-\contentsline {paragraph}{Euler equations for perfect ideal gas class}{300}{paragraph*.165}%
-\contentsline {subsubsection}{Numerical simulation}{300}{subsubsection*.166}%
-\contentsline {paragraph}{System of equations}{300}{paragraph*.167}%
-\contentsline {paragraph}{Domain}{300}{paragraph*.168}%
-\contentsline {paragraph}{Boundary conditions}{300}{paragraph*.169}%
-\contentsline {paragraph}{Initial conditions}{300}{paragraph*.170}%
-\contentsline {paragraph}{Simulation parameters}{300}{paragraph*.171}%
-\contentsline {paragraph}{Time loop}{301}{paragraph*.172}%
-\contentsline {paragraph}{Post\sphinxhyphen {}processing}{301}{paragraph*.173}%
-\contentsline {subsection}{\numberline {44.4.3}Quasi 1\sphinxhyphen {}dimensional Euler equations for Perfect Ideal Gas}{301}{subsection.44.4.3}%
-\contentsline {subsubsection}{Useful classes for numerical methods}{301}{subsubsection*.174}%
-\contentsline {paragraph}{Basic libraries}{301}{paragraph*.175}%
-\contentsline {paragraph}{Parent class}{301}{paragraph*.176}%
-\contentsline {paragraph}{Euler equations for perfect ideal gas class}{301}{paragraph*.177}%
-\contentsline {subsubsection}{Numerical simulation}{301}{subsubsection*.178}%
-\contentsline {paragraph}{System of equations}{301}{paragraph*.179}%
-\contentsline {paragraph}{Domain}{301}{paragraph*.180}%
-\contentsline {paragraph}{Boundary conditions}{301}{paragraph*.181}%
-\contentsline {paragraph}{Initial conditions}{301}{paragraph*.182}%
-\contentsline {paragraph}{Simulation parameters}{301}{paragraph*.183}%
-\contentsline {paragraph}{Time loop}{302}{paragraph*.184}%
-\contentsline {paragraph}{Post\sphinxhyphen {}processing}{302}{paragraph*.185}%
-\contentsline {subsection}{\numberline {44.4.4}1\sphinxhyphen {}dimensional Euler equations for Perfect Ideal Gas on moving mesh (ALE)}{302}{subsection.44.4.4}%
-\contentsline {subsubsection}{Useful classes for numerical methods}{302}{subsubsection*.186}%
-\contentsline {paragraph}{Basic libraries}{302}{paragraph*.187}%
-\contentsline {paragraph}{Parent class}{302}{paragraph*.188}%
-\contentsline {paragraph}{Euler equations for perfect ideal gas class}{302}{paragraph*.189}%
-\contentsline {paragraph}{Time dependent mesh}{302}{paragraph*.190}%
-\contentsline {subsubsection}{Numerical simulation}{303}{subsubsection*.191}%
-\contentsline {paragraph}{System of equations}{303}{paragraph*.192}%
-\contentsline {paragraph}{Domain}{303}{paragraph*.193}%
-\contentsline {subparagraph}{VV of the moving mesh}{303}{subparagraph*.194}%
-\contentsline {paragraph}{Boundary conditions}{303}{paragraph*.195}%
-\contentsline {paragraph}{Initial conditions}{303}{paragraph*.196}%
-\contentsline {paragraph}{Simulation parameters}{303}{paragraph*.197}%
-\contentsline {paragraph}{Time loop}{303}{paragraph*.198}%
-\contentsline {paragraph}{Post\sphinxhyphen {}processing}{303}{paragraph*.199}%
-\contentsline {chapter}{\numberline {45}Boundary Element Method}{305}{chapter.45}%
-\contentsline {part}{XIII\hspace {1em}Boundary Methods for PDEs}{307}{part.13}%
-\contentsline {chapter}{\numberline {46}Green’s function method}{309}{chapter.46}%
-\contentsline {section}{\numberline {46.1}Poisson equation}{309}{section.46.1}%
-\contentsline {section}{\numberline {46.2}Helmholtz equation}{310}{section.46.2}%
-\contentsline {section}{\numberline {46.3}Wave equation}{312}{section.46.3}%
-\contentsline {part}{XIV\hspace {1em}Optimization}{313}{part.14}%
-\contentsline {chapter}{\numberline {47}Optimization}{315}{chapter.47}%
-\contentsline {section}{\numberline {47.1}Unconstrained optimization}{315}{section.47.1}%
-\contentsline {section}{\numberline {47.2}Constrained optimization}{316}{section.47.2}%
-\contentsline {subsection}{\numberline {47.2.1}Method of Lagrange multipliers for equality constraints}{316}{subsection.47.2.1}%
-\contentsline {part}{XV\hspace {1em}Reinforcement Learning}{317}{part.15}%
-\contentsline {chapter}{\numberline {48}Introduction to Reinforcement Learning}{319}{chapter.48}%
-\contentsline {chapter}{\numberline {49}Markov Processes}{321}{chapter.49}%
-\contentsline {section}{\numberline {49.1}Markov Reward Processes}{322}{section.49.1}%
-\contentsline {subsection}{\numberline {49.1.1}Bellman Equation for \(V(s)\)}{323}{subsection.49.1.1}%
-\contentsline {section}{\numberline {49.2}Markov Decision Processes}{324}{section.49.2}%
-\contentsline {subsection}{\numberline {49.2.1}Policies}{324}{subsection.49.2.1}%
-\contentsline {subsection}{\numberline {49.2.2}Bellman Equations}{325}{subsection.49.2.2}%
-\contentsline {chapter}{\numberline {50}Methods of solution of MPD: DP and LP}{329}{chapter.50}%
-\contentsline {section}{\numberline {50.1}Brute force: policy search}{329}{section.50.1}%
-\contentsline {section}{\numberline {50.2}Dynamic programming}{329}{section.50.2}%
-\contentsline {subsection}{\numberline {50.2.1}Policy iteration}{329}{subsection.50.2.1}%
-\contentsline {subsubsection}{Policy Evaluation}{330}{subsubsection*.201}%
-\contentsline {subsubsection}{Policy Improvement}{330}{subsubsection*.202}%
-\contentsline {subsubsection}{Policy Iteration algorithm}{331}{subsubsection*.203}%
-\contentsline {subsection}{\numberline {50.2.2}Value Iteration}{331}{subsection.50.2.2}%
-\contentsline {subsection}{\numberline {50.2.3}Dynamic programming: extensions}{331}{subsection.50.2.3}%
-\contentsline {section}{\numberline {50.3}Linear programming}{331}{section.50.3}%
-\contentsline {chapter}{\numberline {51}Methods of solution of MPD: RL}{333}{chapter.51}%
-\contentsline {section}{\numberline {51.1}Evaluation}{333}{section.51.1}%
-\contentsline {subsection}{\numberline {51.1.1}Monte\sphinxhyphen {}Carlo RL}{333}{subsection.51.1.1}%
-\contentsline {subsection}{\numberline {51.1.2}Temporal Difference (TD) Learning}{334}{subsection.51.1.2}%
-\contentsline {subsection}{\numberline {51.1.3}TD prediction}{334}{subsection.51.1.3}%
-\contentsline {section}{\numberline {51.2}Model control}{335}{section.51.2}%
-\contentsline {subsection}{\numberline {51.2.1}On\sphinxhyphen {} and Off\sphinxhyphen {}Policy Learning}{335}{subsection.51.2.1}%
-\contentsline {subsection}{\numberline {51.2.2}MC control}{335}{subsection.51.2.2}%
-\contentsline {subsection}{\numberline {51.2.3}\(\mitepsilon \)\sphinxhyphen {}greedy policy improvement }{336}{subsection.51.2.3}%
-\contentsline {subsection}{\numberline {51.2.4}TD control}{337}{subsection.51.2.4}%
-\contentsline {subsection}{\numberline {51.2.5}Off\sphinxhyphen {}policy learning}{337}{subsection.51.2.5}%
-\contentsline {section}{\numberline {51.3}Actor\sphinxhyphen {}Critic}{337}{section.51.3}%
-\contentsline {section}{\numberline {51.4}Learning and planning}{337}{section.51.4}%
-\contentsline {chapter}{\numberline {52}Large or Continuous MDPs}{339}{chapter.52}%
-\contentsline {section}{\numberline {52.1}Value and Policy\sphinxhyphen {}Based RL}{340}{section.52.1}%
-\contentsline {chapter}{Proof Index}{341}{section*.204}%
+\contentsline {chapter}{\numberline {31}Reachability and Controllability}{151}{chapter.31}%
+\contentsline {section}{\numberline {31.1}Time\sphinxhyphen {}continuous linear systems}{151}{section.31.1}%
+\contentsline {subsection}{\numberline {31.1.1}Reachability}{151}{subsection.31.1.1}%
+\contentsline {subsection}{\numberline {31.1.2}Controllability}{151}{subsection.31.1.2}%
+\contentsline {section}{\numberline {31.2}Time\sphinxhyphen {}discrete linear systems}{153}{section.31.2}%
+\contentsline {chapter}{\numberline {32}Kalman decomposition}{155}{chapter.32}%
+\contentsline {section}{\numberline {32.1}Controllability}{155}{section.32.1}%
+\contentsline {section}{\numberline {32.2}Observability}{156}{section.32.2}%
+\contentsline {section}{\numberline {32.3}Kalman decomposition}{157}{section.32.3}%
+\contentsline {chapter}{\numberline {33}Lyapunov equation}{161}{chapter.33}%
+\contentsline {chapter}{\numberline {34}Order reduction of dynamical systems}{163}{chapter.34}%
+\contentsline {section}{\numberline {34.1}Balanced truncation}{163}{section.34.1}%
+\contentsline {chapter}{\numberline {35}Shape filter}{167}{chapter.35}%
+\contentsline {part}{X\hspace {1em}Control Theory}{169}{part.10}%
+\contentsline {chapter}{\numberline {36}Introduction to control methods}{171}{chapter.36}%
+\contentsline {chapter}{\numberline {37}Closed\sphinxhyphen {}loop control: requirements and performance}{173}{chapter.37}%
+\contentsline {section}{\numberline {37.1}Constraints}{176}{section.37.1}%
+\contentsline {section}{\numberline {37.2}Goals}{176}{section.37.2}%
+\contentsline {section}{\numberline {37.3}Stability (SISO)}{176}{section.37.3}%
+\contentsline {section}{\numberline {37.4}Reference tracking (SISO)}{176}{section.37.4}%
+\contentsline {chapter}{\numberline {38}Frequency domain control}{179}{chapter.38}%
+\contentsline {section}{\numberline {38.1}Stability of closed\sphinxhyphen {}loop SISO systems}{179}{section.38.1}%
+\contentsline {subsection}{\numberline {38.1.1}Cauchy argument principle}{180}{subsection.38.1.1}%
+\contentsline {subsection}{\numberline {38.1.2}Nyquist stability criterion}{180}{subsection.38.1.2}%
+\contentsline {subsection}{\numberline {38.1.3}Bode stability criterion for minimal phase systems}{181}{subsection.38.1.3}%
+\contentsline {subsection}{\numberline {38.1.4}Phase margin}{181}{subsection.38.1.4}%
+\contentsline {subsection}{\numberline {38.1.5}Gain margin}{181}{subsection.38.1.5}%
+\contentsline {chapter}{\numberline {39}Optimal control}{183}{chapter.39}%
+\contentsline {section}{\numberline {39.1}Full\sphinxhyphen {}state feedback}{183}{section.39.1}%
+\contentsline {subsection}{\numberline {39.1.1}Generic ODE without exogenous inputs}{184}{subsection.39.1.1}%
+\contentsline {subsection}{\numberline {39.1.2}Linear system}{187}{subsection.39.1.2}%
+\contentsline {section}{\numberline {39.2}Full\sphinxhyphen {}state feedback (OLD)}{193}{section.39.2}%
+\contentsline {subsection}{\numberline {39.2.1}Generic ODE without exogenous inputs}{193}{subsection.39.2.1}%
+\contentsline {subsection}{\numberline {39.2.2}LTI}{194}{subsection.39.2.2}%
+\contentsline {subsubsection}{Infinite\sphinxhyphen {}horizon full\sphinxhyphen {}state feedback}{195}{subsubsection*.57}%
+\contentsline {section}{\numberline {39.3}Phase and gain margin of optimal control}{196}{section.39.3}%
+\contentsline {subsection}{\numberline {39.3.1}SISO}{197}{subsection.39.3.1}%
+\contentsline {subsection}{\numberline {39.3.2}MIMO}{198}{subsection.39.3.2}%
+\contentsline {section}{\numberline {39.4}Optimal observer for deterministic disturbances}{198}{section.39.4}%
+\contentsline {section}{\numberline {39.5}Optimal observer for stochastic Gaussian disturbance}{198}{section.39.5}%
+\contentsline {section}{\numberline {39.6}Sub\sphinxhyphen {}optimal control for output feedback}{200}{section.39.6}%
+\contentsline {section}{\numberline {39.7}Combination of controller and observer}{200}{section.39.7}%
+\contentsline {subsection}{\numberline {39.7.1}Separation principle}{200}{subsection.39.7.1}%
+\contentsline {subsection}{\numberline {39.7.2}Spillover}{201}{subsection.39.7.2}%
+\contentsline {subsubsection}{Design reduced system and full system}{201}{subsubsection*.58}%
+\contentsline {subsubsection}{Design reduced system, observer and full system}{201}{subsubsection*.59}%
+\contentsline {section}{\numberline {39.8}Optimal control for reference tracking}{202}{section.39.8}%
+\contentsline {subsection}{\numberline {39.8.1}Augmented system for tracking step reference signal \sphinxhyphen {} integrator}{202}{subsection.39.8.1}%
+\contentsline {subsection}{\numberline {39.8.2}Augmented system for tracking ramp reference signal \sphinxhyphen {} double integrator}{203}{subsection.39.8.2}%
+\contentsline {subsection}{\numberline {39.8.3}Example of optimal control for tracking reference input}{205}{subsection.39.8.3}%
+\contentsline {subsubsection}{Mass\sphinxhyphen {}damper\sphinxhyphen {}spring system}{205}{subsubsection*.60}%
+\contentsline {subsubsection}{Augmented system for reference signal}{205}{subsubsection*.61}%
+\contentsline {paragraph}{Single integral for step tracking}{205}{paragraph*.62}%
+\contentsline {subparagraph}{Optimal control design}{206}{subparagraph*.63}%
+\contentsline {subparagraph}{Response}{206}{subparagraph*.64}%
+\contentsline {paragraph}{Double integral for ramp tracking}{207}{paragraph*.65}%
+\contentsline {subparagraph}{Optimal control design}{208}{subparagraph*.66}%
+\contentsline {subparagraph}{Response}{208}{subparagraph*.67}%
+\contentsline {section}{\numberline {39.9}Kalman filter}{209}{section.39.9}%
+\contentsline {subsection}{\numberline {39.9.1}Error dynamics}{210}{subsection.39.9.1}%
+\contentsline {subsection}{\numberline {39.9.2}Optimality conditions}{210}{subsection.39.9.2}%
+\contentsline {section}{\numberline {39.10}Hamilton Bellman Jacobi equation}{210}{section.39.10}%
+\contentsline {chapter}{\numberline {40}Pole placement}{213}{chapter.40}%
+\contentsline {section}{\numberline {40.1}SISO}{213}{section.40.1}%
+\contentsline {section}{\numberline {40.2}MIMO}{213}{section.40.2}%
+\contentsline {part}{XI\hspace {1em}Partial Differential Equations}{215}{part.11}%
+\contentsline {chapter}{\numberline {41}Introduction to Partial Differential Equations}{217}{chapter.41}%
+\contentsline {section}{\numberline {41.1}Examples}{217}{section.41.1}%
+\contentsline {section}{\numberline {41.2}Balance equations in physics}{218}{section.41.2}%
+\contentsline {chapter}{\numberline {42}Elliptic equations}{221}{chapter.42}%
+\contentsline {section}{\numberline {42.1}Poisson equation}{221}{section.42.1}%
+\contentsline {subsection}{\numberline {42.1.1}Weak formulation}{221}{subsection.42.1.1}%
+\contentsline {subsection}{\numberline {42.1.2}Existence and uniqueness}{222}{subsection.42.1.2}%
+\contentsline {chapter}{\numberline {43}Parabolic equations}{225}{chapter.43}%
+\contentsline {section}{\numberline {43.1}Heat equation}{225}{section.43.1}%
+\contentsline {subsection}{\numberline {43.1.1}Weak formulation}{225}{subsection.43.1.1}%
+\contentsline {chapter}{\numberline {44}Hyperbolic equations}{227}{chapter.44}%
+\contentsline {section}{\numberline {44.1}Hyperbolic problems and conservation laws}{228}{section.44.1}%
+\contentsline {subsection}{\numberline {44.1.1}Integral equations}{228}{subsection.44.1.1}%
+\contentsline {subsection}{\numberline {44.1.2}Jump relations}{228}{subsection.44.1.2}%
+\contentsline {subsection}{\numberline {44.1.3}Differential equations}{229}{subsection.44.1.3}%
+\contentsline {section}{\numberline {44.2}Hyperbolic problems \sphinxhyphen {} dimensions}{229}{section.44.2}%
+\contentsline {subsection}{\numberline {44.2.1}Scalar linear}{229}{subsection.44.2.1}%
+\contentsline {subsubsection}{1\sphinxhyphen {}dimensional}{229}{subsubsection*.69}%
+\contentsline {subsection}{\numberline {44.2.2}Scalar non\sphinxhyphen {}linear}{229}{subsection.44.2.2}%
+\contentsline {subsection}{\numberline {44.2.3}System linear}{229}{subsection.44.2.3}%
+\contentsline {subsubsection}{1\sphinxhyphen {}dimensional}{229}{subsubsection*.70}%
+\contentsline {paragraph}{Method of characteristics}{230}{paragraph*.71}%
+\contentsline {paragraph}{Domain of influence and domain of dependence}{230}{paragraph*.72}%
+\contentsline {paragraph}{Riemann problem}{230}{paragraph*.73}%
+\contentsline {subsection}{\numberline {44.2.4}System non\sphinxhyphen {}linear}{233}{subsection.44.2.4}%
+\contentsline {subsubsection}{1\sphinxhyphen {}dimensional space}{233}{subsubsection*.74}%
+\contentsline {subsection}{\numberline {44.2.5}n\sphinxhyphen {}dimensional space}{233}{subsection.44.2.5}%
+\contentsline {section}{\numberline {44.3}Scalar linear equation}{237}{section.44.3}%
+\contentsline {section}{\numberline {44.4}Linear vector equation}{238}{section.44.4}%
+\contentsline {section}{\numberline {44.5}Scalar non\sphinxhyphen {}linear equation}{239}{section.44.5}%
+\contentsline {subsection}{\numberline {44.5.1}Examples}{239}{subsection.44.5.1}%
+\contentsline {subsubsection}{Burgers’s equation}{239}{subsubsection*.75}%
+\contentsline {paragraph}{Differential equation and integral balance}{239}{paragraph*.76}%
+\contentsline {paragraph}{Jump condition}{240}{paragraph*.78}%
+\contentsline {paragraph}{Characteristics}{240}{paragraph*.79}%
+\contentsline {paragraph}{Riemann problem}{240}{paragraph*.81}%
+\contentsline {paragraph}{Boundary conditions}{241}{paragraph*.83}%
+\contentsline {section}{\numberline {44.6}Method of characteristics}{242}{section.44.6}%
+\contentsline {subsection}{\numberline {44.6.1}Scalar multi\sphinxhyphen {}dimensional problem}{242}{subsection.44.6.1}%
+\contentsline {subsection}{\numberline {44.6.2}Vector multi\sphinxhyphen {}dimensional problem}{242}{subsection.44.6.2}%
+\contentsline {subsubsection}{Taylor expansion of a solution}{243}{subsubsection*.84}%
+\contentsline {subsubsection}{Examples}{244}{subsubsection*.85}%
+\contentsline {paragraph}{Isothermal compressible flow \sphinxhyphen {} 2d}{244}{paragraph*.86}%
+\contentsline {paragraph}{Euler equations for homoentropic inviscid compressible flows \sphinxhyphen {} 2d}{252}{paragraph*.87}%
+\contentsline {paragraph}{Euler equations for inviscid compressible flows \sphinxhyphen {} 2d}{253}{paragraph*.88}%
+\contentsline {paragraph}{Shallow water \sphinxhyphen {} 2d}{261}{paragraph*.89}%
+\contentsline {section}{\numberline {44.7}Hyperbolic problems in multi\sphinxhyphen {}dimensional domains}{261}{section.44.7}%
+\contentsline {subsection}{\numberline {44.7.1}General hyperbolic problem}{262}{subsection.44.7.1}%
+\contentsline {subsubsection}{Integral equations}{262}{subsubsection*.90}%
+\contentsline {paragraph}{Jump conditions}{262}{paragraph*.91}%
+\contentsline {subsubsection}{Differential equations}{263}{subsubsection*.92}%
+\contentsline {subsubsection}{Conservative form}{263}{subsubsection*.93}%
+\contentsline {subsubsection}{Method of characteristics}{264}{subsubsection*.94}%
+\contentsline {paragraph}{Spectral decomposition}{264}{paragraph*.95}%
+\contentsline {paragraph}{Change of variables}{266}{paragraph*.96}%
+\contentsline {subsubsection}{Riemann problem}{268}{subsubsection*.98}%
+\contentsline {paragraph}{Linearization \sphinxhyphen {} Roe intermediate state}{268}{paragraph*.99}%
+\contentsline {subsubsection}{Boundary conditions}{268}{subsubsection*.100}%
+\contentsline {subsection}{\numberline {44.7.2}P\sphinxhyphen {}system}{268}{subsection.44.7.2}%
+\contentsline {subsection}{\numberline {44.7.3}Euler equations}{268}{subsection.44.7.3}%
+\contentsline {subsubsection}{Thermodynamics and constitutive equations}{268}{subsubsection*.101}%
+\contentsline {subsubsection}{Integral equations}{269}{subsubsection*.102}%
+\contentsline {paragraph}{Jump conditions}{270}{paragraph*.103}%
+\contentsline {subsubsection}{Differential equations}{271}{subsubsection*.104}%
+\contentsline {paragraph}{Conservative form}{271}{paragraph*.105}%
+\contentsline {paragraph}{Convective forms}{271}{paragraph*.106}%
+\contentsline {paragraph}{Spectral decomposition}{272}{paragraph*.107}%
+\contentsline {subsubsection}{Riemann problem}{276}{subsubsection*.108}%
+\contentsline {paragraph}{Linearization \sphinxhyphen {} Roe intermediate state}{276}{paragraph*.109}%
+\contentsline {subsubsection}{Boundary conditions}{276}{subsubsection*.110}%
+\contentsline {subsection}{\numberline {44.7.4}Shallow water}{276}{subsection.44.7.4}%
+\contentsline {subsubsection}{Integral equations}{276}{subsubsection*.111}%
+\contentsline {paragraph}{Jump conditions}{276}{paragraph*.112}%
+\contentsline {subsubsection}{Differential equations}{276}{subsubsection*.113}%
+\contentsline {paragraph}{Spectral decomposition}{277}{paragraph*.114}%
+\contentsline {subsubsection}{Riemann problem}{277}{subsubsection*.115}%
+\contentsline {paragraph}{Linearization \sphinxhyphen {} Roe intermediate state}{277}{paragraph*.116}%
+\contentsline {subsubsection}{Boundary conditions}{277}{subsubsection*.117}%
+\contentsline {section}{\numberline {44.8}Riemann problems}{277}{section.44.8}%
+\contentsline {section}{\numberline {44.9}Physical solution in hyperbolic problems}{277}{section.44.9}%
+\contentsline {subsection}{\numberline {44.9.1}Scalar non\sphinxhyphen {}linear equation in 1\sphinxhyphen {}dimensional domain}{278}{subsection.44.9.1}%
+\contentsline {subsubsection}{Burgers’ equation}{279}{subsubsection*.118}%
+\contentsline {subsection}{\numberline {44.9.2}Non\sphinxhyphen {}linear system of equations in 1\sphinxhyphen {}dimensional domain}{279}{subsection.44.9.2}%
+\contentsline {subsubsection}{P\sphinxhyphen {}system}{281}{subsubsection*.119}%
+\contentsline {subsubsection}{Shallow water}{282}{subsubsection*.120}%
+\contentsline {subsubsection}{Euler equations}{282}{subsubsection*.121}%
+\contentsline {section}{\numberline {44.10}Convexity in hyperbolic problems}{282}{section.44.10}%
+\contentsline {subsection}{\numberline {44.10.1}Examples}{282}{subsection.44.10.1}%
+\contentsline {section}{\numberline {44.11}Non\sphinxhyphen {}convex hyperbolic problems}{285}{section.44.11}%
+\contentsline {subsection}{\numberline {44.11.1}Toy problem}{285}{subsection.44.11.1}%
+\contentsline {subsubsection}{Numerical simulation}{285}{subsubsection*.122}%
+\contentsline {paragraph}{Simulation with \((u_L, u_R) = (-1,1)\)}{286}{paragraph*.123}%
+\contentsline {paragraph}{Simulation with \((u_L, u_R) = (1,-1)\)}{286}{paragraph*.124}%
+\contentsline {subsubsection}{Olenik’s criterion}{287}{subsubsection*.125}%
+\contentsline {paragraph}{\((u_L, u_R) = (-1, 1)\)}{288}{paragraph*.126}%
+\contentsline {paragraph}{Characteristic lines in the \(x-t\) plane}{288}{paragraph*.127}%
+\contentsline {paragraph}{\((u_L, u_R) = (1, -1)\)}{289}{paragraph*.128}%
+\contentsline {subsubsection}{Non\sphinxhyphen {}physical solutions for \((u_L, u_R) = (-1, 1)\)}{289}{subsubsection*.129}%
+\contentsline {chapter}{\numberline {45}Navier\sphinxhyphen {}Cauchy equations}{291}{chapter.45}%
+\contentsline {section}{\numberline {45.1}Weak formulation}{291}{section.45.1}%
+\contentsline {chapter}{\numberline {46}Navier\sphinxhyphen {}Stokes equations}{293}{chapter.46}%
+\contentsline {section}{\numberline {46.1}Incompressibility constraint}{293}{section.46.1}%
+\contentsline {subsection}{\numberline {46.1.1}Wave\sphinxhyphen {}vector transformed space}{293}{subsection.46.1.1}%
+\contentsline {section}{\numberline {46.2}Weak formulation of the problem}{294}{section.46.2}%
+\contentsline {subsection}{\numberline {46.2.1}Weak formulation and incompressibility constraint}{294}{subsection.46.2.1}%
+\contentsline {section}{\numberline {46.3}Non\sphinxhyphen {}linear term}{294}{section.46.3}%
+\contentsline {chapter}{\numberline {47}Arbitrary Lagrangian\sphinxhyphen {}Eulerian description}{295}{chapter.47}%
+\contentsline {section}{\numberline {47.1}Integral problem}{295}{section.47.1}%
+\contentsline {section}{\numberline {47.2}Differential problem}{296}{section.47.2}%
+\contentsline {part}{XII\hspace {1em}Numerical Methods for PDEs}{297}{part.12}%
+\contentsline {chapter}{\numberline {48}Introduction to numerical methods for PDEs}{299}{chapter.48}%
+\contentsline {chapter}{\numberline {49}Finite Element Method}{303}{chapter.49}%
+\contentsline {section}{\numberline {49.1}1\sphinxhyphen {}dimensional Poisson equation}{303}{section.49.1}%
+\contentsline {subsection}{\numberline {49.1.1}Strong form of the problem}{303}{subsection.49.1.1}%
+\contentsline {subsection}{\numberline {49.1.2}Weak form of the problem}{303}{subsection.49.1.2}%
+\contentsline {subsubsection}{Poisson equation with Dirichlet boundary conditions}{304}{subsubsection*.131}%
+\contentsline {paragraph}{Finite element method}{304}{paragraph*.132}%
+\contentsline {paragraph}{Slicing the linear system}{306}{paragraph*.134}%
+\contentsline {paragraph}{Augmenting the linear system}{308}{paragraph*.135}%
+\contentsline {chapter}{\numberline {50}Finite Volume Method}{309}{chapter.50}%
+\contentsline {section}{\numberline {50.1}1\sphinxhyphen {}dimensional Poisson equation}{309}{section.50.1}%
+\contentsline {subsection}{\numberline {50.1.1}Integral form of the problem}{309}{subsection.50.1.1}%
+\contentsline {subsection}{\numberline {50.1.2}Domain, volume forcing and boundary conditions}{309}{subsection.50.1.2}%
+\contentsline {subsection}{\numberline {50.1.3}Discrete matheamtical problem}{310}{subsection.50.1.3}%
+\contentsline {subsection}{\numberline {50.1.4}Applying essential boundary conditions}{311}{subsection.50.1.4}%
+\contentsline {subsubsection}{Slicing the linear system}{312}{subsubsection*.136}%
+\contentsline {subsubsection}{Augmenting the linear system}{313}{subsubsection*.137}%
+\contentsline {section}{\numberline {50.2}FVM for hyperbolic problems}{314}{section.50.2}%
+\contentsline {subsection}{\numberline {50.2.1}Numerical fluxes}{315}{subsection.50.2.1}%
+\contentsline {subsubsection}{Godunov flux}{315}{subsubsection*.138}%
+\contentsline {subsubsection}{Roe flux}{315}{subsubsection*.139}%
+\contentsline {subsubsection}{Entropy fix}{318}{subsubsection*.140}%
+\contentsline {section}{\numberline {50.3}Boundary conditions in hyperbolic problems}{318}{section.50.3}%
+\contentsline {subsection}{\numberline {50.3.1}Wall}{318}{subsection.50.3.1}%
+\contentsline {subsubsection}{Domain at rest}{318}{subsubsection*.141}%
+\contentsline {subsubsection}{Moving domain}{319}{subsubsection*.142}%
+\contentsline {subsection}{\numberline {50.3.2}Characteristic\sphinxhyphen {}based boundary conditions}{319}{subsection.50.3.2}%
+\contentsline {section}{\numberline {50.4}Examples of FVM for hyperbolic problems}{319}{section.50.4}%
+\contentsline {subsection}{\numberline {50.4.1}1\sphinxhyphen {}dimensional P\sphinxhyphen {}system}{319}{subsection.50.4.1}%
+\contentsline {subsubsection}{Useful classes for numerical methods}{319}{subsubsection*.143}%
+\contentsline {paragraph}{Basic libraries}{319}{paragraph*.144}%
+\contentsline {paragraph}{Parent class}{319}{paragraph*.145}%
+\contentsline {paragraph}{P\sphinxhyphen {}system class}{320}{paragraph*.146}%
+\contentsline {subsubsection}{Numerical simulation}{320}{subsubsection*.147}%
+\contentsline {paragraph}{System of equations}{320}{paragraph*.148}%
+\contentsline {paragraph}{Domain}{320}{paragraph*.149}%
+\contentsline {paragraph}{Boundary conditions}{320}{paragraph*.150}%
+\contentsline {paragraph}{Simulation parameters}{320}{paragraph*.151}%
+\contentsline {paragraph}{Time loop}{320}{paragraph*.152}%
+\contentsline {paragraph}{Post\sphinxhyphen {}processing}{320}{paragraph*.153}%
+\contentsline {subsection}{\numberline {50.4.2}1\sphinxhyphen {}dimensional Euler equations for Perfect Ideal Gas}{320}{subsection.50.4.2}%
+\contentsline {subsubsection}{Useful classes for numerical methods}{320}{subsubsection*.154}%
+\contentsline {paragraph}{Basic libraries}{320}{paragraph*.155}%
+\contentsline {paragraph}{Parent class}{320}{paragraph*.156}%
+\contentsline {paragraph}{Euler equations for perfect ideal gas class}{320}{paragraph*.157}%
+\contentsline {subsubsection}{Numerical simulation}{320}{subsubsection*.158}%
+\contentsline {paragraph}{System of equations}{320}{paragraph*.159}%
+\contentsline {paragraph}{Domain}{320}{paragraph*.160}%
+\contentsline {paragraph}{Boundary conditions}{320}{paragraph*.161}%
+\contentsline {paragraph}{Initial conditions}{320}{paragraph*.162}%
+\contentsline {paragraph}{Simulation parameters}{320}{paragraph*.163}%
+\contentsline {paragraph}{Time loop}{321}{paragraph*.164}%
+\contentsline {paragraph}{Post\sphinxhyphen {}processing}{321}{paragraph*.165}%
+\contentsline {subsection}{\numberline {50.4.3}Quasi 1\sphinxhyphen {}dimensional Euler equations for Perfect Ideal Gas}{321}{subsection.50.4.3}%
+\contentsline {subsubsection}{Useful classes for numerical methods}{321}{subsubsection*.166}%
+\contentsline {paragraph}{Basic libraries}{321}{paragraph*.167}%
+\contentsline {paragraph}{Parent class}{321}{paragraph*.168}%
+\contentsline {paragraph}{Euler equations for perfect ideal gas class}{321}{paragraph*.169}%
+\contentsline {subsubsection}{Numerical simulation}{321}{subsubsection*.170}%
+\contentsline {paragraph}{System of equations}{321}{paragraph*.171}%
+\contentsline {paragraph}{Domain}{321}{paragraph*.172}%
+\contentsline {paragraph}{Boundary conditions}{321}{paragraph*.173}%
+\contentsline {paragraph}{Initial conditions}{321}{paragraph*.174}%
+\contentsline {paragraph}{Simulation parameters}{321}{paragraph*.175}%
+\contentsline {paragraph}{Time loop}{322}{paragraph*.176}%
+\contentsline {paragraph}{Post\sphinxhyphen {}processing}{322}{paragraph*.177}%
+\contentsline {subsection}{\numberline {50.4.4}1\sphinxhyphen {}dimensional Euler equations for Perfect Ideal Gas on moving mesh (ALE)}{322}{subsection.50.4.4}%
+\contentsline {subsubsection}{Useful classes for numerical methods}{322}{subsubsection*.178}%
+\contentsline {paragraph}{Basic libraries}{322}{paragraph*.179}%
+\contentsline {paragraph}{Parent class}{322}{paragraph*.180}%
+\contentsline {paragraph}{Euler equations for perfect ideal gas class}{322}{paragraph*.181}%
+\contentsline {paragraph}{Time dependent mesh}{322}{paragraph*.182}%
+\contentsline {subsubsection}{Numerical simulation}{323}{subsubsection*.183}%
+\contentsline {paragraph}{System of equations}{323}{paragraph*.184}%
+\contentsline {paragraph}{Domain}{323}{paragraph*.185}%
+\contentsline {subparagraph}{VV of the moving mesh}{323}{subparagraph*.186}%
+\contentsline {paragraph}{Boundary conditions}{323}{paragraph*.187}%
+\contentsline {paragraph}{Initial conditions}{323}{paragraph*.188}%
+\contentsline {paragraph}{Simulation parameters}{323}{paragraph*.189}%
+\contentsline {paragraph}{Time loop}{323}{paragraph*.190}%
+\contentsline {paragraph}{Post\sphinxhyphen {}processing}{323}{paragraph*.191}%
+\contentsline {chapter}{\numberline {51}Boundary Element Method}{325}{chapter.51}%
+\contentsline {part}{XIII\hspace {1em}Boundary Methods for PDEs}{327}{part.13}%
+\contentsline {chapter}{\numberline {52}Green’s function method}{329}{chapter.52}%
+\contentsline {section}{\numberline {52.1}Poisson equation}{329}{section.52.1}%
+\contentsline {section}{\numberline {52.2}Helmholtz equation}{330}{section.52.2}%
+\contentsline {section}{\numberline {52.3}Wave equation}{332}{section.52.3}%
+\contentsline {part}{XIV\hspace {1em}Optimization}{333}{part.14}%
+\contentsline {chapter}{\numberline {53}Optimization}{335}{chapter.53}%
+\contentsline {section}{\numberline {53.1}Unconstrained optimization}{335}{section.53.1}%
+\contentsline {section}{\numberline {53.2}Constrained optimization}{336}{section.53.2}%
+\contentsline {subsection}{\numberline {53.2.1}Method of Lagrange multipliers for equality constraints}{336}{subsection.53.2.1}%
+\contentsline {part}{XV\hspace {1em}Reinforcement Learning}{337}{part.15}%
+\contentsline {chapter}{\numberline {54}Introduction to Reinforcement Learning}{339}{chapter.54}%
+\contentsline {chapter}{\numberline {55}Markov Processes}{341}{chapter.55}%
+\contentsline {section}{\numberline {55.1}Markov Reward Processes}{342}{section.55.1}%
+\contentsline {subsection}{\numberline {55.1.1}Bellman Equation for \(V(s)\)}{343}{subsection.55.1.1}%
+\contentsline {section}{\numberline {55.2}Markov Decision Processes}{344}{section.55.2}%
+\contentsline {subsection}{\numberline {55.2.1}Policies}{344}{subsection.55.2.1}%
+\contentsline {subsection}{\numberline {55.2.2}Bellman Equations}{345}{subsection.55.2.2}%
+\contentsline {chapter}{\numberline {56}Methods of solution of MPD: DP and LP}{349}{chapter.56}%
+\contentsline {section}{\numberline {56.1}Brute force: policy search}{349}{section.56.1}%
+\contentsline {section}{\numberline {56.2}Dynamic programming}{349}{section.56.2}%
+\contentsline {subsection}{\numberline {56.2.1}Policy iteration}{349}{subsection.56.2.1}%
+\contentsline {subsubsection}{Policy Evaluation}{350}{subsubsection*.193}%
+\contentsline {subsubsection}{Policy Improvement}{350}{subsubsection*.194}%
+\contentsline {subsubsection}{Policy Iteration algorithm}{351}{subsubsection*.195}%
+\contentsline {subsection}{\numberline {56.2.2}Value Iteration}{351}{subsection.56.2.2}%
+\contentsline {subsection}{\numberline {56.2.3}Dynamic programming: extensions}{351}{subsection.56.2.3}%
+\contentsline {section}{\numberline {56.3}Linear programming}{351}{section.56.3}%
+\contentsline {chapter}{\numberline {57}Methods of solution of MPD: RL}{353}{chapter.57}%
+\contentsline {section}{\numberline {57.1}Evaluation}{353}{section.57.1}%
+\contentsline {subsection}{\numberline {57.1.1}Monte\sphinxhyphen {}Carlo RL}{353}{subsection.57.1.1}%
+\contentsline {subsection}{\numberline {57.1.2}Temporal Difference (TD) Learning}{354}{subsection.57.1.2}%
+\contentsline {subsection}{\numberline {57.1.3}TD prediction}{354}{subsection.57.1.3}%
+\contentsline {section}{\numberline {57.2}Model control}{355}{section.57.2}%
+\contentsline {subsection}{\numberline {57.2.1}On\sphinxhyphen {} and Off\sphinxhyphen {}Policy Learning}{355}{subsection.57.2.1}%
+\contentsline {subsection}{\numberline {57.2.2}MC control}{355}{subsection.57.2.2}%
+\contentsline {subsection}{\numberline {57.2.3}\(\mitepsilon \)\sphinxhyphen {}greedy policy improvement }{356}{subsection.57.2.3}%
+\contentsline {subsection}{\numberline {57.2.4}TD control}{357}{subsection.57.2.4}%
+\contentsline {subsection}{\numberline {57.2.5}Off\sphinxhyphen {}policy learning}{357}{subsection.57.2.5}%
+\contentsline {section}{\numberline {57.3}Actor\sphinxhyphen {}Critic}{357}{section.57.3}%
+\contentsline {section}{\numberline {57.4}Learning and planning}{357}{section.57.4}%
+\contentsline {chapter}{\numberline {58}Large or Continuous MDPs}{359}{chapter.58}%
+\contentsline {section}{\numberline {58.1}Value and Policy\sphinxhyphen {}Based RL}{360}{section.58.1}%
+\contentsline {chapter}{Proof Index}{361}{section*.196}%

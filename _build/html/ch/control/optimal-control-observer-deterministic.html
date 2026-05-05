@@ -65,8 +65,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'ch/control/optimal-control-observer-deterministic';</script>
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -571,24 +569,26 @@ document.write(`
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="optimal-observer-for-deterministic-disturbances">
 <span id="control-optimal-observer-deterministic"></span><h1><span class="section-number">39.4. </span>Optimal observer for deterministic disturbances<a class="headerlink" href="#optimal-observer-for-deterministic-disturbances" title="Permalink to this heading">#</a></h1>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{cases}
+<p>See next section about <a class="reference internal" href="optimal-control-observer-gaussian.html#control-optimal-observer-stochastic"><span class="std std-ref">optimal observer for stochastic disturbances</span></a>, or <strong>Kalman filter</strong>.</p>
+<!--
+$$\begin{cases}
  \dot{\mathbf{x}} = \mathbf{A} \mathbf{x} + \mathbf{B} \mathbf{u} + \mathbf{B}_d \mathbf{d} \\
  \mathbf{y}       = \mathbf{C} \mathbf{x} + \mathbf{D} \mathbf{u} + \mathbf{D}_d \mathbf{d} + \mathbf{D}_r \mathbf{r}
-\end{cases}\end{split}\]</div>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{cases}
+\end{cases}$$
+
+$$\begin{cases}
  \dot{\mathbf{o}} = \mathbf{A} \mathbf{o} + \mathbf{B} \mathbf{u} + \mathbf{L} \left( \mathbf{y} - \mathbf{y}_o \right) \\
  \mathbf{y}_o     = \mathbf{C} \mathbf{o} + \mathbf{D} \mathbf{u} 
-\end{cases}\end{split}\]</div>
-<p>The error is defined as <span class="math notranslate nohighlight">\(\mathbf{e} := \mathbf{o} - \mathbf{x}\)</span>, and it’s governed by the dynamical equation</p>
-<div class="math notranslate nohighlight">
-\[\dot{\mathbf{e}} = \left( \mathbf{A} - \mathbf{L} \mathbf{C} \right) \mathbf{e} + \left( \mathbf{B}_d - \mathbf{L} \mathbf{D}_d \right)  \mathbf{d} - \mathbf{L} \mathbf{D}_r \mathbf{r} \ .\]</div>
-<p>This equation shows that the dynamics is asymptotically stable if the matrix <span class="math notranslate nohighlight">\(\mathbf{A} - \mathbf{L} \mathbf{C}\)</span> is asymptotically stable. The matrix <span class="math notranslate nohighlight">\(\mathbf{L}\)</span> is involved in the dynamics from the exogenous input <span class="math notranslate nohighlight">\(\mathbf{d}\)</span> and measurement error <span class="math notranslate nohighlight">\(\mathbf{r}\)</span>. The design of <span class="math notranslate nohighlight">\(\mathbf{L}\)</span> is driven by some requiremenets:</p>
-<ul class="simple">
-<li><p>asymptotic stability of <span class="math notranslate nohighlight">\(\mathbf{A} - \mathbf{L}\mathbf{C}\)</span>,</p></li>
-<li><p>low sensitivity to exogenous input and measurement error.</p></li>
-</ul>
+\end{cases}$$
+
+The error is defined as $\mathbf{e} := \mathbf{o} - \mathbf{x}$, and it's governed by the dynamical equation
+
+$$\dot{\mathbf{e}} = \left( \mathbf{A} - \mathbf{L} \mathbf{C} \right) \mathbf{e} + \left( \mathbf{B}_d - \mathbf{L} \mathbf{D}_d \right)  \mathbf{d} - \mathbf{L} \mathbf{D}_r \mathbf{r} \ .$$
+
+This equation shows that the dynamics is asymptotically stable if the matrix $\mathbf{A} - \mathbf{L} \mathbf{C}$ is asymptotically stable. The matrix $\mathbf{L}$ is involved in the dynamics from the exogenous input $\mathbf{d}$ and measurement error $\mathbf{r}$. The design of $\mathbf{L}$ is driven by some requiremenets:
+* asymptotic stability of $\mathbf{A} - \mathbf{L}\mathbf{C}$,
+* low sensitivity to exogenous input and measurement error.
+-->
 </div>
 
     <script type="text/x-thebe-config">

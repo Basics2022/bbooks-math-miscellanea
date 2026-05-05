@@ -394,6 +394,10 @@ Matrix $\mathbf{P}$ satisfies a [Lyapunov equation](lyapunov-eq),
 
 $$\dot{\mathbf{P}} = \mathbf{A}^T \mathbf{P} + \mathbf{P}\mathbf{A} + \left( \widetilde{\mathbf{Q}} - \mathbf{G}^T \mathbf{S}^T - \mathbf{S} \mathbf{G} + \mathbf{G}^T \widetilde{\mathbf{R}} \mathbf{G} \right) \ ,$$
 
+with final conditions
+
+$$\mathbf{P}(T) = \mathbf{Q}_T \ ,$$
+
 as it can be easily found by direct computation of the time derivative of $\mathbf{P}$.
 
 
@@ -500,8 +504,73 @@ $$\boldsymbol\lambda_t = \partial_{\mathbf{x}_t} V = \left[ \int_{\tau=t}^{T} \h
 
 ```
 
+```{dropdown} Lyapunov and Riccati equations
+:open:
+
+Control law in the uncoupled coordinates,
+
+$$\begin{aligned}
+  \widetilde{\mathbf{u}}
+  & = - \mathbf{R}^{-1} \mathbf{B}^T \boldsymbol\lambda = \\
+  & = - \mathbf{R}^{-1} \mathbf{B}^T \mathbf{P} \mathbf{x} = \\
+  & = - \widetilde{\mathbf{K}} \mathbf{x} \ ,
+\end{aligned}$$
+
+and
+
+$$\begin{aligned}
+  \mathbf{u} 
+  & = \widetilde{\mathbf{u}} - \mathbf{R}^{-1} \mathbf{S}^T \mathbf{x} = \\
+  & = - \mathbf{R}^{-1} \left( \mathbf{B}^T \mathbf{P} + \mathbf{S}^T \right) \mathbf{x} = \\
+  & = - \mathbf{K} \mathbf{x} \ .
+\end{aligned}$$
+
+so that $\mathbf{R}^{-1} \mathbf{B}^T \mathbf{P} = \mathbf{K} - \mathbf{R}^{-1} \mathbf{S}^T$.
+
+Relation between the co-state an the state
+
+$$\boldsymbol\lambda = \mathbf{P} \mathbf{x} \ .$$
+
+State and co-state dynamical equations
+
+$$\begin{aligned}
+  \dot{\mathbf{x}} & = \hat{\mathbf{A}} \mathbf{x} + \mathbf{B} \widetilde{\mathbf{u}} \\
+  \dot{\boldsymbol\lambda} & = - \hat{\mathbf{A}}^T \boldsymbol{\lambda} - \hat{\mathbf{Q}} \mathbf{x} \\
+\end{aligned}$$
+
+**Riccati equation for $\boldsymbol\lambda$.**
+
+$$-\hat{\mathbf{A}}^T \mathbf{P} \mathbf{x} - \hat{\mathbf{Q}} \mathbf{x} = \dot{\mathbf{P}} \mathbf{x} + \mathbf{P} \hat{\mathbf{A}} \mathbf{x} - \mathbf{P} \mathbf{B} \mathbf{R}^{-1} \mathbf{B}^T \mathbf{P} \mathbf{x} \ . $$
+
+For arbitrary $\mathbf{x}$, Riccati equation follows
+
+$$\begin{aligned}
+\mathbf{0} 
+ & = \dot{\mathbf{P}} + \mathbf{P} \hat{\mathbf{A}} + \hat{\mathbf{A}}^T \mathbf{P} + \hat{\mathbf{Q}} - \mathbf{P} \mathbf{B} \mathbf{R}^{-1} \mathbf{B}^T \mathbf{P} = \\
+ & = \dot{\mathbf{P}} + \mathbf{P} \left( \mathbf{A} - \mathbf{B} \mathbf{R}^{-1} \mathbf{S}^T \right) + \left( \mathbf{A} - \mathbf{B} \mathbf{R}^{-1} \mathbf{S}^T \right)^T \mathbf{P} + \left( \mathbf{Q} - \mathbf{S} \mathbf{R}^{-1} \mathbf{S}^T \right) - \mathbf{P} \mathbf{B} \mathbf{R}^{-1} \mathbf{B}^T \mathbf{P} \ .
+\end{aligned}$$
+
+**Lyapunov equation for $\boldsymbol\lambda$.** Replacing $\mathbf{K} = \mathbf{R}^{-1} \mathbf{B}^T \mathbf{P}$,
+
+$$\begin{aligned}
+ \mathbf{0} 
+  & = \dot{\mathbf{P}} + \mathbf{P} \mathbf{A} - \mathbf{K}^T \mathbf{S}^T + \mathbf{S} \mathbf{R}^{-1} \mathbf{S}^T + \mathbf{A}^T \mathbf{P} - \mathbf{S} \mathbf{K} + \mathbf{S} \mathbf{R}^{-1} \mathbf{S}^T + \mathbf{Q} - \mathbf{S} \mathbf{R}^{-1} \mathbf{S}^T - \left( \mathbf{K} - \mathbf{R}^{-1} \mathbf{S}^T \right)^T \mathbf{R} \left( \mathbf{K} - \mathbf{R}^{-1} \mathbf{S}^T \right) = \\
+  & = \dot{\mathbf{P}} + \mathbf{P} \mathbf{A} + \mathbf{A}^T \mathbf{P} + \mathbf{Q} + \mathbf{S}\mathbf{R}^{-1} \mathbf{S} - \mathbf{S} \mathbf{K} - \mathbf{K}^T \mathbf{S}^T - \mathbf{K}^T \mathbf{R} \mathbf{K} + \mathbf{S} \mathbf{R}^{-1} \mathbf{R} \mathbf{K} + \mathbf{K}^T \mathbf{R} \mathbf{R}^{-1} \mathbf{S}^T - \mathbf{S} \mathbf{R}^{-1} \mathbf{R} \mathbf{R}^{-1} \mathbf{S}^T = \\
+  & = \dot{\mathbf{P}} + \mathbf{P} \mathbf{A} + \mathbf{A}^T \mathbf{P} + \mathbf{Q} - \mathbf{K}^T \mathbf{R} \mathbf{K} \ .
+\end{aligned}$$
+
+```
+
+
+```{dropdown} ...
+:open:
+
 $$\partial_t \hat{\boldsymbol\Phi}(t,\tau) = \hat{\mathbf{A}}(t)  \hat{\boldsymbol\Phi}(t,\tau) \ .$$
 
+<!--
 $$\partial_T \mathbf{P}$$
+-->
+
+```
 
 
