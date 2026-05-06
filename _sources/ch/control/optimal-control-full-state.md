@@ -3,6 +3,16 @@
 
 Optimal control can be recast as a **constrained optimization problem**, $J$, where an extreme - optimum - of an objective function must be found, subject to constraints that include the equations of motion. Some constraints may be included into an augmented objective function $\widetilde{J}$ with the methods of [Lagrange multipliers](optimization:constrained:lagrange-multipliers).
 
+
+```{dropdown} Contents 
+:open:
+
+* [Generic ODE without exogenous inputs](control:optimal:full-state-fb:ode): 
+* [Linear system without exogenous inputs](control:optimal:full-state-fb:linear): 
+* [Linear system without exogenous inputs - infinite time horizon](control:optimal:full-state-fb:linear:infinite-time-horizon)
+
+```
+
 ```{dropdown} Different models - governing equations
 :open:
 
@@ -59,16 +69,6 @@ D(\mathbf{x}(T)) & = \frac{1}{2} \mathbf{x}^T(T) \mathbf{Q}_T \mathbf{x}(T)  \ .
 **Finite time vs. Infinite time horizon.**
 
 ...
-
-```{dropdown} Contents
-:open:
-
-* [Generic ODE without exogenous inputs](control:optimal:full-state-fb:ode): 
-* [Linear system without exogenous inputs](control:optimal:full-state-fb:linear): 
-* [Linear system without exogenous inputs - infinite time horizon](control:optimal:full-state-fb:linear:infinite-time-horizon)
-
-
-```
 ...
 
 
