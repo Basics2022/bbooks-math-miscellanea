@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>40.1.3. Linear system without exogenous inputs - infinite time horizon &#8212; basics - math</title>
+    <title>3.4. Cholesky decomposition &#8212; basics - math</title>
   
   
   
@@ -67,12 +67,12 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/control/optimal-control-full-state-linear-infinite-time';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/linear-algebra/cholesky';</script>
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="40.2. Full-state feedback (OLD)" href="optimal-control-full-state-old.html" />
-    <link rel="prev" title="40.1.2. Linear system without exogenous inputs" href="optimal-control-full-state-linear.html" />
+    <link rel="next" title="3.5. Jordan normal form" href="jordan.html" />
+    <link rel="prev" title="3.3. Schur decomposition" href="schur.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -176,23 +176,23 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Linear Algebra</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../linear-algebra/intro.html">1. Introduction to Linear Algebra</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../linear-algebra/matrices.html">2. Matrices</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../linear-algebra/matrix-factorization.html">3. Matrix factorizations</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../linear-algebra/schur.html">3.3. Schur decomposition</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../linear-algebra/cholesky.html">3.4. Cholesky decomposition</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../linear-algebra/jordan.html">3.5. Jordan normal form</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../linear-algebra/svd.html">3.6. Singular Value Decomposition</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">1. Introduction to Linear Algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matrices.html">2. Matrices</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="matrix-factorization.html">3. Matrix factorizations</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="schur.html">3.3. Schur decomposition</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">3.4. Cholesky decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="jordan.html">3.5. Jordan normal form</a></li>
+<li class="toctree-l2"><a class="reference internal" href="svd.html">3.6. Singular Value Decomposition</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../linear-algebra/linear-systems.html">4. Linear Systems</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../linear-algebra/spectral.html">5. Spectral decomposition</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../linear-algebra/spectral-symmetric.html">5.1. Spectral decomposition of symmetric matrices</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../linear-algebra/spectral-sensitivity.html">5.2. Sensitivity of spectral decomposition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linear-systems.html">4. Linear Systems</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="spectral.html">5. Spectral decomposition</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="spectral-symmetric.html">5.1. Spectral decomposition of symmetric matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="spectral-sensitivity.html">5.2. Sensitivity of spectral decomposition</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../linear-algebra/cayley-hamilton.html">6. Cayley-Hamilton theorem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cayley-hamilton.html">6. Cayley-Hamilton theorem</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Multivariable Calculus</span></p>
 <ul class="nav bd-sidenav">
@@ -266,36 +266,36 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../system-theory/shape-filter.html">36. Shape filter</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Control Theory</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="intro.html">37. Introduction to control methods</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="closed-loop-requirements-performance.html">38. Closed-loop control: requirements and performance</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="closed-loop-requirements-performance-siso-stability.html">38.3. Stability (SISO)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="closed-loop-requirements-performance-siso-ref-tracking.html">38.4. Reference tracking (SISO)</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../control/intro.html">37. Introduction to control methods</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../control/closed-loop-requirements-performance.html">38. Closed-loop control: requirements and performance</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../control/closed-loop-requirements-performance-siso-stability.html">38.3. Stability (SISO)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control/closed-loop-requirements-performance-siso-ref-tracking.html">38.4. Reference tracking (SISO)</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="frequency-domain.html">39. Frequency domain control</a></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="optimal-control.html">40. Optimal control</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active has-children"><a class="reference internal" href="optimal-control-full-state.html">40.1. Full-state feedback</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="optimal-control-full-state-general-ode.html">40.1.1. Generic ODE without exogenous inputs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="optimal-control-full-state-linear.html">40.1.2. Linear system without exogenous inputs</a></li>
-<li class="toctree-l3 current active"><a class="current reference internal" href="#">40.1.3. Linear system without exogenous inputs - infinite time horizon</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../control/frequency-domain.html">39. Frequency domain control</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../control/optimal-control.html">40. Optimal control</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../control/optimal-control-full-state.html">40.1. Full-state feedback</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../control/optimal-control-full-state-general-ode.html">40.1.1. Generic ODE without exogenous inputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../control/optimal-control-full-state-linear.html">40.1.2. Linear system without exogenous inputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../control/optimal-control-full-state-linear-infinite-time.html">40.1.3. Linear system without exogenous inputs - infinite time horizon</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="optimal-control-full-state-old.html">40.2. Full-state feedback (OLD)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="optimal-control-margins.html">40.3. Phase and gain margin of optimal control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="optimal-control-observer-stochastic.html">40.4. Optimal observer for stochastic disturbance</a></li>
-<li class="toctree-l2"><a class="reference internal" href="optimal-control-observer-deterministic.html">40.5. Optimal observer for deterministic disturbances</a></li>
-<li class="toctree-l2"><a class="reference internal" href="optimal-control-output.html">40.6. Sub-optimal control for output feedback</a></li>
-<li class="toctree-l2"><a class="reference internal" href="optimal-control-regulator-observer.html">40.7. Combination of controller and observer</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="optimal-control-ref-tracking.html">40.8. Optimal control for reference tracking</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="optimal-control-ref-tracking-example.html">40.8.3. Example of optimal control for tracking reference input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-full-state-old.html">40.2. Full-state feedback (OLD)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-margins.html">40.3. Phase and gain margin of optimal control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-observer-stochastic.html">40.4. Optimal observer for stochastic disturbance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-observer-deterministic.html">40.5. Optimal observer for deterministic disturbances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-output.html">40.6. Sub-optimal control for output feedback</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-regulator-observer.html">40.7. Combination of controller and observer</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../control/optimal-control-ref-tracking.html">40.8. Optimal control for reference tracking</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../control/optimal-control-ref-tracking-example.html">40.8.3. Example of optimal control for tracking reference input</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="kalman.html">40.9. Kalman filter</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hjb.html">40.10. Hamilton Bellman Jacobi equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control/kalman.html">40.9. Kalman filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control/hjb.html">40.10. Hamilton Bellman Jacobi equation</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="pole-placement.html">41. Pole placement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../control/pole-placement.html">41. Pole placement</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Partial Differential Equations</span></p>
 <ul class="nav bd-sidenav">
@@ -434,7 +434,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/edit/main/ch/control/optimal-control-full-state-linear-infinite-time.md" target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/edit/main/ch/linear-algebra/cholesky.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -451,7 +451,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/issues/new?title=Issue%20on%20page%20%2Fch/control/optimal-control-full-state-linear-infinite-time.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/issues/new?title=Issue%20on%20page%20%2Fch/linear-algebra/cholesky.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -481,7 +481,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/ch/control/optimal-control-full-state-linear-infinite-time.md" target="_blank"
+      <li><a href="../../_sources/ch/linear-algebra/cholesky.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -563,7 +563,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Linear system without exogenous inputs - infinite time horizon</h1>
+    <h1>Cholesky decomposition</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -577,83 +577,12 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="linear-system-without-exogenous-inputs-infinite-time-horizon">
-<span id="control-optimal-full-state-fb-linear-infinite-time-horizon"></span><h1><span class="section-number">40.1.3. </span>Linear system without exogenous inputs - infinite time horizon<a class="headerlink" href="#linear-system-without-exogenous-inputs-infinite-time-horizon" title="Permalink to this heading">#</a></h1>
-<p>In the infinite-time horizon, under the assumption of stabilizability and observability (<strong>todo</strong> Prove it!), the optimal control law for a LTI system is a proportional control law,</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="cholesky-decomposition">
+<span id="math-cholesky"></span><h1><span class="section-number">3.4. </span>Cholesky decomposition<a class="headerlink" href="#cholesky-decomposition" title="Permalink to this heading">#</a></h1>
+<p>For a semi-positive definite matrix <span class="math notranslate nohighlight">\(\mathbf{M}\)</span></p>
 <div class="math notranslate nohighlight">
-\[\mathbf{u} = - \mathbf{K} \mathbf{x} = - \mathbf{R}^{-1} ( \mathbf{B}^T \mathbf{P} + \mathbf{S}^T ) \mathbf{x} \ ,\]</div>
-<p>with the constant matrix <span class="math notranslate nohighlight">\(\mathbf{P}\)</span> satisfying the <strong>algebraic Riccation equation (ARE)</strong></p>
-<div class="math notranslate nohighlight" id="equation-eq-optimal-infinite-time-p-are">
-<span class="eqno">(40.8)<a class="headerlink" href="#equation-eq-optimal-infinite-time-p-are" title="Permalink to this equation">#</a></span>\[\mathbf{0} = \mathbf{P} \hat{\mathbf{A}} + \hat{\mathbf{A}}^T \mathbf{P} + \hat{\mathbf{Q}} - \mathbf{P} \mathbf{B} \mathbf{R}^{-1} \mathbf{B}^T \mathbf{P} \ ,\]</div>
-<p>with <span class="math notranslate nohighlight">\(\hat{\mathbf{A}} = \mathbf{A} - \mathbf{B} \mathbf{R}^{-1} \mathbf{S}^T\)</span> and <span class="math notranslate nohighlight">\(\hat{\mathbf{Q}} = \mathbf{Q} - \mathbf{S} \mathbf{R}^{-1} \mathbf{S}^T\)</span>.</p>
-<p>Introducing the relation <span class="math notranslate nohighlight">\(\boldsymbol\lambda(t) = \mathbf{P} \mathbf{x}(t)\)</span> - with constant <span class="math notranslate nohighlight">\(\mathbf{P}\)</span> - into the Hamiltonian system</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{bmatrix} \dot{\mathbf{x}} \\ \dot{\boldsymbol\lambda} \end{bmatrix}
-\begin{bmatrix}
-  \mathbf{A} - \mathbf{B} \widetilde{\mathbf{R}}^{-1} \mathbf{S}^T &amp; - \mathbf{B} \widetilde{\mathbf{R}}^{-1} \mathbf{B}^T \\
-  -\widetilde{\mathbf{Q}} + \mathbf{S} \widetilde{\mathbf{R}}^{-1} \mathbf{S}^T &amp; - \mathbf{A}^T + \mathbf{S} \widetilde{\mathbf{R}}^{-1} \mathbf{B}^T
-\end{bmatrix}
-\begin{bmatrix}      \mathbf{x}  \\      \boldsymbol\lambda  \end{bmatrix} \ ,
-\end{split}\]</div>
-<p>it’s possible to get 2 “decoupled” (the coupling lies in the relation <span class="math notranslate nohighlight">\(\boldsymbol\lambda = \mathbf{P} \mathbf{x}\)</span>) equations for <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> and <span class="math notranslate nohighlight">\(\boldsymbol\lambda\)</span>,</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  \dot{\mathbf{x}} &amp; = \left( \hat{\mathbf{A}} - \mathbf{B} \widetilde{\mathbf{R}}^{-1} \mathbf{B}^T \mathbf{P} \right) \mathbf{x} \\
-  \dot{\boldsymbol{\lambda}} &amp; = - \left( \hat{\mathbf{A}}^T + \hat{\mathbf{Q}} \mathbf{P}^{-1} \right) \boldsymbol\lambda \ . 
-\end{aligned}\end{split}\]</div>
-<p>If the matrix <span class="math notranslate nohighlight">\(\mathbf{P}\)</span> is chosen as the solution of the ARE <a class="reference internal" href="#equation-eq-optimal-infinite-time-p-are">(40.8)</a>, then the two equations have opposite eigenvalues, as</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  \hat{\mathbf{A}}^T + \hat{\mathbf{Q}} \mathbf{P}^{-1}
-  &amp; = \left( \hat{\mathbf{A}}^T \mathbf{P} + \hat{\mathbf{Q}} \right) \mathbf{P}^{-1} = \\
-  &amp; = \left( - \mathbf{P} \hat{\mathbf{A}} + \mathbf{P} \mathbf{B} \mathbf{R}^{-1} \mathbf{B}^T \mathbf{P} \right) \mathbf{P}^{-1} = \\
-  &amp; = - \mathbf{P} \left(  \hat{\mathbf{A}} - \mathbf{B} \mathbf{R}^{-1} \mathbf{B}^T \mathbf{P} \right) \mathbf{P}^{-1} \ ,
-\end{aligned}\end{split}\]</div>
-<p>the two matrices are related by a similarity transformation, through <span class="math notranslate nohighlight">\(\mathbf{P}\)</span>, with a minus sign.</p>
-<p>Thus, the transition matrix of the state and the co-state in the closed-loop systems are dual, in the sense of</p>
-<div class="math notranslate nohighlight">
-\[\boldsymbol\Phi_{cl,x}(t,t_0) = \boldsymbol\Phi_{cl,\lambda}^T(t_0,t) \ .\]</div>
-<p><strong>Lyapunov criterium for stability.</strong> Let <span class="math notranslate nohighlight">\(V(x) = \mathbf{x}^T \mathbf{P} \mathbf{x}\)</span>, its time derivative reads</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  \dot{V}(x(t)) 
-  &amp; = \dot{\mathbf{x}}^T \mathbf{P} \mathbf{x} + \mathbf{x}^T \mathbf{P} \dot{\mathbf{x}} = \\
-  &amp; = \mathbf{x}^T ( \hat{\mathbf{A}} - \mathbf{B} \mathbf{R}^{-1} \mathbf{B}^T \mathbf{P} )^T \mathbf{P} \mathbf{x} + \mathbf{x}^T \mathbf{P} ( \hat{\mathbf{A}} - \mathbf{B} \mathbf{R}^{-1} \mathbf{B}^T \mathbf{P} ) \mathbf{x} = \\
-  &amp; = \mathbf{x}^T ( \hat{\mathbf{A}}^T \mathbf{P} + \mathbf{P} \hat{\mathbf{A}} - 2 \mathbf{P} \mathbf{B} \mathbf{R}^{-1} \mathbf{B}^T \mathbf{P} ) \mathbf{x} = \\
-  &amp; = - \mathbf{x}^T ( \hat{\mathbf{Q}} + \mathbf{P} \mathbf{B} \mathbf{R}^{-1} \mathbf{B}^T \mathbf{P} ) \mathbf{x} = \\
-  &amp; \le 0 \ ,
-\end{aligned}\end{split}\]</div>
-<p>for all <span class="math notranslate nohighlight">\(\mathbf{x} \ne \mathbf{0}\)</span>, if the matrix <span class="math notranslate nohighlight">\(\hat{\mathbf{Q}} + \mathbf{P} \mathbf{B} \mathbf{R}^{-1} \mathbf{B}^T \mathbf{P}\)</span> is a positive definite matrix.</p>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
-<summary class="sd-summary-title sd-card-header">
-Asymptotic stability and detectability of <span class="math notranslate nohighlight">\(\ (\hat{\mathbf{A}}, \hat{\mathbf{Q}}^{1/2})\)</span><div class="sd-summary-down docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="sd-summary-up docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">For asymptotic stability, we require the pair <span class="math notranslate nohighlight">\((\hat{A}, \hat{Q}^{1/2})\)</span> to be detectable (see <a class="reference internal" href="../system-theory/observability-detectability.html#observability-detectability"><span class="std std-ref">observability and detectability</span></a>. Here is the proof logic:</p>
-<ul>
-<li><p class="sd-card-text">define the null space: suppose there exists a trajectory <span class="math notranslate nohighlight">\(x(t)\)</span> such that <span class="math notranslate nohighlight">\(\dot{V}(x(t)) = 0\)</span> for all <span class="math notranslate nohighlight">\(t \geq 0\)</span>.</p></li>
-<li><p class="sd-card-text">analyze the terms: Since both <span class="math notranslate nohighlight">\(\hat{Q}\)</span> and <span class="math notranslate nohighlight">\(PBR^{-1}B^TP\)</span> are positive semi-definite, <span class="math notranslate nohighlight">\(\dot{V} = 0\)</span> implies that <span class="math notranslate nohighlight">\(x^T \hat{Q} x = 0\)</span> and <span class="math notranslate nohighlight">\(x^T PBR^{-1}B^TP x = 0\)</span> simultaneously.</p></li>
-<li><p class="sd-card-text">vanishing control: If <span class="math notranslate nohighlight">\(x^T PBR^{-1}B^TP x = 0\)</span>, then the optimal control input <span class="math notranslate nohighlight">\(u = -R^{-1}B^T P x\)</span> must be zero, as</p>
-<div class="math notranslate nohighlight">
-\[0 = \mathbf{x}^T \mathbf{P} \mathbf{B} \mathbf{R}^{-1} \mathbf{R} \mathbf{R}^{-1} \mathbf{B}^T \mathbf{P} \mathbf{x} = \mathbf{u}^T \mathbf{R} \mathbf{u} \ ,\]</div>
-<p class="sd-card-text">forces <span class="math notranslate nohighlight">\(\mathbf{u} = \mathbf{0}\)</span>, as the weight matrix on the control must be positive definite, <span class="math notranslate nohighlight">\(\mathbf{R} &gt; 0\)</span> (update the condition for mixed weights, and/or weights on performance outputs with <span class="math notranslate nohighlight">\(\widetilde{\mathbf{R}}\)</span>).</p>
-</li>
-<li><p class="sd-card-text">the residual dynamics: in this “unobservable” region where <span class="math notranslate nohighlight">\(\dot{V}=0\)</span>, the dynamics simplify to <span class="math notranslate nohighlight">\(\dot{x} = \hat{A} x\)</span>.</p></li>
-<li><p class="sd-card-text">the constraint: for <span class="math notranslate nohighlight">\(\dot{V}\)</span> to remain zero, we also require <span class="math notranslate nohighlight">\(\mathbf{x}^T \hat{\mathbf{Q}} \mathbf{x} = 0\)</span>, and with <span class="math notranslate nohighlight">\(\hat{\mathbf{Q}}^{1/2}\)</span> as the <a class="reference internal" href="../linear-algebra/cholesky.html#math-cholesky"><span class="std std-ref">Choleski factor</span></a> of the semi-definite positive matrix, <span class="math notranslate nohighlight">\(\hat{\mathbf{Q}}^{1/2} \mathbf{x}(t) = 0\)</span> for all <span class="math notranslate nohighlight">\(t\)</span>.</p></li>
-</ul>
-<p class="sd-card-text">All the statements above can be then summarized as the condition of detectability of a linear system</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\left\{\begin{aligned}
-  \dot{\mathbf{x}} &amp; = \hat{\mathbf{A}} \mathbf{x} \\
-       \mathbf{y}  &amp; = \hat{\mathbf{Q}}^{1/2} \mathbf{x} \\
-\end{aligned}\right.\end{split}\]</div>
-</div>
-</details><p><strong>Schur decoposition.</strong></p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\mathbf{U}^T \mathbf{H} \mathbf{U} = \mathbf{T} = \begin{bmatrix} \mathbf{T}_{11} &amp; \mathbf{T}_{12} \\ \mathbf{0} &amp; \mathbf{T}_{22} \end{bmatrix}\end{split}\]</div>
+\[\mathbf{M} = \mathbf{L} \mathbf{L}^* = \mathbf{U}^* \mathbf{U}\]</div>
+<p>with <span class="math notranslate nohighlight">\(\mathbf{L}\)</span> lower triangular matrix.</p>
 </div>
 
     <script type="text/x-thebe-config">
@@ -669,7 +598,7 @@ Asymptotic stability and detectability of <span class="math notranslate nohighli
         },
         kernelOptions: {
             name: "python3",
-            path: "./ch/control"
+            path: "./ch/linear-algebra"
         },
         predefinedOutput: true
     }
@@ -687,20 +616,20 @@ Asymptotic stability and detectability of <span class="math notranslate nohighli
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="optimal-control-full-state-linear.html"
+       href="schur.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">40.1.2. </span>Linear system without exogenous inputs</p>
+        <p class="prev-next-title"><span class="section-number">3.3. </span>Schur decomposition</p>
       </div>
     </a>
     <a class="right-next"
-       href="optimal-control-full-state-old.html"
+       href="jordan.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">40.2. </span>Full-state feedback (OLD)</p>
+        <p class="prev-next-title"><span class="section-number">3.5. </span>Jordan normal form</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

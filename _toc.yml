@@ -12,6 +12,8 @@ parts:
   - file: ch/linear-algebra/matrix-factorization
     sections:
     - file: ch/linear-algebra/schur
+    - file: ch/linear-algebra/cholesky
+    - file: ch/linear-algebra/jordan
     - file: ch/linear-algebra/svd
   - file: ch/linear-algebra/linear-systems
   - file: ch/linear-algebra/spectral
