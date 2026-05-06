@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>45.7.4. Shallow water &#8212; basics - math</title>
+    <title>40.4. Optimal observer for stochastic disturbance &#8212; basics - math</title>
   
   
   
@@ -67,12 +67,12 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/pde/hyperbolic-nd-shallow-water';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/control/optimal-control-observer-stochastic';</script>
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="45.8. Riemann problems" href="hyperbolic-riemann-pb.html" />
-    <link rel="prev" title="45.7.3. Euler equations" href="hyperbolic-nd-euler.html" />
+    <link rel="next" title="40.5. Optimal observer for deterministic disturbances" href="optimal-control-observer-deterministic.html" />
+    <link rel="prev" title="40.3. Phase and gain margin of optimal control" href="optimal-control-margins.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -264,86 +264,86 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../system-theory/shape-filter.html">36. Shape filter</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Control Theory</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../control/intro.html">37. Introduction to control methods</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../control/closed-loop-requirements-performance.html">38. Closed-loop control: requirements and performance</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../control/closed-loop-requirements-performance-siso-stability.html">38.3. Stability (SISO)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../control/closed-loop-requirements-performance-siso-ref-tracking.html">38.4. Reference tracking (SISO)</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">37. Introduction to control methods</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="closed-loop-requirements-performance.html">38. Closed-loop control: requirements and performance</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="closed-loop-requirements-performance-siso-stability.html">38.3. Stability (SISO)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="closed-loop-requirements-performance-siso-ref-tracking.html">38.4. Reference tracking (SISO)</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../control/frequency-domain.html">39. Frequency domain control</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../control/optimal-control.html">40. Optimal control</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-full-state.html">40.1. Full-state feedback</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-full-state-old.html">40.2. Full-state feedback (OLD)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-margins.html">40.3. Phase and gain margin of optimal control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-observer-stochastic.html">40.4. Optimal observer for stochastic disturbance</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-observer-deterministic.html">40.5. Optimal observer for deterministic disturbances</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-output.html">40.6. Sub-optimal control for output feedback</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-regulator-observer.html">40.7. Combination of controller and observer</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../control/optimal-control-ref-tracking.html">40.8. Optimal control for reference tracking</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../control/optimal-control-ref-tracking-example.html">40.8.3. Example of optimal control for tracking reference input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="frequency-domain.html">39. Frequency domain control</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="optimal-control.html">40. Optimal control</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="optimal-control-full-state.html">40.1. Full-state feedback</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimal-control-full-state-old.html">40.2. Full-state feedback (OLD)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimal-control-margins.html">40.3. Phase and gain margin of optimal control</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">40.4. Optimal observer for stochastic disturbance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimal-control-observer-deterministic.html">40.5. Optimal observer for deterministic disturbances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimal-control-output.html">40.6. Sub-optimal control for output feedback</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimal-control-regulator-observer.html">40.7. Combination of controller and observer</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="optimal-control-ref-tracking.html">40.8. Optimal control for reference tracking</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="optimal-control-ref-tracking-example.html">40.8.3. Example of optimal control for tracking reference input</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../control/kalman.html">40.9. Kalman filter</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../control/hjb.html">40.10. Hamilton Bellman Jacobi equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kalman.html">40.9. Kalman filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hjb.html">40.10. Hamilton Bellman Jacobi equation</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../control/pole-placement.html">41. Pole placement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pole-placement.html">41. Pole placement</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Partial Differential Equations</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="intro.html">42. Introduction to Partial Differential Equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="elliptic.html">43. Elliptic equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="parabolic.html">44. Parabolic equations</a></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="hyperbolic.html">45. Hyperbolic equations</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="hyperbolic-intro.html">45.1. Hyperbolic problems and conservation laws</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hyperbolic-dimensions.html">45.2. Hyperbolic problems - dimensions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hyperbolic-1d-scalar-linear.html">45.3. Scalar linear equation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hyperbolic-1d-vector-linear.html">45.4. Linear vector equation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hyperbolic-1d-scalar-nonlinear.html">45.5. Scalar non-linear equation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="characteristics.html">45.6. Method of characteristics</a></li>
-<li class="toctree-l2 current active has-children"><a class="reference internal" href="hyperbolic-nd.html">45.7. Hyperbolic problems in multi-dimensional domains</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="hyperbolic-nd-draft.html">45.7.1. General hyperbolic problem</a></li>
-<li class="toctree-l3"><a class="reference internal" href="hyperbolic-nd-psys.html">45.7.2. P-system</a></li>
-<li class="toctree-l3"><a class="reference internal" href="hyperbolic-nd-euler.html">45.7.3. Euler equations</a></li>
-<li class="toctree-l3 current active"><a class="current reference internal" href="#">45.7.4. Shallow water</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../pde/intro.html">42. Introduction to Partial Differential Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/elliptic.html">43. Elliptic equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/parabolic.html">44. Parabolic equations</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/hyperbolic.html">45. Hyperbolic equations</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-intro.html">45.1. Hyperbolic problems and conservation laws</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-dimensions.html">45.2. Hyperbolic problems - dimensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-1d-scalar-linear.html">45.3. Scalar linear equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-1d-vector-linear.html">45.4. Linear vector equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-1d-scalar-nonlinear.html">45.5. Scalar non-linear equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/characteristics.html">45.6. Method of characteristics</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../pde/hyperbolic-nd.html">45.7. Hyperbolic problems in multi-dimensional domains</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-draft.html">45.7.1. General hyperbolic problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-psys.html">45.7.2. P-system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-euler.html">45.7.3. Euler equations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-shallow-water.html">45.7.4. Shallow water</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="hyperbolic-riemann-pb.html">45.8. Riemann problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hyperbolic-entropy.html">45.9. Physical solution in hyperbolic problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hyperbolic-convexity.html">45.10. Convexity in hyperbolic problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hyperbolic-non-convex.html">45.11. Non-convex hyperbolic problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-riemann-pb.html">45.8. Riemann problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-entropy.html">45.9. Physical solution in hyperbolic problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-convexity.html">45.10. Convexity in hyperbolic problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-non-convex.html">45.11. Non-convex hyperbolic problems</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="nc.html">46. Navier-Cauchy equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ns.html">47. Navier-Stokes equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ale.html">48. Arbitrary Lagrangian-Eulerian description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/nc.html">46. Navier-Cauchy equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/ns.html">47. Navier-Stokes equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/ale.html">48. Arbitrary Lagrangian-Eulerian description</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Numerical Methods for PDEs</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="numerics.html">49. Introduction to numerical methods for PDEs</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="fem.html">50. Finite Element Method</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="fem-poisson-1d.html">50.1. 1-dimensional Poisson equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/numerics.html">49. Introduction to numerical methods for PDEs</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/fem.html">50. Finite Element Method</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pde/fem-poisson-1d.html">50.1. 1-dimensional Poisson equation</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="fvm.html">51. Finite Volume Method</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="fvm-poisson-1d.html">51.1. 1-dimensional Poisson equation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fvm-hyperbolic-pde.html">51.2. FVM for hyperbolic problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fvm-hyperbolic-bc.html">51.3. Boundary conditions in hyperbolic problems</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="fvm-hyperbolic-examples.html">51.4. Examples of FVM for hyperbolic problems</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="psys-1d.html">51.4.1. 1-dimensional P-system</a></li>
-<li class="toctree-l3"><a class="reference internal" href="euler-1d.html">51.4.2. 1-dimensional Euler equations for Perfect Ideal Gas</a></li>
-<li class="toctree-l3"><a class="reference internal" href="euler-quasi-1d.html">51.4.3. Quasi 1-dimensional Euler equations for Perfect Ideal Gas</a></li>
-<li class="toctree-l3"><a class="reference internal" href="euler-1d-ale-piston.html">51.4.4. 1-dimensional Euler equations for Perfect Ideal Gas on moving mesh (ALE)</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/fvm.html">51. Finite Volume Method</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pde/fvm-poisson-1d.html">51.1. 1-dimensional Poisson equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/fvm-hyperbolic-pde.html">51.2. FVM for hyperbolic problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/fvm-hyperbolic-bc.html">51.3. Boundary conditions in hyperbolic problems</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../pde/fvm-hyperbolic-examples.html">51.4. Examples of FVM for hyperbolic problems</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../pde/psys-1d.html">51.4.1. 1-dimensional P-system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/euler-1d.html">51.4.2. 1-dimensional Euler equations for Perfect Ideal Gas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/euler-quasi-1d.html">51.4.3. Quasi 1-dimensional Euler equations for Perfect Ideal Gas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/euler-1d-ale-piston.html">51.4.4. 1-dimensional Euler equations for Perfect Ideal Gas on moving mesh (ALE)</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="bem.html">52. Boundary Element Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/bem.html">52. Boundary Element Method</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Boundary Methods for PDEs</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="bem-poisson-helmholtz-waves.html">53. Green’s function method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/bem-poisson-helmholtz-waves.html">53. Green’s function method</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Optimization</span></p>
 <ul class="nav bd-sidenav">
@@ -427,7 +427,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/edit/main/ch/pde/hyperbolic-nd-shallow-water.md" target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/edit/main/ch/control/optimal-control-observer-stochastic.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -444,7 +444,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/issues/new?title=Issue%20on%20page%20%2Fch/pde/hyperbolic-nd-shallow-water.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/issues/new?title=Issue%20on%20page%20%2Fch/control/optimal-control-observer-stochastic.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -474,7 +474,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/ch/pde/hyperbolic-nd-shallow-water.md" target="_blank"
+      <li><a href="../../_sources/ch/control/optimal-control-observer-stochastic.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -545,9 +545,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -558,31 +556,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Shallow water</h1>
+    <h1>Optimal observer for stochastic disturbance</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integral-equations">45.7.4.1. Integral equations</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jump-conditions">45.7.4.1.1. Jump conditions</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differential-equations">45.7.4.2. Differential equations</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spectral-decomposition">45.7.4.2.1. Spectral decomposition</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#riemann-problem">45.7.4.3. Riemann problem</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linearization-roe-intermediate-state">45.7.4.3.1. Linearization - Roe intermediate state</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boundary-conditions">45.7.4.4. Boundary conditions</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -592,55 +570,109 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="shallow-water">
-<span id="pde-hyperbolic-nd-shallow-water"></span><h1><span class="section-number">45.7.4. </span>Shallow water<a class="headerlink" href="#shallow-water" title="Permalink to this heading">#</a></h1>
-<div class="section" id="integral-equations">
-<span id="pde-hyperbolic-nd-shallow-water-integral"></span><h2><span class="section-number">45.7.4.1. </span>Integral equations<a class="headerlink" href="#integral-equations" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p>Intgral equation for a control volume at rest <span class="math notranslate nohighlight">\(V\)</span></p></li>
-<li><p>Intgral equation for an arbitrary domain <span class="math notranslate nohighlight">\(v_t\)</span>, with Reynolds’ transport theorem</p></li>
-</ul>
-<div class="section" id="jump-conditions">
-<span id="pde-hyperbolic-nd-shallow-water-integral-jump"></span><h3><span class="section-number">45.7.4.1.1. </span>Jump conditions<a class="headerlink" href="#jump-conditions" title="Permalink to this heading">#</a></h3>
-<ul class="simple">
-<li><p>From the integral equation for an arbitrary domain <span class="math notranslate nohighlight">\(v_t\)</span>, collapsed on a surface</p></li>
-</ul>
+  <div class="tex2jax_ignore mathjax_ignore section" id="optimal-observer-for-stochastic-disturbance">
+<span id="control-optimal-observer-stochastic"></span><h1><span class="section-number">40.4. </span>Optimal observer for stochastic disturbance<a class="headerlink" href="#optimal-observer-for-stochastic-disturbance" title="Permalink to this heading">#</a></h1>
+<p>In this section, all the machinery is developed for <span class="xref myst">white-noise</span> process and measurement disturbances.
+Non-white noise disturbances can be obtained as the output of <span class="xref myst">shape filters</span> with white noise inputs, as shown with the <a class="reference internal" href="../system-theory/shape-filter.html#system-theory-shape-filter-augmented-system"><span class="std std-ref">augmented system approach</span></a>.</p>
+<!--
+**todo** *Is Gaussian a synonimous of white noise here?* If so, the sentence above should be:
+"Non-white noise disturbances can be obtained as the output of [shape filters](system-theory:shape-filter) with white noise inputs."
+-->
+<p>From the equations of the plant</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{cases}
+ \dot{\mathbf{x}} = \mathbf{A} \mathbf{x} + \mathbf{B} \mathbf{u} + \mathbf{B}_d \mathbf{d} \\
+ \mathbf{y}       = \mathbf{C} \mathbf{x} + \mathbf{D} \mathbf{u} + \mathbf{D}_d \mathbf{d} + \mathbf{D}_r \mathbf{r}
+\end{cases}\end{split}\]</div>
+<p>and the observer</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{cases}
+ \dot{\mathbf{o}} = \mathbf{A} \mathbf{o} + \mathbf{B} \mathbf{u} + \mathbf{L} \left( \mathbf{y} - \mathbf{y}_o \right) \\
+ \mathbf{y}_o     = \mathbf{C} \mathbf{o} + \mathbf{D} \mathbf{u} 
+\end{cases}\end{split}\]</div>
+<p>the dynamical equation of the error, <span class="math notranslate nohighlight">\(\mathbf{e} = \mathbf{o} - \mathbf{x}\)</span>, follows</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \dot{\mathbf{e}} 
+  &amp; = \dot{\mathbf{o}} - \dot{\mathbf{x}} = \\
+  &amp; = \mathbf{A} \mathbf{o} + \mathbf{B} \mathbf{u} + \mathbf{L} \left[ \mathbf{C} \mathbf{x} + \mathbf{D} \mathbf{u} + \mathbf{D}_d \mathbf{d} + \mathbf{D}_r \mathbf{r} - \mathbf{C} \mathbf{o} - \mathbf{D} \mathbf{u} \right] - \mathbf{A} \mathbf{x} - \mathbf{B} \mathbf{u} - \mathbf{B}_d \mathbf{d} = \\
+  &amp; = \left( \mathbf{A} - \mathbf{L} \mathbf{C} \right) \mathbf{e} + \left( \mathbf{L} \mathbf{D}_d - \mathbf{B}_d \right) \mathbf{d} + \mathbf{L} \mathbf{D}_r \mathbf{r} = \\
+  &amp; = \overline{\mathbf{A}} \mathbf{e} + \begin{bmatrix} \ \overline{\mathbf{B}}_d &amp; \overline{\mathbf{B}}_r \end{bmatrix} \begin{bmatrix} \mathbf{d} \\ \mathbf{r} \end{bmatrix}  = \\
+  &amp; = \overline{\mathbf{A}} \mathbf{e} + \overline{\mathbf{B}} \begin{bmatrix} \mathbf{d} \\ \mathbf{r} \end{bmatrix} \ .
+\end{aligned}\end{split}\]</div>
+<p>Let the distrubances be a white noise, then the <a class="reference internal" href="../ode/ode-linear-systems.html#ode-linear-miscellanea-stochastic-response-correlation-matrix-lyapunov"><span class="std std-ref">Lyapunov equation for the autocorrelation matrix of the state</span></a> reads</p>
+<div class="math notranslate nohighlight">
+\[\dot{\mathbf{R}}_{\mathbf{e}\mathbf{e}} = \overline{\mathbf{A}}(\mathbf{L}) \mathbf{R}_{\mathbf{e}\mathbf{e}} + \mathbf{R}_{\mathbf{e}\mathbf{e}} \overline{\mathbf{A}}^T(\mathbf{L}) + \overline{\mathbf{B}}(\mathbf{L}) \mathbf{W} \overline{\mathbf{B}}^T (\mathbf{L})\ ,\]</div>
+<p>with <span class="math notranslate nohighlight">\(\mathbf{W}\)</span> the matrix of the cross-correlations of the white noise distrubances,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{W} = \begin{bmatrix}
+\mathbf{W}_{\mathbf{d}\mathbf{d}} &amp; \mathbf{W}_{\mathbf{d}\mathbf{r}} \\
+\mathbf{W}_{\mathbf{r}\mathbf{d}} &amp; \mathbf{W}_{\mathbf{r}\mathbf{r}}
+\end{bmatrix} \ .
+\end{split}\]</div>
+<p>If stationary conditions are reached, the autocorrelation matrix of the error must satisfy the algebraic version of the Lyapunov equation</p>
+<div class="math notranslate nohighlight" id="equation-eq-observer-error-lyapunov-algebraic">
+<span class="eqno">(40.10)<a class="headerlink" href="#equation-eq-observer-error-lyapunov-algebraic" title="Permalink to this equation">#</a></span>\[\mathbf{0} = \overline{\mathbf{A}} (\mathbf{L})\mathbf{R}_{\mathbf{e}\mathbf{e}} + \mathbf{R}_{\mathbf{e}\mathbf{e}} \overline{\mathbf{A}}^T (\mathbf{L})+ \overline{\mathbf{B}}(\mathbf{L}) \mathbf{W} \overline{\mathbf{B}}^T(\mathbf{L}) \ .\]</div>
+<p><strong>Optimal observer.</strong> The optimal observer is defined as the observer that makes the estimation error minimum. As an example, the error can be measured as the weighted trace of the auto-correlation of the error. The constrained optimization problem reads</p>
+<div class="math notranslate nohighlight">
+\[\min_{\mathbf{L}} \text{Tr}\left( \mathbf{W}_{\mathbf{e}} \mathbf{R}_{\mathbf{e}\mathbf{e}} \right) \ ,\]</div>
+<p>subject to Lyapunov equation as a constraint.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Details of the constrained optimization<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The optimal solution is found, setting equal to zero the derivatives of the objective function</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\widetilde{J} = \text{Tr}\left( \mathbf{W}_{\mathbf{e}} \mathbf{R}_{\mathbf{e}\mathbf{e}} + \boldsymbol\Lambda\left\{ (\mathbf{A} - \mathbf{L}\mathbf{C}) \mathbf{R} + \mathbf{R} ( \mathbf{A} - \mathbf{L} \mathbf{C} )^T + \begin{bmatrix} \mathbf{L} \mathbf{D}_d - \mathbf{B}_d &amp; \mathbf{L} \mathbf{D}_r \end{bmatrix} \mathbf{W} \begin{bmatrix} \mathbf{D}_d^T \mathbf{L}^T - \mathbf{B}_d^T \\ \mathbf{D}_r^T  \mathbf{L}^T \end{bmatrix}  \right\} \right) \ ,\end{split}\]</div>
+<p class="sd-card-text">w.r.t. the matrices <span class="math notranslate nohighlight">\(\mathbf{L}\)</span>, <span class="math notranslate nohighlight">\(\boldsymbol\Lambda\)</span>, <span class="math notranslate nohighlight">\(\mathbf{R}\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+ \mathbf{0} &amp; = \frac{\partial \widetilde{J}}{\partial \mathbf{R}} = \mathbf{W}_{\mathbf{e}}^T + (\mathbf{A} - \mathbf{L}\mathbf{C})^T \boldsymbol\Lambda^T + (\mathbf{A}-\mathbf{L}\mathbf{C})\boldsymbol\Lambda^T \\
+ \mathbf{0} &amp; = \frac{\partial \widetilde{J}}{\partial \boldsymbol\Lambda} = \text{algebraic Lyapunov equation for $\mathbf{R}_{\mathbf{e}\mathbf{e}}$} \\
+ \mathbf{0} &amp; = \frac{\partial \widetilde{J}}{\partial \mathbf{L}} = - ( \mathbf{C} \mathbf{R} \boldsymbol\Lambda )^T - \boldsymbol\Lambda \mathbf{R} \mathbf{C}^T + \\
+  &amp; \qquad \qquad + \boldsymbol\Lambda^T \mathbf{L} \left( \mathbf{D}_d \mathbf{W}_{dd} \mathbf{D}^T_d \right)^T + \boldsymbol\Lambda \mathbf{L} \left( \mathbf{D}_d \mathbf{W}_{dd} \mathbf{D}^T_d \right) + \\
+  &amp; \qquad \qquad + \boldsymbol\Lambda^T \mathbf{L} \left( \mathbf{D}_r \mathbf{W}_{rr} \mathbf{D}^T_r \right)^T + \boldsymbol\Lambda \mathbf{L} \left( \mathbf{D}_r \mathbf{W}_{rr} \mathbf{D}^T_r \right) + \\
+  &amp; \qquad \qquad + \boldsymbol\Lambda^T \mathbf{L} \left( \mathbf{D}_r \mathbf{W}_{rd} \mathbf{D}^T_d \right)^T + \boldsymbol\Lambda \mathbf{L} \left( \mathbf{D}_r \mathbf{W}_{rd} \mathbf{D}^T_d \right) + \\
+  &amp; \qquad \qquad + \boldsymbol\Lambda^T \mathbf{L} \left( \mathbf{D}_d \mathbf{W}_{dr} \mathbf{D}^T_r \right)^T + \boldsymbol\Lambda \mathbf{L} \left( \mathbf{D}_d \mathbf{W}_{dr} \mathbf{D}^T_r \right) + \\
+  &amp; \qquad \qquad - \boldsymbol\Lambda \mathbf{B}_d \mathbf{W}_{dd} \mathbf{D}_d^T - \boldsymbol\Lambda^T \mathbf{B}_d \mathbf{W}_{dd} \mathbf{D}_d^T + \\
+  &amp; \qquad \qquad - \boldsymbol\Lambda \mathbf{B}_d \mathbf{W}_{dr} \mathbf{D}_r^T - \boldsymbol\Lambda \mathbf{B}_d \mathbf{W}_{dr} \mathbf{D}_r^T
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">Collecing the symmetric (<strong>todo</strong> why this assumption?) matrix <span class="math notranslate nohighlight">\(\boldsymbol\Lambda\)</span> (is it possible to collect this matrix and set the other factor to zero?)</p>
+<div class="math notranslate nohighlight" id="equation-eq-observer-gauss-l">
+<span class="eqno">(40.11)<a class="headerlink" href="#equation-eq-observer-gauss-l" title="Permalink to this equation">#</a></span>\[\mathbf{L} = \left[ \mathbf{R}_{\mathbf{e}\mathbf{e}} \mathbf{C}^T + \mathbf{B}_d \left( \mathbf{W}_{dd} \mathbf{D}_d^T + \mathbf{W}_{dr} \mathbf{D}_r^T \right) \right] \left[ 
+  \mathbf{D}_d \mathbf{W}_{dd} \mathbf{D}^T_d +
+  \mathbf{D}_d \mathbf{W}_{dr} \mathbf{D}^T_r +
+  \mathbf{D}_r \mathbf{W}_{rd} \mathbf{D}^T_d +
+  \mathbf{D}_r \mathbf{W}_{rr} \mathbf{D}^T_r
+\right]^{-1} \ ,\]</div>
+<p class="sd-card-text">Replacing the expression <a class="reference internal" href="#equation-eq-observer-gauss-l">(40.11)</a> of the <span class="math notranslate nohighlight">\(\mathbf{L}\)</span> matrix into the algebraic Lyapunov equation <a class="reference internal" href="#equation-eq-observer-error-lyapunov-algebraic">(40.10)</a> for the autocorrelation <span class="math notranslate nohighlight">\(\mathbf{R}_{\mathbf{e}\mathbf{e}}\)</span>, a Riccati equation in <span class="math notranslate nohighlight">\(\mathbf{R}_{\mathbf{e} \mathbf{e}}\)</span> appears.</p>
 </div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Derivatives w.r.t. a matrix<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[\frac{\partial \text{Tr}(\mathbf{A} \mathbf{B})}{\partial \mathbf{A}} = \frac{\partial \text{Tr}(\mathbf{A} \mathbf{B})}{\partial A_{ij}} = \dfrac{\partial ( A_{ab} B_{ba} )}{\partial A_{ij}} = \delta_{ai} \delta_{bj} B_{ba} = B_{ji} = \mathbf{B}^T\]</div>
+<div class="math notranslate nohighlight">
+\[\frac{\partial \text{Tr}(\mathbf{A} \mathbf{B})}{\partial \mathbf{B}} = \frac{\partial \text{Tr}(\mathbf{A} \mathbf{B})}{\partial B_{ij}} = \dfrac{\partial ( A_{ab} B_{ba} )}{\partial B_{ij}} = A_{ab} \delta_{ib} \delta_{aj} = A_{ji} = \mathbf{A}^T\]</div>
+<div class="math notranslate nohighlight">
+\[\frac{\partial \text{Tr}(\mathbf{A} \mathbf{B}^T)}{\partial \mathbf{B}} = \frac{\partial \text{Tr}(\mathbf{A} \mathbf{B})}{\partial B_{ij}} = \dfrac{\partial ( A_{ab} B_{ab} )}{\partial B_{ij}} = A_{ab} \delta_{ia} \delta_{bj} = A_{ij} = \mathbf{A}\]</div>
+<div class="math notranslate nohighlight">
+\[\frac{\partial \text{Tr}(\mathbf{A} \mathbf{B} \mathbf{A}^T)}{\partial \mathbf{A}} = \frac{\partial \text{Tr}(\mathbf{A} \mathbf{B} \mathbf{A}^T)}{\partial A_{ij}} = \dfrac{\partial ( A_{ab} B_{bc} A_{ac} )}{\partial A_{ij}} = B_{jc} A_{ic} + A_{ib} B_{bj} = \mathbf{A} \mathbf{B}^T + \mathbf{A} \mathbf{B} \ .\]</div>
+<div class="math notranslate nohighlight">
+\[\frac{\partial \text{Tr}(\mathbf{A} \mathbf{B} \mathbf{C})}{\partial \mathbf{B}} = \frac{\partial \text{Tr}(\mathbf{A} \mathbf{B} \mathbf{C})}{\partial B_{ij}} = \dfrac{\partial ( A_{ab} B_{bc} C_{ca} )}{\partial B_{ij}} = A_{ai} C_{ja} = \mathbf{A}^T \mathbf{C}^T \ .\]</div>
+<div class="math notranslate nohighlight">
+\[\frac{\partial \text{Tr}(\mathbf{C} \mathbf{A} \mathbf{B} \mathbf{A}^T)}{\partial \mathbf{A}} = \frac{\partial \text{Tr}(\mathbf{C} \mathbf{A} \mathbf{B} \mathbf{A}^T)}{\partial A_{ij}} = \dfrac{\partial ( C_{ab} A_{bc} B_{cd} A_{ad} )}{\partial A_{ij}} = C_{ai} B_{jd} A_{ad} + C_{ib} A_{bc} B_{cj} = \mathbf{C}^T \mathbf{A} \mathbf{B}^T + \mathbf{C} \mathbf{A} \mathbf{B} \ .\]</div>
+<div class="math notranslate nohighlight">
+\[\text{Tr}(\mathbf{A} \mathbf{B}) = A_{ij} B_{ji} = \text{Tr}( \mathbf{B} \mathbf{A} )\]</div>
 </div>
-<div class="section" id="differential-equations">
-<span id="pde-hyperbolic-nd-shallow-water-differential"></span><h2><span class="section-number">45.7.4.2. </span>Differential equations<a class="headerlink" href="#differential-equations" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p>In regions where the fields are smooth, from integral to differential equations with “divergence theorem”</p></li>
-</ul>
-<div class="section" id="spectral-decomposition">
-<span id="pde-hyperbolic-nd-shallow-water-differential-spectrum"></span><h3><span class="section-number">45.7.4.2.1. </span>Spectral decomposition<a class="headerlink" href="#spectral-decomposition" title="Permalink to this heading">#</a></h3>
-<ul class="simple">
-<li><p>Eigenvalues, right and left eigenvectors</p></li>
-<li><p>Characteristic lines/surfaces, and compatibility conditions</p></li>
-</ul>
-</div>
-</div>
-<div class="section" id="riemann-problem">
-<span id="pde-hyperbolic-nd-shallow-water-riemann"></span><h2><span class="section-number">45.7.4.3. </span>Riemann problem<a class="headerlink" href="#riemann-problem" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p>Useful in numerical schemes in finite volume methods, using Godunov flux</p></li>
-</ul>
-<div class="section" id="linearization-roe-intermediate-state">
-<span id="pde-hyperbolic-nd-shallow-water-riemann-roe"></span><h3><span class="section-number">45.7.4.3.1. </span>Linearization - Roe intermediate state<a class="headerlink" href="#linearization-roe-intermediate-state" title="Permalink to this heading">#</a></h3>
-<ul class="simple">
-<li><p>Local linearization of the problem, to reduce the computational cost of solving non-linear Riemann problems at all the interfaces in a grid in FVM</p></li>
-</ul>
-</div>
-</div>
-<div class="section" id="boundary-conditions">
-<span id="pde-hyperbolic-nd-shallow-water-bc"></span><h2><span class="section-number">45.7.4.4. </span>Boundary conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p>characteristic-based</p></li>
-<li><p>wall</p></li>
-<li><p>…</p></li>
-</ul>
-</div>
-</div>
+</details></div>
 
     <script type="text/x-thebe-config">
     {
@@ -655,7 +687,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./ch/pde"
+            path: "./ch/control"
         },
         predefinedOutput: true
     }
@@ -673,20 +705,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="hyperbolic-nd-euler.html"
+       href="optimal-control-margins.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">45.7.3. </span>Euler equations</p>
+        <p class="prev-next-title"><span class="section-number">40.3. </span>Phase and gain margin of optimal control</p>
       </div>
     </a>
     <a class="right-next"
-       href="hyperbolic-riemann-pb.html"
+       href="optimal-control-observer-deterministic.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">45.8. </span>Riemann problems</p>
+        <p class="prev-next-title"><span class="section-number">40.5. </span>Optimal observer for deterministic disturbances</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -696,32 +728,6 @@ document.write(`
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integral-equations">45.7.4.1. Integral equations</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jump-conditions">45.7.4.1.1. Jump conditions</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differential-equations">45.7.4.2. Differential equations</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spectral-decomposition">45.7.4.2.1. Spectral decomposition</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#riemann-problem">45.7.4.3. Riemann problem</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linearization-roe-intermediate-state">45.7.4.3.1. Linearization - Roe intermediate state</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boundary-conditions">45.7.4.4. Boundary conditions</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>

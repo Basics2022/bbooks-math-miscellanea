@@ -80,6 +80,7 @@ parts:
   - file: ch/system-theory/lti-stability-and-feedback
   - file: ch/system-theory/observability-detectability
   - file: ch/system-theory/controllability-reachability
+  - file: ch/system-theory/realizations
   - file: ch/system-theory/kalman-decomposition
   - file: ch/system-theory/lyapunov-equation
   - file: ch/system-theory/order-reduction
@@ -100,8 +101,8 @@ parts:
     - file: ch/control/optimal-control-full-state
     - file: ch/control/optimal-control-full-state-old
     - file: ch/control/optimal-control-margins
+    - file: ch/control/optimal-control-observer-stochastic
     - file: ch/control/optimal-control-observer-deterministic
-    - file: ch/control/optimal-control-observer-gaussian
     - file: ch/control/optimal-control-output
     - file: ch/control/optimal-control-regulator-observer
     - file: ch/control/optimal-control-ref-tracking

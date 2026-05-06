@@ -1,7 +1,14 @@
 (control:kalman)=
 # Kalman filter
 
-Kalman filter is an optimal state estimator, in terms of minimum-variance error reconstruction. It has the structure of a state observer. Let the linear system
+Kalman filter is an optimal state estimator, in terms of minimum-variance error reconstruction. It has the structure of a state observer. 
+
+* For continuous-time LTI systems with stochastic distrubances, see [optimal observer for continuous-time LTI with stochastic disturbances](control:optimal:observer:stochastic)
+* ...**todo** *discrete-time*, *deterministic distrubances*,...
+
+
+<!--
+Let the linear system
 
 $$\begin{cases}
   \dot{\mathbf{x}} = \mathbf{A} \mathbf{x} + \mathbf{B} \mathbf{u} + \mathbf{B}_d \mathbf{d} \\
@@ -39,6 +46,7 @@ $$\begin{aligned}
 ```
 
 Let the exogenous input $\mathbf{d}$ and the measurement input $\mathbf{r}$ be random signals, thus the input $\boldsymbol\xi$ of the error dynamical equation {eq}`eq:kalman:error:eq` is a random signal with correlation
+-->
 
 <!--
 $$\mathbb{E}\left[ \boldsymbol\xi(t) \boldsymbol\xi^*(\tau) \right] =
@@ -49,6 +57,7 @@ $$\mathbb{E}\left[ \boldsymbol\xi(t) \boldsymbol\xi^*(\tau) \right] =
 $$
 -->
 
+<!--
 $$\begin{aligned}
 \mathbf{R}_{\boldsymbol\xi \boldsymbol\xi}(t,\tau) := \mathbb{E}\left[ \boldsymbol\xi(t) \boldsymbol\xi^*(\tau) \right]
  & = \mathbf{B}_{ed} \mathbf{R}_{\mathbf{d}\mathbf{d}}(t,\tau) \mathbf{B}_{ed}^*
@@ -74,3 +83,4 @@ $$\mathbf{L} = $$
 * duality with the optimal control...
 * ...
 
+-->

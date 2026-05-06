@@ -1,10 +1,13 @@
 (control:optimal:observer:stochastic)=
-# Optimal observer for stochastic Gaussian disturbance
+# Optimal observer for stochastic disturbance
 
-Non-Gaussian disturbances can be obtained as the output of [shape filters](system-theroy:shape-filter) with Gaussian inputs.
+In this section, all the machinery is developed for [white-noise]((https://basics2022.github.io/bbooks-statistics/ch/prob/white-noise.html)) process and measurement disturbances.
+Non-white noise disturbances can be obtained as the output of [shape filters](system-theroy:shape-filter) with white noise inputs, as shown with the [augmented system approach](system-theory:shape-filter:augmented-system).
+
+<!--
 **todo** *Is Gaussian a synonimous of white noise here?* If so, the sentence above should be:
 "Non-white noise disturbances can be obtained as the output of [shape filters](system-theory:shape-filter) with white noise inputs."
-
+-->
 
 From the equations of the plant
 
