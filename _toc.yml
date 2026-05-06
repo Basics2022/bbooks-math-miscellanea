@@ -99,6 +99,10 @@ parts:
   - file: ch/control/optimal-control
     sections:
     - file: ch/control/optimal-control-full-state
+      sections:
+      - file: ch/control/optimal-control-full-state-general-ode
+      - file: ch/control/optimal-control-full-state-linear
+      - file: ch/control/optimal-control-full-state-linear-infinite-time
     - file: ch/control/optimal-control-full-state-old
     - file: ch/control/optimal-control-margins
     - file: ch/control/optimal-control-observer-stochastic

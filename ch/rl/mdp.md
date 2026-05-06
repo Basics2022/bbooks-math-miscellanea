@@ -176,6 +176,7 @@ Given a policy $\pi(a|s)$, a MDP becomes the MRP with
    
    $$Q^{\pi}(s,a) := \mathbb{E}_{\pi} \left[ v_t | s_t = s, a_t = a \right]$$
 
+(rl:mdp:dp:bellman-equations)=
 ### Bellman Equations
 
 **Bellman expectation equations.** Bellman expectation equation for the state-value function $V^{\pi}(s)$ reads

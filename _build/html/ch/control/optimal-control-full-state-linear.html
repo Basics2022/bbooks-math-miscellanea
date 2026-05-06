@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>40.2. Full-state feedback (OLD) &#8212; basics - math</title>
+    <title>40.1.2. Linear system without exogenous inputs &#8212; basics - math</title>
   
   
   
@@ -67,12 +67,12 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/control/optimal-control-full-state-old';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/control/optimal-control-full-state-linear';</script>
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="40.3. Phase and gain margin of optimal control" href="optimal-control-margins.html" />
-    <link rel="prev" title="40.1.3. Linear system without exogenous inputs - infinite time horizon" href="optimal-control-full-state-linear-infinite-time.html" />
+    <link rel="next" title="40.1.3. Linear system without exogenous inputs - infinite time horizon" href="optimal-control-full-state-linear-infinite-time.html" />
+    <link rel="prev" title="40.1.1. Generic ODE without exogenous inputs" href="optimal-control-full-state-general-ode.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -273,13 +273,13 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1"><a class="reference internal" href="frequency-domain.html">39. Frequency domain control</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="optimal-control.html">40. Optimal control</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 has-children"><a class="reference internal" href="optimal-control-full-state.html">40.1. Full-state feedback</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="optimal-control-full-state.html">40.1. Full-state feedback</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="optimal-control-full-state-general-ode.html">40.1.1. Generic ODE without exogenous inputs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="optimal-control-full-state-linear.html">40.1.2. Linear system without exogenous inputs</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">40.1.2. Linear system without exogenous inputs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="optimal-control-full-state-linear-infinite-time.html">40.1.3. Linear system without exogenous inputs - infinite time horizon</a></li>
 </ul>
 </li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">40.2. Full-state feedback (OLD)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimal-control-full-state-old.html">40.2. Full-state feedback (OLD)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="optimal-control-margins.html">40.3. Phase and gain margin of optimal control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="optimal-control-observer-stochastic.html">40.4. Optimal observer for stochastic disturbance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="optimal-control-observer-deterministic.html">40.5. Optimal observer for deterministic disturbances</a></li>
@@ -432,7 +432,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/edit/main/ch/control/optimal-control-full-state-old.md" target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/edit/main/ch/control/optimal-control-full-state-linear.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -449,7 +449,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/issues/new?title=Issue%20on%20page%20%2Fch/control/optimal-control-full-state-old.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/issues/new?title=Issue%20on%20page%20%2Fch/control/optimal-control-full-state-linear.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -479,7 +479,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/ch/control/optimal-control-full-state-old.md" target="_blank"
+      <li><a href="../../_sources/ch/control/optimal-control-full-state-linear.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -563,7 +563,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Full-state feedback (OLD)</h1>
+    <h1>Linear system without exogenous inputs</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -573,11 +573,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generic-ode-without-exogenous-inputs">40.2.1. Generic ODE without exogenous inputs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lti">40.2.2. LTI</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#infinite-horizon-full-state-feedback">40.2.2.1. Infinite-horizon full-state feedback</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variational-approach">40.1.2.1. Variational approach</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hamiltonian-form-of-the-closed-loop-system">40.1.2.2. Hamiltonian form of the closed-loop system</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamic-programming-approach">40.1.2.3. Dynamic programming approach</a></li>
 </ul>
             </nav>
         </div>
@@ -589,164 +587,366 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="full-state-feedback-old">
-<span id="control-optimal-full-state-fb-old"></span><h1><span class="section-number">40.2. </span>Full-state feedback (OLD)<a class="headerlink" href="#full-state-feedback-old" title="Permalink to this heading">#</a></h1>
-<p>Optimal control can be recast as a <strong>constrained optimization problem</strong>, <span class="math notranslate nohighlight">\(J\)</span>, where an extreme - optimum - of an objective function must be found, subject to constraints that include the equations of motion. Some constraints may be included into an augmented objective function <span class="math notranslate nohighlight">\(\widetilde{J}\)</span> with the methods of <a class="reference internal" href="../optimization/intro.html#optimization-constrained-lagrange-multipliers"><span class="std std-ref">Lagrange multipliers</span></a>.</p>
-<p><strong>Finite time vs. Infinite time horizon.</strong></p>
-<p>…</p>
-<div class="section" id="generic-ode-without-exogenous-inputs">
-<span id="control-optimal-full-state-fb-ode"></span><h2><span class="section-number">40.2.1. </span>Generic ODE without exogenous inputs<a class="headerlink" href="#generic-ode-without-exogenous-inputs" title="Permalink to this heading">#</a></h2>
+  <div class="tex2jax_ignore mathjax_ignore section" id="linear-system-without-exogenous-inputs">
+<span id="control-optimal-full-state-fb-linear"></span><h1><span class="section-number">40.1.2. </span>Linear system without exogenous inputs<a class="headerlink" href="#linear-system-without-exogenous-inputs" title="Permalink to this heading">#</a></h1>
+<div class="section" id="variational-approach">
+<span id="control-optimal-full-state-fb-linear-variational-approach"></span><h2><span class="section-number">40.1.2.1. </span>Variational approach<a class="headerlink" href="#variational-approach" title="Permalink to this heading">#</a></h2>
+<p>Let the dynamical equation of a system be</p>
 <div class="math notranslate nohighlight">
-\[\mathbf{M} \dot{\mathbf{x}} = \mathbf{f}(\mathbf{x}, \mathbf{u}) \ ,\]</div>
-<p>with initial condition <span class="math notranslate nohighlight">\(\mathbf{x}(0) = \mathbf{x}_0\)</span>.</p>
-<p>The objective function combines (weights) the error on a desired performance and the control input, in order to get the desired behavior with feasible control (that can be provided by actuators, without saturation, avoiding unnecessary high power input and too sharp behavior,…)</p>
-<p>As an example, if the goal of the control <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> is to keep the system around <span class="math notranslate nohighlight">\(\mathbf{x} = \mathbf{0}\)</span>, the cost function to be minimized can be designed as</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}J = \int_{t=0}^{T} \dfrac{1}{2} \begin{bmatrix} \mathbf{x}^T &amp; \mathbf{u}^T \end{bmatrix} \begin{bmatrix}  \mathbf{Q} &amp; \mathbf{S} \\ \mathbf{S}^T &amp; \mathbf{R} \end{bmatrix} \begin{bmatrix} \mathbf{x} \\ \mathbf{u} \end{bmatrix} \, dt + \frac{1}{2} \mathbf{x}^T(T) \mathbf{Q}_T \mathbf{x}(T) \ ,\end{split}\]</div>
-<p>with <span class="math notranslate nohighlight">\(\mathbf{Q} \ge 0\)</span>, and <span class="math notranslate nohighlight">\(\mathbf{R} &gt; 0\)</span> and symmetric.</p>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
-<summary class="sd-summary-title sd-card-header">
-Constrained optimization<div class="sd-summary-down docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="sd-summary-up docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="sd-summary-content sd-card-body docutils">
-<div class="math notranslate nohighlight">
-\[\begin{split}\widetilde{J} = \frac{1}{2} \int_{t=0}^{T} \begin{bmatrix} \mathbf{x} \\ \mathbf{u} \end{bmatrix}^T \begin{bmatrix}  \mathbf{Q} &amp; \mathbf{S} \\ \mathbf{S}^T &amp; \mathbf{R} \end{bmatrix} \begin{bmatrix} \mathbf{x} \\ \mathbf{u} \end{bmatrix} \, dt + \frac{1}{2} \mathbf{x}^T(T) \mathbf{Q}_T \mathbf{x}(T) - \int_{t=0}^{T} \boldsymbol\lambda^T \left( \mathbf{M} \dot{\mathbf{x}} - \mathbf{f}(\mathbf{x}, \mathbf{u}) \right) \end{split}\]</div>
+\[\begin{split}\begin{cases}
+ \dot{\mathbf{x}} = \mathbf{A} \mathbf{x} + \mathbf{B} \mathbf{u} \\
+      \mathbf{y}  = \mathbf{C}_y \mathbf{x} + \mathbf{D}_y \mathbf{u} \\
+      \mathbf{z}  = \mathbf{C}_z \mathbf{x} + \mathbf{D}_z \mathbf{u} \ ,
+\end{cases}\end{split}\]</div>
+<p>with measurment output <span class="math notranslate nohighlight">\(\mathbf{y}\)</span> and performance output <span class="math notranslate nohighlight">\(\mathbf{z}\)</span>, and with running and final cost</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
-  0 = \delta \widetilde{J} 
-  &amp; = \\
-  &amp; = \int_{t=0}^{T} \delta \mathbf{x}^T \left( \mathbf{Q}   \mathbf{x} + \mathbf{S} \mathbf{u} + \partial_{\mathbf{x}} \mathbf{f}^T \boldsymbol\lambda + \mathbf{M}^T \dot{\boldsymbol{\lambda}}\right) \\
-  &amp; + \int_{t=0}^{T} \delta \mathbf{u}^T \left( \mathbf{S}^T \mathbf{x} + \mathbf{R} \mathbf{u} + \partial_{\mathbf{u}} \mathbf{f}^T \boldsymbol\lambda \right) \\
-  &amp; + \delta \mathbf{x}^T(T) \mathbf{Q}_T \mathbf{x}(T) \\
-  &amp; + \int_{t=0}^{T} \delta \boldsymbol\lambda^T ( \mathbf{M} \dot{\mathbf{x}} - \mathbf{f}(\mathbf{x}, \mathbf{u}) ) \\
-  &amp; - \left. \delta \mathbf{x} \mathbf{M}^T \boldsymbol\lambda \right|_{t=0}^{T}
+C(\mathbf{x},\mathbf{u})
+ &amp; = \frac{1}{2} \left( \mathbf{z}^T \mathbf{Q} \mathbf{z} + \mathbf{u}^T \mathbf{R} \mathbf{u} \right) = \\
+ &amp; = \frac{1}{2} \begin{bmatrix} \mathbf{x} \\ \mathbf{u} \end{bmatrix}^T
+               \begin{bmatrix}
+                 \mathbf{C}_z^T \mathbf{Q} \mathbf{C}_z &amp; \mathbf{C}_z^T \mathbf{Q} \mathbf{D}_z \\
+                 \mathbf{D}_z^T \mathbf{Q} \mathbf{C}_z &amp; \mathbf{D}_z^T \mathbf{Q} \mathbf{D}_z + \mathbf{R} \\
+               \end{bmatrix}
+               \begin{bmatrix} \mathbf{x} \\ \mathbf{u} \end{bmatrix} = \\
+ &amp; = \frac{1}{2} \begin{bmatrix} \mathbf{x} \\ \mathbf{u} \end{bmatrix}^T
+               \begin{bmatrix}
+                 \widetilde{\mathbf{Q}} &amp; \mathbf{S} \\
+                 \mathbf{S}^T &amp; \widetilde{\mathbf{R}}
+               \end{bmatrix}
+               \begin{bmatrix} \mathbf{x} \\ \mathbf{u} \end{bmatrix}\ ,
 \end{aligned}\end{split}\]</div>
-<p class="sd-card-text">So that</p>
-<div class="math notranslate nohighlight" id="equation-eq-optimal-ode">
-<span class="eqno">(40.9)<a class="headerlink" href="#equation-eq-optimal-ode" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
- \delta \boldsymbol\lambda(t): &amp; \quad \mathbf{M}   \dot{\mathbf{x}} = \mathbf{f} \\
-                               &amp; \quad \mathbf{x}(0) = \mathbf{x}_0 \\
- \delta \mathbf{x}(t)        : &amp; \quad \mathbf{M}^T \dot{\boldsymbol{\lambda}} = -\partial_{\mathbf{x}} \mathbf{f}^T \boldsymbol\lambda - \mathbf{S} \mathbf{u} - \mathbf{Q} \mathbf{x} \\
- \delta \mathbf{x}(T)        : &amp; \quad \mathbf{M}^T \boldsymbol\lambda(T) = \mathbf{Q}_T \mathbf{x}(T) \\
- \delta \mathbf{u}(t)        : &amp; \quad \mathbf{u} = - \mathbf{R}^{-1} \left( \mathbf{S}^T \mathbf{x} + \partial_\mathbf{u} \mathbf{f}^T \boldsymbol\lambda \right) \ .
-\end{aligned}\end{split}\]</div>
-</div>
-</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
-<summary class="sd-summary-title sd-card-header">
-Solution of the problem<div class="sd-summary-down docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="sd-summary-up docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="sd-summary-content sd-card-body docutils">
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
-<summary class="sd-summary-title sd-card-header">
-Replacing <span class="math notranslate nohighlight">\(\ \mathbf{u}\)</span><div class="sd-summary-down docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="sd-summary-up docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="sd-summary-content sd-card-body docutils">
 <div class="math notranslate nohighlight">
-\[\begin{split}\begin{bmatrix} \mathbf{M} &amp; \\ &amp; \mathbf{M}^T \end{bmatrix} \begin{bmatrix} \dot{\mathbf{x}} \\ \dot{\boldsymbol{\lambda}} \end{bmatrix} = \begin{bmatrix} \mathbf{f} \\ - \partial_{\mathbf{x}} \mathbf{f}^T \boldsymbol\lambda - \mathbf{S} \mathbf{u} - \mathbf{Q} \mathbf{x} \end{bmatrix} \ ,\end{split}\]</div>
-<p class="sd-card-text">with <span class="math notranslate nohighlight">\(\mathbf{u} = - \mathbf{R}^{-1} \left( \mathbf{S}^T \mathbf{x} + \partial_\mathbf{u} \mathbf{f}^T \boldsymbol\lambda \right)\)</span>.</p>
-</div>
-</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
-<summary class="sd-summary-title sd-card-header">
-Gradient descent<div class="sd-summary-down docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="sd-summary-up docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="sd-summary-content sd-card-body docutils">
+\[D(\mathbf{x}_T) = \frac{1}{2} \mathbf{x}^T(T) \mathbf{Q}_T \mathbf{x}(T) \ .\]</div>
+<p>The equations <a class="reference internal" href="optimal-control-full-state-general-ode.html#equation-eq-optimal-ode">(40.1)</a> become</p>
+<div class="math notranslate nohighlight" id="equation-eq-optimal-ode-linear">
+<span class="eqno">(40.4)<a class="headerlink" href="#equation-eq-optimal-ode-linear" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+ \delta \boldsymbol\lambda(t): &amp; \quad \dot{\mathbf{x}} = \mathbf{A} \mathbf{x} + \mathbf{B} \mathbf{u} \\
+                               &amp; \quad \mathbf{x}(0) = \mathbf{x}_0 \\
+ \delta \mathbf{x}(t)        : &amp; \quad \dot{\boldsymbol{\lambda}} = - \mathbf{A}^T \boldsymbol\lambda - \widetilde{\mathbf{Q}} \mathbf{x} - \mathbf{S} \mathbf{u} \\
+ \delta \mathbf{x}(T)        : &amp; \quad \boldsymbol\lambda(T) = \mathbf{Q}_T \mathbf{x}(T) \\
+ \delta \mathbf{u}(t)        : &amp; \quad \mathbf{0} = \widetilde{\mathbf{R}} \mathbf{u} + \mathbf{S}^T \mathbf{x} + \mathbf{B}^T \boldsymbol\lambda \ .
+\end{aligned}\end{split}\]</div>
+<p>The weights onf the control are definite positive, <span class="math notranslate nohighlight">\(\widetilde{\mathbf{R}} &gt; 0\)</span>, and thus invertible. The control can be written as a function of the state and the co-state as</p>
+<div class="math notranslate nohighlight" id="equation-eq-optimal-linear-u-1">
+<span class="eqno">(40.5)<a class="headerlink" href="#equation-eq-optimal-linear-u-1" title="Permalink to this equation">#</a></span>\[\mathbf{u} = - \widetilde{\mathbf{R}}^{-1} \left( \mathbf{S}^T \mathbf{x} + \mathbf{B}^T \boldsymbol\lambda  \right) \ .\]</div>
+<p>The expression <a class="reference internal" href="#equation-eq-optimal-linear-u-1">(40.5)</a> shows that the optimal control law is a control proportional to the state <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> and the co-state <span class="math notranslate nohighlight">\(\boldsymbol\lambda\)</span>. As it’s shown below, there’s a proportionality relation between the state and the co-state <span class="math notranslate nohighlight">\(\boldsymbol\lambda = \mathbf{P} \mathbf{x}\)</span> as well, with <span class="math notranslate nohighlight">\(\mathbf{P}\)</span> a symmetric, semi-positive definite matrix, satisfying some matrix equations. See:</p>
 <ul class="simple">
-<li><p class="sd-card-text">Start from a control law <span class="math notranslate nohighlight">\(\mathbf{u}^{(0)}(t)\)</span>,</p></li>
-<li><p class="sd-card-text">the state equation is integrated forward in time to get <span class="math notranslate nohighlight">\(\mathbf{x}^{(0)}(t)\)</span>,</p></li>
-<li><p class="sd-card-text">Lagrange multiplier equation is integrated backward in time to get <span class="math notranslate nohighlight">\(\boldsymbol\lambda^{(0)}(t)\)</span>,</p></li>
-<li><p class="sd-card-text">The control law is updated with an increment <span class="math notranslate nohighlight">\(\delta \mathbf{u}\)</span> that’s proportional to the gradient of the cost function (with “opposite direction” to get <span class="math notranslate nohighlight">\(\delta \widetilde{J} &lt; 0\)</span>), i.e. <span class="math notranslate nohighlight">\(\mathbf{u}^{(1)}(t) = \mathbf{u}^{(0)}(t) + \delta \mathbf{u}^{(0)}(t)\)</span> with <span class="math notranslate nohighlight">\(\delta \mathbf{u}^{(0)}(t) = - c \nabla_{\mathbf{u}(t)} J^{(0)}\)</span>, with a positive step <span class="math notranslate nohighlight">\(c &gt; 0\)</span> and <span class="math notranslate nohighlight">\(\nabla_{\mathbf{u}} J = \mathbf{S}^T \mathbf{x} + \mathbf{R} \mathbf{u} + \partial_{\mathbf{u}} \mathbf{f}^T \boldsymbol\lambda\)</span>.</p></li>
-<li><p class="sd-card-text">Repeat previous steps with the updated control law, until convergence.</p></li>
+<li><p>the relation <span class="math notranslate nohighlight">\(\boldsymbol\lambda_t = \mathbf{P}_t \mathbf{x}_t\)</span> arising by the relation <a class="reference internal" href="optimal-control-full-state-general-ode.html#equation-eq-co-state-sensitivity">(40.3)</a> with <span class="math notranslate nohighlight">\(\mathbf{M} = \mathbf{I}\)</span>, <span class="math notranslate nohighlight">\(\boldsymbol \lambda_t = \nabla_{\mathbf{x}_t} V\)</span> in the <a class="reference internal" href="#control-optimal-full-state-fb-linear-dynamic-programming"><span class="std std-ref">dynamic programming approach</span></a></p></li>
+<li><p>the relation <span class="math notranslate nohighlight">\(\boldsymbol\lambda_t = \mathbf{P}_t \mathbf{x}_t\)</span> arising in the <span class="xref myst">Hamiltonian form of the closed-loop system</span> <a class="reference internal" href="#equation-eq-optimal-linear-cl-hamiltonian">(40.6)</a></p></li>
 </ul>
 </div>
-</details></div>
-</details></div>
-<div class="section" id="lti">
-<span id="control-optimal-full-state-fb-lti"></span><h2><span class="section-number">40.2.2. </span>LTI<a class="headerlink" href="#lti" title="Permalink to this heading">#</a></h2>
+<div class="section" id="hamiltonian-form-of-the-closed-loop-system">
+<span id="control-optimal-full-state-fb-linear-hamiltonian-system"></span><h2><span class="section-number">40.1.2.2. </span>Hamiltonian form of the closed-loop system<a class="headerlink" href="#hamiltonian-form-of-the-closed-loop-system" title="Permalink to this heading">#</a></h2>
+<p>Now the closed loop system reads</p>
+<div class="math notranslate nohighlight" id="equation-eq-optimal-linear-cl-hamiltonian">
+<span class="eqno">(40.6)<a class="headerlink" href="#equation-eq-optimal-linear-cl-hamiltonian" title="Permalink to this equation">#</a></span>\[\begin{split}
+\begin{bmatrix} \dot{\mathbf{x}} \\ \dot{\boldsymbol\lambda} \end{bmatrix}
+\begin{bmatrix}
+  \mathbf{A} - \mathbf{B} \widetilde{\mathbf{R}}^{-1} \mathbf{S}^T &amp; - \mathbf{B} \widetilde{\mathbf{R}}^{-1} \mathbf{B}^T \\
+  -\widetilde{\mathbf{Q}} + \mathbf{S} \widetilde{\mathbf{R}}^{-1} \mathbf{S}^T &amp; - \mathbf{A}^T + \mathbf{S} \widetilde{\mathbf{R}}^{-1} \mathbf{B}^T
+\end{bmatrix}
+\begin{bmatrix}      \mathbf{x}  \\      \boldsymbol\lambda  \end{bmatrix} \ ,
+\end{split}\]</div>
+<p>with initial condition <span class="math notranslate nohighlight">\(\mathbf{x}(0) = \mathbf{x}_0\)</span> and final condition <span class="math notranslate nohighlight">\(\boldsymbol\lambda(T) = \mathbf{Q}_T \mathbf{x}(T)\)</span>. The solution of this linear system can be formally written using the propagator <span class="math notranslate nohighlight">\(\boldsymbol\Psi(t,t_0)\)</span> as</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}J = \int_{t=0}^{T} \dfrac{1}{2} \begin{bmatrix} \mathbf{x}^T &amp; \mathbf{u}^T \end{bmatrix} \begin{bmatrix}  \mathbf{Q} &amp; \mathbf{S} \\ \mathbf{S}^T &amp; \mathbf{R} \end{bmatrix} \begin{bmatrix} \mathbf{x} \\ \mathbf{u} \end{bmatrix} \, dt + \frac{1}{2} \mathbf{x}^T(T) \mathbf{Q}_T \mathbf{x}(T) \end{split}\]</div>
-<div class="math notranslate nohighlight" id="equation-eq-optimal-lti-eqns">
-<span class="eqno">(40.10)<a class="headerlink" href="#equation-eq-optimal-lti-eqns" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{cases}
-  \dot{\mathbf{x}} = \mathbf{A} \mathbf{x} + \mathbf{B} \mathbf{u} \\
-       \mathbf{y}  = \mathbf{C} \mathbf{x} + \mathbf{D} \mathbf{u} \\
-\end{cases}\end{split}\]</div>
+\[\begin{split}\begin{bmatrix} \mathbf{x}(t) \\ \boldsymbol\lambda(t)  \end{bmatrix} = \boldsymbol\Psi(t,t_0) \begin{bmatrix} \mathbf{x}(t_0) \\ \boldsymbol\lambda(t_0) \end{bmatrix} = \begin{bmatrix} \boldsymbol\Psi_{xx}(t,t_0) &amp; \boldsymbol\Psi_{x\lambda}(t,t_0) \\ \boldsymbol\Psi_{\lambda x}(t,t_0) &amp; \boldsymbol\Psi_{\lambda \lambda}(t,t_0) \end{bmatrix} \begin{bmatrix} \mathbf{x}(t_0) \\ \boldsymbol\lambda(t_0) \end{bmatrix}\end{split}\]</div>
+<p>As the initial condition for <span class="math notranslate nohighlight">\(\boldsymbol\lambda\)</span> is not known, it’s not possible so far to integrate this equation forward in time.</p>
+<p><strong>Initial condition <span class="math notranslate nohighlight">\(\ \boldsymbol\lambda(0)\)</span>.</strong> It’s possible to find the initial condition for the co-state, using the propagator between <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(T\)</span>, and the final condition <span class="math notranslate nohighlight">\(\lambda(T) = \mathbf{Q}_T \mathbf{x}_T\)</span>. The state of the Hamiltonian system in <span class="math notranslate nohighlight">\(T\)</span> reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{bmatrix} \mathbf{x}(T) \\ \boldsymbol\lambda(T)  \end{bmatrix} = \begin{bmatrix} \boldsymbol\Psi_{xx}(T,t_0) &amp; \boldsymbol\Psi_{x\lambda}(T,t_0) \\ \boldsymbol\Psi_{\lambda x}(T,t_0) &amp; \boldsymbol\Psi_{\lambda \lambda}(T,t_0) \end{bmatrix} \begin{bmatrix} \mathbf{x}(t_0) \\ \boldsymbol\lambda(t_0) \end{bmatrix}\end{split}\]</div>
+<p>so that (using the second block of the equations first, and then replacing <span class="math notranslate nohighlight">\(\mathbf{x}_T\)</span> from the first block),</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathbf{0}
+  &amp; = - \boldsymbol\lambda_T + \boldsymbol\Psi_{\lambda \lambda}(T,t_0) \boldsymbol\lambda_0 + \boldsymbol\Psi_{\lambda x}(T,t_0) \mathbf{x}_0  = \\
+  &amp; = - \mathbf{Q}_T \mathbf{x}_T + \boldsymbol\Psi_{\lambda \lambda}(T,t_0) \boldsymbol\lambda_0 + \boldsymbol\Psi_{\lambda x}(T,t_0) \mathbf{x}_0  = \\
+  &amp; = - \mathbf{Q}_T \left[ \boldsymbol\Psi_{xx}(T,t_0) \mathbf{x}_0+\boldsymbol\Psi_{x\lambda}(T,t_0) \boldsymbol\lambda_0 \right] + \boldsymbol\Psi_{\lambda \lambda}(T,t_0) \boldsymbol\lambda_0 + \boldsymbol\Psi_{\lambda x}(T,t_0) \mathbf{x}_0  \ ,
+\end{aligned}\end{split}\]</div>
+<p>and thus</p>
+<div class="math notranslate nohighlight">
+\[\boldsymbol\lambda_0 = \left(\boldsymbol\Psi_{\lambda \lambda}(T,t_0) - \mathbf{Q}_T \boldsymbol\Psi_{x\lambda}(T,t_0) \right)^{-1} \left( \mathbf{Q}_T \boldsymbol\Psi_{xx}(T,t_0) - \boldsymbol\Psi_{\lambda x}(T,t_0) \right) \mathbf{x}_0 \ ,\]</div>
+<p>or</p>
+<div class="math notranslate nohighlight">
+\[\boldsymbol\lambda_0 = \mathbf{P}_0 \mathbf{x}_0 \ .\]</div>
+<p><strong>Relation between <span class="math notranslate nohighlight">\(\mathbf{x}(t)\)</span> and <span class="math notranslate nohighlight">\(\boldsymbol\lambda(t)\)</span>.</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathbf{x}_t 
+  &amp; = \boldsymbol\Psi_{xx}(t,t_0) \mathbf{x}_0 + \boldsymbol\Psi_{x\lambda}(t,t_0) \boldsymbol\lambda_0 = \\
+  &amp; = \left[ \boldsymbol\Psi_{xx}(t,t_0) + \boldsymbol\Psi_{x\lambda}(t,t_0) \mathbf{P}_0 \right] \mathbf{x}_0 \ , \\
+  \boldsymbol{\lambda}_t 
+  &amp; = \boldsymbol\Psi_{\lambda x}(t,t_0) \mathbf{x}_0 + \boldsymbol\Psi_{\lambda \lambda}(t,t_0) \boldsymbol\lambda_0 = \\
+  &amp; = \left[ \boldsymbol\Psi_{\lambda x}(t,t_0) + \boldsymbol\Psi_{\lambda\lambda}(t,t_0) \mathbf{P}_0 \right] \mathbf{x}_0 = \\
+  &amp; = \left[ \boldsymbol\Psi_{\lambda x}(t,t_0) + \boldsymbol\Psi_{\lambda\lambda}(t,t_0) \mathbf{P}_0 \right] \left[ \boldsymbol\Psi_{xx}(t,t_0) + \boldsymbol\Psi_{x\lambda}(t,t_0) \mathbf{P}_0 \right]^{-1} \mathbf{x}_t \ .
+\end{aligned}\end{split}\]</div>
+<p>or</p>
+<div class="math notranslate nohighlight">
+\[\boldsymbol\lambda(t) = \mathbf{P}(t) \mathbf{x}(t) \ .\]</div>
+<p><strong>todo</strong></p>
+<ul class="simple">
+<li><p>Does this inverse matrix exist? …</p></li>
+</ul>
+</div>
+<div class="section" id="dynamic-programming-approach">
+<span id="control-optimal-full-state-fb-linear-dynamic-programming"></span><h2><span class="section-number">40.1.2.3. </span>Dynamic programming approach<a class="headerlink" href="#dynamic-programming-approach" title="Permalink to this heading">#</a></h2>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
 <summary class="sd-summary-title sd-card-header">
-Constrained optimization<div class="sd-summary-down docutils">
+Value function and relation <span class="math notranslate nohighlight">\(\ \boldsymbol\lambda = \mathbf{P} \mathbf{x}\)</span><div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">As <span class="math notranslate nohighlight">\(\mathbf{f}(\mathbf{x},\mathbf{u}) = \mathbf{A} \mathbf{x} + \mathbf{B}\mathbf{u}\)</span>, here <span class="math notranslate nohighlight">\(\partial_{\mathbf{x}} \mathbf{f} = \mathbf{A}\)</span> and <span class="math notranslate nohighlight">\(\partial_{\mathbf{u}} \mathbf{f} = \mathbf{B}\)</span>. For the linear system <a class="reference internal" href="#equation-eq-optimal-lti-eqns">(40.10)</a> <span class="math notranslate nohighlight">\(\mathbf{M} = \mathbf{I}\)</span>. Thus the equations <a class="reference internal" href="optimal-control-full-state-general-ode.html#equation-eq-optimal-ode">(40.1)</a> become</p>
-<div class="math notranslate nohighlight" id="equation-eq-optimal-lti">
-<span class="eqno">(40.11)<a class="headerlink" href="#equation-eq-optimal-lti" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
- \delta \boldsymbol\lambda(t): &amp; \quad \mathbf{M}   \dot{\mathbf{x}} = \mathbf{f} \\
-                               &amp; \quad \mathbf{x}(0) = \mathbf{x}_0 \\
- \delta \mathbf{x}(t)        : &amp; \quad \mathbf{M}^T \dot{\boldsymbol{\lambda}} = -\mathbf{A}^T \boldsymbol\lambda - \mathbf{S} \mathbf{u} - \mathbf{Q} \mathbf{x} \\
- \delta \mathbf{x}(T)        : &amp; \quad \mathbf{M}^T \boldsymbol\lambda(T) = \mathbf{Q}_T \mathbf{x}(T) \\
- \delta \mathbf{u}(t)        : &amp; \quad \mathbf{u} = - \mathbf{R}^{-1} \left( \mathbf{S}^T \mathbf{x} + \mathbf{B}^T \boldsymbol\lambda \right) \ .
-\end{aligned}\end{split}\]</div>
-</div>
-</details><div class="section" id="infinite-horizon-full-state-feedback">
-<span id="control-optimal-full-state-fb-lti-infinite-time"></span><h3><span class="section-number">40.2.2.1. </span>Infinite-horizon full-state feedback<a class="headerlink" href="#infinite-horizon-full-state-feedback" title="Permalink to this heading">#</a></h3>
-<p>No need for an <a class="reference internal" href="observer.html#control-observer"><span class="std std-ref">observer</span></a>. The system is assumed to be stable. The augmented cost function reads</p>
+<p class="sd-card-text">Let the value function be</p>
 <div class="math notranslate nohighlight">
-\[\widetilde{J}(\mathbf{x}, \mathbf{u}; \boldsymbol{\lambda}) = \int_{t=0}^{+\infty} \left\{ \dfrac{1}{2} \mathbf{x}^T \mathbf{Q} \mathbf{x} + \mathbf{x}^T \mathbf{S} \mathbf{u} + \dfrac{1}{2} \mathbf{u}^T \mathbf{R} \mathbf{u} - \boldsymbol{\lambda}^T (\dot{\mathbf{x}} - \mathbf{A} \mathbf{x} - \mathbf{B}  \mathbf{u} ) \right\} \, dt \ ,\]</div>
-<p>with given initial conditions <span class="math notranslate nohighlight">\(\mathbf{x}(0) = \mathbf{x}_0\)</span>, so that <span class="math notranslate nohighlight">\(\delta \mathbf{x}_0 = \mathbf{0}\)</span>.
-Using <a class="reference internal" href="../calculus-variations/intro.html#calculus-variations-intro"><span class="std std-ref">calculus of variations</span></a>, the variations of the cost function w.r.t. <span class="math notranslate nohighlight">\(\mathbf{x}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{u}\)</span>, <span class="math notranslate nohighlight">\(\boldsymbol{\lambda}\)</span> read</p>
+\[V(\mathbf{x}_t,t; \mathbf{u}) = \frac{1}{2} \int_{\tau=t}^{T} \left\{ \mathbf{x}^T_\tau \widetilde{\mathbf{Q}}_\tau \mathbf{x}_\tau + \mathbf{x}^T_\tau \mathbf{S}_\tau \mathbf{u}_\tau + \mathbf{u}^T_\tau \mathbf{S}^T_\tau \mathbf{x}_\tau + \mathbf{u}_\tau^T \widetilde{\mathbf{R}}_\tau \mathbf{u}_\tau \right\}  d \tau \, + \frac{1}{2} \mathbf{x}_T^T \mathbf{Q}_T \mathbf{x}_T \ ,\]</div>
+<p class="sd-card-text">subject to the equations of motion as constraints <span class="math notranslate nohighlight">\(\dot{\mathbf{x}}_\tau = \mathbf{A}_\tau \mathbf{x}_\tau + \mathbf{B}_\tau \mathbf{u}_\tau\)</span>, and the initial condition <span class="math notranslate nohighlight">\(\mathbf{x}(t) = \mathbf{x}_t\)</span>. This constraint can be introduced either 1) expressing the state <span class="math notranslate nohighlight">\(\mathbf{x}_\tau\)</span> as a function of the initial state and the input</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{x}_\tau = \boldsymbol\Phi(\tau,t) \mathbf{x}_t + \int_{\xi=t}^{\tau} \boldsymbol\Phi(\tau,\xi) \mathbf{B}_\xi \mathbf{u}_\xi \, d \xi \ ,\]</div>
+<p class="sd-card-text">or 2) with the methods of Lagrange multipliers. A <strong>co-state</strong> <span class="math notranslate nohighlight">\(\boldsymbol\lambda_t\)</span> - corresponding to the Lagrange multiplier - can be evaluated as</p>
+<div class="math notranslate nohighlight">
+\[\boldsymbol\lambda_t = \nabla_{\mathbf{x}_t} V \ .\]</div>
+<p class="sd-card-text"><strong>Method 1.</strong> Using the expression <a class="reference internal" href="../ode/ode-linear-systems.html#equation-eq-ode-system-linear-sol">(24.2)</a> of the <a class="reference internal" href="../ode/ode-linear-systems.html#ode-linear-miscellanea-general-solution"><span class="std std-ref">general solution of a linear system of ODEs</span></a> for <span class="math notranslate nohighlight">\(\tau &gt; t\)</span> with initial conditions <span class="math notranslate nohighlight">\(\mathbf{x}(t) = \mathbf{x}_t\)</span> and input <span class="math notranslate nohighlight">\(\mathbf{u}(\tau)\)</span>,</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
- \delta_{\mathbf{x}}           : &amp; \quad  \mathbf{Q} \mathbf{x} + \mathbf{S} \mathbf{u} + \dot{\boldsymbol{\lambda}} + \mathbf{A}^T \boldsymbol{\lambda} = \mathbf{0} \\
- \delta_{\mathbf{u}}           : &amp; \quad  \mathbf{S}^T \mathbf{x} + \mathbf{R} \mathbf{u} + \mathbf{B}^T \boldsymbol{\lambda} = \mathbf{0} \\
- \delta_{\boldsymbol{\lambda}} : &amp; \quad  \dot{\mathbf{x}} - \mathbf{A} \mathbf{x} - \mathbf{B} \mathbf{u} = \mathbf{0} \\
+  V(\mathbf{x}_t,t; \mathbf{u}) 
+  &amp; = \frac{1}{2} \int_{\tau=t}^{T} \left\{ \left( \boldsymbol\Phi(\tau,t) \mathbf{x}_t + \int_{\xi=t}^{\tau} \boldsymbol\Phi(\tau,\xi) \mathbf{B}_\xi \mathbf{u}_\xi \, d \xi \right)^T \widetilde{\mathbf{Q}}_\tau \left( \boldsymbol\Phi(\tau,t) \mathbf{x}_t + \int_{\xi=t}^{\tau} \boldsymbol\Phi(\tau,\xi) \mathbf{B}_\xi \mathbf{u}_\xi \, d \xi \right) \right\} + \\
+  &amp; + \frac{1}{2} \int_{\tau=t}^{T} \left\{ \left( \boldsymbol\Phi(\tau,t) \mathbf{x}_t + \int_{\xi=t}^{\tau} \boldsymbol\Phi(\tau,\xi) \mathbf{B}_\xi \mathbf{u}_\xi \, d \xi \right)^T \mathbf{S}_\tau \mathbf{u}_\tau \right\} d \tau + \\
+  &amp; + \frac{1}{2} \int_{\tau=t}^{T} \left\{  \mathbf{u}_\tau^T \mathbf{S}_\tau^T \left( \boldsymbol\Phi(\tau,t) \mathbf{x}_t + \int_{\xi=t}^{\tau} \boldsymbol\Phi(\tau,\xi) \mathbf{B}_\xi \mathbf{u}_\xi \, d \xi \right)\right\} d \tau + \\
+  &amp; + \frac{1}{2} \int_{\tau=t}^{T} \mathbf{u}_\tau^T \widetilde{\mathbf{R}}_\tau \mathbf{u}_\tau \,  d \tau + \\
+  &amp; + \frac{1}{2} \left( \boldsymbol\Phi(T,t) \mathbf{x}_t + \int_{\xi=t}^{T} \boldsymbol\Phi(T,\xi) \mathbf{B}_\xi \mathbf{u}_\xi \, d \xi  \right)^T \mathbf{Q}_T \left( \boldsymbol\Phi(T,t) \mathbf{x}_t + \int_{\xi=t}^{T} \boldsymbol\Phi(T,\xi) \mathbf{B}_\xi \mathbf{u}_\xi \, d \xi  \right) = \\
 \end{aligned}\end{split}\]</div>
-<p>From the variation w.r.t. <span class="math notranslate nohighlight">\(\mathbf{u}\)</span>, since <span class="math notranslate nohighlight">\(\mathbf{R} &gt; 0\)</span> and thus innvertible,</p>
-<div class="math notranslate nohighlight">
-\[\mathbf{u} = - \mathbf{R}^{-1} \left( \mathbf{S}^T \mathbf{x} + \mathbf{B}^T \boldsymbol{\lambda} \right)\]</div>
-<p>Now, assuming the relation <span class="math notranslate nohighlight">\(\boldsymbol{\lambda} = \mathbf{P} \mathbf{x}\)</span>, it follows</p>
+<p class="sd-card-text">the relation <span class="math notranslate nohighlight">\(\boldsymbol\lambda_t = \nabla_{\mathbf{x}_t} V\)</span> gives</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
-  \dot{\boldsymbol{\lambda}} 
-  &amp; = - \mathbf{Q} \mathbf{x} - \mathbf{S} \mathbf{u} - \mathbf{A}^T \boldsymbol{\lambda} = \\
-  &amp; = \left\{ - \mathbf{Q}+ \mathbf{S} \mathbf{R}^{-1} \left( \mathbf{S}^T + \mathbf{B}^T \mathbf{P} \right) - \mathbf{A}^T \mathbf{P} \right\} \mathbf{x}  \\
-  \dot{\boldsymbol{\lambda}}
-  &amp; = \dot{\mathbf{P}} \mathbf{x} + \mathbf{P} \dot{\mathbf{x}} = \\
-  &amp; = \dot{\mathbf{P}} \mathbf{x} + \mathbf{P} \left( \mathbf{A} \mathbf{x} + \mathbf{B} \mathbf{u} \right) = \\
-  &amp; = \left\{ \dot{\mathbf{P}} + \mathbf{P} \left[ \mathbf{A} - \mathbf{B} \mathbf{R}^{-1} \left( \mathbf{S}^T + \mathbf{B}^T \mathbf{P} \right)  \right] \right\} \mathbf{x} \ ,
+  \boldsymbol\lambda_t 
+  &amp; = \nabla_{\mathbf{x}_t} V = \\
+  &amp; = \int_{\tau=t}^T \left( \boldsymbol\Phi^T(\tau,t) \widetilde{\mathbf{Q}}_\tau \mathbf{x}_\tau + \boldsymbol\Phi^T(\tau,t) \mathbf{S}_\tau \mathbf{u}_\tau \right) \, d \tau + \boldsymbol\Phi^T(T,t) \mathbf{Q}_T \mathbf{x}_T = \\ 
+  &amp; = \left\{ \int_{\tau=t}^T \boldsymbol\Phi(\tau,t)^T \widetilde{\mathbf{Q}}_\tau \boldsymbol\Phi(\tau,t) \, d \tau + \boldsymbol\Phi^T(T,t) \mathbf{Q}_T \boldsymbol\Phi(T,t) \right\} \mathbf{x}_t + \int_{\tau=t}^T \boldsymbol\Phi^T(\tau,t) \mathbf{S}_\tau \mathbf{u}_\tau \, d \tau \ .
 \end{aligned}\end{split}\]</div>
-<p>and comparing the two different expressions of <span class="math notranslate nohighlight">\(\dot{\boldsymbol{\lambda}}\)</span>, if the equality holds for any <span class="math notranslate nohighlight">\(\mathbf{x}\)</span>, the <strong>dynamical Riccati equation</strong> for <span class="math notranslate nohighlight">\(\mathbf{P}\)</span> is derived as</p>
-<div class="math notranslate nohighlight">
-\[\dot{\mathbf{P}} + \mathbf{P} \widetilde{\mathbf{A}} + \widetilde{\mathbf{A}}^T \mathbf{P} - \mathbf{P} \mathbf{B} \mathbf{R}^{-1} \mathbf{B}^T \mathbf{P} + \widetilde{\mathbf{Q}} = \mathbf{0} \ ,\]</div>
-<p>where <span class="math notranslate nohighlight">\(\widetilde{\mathbf{A}} = \mathbf{A} - \mathbf{B} \mathbf{R}^{-1} \mathbf{S}^T \)</span> and <span class="math notranslate nohighlight">\(\widetilde{\mathbf{Q}} = \mathbf{Q} - \mathbf{S} \mathbf{R}^{-1} \mathbf{S}^T\)</span>. Riccati equation is a non-linear dynamical matrix equation in <span class="math notranslate nohighlight">\(\mathbf{P}\)</span>. Algorithms for computing the solution of dynamical and algebraic equation exists, see <a class="reference internal" href="#control-optimal-riccati">Example 40.1</a>.</p>
-<!--
-$$\dot{\mathbf{P}} = - \mathbf{P} \left( \mathbf{A} - \mathbf{B} \mathbf{R}^{-1} \mathbf{S}^T \right) - \left( \mathbf{A} - \mathbf{B} \mathbf{R}^{-1} \mathbf{S}^T \right)^T \mathbf{P} + \mathbf{P} \mathbf{B} \mathbf{R}^{-1} \mathbf{B}^T \mathbf{P} - \left( \mathbf{Q} - \mathbf{S} \mathbf{R}^{-1} \mathbf{S}^T \right)$$
--->
-<p>Once <span class="math notranslate nohighlight">\(\mathbf{P}\)</span> is evaluated, the control law reads</p>
-<div class="math notranslate nohighlight">
-\[\mathbf{u} = - \mathbf{R}^{-1} \left( \mathbf{S}^T + \mathbf{B}^T \mathbf{P} \right) \mathbf{x} \ .\]</div>
-<p>For infinite-horizone, the algebraic equation (ARE) for the steady state is solved after setting <span class="math notranslate nohighlight">\(\dot{\mathbf{P}} = \mathbf{0}\)</span>, the solution for a LTI system is a constant matrix <span class="math notranslate nohighlight">\(\mathbf{P}\)</span>, and thus the control law is a proportional feedback on the full-state of the system,</p>
-<div class="math notranslate nohighlight">
-\[\mathbf{u} = - \mathbf{G} \mathbf{x} \ ,\]</div>
-<p>with <span class="math notranslate nohighlight">\(\mathbf{G} = \mathbf{R}^{-1} \left( \mathbf{S}^T + \mathbf{B}^T \mathbf{P} \right)\)</span>.</p>
-<div class="proof example admonition" id="control-optimal-riccati">
-<p class="admonition-title"><span class="caption-number">Example 40.1 </span> (Solution of Riccati equation)</p>
-<div class="example-content section" id="proof-content">
-<p>…</p>
+<p class="sd-card-text">From optimization, <span class="math notranslate nohighlight">\(\mathbf{u}_\tau = - \widetilde{\mathbf{R}}^{-1}_\tau \left( \mathbf{B}_\tau^T \boldsymbol\lambda_\tau + \mathbf{S}^T_\tau \mathbf{x}_\tau \right)\)</span>,</p>
+<p class="sd-card-text"><strong>Method 2.</strong></p>
 </div>
-</div><p><strong>Properties.</strong> <strong>todo</strong></p>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Optimal control<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">HJB optimality equation</p>
+<div class="math notranslate nohighlight">
+\[0 = \partial_t V^*(\mathbf{x}_t, t) + \min_{\mathbf{u}} \left\{ \partial_{\mathbf{x}} V^*(\mathbf{x}_t, t) \, \mathbf{f}(\mathbf{x}_t, \mathbf{u}_t) + C(\mathbf{x}_t, \mathbf{u}_t) \right\} \ .\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathbf{0}
+  &amp; = \delta_{\mathbf{u}} V = \\
+  &amp; = \int_{\tau=t}^{T} \left\{ \int_{\xi=t}^\tau \delta \mathbf{u}_\xi^T  \mathbf{B}_\xi^T \boldsymbol\Phi^T(\tau,\xi)  \, d \xi \, \left( \widetilde{\mathbf{Q}}_\tau \mathbf{x}_\tau + \mathbf{S}_\tau \mathbf{u}_\tau \right) + \delta \mathbf{u}_\tau^T \mathbf{S}^T_\tau \mathbf{x}_\tau + \delta \mathbf{u}_\tau^T \widetilde{\mathbf{R}} \mathbf{u}_\tau + \mathbf{B}_\tau^T \boldsymbol\Phi^T(T,\tau) \mathbf{Q}_T \mathbf{x}_T \right\} \, d \tau = \\
+  &amp; \\
+  &amp; = \text{TODO...details about variable swap in the integrals of the first term} = \\
+  &amp; \\
+  &amp; = \int_{\tau=t}^{T} \delta \mathbf{u}_\tau^T \left\{ \mathbf{B}^T_\tau \underbrace{\left( \int_{\xi=\tau}^T \boldsymbol\Phi^T(\xi,\tau) \left( \widetilde{\mathbf{Q}}_\xi \mathbf{x}_\xi + \mathbf{S}_\xi \mathbf{u}_\xi \right) \, d \xi + \boldsymbol\Phi^T(T,\tau) \mathbf{Q} \mathbf{x}_T \right)}_{\boldsymbol\lambda_\tau} + \mathbf{S}^T_\tau \mathbf{x}_\tau + \widetilde{\mathbf{R}} \mathbf{u}_\tau \right\} \, d \tau \ ,
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">and thus, from the arbitrariety of <span class="math notranslate nohighlight">\(\delta \mathbf{u}_\tau\)</span>, and since <span class="math notranslate nohighlight">\(\widetilde{\mathbf{R}}\)</span> is required  to be invertible</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{u}_\tau = - \widetilde{\mathbf{R}}^{-1}_\tau \left( \mathbf{B}_\tau^T \boldsymbol\lambda_\tau + \mathbf{S}^T_\tau \mathbf{x}_\tau \right) \ .\]</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+…<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">If (<strong>todo</strong> why?) <span class="math notranslate nohighlight">\(\boldsymbol\lambda = \mathbf{P} \mathbf{x}\)</span>,</p>
+<p class="sd-card-text"><strong>Using HJB equation.</strong></p>
+<div class="math notranslate nohighlight">
+\[V(\mathbf{x}_t,t; \mathbf{u}) = \frac{1}{2} \int_{\tau=t}^{T} \dots  d \tau \, + \frac{1}{2} \mathbf{x}_T^T \mathbf{Q}_T \mathbf{x}_T + \dots\]</div>
+<p class="sd-card-text"><strong>Proportional control.</strong> This should not be an assumption, but a result of the problem <em>!!!</em></p>
+<p class="sd-card-text">If <span class="math notranslate nohighlight">\(\mathbf{u} = - \mathbf{G} \mathbf{x}\)</span>, the solution of the closed-loop system</p>
+<div class="math notranslate nohighlight">
+\[\dot{\mathbf{x}} = \left( \mathbf{A} - \mathbf{B} \mathbf{G} \right) \mathbf{x}\]</div>
+<p class="sd-card-text">reads <span class="math notranslate nohighlight">\(\mathbf{x}(\tau) = \boldsymbol\Psi_c(\tau,t) \mathbf{x}(t)\)</span>. The value function becomes</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  V(\mathbf{x}_t,t; \mathbf{G})
+  &amp; = \frac{1}{2} \mathbf{x}_t^T \int_{\tau=t}^T \boldsymbol\Phi^T_c(\tau,t) \left( \widetilde{\mathbf{Q}} - \mathbf{G}^T \mathbf{S}^T - \mathbf{S} \mathbf{G} + \mathbf{G}^T \widetilde{\mathbf{R}} \mathbf{G} \right) \boldsymbol\Phi_c(\tau,t) \, d \tau \, \mathbf{x}_t + \frac{1}{2} \mathbf{x}_t^T \boldsymbol\Phi_c^T(T,t) \mathbf{Q}_T \boldsymbol\Phi_c(T,t) \mathbf{x}_t = \\
+  &amp; = \frac{1}{2} \mathbf{x}_t^T \left\{ \int_{\tau=t}^T \boldsymbol\Phi^T_c(\tau,t) \left( \widetilde{\mathbf{Q}} - \mathbf{G}^T \mathbf{S}^T - \mathbf{S} \mathbf{G} + \mathbf{G}^T \widetilde{\mathbf{R}} \mathbf{G} \right) \boldsymbol\Phi_c(\tau,t) \, d \tau + \boldsymbol\Phi_c^T(T,t) \mathbf{Q}_T \boldsymbol\Phi_c(T,t)\right\} \mathbf{x}_t  = \\
+  &amp; = \frac{1}{2} \mathbf{x}_t^T \mathbf{P}(t) \mathbf{x}_t \ .
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">Thus, the costate reads <span class="math notranslate nohighlight">\(\boldsymbol\lambda = \nabla_{\mathbf{x}_t} V = \mathbf{P} \mathbf{x}\)</span>.</p>
+<p class="sd-card-text">Matrix <span class="math notranslate nohighlight">\(\mathbf{P}\)</span> satisfies a <a class="reference internal" href="../system-theory/lyapunov-equation.html#lyapunov-eq"><span class="std std-ref">Lyapunov equation</span></a>,</p>
+<div class="math notranslate nohighlight">
+\[\dot{\mathbf{P}} = \mathbf{A}^T \mathbf{P} + \mathbf{P}\mathbf{A} + \left( \widetilde{\mathbf{Q}} - \mathbf{G}^T \mathbf{S}^T - \mathbf{S} \mathbf{G} + \mathbf{G}^T \widetilde{\mathbf{R}} \mathbf{G} \right) \ ,\]</div>
+<p class="sd-card-text">with final conditions</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{P}(T) = \mathbf{Q}_T \ ,\]</div>
+<p class="sd-card-text">as it can be easily found by direct computation of the time derivative of <span class="math notranslate nohighlight">\(\mathbf{P}\)</span>.</p>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Decoupled weights<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Let <span class="math notranslate nohighlight">\(\mathbf{S} = \mathbf{0}\)</span>, then <span class="math notranslate nohighlight">\(\mathbf{u} = - \widetilde{\mathbf{R}}^{-1} \mathbf{B}^T \boldsymbol\lambda\)</span>, and thus the control is a linear combination of the co-state.</p>
+<p class="sd-card-text">The transformation <span class="math notranslate nohighlight">\(\mathbf{v} := \mathbf{u} + \widetilde{\mathbf{R}}^{-1} \mathbf{S}^T \mathbf{x}\)</span>, make a coupled objective function for the original system a decoupeld objective function for a modified system.</p>
+</div>
+</details><p><strong>todo</strong></p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\mathbf{P}\)</span> symmetric? definite positive? …</p></li>
+<li><p>Are <span class="math notranslate nohighlight">\(\Psi\)</span> matrices invertible?</p></li>
+<li><p>Properties of the Hamilton matrix…</p></li>
+<li><p>What’s a conjugate point?</p></li>
 <li><p>…</p></li>
 </ul>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Coupled state-input weights<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[\begin{split}J = \frac{1}{2} \int_{\tau=0}^{T} \begin{bmatrix} \mathbf{x} \\ \mathbf{u} \end{bmatrix}^T \begin{bmatrix} \mathbf{Q} &amp; \mathbf{S} \\ \mathbf{S}^T &amp; \mathbf{R} \end{bmatrix} \begin{bmatrix} \mathbf{x} \\ \mathbf{u} \end{bmatrix} d \tau + \frac{1}{2} \mathbf{x}_T^T \mathbf{Q}_T \mathbf{x}_T\end{split}\]</div>
 </div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Decoupled state-input weights<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The problem can be decoupled with a transformation</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{bmatrix} \mathbf{x} \\ \mathbf{u} \end{bmatrix} = \begin{bmatrix} \mathbf{I} &amp; \mathbf{0} \\ \mathbf{T} &amp; \mathbf{I} \end{bmatrix} \begin{bmatrix} \widetilde{\mathbf{x}} \\ \widetilde{\mathbf{u}} \end{bmatrix} \end{split}\]</div>
+<p class="sd-card-text">so that</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \begin{bmatrix} \mathbf{x} \\ \mathbf{u} \end{bmatrix}^T \begin{bmatrix} \mathbf{Q} &amp; \mathbf{S} \\ \mathbf{S}^T &amp; \mathbf{R} \end{bmatrix} \begin{bmatrix} \mathbf{x} \\ \mathbf{u} \end{bmatrix}
+  &amp; = \begin{bmatrix} \widetilde{\mathbf{x}} \\ \widetilde{\mathbf{u}} \end{bmatrix}^T \begin{bmatrix} \mathbf{I} &amp; \mathbf{T}^T \\ \mathbf{0} &amp; \mathbf{I} \end{bmatrix} \begin{bmatrix} \mathbf{Q} &amp; \mathbf{S} \\ \mathbf{S}^T &amp; \mathbf{R} \end{bmatrix} \begin{bmatrix} \mathbf{I} &amp; \mathbf{0} \\ \mathbf{T} &amp; \mathbf{I} \end{bmatrix}  \begin{bmatrix} \widetilde{\mathbf{x}} \\ \widetilde{\mathbf{u}} \end{bmatrix} = \\
+  &amp; = \begin{bmatrix} \widetilde{\mathbf{x}} \\ \widetilde{\mathbf{u}} \end{bmatrix}^T \begin{bmatrix} \mathbf{Q} + \mathbf{T}^T \mathbf{S}^T &amp; \mathbf{S} + \mathbf{T}^T \mathbf{R} \\ \mathbf{S}^T &amp; \mathbf{R} \end{bmatrix} \begin{bmatrix} \mathbf{I} &amp; \mathbf{0} \\ \mathbf{T} &amp; \mathbf{I} \end{bmatrix}  \begin{bmatrix} \widetilde{\mathbf{x}} \\ \widetilde{\mathbf{u}} \end{bmatrix} = \\ 
+  &amp; = \begin{bmatrix} \widetilde{\mathbf{x}} \\ \widetilde{\mathbf{u}} \end{bmatrix}^T \begin{bmatrix} \mathbf{Q} + \mathbf{T}^T \mathbf{S}^T + \mathbf{S} \mathbf{T} + \mathbf{T}^T \mathbf{R} \mathbf{T} &amp; \mathbf{S} + \mathbf{T}^T \mathbf{R} \\ \mathbf{S}^T + \mathbf{R} \mathbf{T} &amp; \mathbf{R} \end{bmatrix} \begin{bmatrix} \widetilde{\mathbf{x}} \\ \widetilde{\mathbf{u}} \end{bmatrix} \ ,
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">Extra-diagonal terms are identically zero if <span class="math notranslate nohighlight">\(\mathbf{T} = - \mathbf{R}^{-1} \mathbf{S}^T\)</span>. The coordinate transformation becomes</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+ \mathbf{x} &amp; = \widetilde{\mathbf{x}} \\
+ \mathbf{u} &amp; = -\mathbf{R}^{-1} \mathbf{S}^T \widetilde{\mathbf{x}} + \widetilde{\mathbf{u}} \\
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">and the running cost reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+  \begin{bmatrix} \widetilde{\mathbf{x}} \\ \widetilde{\mathbf{u}} \end{bmatrix}^T \begin{bmatrix} \mathbf{Q} - \mathbf{S} \mathbf{R}^{-1} \mathbf{S}^T &amp; \mathbf{0} \\ \mathbf{0} &amp; \mathbf{R} \end{bmatrix} \begin{bmatrix} \widetilde{\mathbf{x}} \\ \widetilde{\mathbf{u}} \end{bmatrix} \ .
+\end{split}\]</div>
+<p class="sd-card-text">The linear system</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \dot{\mathbf{x}} &amp; = \mathbf{A} \mathbf{x} + \mathbf{B} \mathbf{u} \\
+       \mathbf{y}  &amp; = \mathbf{C} \mathbf{x} + \mathbf{D} \mathbf{u} \\
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">becomes</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \dot{\widetilde{\mathbf{x}}} &amp; = \left( \mathbf{A} - \mathbf{B} \mathbf{R}^{-1} \mathbf{S}^T \right) \widetilde{\mathbf{x}} + \mathbf{B} \widetilde{\mathbf{u}} \\
+       \mathbf{y}  &amp; = \left( \mathbf{C} - \mathbf{D} \mathbf{R}^{-1} \mathbf{S}^T \right) \widetilde{\mathbf{x}} + \mathbf{D} \widetilde{\mathbf{u}} 
+\end{aligned}\end{split}\]</div>
 </div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Decoupled system<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[\begin{split}J = \frac{1}{2} \int_{\tau=0}^{T} \begin{bmatrix} \mathbf{x} \\ \widetilde{\mathbf{u}} \end{bmatrix}^T \begin{bmatrix} \hat{\mathbf{Q}} &amp; \mathbf{0} \\ \mathbf{0} &amp; \mathbf{R} \end{bmatrix} \begin{bmatrix} \mathbf{x} \\ \widetilde{\mathbf{u}} \end{bmatrix} d \tau + \frac{1}{2} \mathbf{x}_T^T \mathbf{Q}_T \mathbf{x}_T - \int_{\tau=0}^{t} \boldsymbol\lambda^T \left( \dot{\mathbf{x}} - \hat{\mathbf{A}} \mathbf{x} + \mathbf{B} \widetilde{\mathbf{u}} \right) d \tau .\end{split}\]</div>
+<p class="sd-card-text">Optimization gives</p>
+<div class="math notranslate nohighlight" id="equation-eq-optimal-ode-linear-decoupling">
+<span class="eqno">(40.7)<a class="headerlink" href="#equation-eq-optimal-ode-linear-decoupling" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+ \delta \boldsymbol\lambda(t): &amp; \quad \dot{\mathbf{x}} = \hat{\mathbf{A}} \mathbf{x} + \mathbf{B} \widetilde{\mathbf{u}} \\
+                               &amp; \quad \mathbf{x}(0) = \mathbf{x}_0 \\
+ \delta \mathbf{x}(t)        : &amp; \quad \dot{\boldsymbol{\lambda}} = - \hat{\mathbf{A}}^T \boldsymbol\lambda - \hat{\mathbf{Q}} \mathbf{x} \\
+ \delta \mathbf{x}(T)        : &amp; \quad \boldsymbol\lambda(T) = \mathbf{Q}_T \mathbf{x}(T) \\
+ \delta \mathbf{u}(t)        : &amp; \quad \mathbf{0} = \mathbf{R} \widetilde{\mathbf{u}} + \mathbf{B}^T \boldsymbol\lambda \ .
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">The modified optimal control reads</p>
+<div class="math notranslate nohighlight">
+\[\widetilde{\mathbf{u}} = - \mathbf{R}^{-1} \mathbf{B}^T \boldsymbol\lambda\]</div>
+<p class="sd-card-text">and thus</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{u} = - \mathbf{R}^{-1} \left( \mathbf{S}^T \mathbf{x} + \mathbf{B}^T \boldsymbol\lambda \right) \ .\]</div>
+<div class="math notranslate nohighlight">
+\[\mathbf{x}(t) = \hat{\boldsymbol\Phi}(t,t_0)\mathbf{x}_0 + \int_{\tau=t_0}^{t} \hat{\boldsymbol\Phi}(t,\tau) \mathbf{B}_\tau \widetilde{\mathbf{u}}(\tau) d \tau \ \]</div>
+<div class="math notranslate nohighlight">
+\[\boldsymbol\lambda_t = \partial_{\mathbf{x}_t} V = \left[ \int_{\tau=t}^{T} \hat{\boldsymbol\Phi}^T(\tau,t) \hat{\mathbf{Q}}_\tau \hat{\boldsymbol\Phi}(\tau,t) \, d \tau + \hat{\boldsymbol\Phi}^T(T,t) \mathbf{Q}_T \hat{\boldsymbol\Phi}(T,t) \right] \mathbf{x}_t = \mathbf{P}(t,T) \mathbf{x}_t \ . \]</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Lyapunov and Riccati equations<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Control law in the uncoupled coordinates,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \widetilde{\mathbf{u}}
+  &amp; = - \mathbf{R}^{-1} \mathbf{B}^T \boldsymbol\lambda = \\
+  &amp; = - \mathbf{R}^{-1} \mathbf{B}^T \mathbf{P} \mathbf{x} = \\
+  &amp; = - \widetilde{\mathbf{K}} \mathbf{x} \ ,
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">and</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathbf{u} 
+  &amp; = \widetilde{\mathbf{u}} - \mathbf{R}^{-1} \mathbf{S}^T \mathbf{x} = \\
+  &amp; = - \mathbf{R}^{-1} \left( \mathbf{B}^T \mathbf{P} + \mathbf{S}^T \right) \mathbf{x} = \\
+  &amp; = - \mathbf{K} \mathbf{x} \ .
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">so that <span class="math notranslate nohighlight">\(\mathbf{R}^{-1} \mathbf{B}^T \mathbf{P} = \mathbf{K} - \mathbf{R}^{-1} \mathbf{S}^T\)</span>.</p>
+<p class="sd-card-text">Relation between the co-state an the state</p>
+<div class="math notranslate nohighlight">
+\[\boldsymbol\lambda = \mathbf{P} \mathbf{x} \ .\]</div>
+<p class="sd-card-text">State and co-state dynamical equations</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \dot{\mathbf{x}} &amp; = \hat{\mathbf{A}} \mathbf{x} + \mathbf{B} \widetilde{\mathbf{u}} \\
+  \dot{\boldsymbol\lambda} &amp; = - \hat{\mathbf{A}}^T \boldsymbol{\lambda} - \hat{\mathbf{Q}} \mathbf{x} \\
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text"><strong>Riccati equation for <span class="math notranslate nohighlight">\(\boldsymbol\lambda\)</span>.</strong></p>
+<div class="math notranslate nohighlight">
+\[-\hat{\mathbf{A}}^T \mathbf{P} \mathbf{x} - \hat{\mathbf{Q}} \mathbf{x} = \dot{\mathbf{P}} \mathbf{x} + \mathbf{P} \hat{\mathbf{A}} \mathbf{x} - \mathbf{P} \mathbf{B} \mathbf{R}^{-1} \mathbf{B}^T \mathbf{P} \mathbf{x} \ . \]</div>
+<p class="sd-card-text">For arbitrary <span class="math notranslate nohighlight">\(\mathbf{x}\)</span>, Riccati equation follows</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+\mathbf{0} 
+ &amp; = \dot{\mathbf{P}} + \mathbf{P} \hat{\mathbf{A}} + \hat{\mathbf{A}}^T \mathbf{P} + \hat{\mathbf{Q}} - \mathbf{P} \mathbf{B} \mathbf{R}^{-1} \mathbf{B}^T \mathbf{P} = \\
+ &amp; = \dot{\mathbf{P}} + \mathbf{P} \left( \mathbf{A} - \mathbf{B} \mathbf{R}^{-1} \mathbf{S}^T \right) + \left( \mathbf{A} - \mathbf{B} \mathbf{R}^{-1} \mathbf{S}^T \right)^T \mathbf{P} + \left( \mathbf{Q} - \mathbf{S} \mathbf{R}^{-1} \mathbf{S}^T \right) - \mathbf{P} \mathbf{B} \mathbf{R}^{-1} \mathbf{B}^T \mathbf{P} \ .
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text"><strong>Lyapunov equation for <span class="math notranslate nohighlight">\(\boldsymbol\lambda\)</span>.</strong> Replacing <span class="math notranslate nohighlight">\(\mathbf{K} = \mathbf{R}^{-1} \mathbf{B}^T \mathbf{P}\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+ \mathbf{0} 
+  &amp; = \dot{\mathbf{P}} + \mathbf{P} \mathbf{A} - \mathbf{K}^T \mathbf{S}^T + \mathbf{S} \mathbf{R}^{-1} \mathbf{S}^T + \mathbf{A}^T \mathbf{P} - \mathbf{S} \mathbf{K} + \mathbf{S} \mathbf{R}^{-1} \mathbf{S}^T + \mathbf{Q} - \mathbf{S} \mathbf{R}^{-1} \mathbf{S}^T - \left( \mathbf{K} - \mathbf{R}^{-1} \mathbf{S}^T \right)^T \mathbf{R} \left( \mathbf{K} - \mathbf{R}^{-1} \mathbf{S}^T \right) = \\
+  &amp; = \dot{\mathbf{P}} + \mathbf{P} \mathbf{A} + \mathbf{A}^T \mathbf{P} + \mathbf{Q} + \mathbf{S}\mathbf{R}^{-1} \mathbf{S} - \mathbf{S} \mathbf{K} - \mathbf{K}^T \mathbf{S}^T - \mathbf{K}^T \mathbf{R} \mathbf{K} + \mathbf{S} \mathbf{R}^{-1} \mathbf{R} \mathbf{K} + \mathbf{K}^T \mathbf{R} \mathbf{R}^{-1} \mathbf{S}^T - \mathbf{S} \mathbf{R}^{-1} \mathbf{R} \mathbf{R}^{-1} \mathbf{S}^T = \\
+  &amp; = \dot{\mathbf{P}} + \mathbf{P} \mathbf{A} + \mathbf{A}^T \mathbf{P} + \mathbf{Q} - \mathbf{K}^T \mathbf{R} \mathbf{K} \ .
+\end{aligned}\end{split}\]</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+…<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[\partial_t \hat{\boldsymbol\Phi}(t,\tau) = \hat{\mathbf{A}}(t)  \hat{\boldsymbol\Phi}(t,\tau) \ .\]</div>
+<!--
+$$\partial_T \mathbf{P}$$
+-->
+</div>
+</details></div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -780,20 +980,20 @@ $$\dot{\mathbf{P}} = - \mathbf{P} \left( \mathbf{A} - \mathbf{B} \mathbf{R}^{-1}
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="optimal-control-full-state-linear-infinite-time.html"
+       href="optimal-control-full-state-general-ode.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">40.1.3. </span>Linear system without exogenous inputs - infinite time horizon</p>
+        <p class="prev-next-title"><span class="section-number">40.1.1. </span>Generic ODE without exogenous inputs</p>
       </div>
     </a>
     <a class="right-next"
-       href="optimal-control-margins.html"
+       href="optimal-control-full-state-linear-infinite-time.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">40.3. </span>Phase and gain margin of optimal control</p>
+        <p class="prev-next-title"><span class="section-number">40.1.3. </span>Linear system without exogenous inputs - infinite time horizon</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -812,11 +1012,9 @@ $$\dot{\mathbf{P}} = - \mathbf{P} \left( \mathbf{A} - \mathbf{B} \mathbf{R}^{-1}
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generic-ode-without-exogenous-inputs">40.2.1. Generic ODE without exogenous inputs</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lti">40.2.2. LTI</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#infinite-horizon-full-state-feedback">40.2.2.1. Infinite-horizon full-state feedback</a></li>
-</ul>
-</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variational-approach">40.1.2.1. Variational approach</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hamiltonian-form-of-the-closed-loop-system">40.1.2.2. Hamiltonian form of the closed-loop system</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamic-programming-approach">40.1.2.3. Dynamic programming approach</a></li>
 </ul>
   </nav></div>
 

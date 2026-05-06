@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>40.3. Phase and gain margin of optimal control &#8212; basics - math</title>
+    <title>40.1.1. Generic ODE without exogenous inputs &#8212; basics - math</title>
   
   
   
@@ -67,12 +67,12 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/control/optimal-control-margins';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/control/optimal-control-full-state-general-ode';</script>
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="40.4. Optimal observer for stochastic disturbance" href="optimal-control-observer-stochastic.html" />
-    <link rel="prev" title="40.2. Full-state feedback (OLD)" href="optimal-control-full-state-old.html" />
+    <link rel="next" title="40.1.2. Linear system without exogenous inputs" href="optimal-control-full-state-linear.html" />
+    <link rel="prev" title="40.1. Full-state feedback" href="optimal-control-full-state.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -273,14 +273,13 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 <li class="toctree-l1"><a class="reference internal" href="frequency-domain.html">39. Frequency domain control</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="optimal-control.html">40. Optimal control</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 has-children"><a class="reference internal" href="optimal-control-full-state.html">40.1. Full-state feedback</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="optimal-control-full-state-general-ode.html">40.1.1. Generic ODE without exogenous inputs</a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="optimal-control-full-state.html">40.1. Full-state feedback</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">40.1.1. Generic ODE without exogenous inputs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="optimal-control-full-state-linear.html">40.1.2. Linear system without exogenous inputs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="optimal-control-full-state-linear-infinite-time.html">40.1.3. Linear system without exogenous inputs - infinite time horizon</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="optimal-control-full-state-old.html">40.2. Full-state feedback (OLD)</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">40.3. Phase and gain margin of optimal control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimal-control-margins.html">40.3. Phase and gain margin of optimal control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="optimal-control-observer-stochastic.html">40.4. Optimal observer for stochastic disturbance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="optimal-control-observer-deterministic.html">40.5. Optimal observer for deterministic disturbances</a></li>
 <li class="toctree-l2"><a class="reference internal" href="optimal-control-output.html">40.6. Sub-optimal control for output feedback</a></li>
@@ -432,7 +431,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/edit/main/ch/control/optimal-control-margins.md" target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/edit/main/ch/control/optimal-control-full-state-general-ode.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -449,7 +448,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/issues/new?title=Issue%20on%20page%20%2Fch/control/optimal-control-margins.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/issues/new?title=Issue%20on%20page%20%2Fch/control/optimal-control-full-state-general-ode.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -479,7 +478,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/ch/control/optimal-control-margins.md" target="_blank"
+      <li><a href="../../_sources/ch/control/optimal-control-full-state-general-ode.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -563,7 +562,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Phase and gain margin of optimal control</h1>
+    <h1>Generic ODE without exogenous inputs</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -573,8 +572,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#siso">40.3.1. SISO</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mimo">40.3.2. MIMO</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variational-approach">40.1.1.1. Variational approach</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamic-programming-approach">40.1.1.2. Dynamic programming approach</a></li>
 </ul>
             </nav>
         </div>
@@ -586,89 +585,174 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="phase-and-gain-margin-of-optimal-control">
-<span id="control-optimal-margins"></span><h1><span class="section-number">40.3. </span>Phase and gain margin of optimal control<a class="headerlink" href="#phase-and-gain-margin-of-optimal-control" title="Permalink to this heading">#</a></h1>
-<p>Some results are available for phase and gain margin of optimal control, on the input side. <strong>todo</strong> <em>discuss</em>
-The relationship between the actual input to the plant <span class="math notranslate nohighlight">\(u\)</span> and an additive input error <span class="math notranslate nohighlight">\(\Delta u\)</span> reads</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="generic-ode-without-exogenous-inputs">
+<span id="control-optimal-full-state-fb-ode"></span><h1><span class="section-number">40.1.1. </span>Generic ODE without exogenous inputs<a class="headerlink" href="#generic-ode-without-exogenous-inputs" title="Permalink to this heading">#</a></h1>
+<p>Let a general general ODE, with <span class="math notranslate nohighlight">\(\mathbf{M}\)</span> non singular (otherwise DAE…any issue with DAE?)</p>
 <div class="math notranslate nohighlight">
-\[u = \Delta u + u_c = \Delta u + K e = \Delta u + K (x_{ref} - x) = \Delta u + K x_{ref} + K H u \ ,\]</div>
-<div class="math notranslate nohighlight" id="equation-eq-optimal-input-siso-tfs">
-<span class="eqno">(40.12)<a class="headerlink" href="#equation-eq-optimal-input-siso-tfs" title="Permalink to this equation">#</a></span>\[u = \frac{1}{1 + K H(s)} \Delta u(s) + \frac{K}{1 + KH(s)} x_{ref}(s) \ ,\]</div>
-<p>for a SISO or</p>
-<div class="math notranslate nohighlight" id="equation-eq-optimal-input-mimo-tfs">
-<span class="eqno">(40.13)<a class="headerlink" href="#equation-eq-optimal-input-mimo-tfs" title="Permalink to this equation">#</a></span>\[\mathbf{u} = \left[ \mathbf{I} + \mathbf{K}(s) \mathbf{H}(s) \right]^{-1} \Delta\mathbf{u} + \left[ \mathbf{I} + \mathbf{K}(s) \mathbf{H}(s) \right]^{-1} \mathbf{K}(s) \mathbf{x}_{ref} \ ,\]</div>
-<p>for a MIMO system. The additive input error <span class="math notranslate nohighlight">\(\Delta u\)</span> can be thought as the difference between the ideal/design condition, due to un-modelled parts, failures, and any other form of discrepancy to the model altering the gain and the phase (adding delay) of the ideal control <span class="math notranslate nohighlight">\(u_c\)</span>.</p>
-<div class="figure align-center" id="fig-optimal-control-margin-block">
-<img alt="Block diagram for the optimal control margins" src="../../_images/optimal-control-margin-1.png" />
-<p class="caption"><span class="caption-number">Fig. 40.1 </span><span class="caption-text">Block diagram of optimal control closed-loop system with retroaction on the error <span class="math notranslate nohighlight">\(e = x_{ref} - x\)</span> on the full state.</span><a class="headerlink" href="#fig-optimal-control-margin-block" title="Permalink to this image">#</a></p>
-</div>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+\[\mathbf{M} \dot{\mathbf{x}} = \mathbf{f}(\mathbf{x}, \mathbf{u}) \ ,\]</div>
+<p>with initial condition <span class="math notranslate nohighlight">\(\mathbf{x}(0) = \mathbf{x}_0\)</span>.</p>
+<div class="section" id="variational-approach">
+<span id="control-optimal-full-state-fb-ode-variational-approach"></span><h2><span class="section-number">40.1.1.1. </span>Variational approach<a class="headerlink" href="#variational-approach" title="Permalink to this heading">#</a></h2>
+<p>The objective function combines (weights) the error on a desired performance and the control input, in order to get the desired behavior with feasible control (that can be provided by actuators, without saturation, avoiding unnecessary high power input and too sharp behavior,…)</p>
+<p>As an example, if the goal of the control <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> is to keep the system around <span class="math notranslate nohighlight">\(\mathbf{x} = \mathbf{0}\)</span>, the cost function to be minimized can be designed as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}J = \int_{t=0}^{T} \dfrac{1}{2} \begin{bmatrix} \mathbf{x}^T &amp; \mathbf{u}^T \end{bmatrix} \begin{bmatrix}  \mathbf{Q} &amp; \mathbf{S} \\ \mathbf{S}^T &amp; \mathbf{R} \end{bmatrix} \begin{bmatrix} \mathbf{x} \\ \mathbf{u} \end{bmatrix} \, dt + \frac{1}{2} \mathbf{x}^T(T) \mathbf{Q}_T \mathbf{x}(T) \ ,\end{split}\]</div>
+<p>with <span class="math notranslate nohighlight">\(\mathbf{Q} \ge 0\)</span>, and <span class="math notranslate nohighlight">\(\mathbf{R} &gt; 0\)</span> and symmetric.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
 <summary class="sd-summary-title sd-card-header">
-Details<div class="sd-summary-down docutils">
+Constrained optimization<div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">For a SISO system, the relation between <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(\Delta u\)</span> reads</p>
 <div class="math notranslate nohighlight">
-\[u = \Delta u + u_c = \Delta u + K e = \Delta u + K (x_{ref} - x) = \Delta u + K x_{ref} + K H u \ ,\]</div>
-<p class="sd-card-text">and thus</p>
+\[\widetilde{J}(\mathbf{x},\mathbf{u}; \boldsymbol\lambda) = \int_{\tau=0}^{T} C\left( \mathbf{x}(\tau), \mathbf{u}(\tau) \right) \, d\tau + D\left( \mathbf{x}(T) \right) - \int_{\tau=0}^{T} \boldsymbol\lambda^T \left( \mathbf{M} \dot{\mathbf{x}} - \mathbf{f}(\mathbf{x}(\tau), \mathbf{u}(\tau)) \right) \, d \tau \ .\]</div>
 <div class="math notranslate nohighlight">
-\[u(s) = \frac{1}{1+K H(s)} \Delta u(s) + \frac{K}{1 + K H(s)} x_{ref}(s) \ .\]</div>
-<p class="sd-card-text">For a MIMO systems, TFs are matrix TFs and thus matrix inversion is required (as the division between matrix makes no sense at all),</p>
-<div class="math notranslate nohighlight">
-\[\mathbf{u}(s) = \left[ \mathbf{I} + \mathbf{K} \mathbf{H}(s) \right]^{-1} \Delta\mathbf{u}(s) + \left[ \mathbf{I} + \mathbf{K} \mathbf{H}(s) \right]^{-1} \mathbf{K} \mathbf{x}_{ref}(s) \ .\]</div>
-</div>
-</details><div class="section" id="siso">
-<span id="control-optimal-margins-siso"></span><h2><span class="section-number">40.3.1. </span>SISO<a class="headerlink" href="#siso" title="Permalink to this heading">#</a></h2>
-<div class="math notranslate nohighlight">
-\[\left| 1 + S(j\omega) \right|^2 \ge 1 \ .\]</div>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+\[\begin{split}\begin{aligned}
+  0 = \delta \widetilde{J} 
+  &amp; = \int_{t=0}^{T} \delta \mathbf{x}^T \left( \partial_\mathbf{x} C + \partial_{\mathbf{x}} \mathbf{f}^T \boldsymbol\lambda + \mathbf{M}^T \dot{\boldsymbol{\lambda}}\right) d \tau + \\
+  &amp; + \int_{t=0}^{T} \delta \mathbf{u}^T \left( \partial_\mathbf{u} C + \partial_{\mathbf{u}} \mathbf{f}^T \boldsymbol\lambda \right) d \tau + \\
+  &amp; + \delta \mathbf{x}^T(T) \partial_{\mathbf{x}_T} D + \\
+  &amp; + \int_{t=0}^{T} \delta \boldsymbol\lambda^T ( \mathbf{M} \dot{\mathbf{x}} - \mathbf{f}(\mathbf{x}, \mathbf{u}) ) d \tau + \\
+  &amp; - \left. \delta \mathbf{x} \mathbf{M}^T \boldsymbol\lambda \right|_{t=0}^{T} \ .
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">So that</p>
+<div class="math notranslate nohighlight" id="equation-eq-optimal-ode">
+<span class="eqno">(40.1)<a class="headerlink" href="#equation-eq-optimal-ode" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+ \delta \boldsymbol\lambda(t): &amp; \quad \mathbf{M}   \dot{\mathbf{x}} = \mathbf{f} \\
+                               &amp; \quad \mathbf{x}(0) = \mathbf{x}_0 \\
+ \delta \mathbf{x}(t)        : &amp; \quad \mathbf{M}^T \dot{\boldsymbol{\lambda}} = -\partial_{\mathbf{x}} \mathbf{f}^T \boldsymbol\lambda - \partial_{\mathbf{x}} C \\
+ \delta \mathbf{x}(T)        : &amp; \quad \mathbf{M}^T \boldsymbol\lambda(T) = \partial_{\mathbf{x}_T} D \\
+ \delta \mathbf{u}(t)        : &amp; \quad \mathbf{0} = \partial_\mathbf{u} C + \partial_\mathbf{u} \mathbf{f}^T \boldsymbol\lambda \ .
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">The equations can be recast after the definition of the Hamiltonian of the system <span class="math notranslate nohighlight">\(H(\mathbf{x},\mathbf{u},\boldsymbol\lambda) = C(\mathbf{x},\mathbf{u}) + \boldsymbol\lambda^T \mathbf{f}(\mathbf{x},\mathbf{u})\)</span> as</p>
+<div class="math notranslate nohighlight" id="equation-eq-optimal-ode-hamiltonian">
+<span class="eqno">(40.2)<a class="headerlink" href="#equation-eq-optimal-ode-hamiltonian" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+ \delta \boldsymbol\lambda(t): &amp; \quad \mathbf{0} = - \mathbf{M} \dot{\mathbf{x}} + \partial_{\boldsymbol\lambda} H = - \mathbf{M} \dot{\mathbf{x}} + \mathbf{f} \\
+                               &amp; \quad \mathbf{x}(0) = \mathbf{x}_0 \\
+ \delta \mathbf{x}(t)        : &amp; \quad \mathbf{M}^T \dot{\boldsymbol{\lambda}} = - \partial_{\mathbf{x}} H \\
+ \delta \mathbf{x}(T)        : &amp; \quad \mathbf{M}^T \boldsymbol\lambda(T) = \partial_{\mathbf{x}_T} D \\
+ \delta \mathbf{u}(t)        : &amp; \quad \mathbf{0} = \partial_\mathbf{u} H \ .
+\end{aligned}\end{split}\]</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
 <summary class="sd-summary-title sd-card-header">
-Details<div class="sd-summary-down docutils">
+Gradient descent<div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Starting from the algebraic Lyapunov equation for the matrix <span class="math notranslate nohighlight">\(\mathbf{P}\)</span></p>
-<div class="math notranslate nohighlight">
-\[\mathbf{0} = \mathbf{A}^T \mathbf{P} + \mathbf{P} \mathbf{A} - \mathbf{K} \mathbf{R} \mathbf{K}^T + \mathbf{Q} \ ,\]</div>
-<p class="sd-card-text">with the optimal matrix of gains, <span class="math notranslate nohighlight">\(\mathbf{K} = \mathbf{R}^{-1} \mathbf{B}^T \mathbf{P}\)</span>. Adding and subtracting <span class="math notranslate nohighlight">\(s \mathbf{I} \mathbf{P}\)</span>, and defining the matrix <span class="math notranslate nohighlight">\(\mathbf{G}(s) = ( s \mathbf{I} - \mathbf{A} )^{-1}\)</span>,</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  \mathbf{0}
-  &amp; = \mathbf{A}^T \mathbf{P} + \mathbf{P} \mathbf{A} - \mathbf{K}^T \mathbf{R} \mathbf{K} + \mathbf{Q} = \\
-  &amp; = ( \mathbf{A} + s \mathbf{I} )^T \mathbf{P} + \mathbf{P} ( \mathbf{A} - s \mathbf{I} ) - \mathbf{K}^T \mathbf{R} \mathbf{K} + \mathbf{Q} = \\
-  &amp; = \mathbf{G}^{-T}(-s) \mathbf{P} + \mathbf{P} \mathbf{G}^{-1}(s) - \mathbf{K}^T \mathbf{R} \mathbf{K} + \mathbf{Q} \ .
-\end{aligned}\end{split}\]</div>
-<p class="sd-card-text">Pre-multiplication by <span class="math notranslate nohighlight">\(\mathbf{B}^T \mathbf{G}^T(-s)\)</span> and post-multiplication by <span class="math notranslate nohighlight">\(\mathbf{G}(s) \mathbf{B}\)</span> gives</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  \mathbf{0}
-  &amp; = - \mathbf{B}^T \mathbf{P} \mathbf{G}(s) \mathbf{B} - \mathbf{B}^T \mathbf{G}^T(-s) \mathbf{P} \mathbf{B} - \mathbf{B}^T \mathbf{G}^{T}(-s) \mathbf{K}^T \mathbf{R} \mathbf{K} \mathbf{G}(s) \mathbf{B} + \mathbf{B}^T \mathbf{G}^{T}(-s) \mathbf{Q} \mathbf{G}(s) \mathbf{B} = \\
-  &amp; = - \mathbf{R} \mathbf{K} \mathbf{G}(s) \mathbf{B} - \mathbf{B}^T \mathbf{G}^T(-s) \mathbf{K}^T \mathbf{R} - \mathbf{B}^T \mathbf{G}^{T}(-s) \mathbf{K}^T \mathbf{R} \mathbf{K} \mathbf{G}(s) \mathbf{B} + \mathbf{B}^T \mathbf{G}^{T}(-s) \mathbf{Q} \mathbf{G}(s) \mathbf{B} = \\
-  &amp; = - \mathbf{R} \mathbf{K} \mathbf{H}(s) - \mathbf{H}^T(-s) \mathbf{K}^T \mathbf{R} - \mathbf{H}^{T}(-s) \mathbf{K}^T \mathbf{R} \mathbf{K} \mathbf{H}(s) + \mathbf{H}^{T}(-s) \mathbf{Q} \mathbf{H}(s) \ ,
-\end{aligned}\end{split}\]</div>
-<p class="sd-card-text">having used the expression of the optimal gain matrix to write <span class="math notranslate nohighlight">\(\mathbf{B}^T \mathbf{P} = \mathbf{R} \mathbf{K}\)</span>, and defined the open-loop <em>input</em> TF matrix <span class="math notranslate nohighlight">\(\mathbf{S}(s) := \mathbf{K} \mathbf{H}(s)\)</span>. Moving terms with or without <span class="math notranslate nohighlight">\(\mathbf{S}(s)\)</span> on two different sides of the equality, and adding \mathbf{R}, and collecting terms, it follows</p>
-<div class="math notranslate nohighlight">
-\[\left[ \mathbf{I} + \mathbf{S}^T(-s) \right] \mathbf{R} \left[ \mathbf{I} + \mathbf{S}(s) \right] = \mathbf{R} + \mathbf{H}^{T}(-s) \mathbf{Q} \mathbf{H}(s) \ .\]</div>
-<p class="sd-card-text">Moving to Fourier domain, <span class="math notranslate nohighlight">\(s = j \omega\)</span>, and recalling that <span class="math notranslate nohighlight">\(\mathbf{S}^T(-j\omega) = \mathbf{S}^*( j \omega ) \)</span>,</p>
-<div class="math notranslate nohighlight">
-\[\left[ \mathbf{I} + \mathbf{S}^*(j \omega) \right] \mathbf{R} \left[ \mathbf{I} + \mathbf{S}(j \omega) \right] = \mathbf{R} + \mathbf{H}^*(j\omega) \mathbf{Q} \mathbf{H}(j\omega) \ .\]</div>
-<p class="sd-card-text"><strong>todo</strong> <em>Notation for semi-definite positive symmetric matrices</em></p>
-<div class="math notranslate nohighlight">
-\[\left[ \mathbf{I} + \mathbf{S}^*(j \omega) \right] \mathbf{R} \left[ \mathbf{I} + \mathbf{S}(j \omega) \right] \ge \mathbf{R} \ .\]</div>
-<p class="sd-card-text">For a 1-dimensional state SISO system, <span class="math notranslate nohighlight">\(\mathbf{R} = r\)</span>, <span class="math notranslate nohighlight">\(\mathbf{S}(s) = S(s)\)</span>, and thus</p>
-<div class="math notranslate nohighlight">
-\[\left| 1 + S(j\omega) \right|^2 \ge 1 \ .\]</div>
+<ul class="simple">
+<li><p class="sd-card-text">Start from a control law <span class="math notranslate nohighlight">\(\mathbf{u}^{(0)}(t)\)</span>,</p></li>
+<li><p class="sd-card-text">the state equation is integrated forward in time to get <span class="math notranslate nohighlight">\(\mathbf{x}^{(0)}(t)\)</span>,</p></li>
+<li><p class="sd-card-text">Lagrange multiplier equation is integrated backward in time to get <span class="math notranslate nohighlight">\(\boldsymbol\lambda^{(0)}(t)\)</span>,</p></li>
+<li><p class="sd-card-text">The control law is updated with an increment <span class="math notranslate nohighlight">\(\delta \mathbf{u}\)</span> that’s proportional to the gradient of the cost function (with “opposite direction” to get <span class="math notranslate nohighlight">\(\delta \widetilde{J} &lt; 0\)</span>), i.e. <span class="math notranslate nohighlight">\(\mathbf{u}^{(1)}(t) = \mathbf{u}^{(0)}(t) + \delta \mathbf{u}^{(0)}(t)\)</span> with <span class="math notranslate nohighlight">\(\delta \mathbf{u}^{(0)}(t) = - c \nabla_{\mathbf{u}(t)} J^{(0)}\)</span>, with a positive step <span class="math notranslate nohighlight">\(c &gt; 0\)</span> and <span class="math notranslate nohighlight">\(\nabla_{\mathbf{u}} J = \mathbf{S}^T \mathbf{x} + \mathbf{R} \mathbf{u} + \partial_{\mathbf{u}} \mathbf{f}^T \boldsymbol\lambda\)</span>.</p></li>
+<li><p class="sd-card-text">Repeat previous steps with the updated control law, until convergence.</p></li>
+</ul>
 </div>
 </details></div>
-<div class="section" id="mimo">
-<span id="control-optimal-margins-mimo"></span><h2><span class="section-number">40.3.2. </span>MIMO<a class="headerlink" href="#mimo" title="Permalink to this heading">#</a></h2>
+</details></div>
+<div class="section" id="dynamic-programming-approach">
+<span id="control-optimal-full-state-fb-ode-dynamic-programming"></span><h2><span class="section-number">40.1.1.2. </span>Dynamic programming approach<a class="headerlink" href="#dynamic-programming-approach" title="Permalink to this heading">#</a></h2>
+<p>Dynamic programming approach for optimal control may be interpreted as the continuous-time counterpart fo the dynamic programming approach used in <span class="xref myst">reinforcement learning (RL)</span> on <a class="reference internal" href="../rl/mdp.html#rl-mdp"><span class="std std-ref">Markov decision processes</span></a>. While RL usually produces a model-free policy - control law - and thus exploits <a class="reference internal" href="../rl/mdp.html#rl-mdp-dp-bellman-equations"><span class="std std-ref">Bellman’s equations</span></a> on the state-action value function <span class="math notranslate nohighlight">\(Q(s;a)\)</span>, optimal control is a model-based control system design that relies on a model of the system and uses Bellman’s equation for the state value function <span class="math notranslate nohighlight">\(V(s)\)</span>.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+HJB equation - Evaluation equation<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Without dynamical equations as a constraint introduced with Lagrange multipliers<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The value function <span class="math notranslate nohighlight">\(V(\mathbf{x}_t, t)\)</span>,</p>
 <div class="math notranslate nohighlight">
-\[\left[ \mathbf{I} + \mathbf{S}^*(j \omega) \right] \mathbf{R} \left[ \mathbf{I} + \mathbf{S}(j \omega) \right] \ge \mathbf{R} \ .\]</div>
-<p>with <span class="math notranslate nohighlight">\(\mathbf{H}(s) = (s \mathbf{I} - \mathbf{A})^{-1} \mathbf{B}\)</span>, and <span class="math notranslate nohighlight">\(\mathbf{S}(s) = \mathbf{K} \mathbf{H}(s)\)</span> the open-loop TF between <span class="math notranslate nohighlight">\(\Delta \mathbf{u}\)</span> and the ideal control loop <span class="math notranslate nohighlight">\(\mathbf{u}_c\)</span>, and <span class="math notranslate nohighlight">\(\mathbf{I} + \mathbf{S}(s)\)</span> the (inverse of the) transfer function between <span class="math notranslate nohighlight">\(\Delta \mathbf{u}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{u}\)</span>, as shown in <a class="reference internal" href="#equation-eq-optimal-input-mimo-tfs">(40.13)</a>.</p>
+\[V(\mathbf{x}_t, t) = \int_{\tau=t}^{T} C(\mathbf{x}(\tau), \mathbf{u}(\tau)) d \tau +  D(\mathbf{x}(T)) \ ,\]</div>
+<p class="sd-card-text">subject to the dynamical equations of motion in time range <span class="math notranslate nohighlight">\(\tau \in [t, T]\)</span>, is defined as a function of two arguments: the initial time <span class="math notranslate nohighlight">\(t\)</span>, the initial state <span class="math notranslate nohighlight">\(\mathbf{x}_t\)</span> of the system at time <span class="math notranslate nohighlight">\(t\)</span>. If the initial state <span class="math notranslate nohighlight">\(\mathbf{x}_t\)</span> is a function of <span class="math notranslate nohighlight">\(t\)</span> itself, the value function can be written as a function of time <span class="math notranslate nohighlight">\(t\)</span> only and its ordinary derivative w.r.t. time <span class="math notranslate nohighlight">\(t\)</span> reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+  \frac{d}{dt} V(\mathbf{x}_t, t) 
+  &amp; = \partial_t V(\mathbf{x}_t,t) +  \partial_\mathbf{x} V \, \dot{\mathbf{x}}   
+    = \partial_t V(\mathbf{x}_t,t) +  \partial_\mathbf{x} V \, \mathbf{f} \ , 
+\end{aligned}\]</div>
+<p class="sd-card-text">or, using the definition and the rule of derivative for integrals</p>
+<div class="math notranslate nohighlight">
+\[
+  \frac{d}{dt} V(\mathbf{x}_t, t) = - C(\mathbf{x}(t), \mathbf{u}(t)) \ .
+\]</div>
+<p class="sd-card-text">Comparing the two expressions of the time derivative, <strong>Hamilton-Jacobi-Bellman equation</strong> for evaluating a given control <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> follows</p>
+<div class="math notranslate nohighlight">
+\[0 = \partial_t V(\mathbf{x}_t, t) + \partial_{\mathbf{x}} V(\mathbf{x}_t, t) \, \mathbf{f}(\mathbf{x}_t, \mathbf{u}_t) + C(\mathbf{x}_t, \mathbf{u}_t) \ .\]</div>
 </div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+With dynamical equations as a constraint introduced with Lagrange multipliers<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+  V(\mathbf{x}_t, t; \boldsymbol\lambda)
+  &amp; = \int_{\tau=t}^{T} C(\mathbf{x}(\tau), \mathbf{u}(\tau)) d \tau +  D(\mathbf{x}(T)) - \int_{\tau=t}^{T} \boldsymbol\lambda^T ( \mathbf{M} \dot{\mathbf{x}} - \mathbf{f} ) d \tau \ ,
+\end{aligned}\]</div>
+<p class="sd-card-text">so that the variation (where’s the variation w.r.t. <span class="math notranslate nohighlight">\(t\)</span>? Integration extreme is not prescribed, or is it?) reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \delta V(\mathbf{x}_t, t; \mathbf{u}, \boldsymbol\lambda)
+  &amp; = \int_{\tau=t}^{T} \left\{ \delta \mathbf{x}^T \partial_{\mathbf{x}} C + \delta \mathbf{u}^T \partial_{\mathbf{u}} C \right\} d \tau + \delta \mathbf{x}_T \partial_{\mathbf{x}_T} D(\mathbf{x}(T)) + \\
+  &amp; - \int_{\tau=t}^{T} \delta \boldsymbol\lambda^T ( \mathbf{M} \dot{\mathbf{x}} - \mathbf{f} ) d \tau + \int_{\tau=t}^T \delta \mathbf{x}^T \mathbf{M}^T \dot{\boldsymbol\lambda} \, d \tau + \\
+  &amp; - \delta \mathbf{x}^T(T) \mathbf{M}^T \boldsymbol\lambda(T) + \delta \mathbf{x}^T_t \mathbf{M}^T \boldsymbol\lambda(t) + \\
+  &amp; + \int_{\tau=t}^{T} \left\{ \delta \mathbf{x}^T \partial_{\mathbf{x}} \mathbf{f}^T \boldsymbol\lambda + \delta \mathbf{u}^T \partial_{\mathbf{u}} \mathbf{f}^T \boldsymbol\lambda \right\} d \tau
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">All the variations but <span class="math notranslate nohighlight">\(\delta \mathbf{x}_t\)</span> are identically zero if the equations <a class="reference internal" href="#equation-eq-optimal-ode">(40.1)</a> are satisfied, the variation w.r.t. <span class="math notranslate nohighlight">\(\delta \mathbf{x}_t\)</span> shows that the sensitivity to the initial state in the value function <span class="math notranslate nohighlight">\(\mathbf{x}_t\)</span> equals the value of the Lagrange multiplier <span class="math notranslate nohighlight">\(\boldsymbol\lambda(t)\)</span>,</p>
+<div class="math notranslate nohighlight" id="equation-eq-co-state-sensitivity">
+<span class="eqno">(40.3)<a class="headerlink" href="#equation-eq-co-state-sensitivity" title="Permalink to this equation">#</a></span>\[\nabla_{\mathbf{x}_t} V(\mathbf{x}_t, t; ...) = \mathbf{M}^T \boldsymbol\lambda(t) \ ,\]</div>
+<p class="sd-card-text">with <span class="math notranslate nohighlight">\(\boldsymbol\lambda(t)\)</span> part of the solution of the equations <a class="reference internal" href="#equation-eq-optimal-ode">(40.1)</a>. Thus the Lagrange multiplier <span class="math notranslate nohighlight">\(\boldsymbol\lambda(t)\)</span> provides an information (first order, sensitivity) about the change in the value function <span class="math notranslate nohighlight">\(V(\mathbf{x}_t, t)\)</span> for small changes of the intial state <span class="math notranslate nohighlight">\(\mathbf{x}_t\)</span>, i.e.</p>
+<div class="math notranslate nohighlight">
+\[\delta_{\mathbf{x}_t} V(\mathbf{x}_t, t) \sim \delta \mathbf{x}_t^T \nabla_{\mathbf{x}_t} V + o(|\delta \mathbf{x}_t|) =  \delta \mathbf{x}^T_t \mathbf{M}^T \boldsymbol\lambda(t) + o(|\delta \mathbf{x}_t|) \ .\]</div>
+<p class="sd-card-text"><strong>todo</strong></p>
+<ul class="simple">
+<li><p class="sd-card-text">useful to exploit adjoint info for sensitivity</p></li>
+</ul>
+</div>
+</details></div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+HJB equation - Optimality equation<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  V^*(\mathbf{x}_t, t) = \min_{\mathbf{u}} V(\mathbf{x}_t, t) =
+  &amp; = \min_{\mathbf{u}} \left\{ \int_{\tau=t}^{T} C(\mathbf{x}(\tau), \mathbf{u}(\tau)) d \tau +  D(\mathbf{x}(T)) \right\} = \\
+  &amp; =                           \int_{\tau=t}^{T} C(\mathbf{x}(\tau), \mathbf{u}^*(\tau)) d \tau +  D(\mathbf{x}(T)) \ ,
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">subject to the dynamical equations of motion. The value function is a function of two arguments, <span class="math notranslate nohighlight">\(\mathbf{x}_t\)</span>, and <span class="math notranslate nohighlight">\(t\)</span>, and the first argument is a function of <span class="math notranslate nohighlight">\(t\)</span>. Thus the ordinary derivative w.r.t. time <span class="math notranslate nohighlight">\(t\)</span> reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+  \frac{d}{dt} V^*(\mathbf{x}_t, t) 
+  &amp; = \partial_t V^*(\mathbf{x}_t,t) +  \partial_\mathbf{x} V^* \, \dot{\mathbf{x}}   
+    = \partial_t V^*(\mathbf{x}_t,t) +  \partial_\mathbf{x} V^* \, \mathbf{f}(\mathbf{x}_t,\mathbf{u}^*_t) \ , 
+\end{aligned}\]</div>
+<p class="sd-card-text">or, using the definition and the rule of derivative for integrals</p>
+<div class="math notranslate nohighlight">
+\[
+  \frac{d}{dt} V^*(\mathbf{x}_t, t) = - C(\mathbf{x}(t), \mathbf{u}^*(t)) \ .
+\]</div>
+<p class="sd-card-text">Comparing the two expressions of the time derivative, Hamilton-Bellman-Jacobi equation for evaluating a given control <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> follows</p>
+<div class="math notranslate nohighlight">
+\[0 = \partial_t V^*(\mathbf{x}_t, t) + \partial_{\mathbf{x}} V^*(\mathbf{x}_t, t) \, \mathbf{f}(\mathbf{x}_t, \mathbf{u}^*_t) + C(\mathbf{x}_t, \mathbf{u}^*_t) \ ,\]</div>
+<p class="sd-card-text">or</p>
+<div class="math notranslate nohighlight">
+\[0 = \partial_t V^*(\mathbf{x}_t, t) + \min_{\mathbf{u}} \left\{ \partial_{\mathbf{x}} V^*(\mathbf{x}_t, t) \, \mathbf{f}(\mathbf{x}_t, \mathbf{u}_t) + C(\mathbf{x}_t, \mathbf{u}_t) \right\} \ .\]</div>
+</div>
+</details></div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -702,20 +786,20 @@ Details<div class="sd-summary-down docutils">
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="optimal-control-full-state-old.html"
+       href="optimal-control-full-state.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">40.2. </span>Full-state feedback (OLD)</p>
+        <p class="prev-next-title"><span class="section-number">40.1. </span>Full-state feedback</p>
       </div>
     </a>
     <a class="right-next"
-       href="optimal-control-observer-stochastic.html"
+       href="optimal-control-full-state-linear.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">40.4. </span>Optimal observer for stochastic disturbance</p>
+        <p class="prev-next-title"><span class="section-number">40.1.2. </span>Linear system without exogenous inputs</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -734,8 +818,8 @@ Details<div class="sd-summary-down docutils">
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#siso">40.3.1. SISO</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mimo">40.3.2. MIMO</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variational-approach">40.1.1.1. Variational approach</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamic-programming-approach">40.1.1.2. Dynamic programming approach</a></li>
 </ul>
   </nav></div>
 
