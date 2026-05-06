@@ -85,7 +85,7 @@
         
 
 \title{basics - math}
-\date{May 05, 2026}
+\date{May 06, 2026}
 \release{}
 \author{basics}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -400,6 +400,35 @@ This is a polynomial equation of degree \(n\) and thus, for the {\hyperref[\deto
 \sphinxstepscope
 
 
+\section{Cholesky decomposition}
+\label{\detokenize{ch/linear-algebra/cholesky:cholesky-decomposition}}\label{\detokenize{ch/linear-algebra/cholesky:math-cholesky}}\label{\detokenize{ch/linear-algebra/cholesky::doc}}
+\sphinxAtStartPar
+For a semi\sphinxhyphen{}positive definite matrix \(\mathbf{M}\)
+\begin{equation*}
+\begin{split}\mathbf{M} = \mathbf{L} \mathbf{L}^* = \mathbf{U}^* \mathbf{U}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+with \(\mathbf{L}\) lower triangular matrix.
+
+\sphinxstepscope
+
+
+\section{Jordan normal form}
+\label{\detokenize{ch/linear-algebra/jordan:jordan-normal-form}}\label{\detokenize{ch/linear-algebra/jordan:math-jordan}}\label{\detokenize{ch/linear-algebra/jordan::doc}}\begin{equation*}
+\begin{split}\mathbf{A} = \mathbf{V} \mathbf{J} \mathbf{V}^{-1} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+with \(\mathbf{J} = \dots\)
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+link to solution of system of linear ODEs, and stability conditions
+
+\end{itemize}
+
+\sphinxstepscope
+
+
 \section{Singular Value Decomposition}
 \label{\detokenize{ch/linear-algebra/svd:singular-value-decomposition}}\label{\detokenize{ch/linear-algebra/svd:math-svd}}\label{\detokenize{ch/linear-algebra/svd::doc}}
 \sphinxAtStartPar
@@ -452,7 +481,7 @@ with \(k = \min(m,n)\).
 \subsubsection{Norms and optimization}
 \label{\detokenize{ch/linear-algebra/svd:norms-and-optimization}}
 \sphinxAtStartPar
-If \(L^2\)\sphinxhyphen{}norm is used for vector norms, see {\hyperref[\detokenize{ch/linear-algebra/svd:svd-optimization-norm}]{\sphinxcrossref{Example 3.4.1}}}
+If \(L^2\)\sphinxhyphen{}norm is used for vector norms, see {\hyperref[\detokenize{ch/linear-algebra/svd:svd-optimization-norm}]{\sphinxcrossref{Example 3.6.1}}}
 \begin{equation*}
 \begin{split}\text{Find } \max_{||\mathbf{x}||=1} ||\mathbf{A} \mathbf{x}||^2\end{split}
 \end{equation*}\begin{equation*}
@@ -491,7 +520,7 @@ and the response of the system is \(\mathbf{y}_1 = \sigma_1 \mathbf{u}_1\) as
 \end{equation*}
 \end{itemize}
 \label{ch/linear-algebra/svd:svd-optimization-norm}
-\begin{sphinxadmonition}{note}{Example 3.4.1 (Other norms \sphinxhyphen{} variations of the \protect\(L^2\protect\)\sphinxhyphen{}norm)}
+\begin{sphinxadmonition}{note}{Example 3.6.1 (Other norms \sphinxhyphen{} variations of the \protect\(L^2\protect\)\sphinxhyphen{}norm)}
 
 
 
@@ -6078,6 +6107,117 @@ i.e. \(\mathbf{v}^T \mathcal{C} = \mathbf{0}\). If the column space of matrix \(
 \sphinxstepscope
 
 
+\chapter{State\sphinxhyphen{}space realizations}
+\label{\detokenize{ch/system-theory/realizations:state-space-realizations}}\label{\detokenize{ch/system-theory/realizations:system-theory-state-space-realizations}}\label{\detokenize{ch/system-theory/realizations::doc}}
+\sphinxAtStartPar
+State\sphinxhyphen{}Space RealizationsIn system theory, a realization is a state\sphinxhyphen{}space triplet \(\{A, B, C, D\}\) that represents a given transfer function \(H(s)\). For a strictly proper system, the relationship is defined by:
+\begin{equation*}
+\begin{split}H(s) = C(sI - A)^{-1}B\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Given a general \(n\)\sphinxhyphen{}th order transfer function:
+\begin{equation*}
+\begin{split}H(s) = \frac{b_{n-1}s^{n-1} + \dots + b_1s + b_0}{s^n + a_{n-1}s^{n-1} + \dots + a_1s + a_0}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+There are two primary canonical forms used for implementation and analysis.
+
+
+\section{Controller Canonical Form (CCF)}
+\label{\detokenize{ch/system-theory/realizations:controller-canonical-form-ccf}}\label{\detokenize{ch/system-theory/realizations:system-theory-state-space-realizations-ccf}}
+\sphinxAtStartPar
+The Controller Canonical Form is structured to make the system’s controllability obvious. It is often used in control design (e.g., pole placement) because the input \(u(t)\) enters the “chain” of integrators at the final stage.
+
+\sphinxAtStartPar
+\sphinxstylestrong{State\sphinxhyphen{}Space Representation.} The matrices for an \(n\)\sphinxhyphen{}th order system in CCF are:
+\begin{equation*}
+\begin{split}A = \begin{bmatrix} 
+0 & 1 & 0 & \dots & 0 \\
+0 & 0 & 1 & \dots & 0 \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+0 & 0 & 0 & \dots & 1 \\
+-a_0 & -a_1 & -a_2 & \dots & -a_{n-1}
+\end{bmatrix}, \quad
+B = \begin{bmatrix} 0 \\ 0 \\ \vdots \\ 0 \\ 1 \end{bmatrix}\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}C = \begin{bmatrix} b_0 & b_1 & \dots & b_{n-1} \end{bmatrix}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Characteristics
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Structure: The states are typically chosen as the output and its derivatives (\(x_1 = y, x_2 = \dot{y}, \dots\)) in the absence of zeros.
+
+\item {} 
+\sphinxAtStartPar
+Controllability: A system in this form is always controllable, provided there are no pole\sphinxhyphen{}zero cancellations.
+
+\end{itemize}
+
+
+\section{Observer Canonical Form (OCF)}
+\label{\detokenize{ch/system-theory/realizations:observer-canonical-form-ocf}}\label{\detokenize{ch/system-theory/realizations:system-theory-state-space-realizations-ocf}}
+\sphinxAtStartPar
+The Observer Canonical Form is the dual of the CCF. It is structured such that the output \(y(t)\) is directly influenced by all state variables, making the system’s observability easily verifiable.
+
+\sphinxAtStartPar
+\sphinxstylestrong{State\sphinxhyphen{}Space Representation.}
+
+\sphinxAtStartPar
+The matrices for an \(n\)\sphinxhyphen{}th order system in OCF are:
+\begin{equation*}
+\begin{split}A = \begin{bmatrix} 
+0 & 0 & \dots & 0 & -a_0 \\
+1 & 0 & \dots & 0 & -a_1 \\
+0 & 1 & \dots & 0 & -a_2 \\
+\vdots & \vdots & \ddots & \vdots & \vdots \\
+0 & 0 & \dots & 1 & -a_{n-1}
+\end{bmatrix}, \quad
+B = \begin{bmatrix} b_0 \\ b_1 \\ b_2 \\ \vdots \\ b_{n-1} \end{bmatrix}\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}C = \begin{bmatrix} 0 & 0 & \dots & 0 & 1 \end{bmatrix}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Characteristics:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Duality: The \(A\) matrix of the OCF is the transpose of the \(A\) matrix of the CCF (\(A_{OCF} = A_{CCF}^T\)), and the \(B\) and \(C\) matrices are swapped and transposed (\(B_{OCF} = C_{CCF}^T\) and \(C_{OCF} = B_{CCF}^T\)).
+
+\item {} 
+\sphinxAtStartPar
+Observability: A system in this form is always observable.
+
+\end{itemize}
+
+
+\section{Example: realization of a second\sphinxhyphen{}order system}
+\label{\detokenize{ch/system-theory/realizations:example-realization-of-a-second-order-system}}
+\sphinxAtStartPar
+From the specific case \(H(s) = \frac{s}{s^2 + a_1s + a_0}\):
+
+\sphinxAtStartPar
+Controller Realization
+\begin{equation*}
+\begin{split}\dot{x} = \begin{bmatrix} 0 & 1 \\ -a_0 & -a_1 \end{bmatrix} x + \begin{bmatrix} 0 \\ 1 \end{bmatrix} u, \quad y = \begin{bmatrix} 0 & 1 \end{bmatrix} x\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Observer Realization
+\begin{equation*}
+\begin{split}\dot{x} = \begin{bmatrix} 0 & -a_0 \\ 1 & -a_1 \end{bmatrix} x + \begin{bmatrix} 0 \\ 1 \end{bmatrix} u, \quad y = \begin{bmatrix} 0 & 1 \end{bmatrix} x\end{split}
+\end{equation*}
+
+\section{Minimality and Similarity Transformations}
+\label{\detokenize{ch/system-theory/realizations:minimality-and-similarity-transformations}}
+\sphinxAtStartPar
+A realization is minimal if and only if it is both controllable and observable. The dimension of a minimal realization equals the degree of the denominator of the transfer function (the McMillan degree).Any two realizations \(\{A, B, C\}\) and \(\{\tilde{A}, \tilde{B}, \tilde{C}\}\) of the same transfer function are related by a similarity transformation \(T\) such that:
+\begin{equation*}
+\begin{split}\tilde{A} = T A T^{-1}, \quad \tilde{B} = T B, \quad \tilde{C} = C T^{-1}\end{split}
+\end{equation*}
+\sphinxstepscope
+
+
 \chapter{Kalman decomposition}
 \label{\detokenize{ch/system-theory/kalman-decomposition:kalman-decomposition}}\label{\detokenize{ch/system-theory/kalman-decomposition:system-theory-kalman-decomposition}}\label{\detokenize{ch/system-theory/kalman-decomposition::doc}}
 \sphinxAtStartPar
@@ -6451,6 +6591,22 @@ Pre\sphinxhyphen{} and post\sphinxhyphen{}multiplication by \(\boldsymbol\alpha^
 \chapter{Lyapunov equation}
 \label{\detokenize{ch/system-theory/lyapunov-equation:lyapunov-equation}}\label{\detokenize{ch/system-theory/lyapunov-equation:lyapunov-eq}}\label{\detokenize{ch/system-theory/lyapunov-equation::doc}}
 \sphinxAtStartPar
+This page needs to be built, with some general results about Lyapunov equation, its solution,… some material is already here, but not structurally organized…
+
+\sphinxAtStartPar
+\sphinxstylestrong{References.}
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+{\hyperref[\detokenize{ch/ode/ode-linear-systems:ode-linear-miscellanea-stochastic-response-correlation-matrix-lyapunov}]{\sphinxcrossref{\DUrole{std,std-ref}{Lyapunov equation of the correlation matrix}}}}, and its general solution
+
+\item {} 
+\sphinxAtStartPar
+…
+
+\end{itemize}
+
+\sphinxAtStartPar
 \sphinxstylestrong{Examples.}
 \begin{itemize}
 \item {} 
@@ -6722,6 +6878,92 @@ Dirac’s delta auto\sphinxhyphen{}correlation, \(\mathbb{E}[\xi_t \xi_{t+\tau}]
 \end{equation*}
 \sphinxAtStartPar
 \sphinxstylestrong{SISO shape filter.} A process \(y(t)\) with the desired PSD \(\Phi_{yy}(f)\) is the output of a shape filter \sphinxhyphen{} a dynamical system \sphinxhyphen{} with TF \(H(f)\) satisfying the relation \(|H(f)|^2 = \Phi_{yy}(f)\), fed by a white noise with unit autocovariance. This can be immediately proved inserting \(\Phi_{uu}(f) = 1\) in the relation \eqref{equation:ch/system-theory/shape-filter:eq:psd:io:scalar}.
+
+
+\section{LTI system with non\sphinxhyphen{}white noise disturbance}
+\label{\detokenize{ch/system-theory/shape-filter:lti-system-with-non-white-noise-disturbance}}\label{\detokenize{ch/system-theory/shape-filter:system-theory-shape-filter-augmented-system}}
+\sphinxAtStartPar
+Let the linear system
+\begin{equation*}
+\begin{split}\left\{\begin{aligned}
+  \dot{\mathbf{x}} & = \mathbf{A} \mathbf{x} + \mathbf{B} \mathbf{u} + \mathbf{B}_d \mathbf{d} \\
+       \mathbf{y}  & = \mathbf{C} \mathbf{x} + \mathbf{D} \mathbf{u} + \mathbf{D}_d \mathbf{d} + \mathbf{D}_r \mathbf{r} \\
+\end{aligned}\right.\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\left\{\begin{aligned}
+  \dot{\mathbf{x}} & = \mathbf{A} \mathbf{x} + \mathbf{B} \mathbf{u} + \mathbf{B}_n \mathbf{n} \\
+       \mathbf{y}  & = \mathbf{C} \mathbf{x} + \mathbf{D} \mathbf{u} + \mathbf{D}_n \mathbf{n} \\
+\end{aligned}\right.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+have non\sphinxhyphen{}white noise disturbances \(\mathbf{n} = \begin{bmatrix} \ \mathbf{d} & \mathbf{r} \ \end{bmatrix}\), whose PSD is known and that can be modeled as the output of a shape filter fed by a white\sphinxhyphen{}noise \(\mathbf{w}\),
+\begin{equation*}
+\begin{split}\left\{\begin{aligned}
+  \dot{\mathbf{x}}_n & = \mathbf{A}_{n}  \mathbf{x}_n + \mathbf{B}_{nn} \mathbf{w}_n  \\
+       \mathbf{n}    & = \mathbf{C}_{nn} \mathbf{x}_n  \ ,
+\end{aligned}\right.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+then, the augmented system becomes
+\begin{equation*}
+\begin{split}\left\{\begin{aligned}
+  \dot{\mathbf{x}} & = \mathbf{A} \mathbf{x} + \mathbf{B}_n \mathbf{C}_{nn} \mathbf{x}_n + \mathbf{B} \mathbf{u} \\
+  \dot{\mathbf{x}}_n & = \mathbf{A}_{n}  \mathbf{x}_n + \mathbf{B}_{nn} \mathbf{w}_n  \\
+       \mathbf{y}  & = \mathbf{C} \mathbf{x} + \mathbf{D}_n \mathbf{C}_{nn} \mathbf{x}_n + \mathbf{D} \mathbf{u} \\
+\end{aligned}\right.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+or
+\begin{equation*}
+\begin{split}\left\{\begin{aligned}
+  \begin{bmatrix} \dot{\mathbf{x}} \\ \dot{\mathbf{x}}_n \end{bmatrix} & =
+  \begin{bmatrix} \mathbf{A} & \mathbf{B}_n \mathbf{C}_{nn} \\ \cdot & \mathbf{A}_n \end{bmatrix}
+  \begin{bmatrix}      \mathbf{x}  \\      \mathbf{x}_n \end{bmatrix} 
+  + \begin{bmatrix} \mathbf{B} \\ \cdot \end{bmatrix} \mathbf{u} + \begin{bmatrix} \cdot \\ \mathbf{B}_{nn} \end{bmatrix} \mathbf{w}_n \\
+  \mathbf{y} & = \begin{bmatrix} \mathbf{C} & \mathbf{D}_n \mathbf{C}_{nn} \end{bmatrix} \begin{bmatrix} \mathbf{x} \\ \mathbf{x}_{n} \end{bmatrix} + \mathbf{D} \mathbf{u}
+\end{aligned}\right.\end{split}
+\end{equation*}
+
+\section{Example}
+\label{\detokenize{ch/system-theory/shape-filter:example}}\label{\detokenize{ch/system-theory/shape-filter:id1}}
+\sphinxAtStartPar
+A 1\sphinxhyphen{}dimensional non\sphinxhyphen{}white noise process \(d\) has PSD, \(\Phi_{dd}(\omega) = | H(j \omega) |^2\) with
+\begin{equation*}
+\begin{split}H(s) = \frac{s}{(s-p_1)(s-p_2)} = \frac{s}{s^2 + a_1 s + a_0} \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+with \(a_0 = p_1 p_2\), \(a_1 = - ( p_1 + p_2 )\).
+
+\sphinxAtStartPar
+Using the {\hyperref[\detokenize{ch/system-theory/realizations:system-theory-state-space-realizations-ccf}]{\sphinxcrossref{\DUrole{std,std-ref}{controller canonical realization}}}}, a state\sphinxhyphen{}space representation of the shape filter follows
+\begin{equation*}
+\begin{split}\left\{\begin{aligned}
+ \begin{bmatrix} \dot{x}_1 \\ \dot{x}_2 \end{bmatrix} & = \begin{bmatrix} \cdot & 1 \\ - a_0 & - a_1 \end{bmatrix} \begin{bmatrix} \cdot \\ 1 \end{bmatrix} w \\
+ y & = \begin{bmatrix} \ 0 & 1 \ \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \end{bmatrix} \ .
+\end{aligned}\right.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Lyapunov equation for the coorelation matrix \(\ d\).} Correlation matrix of the state can be evaluated as the solution of the {\hyperref[\detokenize{ch/ode/ode-linear-systems:ode-linear-miscellanea-stochastic-response-correlation-matrix-lyapunov}]{\sphinxcrossref{\DUrole{std,std-ref}{Lyapunov equation for the correlation matrix}}}}, for systems \sphinxhyphen{} like the shape filter \sphinxhyphen{} with a white noise input.
+
+\sphinxAtStartPar
+\sphinxstylestrong{Non\sphinxhyphen{}strictly proper system.} If a LTI fed by a white noise process as an input is not striclty proper, \(\mathbf{D} \ne \mathbf{0}\), …
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+the output has infinite variance (it can be split as a colored noise + white noise),
+
+\item {} 
+\sphinxAtStartPar
+PSD doesn’t decay to zero as \(\omega \rightarrow 0\)
+
+\item {} 
+\sphinxAtStartPar
+Lyapunov equation for variance doesn’t converge to a finite value solution
+
+\end{itemize}
+
+\sphinxAtStartPar
+\sphinxstylestrong{todo} prove these statements
 
 \sphinxstepscope
 
@@ -7297,7 +7539,7 @@ The poles of the closed loop systems are the zeros of the function \(1 + L(s)\).
 \sphinxAtStartPar
 in order to have \(Z = 0\), i.e. the diagram of \(1+G(s)\) must perform \(N\) counter\sphinxhyphen{}clockwise loops around \(0+i0\) equal to the number of its poles with positive real parts. As the poles of \(1+ G(s)\) are the same as the poles of \(G(s)\), it’s possible to formulate Nyquist criterion looking at \(G(s)\), as
 \label{ch/control/frequency-domain:thm-nyquist}
-\begin{sphinxadmonition}{note}{Theorem 38.1.1 (Nyquist theorem)}
+\begin{sphinxadmonition}{note}{Theorem 39.1.1 (Nyquist theorem)}
 
 
 
@@ -7308,7 +7550,7 @@ In order for the closed\sphinxhyphen{}loop system to be asymptotically stable, t
 
 \subsection{Bode stability criterion for minimal phase systems}
 \label{\detokenize{ch/control/frequency-domain:bode-stability-criterion-for-minimal-phase-systems}}\label{\detokenize{ch/control/frequency-domain:control-siso-bode}}\label{ch/control/frequency-domain:def-minimal-phase}
-\begin{sphinxadmonition}{note}{Definition 38.1.1 (Minimal phase systems)}
+\begin{sphinxadmonition}{note}{Definition 39.1.1 (Minimal phase systems)}
 
 
 
@@ -7319,7 +7561,7 @@ In order for the closed\sphinxhyphen{}loop system to be asymptotically stable, t
 \sphinxAtStartPar
 …
 \label{ch/control/frequency-domain:thm-bode}
-\begin{sphinxadmonition}{note}{Theorem 38.1.2 (Bode stability criterion)}
+\begin{sphinxadmonition}{note}{Theorem 39.1.2 (Bode stability criterion)}
 
 
 
@@ -7389,6 +7631,21 @@ Regulator (targeting zero state \(\mathbf{x} = \mathbf{0}\)), or {\hyperref[\det
 \label{\detokenize{ch/control/optimal-control-full-state:full-state-feedback}}\label{\detokenize{ch/control/optimal-control-full-state:control-optimal-full-state-fb}}\label{\detokenize{ch/control/optimal-control-full-state::doc}}
 \sphinxAtStartPar
 Optimal control can be recast as a \sphinxstylestrong{constrained optimization problem}, \(J\), where an extreme \sphinxhyphen{} optimum \sphinxhyphen{} of an objective function must be found, subject to constraints that include the equations of motion. Some constraints may be included into an augmented objective function \(\widetilde{J}\) with the methods of {\hyperref[\detokenize{ch/optimization/intro:optimization-constrained-lagrange-multipliers}]{\sphinxcrossref{\DUrole{std,std-ref}{Lagrange multipliers}}}}.
+\subsubsection*{Contents}
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+{\hyperref[\detokenize{ch/control/optimal-control-full-state-general-ode:control-optimal-full-state-fb-ode}]{\sphinxcrossref{\DUrole{std,std-ref}{Generic ODE without exogenous inputs}}}}:
+
+\item {} 
+\sphinxAtStartPar
+{\hyperref[\detokenize{ch/control/optimal-control-full-state-linear:control-optimal-full-state-fb-linear}]{\sphinxcrossref{\DUrole{std,std-ref}{Linear system without exogenous inputs}}}}:
+
+\item {} 
+\sphinxAtStartPar
+{\hyperref[\detokenize{ch/control/optimal-control-full-state-linear-infinite-time:control-optimal-full-state-fb-linear-infinite-time-horizon}]{\sphinxcrossref{\DUrole{std,std-ref}{Linear system without exogenous inputs \sphinxhyphen{} infinite time horizon}}}}
+
+\end{itemize}
 \subsubsection*{Different models \sphinxhyphen{} governing equations}
 \begin{itemize}
 \item {} 
@@ -7413,7 +7670,7 @@ Linear SDE for stochastic signals. Exogenous inputs like disturbances \(\mathbf{
 \begin{split} d \mathbf{x} = \mathbf{A} \mathbf{x} \, dt + \mathbf{B}_u \mathbf{u} \, dt + \mathbf{B}_d d \mathbf{w}_d \ ,\end{split}
 \end{equation*}
 \sphinxAtStartPar
-begin “\(d \mathbf{w}_d = \mathbf{d} \, dt\)”. While this may look like a useless trick, it helps us recallling that \(| d \mathbf{w}_d |^2 \sim dt\), when evaluating covariances.
+formally writing the differential of the Wiener process \(d \mathbf{w}_d\) as a white noise \(\mathbf{d}\) times \(dt\), “\(d \mathbf{w}_d = \mathbf{d} \, dt\)”. While this may look like a useless trick, it helps us recallling that \(| d \mathbf{w}_d |^2 \sim dt\), when evaluating covariances.
 
 \end{itemize}
 \subsubsection*{Different approaches to the solution}
@@ -7423,7 +7680,7 @@ Different approaches to the solution can be used, and help for a detailed compre
 \begin{itemize}
 \item {} 
 \sphinxAtStartPar
-Variational apporach to constrained optimization,
+\sphinxstylestrong{Variational apporach} to constrained optimization,
 \begin{equation*}
 \begin{split}J(\mathbf{x},\mathbf{u}) = \int_{\tau=t}^{T} C(\mathbf{x}(\tau), \mathbf{u}(\tau)) d \tau +  D(\mathbf{x}(T)) - \int_{\tau=0}^{T} \boldsymbol\lambda^T \left( \dot{\mathbf{x}} - \mathbf{f}(\mathbf{x},\mathbf{u}) \right) \ ,\end{split}
 \end{equation*}
@@ -7432,7 +7689,7 @@ where the equations of motion are constraints inserted in the objective function
 
 \item {} 
 \sphinxAtStartPar
-Hamilton\sphinxhyphen{}Bellman\sphinxhyphen{}Jacobi equation
+\sphinxstylestrong{Dynamic programming approach}, leading to \sphinxstylestrong{Hamilton\sphinxhyphen{}Jacobi\sphinxhyphen{}Bellman (HJB) equation} for the \sphinxstylestrong{value function} \(V(t)\)
 \begin{equation*}
 \begin{split}V(\mathbf{x}_t, t; \mathbf{u}) = \int_{\tau=t}^{T} C(\mathbf{x}(\tau), \mathbf{u}(\tau)) d \tau +  D(\mathbf{x}(T)) \ ,\end{split}
 \end{equation*}
@@ -7458,15 +7715,24 @@ D(\mathbf{x}(T)) & = \frac{1}{2} \mathbf{x}^T(T) \mathbf{Q}_T \mathbf{x}(T)  \ .
 
 \sphinxAtStartPar
 …
+…
+
+\sphinxstepscope
 
 
 \subsection{Generic ODE without exogenous inputs}
-\label{\detokenize{ch/control/optimal-control-full-state:generic-ode-without-exogenous-inputs}}\label{\detokenize{ch/control/optimal-control-full-state:control-optimal-full-state-fb-ode}}\begin{equation*}
+\label{\detokenize{ch/control/optimal-control-full-state-general-ode:generic-ode-without-exogenous-inputs}}\label{\detokenize{ch/control/optimal-control-full-state-general-ode:control-optimal-full-state-fb-ode}}\label{\detokenize{ch/control/optimal-control-full-state-general-ode::doc}}
+\sphinxAtStartPar
+Let a general general ODE, with \(\mathbf{M}\) non singular (otherwise DAE…any issue with DAE?)
+\begin{equation*}
 \begin{split}\mathbf{M} \dot{\mathbf{x}} = \mathbf{f}(\mathbf{x}, \mathbf{u}) \ ,\end{split}
 \end{equation*}
 \sphinxAtStartPar
 with initial condition \(\mathbf{x}(0) = \mathbf{x}_0\).
 
+
+\subsubsection{Variational approach}
+\label{\detokenize{ch/control/optimal-control-full-state-general-ode:variational-approach}}\label{\detokenize{ch/control/optimal-control-full-state-general-ode:control-optimal-full-state-fb-ode-variational-approach}}
 \sphinxAtStartPar
 The objective function combines (weights) the error on a desired performance and the control input, in order to get the desired behavior with feasible control (that can be provided by actuators, without saturation, avoiding unnecessary high power input and too sharp behavior,…)
 
@@ -7492,7 +7758,7 @@ with \(\mathbf{Q} \ge 0\), and \(\mathbf{R} > 0\) and symmetric.
 \end{equation*}
 \sphinxAtStartPar
 So that
-\begin{equation}\label{equation:ch/control/optimal-control-full-state:eq:optimal:ode}
+\begin{equation}\label{equation:ch/control/optimal-control-full-state-general-ode:eq:optimal:ode}
 \begin{split}\begin{aligned}
  \delta \boldsymbol\lambda(t): & \quad \mathbf{M}   \dot{\mathbf{x}} = \mathbf{f} \\
                                & \quad \mathbf{x}(0) = \mathbf{x}_0 \\
@@ -7503,7 +7769,7 @@ So that
 \end{equation}
 \sphinxAtStartPar
 The equations can be recast after the definition of the Hamiltonian of the system \(H(\mathbf{x},\mathbf{u},\boldsymbol\lambda) = C(\mathbf{x},\mathbf{u}) + \boldsymbol\lambda^T \mathbf{f}(\mathbf{x},\mathbf{u})\) as
-\begin{equation}\label{equation:ch/control/optimal-control-full-state:eq:optimal:ode:hamiltonian}
+\begin{equation}\label{equation:ch/control/optimal-control-full-state-general-ode:eq:optimal:ode:hamiltonian}
 \begin{split}\begin{aligned}
  \delta \boldsymbol\lambda(t): & \quad \mathbf{0} = - \mathbf{M} \dot{\mathbf{x}} + \partial_{\boldsymbol\lambda} H = - \mathbf{M} \dot{\mathbf{x}} + \mathbf{f} \\
                                & \quad \mathbf{x}(0) = \mathbf{x}_0 \\
@@ -7534,13 +7800,22 @@ The control law is updated with an increment \(\delta \mathbf{u}\) that’s prop
 Repeat previous steps with the updated control law, until convergence.
 
 \end{itemize}
+
+
+\subsubsection{Dynamic programming approach}
+\label{\detokenize{ch/control/optimal-control-full-state-general-ode:dynamic-programming-approach}}\label{\detokenize{ch/control/optimal-control-full-state-general-ode:control-optimal-full-state-fb-ode-dynamic-programming}}
+\sphinxAtStartPar
+Dynamic programming approach for optimal control may be interpreted as the continuous\sphinxhyphen{}time counterpart fo the dynamic programming approach used in \DUrole{xref,myst}{reinforcement learning (RL)} on {\hyperref[\detokenize{ch/rl/mdp:rl-mdp}]{\sphinxcrossref{\DUrole{std,std-ref}{Markov decision processes}}}}. While RL usually produces a model\sphinxhyphen{}free policy \sphinxhyphen{} control law \sphinxhyphen{} and thus exploits {\hyperref[\detokenize{ch/rl/mdp:rl-mdp-dp-bellman-equations}]{\sphinxcrossref{\DUrole{std,std-ref}{Bellman’s equations}}}} on the state\sphinxhyphen{}action value function \(Q(s;a)\), optimal control is a model\sphinxhyphen{}based control system design that relies on a model of the system and uses Bellman’s equation for the state value function \(V(s)\).
 \subsubsection*{HJB equation \sphinxhyphen{} Evaluation equation}
 \subsubsection*{Without dynamical equations as a constraint introduced with Lagrange multipliers}
+
+\sphinxAtStartPar
+The value function \(V(\mathbf{x}_t, t)\),
 \begin{equation*}
 \begin{split}V(\mathbf{x}_t, t) = \int_{\tau=t}^{T} C(\mathbf{x}(\tau), \mathbf{u}(\tau)) d \tau +  D(\mathbf{x}(T)) \ ,\end{split}
 \end{equation*}
 \sphinxAtStartPar
-subject to the dynamical equations of motion. The value function is a function of two arguments, \(\mathbf{x}_t\), and \(t\), and the first argument is a function of \(t\). Thus the ordinary derivative w.r.t. time \(t\) reads
+subject to the dynamical equations of motion in time range \(\tau \in [t, T]\), is defined as a function of two arguments: the initial time \(t\), the initial state \(\mathbf{x}_t\) of the system at time \(t\). If the initial state \(\mathbf{x}_t\) is a function of \(t\) itself, the value function can be written as a function of time \(t\) only and its ordinary derivative w.r.t. time \(t\) reads
 \begin{equation*}
 \begin{split}\begin{aligned}
   \frac{d}{dt} V(\mathbf{x}_t, t) 
@@ -7556,7 +7831,7 @@ or, using the definition and the rule of derivative for integrals
 \end{split}
 \end{equation*}
 \sphinxAtStartPar
-Comparing the two expressions of the time derivative, Hamilton\sphinxhyphen{}Bellman\sphinxhyphen{}Jacobi equation for evaluating a given control \(\mathbf{u}\) follows
+Comparing the two expressions of the time derivative, \sphinxstylestrong{Hamilton\sphinxhyphen{}Jacobi\sphinxhyphen{}Bellman equation} for evaluating a given control \(\mathbf{u}\) follows
 \begin{equation*}
 \begin{split}0 = \partial_t V(\mathbf{x}_t, t) + \partial_{\mathbf{x}} V(\mathbf{x}_t, t) \, \mathbf{f}(\mathbf{x}_t, \mathbf{u}_t) + C(\mathbf{x}_t, \mathbf{u}_t) \ .\end{split}
 \end{equation*}\subsubsection*{With dynamical equations as a constraint introduced with Lagrange multipliers}
@@ -7567,7 +7842,7 @@ Comparing the two expressions of the time derivative, Hamilton\sphinxhyphen{}Bel
 \end{aligned}\end{split}
 \end{equation*}
 \sphinxAtStartPar
-so that the variation (where’s the variation w.r.t. \(t\)? Integration extreme is not prescribed) reads
+so that the variation (where’s the variation w.r.t. \(t\)? Integration extreme is not prescribed, or is it?) reads
 \begin{equation*}
 \begin{split}\begin{aligned}
   \delta V(\mathbf{x}_t, t; \mathbf{u}, \boldsymbol\lambda)
@@ -7578,14 +7853,14 @@ so that the variation (where’s the variation w.r.t. \(t\)? Integration extreme
 \end{aligned}\end{split}
 \end{equation*}
 \sphinxAtStartPar
-All the variations but \(\delta \mathbf{x}_t\) are identically zero if the equations \eqref{equation:ch/control/optimal-control-full-state:eq:optimal:ode} are satisfied, the variation w.r.t. \(\delta \mathbf{x}_t\) shows that the sensitivity to the initial state in the value function \(\mathbf{x}_t\) equals the value of the Lagrange multiplier \(\boldsymbol\lambda(t)\),
-\begin{equation*}
-\begin{split}\nabla_{\mathbf{x}_t} V(\mathbf{x}_t, t; ...) = \boldsymbol\lambda(t) \ ,\end{split}
-\end{equation*}
+All the variations but \(\delta \mathbf{x}_t\) are identically zero if the equations \eqref{equation:ch/control/optimal-control-full-state-general-ode:eq:optimal:ode} are satisfied, the variation w.r.t. \(\delta \mathbf{x}_t\) shows that the sensitivity to the initial state in the value function \(\mathbf{x}_t\) equals the value of the Lagrange multiplier \(\boldsymbol\lambda(t)\),
+\begin{equation}\label{equation:ch/control/optimal-control-full-state-general-ode:eq:co-state:sensitivity}
+\begin{split}\nabla_{\mathbf{x}_t} V(\mathbf{x}_t, t; ...) = \mathbf{M}^T \boldsymbol\lambda(t) \ ,\end{split}
+\end{equation}
 \sphinxAtStartPar
-with \(\boldsymbol\lambda(t)\) part of the solution of the equations \eqref{equation:ch/control/optimal-control-full-state:eq:optimal:ode}. Thus the Lagrange multiplier \(\boldsymbol\lambda(t)\) provides an information (first order, sensitivity) about the change in the value function \(V(\mathbf{x}_t, t)\) for small changes of the intial state \(\mathbf{x}_t\), i.e.
+with \(\boldsymbol\lambda(t)\) part of the solution of the equations \eqref{equation:ch/control/optimal-control-full-state-general-ode:eq:optimal:ode}. Thus the Lagrange multiplier \(\boldsymbol\lambda(t)\) provides an information (first order, sensitivity) about the change in the value function \(V(\mathbf{x}_t, t)\) for small changes of the intial state \(\mathbf{x}_t\), i.e.
 \begin{equation*}
-\begin{split}\delta_{\mathbf{x}_t} V(\mathbf{x}_t, t) \sim \delta \mathbf{x}_t^T \nabla_{\mathbf{x}_t} V + o(|\delta \mathbf{x}_t|) =  \delta \mathbf{x}^T_t \boldsymbol\lambda(t) + o(|\delta \mathbf{x}_t|) \ .\end{split}
+\begin{split}\delta_{\mathbf{x}_t} V(\mathbf{x}_t, t) \sim \delta \mathbf{x}_t^T \nabla_{\mathbf{x}_t} V + o(|\delta \mathbf{x}_t|) =  \delta \mathbf{x}^T_t \mathbf{M}^T \boldsymbol\lambda(t) + o(|\delta \mathbf{x}_t|) \ .\end{split}
 \end{equation*}
 \sphinxAtStartPar
 \sphinxstylestrong{todo}
@@ -7629,9 +7904,14 @@ or
 \begin{equation*}
 \begin{split}0 = \partial_t V^*(\mathbf{x}_t, t) + \min_{\mathbf{u}} \left\{ \partial_{\mathbf{x}} V^*(\mathbf{x}_t, t) \, \mathbf{f}(\mathbf{x}_t, \mathbf{u}_t) + C(\mathbf{x}_t, \mathbf{u}_t) \right\} \ .\end{split}
 \end{equation*}
+\sphinxstepscope
 
-\subsection{Linear system}
-\label{\detokenize{ch/control/optimal-control-full-state:linear-system}}\label{\detokenize{ch/control/optimal-control-full-state:control-optimal-full-state-fb-linear}}
+
+\subsection{Linear system without exogenous inputs}
+\label{\detokenize{ch/control/optimal-control-full-state-linear:linear-system-without-exogenous-inputs}}\label{\detokenize{ch/control/optimal-control-full-state-linear:control-optimal-full-state-fb-linear}}\label{\detokenize{ch/control/optimal-control-full-state-linear::doc}}
+
+\subsubsection{Variational approach}
+\label{\detokenize{ch/control/optimal-control-full-state-linear:variational-approach}}\label{\detokenize{ch/control/optimal-control-full-state-linear:control-optimal-full-state-fb-linear-variational-approach}}
 \sphinxAtStartPar
 Let the dynamical equation of a system be
 \begin{equation*}
@@ -7664,8 +7944,8 @@ C(\mathbf{x},\mathbf{u})
 \begin{split}D(\mathbf{x}_T) = \frac{1}{2} \mathbf{x}^T(T) \mathbf{Q}_T \mathbf{x}(T) \ .\end{split}
 \end{equation*}
 \sphinxAtStartPar
-The equations \eqref{equation:ch/control/optimal-control-full-state:eq:optimal:ode} become
-\begin{equation}\label{equation:ch/control/optimal-control-full-state:eq:optimal:ode:linear}
+The equations \eqref{equation:ch/control/optimal-control-full-state-general-ode:eq:optimal:ode} become
+\begin{equation}\label{equation:ch/control/optimal-control-full-state-linear:eq:optimal:ode:linear}
 \begin{split}\begin{aligned}
  \delta \boldsymbol\lambda(t): & \quad \dot{\mathbf{x}} = \mathbf{A} \mathbf{x} + \mathbf{B} \mathbf{u} \\
                                & \quad \mathbf{x}(0) = \mathbf{x}_0 \\
@@ -7676,12 +7956,28 @@ The equations \eqref{equation:ch/control/optimal-control-full-state:eq:optimal:o
 \end{equation}
 \sphinxAtStartPar
 The weights onf the control are definite positive, \(\widetilde{\mathbf{R}} > 0\), and thus invertible. The control can be written as a function of the state and the co\sphinxhyphen{}state as
-\begin{equation*}
+\begin{equation}\label{equation:ch/control/optimal-control-full-state-linear:eq:optimal:linear:u-1}
 \begin{split}\mathbf{u} = - \widetilde{\mathbf{R}}^{-1} \left( \mathbf{S}^T \mathbf{x} + \mathbf{B}^T \boldsymbol\lambda  \right) \ .\end{split}
-\end{equation*}
+\end{equation}
+\sphinxAtStartPar
+The expression \eqref{equation:ch/control/optimal-control-full-state-linear:eq:optimal:linear:u-1} shows that the optimal control law is a control proportional to the state \(\mathbf{x}\) and the co\sphinxhyphen{}state \(\boldsymbol\lambda\). As it’s shown below, there’s a proportionality relation between the state and the co\sphinxhyphen{}state \(\boldsymbol\lambda = \mathbf{P} \mathbf{x}\) as well, with \(\mathbf{P}\) a symmetric, semi\sphinxhyphen{}positive definite matrix, satisfying some matrix equations. See:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+the relation \(\boldsymbol\lambda_t = \mathbf{P}_t \mathbf{x}_t\) arising by the relation \eqref{equation:ch/control/optimal-control-full-state-general-ode:eq:co-state:sensitivity} with \(\mathbf{M} = \mathbf{I}\), \(\boldsymbol \lambda_t = \nabla_{\mathbf{x}_t} V\) in the {\hyperref[\detokenize{ch/control/optimal-control-full-state-linear:control-optimal-full-state-fb-linear-dynamic-programming}]{\sphinxcrossref{\DUrole{std,std-ref}{dynamic programming approach}}}}
+
+\item {} 
+\sphinxAtStartPar
+the relation \(\boldsymbol\lambda_t = \mathbf{P}_t \mathbf{x}_t\) arising in the \DUrole{xref,myst}{Hamiltonian form of the closed\sphinxhyphen{}loop system} \eqref{equation:ch/control/optimal-control-full-state-linear:eq:optimal:linear:cl:hamiltonian}
+
+\end{itemize}
+
+
+\subsubsection{Hamiltonian form of the closed\sphinxhyphen{}loop system}
+\label{\detokenize{ch/control/optimal-control-full-state-linear:hamiltonian-form-of-the-closed-loop-system}}\label{\detokenize{ch/control/optimal-control-full-state-linear:control-optimal-full-state-fb-linear-hamiltonian-system}}
 \sphinxAtStartPar
 Now the closed loop system reads
-\begin{equation*}
+\begin{equation}\label{equation:ch/control/optimal-control-full-state-linear:eq:optimal:linear:cl:hamiltonian}
 \begin{split}
 \begin{bmatrix} \dot{\mathbf{x}} \\ \dot{\boldsymbol\lambda} \end{bmatrix}
 \begin{bmatrix}
@@ -7690,19 +7986,22 @@ Now the closed loop system reads
 \end{bmatrix}
 \begin{bmatrix}      \mathbf{x}  \\      \boldsymbol\lambda  \end{bmatrix} \ ,
 \end{split}
-\end{equation*}
+\end{equation}
 \sphinxAtStartPar
-with initial condition \(\mathbf{x}(0) = \mathbf{x}_0\) and final condition \(\boldsymbol\lambda(T) = \mathbf{Q}_T \mathbf{x}(T)\). The solution can be written as
+with initial condition \(\mathbf{x}(0) = \mathbf{x}_0\) and final condition \(\boldsymbol\lambda(T) = \mathbf{Q}_T \mathbf{x}(T)\). The solution of this linear system can be formally written using the propagator \(\boldsymbol\Psi(t,t_0)\) as
 \begin{equation*}
 \begin{split}\begin{bmatrix} \mathbf{x}(t) \\ \boldsymbol\lambda(t)  \end{bmatrix} = \boldsymbol\Psi(t,t_0) \begin{bmatrix} \mathbf{x}(t_0) \\ \boldsymbol\lambda(t_0) \end{bmatrix} = \begin{bmatrix} \boldsymbol\Psi_{xx}(t,t_0) & \boldsymbol\Psi_{x\lambda}(t,t_0) \\ \boldsymbol\Psi_{\lambda x}(t,t_0) & \boldsymbol\Psi_{\lambda \lambda}(t,t_0) \end{bmatrix} \begin{bmatrix} \mathbf{x}(t_0) \\ \boldsymbol\lambda(t_0) \end{bmatrix}\end{split}
 \end{equation*}
 \sphinxAtStartPar
-so that the state in \(T\) reads
+As the initial condition for \(\boldsymbol\lambda\) is not known, it’s not possible so far to integrate this equation forward in time.
+
+\sphinxAtStartPar
+\sphinxstylestrong{Initial condition \(\ \boldsymbol\lambda(0)\).} It’s possible to find the initial condition for the co\sphinxhyphen{}state, using the propagator between \(0\) and \(T\), and the final condition \(\lambda(T) = \mathbf{Q}_T \mathbf{x}_T\). The state of the Hamiltonian system in \(T\) reads
 \begin{equation*}
 \begin{split}\begin{bmatrix} \mathbf{x}(T) \\ \boldsymbol\lambda(T)  \end{bmatrix} = \begin{bmatrix} \boldsymbol\Psi_{xx}(T,t_0) & \boldsymbol\Psi_{x\lambda}(T,t_0) \\ \boldsymbol\Psi_{\lambda x}(T,t_0) & \boldsymbol\Psi_{\lambda \lambda}(T,t_0) \end{bmatrix} \begin{bmatrix} \mathbf{x}(t_0) \\ \boldsymbol\lambda(t_0) \end{bmatrix}\end{split}
 \end{equation*}
 \sphinxAtStartPar
-so that
+so that (using the second block of the equations first, and then replacing \(\mathbf{x}_T\) from the first block),
 \begin{equation*}
 \begin{split}\begin{aligned}
   \mathbf{0}
@@ -7714,8 +8013,43 @@ so that
 \sphinxAtStartPar
 and thus
 \begin{equation*}
-\begin{split}\boldsymbol\lambda_0 = \left(\boldsymbol\Psi_{\lambda \lambda} - \mathbf{Q} \boldsymbol\Psi_{x\lambda}(T,t_0) \right)^{-1} \left( \mathbf{Q} \boldsymbol\Psi_{xx}(T,t_0) - \boldsymbol\Psi_{\lambda x} \right) \mathbf{x}_0 \ .\end{split}
-\end{equation*}\subsubsection*{Value function and relation \protect\(\ \boldsymbol\lambda = \mathbf{P} \mathbf{x}\protect\)}
+\begin{split}\boldsymbol\lambda_0 = \left(\boldsymbol\Psi_{\lambda \lambda}(T,t_0) - \mathbf{Q}_T \boldsymbol\Psi_{x\lambda}(T,t_0) \right)^{-1} \left( \mathbf{Q}_T \boldsymbol\Psi_{xx}(T,t_0) - \boldsymbol\Psi_{\lambda x}(T,t_0) \right) \mathbf{x}_0 \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+or
+\begin{equation*}
+\begin{split}\boldsymbol\lambda_0 = \mathbf{P}_0 \mathbf{x}_0 \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Relation between \(\mathbf{x}(t)\) and \(\boldsymbol\lambda(t)\).}
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{x}_t 
+  & = \boldsymbol\Psi_{xx}(t,t_0) \mathbf{x}_0 + \boldsymbol\Psi_{x\lambda}(t,t_0) \boldsymbol\lambda_0 = \\
+  & = \left[ \boldsymbol\Psi_{xx}(t,t_0) + \boldsymbol\Psi_{x\lambda}(t,t_0) \mathbf{P}_0 \right] \mathbf{x}_0 \ , \\
+  \boldsymbol{\lambda}_t 
+  & = \boldsymbol\Psi_{\lambda x}(t,t_0) \mathbf{x}_0 + \boldsymbol\Psi_{\lambda \lambda}(t,t_0) \boldsymbol\lambda_0 = \\
+  & = \left[ \boldsymbol\Psi_{\lambda x}(t,t_0) + \boldsymbol\Psi_{\lambda\lambda}(t,t_0) \mathbf{P}_0 \right] \mathbf{x}_0 = \\
+  & = \left[ \boldsymbol\Psi_{\lambda x}(t,t_0) + \boldsymbol\Psi_{\lambda\lambda}(t,t_0) \mathbf{P}_0 \right] \left[ \boldsymbol\Psi_{xx}(t,t_0) + \boldsymbol\Psi_{x\lambda}(t,t_0) \mathbf{P}_0 \right]^{-1} \mathbf{x}_t \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+or
+\begin{equation*}
+\begin{split}\boldsymbol\lambda(t) = \mathbf{P}(t) \mathbf{x}(t) \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{todo}
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Does this inverse matrix exist? …
+
+\end{itemize}
+
+
+\subsubsection{Dynamic programming approach}
+\label{\detokenize{ch/control/optimal-control-full-state-linear:dynamic-programming-approach}}\label{\detokenize{ch/control/optimal-control-full-state-linear:control-optimal-full-state-fb-linear-dynamic-programming}}\subsubsection*{Value function and relation \protect\(\ \boldsymbol\lambda = \mathbf{P} \mathbf{x}\protect\)}
 
 \sphinxAtStartPar
 Let the value function be
@@ -7733,7 +8067,7 @@ or 2) with the methods of Lagrange multipliers. A \sphinxstylestrong{co\sphinxhy
 \begin{split}\boldsymbol\lambda_t = \nabla_{\mathbf{x}_t} V \ .\end{split}
 \end{equation*}
 \sphinxAtStartPar
-\sphinxstylestrong{Method 1.}
+\sphinxstylestrong{Method 1.} Using the expression \eqref{equation:ch/ode/ode-linear-systems:eq:ode:system:linear:sol} of the {\hyperref[\detokenize{ch/ode/ode-linear-systems:ode-linear-miscellanea-general-solution}]{\sphinxcrossref{\DUrole{std,std-ref}{general solution of a linear system of ODEs}}}} for \(\tau > t\) with initial conditions \(\mathbf{x}(t) = \mathbf{x}_t\) and input \(\mathbf{u}(\tau)\),
 \begin{equation*}
 \begin{split}\begin{aligned}
   V(\mathbf{x}_t,t; \mathbf{u}) 
@@ -7745,7 +8079,7 @@ or 2) with the methods of Lagrange multipliers. A \sphinxstylestrong{co\sphinxhy
 \end{aligned}\end{split}
 \end{equation*}
 \sphinxAtStartPar
-and thus
+the relation \(\boldsymbol\lambda_t = \nabla_{\mathbf{x}_t} V\) gives
 \begin{equation*}
 \begin{split}\begin{aligned}
   \boldsymbol\lambda_t 
@@ -7907,7 +8241,7 @@ becomes
 \end{equation*}
 \sphinxAtStartPar
 Optimization gives
-\begin{equation}\label{equation:ch/control/optimal-control-full-state:eq:optimal:ode:linear:decoupling}
+\begin{equation}\label{equation:ch/control/optimal-control-full-state-linear:eq:optimal:ode:linear:decoupling}
 \begin{split}\begin{aligned}
  \delta \boldsymbol\lambda(t): & \quad \dot{\mathbf{x}} = \hat{\mathbf{A}} \mathbf{x} + \mathbf{B} \widetilde{\mathbf{u}} \\
                                & \quad \mathbf{x}(0) = \mathbf{x}_0 \\
@@ -7996,6 +8330,127 @@ For arbitrary \(\mathbf{x}\), Riccati equation follows
 \end{equation*}
 
 
+\sphinxstepscope
+
+
+\subsection{Linear system without exogenous inputs \sphinxhyphen{} infinite time horizon}
+\label{\detokenize{ch/control/optimal-control-full-state-linear-infinite-time:linear-system-without-exogenous-inputs-infinite-time-horizon}}\label{\detokenize{ch/control/optimal-control-full-state-linear-infinite-time:control-optimal-full-state-fb-linear-infinite-time-horizon}}\label{\detokenize{ch/control/optimal-control-full-state-linear-infinite-time::doc}}
+\sphinxAtStartPar
+In the infinite\sphinxhyphen{}time horizon, under the assumption of stabilizability and observability (\sphinxstylestrong{todo} Prove it!), the optimal control law for a LTI system is a proportional control law,
+\begin{equation*}
+\begin{split}\mathbf{u} = - \mathbf{K} \mathbf{x} = - \mathbf{R}^{-1} ( \mathbf{B}^T \mathbf{P} + \mathbf{S}^T ) \mathbf{x} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+with the constant matrix \(\mathbf{P}\) satisfying the \sphinxstylestrong{algebraic Riccation equation (ARE)}
+\begin{equation}\label{equation:ch/control/optimal-control-full-state-linear-infinite-time:eq:optimal:infinite-time:p-are}
+\begin{split}\mathbf{0} = \mathbf{P} \hat{\mathbf{A}} + \hat{\mathbf{A}}^T \mathbf{P} + \hat{\mathbf{Q}} - \mathbf{P} \mathbf{B} \mathbf{R}^{-1} \mathbf{B}^T \mathbf{P} \ ,\end{split}
+\end{equation}
+\sphinxAtStartPar
+with \(\hat{\mathbf{A}} = \mathbf{A} - \mathbf{B} \mathbf{R}^{-1} \mathbf{S}^T\) and \(\hat{\mathbf{Q}} = \mathbf{Q} - \mathbf{S} \mathbf{R}^{-1} \mathbf{S}^T\).
+
+\sphinxAtStartPar
+Introducing the relation \(\boldsymbol\lambda(t) = \mathbf{P} \mathbf{x}(t)\) \sphinxhyphen{} with constant \(\mathbf{P}\) \sphinxhyphen{} into the Hamiltonian system
+\begin{equation*}
+\begin{split}
+\begin{bmatrix} \dot{\mathbf{x}} \\ \dot{\boldsymbol\lambda} \end{bmatrix}
+\begin{bmatrix}
+  \mathbf{A} - \mathbf{B} \widetilde{\mathbf{R}}^{-1} \mathbf{S}^T & - \mathbf{B} \widetilde{\mathbf{R}}^{-1} \mathbf{B}^T \\
+  -\widetilde{\mathbf{Q}} + \mathbf{S} \widetilde{\mathbf{R}}^{-1} \mathbf{S}^T & - \mathbf{A}^T + \mathbf{S} \widetilde{\mathbf{R}}^{-1} \mathbf{B}^T
+\end{bmatrix}
+\begin{bmatrix}      \mathbf{x}  \\      \boldsymbol\lambda  \end{bmatrix} \ ,
+\end{split}
+\end{equation*}
+\sphinxAtStartPar
+it’s possible to get 2 “decoupled” (the coupling lies in the relation \(\boldsymbol\lambda = \mathbf{P} \mathbf{x}\)) equations for \(\mathbf{x}\) and \(\boldsymbol\lambda\),
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \dot{\mathbf{x}} & = \left( \hat{\mathbf{A}} - \mathbf{B} \widetilde{\mathbf{R}}^{-1} \mathbf{B}^T \mathbf{P} \right) \mathbf{x} \\
+  \dot{\boldsymbol{\lambda}} & = - \left( \hat{\mathbf{A}}^T + \hat{\mathbf{Q}} \mathbf{P}^{-1} \right) \boldsymbol\lambda \ . 
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+If the matrix \(\mathbf{P}\) is chosen as the solution of the ARE \eqref{equation:ch/control/optimal-control-full-state-linear-infinite-time:eq:optimal:infinite-time:p-are}, then the two equations have opposite eigenvalues, as
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \hat{\mathbf{A}}^T + \hat{\mathbf{Q}} \mathbf{P}^{-1}
+  & = \left( \hat{\mathbf{A}}^T \mathbf{P} + \hat{\mathbf{Q}} \right) \mathbf{P}^{-1} = \\
+  & = \left( - \mathbf{P} \hat{\mathbf{A}} + \mathbf{P} \mathbf{B} \mathbf{R}^{-1} \mathbf{B}^T \mathbf{P} \right) \mathbf{P}^{-1} = \\
+  & = - \mathbf{P} \left(  \hat{\mathbf{A}} - \mathbf{B} \mathbf{R}^{-1} \mathbf{B}^T \mathbf{P} \right) \mathbf{P}^{-1} \ ,
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+the two matrices are related by a similarity transformation, through \(\mathbf{P}\), with a minus sign.
+
+\sphinxAtStartPar
+Thus, the transition matrix of the state and the co\sphinxhyphen{}state in the closed\sphinxhyphen{}loop systems are dual, in the sense of
+\begin{equation*}
+\begin{split}\boldsymbol\Phi_{cl,x}(t,t_0) = \boldsymbol\Phi_{cl,\lambda}^T(t_0,t) \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Lyapunov criterium for stability.} Let \(V(x) = \mathbf{x}^T \mathbf{P} \mathbf{x}\), its time derivative reads
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \dot{V}(x(t)) 
+  & = \dot{\mathbf{x}}^T \mathbf{P} \mathbf{x} + \mathbf{x}^T \mathbf{P} \dot{\mathbf{x}} = \\
+  & = \mathbf{x}^T ( \hat{\mathbf{A}} - \mathbf{B} \mathbf{R}^{-1} \mathbf{B}^T \mathbf{P} )^T \mathbf{P} \mathbf{x} + \mathbf{x}^T \mathbf{P} ( \hat{\mathbf{A}} - \mathbf{B} \mathbf{R}^{-1} \mathbf{B}^T \mathbf{P} ) \mathbf{x} = \\
+  & = \mathbf{x}^T ( \hat{\mathbf{A}}^T \mathbf{P} + \mathbf{P} \hat{\mathbf{A}} - 2 \mathbf{P} \mathbf{B} \mathbf{R}^{-1} \mathbf{B}^T \mathbf{P} ) \mathbf{x} = \\
+  & = - \mathbf{x}^T ( \hat{\mathbf{Q}} + \mathbf{P} \mathbf{B} \mathbf{R}^{-1} \mathbf{B}^T \mathbf{P} ) \mathbf{x} = \\
+  & \le 0 \ ,
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+for all \(\mathbf{x} \ne \mathbf{0}\), if the matrix \(\hat{\mathbf{Q}} + \mathbf{P} \mathbf{B} \mathbf{R}^{-1} \mathbf{B}^T \mathbf{P}\) is a positive definite matrix.
+\subsubsection*{Asymptotic stability and detectability of \protect\(\ (\hat{\mathbf{A}}, \hat{\mathbf{Q}}^{1/2})\protect\)}
+
+\sphinxAtStartPar
+For asymptotic stability, we require the pair \((\hat{A}, \hat{Q}^{1/2})\) to be detectable (see {\hyperref[\detokenize{ch/system-theory/observability-detectability:observability-detectability}]{\sphinxcrossref{\DUrole{std,std-ref}{observability and detectability}}}}. Here is the proof logic:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+define the null space: suppose there exists a trajectory \(x(t)\) such that \(\dot{V}(x(t)) = 0\) for all \(t \geq 0\).
+
+\item {} 
+\sphinxAtStartPar
+analyze the terms: Since both \(\hat{Q}\) and \(PBR^{-1}B^TP\) are positive semi\sphinxhyphen{}definite, \(\dot{V} = 0\) implies that \(x^T \hat{Q} x = 0\) and \(x^T PBR^{-1}B^TP x = 0\) simultaneously.
+
+\item {} 
+\sphinxAtStartPar
+vanishing control: If \(x^T PBR^{-1}B^TP x = 0\), then the optimal control input \(u = -R^{-1}B^T P x\) must be zero, as
+\begin{equation*}
+\begin{split}0 = \mathbf{x}^T \mathbf{P} \mathbf{B} \mathbf{R}^{-1} \mathbf{R} \mathbf{R}^{-1} \mathbf{B}^T \mathbf{P} \mathbf{x} = \mathbf{u}^T \mathbf{R} \mathbf{u} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+forces \(\mathbf{u} = \mathbf{0}\), as the weight matrix on the control must be positive definite, \(\mathbf{R} > 0\) (update the condition for mixed weights, and/or weights on performance outputs with \(\widetilde{\mathbf{R}}\)).
+
+\item {} 
+\sphinxAtStartPar
+the residual dynamics: in this “unobservable” region where \(\dot{V}=0\), the dynamics simplify to \(\dot{x} = \hat{A} x\).
+
+\item {} 
+\sphinxAtStartPar
+the constraint: for \(\dot{V}\) to remain zero, we also require \(\mathbf{x}^T \hat{\mathbf{Q}} \mathbf{x} = 0\), and with \(\hat{\mathbf{Q}}^{1/2}\) as the {\hyperref[\detokenize{ch/linear-algebra/cholesky:math-cholesky}]{\sphinxcrossref{\DUrole{std,std-ref}{Choleski factor}}}} of the semi\sphinxhyphen{}definite positive matrix, \(\hat{\mathbf{Q}}^{1/2} \mathbf{x}(t) = 0\) for all \(t\).
+
+\end{itemize}
+
+\sphinxAtStartPar
+All the statements above can be then summarized as the condition of detectability of a linear system
+\begin{equation*}
+\begin{split}\left\{\begin{aligned}
+  \dot{\mathbf{x}} & = \hat{\mathbf{A}} \mathbf{x} \\
+       \mathbf{y}  & = \hat{\mathbf{Q}}^{1/2} \mathbf{x} \\
+\end{aligned}\right.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{todo} \sphinxstyleemphasis{check the following sentence}
+
+\sphinxAtStartPar
+\sphinxstyleemphasis{If this system is detectable, then any state \(x\) that produces zero output (\(y=0\)) must satisfy \(\lim_{t \to \infty} x(t) = 0\). Since \(y=0\) is a requirement for \(\dot{V}=0\), we have proved that all trajectories must eventually vanish, achieving Global Asymptotic Stability.}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Schur decoposition.}
+\begin{equation*}
+\begin{split}\mathbf{U}^T \mathbf{H} \mathbf{U} = \mathbf{T} = \begin{bmatrix} \mathbf{T}_{11} & \mathbf{T}_{12} \\ \mathbf{0} & \mathbf{T}_{22} \end{bmatrix}\end{split}
+\end{equation*}
 \sphinxstepscope
 
 
@@ -8095,7 +8550,7 @@ Repeat previous steps with the updated control law, until convergence.
 \end{equation}\subsubsection*{Constrained optimization}
 
 \sphinxAtStartPar
-As \(\mathbf{f}(\mathbf{x},\mathbf{u}) = \mathbf{A} \mathbf{x} + \mathbf{B}\mathbf{u}\), here \(\partial_{\mathbf{x}} \mathbf{f} = \mathbf{A}\) and \(\partial_{\mathbf{u}} \mathbf{f} = \mathbf{B}\). For the linear system \eqref{equation:ch/control/optimal-control-full-state-old:eq:optimal:lti:eqns} \(\mathbf{M} = \mathbf{I}\). Thus the equations \eqref{equation:ch/control/optimal-control-full-state:eq:optimal:ode} become
+As \(\mathbf{f}(\mathbf{x},\mathbf{u}) = \mathbf{A} \mathbf{x} + \mathbf{B}\mathbf{u}\), here \(\partial_{\mathbf{x}} \mathbf{f} = \mathbf{A}\) and \(\partial_{\mathbf{u}} \mathbf{f} = \mathbf{B}\). For the linear system \eqref{equation:ch/control/optimal-control-full-state-old:eq:optimal:lti:eqns} \(\mathbf{M} = \mathbf{I}\). Thus the equations \eqref{equation:ch/control/optimal-control-full-state-general-ode:eq:optimal:ode} become
 \begin{equation}\label{equation:ch/control/optimal-control-full-state-old:eq:optimal:lti}
 \begin{split}\begin{aligned}
  \delta \boldsymbol\lambda(t): & \quad \mathbf{M}   \dot{\mathbf{x}} = \mathbf{f} \\
@@ -8147,7 +8602,7 @@ and comparing the two different expressions of \(\dot{\boldsymbol{\lambda}}\), i
 \begin{split}\dot{\mathbf{P}} + \mathbf{P} \widetilde{\mathbf{A}} + \widetilde{\mathbf{A}}^T \mathbf{P} - \mathbf{P} \mathbf{B} \mathbf{R}^{-1} \mathbf{B}^T \mathbf{P} + \widetilde{\mathbf{Q}} = \mathbf{0} \ ,\end{split}
 \end{equation*}
 \sphinxAtStartPar
-where \(\widetilde{\mathbf{A}} = \mathbf{A} - \mathbf{B} \mathbf{R}^{-1} \mathbf{S}^T \) and \(\widetilde{\mathbf{Q}} = \mathbf{Q} - \mathbf{S} \mathbf{R}^{-1} \mathbf{S}^T\). Riccati equation is a non\sphinxhyphen{}linear dynamical matrix equation in \(\mathbf{P}\). Algorithms for computing the solution of dynamical and algebraic equation exists, see {\hyperref[\detokenize{ch/control/optimal-control-full-state-old:control-optimal-riccati}]{\sphinxcrossref{Example 39.2.1}}}.
+where \(\widetilde{\mathbf{A}} = \mathbf{A} - \mathbf{B} \mathbf{R}^{-1} \mathbf{S}^T \) and \(\widetilde{\mathbf{Q}} = \mathbf{Q} - \mathbf{S} \mathbf{R}^{-1} \mathbf{S}^T\). Riccati equation is a non\sphinxhyphen{}linear dynamical matrix equation in \(\mathbf{P}\). Algorithms for computing the solution of dynamical and algebraic equation exists, see {\hyperref[\detokenize{ch/control/optimal-control-full-state-old:control-optimal-riccati}]{\sphinxcrossref{Example 40.2.1}}}.
 
 
 
@@ -8164,7 +8619,7 @@ For infinite\sphinxhyphen{}horizone, the algebraic equation (ARE) for the steady
 \sphinxAtStartPar
 with \(\mathbf{G} = \mathbf{R}^{-1} \left( \mathbf{S}^T + \mathbf{B}^T \mathbf{P} \right)\).
 \label{ch/control/optimal-control-full-state-old:control-optimal-riccati}
-\begin{sphinxadmonition}{note}{Example 39.2.1 (Solution of Riccati equation)}
+\begin{sphinxadmonition}{note}{Example 40.2.1 (Solution of Riccati equation)}
 
 
 
@@ -8291,22 +8746,13 @@ with \(\mathbf{H}(s) = (s \mathbf{I} - \mathbf{A})^{-1} \mathbf{B}\), and \(\mat
 \sphinxstepscope
 
 
-\section{Optimal observer for deterministic disturbances}
-\label{\detokenize{ch/control/optimal-control-observer-deterministic:optimal-observer-for-deterministic-disturbances}}\label{\detokenize{ch/control/optimal-control-observer-deterministic:control-optimal-observer-deterministic}}\label{\detokenize{ch/control/optimal-control-observer-deterministic::doc}}
+\section{Optimal observer for stochastic disturbance}
+\label{\detokenize{ch/control/optimal-control-observer-stochastic:optimal-observer-for-stochastic-disturbance}}\label{\detokenize{ch/control/optimal-control-observer-stochastic:control-optimal-observer-stochastic}}\label{\detokenize{ch/control/optimal-control-observer-stochastic::doc}}
 \sphinxAtStartPar
-See next section about {\hyperref[\detokenize{ch/control/optimal-control-observer-gaussian:control-optimal-observer-stochastic}]{\sphinxcrossref{\DUrole{std,std-ref}{optimal observer for stochastic disturbances}}}}, or \sphinxstylestrong{Kalman filter}.
+In this section, all the machinery is developed for \DUrole{xref,myst}{white\sphinxhyphen{}noise} process and measurement disturbances.
+Non\sphinxhyphen{}white noise disturbances can be obtained as the output of \DUrole{xref,myst}{shape filters} with white noise inputs, as shown with the {\hyperref[\detokenize{ch/system-theory/shape-filter:system-theory-shape-filter-augmented-system}]{\sphinxcrossref{\DUrole{std,std-ref}{augmented system approach}}}}.
 
 
-
-\sphinxstepscope
-
-
-\section{Optimal observer for stochastic Gaussian disturbance}
-\label{\detokenize{ch/control/optimal-control-observer-gaussian:optimal-observer-for-stochastic-gaussian-disturbance}}\label{\detokenize{ch/control/optimal-control-observer-gaussian:control-optimal-observer-stochastic}}\label{\detokenize{ch/control/optimal-control-observer-gaussian::doc}}
-\sphinxAtStartPar
-Non\sphinxhyphen{}Gaussian disturbances can be obtained as the output of \DUrole{xref,myst}{shape filters} with Gaussian inputs.
-\sphinxstylestrong{todo} \sphinxstyleemphasis{Is Gaussian a synonimous of white noise here?} If so, the sentence above should be:
-“Non\sphinxhyphen{}white noise disturbances can be obtained as the output of {\hyperref[\detokenize{ch/system-theory/shape-filter:system-theory-shape-filter}]{\sphinxcrossref{\DUrole{std,std-ref}{shape filters}}}} with white noise inputs.”
 
 \sphinxAtStartPar
 From the equations of the plant
@@ -8352,7 +8798,7 @@ with \(\mathbf{W}\) the matrix of the cross\sphinxhyphen{}correlations of the wh
 \end{equation*}
 \sphinxAtStartPar
 If stationary conditions are reached, the autocorrelation matrix of the error must satisfy the algebraic version of the Lyapunov equation
-\begin{equation}\label{equation:ch/control/optimal-control-observer-gaussian:eq:observer:error:lyapunov:algebraic}
+\begin{equation}\label{equation:ch/control/optimal-control-observer-stochastic:eq:observer:error:lyapunov:algebraic}
 \begin{split}\mathbf{0} = \overline{\mathbf{A}} (\mathbf{L})\mathbf{R}_{\mathbf{e}\mathbf{e}} + \mathbf{R}_{\mathbf{e}\mathbf{e}} \overline{\mathbf{A}}^T (\mathbf{L})+ \overline{\mathbf{B}}(\mathbf{L}) \mathbf{W} \overline{\mathbf{B}}^T(\mathbf{L}) \ .\end{split}
 \end{equation}
 \sphinxAtStartPar
@@ -8386,7 +8832,7 @@ w.r.t. the matrices \(\mathbf{L}\), \(\boldsymbol\Lambda\), \(\mathbf{R}\)
 \end{equation*}
 \sphinxAtStartPar
 Collecing the symmetric (\sphinxstylestrong{todo} why this assumption?) matrix \(\boldsymbol\Lambda\) (is it possible to collect this matrix and set the other factor to zero?)
-\begin{equation}\label{equation:ch/control/optimal-control-observer-gaussian:eq:observer:gauss:L}
+\begin{equation}\label{equation:ch/control/optimal-control-observer-stochastic:eq:observer:gauss:L}
 \begin{split}\mathbf{L} = \left[ \mathbf{R}_{\mathbf{e}\mathbf{e}} \mathbf{C}^T + \mathbf{B}_d \left( \mathbf{W}_{dd} \mathbf{D}_d^T + \mathbf{W}_{dr} \mathbf{D}_r^T \right) \right] \left[ 
   \mathbf{D}_d \mathbf{W}_{dd} \mathbf{D}^T_d +
   \mathbf{D}_d \mathbf{W}_{dr} \mathbf{D}^T_r +
@@ -8395,7 +8841,7 @@ Collecing the symmetric (\sphinxstylestrong{todo} why this assumption?) matrix \
 \right]^{-1} \ ,\end{split}
 \end{equation}
 \sphinxAtStartPar
-Replacing the expression \eqref{equation:ch/control/optimal-control-observer-gaussian:eq:observer:gauss:L} of the \(\mathbf{L}\) matrix into the algebraic Lyapunov equation \eqref{equation:ch/control/optimal-control-observer-gaussian:eq:observer:error:lyapunov:algebraic} for the autocorrelation \(\mathbf{R}_{\mathbf{e}\mathbf{e}}\), a Riccati equation in \(\mathbf{R}_{\mathbf{e} \mathbf{e}}\) appears.
+Replacing the expression \eqref{equation:ch/control/optimal-control-observer-stochastic:eq:observer:gauss:L} of the \(\mathbf{L}\) matrix into the algebraic Lyapunov equation \eqref{equation:ch/control/optimal-control-observer-stochastic:eq:observer:error:lyapunov:algebraic} for the autocorrelation \(\mathbf{R}_{\mathbf{e}\mathbf{e}}\), a Riccati equation in \(\mathbf{R}_{\mathbf{e} \mathbf{e}}\) appears.
 \subsubsection*{Derivatives w.r.t. a matrix}
 \begin{equation*}
 \begin{split}\frac{\partial \text{Tr}(\mathbf{A} \mathbf{B})}{\partial \mathbf{A}} = \frac{\partial \text{Tr}(\mathbf{A} \mathbf{B})}{\partial A_{ij}} = \dfrac{\partial ( A_{ab} B_{ba} )}{\partial A_{ij}} = \delta_{ai} \delta_{bj} B_{ba} = B_{ji} = \mathbf{B}^T\end{split}
@@ -8412,6 +8858,16 @@ Replacing the expression \eqref{equation:ch/control/optimal-control-observer-gau
 \end{equation*}\begin{equation*}
 \begin{split}\text{Tr}(\mathbf{A} \mathbf{B}) = A_{ij} B_{ji} = \text{Tr}( \mathbf{B} \mathbf{A} )\end{split}
 \end{equation*}
+\sphinxstepscope
+
+
+\section{Optimal observer for deterministic disturbances}
+\label{\detokenize{ch/control/optimal-control-observer-deterministic:optimal-observer-for-deterministic-disturbances}}\label{\detokenize{ch/control/optimal-control-observer-deterministic:control-optimal-observer-deterministic}}\label{\detokenize{ch/control/optimal-control-observer-deterministic::doc}}
+\sphinxAtStartPar
+See next section about {\hyperref[\detokenize{ch/control/optimal-control-observer-stochastic:control-optimal-observer-stochastic}]{\sphinxcrossref{\DUrole{std,std-ref}{optimal observer for stochastic disturbances}}}}, or \sphinxstylestrong{Kalman filter}.
+
+
+
 \sphinxstepscope
 
 
@@ -8933,84 +9389,23 @@ Optimal control framework provides the opitmal gain matrix \(\hat{\mathbf{K}}\),
 \section{Kalman filter}
 \label{\detokenize{ch/control/kalman:kalman-filter}}\label{\detokenize{ch/control/kalman:control-kalman}}\label{\detokenize{ch/control/kalman::doc}}
 \sphinxAtStartPar
-Kalman filter is an optimal state estimator, in terms of minimum\sphinxhyphen{}variance error reconstruction. It has the structure of a state observer. Let the linear system
-\begin{equation*}
-\begin{split}\begin{cases}
-  \dot{\mathbf{x}} = \mathbf{A} \mathbf{x} + \mathbf{B} \mathbf{u} + \mathbf{B}_d \mathbf{d} \\
-  \mathbf{y} = \mathbf{C} \mathbf{x} + \mathbf{D}_u \mathbf{u} + \mathbf{D}_d \mathbf{d} + \mathbf{D}_r \mathbf{r} \  ,
-\end{cases}\end{split}
-\end{equation*}
-\sphinxAtStartPar
-Kalman filter for time\sphinxhyphen{}continuous systems has the structure
-\begin{equation*}
-\begin{split}\begin{cases}
-  \dot{\mathbf{o}} = \mathbf{A} \mathbf{o} + \mathbf{B} \mathbf{u} + \mathbf{L} ( \mathbf{y} - \mathbf{y}_o ) \\
-  \mathbf{y}_o = \mathbf{C} \mathbf{o} + \mathbf{D}_u \mathbf{u}
-\end{cases}\end{split}
-\end{equation*}
-
-\subsection{Error dynamics}
-\label{\detokenize{ch/control/kalman:error-dynamics}}
-\sphinxAtStartPar
-Let the error be defined as \(\mathbf{e} := \mathbf{x} - \mathbf{o}\), its dynamical equation reads
-\begin{equation}\label{equation:ch/control/kalman:eq:kalman:error:eq}
-\begin{split}\begin{aligned}
-  \dot{\mathbf{e}} & = \left( \mathbf{A} - \mathbf{L} \mathbf{C} \right)  \mathbf{e} + \left( \mathbf{B}_d - \mathbf{L} \mathbf{D}_d \right) \mathbf{d} - \mathbf{L} \mathbf{D}_r \mathbf{r} \\
-  \dot{\mathbf{e}} & = \mathbf{A}_e \mathbf{e} + \mathbf{B}_{ed} \mathbf{d} + \mathbf{B}_{er} \mathbf{r} \\
-  \dot{\mathbf{e}} & = \mathbf{A}_e \mathbf{e} + \boldsymbol\xi \ ,
-\end{aligned}\end{split}
-\end{equation}
-\sphinxAtStartPar
-with the definition of the noise input in the dynamical equation of the error, \(\boldsymbol\xi = \left( \mathbf{B}_d - \mathbf{L} \mathbf{D}_d \right) \mathbf{d} - \mathbf{L} \mathbf{D}_r \mathbf{r}\).
-\subsubsection*{Details}
-\begin{equation*}
-\begin{split}\begin{aligned}
-  \dot{\mathbf{e}}
-  & = \dot{\mathbf{x}} - \dot{\mathbf{o}} = \\
-  & = \mathbf{A} \mathbf{x} + \mathbf{B} \mathbf{u} + \mathbf{B}_d \mathbf{d} - \left( \mathbf{A} \mathbf{o} + \mathbf{B} \mathbf{u} + \mathbf{L} ( \mathbf{y} - \mathbf{y}_o )\right) = \\
-  & = \left( \mathbf{A} - \mathbf{L} \mathbf{C} \right)  \mathbf{e} + \left( \mathbf{B}_d - \mathbf{L} \mathbf{D}_d \right) \mathbf{d} - \mathbf{L} \mathbf{D}_r \mathbf{r}
-\end{aligned}\end{split}
-\end{equation*}
-\sphinxAtStartPar
-Let the exogenous input \(\mathbf{d}\) and the measurement input \(\mathbf{r}\) be random signals, thus the input \(\boldsymbol\xi\) of the error dynamical equation \eqref{equation:ch/control/kalman:eq:kalman:error:eq} is a random signal with correlation
-
-
-\begin{equation*}
-\begin{split}\begin{aligned}
-\mathbf{R}_{\boldsymbol\xi \boldsymbol\xi}(t,\tau) := \mathbb{E}\left[ \boldsymbol\xi(t) \boldsymbol\xi^*(\tau) \right]
- & = \mathbf{B}_{ed} \mathbf{R}_{\mathbf{d}\mathbf{d}}(t,\tau) \mathbf{B}_{ed}^*
-   + \mathbf{B}_{ed} \mathbf{R}_{\mathbf{d}\mathbf{r}}(t,\tau) \mathbf{B}_{er}^* + \\
- & + \mathbf{B}_{er} \mathbf{R}_{\mathbf{r}\mathbf{d}}(t,\tau) \mathbf{B}_{ed}^*
-   + \mathbf{B}_{er} \mathbf{R}_{\mathbf{r}\mathbf{r}}(t,\tau) \mathbf{B}_{er}^*
-\end{aligned}\end{split}
-\end{equation*}
-\sphinxAtStartPar
-Using the general results for linear systems for \sphinxstylestrong{white noise} as an input \(\boldsymbol\xi\), the covariance matrix \(\mathbf{P}_{\mathbf{e}}(t) := \mathbf{R}_{\mathbf{e}\mathbf{e}}(t,t)\) of the error \sphinxhyphen{} governed by eqaution \eqref{equation:ch/control/kalman:eq:kalman:error:eq} \sphinxhyphen{} satisfies the Lyapunov equation \eqref{equation:ch/ode/ode-linear-systems:eq:lyapunov:correlation}
-\begin{equation*}
-\begin{split}\dot{\mathbf{P}}_{\mathbf{e}} = \mathbf{A}_e \mathbf{P}_{\mathbf{e}} + \mathbf{P}_{\mathbf{e}} \mathbf{A}_e^* + \boldsymbol\sigma_{\xi}^2 \ ,\end{split}
-\end{equation*}
-\sphinxAtStartPar
-being
-\begin{equation*}
-\begin{split}\boldsymbol\sigma_{xi}^2 = \dots \end{split}
-\end{equation*}
-
-\subsection{Optimality conditions}
-\label{\detokenize{ch/control/kalman:optimality-conditions}}
-\sphinxAtStartPar
-…
-\begin{equation*}
-\begin{split}\mathbf{L} = \end{split}
-\end{equation*}\begin{itemize}
+Kalman filter is an optimal state estimator, in terms of minimum\sphinxhyphen{}variance error reconstruction. It has the structure of a state observer.
+\begin{itemize}
 \item {} 
 \sphinxAtStartPar
-duality with the optimal control…
+For continuous\sphinxhyphen{}time LTI systems with stochastic distrubances, see {\hyperref[\detokenize{ch/control/optimal-control-observer-stochastic:control-optimal-observer-stochastic}]{\sphinxcrossref{\DUrole{std,std-ref}{optimal observer for continuous\sphinxhyphen{}time LTI with stochastic disturbances}}}}
 
 \item {} 
 \sphinxAtStartPar
-…
+…\sphinxstylestrong{todo} \sphinxstyleemphasis{discrete\sphinxhyphen{}time}, \sphinxstyleemphasis{deterministic distrubances},…
 
 \end{itemize}
+
+
+
+
+
+
 
 \sphinxstepscope
 
@@ -9764,7 +10159,7 @@ the solution is in the \(S_i\) region is
 \begin{equation*}
 \begin{split}u_i(x,t) = \sum_{\lambda_k > \frac{x}{t}} R_{ik} q_{a,k} +  \sum_{\lambda_k < \frac{x}{t}} R_{ik} q_{b,k}\end{split}
 \end{equation*}\label{ch/pde/hyperbolic-dimensions:example-0}
-\begin{sphinxadmonition}{note}{Example 44.2.1 (Linear(ized) P\sphinxhyphen{}system)}
+\begin{sphinxadmonition}{note}{Example 45.2.1 (Linear(ized) P\sphinxhyphen{}system)}
 
 
 
@@ -9802,17 +10197,17 @@ The linear(ized) P\sphinxhyphen{}system around a uniform reference state \(\over
 Subsonic: the two families of characteristic lines have opposite direction; supersonic: the two families of characteristic lines have the same direction.
 \end{sphinxadmonition}
 \label{ch/pde/hyperbolic-dimensions:example-1}
-\begin{sphinxadmonition}{note}{Example 44.2.2 (Linearized shallow water equations)}
+\begin{sphinxadmonition}{note}{Example 45.2.2 (Linearized shallow water equations)}
 
 
 \end{sphinxadmonition}
 \label{ch/pde/hyperbolic-dimensions:example-2}
-\begin{sphinxadmonition}{note}{Example 44.2.3 (Linearized Euler equations (acoustics))}
+\begin{sphinxadmonition}{note}{Example 45.2.3 (Linearized Euler equations (acoustics))}
 
 
 \end{sphinxadmonition}
 \label{ch/pde/hyperbolic-dimensions:example-3}
-\begin{sphinxadmonition}{note}{Example 44.2.4 (Wave equation)}
+\begin{sphinxadmonition}{note}{Example 45.2.4 (Wave equation)}
 
 
 
@@ -9907,7 +10302,7 @@ Different descritpions of integral problem,
   & = \partial_t u_i + \partial_{x_k} u_m \partial_{u_m} F_{ki} (u_l) = \\
 \end{aligned}\end{split}
 \end{equation*}\label{ch/pde/hyperbolic-dimensions:example-4}
-\begin{sphinxadmonition}{note}{Example 44.2.5 (P\sphinxhyphen{}system in 1\sphinxhyphen{}dimensional domain)}
+\begin{sphinxadmonition}{note}{Example 45.2.5 (P\sphinxhyphen{}system in 1\sphinxhyphen{}dimensional domain)}
 
 
 \begin{equation*}
@@ -9941,7 +10336,7 @@ with \(\partial_x P = a^2 \partial_x \rho\),
 \end{aligned}\end{split}
 \end{equation*}\end{sphinxadmonition}
 \label{ch/pde/hyperbolic-dimensions:example-5}
-\begin{sphinxadmonition}{note}{Example 44.2.6 (Euler equations in 1\sphinxhyphen{}dimensional domain)}
+\begin{sphinxadmonition}{note}{Example 45.2.6 (Euler equations in 1\sphinxhyphen{}dimensional domain)}
 
 
 
@@ -10057,7 +10452,7 @@ being
 \begin{split}\mathbf{L} = \dots \end{split}
 \end{equation*}\end{sphinxadmonition}
 \label{ch/pde/hyperbolic-dimensions:example-6}
-\begin{sphinxadmonition}{note}{Example 44.2.7 (Shallow water equation in \protect\(1\protect\)\sphinxhyphen{}dimensional domain)}
+\begin{sphinxadmonition}{note}{Example 45.2.7 (Shallow water equation in \protect\(1\protect\)\sphinxhyphen{}dimensional domain)}
 
 
 
@@ -10131,7 +10526,7 @@ and integration in \(z\)\sphinxhyphen{}direction \sphinxstylestrong{todo} Explic
 \begin{split}0 = |\mathbf{A}(\mathbf{u}) - s^2 \mathbf{I}| = -s \left( 2 u - s \right) + u^2 - g \eta = (s-u)^2 - g  \eta \ .\end{split}
 \end{equation*}\end{sphinxadmonition}
 \label{ch/pde/hyperbolic-dimensions:example-7}
-\begin{sphinxadmonition}{note}{Example 44.2.8 (P\sphinxhyphen{}system in n\sphinxhyphen{}dimensional domain)}
+\begin{sphinxadmonition}{note}{Example 45.2.8 (P\sphinxhyphen{}system in n\sphinxhyphen{}dimensional domain)}
 
 
 \begin{itemize}
@@ -10151,7 +10546,7 @@ Physical variables: e.g. \((\rho, \vec{u})\), \((P, \vec{u})\),…
 \end{cases}\end{split}
 \end{equation*}\end{sphinxadmonition}
 \label{ch/pde/hyperbolic-dimensions:example-8}
-\begin{sphinxadmonition}{note}{Example 44.2.9 (Euler system in n\sphinxhyphen{}dimensional domain)}
+\begin{sphinxadmonition}{note}{Example 45.2.9 (Euler system in n\sphinxhyphen{}dimensional domain)}
 
 
 \begin{itemize}
@@ -10180,7 +10575,7 @@ where \(\Pi\) represents the pressure field as a function of the conservative va
 and \(P\) the pressure field expressed by the \sphinxstylestrong{equation of state of the fluid} as a function of density and internal energy per unit mass as the pair of independent variables determining the thermodynamic state.
 \end{sphinxadmonition}
 \label{ch/pde/hyperbolic-dimensions:example-9}
-\begin{sphinxadmonition}{note}{Example 44.2.10 (Shallow water equations in 2\sphinxhyphen{}dimensional domain)}
+\begin{sphinxadmonition}{note}{Example 45.2.10 (Shallow water equations in 2\sphinxhyphen{}dimensional domain)}
 
 
 \begin{equation*}
@@ -14180,7 +14575,7 @@ The \sphinxstylestrong{integral formulation} of the problem for all the boundary
 \begin{equation}\label{equation:ch/pde/numerics:eq:example:pde:poisson:integral}
 \begin{split}0 = - \oint_{\partial \Omega} \hat{n} \cdot \vec{q} + \int_{\Omega} f \ .\end{split}
 \end{equation}\label{ch/pde/numerics:pde:ex:fvm}
-\begin{sphinxadmonition}{note}{Example 48.1 (Finite volume methods)}
+\begin{sphinxadmonition}{note}{Example 49.1 (Finite volume methods)}
 
 
 
@@ -14196,7 +14591,7 @@ evaluating volume integrals with the internal variables of the cell \(\Omega_k\)
 \end{equation*}
 \sphinxAtStartPar
 Different numerical methods differs in the evaluation of fluxes and sources.
-FVM is \sphinxstylestrong{conservative} as it evaluate flux at interfaces and then distribute it to neighoring cells, see {\hyperref[\detokenize{ch/pde/fvm:fvm:property:conservation}]{\sphinxcrossref{Property 50.1}}}. A rough elementwise\sphinxhyphen{}uniform variable with jump at interfaces and diffusive flux,
+FVM is \sphinxstylestrong{conservative} as it evaluate flux at interfaces and then distribute it to neighoring cells, see {\hyperref[\detokenize{ch/pde/fvm:fvm:property:conservation}]{\sphinxcrossref{Property 51.1}}}. A rough elementwise\sphinxhyphen{}uniform variable with jump at interfaces and diffusive flux,
 \begin{equation*}
 \begin{split}F_{ik} = - A_{ik} \, k \, \frac{u_i - u_k}{d_{ik}} \ ,\end{split}
 \end{equation*}
@@ -14214,7 +14609,7 @@ For regular cubic mesh, \(A_{ik} = \Delta x\), \(d_{ik} = \Delta x\), \(V_k = \D
 \begin{split}0 = k \sum_{i \in \Omega_k} \frac{u_i - u_k}{\Delta x^2} + f_k \ ,\end{split}
 \end{equation*}
 \sphinxAtStartPar
-where the summation is exactly equal to the center\sphinxhyphen{}difference stencil for the Laplacian, used in finite difference method {\hyperref[\detokenize{ch/pde/numerics:pde:ex:fdm}]{\sphinxcrossref{Example 48.2}}}.
+where the summation is exactly equal to the center\sphinxhyphen{}difference stencil for the Laplacian, used in finite difference method {\hyperref[\detokenize{ch/pde/numerics:pde:ex:fdm}]{\sphinxcrossref{Example 49.2}}}.
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
@@ -14238,7 +14633,7 @@ Exploiting the arbitrariety of the volume \(V\), the \sphinxstylestrong{strong f
 \sphinxAtStartPar
 only holds in regions of the domain where the functions involved are continuous and differentiable, i.e. everything written in the problem is not meaningful, i.e. at least it exists.
 \label{ch/pde/numerics:pde:ex:fdm}
-\begin{sphinxadmonition}{note}{Example 48.2 (Finite difference methods)}
+\begin{sphinxadmonition}{note}{Example 49.2 (Finite difference methods)}
 
 
 
@@ -14254,7 +14649,7 @@ Finite different method approximates the strong form of the problem, building a 
 \end{aligned}\end{split}
 \end{equation*}
 \sphinxAtStartPar
-and it’s equal to the same expression already provided for the rough finite volume method with regular grid, in {\hyperref[\detokenize{ch/pde/numerics:pde:ex:fvm}]{\sphinxcrossref{Example 48.1}}}
+and it’s equal to the same expression already provided for the rough finite volume method with regular grid, in {\hyperref[\detokenize{ch/pde/numerics:pde:ex:fvm}]{\sphinxcrossref{Example 49.1}}}
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
@@ -14284,7 +14679,7 @@ Using a test function \(w(\vec{r})\) equal to zero on the boundary where essenti
 \sphinxAtStartPar
 compatible with essential boundary conditions.
 \label{ch/pde/numerics:pde:ex:fem}
-\begin{sphinxadmonition}{note}{Example 48.3 (Finite element methods)}
+\begin{sphinxadmonition}{note}{Example 49.3 (Finite element methods)}
 
 
 
@@ -14690,7 +15085,7 @@ Try to set different values of Dirichlet boundary conditions, u\_dir
 
 \chapter{Finite Volume Method}
 \label{\detokenize{ch/pde/fvm:finite-volume-method}}\label{\detokenize{ch/pde/fvm:pde-fvm}}\label{\detokenize{ch/pde/fvm::doc}}\label{ch/pde/fvm:fvm:property:conservation}
-\begin{sphinxadmonition}{note}{Property 50.1}
+\begin{sphinxadmonition}{note}{Property 51.1}
 
 
 
@@ -15195,7 +15590,7 @@ being \(\hat{\mathbf{A}}(\mathbf{u}_L, \mathbf{u}_R)\) an approximation of the c
 
 \end{enumerate}
 \label{ch/pde/fvm-hyperbolic-pde:example-0}
-\begin{sphinxadmonition}{note}{Example 50.2.1 (P\sphinxhyphen{}sys. Intermediate state)}
+\begin{sphinxadmonition}{note}{Example 51.2.1 (P\sphinxhyphen{}sys. Intermediate state)}
 
 
 
@@ -15270,7 +15665,7 @@ so that the solution that avoids singularities for \(\rho_L = \rho_R\) (the one 
 Arbitrary intermediate value of the density \(\hat{\rho}\) needs to satisfy consistency, as well. Just as an example, if \(\hat{\rho}\) is chosen to be the average of the densities, \(\hat{\rho} = \frac{1}{2}(\rho_L + \rho_R)\), this is consistent choice.
 \end{sphinxadmonition}
 \label{ch/pde/fvm-hyperbolic-pde:example-1}
-\begin{sphinxadmonition}{note}{Example 50.2.2 (Euler equations. Intermediate state)}
+\begin{sphinxadmonition}{note}{Example 51.2.2 (Euler equations. Intermediate state)}
 
 
 
@@ -15405,7 +15800,7 @@ with
 
 \subsubsection{Domain at rest}
 \label{\detokenize{ch/pde/fvm-hyperbolic-bc:domain-at-rest}}\label{ch/pde/fvm-hyperbolic-bc:example-0}
-\begin{sphinxadmonition}{note}{Example 50.3.1 (Wall for Roe flux in 1\sphinxhyphen{}dimensional P\sphinxhyphen{}sys)}
+\begin{sphinxadmonition}{note}{Example 51.3.1 (Wall for Roe flux in 1\sphinxhyphen{}dimensional P\sphinxhyphen{}sys)}
 
 
 
@@ -15468,7 +15863,7 @@ the upwind matrix evaluated on the Roe intermediate state (no need for entropy f
 i.e. there’s \sphinxstylestrong{no mass flux} across the wall, as the first component of the vector \(\mathbf{F}_\partial\) is zero.
 \end{sphinxadmonition}
 \label{ch/pde/fvm-hyperbolic-bc:example-1}
-\begin{sphinxadmonition}{note}{Example 50.3.2 (Wall for Roe flux in 1\sphinxhyphen{}dimensional Euler equations)}
+\begin{sphinxadmonition}{note}{Example 51.3.2 (Wall for Roe flux in 1\sphinxhyphen{}dimensional Euler equations)}
 
 
 \end{sphinxadmonition}
@@ -16255,9 +16650,9 @@ minimum: if the Hessian evalauted in \(\mathbf{x}^*\) is definite positive,
 \end{itemize}
 
 \sphinxAtStartPar
-Here the formalism \(\partial_{\mathbf{x} \mathbf{x}} f(\mathbf{x}^*) < 0\) indicates that the Hessian matrix is negative definite, see {\hyperref[\detokenize{ch/optimization/intro:optimization:hessian:extreme}]{\sphinxcrossref{Example 53.1.1}}}.
+Here the formalism \(\partial_{\mathbf{x} \mathbf{x}} f(\mathbf{x}^*) < 0\) indicates that the Hessian matrix is negative definite, see {\hyperref[\detokenize{ch/optimization/intro:optimization:hessian:extreme}]{\sphinxcrossref{Example 54.1.1}}}.
 \label{ch/optimization/intro:optimization:hessian:extreme}
-\begin{sphinxadmonition}{note}{Example 53.1.1 (Positive/negative definite Hessian)}
+\begin{sphinxadmonition}{note}{Example 54.1.1 (Positive/negative definite Hessian)}
 
 
 
@@ -16316,7 +16711,7 @@ with constraints, such as
 
 \chapter{Markov Processes}
 \label{\detokenize{ch/rl/mdp:markov-processes}}\label{\detokenize{ch/rl/mdp:rl-mdp}}\label{\detokenize{ch/rl/mdp::doc}}\label{ch/rl/mdp:def:stoch-process}
-\begin{sphinxadmonition}{note}{Definition 55.1 (Stochastic process)}
+\begin{sphinxadmonition}{note}{Definition 56.1 (Stochastic process)}
 
 
 
@@ -16327,7 +16722,7 @@ A stochastic process is as collection of random variables \(X(t)\) defined on a 
 \end{equation*}\end{sphinxadmonition}
 
 \sphinxAtStartPar
-Markov process is a memomry\sphinxhyphen{}less stochastic process (see def {\hyperref[\detokenize{ch/rl/mdp:def:stoch-process}]{\sphinxcrossref{Definition 55.1}}}). For discrete\sphinxhyphen{}time Markov processes, state at time \(n\) only depends on state at time \(n-1\)
+Markov process is a memomry\sphinxhyphen{}less stochastic process (see def {\hyperref[\detokenize{ch/rl/mdp:def:stoch-process}]{\sphinxcrossref{Definition 56.1}}}). For discrete\sphinxhyphen{}time Markov processes, state at time \(n\) only depends on state at time \(n-1\)
 \begin{equation*}
 \begin{split}\langle S, P, \mu \rangle\end{split}
 \end{equation*}
@@ -16595,7 +16990,7 @@ Action\sphinxhyphen{}value functon \(Q^{\pi}(s,a)\), expected return starting fr
 
 
 \subsection{Bellman Equations}
-\label{\detokenize{ch/rl/mdp:bellman-equations}}
+\label{\detokenize{ch/rl/mdp:bellman-equations}}\label{\detokenize{ch/rl/mdp:rl-mdp-dp-bellman-equations}}
 \sphinxAtStartPar
 \sphinxstylestrong{Bellman expectation equations.} Bellman expectation equation for the state\sphinxhyphen{}value function \(V^{\pi}(s)\) reads
 \begin{equation}\label{equation:ch/rl/mdp:eq:bellman:v:exp}
@@ -16629,7 +17024,7 @@ Bellman expectation equation for the action\sphinxhyphen{}value function \(Q^{\p
 \sphinxAtStartPar
 \sphinxstylestrong{Optimal value functions, and optimal policies}
 \label{ch/rl/mdp:def:optimal-value-fcns}
-\begin{sphinxadmonition}{note}{Definition 55.2.1 (Optimal value functions)}
+\begin{sphinxadmonition}{note}{Definition 56.2.1 (Optimal value functions)}
 
 
 
@@ -16652,7 +17047,7 @@ Valus functions define a partial ordering of policies,
 \begin{equation*}
 \begin{split}\pi \ge \pi' \ \text{if} \ V^{\pi}(s) \ge V^{\pi'} \, \forall s \in S \ .\end{split}
 \end{equation*}\label{ch/rl/mdp:theorem-2}
-\begin{sphinxadmonition}{note}{Theorem 55.2.1 (Optimal policies)}
+\begin{sphinxadmonition}{note}{Theorem 56.2.1 (Optimal policies)}
 
 
 
@@ -16688,7 +17083,7 @@ a deterministic optimal policy exists, and it’s found optimizing action\sphinx
 \sphinxAtStartPar
 \sphinxstylestrong{todo}
 \label{ch/rl/mdp:prop:optimal-v-q}
-\begin{sphinxadmonition}{note}{Property 55.2.1 (Property: optimal state\sphinxhyphen{}value and action\sphinxhyphen{}value functions)}
+\begin{sphinxadmonition}{note}{Property 56.2.1 (Property: optimal state\sphinxhyphen{}value and action\sphinxhyphen{}value functions)}
 
 
 \begin{equation}\label{equation:ch/rl/mdp:eq:optimality-condition}
@@ -16700,7 +17095,7 @@ a deterministic optimal policy exists, and it’s found optimizing action\sphinx
 
 \sphinxAtStartPar
 \sphinxstylestrong{Bellman optimality equations.}
-Using {\hyperref[\detokenize{ch/rl/mdp:prop:optimal-v-q}]{\sphinxcrossref{Property 55.2.1}}} and the expression of action\sphinxhyphen{}value function in \eqref{equation:ch/rl/mdp:eq:bellman:q:exp}
+Using {\hyperref[\detokenize{ch/rl/mdp:prop:optimal-v-q}]{\sphinxcrossref{Property 56.2.1}}} and the expression of action\sphinxhyphen{}value function in \eqref{equation:ch/rl/mdp:eq:bellman:q:exp}
 \begin{equation*}
 \begin{split}\begin{aligned}
   V^{*}(s) 
@@ -16867,7 +17262,7 @@ and it “improves the value function” (which value function?) of any state,
 \sphinxAtStartPar
 In stochastic optimization, usually {\hyperref[\detokenize{ch/rl/mdp_sol_rl:rl-mdp-sol-rl-control-improv-eps-greedy}]{\sphinxcrossref{\DUrole{std,std-ref}{\(\varepsilon\)\sphinxhyphen{}greedy improvement}}}} is introduced to improve \sphinxstylestrong{exploration} and try to avoid converging to local optimum.
 \label{ch/rl/mdp_sol_dp_lp:thm:pi}
-\begin{sphinxadmonition}{note}{Theorem 56.2.1 (Policy improvement theorem)}
+\begin{sphinxadmonition}{note}{Theorem 57.2.1 (Policy improvement theorem)}
 
 
 
@@ -17260,7 +17655,7 @@ MC evaluation is model\sphinxhyphen{}free. To keep a model\sphinxhyphen{}free co
 \right.
 \end{split}
 \end{equation*}\label{ch/rl/mdp_sol_rl:theorem-0}
-\begin{sphinxadmonition}{note}{Theorem 57.2.1 (\protect\(\varepsilon\protect\)\sphinxhyphen{}greedy Policy Improvement)}
+\begin{sphinxadmonition}{note}{Theorem 58.2.1 (\protect\(\varepsilon\protect\)\sphinxhyphen{}greedy Policy Improvement)}
 
 
 
@@ -17280,7 +17675,7 @@ For …, the \(\varepsilon\)\sphinxhyphen{}greedy policy \(\pi'\) w.r.t. \(Q^{\p
 \end{equation*}
 \sphinxAtStartPar
 having used in \((1)\) …
-And for the policy improvement theorem {\hyperref[\detokenize{ch/rl/mdp_sol_dp_lp:thm:pi}]{\sphinxcrossref{Theorem 56.2.1}}}, \(V^{\pi'}(s) \ge V(s)\). \sphinxstylestrong{todo} \sphinxstyleemphasis{Check it!}
+And for the policy improvement theorem {\hyperref[\detokenize{ch/rl/mdp_sol_dp_lp:thm:pi}]{\sphinxcrossref{Theorem 57.2.1}}}, \(V^{\pi'}(s) \ge V(s)\). \sphinxstylestrong{todo} \sphinxstyleemphasis{Check it!}
 
 \sphinxAtStartPar
 \sphinxstylestrong{GLIE (Greedy in the Limit of Infinite Exploration)} …

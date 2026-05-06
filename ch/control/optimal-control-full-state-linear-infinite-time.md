@@ -83,6 +83,9 @@ $$\left\{\begin{aligned}
        \mathbf{y}  & = \hat{\mathbf{Q}}^{1/2} \mathbf{x} \\
 \end{aligned}\right.$$
 
+**todo** *check the following sentence*
+
+*If this system is detectable, then any state $x$ that produces zero output ($y=0$) must satisfy $\lim_{t \to \infty} x(t) = 0$. Since $y=0$ is a requirement for $\dot{V}=0$, we have proved that all trajectories must eventually vanish, achieving Global Asymptotic Stability.*
 
 ```
 
