@@ -174,17 +174,13 @@ $$\begin{aligned}
 
 ```
 
-## Constraints
+**Algebraic constraint on sensitivity and complementary sensitivity.** It's not possible to make $S(s)$ and $T(s)$ small at the same time, as
 
 $$S(s) + T(s) = 1$$
 
-It's not possible to make $S(s)$ and $T(s)$ small at the same time. Usually,
+Usually,
 
-* $S(s)$ small at low frequency to get small error in the band of the reference and filtering low-frequency measurement noise on the inp 
-* $T(s)$ small at high frequency to filter high-frequency noise from $\Delta u$ to $u$ (usually $r$ has no high-frequency content, so there should be little issues in filtering out the effect of reference signal to the output).
+* $|S(j \omega)|$ small at low frequency $\omega$ to get small error in the band of the reference and filtering low-frequency measurement noise on the inp 
+* $|T(j \omega)|$ small at high frequency $\omega$ to filter high-frequency noise from $\Delta u$ to $u$ (usually reference signal $r$ has no high-frequency content, so there should be little issues in filtering out the effect of reference signal to the output).
 
-## Goals
-
-* Tracking performance
-* ...
 

@@ -181,7 +181,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../linear-algebra/matrices.html">2. Matrices</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../linear-algebra/matrix-factorization.html">3. Matrix factorizations</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../linear-algebra/schur.html">3.3. Schur decomposition</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../linear-algebra/svd.html">3.4. Singular Value Decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linear-algebra/cholesky.html">3.4. Cholesky decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linear-algebra/jordan.html">3.5. Jordan normal form</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linear-algebra/svd.html">3.6. Singular Value Decomposition</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../linear-algebra/linear-systems.html">4. Linear Systems</a></li>
@@ -267,8 +269,8 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">37. Introduction to control methods</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="closed-loop-requirements-performance.html">38. Closed-loop control: requirements and performance</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="closed-loop-requirements-performance-siso-stability.html">38.3. Stability (SISO)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="closed-loop-requirements-performance-siso-ref-tracking.html">38.4. Reference tracking (SISO)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="closed-loop-requirements-performance-siso-stability.html">38.1. Stability (SISO)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="closed-loop-requirements-performance-siso-ref-tracking.html">38.2. Reference tracking (SISO)</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="frequency-domain.html">39. Frequency domain control</a></li>
@@ -276,6 +278,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2 current active has-children"><a class="reference internal" href="optimal-control-full-state.html">40.1. Full-state feedback</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l3 current active"><a class="current reference internal" href="#">40.1.1. Generic ODE without exogenous inputs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="optimal-control-full-state-linear.html">40.1.2. Linear system without exogenous inputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optimal-control-full-state-linear-infinite-time.html">40.1.3. Linear system without exogenous inputs - infinite time horizon</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="optimal-control-full-state-old.html">40.2. Full-state feedback (OLD)</a></li>
@@ -708,10 +711,10 @@ With dynamical equations as a constraint introduced with Lagrange multipliers<di
   &amp; - \delta \mathbf{x}^T(T) \mathbf{M}^T \boldsymbol\lambda(T) + \delta \mathbf{x}^T_t \mathbf{M}^T \boldsymbol\lambda(t) + \\
   &amp; + \int_{\tau=t}^{T} \left\{ \delta \mathbf{x}^T \partial_{\mathbf{x}} \mathbf{f}^T \boldsymbol\lambda + \delta \mathbf{u}^T \partial_{\mathbf{u}} \mathbf{f}^T \boldsymbol\lambda \right\} d \tau
 \end{aligned}\end{split}\]</div>
-<p class="sd-card-text">All the variations but <span class="math notranslate nohighlight">\(\delta \mathbf{x}_t\)</span> are identically zero if the equations <a class="reference internal" href="#equation-eq-optimal-ode">(40.1)</a> are satisfied, the variation w.r.t. <span class="math notranslate nohighlight">\(\delta \mathbf{x}_t\)</span> shows that the sensitivity to the initial state in the value function <span class="math notranslate nohighlight">\(\mathbf{x}_t\)</span> equals the value of the Lagrange multiplier <span class="math notranslate nohighlight">\(\boldsymbol\lambda(t)\)</span>,</p>
+<p class="sd-card-text">All the variations but <span class="math notranslate nohighlight">\(\delta \mathbf{x}_t\)</span> are identically zero if the equations <a class="reference internal" href="optimal-control-full-state-old.html#equation-eq-optimal-ode">(40.9)</a> are satisfied, the variation w.r.t. <span class="math notranslate nohighlight">\(\delta \mathbf{x}_t\)</span> shows that the sensitivity to the initial state in the value function <span class="math notranslate nohighlight">\(\mathbf{x}_t\)</span> equals the value of the Lagrange multiplier <span class="math notranslate nohighlight">\(\boldsymbol\lambda(t)\)</span>,</p>
 <div class="math notranslate nohighlight" id="equation-eq-co-state-sensitivity">
 <span class="eqno">(40.3)<a class="headerlink" href="#equation-eq-co-state-sensitivity" title="Permalink to this equation">#</a></span>\[\nabla_{\mathbf{x}_t} V(\mathbf{x}_t, t; ...) = \mathbf{M}^T \boldsymbol\lambda(t) \ ,\]</div>
-<p class="sd-card-text">with <span class="math notranslate nohighlight">\(\boldsymbol\lambda(t)\)</span> part of the solution of the equations <a class="reference internal" href="#equation-eq-optimal-ode">(40.1)</a>. Thus the Lagrange multiplier <span class="math notranslate nohighlight">\(\boldsymbol\lambda(t)\)</span> provides an information (first order, sensitivity) about the change in the value function <span class="math notranslate nohighlight">\(V(\mathbf{x}_t, t)\)</span> for small changes of the intial state <span class="math notranslate nohighlight">\(\mathbf{x}_t\)</span>, i.e.</p>
+<p class="sd-card-text">with <span class="math notranslate nohighlight">\(\boldsymbol\lambda(t)\)</span> part of the solution of the equations <a class="reference internal" href="optimal-control-full-state-old.html#equation-eq-optimal-ode">(40.9)</a>. Thus the Lagrange multiplier <span class="math notranslate nohighlight">\(\boldsymbol\lambda(t)\)</span> provides an information (first order, sensitivity) about the change in the value function <span class="math notranslate nohighlight">\(V(\mathbf{x}_t, t)\)</span> for small changes of the intial state <span class="math notranslate nohighlight">\(\mathbf{x}_t\)</span>, i.e.</p>
 <div class="math notranslate nohighlight">
 \[\delta_{\mathbf{x}_t} V(\mathbf{x}_t, t) \sim \delta \mathbf{x}_t^T \nabla_{\mathbf{x}_t} V + o(|\delta \mathbf{x}_t|) =  \delta \mathbf{x}^T_t \mathbf{M}^T \boldsymbol\lambda(t) + o(|\delta \mathbf{x}_t|) \ .\]</div>
 <p class="sd-card-text"><strong>todo</strong></p>

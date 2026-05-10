@@ -117,6 +117,13 @@ parts:
     - file: ch/control/kalman
     - file: ch/control/hjb
   - file: ch/control/pole-placement
+  - file: ch/control/examples
+    sections:
+    - file: ch/control/optimal-control-first-order-ref-tracking
+#   - file: ch/control/optimal-control-ref-tracking-example  # already there in optimal control section
+    - file: ch/control/optimal-control-inverted-pendulum
+    - file: ch/control/optimal-control-inverted-pendulum-cart
+    - file: ch/control/optimal-control-inverted-pendulum-cart-only-force
 - caption: Partial Differential Equations
   numbered: True
   chapters:

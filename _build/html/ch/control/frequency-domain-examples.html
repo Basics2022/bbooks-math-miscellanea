@@ -179,7 +179,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../linear-algebra/matrices.html">2. Matrices</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../linear-algebra/matrix-factorization.html">3. Matrix factorizations</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../linear-algebra/schur.html">3.3. Schur decomposition</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../linear-algebra/svd.html">3.4. Singular Value Decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linear-algebra/cholesky.html">3.4. Cholesky decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linear-algebra/jordan.html">3.5. Jordan normal form</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linear-algebra/svd.html">3.6. Singular Value Decomposition</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../linear-algebra/linear-systems.html">4. Linear Systems</a></li>
@@ -252,107 +254,120 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../system-theory/lti-stability-and-feedback.html">29. LTI: stability and feedback</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../system-theory/observability-detectability.html">30. Observability and Detectability</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../system-theory/controllability-reachability.html">31. Reachability and Controllability</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../system-theory/kalman-decomposition.html">32. Kalman decomposition</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../system-theory/lyapunov-equation.html">33. Lyapunov equation</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../system-theory/order-reduction.html">34. Order reduction of dynamical systems</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../system-theory/order-reduction-balanced-truncation.html">34.1. Balanced truncation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system-theory/realizations.html">32. State-space realizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system-theory/kalman-decomposition.html">33. Kalman decomposition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system-theory/lyapunov-equation.html">34. Lyapunov equation</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../system-theory/order-reduction.html">35. Order reduction of dynamical systems</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../system-theory/order-reduction-balanced-truncation.html">35.1. Balanced truncation</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../system-theory/shape-filter.html">35. Shape filter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system-theory/shape-filter.html">36. Shape filter</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Control Theory</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="intro.html">36. Introduction to control methods</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="closed-loop-requirements-performance.html">37. Closed-loop control: requirements and performance</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="closed-loop-requirements-performance-siso-stability.html">37.3. Stability (SISO)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="closed-loop-requirements-performance-siso-ref-tracking.html">37.4. Reference tracking (SISO)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">37. Introduction to control methods</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="closed-loop-requirements-performance.html">38. Closed-loop control: requirements and performance</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="closed-loop-requirements-performance-siso-stability.html">38.1. Stability (SISO)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="closed-loop-requirements-performance-siso-ref-tracking.html">38.2. Reference tracking (SISO)</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="frequency-domain.html">38. Frequency domain control</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="optimal-control.html">39. Optimal control</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="optimal-control-full-state.html">39.1. Full-state feedback</a></li>
-<li class="toctree-l2"><a class="reference internal" href="optimal-control-full-state-old.html">39.2. Full-state feedback (OLD)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="optimal-control-margins.html">39.3. Phase and gain margin of optimal control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="optimal-control-observer-stochastic.html">39.4. Optimal observer for stochastic disturbance</a></li>
-<li class="toctree-l2"><a class="reference internal" href="optimal-control-observer-deterministic.html">39.5. Optimal observer for deterministic disturbances</a></li>
-<li class="toctree-l2"><a class="reference internal" href="optimal-control-output.html">39.6. Sub-optimal control for output feedback</a></li>
-<li class="toctree-l2"><a class="reference internal" href="optimal-control-regulator-observer.html">39.7. Combination of controller and observer</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="optimal-control-ref-tracking.html">39.8. Optimal control for reference tracking</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="optimal-control-ref-tracking-example.html">39.8.3. Example of optimal control for tracking reference input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="frequency-domain.html">39. Frequency domain control</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="optimal-control.html">40. Optimal control</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="optimal-control-full-state.html">40.1. Full-state feedback</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="optimal-control-full-state-general-ode.html">40.1.1. Generic ODE without exogenous inputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optimal-control-full-state-linear.html">40.1.2. Linear system without exogenous inputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="optimal-control-full-state-linear-infinite-time.html">40.1.3. Linear system without exogenous inputs - infinite time horizon</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="kalman.html">39.9. Kalman filter</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hjb.html">39.10. Hamilton Bellman Jacobi equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimal-control-full-state-old.html">40.2. Full-state feedback (OLD)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimal-control-margins.html">40.3. Phase and gain margin of optimal control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimal-control-observer-stochastic.html">40.4. Optimal observer for stochastic disturbance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimal-control-observer-deterministic.html">40.5. Optimal observer for deterministic disturbances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimal-control-output.html">40.6. Sub-optimal control for output feedback</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimal-control-regulator-observer.html">40.7. Combination of controller and observer</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="optimal-control-ref-tracking.html">40.8. Optimal control for reference tracking</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="optimal-control-ref-tracking-example.html">40.8.3. Example of optimal control for tracking reference input</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="pole-placement.html">40. Pole placement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kalman.html">40.9. Kalman filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hjb.html">40.10. Hamilton Bellman Jacobi equation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pole-placement.html">41. Pole placement</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="examples.html">42. Examples</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="optimal-control-first-order-ref-tracking.html">42.1. First order system - Reference tracking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimal-control-inverted-pendulum.html">42.2. Inverted pendulum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimal-control-inverted-pendulum-cart.html">42.3. Inverted pendulum on a cart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimal-control-inverted-pendulum-cart-only-force.html">42.4. Inverted pendulum on a cart - only force actuation</a></li>
+</ul>
+</li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Partial Differential Equations</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../pde/intro.html">41. Introduction to Partial Differential Equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pde/elliptic.html">42. Elliptic equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pde/parabolic.html">43. Parabolic equations</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/hyperbolic.html">44. Hyperbolic equations</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-intro.html">44.1. Hyperbolic problems and conservation laws</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-dimensions.html">44.2. Hyperbolic problems - dimensions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-1d-scalar-linear.html">44.3. Scalar linear equation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-1d-vector-linear.html">44.4. Linear vector equation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-1d-scalar-nonlinear.html">44.5. Scalar non-linear equation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/characteristics.html">44.6. Method of characteristics</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../pde/hyperbolic-nd.html">44.7. Hyperbolic problems in multi-dimensional domains</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-draft.html">44.7.1. General hyperbolic problem</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-psys.html">44.7.2. P-system</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-euler.html">44.7.3. Euler equations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-shallow-water.html">44.7.4. Shallow water</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/intro.html">43. Introduction to Partial Differential Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/elliptic.html">44. Elliptic equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/parabolic.html">45. Parabolic equations</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/hyperbolic.html">46. Hyperbolic equations</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-intro.html">46.1. Hyperbolic problems and conservation laws</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-dimensions.html">46.2. Hyperbolic problems - dimensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-1d-scalar-linear.html">46.3. Scalar linear equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-1d-vector-linear.html">46.4. Linear vector equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-1d-scalar-nonlinear.html">46.5. Scalar non-linear equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/characteristics.html">46.6. Method of characteristics</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../pde/hyperbolic-nd.html">46.7. Hyperbolic problems in multi-dimensional domains</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-draft.html">46.7.1. General hyperbolic problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-psys.html">46.7.2. P-system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-euler.html">46.7.3. Euler equations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-shallow-water.html">46.7.4. Shallow water</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-riemann-pb.html">44.8. Riemann problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-entropy.html">44.9. Physical solution in hyperbolic problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-convexity.html">44.10. Convexity in hyperbolic problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-non-convex.html">44.11. Non-convex hyperbolic problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-riemann-pb.html">46.8. Riemann problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-entropy.html">46.9. Physical solution in hyperbolic problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-convexity.html">46.10. Convexity in hyperbolic problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-non-convex.html">46.11. Non-convex hyperbolic problems</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../pde/nc.html">45. Navier-Cauchy equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pde/ns.html">46. Navier-Stokes equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pde/ale.html">47. Arbitrary Lagrangian-Eulerian description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/nc.html">47. Navier-Cauchy equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/ns.html">48. Navier-Stokes equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/ale.html">49. Arbitrary Lagrangian-Eulerian description</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Numerical Methods for PDEs</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../pde/numerics.html">48. Introduction to numerical methods for PDEs</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/fem.html">49. Finite Element Method</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../pde/fem-poisson-1d.html">49.1. 1-dimensional Poisson equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/numerics.html">50. Introduction to numerical methods for PDEs</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/fem.html">51. Finite Element Method</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pde/fem-poisson-1d.html">51.1. 1-dimensional Poisson equation</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/fvm.html">50. Finite Volume Method</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../pde/fvm-poisson-1d.html">50.1. 1-dimensional Poisson equation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/fvm-hyperbolic-pde.html">50.2. FVM for hyperbolic problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/fvm-hyperbolic-bc.html">50.3. Boundary conditions in hyperbolic problems</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../pde/fvm-hyperbolic-examples.html">50.4. Examples of FVM for hyperbolic problems</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../pde/psys-1d.html">50.4.1. 1-dimensional P-system</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../pde/euler-1d.html">50.4.2. 1-dimensional Euler equations for Perfect Ideal Gas</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../pde/euler-quasi-1d.html">50.4.3. Quasi 1-dimensional Euler equations for Perfect Ideal Gas</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../pde/euler-1d-ale-piston.html">50.4.4. 1-dimensional Euler equations for Perfect Ideal Gas on moving mesh (ALE)</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/fvm.html">52. Finite Volume Method</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pde/fvm-poisson-1d.html">52.1. 1-dimensional Poisson equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/fvm-hyperbolic-pde.html">52.2. FVM for hyperbolic problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/fvm-hyperbolic-bc.html">52.3. Boundary conditions in hyperbolic problems</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../pde/fvm-hyperbolic-examples.html">52.4. Examples of FVM for hyperbolic problems</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../pde/psys-1d.html">52.4.1. 1-dimensional P-system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/euler-1d.html">52.4.2. 1-dimensional Euler equations for Perfect Ideal Gas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/euler-quasi-1d.html">52.4.3. Quasi 1-dimensional Euler equations for Perfect Ideal Gas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/euler-1d-ale-piston.html">52.4.4. 1-dimensional Euler equations for Perfect Ideal Gas on moving mesh (ALE)</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../pde/bem.html">51. Boundary Element Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/bem.html">53. Boundary Element Method</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Boundary Methods for PDEs</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../pde/bem-poisson-helmholtz-waves.html">52. Green’s function method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/bem-poisson-helmholtz-waves.html">54. Green’s function method</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Optimization</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../optimization/intro.html">53. Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../optimization/intro.html">55. Optimization</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Reinforcement Learning</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../rl/intro.html">54. Introduction to Reinforcement Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rl/mdp.html">55. Markov Processes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_sol_dp_lp.html">56. Methods of solution of MPD: DP and LP</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_sol_rl.html">57. Methods of solution of MPD: RL</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_large_continuous.html">58. Large or Continuous MDPs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/intro.html">56. Introduction to Reinforcement Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp.html">57. Markov Processes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_sol_dp_lp.html">58. Methods of solution of MPD: DP and LP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_sol_rl.html">59. Methods of solution of MPD: RL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_large_continuous.html">60. Large or Continuous MDPs</a></li>
 </ul>
 
     </div>
@@ -701,8 +716,8 @@ s^2 + 2 s + 10
 <span class="n">ct</span><span class="o">.</span><span class="n">nyquist_plot</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
 
 <span class="n">theta_v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">x_circle</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta_v</span><span class="p">)</span>
-<span class="n">y_circle</span> <span class="o">=</span>      <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta_v</span><span class="p">)</span>
+<span class="n">x_circle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta_v</span><span class="p">)</span>
+<span class="n">y_circle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta_v</span><span class="p">)</span>
 
 <span class="c1"># Aesthetics and Labels</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;rx&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Critical Point (-1, 0)&#39;</span><span class="p">)</span> <span class="c1"># , fontweight=&#39;bold&#39;) # )</span>
@@ -730,7 +745,7 @@ s^2 + 2 s + 10
 Gain Margin: inf at nan rad/s
 </pre></div>
 </div>
-<img alt="../../_images/e7346f1a349a92934f1c8ac989b36c807b0f5fb7207206f24631e0c69d314536.png" src="../../_images/e7346f1a349a92934f1c8ac989b36c807b0f5fb7207206f24631e0c69d314536.png" />
+<img alt="../../_images/082cb680a28d6822cc3f5dc9aad2455dc3507eb32f053ace3228ca513926eb60.png" src="../../_images/082cb680a28d6822cc3f5dc9aad2455dc3507eb32f053ace3228ca513926eb60.png" />
 <img alt="../../_images/53d4307d373c1d0c7b515c7de22d4c75674bfa0b212f995622aee3888086bf5b.png" src="../../_images/53d4307d373c1d0c7b515c7de22d4c75674bfa0b212f995622aee3888086bf5b.png" />
 </div>
 </div>
@@ -795,7 +810,7 @@ G(s) =
 s^2 + s - 2
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f9d00220ee0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f739ad8ebe0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/2d10e1809e5d9010161f8770dad635df638af6bb0bffd5a1243bb707021fe25a.png" src="../../_images/2d10e1809e5d9010161f8770dad635df638af6bb0bffd5a1243bb707021fe25a.png" />
@@ -804,20 +819,23 @@ s^2 + s - 2
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="mf">1.</span>
-<span class="n">zeros</span> <span class="o">=</span> <span class="p">[</span><span class="mf">.2</span><span class="p">,</span> <span class="mf">.2</span><span class="p">]</span>
-<span class="n">poles</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">k = 1.</span>
+<span class="sd">zeros = [.2, .2]</span>
+<span class="sd">poles = [10, 10]</span>
+<span class="sd">n_integrators = 1</span>
 
-<span class="n">K</span> <span class="o">=</span> <span class="n">k</span> <span class="o">*</span> <span class="n">ct</span><span class="o">.</span><span class="n">tf</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">poly</span><span class="p">(</span><span class="n">zeros</span><span class="p">),</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="o">*</span> <span class="n">ct</span><span class="o">.</span><span class="n">tf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">poly</span><span class="p">(</span><span class="n">poles</span><span class="p">))</span>
+<span class="sd">den_integrators = np.zeros((n_integrators+1)); den_integrators[0] = 1</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">K</span><span class="p">)</span>
+<span class="sd">K = k * ct.tf(np.poly(zeros), np.poly(poles)) * ct.tf(1, den_integrators)</span>
+
+<span class="sd">print(K)</span>
+<span class="sd">&quot;&quot;&quot;</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  s^2 - 0.4 s + 0.04
-----------------------
-s^4 - 20 s^3 + 100 s^2
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;\nk = 1.\nzeros = [.2, .2]\npoles = [10, 10]\nn_integrators = 1\n\nden_integrators = np.zeros((n_integrators+1)); den_integrators[0] = 1\n\nK = k * ct.tf(np.poly(zeros), np.poly(poles)) * ct.tf(1, den_integrators)\n\nprint(K)\n&#39;
 </pre></div>
 </div>
 </div>
@@ -827,22 +845,45 @@ s^4 - 20 s^3 + 100 s^2
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># k, z, p = -10., 1, 10</span>
 <span class="c1"># K = ct.tf([1, z], [1, p, 0]) * k</span>
 
-<span class="c1">#&gt; Proportional controller</span>
-<span class="n">k</span> <span class="o">=</span> <span class="mf">3.</span>
-<span class="n">K</span> <span class="o">=</span> <span class="n">K</span>
-
-<span class="c1">#&gt; Controller with one integrator to get zero error for step input</span>
-<span class="n">k</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="mf">.3</span><span class="p">,</span> <span class="o">-</span><span class="mf">.1</span><span class="p">,</span> <span class="o">-</span><span class="mf">20.</span>
-<span class="n">gain</span> <span class="o">=</span> <span class="n">k</span> <span class="o">/</span> <span class="p">(</span><span class="o">-</span><span class="n">z</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="o">-</span><span class="n">p</span><span class="p">)</span>
-<span class="n">K</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">tf</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="n">z</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="n">p</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="o">*</span> <span class="n">gain</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd"># Controller #1</span>
+<span class="sd">#&gt; Proportional controller</span>
+<span class="sd">k = 3.</span>
+<span class="sd">K = K</span>
+<span class="sd">&quot;&quot;&quot;</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">#&gt; Controller with double zeros and poles</span>
-<span class="sd">zeros = [-.1, -.1]</span>
-<span class="sd">poles = [-20.,-20.]</span>
-<span class="sd">k = 1000</span>
-<span class="sd">K = k * ct.tf(np.poly(zeros), [1, 0, 0]) * ct.tf(1, np.poly(poles))</span>
+<span class="sd"># Controller #2</span>
+<span class="sd"># Regulator TF, K(s)= </span>
+<span class="sd">#  30 s + 3</span>
+<span class="sd"># ----------</span>
+<span class="sd"># s^2 + 10 s</span>
+<span class="sd">#&gt; Controller with one integrator to get zero error for step input</span>
+<span class="sd">z, p = -.1, -10.</span>
+<span class="sd"># gain = k / (-z) * (-p)</span>
+<span class="sd">gain = .3</span>
+<span class="sd">k = gain / (-z) * (-p)</span>
+<span class="sd">K = ct.tf([1,-z],[1,-p, 0]) * k</span>
 <span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Controller #3</span>
+<span class="c1">#&gt; Controller with double zeros and poles</span>
+<span class="c1"># Regulator TF, K(s)=</span>
+<span class="c1"># 3e+04 s + 3000</span>
+<span class="c1"># --------------</span>
+<span class="c1">#  0.1 s^2 + s</span>
+
+<span class="n">zeros</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">.1</span><span class="p">,]</span>  <span class="c1"># , -.1]</span>
+<span class="n">poles</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">10.</span><span class="p">]</span>
+<span class="n">gain</span> <span class="o">=</span> <span class="mf">.3</span>
+
+<span class="n">n_integrators</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">den_integrators</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_integrators</span><span class="o">+</span><span class="mi">1</span><span class="p">));</span> <span class="n">den_integrators</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="n">num_coeffs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">poly</span><span class="p">(</span><span class="n">zeros</span><span class="p">);</span>  <span class="n">num_coeffs</span> <span class="o">=</span> <span class="n">num_coeffs</span> <span class="o">/</span> <span class="n">num_coeffs</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">den_coeffs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">poly</span><span class="p">(</span><span class="n">poles</span><span class="p">);</span>  <span class="n">den_coeffs</span> <span class="o">=</span> <span class="n">den_coeffs</span> <span class="o">/</span> <span class="n">den_coeffs</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="n">K</span> <span class="o">=</span> <span class="n">gain</span> <span class="o">*</span> <span class="n">ct</span><span class="o">.</span><span class="n">tf</span><span class="p">(</span><span class="n">num_coeffs</span><span class="p">,</span> <span class="n">den_coeffs</span><span class="p">)</span> <span class="o">*</span> <span class="n">ct</span><span class="o">.</span><span class="n">tf</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">den_integrators</span><span class="p">)</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">#&gt; With integral</span>
@@ -896,8 +937,8 @@ s^4 - 20 s^3 + 100 s^2
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Real Axis&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Imaginary Axis&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
 
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
@@ -932,15 +973,31 @@ s^4 - 20 s^3 + 100 s^2
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Regulator TF, K(s)=
 
- 60 s + 6
-----------
-s^2 + 20 s
+ 3 s + 0.3
+-----------
+0.1 s^2 + s
 
-Phase Margin: 9.19 deg
+Phase Margin: 6.50 deg
 </pre></div>
 </div>
-<img alt="../../_images/b7987f9a1461434299078aa77eaf714b74601e189d3a06413af06545006478e5.png" src="../../_images/b7987f9a1461434299078aa77eaf714b74601e189d3a06413af06545006478e5.png" />
-<img alt="../../_images/6b1be89111561d5552a4ba60144a5bb2f0e508caf4e2e70c30d9941177d28ca1.png" src="../../_images/6b1be89111561d5552a4ba60144a5bb2f0e508caf4e2e70c30d9941177d28ca1.png" />
+<img alt="../../_images/8abecfb84a2fab9807833a81336dfbf962d046d4822657aba95fb3c97b4e853d.png" src="../../_images/8abecfb84a2fab9807833a81336dfbf962d046d4822657aba95fb3c97b4e853d.png" />
+<img alt="../../_images/860d5dd77ce04a3ea56610aba5581a419a34bddc28ea021890bba292bff44188.png" src="../../_images/860d5dd77ce04a3ea56610aba5581a419a34bddc28ea021890bba292bff44188.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">gain</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">num_coeffs</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">den_coeffs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.3
+[10.  1.]
+[0.1 1. ]
+</pre></div>
+</div>
 </div>
 </div>
 <div class="cell docutils container">
@@ -966,8 +1023,8 @@ Phase Margin: 9.19 deg
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/db8bcd9cbcb5ae2cc2b25636f61baf92eb3c4afb8c2900da9f71673d37bf0779.png" src="../../_images/db8bcd9cbcb5ae2cc2b25636f61baf92eb3c4afb8c2900da9f71673d37bf0779.png" />
-<img alt="../../_images/fd6dc553ea3a4bbd5bebc5e0f502f032a75bac4c7fc174222e2b26448080d772.png" src="../../_images/fd6dc553ea3a4bbd5bebc5e0f502f032a75bac4c7fc174222e2b26448080d772.png" />
+<img alt="../../_images/04a1ca48576b89619c17a135c07ce1eabfb99c3f558c2d8f70b83ca97ba68797.png" src="../../_images/04a1ca48576b89619c17a135c07ce1eabfb99c3f558c2d8f70b83ca97ba68797.png" />
+<img alt="../../_images/03ac27589d4c726136aae1fd8de7d1bce981b3d888bd71a369a549c549f970f7.png" src="../../_images/03ac27589d4c726136aae1fd8de7d1bce981b3d888bd71a369a549c549f970f7.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -987,7 +1044,7 @@ Phase Margin: 9.19 deg
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0.98, &#39;Bode diagram of the open-loop TF $L/(1+L)$&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/fbd38a4457989fe36e17d667982f96dacab0625c12e2c856151a3aa63871838f.png" src="../../_images/fbd38a4457989fe36e17d667982f96dacab0625c12e2c856151a3aa63871838f.png" />
+<img alt="../../_images/c862cc2a7d62a42f9c8000c4898dc1b770b7d8b80eefd216deaf594b66976bb3.png" src="../../_images/c862cc2a7d62a42f9c8000c4898dc1b770b7d8b80eefd216deaf594b66976bb3.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1007,7 +1064,7 @@ Phase Margin: 9.19 deg
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0.98, &#39;Bode diagram of the open-loop TF $1/(1+L)$&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/d4ea729800b59ca4cfa5b9899c223516819a7fcc68843a625e6e7c8a8c637669.png" src="../../_images/d4ea729800b59ca4cfa5b9899c223516819a7fcc68843a625e6e7c8a8c637669.png" />
+<img alt="../../_images/df36b24f57d3416c6d5c9acab8b2ce1ae911ab3905fc12edf3ef4def940df361.png" src="../../_images/df36b24f57d3416c6d5c9acab8b2ce1ae911ab3905fc12edf3ef4def940df361.png" />
 </div>
 </div>
 </div>

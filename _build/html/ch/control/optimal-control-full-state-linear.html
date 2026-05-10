@@ -181,7 +181,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../linear-algebra/matrices.html">2. Matrices</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../linear-algebra/matrix-factorization.html">3. Matrix factorizations</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../linear-algebra/schur.html">3.3. Schur decomposition</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../linear-algebra/svd.html">3.4. Singular Value Decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linear-algebra/cholesky.html">3.4. Cholesky decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linear-algebra/jordan.html">3.5. Jordan normal form</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linear-algebra/svd.html">3.6. Singular Value Decomposition</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../linear-algebra/linear-systems.html">4. Linear Systems</a></li>
@@ -267,8 +269,8 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">37. Introduction to control methods</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="closed-loop-requirements-performance.html">38. Closed-loop control: requirements and performance</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="closed-loop-requirements-performance-siso-stability.html">38.3. Stability (SISO)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="closed-loop-requirements-performance-siso-ref-tracking.html">38.4. Reference tracking (SISO)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="closed-loop-requirements-performance-siso-stability.html">38.1. Stability (SISO)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="closed-loop-requirements-performance-siso-ref-tracking.html">38.2. Reference tracking (SISO)</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="frequency-domain.html">39. Frequency domain control</a></li>
@@ -618,7 +620,7 @@ C(\mathbf{x},\mathbf{u})
 \end{aligned}\end{split}\]</div>
 <div class="math notranslate nohighlight">
 \[D(\mathbf{x}_T) = \frac{1}{2} \mathbf{x}^T(T) \mathbf{Q}_T \mathbf{x}(T) \ .\]</div>
-<p>The equations <a class="reference internal" href="optimal-control-full-state-general-ode.html#equation-eq-optimal-ode">(40.1)</a> become</p>
+<p>The equations <a class="reference internal" href="optimal-control-full-state-old.html#equation-eq-optimal-ode">(40.9)</a> become</p>
 <div class="math notranslate nohighlight" id="equation-eq-optimal-ode-linear">
 <span class="eqno">(40.4)<a class="headerlink" href="#equation-eq-optimal-ode-linear" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
  \delta \boldsymbol\lambda(t): &amp; \quad \dot{\mathbf{x}} = \mathbf{A} \mathbf{x} + \mathbf{B} \mathbf{u} \\
