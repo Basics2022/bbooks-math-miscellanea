@@ -760,9 +760,9 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Install the control library if running in Colab</span>
 <span class="k">try</span><span class="p">:</span>
-    <span class="kn">import</span> <span class="nn">control</span>
+    <span class="kn">import</span> <span class="nn">control</span> <span class="k">as</span> <span class="nn">ct</span>
 <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
-    <span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>control
+    <span class="o">!</span>python3.11<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>control
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">scipy</span> <span class="k">as</span> <span class="nn">sp</span>
@@ -1370,13 +1370,13 @@ document.write(`
             mode: "python"
         },
         kernelOptions: {
-            name: "python3",
+            name: "python311",
             path: "./ch/control"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'python311'</script>
 
                 </article>
               
