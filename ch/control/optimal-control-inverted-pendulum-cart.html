@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>42.3. Inverted pendulum on a cart &#8212; basics - math</title>
+    <title>42.4. Inverted pendulum on a cart &#8212; basics - math</title>
   
   
   
@@ -71,8 +71,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="42.4. Inverted pendulum on a cart - only force actuation" href="optimal-control-inverted-pendulum-cart-only-force.html" />
-    <link rel="prev" title="42.2. Inverted pendulum" href="optimal-control-inverted-pendulum.html" />
+    <link rel="next" title="42.5. Inverted pendulum on a cart - only force actuation" href="optimal-control-inverted-pendulum-cart-only-force.html" />
+    <link rel="prev" title="42.3. Inverted pendulum" href="optimal-control-inverted-pendulum.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -298,9 +298,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="pole-placement.html">41. Pole placement</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="examples.html">42. Examples</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="optimal-control-first-order-ref-tracking.html">42.1. First order system - Reference tracking</a></li>
-<li class="toctree-l2"><a class="reference internal" href="optimal-control-inverted-pendulum.html">42.2. Inverted pendulum</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">42.3. Inverted pendulum on a cart</a></li>
-<li class="toctree-l2"><a class="reference internal" href="optimal-control-inverted-pendulum-cart-only-force.html">42.4. Inverted pendulum on a cart - only force actuation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimal-control-first-order-with-time-delay-ref-tracking.html">42.2. First order system w/ time delay - Reference tracking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimal-control-inverted-pendulum.html">42.3. Inverted pendulum</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">42.4. Inverted pendulum on a cart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimal-control-inverted-pendulum-cart-only-force.html">42.5. Inverted pendulum on a cart - only force actuation</a></li>
 </ul>
 </li>
 </ul>
@@ -613,27 +614,27 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equations-of-motion-with-lagrangian-mechanics">42.3.1. Equations of motion with Lagrangian mechanics</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-equations">42.3.1.1. Non-linear equations</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linearized-equations-around-equilibria">42.3.1.2. Linearized equations around equilibria</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#augmented-system-for-tracking-reference-signal">42.3.1.3. Augmented system for tracking reference signal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equations-of-motion-with-lagrangian-mechanics">42.4.1. Equations of motion with Lagrangian mechanics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-equations">42.4.1.1. Non-linear equations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linearized-equations-around-equilibria">42.4.1.2. Linearized equations around equilibria</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#augmented-system-for-tracking-reference-signal">42.4.1.3. Augmented system for tracking reference signal</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#libraries">42.3.2. Libraries</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#control">42.3.3. Control</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#full-state-feedback">42.3.3.1. Full-state feedback</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#feed-back-on-state-estimate">42.3.3.2. Feed-back on state estimate</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#observer-design">42.3.3.2.1. Observer design</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#control-design">42.3.3.2.2. Control design</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#combination-observer-controller">42.3.3.2.3. Combination observer + controller</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#state-estimator-with-process-and-measurement-noise">42.3.3.2.4. State estimator with process and measurement noise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#libraries">42.4.2. Libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#control">42.4.3. Control</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#full-state-feedback">42.4.3.1. Full-state feedback</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#feed-back-on-state-estimate">42.4.3.2. Feed-back on state estimate</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#observer-design">42.4.3.2.1. Observer design</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#control-design">42.4.3.2.2. Control design</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#combination-observer-controller">42.4.3.2.3. Combination observer + controller</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#state-estimator-with-process-and-measurement-noise">42.4.3.2.4. State estimator with process and measurement noise</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#closed-loop-testing">42.3.4. Closed-loop testing</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linearized-system">42.3.4.1. Linearized system</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-system-around-the-unstable-equilibrium">42.3.4.2. Non-linear system, around the unstable equilibrium</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#closed-loop-testing">42.4.4. Closed-loop testing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linearized-system">42.4.4.1. Linearized system</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-system-around-the-unstable-equilibrium">42.4.4.2. Non-linear system, around the unstable equilibrium</a></li>
 </ul>
 </li>
 </ul>
@@ -648,7 +649,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="inverted-pendulum-on-a-cart">
-<span id="control-examples-optimal-control-inverted-pendulum-on-cart"></span><h1><span class="section-number">42.3. </span>Inverted pendulum on a cart<a class="headerlink" href="#inverted-pendulum-on-a-cart" title="Permalink to this heading">#</a></h1>
+<span id="control-examples-optimal-control-inverted-pendulum-on-cart"></span><h1><span class="section-number">42.4. </span>Inverted pendulum on a cart<a class="headerlink" href="#inverted-pendulum-on-a-cart" title="Permalink to this heading">#</a></h1>
 <p><strong>todo</strong></p>
 <ul class="simple">
 <li><p>Update <span class="math notranslate nohighlight">\(\texttt{control}\)</span> library version, to have <span class="math notranslate nohighlight">\(\texttt{ct.poles()}\)</span></p></li>
@@ -675,10 +676,10 @@ document.write(`
 <li><p><a class="reference internal" href="optimal-control-observer-stochastic.html#control-optimal-observer-stochastic"><span class="std std-ref">Optimal observer - stochastic disturbances</span></a></p></li>
 </ul>
 <div class="section" id="equations-of-motion-with-lagrangian-mechanics">
-<h2><span class="section-number">42.3.1. </span>Equations of motion with Lagrangian mechanics<a class="headerlink" href="#equations-of-motion-with-lagrangian-mechanics" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">42.4.1. </span>Equations of motion with Lagrangian mechanics<a class="headerlink" href="#equations-of-motion-with-lagrangian-mechanics" title="Permalink to this heading">#</a></h2>
 <p>See <a class="reference external" href="https://basics2022.github.io/bbooks-physics-mechanics/ch/lagrange.html#classical-mechanics-lagrange">Classical Mechanics: Lagrangian Mechanics</a></p>
 <div class="section" id="non-linear-equations">
-<h3><span class="section-number">42.3.1.1. </span>Non-linear equations<a class="headerlink" href="#non-linear-equations" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">42.4.1.1. </span>Non-linear equations<a class="headerlink" href="#non-linear-equations" title="Permalink to this heading">#</a></h3>
 <p>Second-order dynamical equation of the mechanical system reads</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
@@ -695,7 +696,7 @@ document.write(`
 \end{aligned}\right.\end{split}\]</div>
 </div>
 <div class="section" id="linearized-equations-around-equilibria">
-<h3><span class="section-number">42.3.1.2. </span>Linearized equations around equilibria<a class="headerlink" href="#linearized-equations-around-equilibria" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">42.4.1.2. </span>Linearized equations around equilibria<a class="headerlink" href="#linearized-equations-around-equilibria" title="Permalink to this heading">#</a></h3>
 <p><strong>Linearized equation around the unstable equilibrium.</strong> First-order system equation around the <strong>unstable equilibium</strong> becomes</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
@@ -720,7 +721,7 @@ document.write(`
 <p>This the equation we’re interested in, when studying the inverted pendulum on a cart.</p>
 </div>
 <div class="section" id="augmented-system-for-tracking-reference-signal">
-<h3><span class="section-number">42.3.1.3. </span>Augmented system for tracking reference signal<a class="headerlink" href="#augmented-system-for-tracking-reference-signal" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">42.4.1.3. </span>Augmented system for tracking reference signal<a class="headerlink" href="#augmented-system-for-tracking-reference-signal" title="Permalink to this heading">#</a></h3>
 <p>Let <span class="math notranslate nohighlight">\(\mathbf{y}_{\text{ref}}\)</span> a reference signal. An augmented system can be defined in order to used optimal control. Let</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
@@ -750,7 +751,7 @@ document.write(`
 </div>
 </div>
 <div class="section" id="libraries">
-<h2><span class="section-number">42.3.2. </span>Libraries<a class="headerlink" href="#libraries" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">42.4.2. </span>Libraries<a class="headerlink" href="#libraries" title="Permalink to this heading">#</a></h2>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -852,9 +853,9 @@ document.write(`
 </div>
 </div>
 <div class="section" id="control">
-<h2><span class="section-number">42.3.3. </span>Control<a class="headerlink" href="#control" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">42.4.3. </span>Control<a class="headerlink" href="#control" title="Permalink to this heading">#</a></h2>
 <div class="section" id="full-state-feedback">
-<h3><span class="section-number">42.3.3.1. </span>Full-state feedback<a class="headerlink" href="#full-state-feedback" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">42.4.3.1. </span>Full-state feedback<a class="headerlink" href="#full-state-feedback" title="Permalink to this heading">#</a></h3>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -950,9 +951,9 @@ document.write(`
 <p><strong>todo.</strong> Update <span class="math notranslate nohighlight">\(\texttt{control}\)</span> library</p>
 </div>
 <div class="section" id="feed-back-on-state-estimate">
-<h3><span class="section-number">42.3.3.2. </span>Feed-back on state estimate<a class="headerlink" href="#feed-back-on-state-estimate" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">42.4.3.2. </span>Feed-back on state estimate<a class="headerlink" href="#feed-back-on-state-estimate" title="Permalink to this heading">#</a></h3>
 <div class="section" id="observer-design">
-<h4><span class="section-number">42.3.3.2.1. </span>Observer design<a class="headerlink" href="#observer-design" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">42.4.3.2.1. </span>Observer design<a class="headerlink" href="#observer-design" title="Permalink to this heading">#</a></h4>
 <p>System equations, without disturbances/noise</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\left\{\begin{aligned}
@@ -975,7 +976,7 @@ document.write(`
 <p>and the observer design here is the design of a matrix <span class="math notranslate nohighlight">\(\mathbf{L}\)</span> that makes the dynamics of the error <span class="math notranslate nohighlight">\(\boldsymbol\varepsilon\)</span>, and thus the matrix <span class="math notranslate nohighlight">\(\mathbf{A} - \mathbf{L} \mathbf{C}\)</span>, asymptotically stable.</p>
 </div>
 <div class="section" id="control-design">
-<h4><span class="section-number">42.3.3.2.2. </span>Control design<a class="headerlink" href="#control-design" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">42.4.3.2.2. </span>Control design<a class="headerlink" href="#control-design" title="Permalink to this heading">#</a></h4>
 <p>Control design is performed as the state is known, and then applied to the estimated state <span class="math notranslate nohighlight">\(\hat{\mathbf{x}} = \mathbf{x} + \boldsymbol\varepsilon\)</span>, as <span class="math notranslate nohighlight">\(\mathbf{u} = - \mathbf{K} \hat{\mathbf{x}}\)</span>.</p>
 <p>Here the state is augmented with an integrator</p>
 <div class="math notranslate nohighlight">
@@ -988,7 +989,7 @@ document.write(`
 \[\mathbf{u} = - \mathbf{K}_{\mathbf{x}} \hat{\mathbf{x}} - \mathbf{K}_{\mathbf{e}} \mathbf{e}_{\text{int}} \ .\]</div>
 </div>
 <div class="section" id="combination-observer-controller">
-<h4><span class="section-number">42.3.3.2.3. </span>Combination observer + controller<a class="headerlink" href="#combination-observer-controller" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">42.4.3.2.3. </span>Combination observer + controller<a class="headerlink" href="#combination-observer-controller" title="Permalink to this heading">#</a></h4>
 <p>State-space representation of the open-loop system from the tracking error <span class="math notranslate nohighlight">\(\mathbf{e}\)</span> to the output <span class="math notranslate nohighlight">\(\mathbf{y}\)</span> reads</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\left\{\begin{aligned}
@@ -1020,7 +1021,7 @@ document.write(`
 <p>If the system has no direct influence of input on measurement output, i.e. <span class="math notranslate nohighlight">\(\mathbf{D} = \mathbf{0}\)</span>, the system is triangular.</p>
 </div>
 <div class="section" id="state-estimator-with-process-and-measurement-noise">
-<h4><span class="section-number">42.3.3.2.4. </span>State estimator with process and measurement noise<a class="headerlink" href="#state-estimator-with-process-and-measurement-noise" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">42.4.3.2.4. </span>State estimator with process and measurement noise<a class="headerlink" href="#state-estimator-with-process-and-measurement-noise" title="Permalink to this heading">#</a></h4>
 <div class="math notranslate nohighlight">
 \[\begin{split}\left\{\begin{aligned}
   \dot{\mathbf{x}} &amp; = \mathbf{A} \mathbf{x} + \mathbf{B} \mathbf{u} + \mathbf{B}_d \mathbf{d}\\
@@ -1084,9 +1085,9 @@ document.write(`
 </div>
 </div>
 <div class="section" id="closed-loop-testing">
-<h2><span class="section-number">42.3.4. </span>Closed-loop testing<a class="headerlink" href="#closed-loop-testing" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">42.4.4. </span>Closed-loop testing<a class="headerlink" href="#closed-loop-testing" title="Permalink to this heading">#</a></h2>
 <div class="section" id="linearized-system">
-<h3><span class="section-number">42.3.4.1. </span>Linearized system<a class="headerlink" href="#linearized-system" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">42.4.4.1. </span>Linearized system<a class="headerlink" href="#linearized-system" title="Permalink to this heading">#</a></h3>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -1152,7 +1153,7 @@ document.write(`
 </div>
 </div>
 <div class="section" id="non-linear-system-around-the-unstable-equilibrium">
-<h3><span class="section-number">42.3.4.2. </span>Non-linear system, around the unstable equilibrium<a class="headerlink" href="#non-linear-system-around-the-unstable-equilibrium" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">42.4.4.2. </span>Non-linear system, around the unstable equilibrium<a class="headerlink" href="#non-linear-system-around-the-unstable-equilibrium" title="Permalink to this heading">#</a></h3>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -1394,7 +1395,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">42.2. </span>Inverted pendulum</p>
+        <p class="prev-next-title"><span class="section-number">42.3. </span>Inverted pendulum</p>
       </div>
     </a>
     <a class="right-next"
@@ -1402,7 +1403,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">42.4. </span>Inverted pendulum on a cart - only force actuation</p>
+        <p class="prev-next-title"><span class="section-number">42.5. </span>Inverted pendulum on a cart - only force actuation</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1421,27 +1422,27 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equations-of-motion-with-lagrangian-mechanics">42.3.1. Equations of motion with Lagrangian mechanics</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-equations">42.3.1.1. Non-linear equations</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linearized-equations-around-equilibria">42.3.1.2. Linearized equations around equilibria</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#augmented-system-for-tracking-reference-signal">42.3.1.3. Augmented system for tracking reference signal</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#equations-of-motion-with-lagrangian-mechanics">42.4.1. Equations of motion with Lagrangian mechanics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-equations">42.4.1.1. Non-linear equations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linearized-equations-around-equilibria">42.4.1.2. Linearized equations around equilibria</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#augmented-system-for-tracking-reference-signal">42.4.1.3. Augmented system for tracking reference signal</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#libraries">42.3.2. Libraries</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#control">42.3.3. Control</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#full-state-feedback">42.3.3.1. Full-state feedback</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#feed-back-on-state-estimate">42.3.3.2. Feed-back on state estimate</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#observer-design">42.3.3.2.1. Observer design</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#control-design">42.3.3.2.2. Control design</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#combination-observer-controller">42.3.3.2.3. Combination observer + controller</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#state-estimator-with-process-and-measurement-noise">42.3.3.2.4. State estimator with process and measurement noise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#libraries">42.4.2. Libraries</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#control">42.4.3. Control</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#full-state-feedback">42.4.3.1. Full-state feedback</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#feed-back-on-state-estimate">42.4.3.2. Feed-back on state estimate</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#observer-design">42.4.3.2.1. Observer design</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#control-design">42.4.3.2.2. Control design</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#combination-observer-controller">42.4.3.2.3. Combination observer + controller</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#state-estimator-with-process-and-measurement-noise">42.4.3.2.4. State estimator with process and measurement noise</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#closed-loop-testing">42.3.4. Closed-loop testing</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linearized-system">42.3.4.1. Linearized system</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-system-around-the-unstable-equilibrium">42.3.4.2. Non-linear system, around the unstable equilibrium</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#closed-loop-testing">42.4.4. Closed-loop testing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linearized-system">42.4.4.1. Linearized system</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#non-linear-system-around-the-unstable-equilibrium">42.4.4.2. Non-linear system, around the unstable equilibrium</a></li>
 </ul>
 </li>
 </ul>
