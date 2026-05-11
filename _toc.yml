@@ -120,6 +120,7 @@ parts:
   - file: ch/control/examples
     sections:
     - file: ch/control/optimal-control-first-order-ref-tracking
+    - file: ch/control/optimal-control-first-order-with-time-delay-ref-tracking
 #   - file: ch/control/optimal-control-ref-tracking-example  # already there in optimal control section
     - file: ch/control/optimal-control-inverted-pendulum
     - file: ch/control/optimal-control-inverted-pendulum-cart
