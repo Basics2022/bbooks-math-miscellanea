@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>43. Examples &#8212; basics - math</title>
+    <title>37. Padé approximation of time delay &#8212; basics - math</title>
   
   
   
@@ -65,12 +65,14 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/control/examples';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/system-theory/time-delay-pade';</script>
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="43.1. First order system - Reference tracking" href="optimal-control-first-order-ref-tracking.html" />
-    <link rel="prev" title="42. Pole placement" href="pole-placement.html" />
+    <link rel="next" title="38. Introduction to control methods" href="../control/intro.html" />
+    <link rel="prev" title="36. Shape filter" href="shape-filter.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -246,61 +248,61 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../ode/ode-linear-systems.html">24. Linear systems</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">System Theory</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../system-theory/intro.html">25. Introduction to System Theory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../system-theory/lti.html">26. Linear Time-Invariant Systems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../system-theory/coordinate-transformation.html">27. Coordinate transformation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../system-theory/lti-response.html">28. LTI system response</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../system-theory/lti-stability-and-feedback.html">29. LTI: stability and feedback</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../system-theory/observability-detectability.html">30. Observability and Detectability</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../system-theory/controllability-reachability.html">31. Reachability and Controllability</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../system-theory/realizations.html">32. State-space realizations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../system-theory/kalman-decomposition.html">33. Kalman decomposition</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../system-theory/lyapunov-equation.html">34. Lyapunov equation</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../system-theory/order-reduction.html">35. Order reduction of dynamical systems</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../system-theory/order-reduction-balanced-truncation.html">35.1. Balanced truncation</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">25. Introduction to System Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lti.html">26. Linear Time-Invariant Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="coordinate-transformation.html">27. Coordinate transformation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lti-response.html">28. LTI system response</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lti-stability-and-feedback.html">29. LTI: stability and feedback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="observability-detectability.html">30. Observability and Detectability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controllability-reachability.html">31. Reachability and Controllability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="realizations.html">32. State-space realizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kalman-decomposition.html">33. Kalman decomposition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lyapunov-equation.html">34. Lyapunov equation</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="order-reduction.html">35. Order reduction of dynamical systems</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="order-reduction-balanced-truncation.html">35.1. Balanced truncation</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../system-theory/shape-filter.html">36. Shape filter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../system-theory/time-delay-pade.html">37. Padé approximation of time delay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shape-filter.html">36. Shape filter</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">37. Padé approximation of time delay</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Control Theory</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="intro.html">38. Introduction to control methods</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="closed-loop-requirements-performance.html">39. Closed-loop control: requirements and performance</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="closed-loop-requirements-performance-siso-stability.html">39.1. Stability (SISO)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="closed-loop-requirements-performance-siso-ref-tracking.html">39.2. Reference tracking (SISO)</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../control/intro.html">38. Introduction to control methods</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../control/closed-loop-requirements-performance.html">39. Closed-loop control: requirements and performance</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../control/closed-loop-requirements-performance-siso-stability.html">39.1. Stability (SISO)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control/closed-loop-requirements-performance-siso-ref-tracking.html">39.2. Reference tracking (SISO)</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="frequency-domain.html">40. Frequency domain control</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="optimal-control.html">41. Optimal control</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="optimal-control-full-state.html">41.1. Full-state feedback</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="optimal-control-full-state-general-ode.html">41.1.1. Generic ODE without exogenous inputs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="optimal-control-full-state-linear.html">41.1.2. Linear system without exogenous inputs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="optimal-control-full-state-linear-infinite-time.html">41.1.3. Linear system without exogenous inputs - infinite time horizon</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../control/frequency-domain.html">40. Frequency domain control</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../control/optimal-control.html">41. Optimal control</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../control/optimal-control-full-state.html">41.1. Full-state feedback</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../control/optimal-control-full-state-general-ode.html">41.1.1. Generic ODE without exogenous inputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../control/optimal-control-full-state-linear.html">41.1.2. Linear system without exogenous inputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../control/optimal-control-full-state-linear-infinite-time.html">41.1.3. Linear system without exogenous inputs - infinite time horizon</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="optimal-control-full-state-old.html">41.2. Full-state feedback (OLD)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="optimal-control-margins.html">41.3. Phase and gain margin of optimal control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="optimal-control-observer-stochastic.html">41.4. Optimal observer for stochastic disturbance</a></li>
-<li class="toctree-l2"><a class="reference internal" href="optimal-control-observer-deterministic.html">41.5. Optimal observer for deterministic disturbances</a></li>
-<li class="toctree-l2"><a class="reference internal" href="optimal-control-output.html">41.6. Sub-optimal control for output feedback</a></li>
-<li class="toctree-l2"><a class="reference internal" href="optimal-control-regulator-observer.html">41.7. Combination of controller and observer</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="optimal-control-ref-tracking.html">41.8. Optimal control for reference tracking</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="optimal-control-ref-tracking-example.html">41.8.3. Example of optimal control for tracking reference input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-full-state-old.html">41.2. Full-state feedback (OLD)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-margins.html">41.3. Phase and gain margin of optimal control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-observer-stochastic.html">41.4. Optimal observer for stochastic disturbance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-observer-deterministic.html">41.5. Optimal observer for deterministic disturbances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-output.html">41.6. Sub-optimal control for output feedback</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-regulator-observer.html">41.7. Combination of controller and observer</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../control/optimal-control-ref-tracking.html">41.8. Optimal control for reference tracking</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../control/optimal-control-ref-tracking-example.html">41.8.3. Example of optimal control for tracking reference input</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="kalman.html">41.9. Kalman filter</a></li>
-<li class="toctree-l2"><a class="reference internal" href="hjb.html">41.10. Hamilton Bellman Jacobi equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control/kalman.html">41.9. Kalman filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control/hjb.html">41.10. Hamilton Bellman Jacobi equation</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="pole-placement.html">42. Pole placement</a></li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">43. Examples</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="optimal-control-first-order-ref-tracking.html">43.1. First order system - Reference tracking</a></li>
-<li class="toctree-l2"><a class="reference internal" href="optimal-control-first-order-with-time-delay-ref-tracking.html">43.2. First order system w/ time delay - Reference tracking</a></li>
-<li class="toctree-l2"><a class="reference internal" href="optimal-control-inverted-pendulum.html">43.3. Inverted pendulum</a></li>
-<li class="toctree-l2"><a class="reference internal" href="optimal-control-inverted-pendulum-cart.html">43.4. Inverted pendulum on a cart</a></li>
-<li class="toctree-l2"><a class="reference internal" href="optimal-control-inverted-pendulum-cart-only-force.html">43.5. Inverted pendulum on a cart - only force actuation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../control/pole-placement.html">42. Pole placement</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../control/examples.html">43. Examples</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-first-order-ref-tracking.html">43.1. First order system - Reference tracking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-first-order-with-time-delay-ref-tracking.html">43.2. First order system w/ time delay - Reference tracking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-inverted-pendulum.html">43.3. Inverted pendulum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-inverted-pendulum-cart.html">43.4. Inverted pendulum on a cart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-inverted-pendulum-cart-only-force.html">43.5. Inverted pendulum on a cart - only force actuation</a></li>
 </ul>
 </li>
 </ul>
@@ -441,7 +443,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/edit/main/ch/control/examples.md" target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/edit/main/ch/system-theory/time-delay-pade.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -458,7 +460,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/issues/new?title=Issue%20on%20page%20%2Fch/control/examples.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/issues/new?title=Issue%20on%20page%20%2Fch/system-theory/time-delay-pade.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -488,7 +490,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/ch/control/examples.md" target="_blank"
+      <li><a href="../../_sources/ch/system-theory/time-delay-pade.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -559,7 +561,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -570,11 +574,23 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Examples</h1>
+    <h1>Padé approximation of time delay</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-delay">37.1. Time delay</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pade-approximation">37.2. Padé approximation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">37.2.1. Examples</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -584,20 +600,108 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="examples">
-<span id="control-examples"></span><h1><span class="section-number">43. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">#</a></h1>
-<p>List of examples of scripts</p>
-<p><strong>Frequency domain.</strong></p>
-<p><strong>Optimal control.</strong></p>
-<ul class="simple">
-<li><p><a class="reference internal" href="optimal-control-first-order-ref-tracking.html#control-examples-optimal-control-first-order-ref-tracking"><span class="std std-ref">First-order stable system with optimal control for reference tracking</span></a></p></li>
-<li><p><a class="reference internal" href="optimal-control-first-order-with-time-delay-ref-tracking.html#control-examples-optimal-control-first-order-with-time-delay-ref-tracking"><span class="std std-ref">First-order stable system with time delay optimal control for reference tracking</span></a></p></li>
-<li><p><a class="reference internal" href="optimal-control-ref-tracking-example.html#control-optimal-ref-tracking-example"><span class="std std-ref">Mass-damper-spring system. Second-order stable system with optimal control for reference tracking</span></a></p></li>
-<li><p><a class="reference internal" href="optimal-control-inverted-pendulum.html#control-examples-optimal-control-inverted-pendulum"><span class="std std-ref">Inverted pendulum</span></a></p></li>
-<li><p><a class="reference internal" href="optimal-control-inverted-pendulum-cart.html#control-examples-optimal-control-inverted-pendulum-on-cart"><span class="std std-ref">Inverted pendulum on cart, with force and torque actuation</span></a></p></li>
-<li><p><a class="reference internal" href="optimal-control-inverted-pendulum-cart-only-force.html#control-examples-optimal-control-inverted-pendulum-on-cart-only-force"><span class="std std-ref">Inverted pendulum on cart, with only force actuation</span></a></p></li>
-</ul>
-<div class="toctree-wrapper compound">
+  <div class="tex2jax_ignore mathjax_ignore section" id="pade-approximation-of-time-delay">
+<span id="system-theory-time-delay-pade"></span><h1><span class="section-number">37. </span>Padé approximation of time delay<a class="headerlink" href="#pade-approximation-of-time-delay" title="Permalink to this heading">#</a></h1>
+<div class="section" id="time-delay">
+<h2><span class="section-number">37.1. </span>Time delay<a class="headerlink" href="#time-delay" title="Permalink to this heading">#</a></h2>
+<p>In time-domain</p>
+<div class="math notranslate nohighlight">
+\[u_{\tau}(t) := u(t-\tau) \ , \quad \tau \ge 0 \ ,\]</div>
+<p>with causal function <span class="math notranslate nohighlight">\(u(t) = 0\)</span>, for <span class="math notranslate nohighlight">\(t &lt; 0\)</span>.</p>
+<p>In Laplace domain,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathscr{L}\left\{ u(t-\tau) \right\} 
+  &amp; := \int_{t=0}^{+\infty} u(t-\tau) e^{-st} \, dt = \\
+  &amp; = \int_{t'=0}^{+\infty} u(t') e^{-s (t'+\tau)} \, dt' = \\
+  &amp; = e^{-s\tau} \int_{t'=0}^{+\infty} u(t') e^{-s t'} \, dt' = \\
+  &amp; = e^{-s \tau} U(s) \ .
+\end{aligned}\end{split}\]</div>
+</div>
+<div class="section" id="pade-approximation">
+<h2><span class="section-number">37.2. </span>Padé approximation<a class="headerlink" href="#pade-approximation" title="Permalink to this heading">#</a></h2>
+<p>Padè approximation is a rational approximation of the exponential transfer function of the delay, <span class="math notranslate nohighlight">\(e^{-s \tau}\)</span>.</p>
+<div class="section" id="examples">
+<h3><span class="section-number">37.2.1. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">#</a></h3>
+<p><strong><span class="math notranslate nohighlight">\((1,1)\)</span>-Padé approximation.</strong></p>
+<div class="math notranslate nohighlight">
+\[e^{-s \tau} \simeq P_{1,1}(s) = \frac{1 - \frac{\tau}{2}s}{1 + \frac{\tau}{2}s}\]</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="math notranslate nohighlight">\((1,1)\)</span>-Padé approximation<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">As an example, a rational approximation with both numerator and denominator of first order</p>
+<div class="math notranslate nohighlight">
+\[e^{-s \tau} \simeq \frac{1 + a s}{1 + b s} \ .\]</div>
+<p class="sd-card-text">Using Taylor approximation <span class="math notranslate nohighlight">\(e^{-s \tau}\)</span></p>
+<div class="math notranslate nohighlight">
+\[e^{-s \tau} \simeq 1 - \tau s + \frac{\tau^2 s^2}{2} + o (s^2) \ ,\]</div>
+<p class="sd-card-text">and equating</p>
+<div class="math notranslate nohighlight">
+\[\left( 1 - \tau s + \frac{\tau^2 s^2}{2} + o(s^2) \right) ( 1 + b s ) = 1 + a s \ ,\]</div>
+<p class="sd-card-text">the first terms</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+ 1  : &amp; \quad 1 = 1 \\
+ s  : &amp; \quad -\tau + b = a \\
+ s^2: &amp; \quad \frac{\tau^2}{2} - \tau b = 0 \ ,
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">it follows</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  b &amp; =  \frac{\tau}{2} \\
+  a &amp; = -\frac{\tau}{2} \ ,
+\end{aligned}\end{split}\]</div>
+</div>
+</details><p><strong><span class="math notranslate nohighlight">\((2,2)\)</span>-Padé approximation.</strong></p>
+<div class="math notranslate nohighlight">
+\[e^{-s \tau} \simeq P_{2,2}(s) = \frac{1 - \frac{\tau s}{2} + \frac{\tau^2 s^2}{12}}{1 + \frac{\tau s}{2} + \frac{\tau^2 s^2}{12}}\]</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+<span class="math notranslate nohighlight">\((2,2)\)</span>-Padé approximation<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">As an example, a rational approximation with both numerator and denominator of first order</p>
+<div class="math notranslate nohighlight">
+\[e^{-s \tau} \simeq \frac{1 + a s + b s^2}{1 + c s + d s^2} \ .\]</div>
+<p class="sd-card-text">Using Taylor approximation <span class="math notranslate nohighlight">\(e^{-s \tau}\)</span></p>
+<div class="math notranslate nohighlight">
+\[e^{-s \tau} \simeq 1 - \tau s + \frac{\tau^2 s^2}{2} - \frac{\tau^3 s^3}{3!} + \frac{\tau^4 s^4}{4!} + o (s^4) \ ,\]</div>
+<p class="sd-card-text">and equating</p>
+<div class="math notranslate nohighlight">
+\[\left( 1 - \tau s + \frac{\tau^2 s^2}{2} - \frac{\tau^3 s^3}{3!} + \frac{\tau^4 s^4}{4!}  + o(s^2) \right) ( 1 + c s + d s^2 ) = 1 + a s + b s^2 \ ,\]</div>
+<p class="sd-card-text">the first terms</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+ 1  : &amp; \quad 1 = 1 \\
+ s  : &amp; \quad -\tau + c = a \\
+ s^2: &amp; \quad  \frac{\tau^2}{2 } - \tau c + d = b \\
+ s^3: &amp; \quad -\frac{\tau^3}{3!} + \frac{\tau^2}{2 } c - \tau d = 0 \\
+ s^4: &amp; \quad  \frac{\tau^4}{4!} - \frac{\tau^3}{3!} c + \frac{\tau^2}{2} d = 0 \ ,
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">it follows</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  c &amp; = \frac{1}{2}\tau \\ 
+  d &amp; = \frac{1}{12}\tau^2 \\ 
+  a &amp; = -\frac{1}{2}\tau \\ 
+  b &amp; = \frac{1}{12}\tau^2 \\ 
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+\frac{1}{6} c - \frac{1}{2 \cdot 3!} \tau = 0 \quad &amp; \rightarrow \quad c = \frac{1}{2}\tau \\ 
+d = \tau \frac{c}{2} - \frac{1}{6} \tau^2     \quad &amp; \rightarrow \quad d = \frac{1}{12}\tau^2 \\ 
+                                                    &amp; \rightarrow \quad a = -\frac{1}{2}\tau \\ 
+                                                    &amp; \rightarrow \quad b = \frac{1}{12}\tau^2 \\ 
+\end{aligned}\end{split}\]</div>
+</div>
+</details></div>
 </div>
 </div>
 
@@ -614,7 +718,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./ch/control"
+            path: "./ch/system-theory"
         },
         predefinedOutput: true
     }
@@ -632,20 +736,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="pole-placement.html"
+       href="shape-filter.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">42. </span>Pole placement</p>
+        <p class="prev-next-title"><span class="section-number">36. </span>Shape filter</p>
       </div>
     </a>
     <a class="right-next"
-       href="optimal-control-first-order-ref-tracking.html"
+       href="../control/intro.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">43.1. </span>First order system - Reference tracking</p>
+        <p class="prev-next-title"><span class="section-number">38. </span>Introduction to control methods</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -655,6 +759,24 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-delay">37.1. Time delay</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pade-approximation">37.2. Padé approximation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">37.2.1. Examples</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
