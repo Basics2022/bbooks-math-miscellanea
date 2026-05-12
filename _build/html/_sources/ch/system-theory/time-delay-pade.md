@@ -146,8 +146,8 @@ $$\left\{\begin{aligned}
 The **augmented system** reads
 
 $$\left\{ \begin{aligned}
-  \begin{bmatrix} \dot{\mathbf{x}} \\ \dot{\mathbf{x}}_{\tau} \end{bmatrix} & = \begin{bmatrix} \end{bmatrix} \begin{bmatrix} \mathbf{x} \\ \mathbf{x}_{\tau} \end{bmatrix} + \begin{bmatrix} \end{bmatrix} \mathbf{u} \\
-                       \mathbf{y}                                           & = \begin{bmatrix} \end{bmatrix} \begin{bmatrix} \mathbf{x} \\ \mathbf{x}_{\tau} \end{bmatrix} + \begin{bmatrix} \end{bmatrix} \mathbf{u} \\
+  \begin{bmatrix} \dot{\mathbf{x}} \\ \dot{\mathbf{x}}_{\tau} \end{bmatrix} & = \begin{bmatrix} \mathbf{A} & \mathbf{B} \mathbf{C}_\tau \\ \cdot & \mathbf{A}_\tau \end{bmatrix} \begin{bmatrix} \mathbf{x} \\ \mathbf{x}_{\tau} \end{bmatrix} + \begin{bmatrix} \mathbf{B} \mathbf{D}_\tau \\ \mathbf{B}_\tau \end{bmatrix} \mathbf{u} \\
+                       \mathbf{y}                                           & = \begin{bmatrix} \mathbf{C} & \mathbf{D} \mathbf{C}_\tau \end{bmatrix} \begin{bmatrix} \mathbf{x} \\ \mathbf{x}_{\tau} \end{bmatrix} + \begin{bmatrix} \mathbf{D} \mathbf{D}_\tau \end{bmatrix} \mathbf{u} \\
 \end{aligned} \right.$$
 
 [^pade-canonical-form]: Usually, controllable canonical form for delay on input; observable canonical form for delay on output. Here, in this example with a $(1,1)$-Padé approximation, the state of the system is 1-dimensional, and the two canonical forms differ only by the "position" of the "$b_{n-1} = \frac{4}{\tau}$ element. The not-strictly proper TF is first written as a sum of a constant and a strictly proper TF, whose realization follows the rules of canonical realizations.
