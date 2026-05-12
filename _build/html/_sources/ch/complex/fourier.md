@@ -3,9 +3,7 @@
 
 Fourier transforms are linear transformations of functions usually relating a physical domain of time and/or space, with a domain of frequency and/or wave-vectors.
 
-Fourier transforms can be useful in:
-- highlighting the frequency content of functions
-- solving problems: sometimes, it can be easier to transform a problem in frequency domain, solve it in frequency domain, and transform the solution back to the physical domain
+
 
 ```{dropdown} Contents.
 :open:
@@ -18,9 +16,20 @@ Fourier transforms can be useful in:
 
 
 ```
-
 Different Fourier transforms exist, depending if the original function is:
 - time discrete/time continuous 
 - periodic/non-periodic
+
+| Transform | Time domain | Frequency domain |
+| :--- | :--- | :---  |
+| Fourier transform   | Continuous function in infinite domain | Continuous function in infinite domain |
+| Fourier series      | Continuous function in finite domain (or periodic function in infinite domain) | Discrete function in compact range |
+| Discrete-time Fourier transform | Discrete function (or continuous function sampled with Dirac's comb) in infinite domain | Continous periodic spectrum in infinite domain |
+| Discrete Fourier transform      | Discrete (or continuous, sampled with Dirac's comb) function in finite domain (or periodic in infinite domain) | Discrete periodic spectrum in infinite domain |
+
+Fourier transforms can be useful in:
+- highlighting the frequency content of functions
+- solving problems: sometimes, it can be easier to transform a problem in frequency domain, solve it in frequency domain, and transform the solution back to the physical domain
+
 
 
