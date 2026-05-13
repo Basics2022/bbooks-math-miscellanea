@@ -1,14 +1,28 @@
 (complex:laplace:def-thm)=
 # Definition and Properties
 
-## Definition of Lapalce transform
+(complex:laplace:def-thm:def)=
+## Definition of Laplace transform
+
+**Two-sided Laplace transform.**
+
+$$\mathscr{L}\left\{ f(t) \right\}(s) := \int_{t=-\infty}^{+\infty} e^{-st} f(t) \, dt = F(s) \ .$$
+
+**One-sided Laplace transform.**
 
 $$\mathscr{L}\left\{ f(t) \right\}(s) := \int_{t=0^-}^{+\infty} e^{-st} f(t) \, dt = F(s) \ .$$
 
+One-sided transform can be thought as the two-sided transform of **causal functions**, i.e. functions that are equal to zero before a starting time $t = 0$.
+
+(complex:laplace:def-thm:inverse)=
 ## Inverse transform
 $$f(t) = \mathscr{L}^{-1}\left\{ F(s) \right\} = \dots$$
 
-## Properties
+see [here](complex:analysis:mero-fun:inverse-laplace)
+
+(complex:laplace:def-thm:elementary)=
+## Elementary one-sided transforms
+
 **Linearity.**
 
 $$\mathscr{L}\{ a f(t) + b g(t) \}(s) = a F(s) + b G(s)$$

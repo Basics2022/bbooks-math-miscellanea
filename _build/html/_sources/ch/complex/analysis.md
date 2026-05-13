@@ -251,8 +251,10 @@ The proof readily follows extending the result for a single pole {eq}`eq:residue
 (complex:analysis:mero-fun:cauchy-argument-principle)=
 ### Cauchy argument principle
 
+(complex:analysis:mero-fun:evaluation-of-integrals)=
 ### Evaluation of integrals
 
+(complex:analysis:mero-fun:inverse-laplace)=
 ### Inverse Laplace Transform
 Given Laplace transform
 

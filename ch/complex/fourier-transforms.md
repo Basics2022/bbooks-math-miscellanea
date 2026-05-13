@@ -41,7 +41,10 @@ $$F(\nu) := \mathscr{F}\left\{f(t)\right\}(\nu) := \int_{t=-\infty}^{+\infty} f(
 this is the starndard Fourier transform.
 
 (complex:fourier:series)=
-## Fourier transform of the sum of shifted integrable functions
+## Fourier series
+
+```{dropdown} Fourier transform of the sum of shifted integrable functions
+:open:
 
 The infinite sum of a shifted integrable function is defined as
 
@@ -63,6 +66,23 @@ having used properties of Fourier transform of shifted function in (1), and the 
 $$\Delta \nu := \frac{1}{T} \ .$$
 
 This Fourier transform is proportional to the Fourier transform of the original function, sampled in frequency with elementary frequency $\Delta \nu$.
+
+```
+
+```{dropdown} Infinite shifted sum and Fourier series
+:open:
+
+<span style="color:red"> 
+The function $\widetilde{f}_T(t)$ is $T$-periodic by definition. Its Fourier series reads
+</span>
+
+$$\widetilde{f}_T(t) \sim \sum_{n=-\infty}^{+\infty} c_n e^{i n \frac{2 \pi}{T} t} \ ,$$
+
+with $c_n = \frac{1}{T} \int_{t=0}^{T} \widetilde{f}(t) e^{- i n \frac{2 \pi}{T}t}$.
+
+
+```
+
 
 (complex:fourier:dtft)=
 ## Discrete-time Fourier transform
@@ -109,7 +129,7 @@ $$\nu_s \ge 2 \nu_{max} \ .$$
 
 $$\begin{aligned}
  & = \Delta t \int_{t=-\infty}^{+\infty} f(t) \sum_{k=-\infty}^{+\infty} \delta(t - k \Delta t) \, e^{-i 2 \pi \nu t} \, dt = \\
- & = \Delta t \sum_{k=-\infty}^{+\infty} f(k \Delta t)  e^{-i 2 \pi \nu k \Delta t} = \text{DTFT}\left( f(t); \Delta t \right) 
+ & = \Delta t \sum_{k=-\infty}^{+\infty} f(k \Delta t)  e^{-i 2 \pi \nu k \Delta t} = \text{DTFT}\left( f(t); \Delta t \right)(\nu) \ .
 \end{aligned}$$ (eq:dtft:2)
 
 
@@ -134,8 +154,8 @@ $$\begin{aligned}
   & = \sum_{k=0}^{N-1} \sum_{m=0}^{N-1} f_m e^{i 2 \pi \frac{k (n-m)}{N}} = \\
   & = \sum_{m=0}^{N-1} f_m \sum_{k=0}^{N-1} e^{i 2 \pi \frac{k (n-m)}{N}} = \\
   & = \sum_{m=0}^{N-1} f_m \left\{\begin{aligned}
-    & 0 && m \ne n \\
-    & N && m = n  \\
+    & 0 && , \quad m \ne n \\
+    & N && , \quad m = n  \\
   \end{aligned}\right\} = \\
   & = \sum_{m=0}^{N-1} f_m \, N \, \delta_{mn} = N \, f_n \ .
 \end{aligned}$$
@@ -144,10 +164,10 @@ $$\begin{aligned}
 ```
 
 
-```{dropdown} Fourier transform of the sum of shifted integral functions sampled with a Dirac comb
+```{dropdown} Fourier transform of the sum of a shifted integral function sampled with a Dirac comb
 :open:
 
-Fourier transform of the periodic sum
+Fourier transform of the sum of a shifted integral function sampled with a Dirac comb
 
 $$\Delta t \, \tilde{f}(t) \, \text{III}_{\Delta t}(t) = \Delta t \, \sum_{n=-\infty}^{+\infty} f(t-nT) \, \text{III}_{\Delta t}(t) $$
 
@@ -163,8 +183,8 @@ and defining $k \Delta \tau_n := k \Delta t - nT$,
 
 $$\begin{aligned}
 & = \Delta t \sum_{n=-\infty}^{+\infty} \sum_{k=-\infty}^{+\infty} f(k \Delta \tau_n) e^{-i 2 \pi \nu k \Delta \tau_n} e^{-i 2 \pi \nu n T} = \\
-& = \underbrace{\Delta t \sum_{k=-\infty}^{+\infty} f(k \Delta \tau_n) e^{-i 2 \pi \nu k \Delta \tau_n}}_{=\text{DTFT}(f(t), \Delta t)} \, \underbrace{\sum_{n=-\infty}^{+\infty} e^{-i 2 \pi \nu n T}}_{= \Delta \nu \, \text{III}_{\Delta \nu}(\nu)} = \\
-& = \text{DTFT}(f(t), \Delta t) \, \Delta \nu \, \text{III}_{\Delta \nu}(\nu) \ .
+& = \underbrace{\Delta t \sum_{k=-\infty}^{+\infty} f(k \Delta \tau_n) e^{-i 2 \pi \nu k \Delta \tau_n}}_{=\text{DTFT}(f(t), \Delta t)(\nu)} \, \underbrace{\sum_{n=-\infty}^{+\infty} e^{-i 2 \pi \nu n T}}_{= \Delta \nu \, \text{III}_{\Delta \nu}(\nu)} = \\
+& = \text{DTFT}(f(t), \Delta t)(\nu) \, \Delta \nu \, \text{III}_{\Delta \nu}(\nu) \ .
 \end{aligned}$$
 
 <!--
@@ -179,10 +199,22 @@ it follows
 
 $$\begin{aligned}
 \mathscr{F}\left\{ \Delta t \, \tilde{f}(t) \, \text{III}_{\Delta t}(t) \right\}(\nu) 
- & = \text{DTFT}(f(t), \Delta t) \, \Delta \nu \, \text{III}_{\Delta \nu}(\nu) = \\
+ & = \text{DTFT}(f(t), \Delta t)(\nu) \, \Delta \nu \, \text{III}_{\Delta \nu}(\nu) = \\
  & = \Delta t \Delta \nu \sum_{k=-\infty}^{+\infty} f(k \Delta \tau_n) e^{-i 2 \pi \nu k \Delta \tau_n} \text{III}_{\Delta \nu}(\nu) = \\
  & = \frac{1}{N} \sum_{k=-\infty}^{+\infty} f(k \Delta \tau_n) e^{-i 2 \pi \nu k \Delta \tau_n} \ \text{III}_{\Delta \nu}(\nu) \ .
 \end{aligned}$$
+
+The function $\widetilde{f}(t) = \sum_{n=-\infty}^{+\infty} f(t - n T)$ is $T$-periodic by definition. Thus, it can be written as its Fourier series
+
+
+
+```
+
+```{dropdown} Relation between DFT and sampling
+:open:
+
+
+
 
 ```
 
@@ -205,7 +237,7 @@ $$\begin{aligned}
   c_n 
   & = \frac{1}{\Delta t} \int_{t=-\frac{\Delta t}{2}}^{\frac{\Delta t}{2}} \text{III}_{\Delta t}(t) \, e^{-i n \frac{2\pi}{\Delta t} t} = \\
   & = \frac{1}{\Delta t} \int_{t=-\frac{\Delta t}{2}}^{\frac{\Delta t}{2}} \sum_{m=-\infty}^{+\infty} \delta(t - m \Delta t) \, e^{-i n \frac{2\pi}{\Delta t} t} = \\
-  & = \frac{1}{\Delta t} \int_{t=-\frac{\Delta t}{2}}^{\frac{\Delta t}{2}} \delta(t) \, e^{-i n \frac{2\pi}{\Delta t} t} = \frac{1}{T} \ .
+  & = \frac{1}{\Delta t} \int_{t=-\frac{\Delta t}{2}}^{\frac{\Delta t}{2}} \delta(t) \, e^{-i n \frac{2\pi}{\Delta t} t} = \frac{1}{\Delta t} \ .
 \end{aligned}$$
 
 The Fourier series of Dirac comb $\text{III}_{\Delta t}(t)$ reads

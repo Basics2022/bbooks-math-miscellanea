@@ -1,0 +1,1360 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>21.4. Practice on Fourier analysis on finite-time discrete-time signal &#8212; basics - math</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/style.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="https://cdn.plot.ly/plotly-lates.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/complex/fourier-practice';</script>
+    <link rel="shortcut icon" href="../../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="22. Z-transform" href="z-transform.html" />
+    <link rel="prev" title="21.3. Relations between Fourier transforms" href="fourier-transforms.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPXX63Z3XR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-JPXX63Z3XR');
+</script>
+
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.svg" class="logo__image only-light" alt="basics - math - Home"/>
+    <script>document.write(`<img src="../../_static/logo-dark.svg" class="logo__image only-dark" alt="basics - math - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Linear Algebra</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../linear-algebra/intro.html">1. Introduction to Linear Algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linear-algebra/matrices.html">2. Matrices</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../linear-algebra/matrix-factorization.html">3. Matrix factorizations</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../linear-algebra/schur.html">3.3. Schur decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linear-algebra/cholesky.html">3.4. Cholesky decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linear-algebra/jordan.html">3.5. Jordan normal form</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linear-algebra/svd.html">3.6. Singular Value Decomposition</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../linear-algebra/linear-systems.html">4. Linear Systems</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../linear-algebra/spectral.html">5. Spectral decomposition</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../linear-algebra/spectral-symmetric.html">5.1. Spectral decomposition of symmetric matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linear-algebra/spectral-sensitivity.html">5.2. Sensitivity of spectral decomposition</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../linear-algebra/cayley-hamilton.html">6. Cayley-Hamilton theorem</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Multivariable Calculus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../multivariable/intro.html">7. Introduction to multi-variable calculus</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Differential Geometry</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../differential-geometry/intro.html">8. Introduction to Differential Geometry</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Vector and Tensor Algebra and Calculus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/algebra.html">9. Tensor Algebra</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean.html">10. Tensor Calculus in Euclidean Spaces</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean-cartesian.html">10.5. Tensor Calculus in Euclidean Spaces - Cartesian coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean-cylindrical.html">10.6. Tensor Calculus in Euclidean Spaces - cylindrical coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean-spherical.html">10.7. Tensor Calculus in Euclidean Spaces - Spehrical coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/tensor-invariants.html">11. Tensor Invariants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/algebra-rotation-tensors.html">12. Unitary and rotation tensors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/algebra-isotropic-tensors.html">13. Isotropic Tensors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/time-derivative-of-integrals.html">14. Time derivative of integrals over moving domains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/calculus-identities.html">15. Calculus identities</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Functional Analysis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../functional-analysis/intro.html">16. Introduction to Functional Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functional-analysis/dirac-delta.html">17. Dirac’s delta</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Complex Calculus</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="algebra.html">18. Complex Algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="analysis.html">19. Complex Analysis</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="laplace.html">20. Laplace Transform</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="laplace-def-thm.html">20.1. Definition and Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="laplace-applications.html">20.2. Applications of Laplace Transform</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="fourier.html">21. Fourier Transforms</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="fourier-series.html">21.1. Fourier Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fourier-transform.html">21.2. Fourier Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fourier-transforms.html">21.3. Relations between Fourier transforms</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">21.4. Practice on Fourier analysis on finite-time discrete-time signal</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="z-transform.html">22. Z-transform</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Calculus of Variations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../calculus-variations/intro.html">23. Introduction to Calculus of Variations</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Ordinary Differential Equations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ode/intro.html">24. Introduction to Ordinary Differential Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ode/ode-linear-systems.html">25. Linear systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ode/integration-schemes.html">26. Integration schemes</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">System Theory</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../system-theory/intro.html">27. Introduction to System Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system-theory/lti.html">28. Linear Time-Invariant Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system-theory/coordinate-transformation.html">29. Coordinate transformation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system-theory/lti-response.html">30. LTI system response</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system-theory/lti-stability-and-feedback.html">31. LTI: stability and feedback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system-theory/observability-detectability.html">32. Observability and Detectability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system-theory/controllability-reachability.html">33. Reachability and Controllability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system-theory/realizations.html">34. State-space realizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system-theory/kalman-decomposition.html">35. Kalman decomposition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system-theory/lyapunov-equation.html">36. Lyapunov equation</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../system-theory/order-reduction.html">37. Order reduction of dynamical systems</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../system-theory/order-reduction-balanced-truncation.html">37.1. Balanced truncation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../system-theory/shape-filter.html">38. Shape filter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system-theory/time-delay-pade.html">39. Padé approximation of time delay</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Control Theory</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../control/intro.html">40. Introduction to control methods</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../control/closed-loop-requirements-performance.html">41. Closed-loop control: requirements and performance</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../control/closed-loop-requirements-performance-siso-stability.html">41.1. Stability (SISO)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control/closed-loop-requirements-performance-siso-ref-tracking.html">41.2. Reference tracking (SISO)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../control/frequency-domain.html">42. Frequency domain control</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../control/optimal-control.html">43. Optimal control</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../control/optimal-control-full-state.html">43.1. Full-state feedback</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../control/optimal-control-full-state-general-ode.html">43.1.1. Generic ODE without exogenous inputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../control/optimal-control-full-state-linear.html">43.1.2. Linear system without exogenous inputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../control/optimal-control-full-state-linear-infinite-time.html">43.1.3. Linear system without exogenous inputs - infinite time horizon</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-full-state-old.html">43.2. Full-state feedback (OLD)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-margins.html">43.3. Phase and gain margin of optimal control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-observer-stochastic.html">43.4. Optimal observer for stochastic disturbance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-observer-deterministic.html">43.5. Optimal observer for deterministic disturbances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-output.html">43.6. Sub-optimal control for output feedback</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-regulator-observer.html">43.7. Combination of controller and observer</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../control/optimal-control-ref-tracking.html">43.8. Optimal control for reference tracking</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../control/optimal-control-ref-tracking-example.html">43.8.3. Example of optimal control for tracking reference input</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../control/kalman.html">43.9. Kalman filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control/hjb.html">43.10. Hamilton Bellman Jacobi equation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../control/pole-placement.html">44. Pole placement</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../control/examples.html">45. Examples</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-first-order-ref-tracking.html">45.1. First order system - Reference tracking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-first-order-with-time-delay-ref-tracking.html">45.2. First order system w/ time delay - Reference tracking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-inverted-pendulum.html">45.3. Inverted pendulum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-inverted-pendulum-cart.html">45.4. Inverted pendulum on a cart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-inverted-pendulum-cart-only-force.html">45.5. Inverted pendulum on a cart - only force actuation</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Partial Differential Equations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../pde/intro.html">46. Introduction to Partial Differential Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/elliptic.html">47. Elliptic equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/parabolic.html">48. Parabolic equations</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/hyperbolic.html">49. Hyperbolic equations</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-intro.html">49.1. Hyperbolic problems and conservation laws</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-dimensions.html">49.2. Hyperbolic problems - dimensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-1d-scalar-linear.html">49.3. Scalar linear equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-1d-vector-linear.html">49.4. Linear vector equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-1d-scalar-nonlinear.html">49.5. Scalar non-linear equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/characteristics.html">49.6. Method of characteristics</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../pde/hyperbolic-nd.html">49.7. Hyperbolic problems in multi-dimensional domains</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-draft.html">49.7.1. General hyperbolic problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-psys.html">49.7.2. P-system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-euler.html">49.7.3. Euler equations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-shallow-water.html">49.7.4. Shallow water</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-riemann-pb.html">49.8. Riemann problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-entropy.html">49.9. Physical solution in hyperbolic problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-convexity.html">49.10. Convexity in hyperbolic problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-non-convex.html">49.11. Non-convex hyperbolic problems</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/nc.html">50. Navier-Cauchy equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/ns.html">51. Navier-Stokes equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/ale.html">52. Arbitrary Lagrangian-Eulerian description</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Numerical Methods for PDEs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../pde/numerics.html">53. Introduction to numerical methods for PDEs</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/fem.html">54. Finite Element Method</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pde/fem-poisson-1d.html">54.1. 1-dimensional Poisson equation</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/fvm.html">55. Finite Volume Method</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pde/fvm-poisson-1d.html">55.1. 1-dimensional Poisson equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/fvm-hyperbolic-pde.html">55.2. FVM for hyperbolic problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/fvm-hyperbolic-bc.html">55.3. Boundary conditions in hyperbolic problems</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../pde/fvm-hyperbolic-examples.html">55.4. Examples of FVM for hyperbolic problems</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../pde/psys-1d.html">55.4.1. 1-dimensional P-system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/euler-1d.html">55.4.2. 1-dimensional Euler equations for Perfect Ideal Gas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/euler-quasi-1d.html">55.4.3. Quasi 1-dimensional Euler equations for Perfect Ideal Gas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/euler-1d-ale-piston.html">55.4.4. 1-dimensional Euler equations for Perfect Ideal Gas on moving mesh (ALE)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/bem.html">56. Boundary Element Method</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Boundary Methods for PDEs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../pde/bem-poisson-helmholtz-waves.html">57. Green’s function method</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Optimization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../optimization/intro.html">58. Optimization</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reinforcement Learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../rl/intro.html">59. Introduction to Reinforcement Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp.html">60. Markov Processes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_sol_dp_lp.html">61. Methods of solution of MPD: DP and LP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_sol_rl.html">62. Methods of solution of MPD: RL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_large_continuous.html">63. Large or Continuous MDPs</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Basics2022/bbooks-math-miscellanea/blob/master/ch/complex/fourier-practice.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/edit/main/ch/complex/fourier-practice.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/issues/new?title=Issue%20on%20page%20%2Fch/complex/fourier-practice.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/ch/complex/fourier-practice.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Practice on Fourier analysis on finite-time discrete-time signal</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fourier-transforms">21.4.1. Fourier transforms</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-fourier-transform-dft">21.4.1.1. Discrete Fourier Transform (DFT)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#leakage">21.4.2. Leakage</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aliasing">21.4.3. Aliasing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#realizations-of-psd">21.4.4. Realizations of PSD</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exact-realization">21.4.4.1. Exact realization</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shape-filter">21.4.5. Shape filter</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#time-continuous-domain">21.4.5.1. Time-continuous domain</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#time-discrete-domain">21.4.5.2. Time-discrete domain</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistics-of-realizations">21.4.6. Statistics of realizations</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="tex2jax_ignore mathjax_ignore section" id="practice-on-fourier-analysis-on-finite-time-discrete-time-signal">
+<span id="fourier-finite-discrete-time"></span><h1><span class="section-number">21.4. </span>Practice on Fourier analysis on finite-time discrete-time signal<a class="headerlink" href="#practice-on-fourier-analysis-on-finite-time-discrete-time-signal" title="Permalink to this heading">#</a></h1>
+<p>In this section, some application of Fourier analysis of discrete-time signals with finite-time window observation. Outside this observation window, the signal can (or is, by some trasnformation) considered as periodic. Discrete-time signals are common after sampling.</p>
+<p><strong>Contents.</strong></p>
+<ul class="simple">
+<li><p>Fourier transforms, and DFT</p></li>
+<li><p>Spectral Leackage</p></li>
+<li><p>Spectral Aliasing</p></li>
+<li><p>Realizations of signals with given PSD (or average ESD? for finite domains)</p></li>
+</ul>
+<div class="section" id="fourier-transforms">
+<h2><span class="section-number">21.4.1. </span>Fourier transforms<a class="headerlink" href="#fourier-transforms" title="Permalink to this heading">#</a></h2>
+<div class="section" id="discrete-fourier-transform-dft">
+<h3><span class="section-number">21.4.1.1. </span>Discrete Fourier Transform (DFT)<a class="headerlink" href="#discrete-fourier-transform-dft" title="Permalink to this heading">#</a></h3>
+<p>The function <span class="math notranslate nohighlight">\(\texttt{numpy.fft.fft()}\)</span> computes the one-dimensional, n-point discrete Fourier Transform, with the <strong>FFT algorithm</strong>.</p>
+<p><strong>Discrete Fourier transform</strong> of a sequence of <span class="math notranslate nohighlight">\(N\)</span> complex numbers <span class="math notranslate nohighlight">\(\mathbf{x}_N = \{ x_0, x_1, \dots, x_{n-1} \}\)</span> is defined as</p>
+<div class="math notranslate nohighlight">
+\[X_k = \sum_{n=0}^{N-1} x_n e^{-i 2 \pi \frac{k}{N} n} \ ,\]</div>
+<p>whose inverse transform reads</p>
+<div class="math notranslate nohighlight">
+\[x_n = \frac{1}{N} \sum_{k=0}^{N-1} X_k e^{i 2 \pi \frac{n}{N} k} \ .\]</div>
+<p>The DFT can be thought as … <strong>todo</strong>: link to Fourier transform of Dirac’s comb sampled infinite sum of shifted function.</p>
+</div>
+</div>
+<div class="section" id="leakage">
+<h2><span class="section-number">21.4.2. </span>Leakage<a class="headerlink" href="#leakage" title="Permalink to this heading">#</a></h2>
+<p>Spectral leakage occurs in discrete-time signals when</p>
+<ul class="simple">
+<li><p>the period of the harmonic contents is not an integer multiple of the sampling time <span class="math notranslate nohighlight">\(t_s\)</span></p></li>
+<li><p>the sampling time is a multiple of the period of the harmonics,</p></li>
+</ul>
+<p>so that the sampled signal is not periodic on the finite-time interval.</p>
+<p>Finite sampling time is equivalent to the multiplication of the signal with a box window. Fourier transform of this signal is equal to the convolution of the Fourier transform of the original signal and the Fourier transform of the box window.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reset</span> -f
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+
+<span class="c1">#&gt; Reference signal as a sum of harmonics</span>
+<span class="n">f1</span><span class="p">,</span> <span class="n">f2</span> <span class="o">=</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">0.5</span>
+<span class="n">phi1</span><span class="p">,</span> <span class="n">phi2</span> <span class="o">=</span> <span class="mf">.0</span><span class="p">,</span> <span class="mf">.0</span>
+<span class="n">A1</span><span class="p">,</span> <span class="n">A2</span> <span class="o">=</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span>
+
+<span class="n">T1</span><span class="p">,</span> <span class="n">T2</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">f1</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">f2</span>
+
+<span class="n">x_fun</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">A1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f1</span><span class="o">*</span><span class="n">t</span> <span class="o">+</span> <span class="n">phi1</span><span class="p">)</span> <span class="o">+</span> <span class="n">A2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f2</span><span class="o">*</span><span class="n">t</span> <span class="o">+</span> <span class="n">phi2</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Frequencies: </span><span class="si">{</span><span class="n">f1</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">f2</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Periods    : </span><span class="si">{</span><span class="n">T1</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">T2</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Frequencies: 2.0, 0.5
+Periods    : 0.5, 2.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">samplings</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span> <span class="s1">&#39;fs&#39;</span><span class="p">:</span> <span class="mf">9.2739138</span><span class="p">,</span> <span class="s1">&#39;tend&#39;</span><span class="p">:</span> <span class="mf">5.</span>  <span class="p">},</span>
+    <span class="p">{</span> <span class="s1">&#39;fs&#39;</span><span class="p">:</span> <span class="mf">10.</span><span class="p">,</span> <span class="s1">&#39;tend&#39;</span><span class="p">:</span> <span class="mf">10.</span> <span class="p">},</span>
+<span class="p">]</span>
+
+<span class="c1">#&gt; Add label to sampling dict, for plots</span>
+<span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">samplings</span><span class="p">:</span>
+  <span class="n">s</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;fs=</span><span class="si">{</span><span class="n">s</span><span class="p">[</span><span class="s1">&#39;fs&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">, tend=</span><span class="si">{</span><span class="n">s</span><span class="p">[</span><span class="s1">&#39;tend&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&gt; Check different samplings</span>
+<span class="n">xx</span><span class="p">,</span> <span class="n">ff</span><span class="p">,</span> <span class="n">tt</span><span class="p">,</span> <span class="n">oo</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">sampling</span> <span class="ow">in</span> <span class="n">samplings</span><span class="p">:</span>
+
+  <span class="n">fs</span> <span class="o">=</span> <span class="n">sampling</span><span class="p">[</span><span class="s1">&#39;fs&#39;</span><span class="p">]</span>
+  <span class="n">ts</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">fs</span>
+  <span class="n">tend</span> <span class="o">=</span> <span class="n">sampling</span><span class="p">[</span><span class="s1">&#39;tend&#39;</span><span class="p">]</span>
+
+  <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">tend</span><span class="p">,</span> <span class="n">ts</span><span class="p">)</span>
+  <span class="n">nt</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+
+  <span class="c1">#&gt; Sampled signal</span>
+  <span class="n">x</span> <span class="o">=</span> <span class="n">x_fun</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+
+  <span class="c1">#&gt; Fourier transform of the signal</span>
+  <span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="n">nt</span> <span class="o">*</span> <span class="mi">2</span>         <span class="c1"># * ts for scaling, to get the actual amplitudes</span>
+  <span class="n">dom</span> <span class="o">=</span> <span class="mf">1.</span> <span class="o">/</span> <span class="n">tend</span>
+  <span class="n">om</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">nt</span><span class="p">)</span> <span class="o">*</span> <span class="n">dom</span>
+
+  <span class="n">xx</span> <span class="o">+=</span> <span class="p">[</span> <span class="n">x</span> <span class="p">]</span>
+  <span class="n">ff</span> <span class="o">+=</span> <span class="p">[</span> <span class="n">f</span> <span class="p">]</span>
+  <span class="n">tt</span> <span class="o">+=</span> <span class="p">[</span> <span class="n">t</span> <span class="p">]</span>
+  <span class="n">oo</span> <span class="o">+=</span> <span class="p">[</span> <span class="n">om</span> <span class="p">]</span>
+
+<span class="c1"># print(om)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&gt; Raw Fourier transform</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">xx</span><span class="p">):</span>
+  <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tt</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">xx</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+  <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">oo</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">ff</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="n">label</span><span class="o">=</span><span class="n">samplings</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;label&#39;</span><span class="p">])</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span><span class="c1"># ;#   ax[1].set_xlabel(f&quot;$\omega$&quot;)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/1734d80e9148dd6132cbfcca5537a9a4af3db563ec62b5d734211e99a7620029.png" src="../../_images/1734d80e9148dd6132cbfcca5537a9a4af3db563ec62b5d734211e99a7620029.png" />
+</div>
+</div>
+</div>
+<div class="section" id="aliasing">
+<h2><span class="section-number">21.4.3. </span>Aliasing<a class="headerlink" href="#aliasing" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reset</span> -f
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+
+<span class="c1">#&gt; Reference signal as a sum of harmonics</span>
+<span class="n">f1</span><span class="p">,</span> <span class="n">f2</span> <span class="o">=</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mf">0.5</span>
+<span class="n">phi1</span><span class="p">,</span> <span class="n">phi2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(),</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">()</span>
+<span class="n">A1</span><span class="p">,</span> <span class="n">A2</span> <span class="o">=</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span>
+
+<span class="n">T1</span><span class="p">,</span> <span class="n">T2</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="n">f1</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">f2</span>
+
+<span class="n">x_fun</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">A1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f1</span><span class="o">*</span><span class="n">t</span> <span class="o">+</span> <span class="n">phi1</span><span class="p">)</span> <span class="o">+</span> <span class="n">A2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">f2</span><span class="o">*</span><span class="n">t</span> <span class="o">+</span> <span class="n">phi2</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Frequencies: </span><span class="si">{</span><span class="n">f1</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">f2</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Periods    : </span><span class="si">{</span><span class="n">T1</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">T2</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Frequencies: 2.5, 0.5
+Periods    : 0.4, 2.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">samplings</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span> <span class="s1">&#39;fs&#39;</span><span class="p">:</span> <span class="mf">10.</span> <span class="p">,</span> <span class="s1">&#39;tend&#39;</span><span class="p">:</span> <span class="mf">10.</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="s1">&#39;fs&#39;</span><span class="p">:</span>  <span class="mf">7.</span> <span class="p">,</span> <span class="s1">&#39;tend&#39;</span><span class="p">:</span> <span class="mf">10.</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="s1">&#39;fs&#39;</span><span class="p">:</span>  <span class="mf">4.</span> <span class="p">,</span> <span class="s1">&#39;tend&#39;</span><span class="p">:</span> <span class="mf">10.</span> <span class="p">},</span>
+    <span class="p">{</span> <span class="s1">&#39;fs&#39;</span><span class="p">:</span>  <span class="mf">1.5</span><span class="p">,</span> <span class="s1">&#39;tend&#39;</span><span class="p">:</span> <span class="mf">10.</span> <span class="p">},</span>
+<span class="p">]</span>
+
+<span class="c1">#&gt; Add label to sampling dict, for plots</span>
+<span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">samplings</span><span class="p">:</span>
+  <span class="n">s</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;fs=</span><span class="si">{</span><span class="n">s</span><span class="p">[</span><span class="s1">&#39;fs&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">, tend=</span><span class="si">{</span><span class="n">s</span><span class="p">[</span><span class="s1">&#39;tend&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&gt; Check different samplings</span>
+<span class="n">xx</span><span class="p">,</span> <span class="n">ff</span><span class="p">,</span> <span class="n">tt</span><span class="p">,</span> <span class="n">oo</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]</span>
+
+<span class="n">max_om</span> <span class="o">=</span> <span class="mf">0.</span> <span class="c1"># for plot</span>
+
+<span class="k">for</span> <span class="n">sampling</span> <span class="ow">in</span> <span class="n">samplings</span><span class="p">:</span>
+
+  <span class="n">fs</span> <span class="o">=</span> <span class="n">sampling</span><span class="p">[</span><span class="s1">&#39;fs&#39;</span><span class="p">]</span>
+  <span class="n">ts</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">fs</span>
+  <span class="n">tend</span> <span class="o">=</span> <span class="n">sampling</span><span class="p">[</span><span class="s1">&#39;tend&#39;</span><span class="p">]</span>
+
+  <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">tend</span><span class="p">,</span> <span class="n">ts</span><span class="p">)</span>
+  <span class="n">nt</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+
+  <span class="c1">#&gt; Sampled signal</span>
+  <span class="n">x</span> <span class="o">=</span> <span class="n">x_fun</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+
+  <span class="c1">#&gt; Fourier transform of the signal</span>
+  <span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="n">nt</span> <span class="o">*</span> <span class="mi">2</span>         <span class="c1"># * ts for scaling, to get the actual amplitudes</span>
+  <span class="n">dom</span> <span class="o">=</span> <span class="mf">1.</span> <span class="o">/</span> <span class="n">tend</span>
+  <span class="n">om</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">nt</span><span class="p">)</span> <span class="o">*</span> <span class="n">dom</span>
+
+  <span class="n">xx</span> <span class="o">+=</span> <span class="p">[</span> <span class="n">x</span> <span class="p">]</span>
+  <span class="n">ff</span> <span class="o">+=</span> <span class="p">[</span> <span class="n">f</span> <span class="p">]</span>
+  <span class="n">tt</span> <span class="o">+=</span> <span class="p">[</span> <span class="n">t</span> <span class="p">]</span>
+  <span class="n">oo</span> <span class="o">+=</span> <span class="p">[</span> <span class="n">om</span> <span class="p">]</span>
+
+  <span class="n">max_om</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">([</span> <span class="n">max_om</span><span class="p">,</span> <span class="n">nt</span> <span class="o">*</span> <span class="n">dom</span> <span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&gt; Raw Fourier transform</span>
+<span class="n">n_samplings</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">samplings</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">n_samplings</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">2</span><span class="o">*</span><span class="n">n_samplings</span><span class="p">))</span>
+
+<span class="c1"># max_om = np.max(np.array(oo))</span>
+<span class="n">dt_high_res</span> <span class="o">=</span> <span class="mf">.001</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">xx</span><span class="p">):</span>
+
+  <span class="n">t_high_res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">tt</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">dt_high_res</span><span class="p">)</span>
+  <span class="n">x_high_res</span> <span class="o">=</span> <span class="n">x_fun</span><span class="p">(</span><span class="n">t_high_res</span><span class="p">)</span>
+
+  <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tt</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">xx</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s1">&#39;:o&#39;</span><span class="p">)</span>
+  <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_high_res</span><span class="p">,</span> <span class="n">x_high_res</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+  <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">oo</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">ff</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="n">label</span><span class="o">=</span><span class="n">samplings</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="s1">&#39;label&#39;</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+
+  <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+  <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span><span class="c1"># ;#   ax[1].set_xlabel(f&quot;$\omega$&quot;)</span>
+  <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_om</span><span class="p">])</span>
+  <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$f(t)$&quot;</span><span class="p">)</span>
+  <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$|F(\nu)|$&quot;</span><span class="p">)</span>
+
+  <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+
+<span class="n">ax</span><span class="p">[</span><span class="n">n_samplings</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$t$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="n">n_samplings</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\nu$&quot;</span><span class="p">)</span>
+
+
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/5ec690fcf94ca2c44b64985d808faec6dad3523b7d13e101c1f35fb08e42b4b7.png" src="../../_images/5ec690fcf94ca2c44b64985d808faec6dad3523b7d13e101c1f35fb08e42b4b7.png" />
+</div>
+</div>
+</div>
+<div class="section" id="realizations-of-psd">
+<h2><span class="section-number">21.4.4. </span>Realizations of PSD<a class="headerlink" href="#realizations-of-psd" title="Permalink to this heading">#</a></h2>
+<p><strong>Stationary stochastic signals.</strong> For stationary stochastic signals, <span class="math notranslate nohighlight">\(PSD(\nu)\)</span> is defined as the Fourier transform of it auto-correlation, i.e.</p>
+<div class="math notranslate nohighlight">
+\[\Phi_{xx}(\nu) := \mathscr{F}\{ R_{xx} (\tau) \} (\nu) = \int_{t=-\infty}^{+\infty} R_{xx}(\tau) \,e^{-i \nu \tau} \, d \tau \ ,\]</div>
+<p>with</p>
+<div class="math notranslate nohighlight">
+\[R_{xx}(\tau) := \mathbb{E}\left[ x(t) x(t - \tau) \right] \ .\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \Phi_{xx}(\nu)
+  &amp; = \int_{\tau = -\infty}^{+\infty} R_{xx}(\tau) e^{-i\nu \tau} d \tau = \\
+  &amp; = \int_{\tau = -\infty}^{+\infty} \mathbb{E}[x(t) x(t+\tau)] e^{-i \nu \tau} d \tau = \\
+  &amp; = \int_{\tau = -\infty}^{+\infty} \lim_{T \rightarrow + \infty} \int_{t=-T}^{T} x(t) x(t+\tau) \, dt \, e^{-i \nu \tau} d \tau = \\
+  &amp; = \int_{\tau = -\infty}^{+\infty} \lim_{T \rightarrow + \infty} \int_{t=-T}^{T} x(t) x(z) e^{-i \nu z} e^{i \nu t} d t dz = \\
+  &amp; = \left( \int_{\tau = -\infty}^{+\infty}  x(z) e^{-i \nu z}  dz \right) \left( \lim_{T \rightarrow + \infty} \int_{t=-T}^{T} x(t)e^{i \nu t} d t \right) = \\
+  &amp; = X(\nu) X^*(\nu) = \\
+  &amp; = \left| X(\nu) \right|^2 \ .
+\end{aligned}\end{split}\]</div>
+<p><strong>todo</strong> Is it possible to switch the expected value and integral operator?</p>
+<p><strong>Periodic signals.</strong> Let <span class="math notranslate nohighlight">\(f(t)\)</span> a <span class="math notranslate nohighlight">\(T\)</span>-periodic signal. Its spectrum is discrete with <strong>freqeuncy resolution</strong> <span class="math notranslate nohighlight">\(\Delta \nu = \frac{1}{T}\)</span>. If <span class="math notranslate nohighlight">\(f(t)\)</span> is discrete with sampling time <span class="math notranslate nohighlight">\(\Delta t\)</span>, its spectrum is <span class="math notranslate nohighlight">\(\nu_{s}\)</span>-periodic with <strong>sampling frequency</strong> <span class="math notranslate nohighlight">\(\nu_s = \frac{1}{\Delta t}\)</span>.</p>
+<p>…</p>
+<p>Here, given <span class="math notranslate nohighlight">\(PSD_x(\nu_k) := |X(\nu_k)|^2\)</span>, for all the avaliable frequencies, i.e.</p>
+<div class="math notranslate nohighlight">
+\[\nu_k = k \nu_1 \ , \quad k = 0:N-1\]</div>
+<p>with <span class="math notranslate nohighlight">\(\nu_1 = \frac{1}{T}\)</span> frequency resolution, find a realization of the process in time domain.</p>
+<p><strong>Remark.</strong> In order to have a valid <span class="math notranslate nohighlight">\(PSD_x(\nu)\)</span>, this function needs to satisfy some conditions, as the elements of the DFT <span class="math notranslate nohighlight">\(X(\nu_k)\)</span> needs to satisfy symmetry conditions to be the <strong>transform of a real signal</strong>.</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(X(0)\)</span> is real</p></li>
+<li><p>symmetry for <span class="math notranslate nohighlight">\(k \ne 0\)</span></p>
+<ul class="simple">
+<li><p>If <span class="math notranslate nohighlight">\(N\)</span> is even,</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+     X[k] &amp; = X^*[N-k-1] \\
+     X[N/2] &amp; \in \mathbb{R}
+   \end{aligned}\end{split}\]</div>
+<ul class="simple">
+<li><p>If <span class="math notranslate nohighlight">\(N\)</span> is odd,</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[X[k] = X^*[N-k]\]</div>
+</li>
+</ul>
+<div class="section" id="exact-realization">
+<h3><span class="section-number">21.4.4.1. </span>Exact realization<a class="headerlink" href="#exact-realization" title="Permalink to this heading">#</a></h3>
+<p>Frequency discretization of spectrum implies time discretization, as spectral resolution is the inverse of the sampling period, and maximum frequency (of the mirrored spectrum) is the inverse of the time-step.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reset</span> -f
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&gt; Time vector</span>
+<span class="n">dt</span><span class="p">,</span> <span class="n">nt</span> <span class="o">=</span> <span class="mf">.01</span><span class="p">,</span> <span class="mi">1000</span>
+
+<span class="n">tv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">nt</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span>
+<span class="n">tend</span> <span class="o">=</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">nt</span>
+
+<span class="c1">#&gt; Frequency vector</span>
+<span class="n">df</span> <span class="o">=</span> <span class="mf">1.</span> <span class="o">/</span> <span class="n">tend</span>
+<span class="n">fv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">nt</span><span class="p">)</span> <span class="o">*</span> <span class="n">df</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">psd_to_time_realization</span><span class="p">(</span><span class="n">psd_fun</span><span class="p">,</span> <span class="n">fv</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    psd_fun(fv): function returning psd</span>
+<span class="sd">    fv: vector of frequencies</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">fv</span><span class="p">)</span>
+
+    <span class="c1">#&gt; magnitude u(f;T) = |A(f;T)|^2 = A*(f;T) A(f;T)</span>
+    <span class="n">magnitude</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">psd_fun</span><span class="p">(</span><span class="n">fv</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">))</span>
+    <span class="c1">#&gt; add random phase</span>
+    <span class="n">phase</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">N</span><span class="p">))</span>
+    <span class="c1"># phase = np.zeros(N)</span>
+    <span class="n">spectrum</span> <span class="o">=</span> <span class="n">magnitude</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">*</span> <span class="n">phase</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+    <span class="c1">#&gt; Built a vector of transformed signal with the required symmetries to get a real ifft()</span>
+    <span class="n">xf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span> <span class="p">[</span><span class="n">magnitude</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">spectrum</span><span class="p">,</span> <span class="p">[</span><span class="n">magnitude</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]],</span> <span class="n">np</span><span class="o">.</span><span class="n">conj</span><span class="p">(</span><span class="n">spectrum</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="p">])</span>
+    <span class="n">xt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">ifft</span><span class="p">(</span><span class="n">xf</span><span class="p">)</span>
+
+    <span class="n">fmax</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">N</span> <span class="o">*</span> <span class="p">(</span> <span class="n">fv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">fv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">)</span>
+    <span class="n">dt</span> <span class="o">=</span> <span class="mf">1.</span> <span class="o">/</span> <span class="n">fmax</span>
+    <span class="n">tv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">N</span><span class="p">)</span><span class="o">*</span><span class="n">dt</span>
+
+    <span class="k">return</span> <span class="n">tv</span><span class="p">,</span> <span class="n">xt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&gt; Fourier transform of the signal</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">#&gt; White noise approximation. Discretization sets the frequency resolution and the</span>
+<span class="sd"># maximum frequency of the signal. With constant amplidute, this is a fmax-windowed</span>
+<span class="sd"># and fs-sampled spectrum of a white noise.</span>
+<span class="sd">tf_fun = lambda f: np.ones(np.shape(f))</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="c1">#&gt; Low pass filter</span>
+<span class="n">tf_fun</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">f</span><span class="p">:</span> <span class="mf">1.</span> <span class="o">/</span> <span class="p">(</span> <span class="mf">1.</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">f</span> <span class="p">)</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">#&gt; ~ Resonant system</span>
+<span class="sd"># It has a prevailing harmonic content close to the &quot;resonance&quot;, producing an</span>
+<span class="sd"># &quot;approximately harmonic&quot; signal,</span>
+<span class="sd">f_n, xi = 3., 0.01</span>
+<span class="sd">tf_fun = lambda f: 1. / ( 1. + 2 * xi / f_n * 1j * f + ( (1j * f)/f_n )**2 )</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">#&gt; ~ Resonant system + derivator</span>
+<span class="sd"># It has a prevailing harmonic content close to the &quot;resonance&quot;, producing an</span>
+<span class="sd"># &quot;approximately harmonic&quot; signal,</span>
+<span class="sd">f_n, xi = 3., 0.01</span>
+<span class="sd">tf_fun = lambda f: 1j * f / ( 1. + 2 * xi / f_n * 1j * f + ( (1j * f)/f_n )**2 )</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1">#&gt; PSD of the signal</span>
+<span class="n">psd_fun</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">f</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">tf_fun</span><span class="p">(</span><span class="n">f</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="c1">#&gt; Plots of Fourier transform of the signal, and its PSD</span>
+<span class="n">tf_v</span> <span class="o">=</span> <span class="n">tf_fun</span><span class="p">(</span><span class="n">fv</span><span class="p">)</span>
+<span class="n">psd_v</span> <span class="o">=</span> <span class="n">tf_fun</span><span class="p">(</span><span class="n">fv</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">conj</span><span class="p">(</span><span class="n">tf_fun</span><span class="p">(</span><span class="n">fv</span><span class="p">))</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fv</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">tf_v</span><span class="p">),</span> <span class="s1">&#39;-o&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$X(j f)$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$|X|$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xscale</span><span class="p">(</span><span class="s2">&quot;log&quot;</span><span class="p">);</span>  <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_yscale</span><span class="p">(</span><span class="s2">&quot;log&quot;</span><span class="p">);</span>  <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fv</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span><span class="n">tf_v</span><span class="p">)</span> <span class="o">*</span> <span class="mi">180</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\angle X$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xscale</span><span class="p">(</span><span class="s2">&quot;log&quot;</span><span class="p">);</span>  <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fv</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">psd_v</span><span class="p">))</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$PSD_X(j f)$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$|\Phi_X|$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xscale</span><span class="p">(</span><span class="s2">&quot;log&quot;</span><span class="p">);</span>  <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_yscale</span><span class="p">(</span><span class="s2">&quot;log&quot;</span><span class="p">);</span>  <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/8da5cb7bd0cb5173f9198d295b8aef887a351588d7cc5b7ca4a5a34f9c774dfa.png" src="../../_images/8da5cb7bd0cb5173f9198d295b8aef887a351588d7cc5b7ca4a5a34f9c774dfa.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tv_real</span><span class="p">,</span> <span class="n">xt_real</span> <span class="o">=</span> <span class="n">psd_to_time_realization</span><span class="p">(</span><span class="n">psd_fun</span><span class="p">,</span> <span class="n">fv</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tv_real</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">xt_real</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tv_real</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">imag</span><span class="p">(</span><span class="n">xt_real</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$t$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/a7ab676610ec9980b476e20470be0db307caec07d7a5b2a404f0d305457bf1be.png" src="../../_images/a7ab676610ec9980b476e20470be0db307caec07d7a5b2a404f0d305457bf1be.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&gt; Check fft of the realized signal</span>
+<span class="n">xf_check</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">xt_real</span><span class="p">)</span>
+
+<span class="n">dt_real</span> <span class="o">=</span> <span class="n">tv_real</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">tv_real</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">tend_real</span> <span class="o">=</span> <span class="n">dt_real</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">tv_real</span><span class="p">)</span>
+<span class="n">fmax_real</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">dt_real</span>
+<span class="n">df_real</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">tend_real</span>
+<span class="n">fv_check</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">tv_real</span><span class="p">))</span> <span class="o">*</span> <span class="n">df_real</span>
+
+<span class="n">n_plot</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">tv_real</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fv_check</span><span class="p">[:</span><span class="n">n_plot</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">xf_check</span><span class="p">[:</span><span class="n">n_plot</span><span class="p">]),</span> <span class="s1">&#39;:o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Realization DFT&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fv</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">tf_v</span><span class="p">),</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Original |X|&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xscale</span><span class="p">(</span><span class="s2">&quot;log&quot;</span><span class="p">);</span>  <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_yscale</span><span class="p">(</span><span class="s2">&quot;log&quot;</span><span class="p">);</span>  <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(),</span> <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fv_check</span><span class="p">[:</span><span class="n">n_plot</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span><span class="n">xf_check</span><span class="p">[:</span><span class="n">n_plot</span><span class="p">])</span> <span class="o">*</span> <span class="mi">180</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="s1">&#39;:o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Realization DFT&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">fv</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span><span class="n">tf_v</span><span class="p">)</span> <span class="o">*</span> <span class="mi">180</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Original |X|&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xscale</span><span class="p">(</span><span class="s2">&quot;log&quot;</span><span class="p">);</span>  <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(),</span> <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(None, &lt;matplotlib.legend.Legend at 0x789bf5127a40&gt;)
+</pre></div>
+</div>
+<img alt="../../_images/292488d10e90843a51902126edc0fe12d9e4b567683cee430065ea8fea9985c0.png" src="../../_images/292488d10e90843a51902126edc0fe12d9e4b567683cee430065ea8fea9985c0.png" />
+</div>
+</div>
+<p>While magnitude is exactly represented in the realization of the PSD, it contains no information about the phase of the Fourier transform of the original signal, as <span class="math notranslate nohighlight">\(\Phi_X(f) = |X(f)|^2\)</span>.</p>
+</div>
+</div>
+<div class="section" id="shape-filter">
+<h2><span class="section-number">21.4.5. </span>Shape filter<a class="headerlink" href="#shape-filter" title="Permalink to this heading">#</a></h2>
+<div class="section" id="time-continuous-domain">
+<h3><span class="section-number">21.4.5.1. </span>Time-continuous domain<a class="headerlink" href="#time-continuous-domain" title="Permalink to this heading">#</a></h3>
+<p>A shape filter usually takes a white noise <span class="math notranslate nohighlight">\(w\)</span> as an input, to produce a</p>
+<div class="math notranslate nohighlight">
+\[u(s) = G(s) w(s)\]</div>
+</div>
+<div class="section" id="time-discrete-domain">
+<h3><span class="section-number">21.4.5.2. </span>Time-discrete domain<a class="headerlink" href="#time-discrete-domain" title="Permalink to this heading">#</a></h3>
+</div>
+</div>
+<div class="section" id="statistics-of-realizations">
+<h2><span class="section-number">21.4.6. </span>Statistics of realizations<a class="headerlink" href="#statistics-of-realizations" title="Permalink to this heading">#</a></h2>
+<p>Given a PSD defined for <span class="math notranslate nohighlight">\(\omega \in [0, \omega_{max}]\)</span>, a realization has amplitude (equal for all the realizations)</p>
+<div class="math notranslate nohighlight">
+\[|X_k(\omega)| = PSD_X^{1/2}(\omega)\]</div>
+<p>and random phases <span class="math notranslate nohighlight">\(\phi_{kl}\)</span> sampled for each <span class="math notranslate nohighlight">\(\omega_l \in [0, \omega_{max}]\)</span> from a uniform probability distribution in <span class="math notranslate nohighlight">\([-\pi, \pi]\)</span>, with probability density function</p>
+<div class="math notranslate nohighlight">
+\[p(\phi) = \frac{1}{2 \pi} \ , \quad \text{for $\phi \in [-\pi, \pi]$}\]</div>
+<p>The <span class="math notranslate nohighlight">\(k^{th}\)</span> realization at frequency <span class="math notranslate nohighlight">\(\omega_l\)</span> has (discrete) spectrum</p>
+<div class="math notranslate nohighlight">
+\[X_k(\omega_l) = \sqrt{PSD(\omega_l)} e^{i \phi_{kl}} \ ,\]</div>
+<p>being <span class="math notranslate nohighlight">\(\phi_{kl}\)</span> the arbitrary phase (no effect on the PSD) of the <span class="math notranslate nohighlight">\(l^{th}\)</span> harmonics of the <span class="math notranslate nohighlight">\(k^{th}\)</span> realization.</p>
+<p><strong>Single realization.</strong>
+Spectrum and PSD of a realization</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+X_k(\omega)
+ &amp; = \text{Re}\{ X_k(\omega) \} + i \text{Im}\{ X_k(\omega) \} = \\
+ &amp; = | X_k(\omega) | \, e^{i \angle X_k(\omega)}  = |X_k(\omega)| \cos \phi_{X_k}(\omega) + i |X_k(\omega)| \sin \phi_{X_k}(\omega) \\
+PSD_{X_k}(\omega)
+ &amp; = |X_k(\omega)|^2 = X_k^*(\omega) X_k(\omega) = \left(  \text{Re}\{ X_k(\omega) \} \right)^2 + \left( \text{Im}\{ X_k(\omega) \} \right)^2 = PSD_{X}(\omega) \ ,
+\end{aligned}\end{split}\]</div>
+<p>i.e. while every individual realization may have different values of real and imaginary parts (due to arbitrary phase), they all have the same PSD.</p>
+<p><strong>Statistics of realizations.</strong></p>
+<ul>
+<li><p>magnitude, deterministic not random</p>
+<div class="math notranslate nohighlight">
+\[|X(\omega)| = \sqrt{PSD(\omega)}\]</div>
+</li>
+<li><p>phase, uniform distribution for <span class="math notranslate nohighlight">\(\phi \in [-\pi,\pi]\)</span></p>
+<ul class="simple">
+<li><p>average value, variance (<strong>does it have any meaning?</strong>):</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+      \mathbb{E}[\phi] &amp; = \int_{-\pi}^{\pi} \phi p(\phi) \, d \phi = 0 \\
+      \mathbb{E}[\phi^2] &amp; = 2\int_{0}^{\pi} p(\phi) \phi^2 \, d\phi = \frac{\pi^2}{3}
+    \end{aligned}\end{split}\]</div>
+</li>
+<li><p>real part and imaginary part</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+      \mathbb{E}[\text{Re}\{ X_k(\omega) \}] &amp; = |X(\omega)| \int_{\phi=-\pi}^{\pi} p(\phi) \, \cos \phi \, d \phi = 0\\
+      \mathbb{E}\left[\left( \text{Re}\{ X_k(\omega) \} \right)^2\right] &amp; =  |X(\omega)|^2 \int_{-\pi}^{\pi} p(\phi) \cos^2 \phi \, d\phi = \frac{1}{2} |X(\omega)|^2 \\
+      \mathbb{E}[\text{Im}\{ X_k(\omega) \}] &amp; = 0 \\
+      \mathbb{E}\left[\left(\text{Im}\{ X_k(\omega) \} \right)^2\right] &amp; = \frac{1}{2} |X(\omega)|^2 \\
+    \end{aligned}\end{split}\]</div>
+<p>s.t.</p>
+<p>\begin{aligned}
+\mathbb{E}[X_k(\omega)] &amp; = 0 \
+\mathbb{E}[|X_k(\omega)|^2] &amp; = \mathbb{E}\left[ \left(\text{Re}{ X_k(\omega) } \right)^2 + \left(\text{Im}{ X_k(\omega) } \right)^2 \right] = |X(\omega)|^2 = PSD(\omega) \ ,
+\end{aligned}</p>
+<p>as expected, as all the realizations come from the same PSD.</p>
+</li>
+</ul>
+<p><strong>Sample average</strong> of <span class="math notranslate nohighlight">\(N\)</span> i.i.d. realizations,</p>
+<div class="math notranslate nohighlight">
+\[\overline{X}(\omega) = \frac{1}{N} \sum_{n=1}^N X_n(\omega)\]</div>
+<ul>
+<li><p>average</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{E}\left[\overline{X}(\omega)\right] = 0\]</div>
+</li>
+<li><p>PSD, “variance”</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+    \mathbb{E}\left[ \overline{X}^*(\omega) \overline{X}(\omega)  \right]
+    &amp; = \mathbb{E}\left[ \frac{1}{N} \sum_{n=1}^{N} {X_n}^*(\omega) \,  \frac{1}{N} \sum_{m=1}^{N} X_m(\omega)  \right] =  &amp; \text{(i.i.d.)}\\
+    &amp; = \mathbb{E} \left[ \frac{1}{N^2} \sum_{n=1}^{N} |X_n|^2(\omega) \right] = \\
+    &amp; = \frac{1}{N} \mathbb{E} \left[ |X_k(\omega)|^2 \right]
+  \end{aligned}\end{split}\]</div>
+</li>
+</ul>
+<p>…</p>
+<ul>
+<li><p>Sum of (zero-average) independent spectra, <span class="math notranslate nohighlight">\(X_1(\omega)\)</span>, <span class="math notranslate nohighlight">\(X_2(\omega)\)</span>,…(it’s not needed that they’re identically distributed),</p>
+<div class="math notranslate nohighlight">
+\[S(\omega) := \sum_{n=1}^N X_n(\omega) \ .\]</div>
+<p>The average of the PSD of the sum of the spectra equals the sum of the average of the PSD of the spectra,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+     \mathbb{E} \left[ \text{PSD}_S(\omega) \right]
+     &amp; := \mathbb{E} \left[ \left( \sum_{n=1}^{N} X_n(\omega) \right)^* \left( \sum_{m=1}^{N} X_m(\omega)  \right) \right] = &amp; \text{(independent)} \\
+     &amp; = \sum_{n=1}^{N} \mathbb{E} \left[ | X_n(\omega) |^2 \right] = \\
+     &amp; = \sum_{n=1}^{N} \mathbb{E} \left[ PSD_{X_n}(\omega) \right] \ .
+  \end{aligned}\end{split}\]</div>
+</li>
+</ul>
+<!--
+- magnitude
+
+- phase
+
+- real and imaginary part
+
+   \begin{aligned}
+     \text{Re} \left\{ \overline{X}(\omega) \right\} & = \frac{1}{N} \sum_{n=1}^{N} \text{Re} \left\{ {X}_n(\omega) \right\} \\
+     \text{Im} \left\{ \overline{X}(\omega) \right\} & = \frac{1}{N} \sum_{n=1}^{N} \text{Im} \left\{ {X}_n(\omega) \right\} \\
+   \end{aligned}
+--></div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./ch/complex"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="fourier-transforms.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">21.3. </span>Relations between Fourier transforms</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="z-transform.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">22. </span>Z-transform</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fourier-transforms">21.4.1. Fourier transforms</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-fourier-transform-dft">21.4.1.1. Discrete Fourier Transform (DFT)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#leakage">21.4.2. Leakage</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aliasing">21.4.3. Aliasing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#realizations-of-psd">21.4.4. Realizations of PSD</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exact-realization">21.4.4.1. Exact realization</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shape-filter">21.4.5. Shape filter</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#time-continuous-domain">21.4.5.1. Time-continuous domain</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#time-discrete-domain">21.4.5.2. Time-discrete domain</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#statistics-of-realizations">21.4.6. Statistics of realizations</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By basics
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

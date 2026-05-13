@@ -63,6 +63,8 @@ parts:
     - file: ch/complex/fourier-series
     - file: ch/complex/fourier-transform
     - file: ch/complex/fourier-transforms
+    - file: ch/complex/fourier-practice
+  - file: ch/complex/z-transform
 - caption: Calculus of Variations
   numbered: True
   chapters:
@@ -72,6 +74,7 @@ parts:
   chapters:
   - file: ch/ode/intro
   - file: ch/ode/ode-linear-systems
+  - file: ch/ode/integration-schemes
 - caption: System Theory
   numbered: True
   chapters:
