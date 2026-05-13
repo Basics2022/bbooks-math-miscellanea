@@ -31,7 +31,7 @@ whose solution is $y_k(x) = A_k e^{s_k x}$.
 
 ```
 
-(ode:linear-equations:const-coeff:general-sol:homogeneous:mulitple-roots)=
+(ode:linear-equations:const-coeff:general-sol:homogeneous:multiple-roots)=
 ##### Independent solutions for roots with miltiplicity $\ p > 1$
 
 ```{dropdown} Independent solutions for root with multiplicity $\ p=2$
@@ -97,10 +97,7 @@ $$y(x) = C_0 e^{sx} + C_1 \, x \, e^{sx} + \dots C_{p-1} \, x^{p-1} \, e^{sx}$$
 
 ```
 
-**Roots with multiplicity $p > 1$.**
-
-$$0 = \left( - s_k + \frac{d}{dx} \right)^p y(x)$$
-
-
 (ode:linear-equations:const-coeff:general-sol:particular)=
 #### Particular solution
+
+
