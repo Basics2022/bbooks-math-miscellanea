@@ -150,15 +150,23 @@ $$x_{+\infty} = \lim_{z \rightarrow 1} (z-1) X(z) \ .$$
 
 ### Solution of difference equations
 
+**First-order reduction.**
+
+```{dropdown} Reduction to first order $\ k$-dimensional system of a $\ k$-order ODE
+
 From $k$-order difference equation to system of $1$-order difference equations, as it can be done with ODEs. For ODEs
 
-$$x^{(k)} + a_{k-1} x^{(n-1)} + \dots + a_1 \dot{x} + a_0 x = f(t)$$
+$$x^{(k)} + a_{k-1} x^{(k-1)} + \dots + a_1 \dot{x} + a_0 x = f(t)$$
 
 may be written as a first-order $k$-dimensional system
 
 $$\dot{\mathbf{z}} = \mathbf{f}(\mathbf{z},t) \ $$
 
 $$\begin{bmatrix} \dot{z}_0  \\ \dot{z}_1 \\ \dots \\ \dot{z}_{k-1} \end{bmatrix} = \begin{bmatrix} z_1 \\ z_2 \\ \dots \\ - a_{k-1} z_{k-1} - \dots - a_1 z_1 - a_0 z_0 + f(t) \end{bmatrix}$$
+
+```
+
+```{dropdown} Reduction to first order $\ k$-dimensional system of a $\ k$-order difference equation
 
 For a difference equation
 
@@ -171,6 +179,24 @@ $$\mathbf{z}_{n+1} = \mathbf{f}(\mathbf{z}_n, t_n)$$
 $$\begin{bmatrix} z_{0,n} \\ z_{1,n} \\ \dots  \\ z_{k-1,n} \end{bmatrix} = \begin{bmatrix} z_{1,n-1} \\ z_{2,n-1} \\ \dots \\ f_n - a_{1} z_{k-1,n-1} \dots - a_{k-1} z_{0,n-1} \end{bmatrix}$$
 
 with $z_{j,n} = x_{n-k+1+j}$, for $j=0:k-1$. 
+
+```
+
+**Ansatz.** The solution of a homogeneous linear ODE can be solved as a linear combination of elementary solutions with expression $x(t) = X e^{st}$ - except for the case of [multiple roots in the characteristic polynomial](ode:linear-equations:const-coeff:general-sol:homogeneous:multiple-roots)
+
+$$x^{(k)} + a_{k-1} x^{(k-1)} + \dots + a_1 \dot{x} + a_0 x = 0 \ , $$
+
+with values of $s$ as the roots of the polynomial
+
+$$s^k + a_{k-1} s^{k-1} + \dots + a_1 s + a_0 = 0 \ .$$
+
+A linear difference equation can be solved as a linear combination of elementary solutions with expression $x_n = X z^n$
+
+$$x_{n} + a_{k-1} x_{n-1} + \dots + a_1 x_{n-k+2} + a_0 x_{n-k+1} = 0 \ , $$
+
+with values of $z$ as the roots of the polynomial
+
+$$z^k + a_{k-1} z^{k-1} + \dots + a_1 z + a_0 = 0 \ .$$
 
 
 ### Analysis of stability of numerical integration methods for ODEs
