@@ -71,7 +71,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="28. Introduction to System Theory" href="../system-theory/intro.html" />
+    <link rel="next" title="27.3. Simplectic integrators" href="integration-schemes-simplectic.html" />
     <link rel="prev" title="26. Linear systems" href="ode-linear-systems.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -249,7 +249,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="intro.html">24. Introduction to Ordinary Differential Equations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="linear-equations.html">25. Linear equations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ode-linear-systems.html">26. Linear systems</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">27. Integration schemes</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">27. Integration schemes</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="integration-schemes-simplectic.html">27.3. Simplectic integrators</a></li>
+</ul>
+</li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">System Theory</span></p>
 <ul class="nav bd-sidenav">
@@ -263,7 +266,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../system-theory/realizations.html">35. State-space realizations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../system-theory/kalman-decomposition.html">36. Kalman decomposition</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../system-theory/lyapunov-equation.html">37. Lyapunov equation</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../system-theory/order-reduction.html">38. Order reduction of dynamical systems</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../system-theory/order-reduction.html">38. Order reduction of dynamical systems</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../system-theory/order-reduction-balanced-truncation.html">38.1. Balanced truncation</a></li>
 </ul>
 </li>
@@ -273,14 +276,14 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Control Theory</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../control/intro.html">41. Introduction to control methods</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../control/closed-loop-requirements-performance.html">42. Closed-loop control: requirements and performance</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../control/closed-loop-requirements-performance.html">42. Closed-loop control: requirements and performance</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../control/closed-loop-requirements-performance-siso-stability.html">42.1. Stability (SISO)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../control/closed-loop-requirements-performance-siso-ref-tracking.html">42.2. Reference tracking (SISO)</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../control/frequency-domain.html">43. Frequency domain control</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../control/optimal-control.html">44. Optimal control</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../control/optimal-control-full-state.html">44.1. Full-state feedback</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../control/optimal-control.html">44. Optimal control</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../control/optimal-control-full-state.html">44.1. Full-state feedback</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../control/optimal-control-full-state-general-ode.html">44.1.1. Generic ODE without exogenous inputs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../control/optimal-control-full-state-linear.html">44.1.2. Linear system without exogenous inputs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../control/optimal-control-full-state-linear-infinite-time.html">44.1.3. Linear system without exogenous inputs - infinite time horizon</a></li>
@@ -292,7 +295,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-observer-deterministic.html">44.5. Optimal observer for deterministic disturbances</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-output.html">44.6. Sub-optimal control for output feedback</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-regulator-observer.html">44.7. Combination of controller and observer</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../control/optimal-control-ref-tracking.html">44.8. Optimal control for reference tracking</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../control/optimal-control-ref-tracking.html">44.8. Optimal control for reference tracking</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../control/optimal-control-ref-tracking-example.html">44.8.3. Example of optimal control for tracking reference input</a></li>
 </ul>
 </li>
@@ -301,7 +304,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../control/pole-placement.html">45. Pole placement</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../control/examples.html">46. Examples</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../control/examples.html">46. Examples</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-first-order-ref-tracking.html">46.1. First order system - Reference tracking</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-first-order-with-time-delay-ref-tracking.html">46.2. First order system w/ time delay - Reference tracking</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-inverted-pendulum.html">46.3. Inverted pendulum</a></li>
@@ -315,14 +318,14 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../pde/intro.html">47. Introduction to Partial Differential Equations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pde/elliptic.html">48. Elliptic equations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../pde/parabolic.html">49. Parabolic equations</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/hyperbolic.html">50. Hyperbolic equations</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/hyperbolic.html">50. Hyperbolic equations</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-intro.html">50.1. Hyperbolic problems and conservation laws</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-dimensions.html">50.2. Hyperbolic problems - dimensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-1d-scalar-linear.html">50.3. Scalar linear equation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-1d-vector-linear.html">50.4. Linear vector equation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-1d-scalar-nonlinear.html">50.5. Scalar non-linear equation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../pde/characteristics.html">50.6. Method of characteristics</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../pde/hyperbolic-nd.html">50.7. Hyperbolic problems in multi-dimensional domains</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../pde/hyperbolic-nd.html">50.7. Hyperbolic problems in multi-dimensional domains</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-draft.html">50.7.1. General hyperbolic problem</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-psys.html">50.7.2. P-system</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-euler.html">50.7.3. Euler equations</a></li>
@@ -342,15 +345,15 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Numerical Methods for PDEs</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../pde/numerics.html">54. Introduction to numerical methods for PDEs</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/fem.html">55. Finite Element Method</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/fem.html">55. Finite Element Method</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../pde/fem-poisson-1d.html">55.1. 1-dimensional Poisson equation</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/fvm.html">56. Finite Volume Method</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/fvm.html">56. Finite Volume Method</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../pde/fvm-poisson-1d.html">56.1. 1-dimensional Poisson equation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../pde/fvm-hyperbolic-pde.html">56.2. FVM for hyperbolic problems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../pde/fvm-hyperbolic-bc.html">56.3. Boundary conditions in hyperbolic problems</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../pde/fvm-hyperbolic-examples.html">56.4. Examples of FVM for hyperbolic problems</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../pde/fvm-hyperbolic-examples.html">56.4. Examples of FVM for hyperbolic problems</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="../pde/psys-1d.html">56.4.1. 1-dimensional P-system</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../pde/euler-1d.html">56.4.2. 1-dimensional Euler equations for Perfect Ideal Gas</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../pde/euler-quasi-1d.html">56.4.3. Quasi 1-dimensional Euler equations for Perfect Ideal Gas</a></li>
@@ -619,23 +622,25 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#concepts">27.1. Concepts</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#local-truncation-error-and-consistency">27.1.1. Local truncation error and Consistency</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#global-truncation-error-and-convergence">27.1.2. Global truncation error and Convergence</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#recurrence-relation-for-one-step-methods">27.1.2.1. Recurrence relation for One-step methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contents">27.1. Contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#concepts">27.2. Concepts</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#local-truncation-error-and-consistency">27.2.1. Local truncation error and Consistency</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#global-truncation-error-and-convergence">27.2.2. Global truncation error and Convergence</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#recurrence-relation-for-one-step-methods">27.2.2.1. Recurrence relation for One-step methods</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stability-of-a-linear-system">27.1.3. Stability of a linear system</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-stability">27.1.3.1. A-stability</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#l-stability">27.1.3.2. L-stability</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stability-of-a-linear-system">27.2.3. Stability of a linear system</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-stability">27.2.3.1. A-stability</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#l-stability">27.2.3.2. L-stability</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#some-schemes">27.1.4. Some schemes</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#homogeneous-equation">27.1.4.1. Homogeneous equation</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#forced-equation">27.1.4.2. Forced equation</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">27.1.4.3. A-stability</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#g-z-on-the-real-axis">27.1.4.4. G(z) on the real axis</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#g-z-on-the-imaginary-axis">27.1.4.5. G(z) on the imaginary axis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#some-schemes">27.2.4. Some schemes</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#homogeneous-equation">27.2.4.1. Homogeneous equation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#forced-equation">27.2.4.2. Forced equation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">27.2.4.3. A-stability</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#g-z-absolute-value-and-phase">27.2.4.4. G(z): absolute value and phase</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#g-z-on-the-real-axis">27.2.4.5. G(z) on the real axis</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#g-z-on-the-imaginary-axis">27.2.4.6. G(z) on the imaginary axis</a></li>
 </ul>
 </li>
 </ul>
@@ -653,7 +658,10 @@ document.write(`
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="integration-schemes">
 <span id="ode-integration-schemes"></span><h1><span class="section-number">27. </span>Integration schemes<a class="headerlink" href="#integration-schemes" title="Permalink to this heading">#</a></h1>
+<p>The choice of a integration scheme usually involves a trade-off between, <strong>stability</strong>, <strong>computational cost</strong>, <strong>fidelity</strong> (accuracy/order, numerical damping/change of phase/amplifications of fast modes - see transfer function, and stiff problems -, energy conservation for conservative systems - see simplectic methods,…)</p>
 <p>Link to <a class="reference internal" href="../complex/z-transform.html#complex-z-transform"><span class="std std-ref">Z-transform</span></a> for discrete-time signals.</p>
+<div class="section" id="contents">
+<h2><span class="section-number">27.1. </span>Contents<a class="headerlink" href="#contents" title="Permalink to this heading">#</a></h2>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
 <summary class="sd-summary-title sd-card-header">
 Contents<div class="sd-summary-down docutils">
@@ -695,10 +703,11 @@ Contents<div class="sd-summary-down docutils">
 <li><p class="sd-card-text"><a class="reference external" href="https://math.stackexchange.com/questions/1466978/advantage-of-l-stability-compared-to-a-stability">Advantage of L-stability compared to A-stability</a>, Mathematics Stack Exchange.</p></li>
 </ul>
 </div>
-</details><div class="section" id="concepts">
-<h2><span class="section-number">27.1. </span>Concepts<a class="headerlink" href="#concepts" title="Permalink to this heading">#</a></h2>
+</details></div>
+<div class="section" id="concepts">
+<h2><span class="section-number">27.2. </span>Concepts<a class="headerlink" href="#concepts" title="Permalink to this heading">#</a></h2>
 <div class="section" id="local-truncation-error-and-consistency">
-<h3><span class="section-number">27.1.1. </span>Local truncation error and Consistency<a class="headerlink" href="#local-truncation-error-and-consistency" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">27.2.1. </span>Local truncation error and Consistency<a class="headerlink" href="#local-truncation-error-and-consistency" title="Permalink to this heading">#</a></h3>
 <p>Let</p>
 <div class="math notranslate nohighlight">
 \[y_{n+1} = \Psi(t_{n+1}; y_n, ..., y_{n-k+1}; h, f(\cdot)) = y_n + h A(t_{n+1}; y_n, ..., y_{n-k+1}; h, f(\cdot)) \ ,\]</div>
@@ -719,7 +728,7 @@ Contents<div class="sd-summary-down docutils">
 \[\delta^h_{n+k} = O(h^{p+1}) \quad , \quad \text{for } h \rightarrow 0 \ .\]</div>
 </div>
 <div class="section" id="global-truncation-error-and-convergence">
-<h3><span class="section-number">27.1.2. </span>Global truncation error and Convergence<a class="headerlink" href="#global-truncation-error-and-convergence" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">27.2.2. </span>Global truncation error and Convergence<a class="headerlink" href="#global-truncation-error-and-convergence" title="Permalink to this heading">#</a></h3>
 <p>The <strong>global truncation error</strong> <span class="math notranslate nohighlight">\(e_n\)</span> is the accumulation of the error up to time <span class="math notranslate nohighlight">\(t_n\)</span>,</p>
 <div class="math notranslate nohighlight">
 \[e_n^h := y_{n} - y(t_n) \ .\]</div>
@@ -727,7 +736,7 @@ Contents<div class="sd-summary-down docutils">
 <div class="math notranslate nohighlight">
 \[\lim_{h \rightarrow 0} \max_n | e_{n} | = 0 \ .\]</div>
 <div class="section" id="recurrence-relation-for-one-step-methods">
-<h4><span class="section-number">27.1.2.1. </span>Recurrence relation for One-step methods<a class="headerlink" href="#recurrence-relation-for-one-step-methods" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">27.2.2.1. </span>Recurrence relation for One-step methods<a class="headerlink" href="#recurrence-relation-for-one-step-methods" title="Permalink to this heading">#</a></h4>
 <p>A one-step method reads</p>
 <div class="math notranslate nohighlight">
 \[y_{n+1} = \Psi(t_{n+1}; y_n; h, f(\cdot)) = y_n + h A(t_{n+1}; y_n; h, f(\cdot)) \ ,\]</div>
@@ -737,7 +746,7 @@ Contents<div class="sd-summary-down docutils">
 </div>
 </div>
 <div class="section" id="stability-of-a-linear-system">
-<h3><span class="section-number">27.1.3. </span>Stability of a linear system<a class="headerlink" href="#stability-of-a-linear-system" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">27.2.3. </span>Stability of a linear system<a class="headerlink" href="#stability-of-a-linear-system" title="Permalink to this heading">#</a></h3>
 <p>Linear homogeneous equation (or system?)</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
@@ -757,12 +766,12 @@ Contents<div class="sd-summary-down docutils">
 <div class="math notranslate nohighlight">
 \[y(s) = \frac{1}{s - \lambda} u(s) \ .\]</div>
 <div class="section" id="a-stability">
-<h4><span class="section-number">27.1.3.1. </span>A-stability<a class="headerlink" href="#a-stability" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">27.2.3.1. </span>A-stability<a class="headerlink" href="#a-stability" title="Permalink to this heading">#</a></h4>
 <p>A-stability ensures the numerical method doesn’t explode in the simulation of a asymptotically stable system.</p>
 <p>A numerical method is defined A-stable if its stability region includes the whole left half plane.</p>
 </div>
 <div class="section" id="l-stability">
-<h4><span class="section-number">27.1.3.2. </span>L-stability<a class="headerlink" href="#l-stability" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">27.2.3.2. </span>L-stability<a class="headerlink" href="#l-stability" title="Permalink to this heading">#</a></h4>
 <p>Let <span class="math notranslate nohighlight">\(z := h \lambda\)</span>. For <strong>one-step methods</strong>, it’s possible to define a <strong>scalar transfer function</strong> <span class="math notranslate nohighlight">\(G(z)\)</span> between <span class="math notranslate nohighlight">\(y_{n}\)</span> and <span class="math notranslate nohighlight">\(y_{n+1}\)</span>,</p>
 <div class="math notranslate nohighlight">
 \[y_{n+1} = G(z) y_n \ .\]</div>
@@ -774,9 +783,11 @@ Contents<div class="sd-summary-down docutils">
 </div>
 </div>
 <div class="section" id="some-schemes">
-<h3><span class="section-number">27.1.4. </span>Some schemes<a class="headerlink" href="#some-schemes" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">27.2.4. </span>Some schemes<a class="headerlink" href="#some-schemes" title="Permalink to this heading">#</a></h3>
 <div class="section" id="homogeneous-equation">
-<h4><span class="section-number">27.1.4.1. </span>Homogeneous equation<a class="headerlink" href="#homogeneous-equation" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">27.2.4.1. </span>Homogeneous equation<a class="headerlink" href="#homogeneous-equation" title="Permalink to this heading">#</a></h4>
+<div class="math notranslate nohighlight">
+\[\dot{y} = f(t,y) = \lambda y \ .\]</div>
 <p><strong>Explicit Euler.</strong></p>
 <div class="math notranslate nohighlight">
 \[y_{n+1} = y_{n} + h f(y_n, t_n) = y_n + h \lambda y_n = ( 1 + h \lambda ) y_n \ .\]</div>
@@ -794,9 +805,107 @@ Contents<div class="sd-summary-down docutils">
 \[y_{n+1} = y_n + \frac{h}{2} \left[ f(y_{n}, t_{n}) + f(y_{n+1}, t_{n+1}) \right] = y_n + \frac{h}{2} \left[ \lambda y_{n} + \lambda y_{n+1} \right] \ .\]</div>
 <div class="math notranslate nohighlight">
 \[y_{n} = \left[ \frac{1 + \lambda h / 2}{1 - \lambda h / 2} \right]^n y_0 \ .\]</div>
+<p><strong>BDF 2.</strong> BDF 2 is a multi-step approach, so either <span class="math notranslate nohighlight">\(Z\)</span>-transform of the conversion to a one-step 2-dimensional system is required to discuss its stability properties, and transfer function.</p>
+<div class="math notranslate nohighlight">
+\[y_{n+1} - \frac{4}{3} y_{n} + \frac{1}{3} y_{n-1} = \frac{2}{3} h f(t_{n+1}, y_{n+1}) \]</div>
+<div class="math notranslate nohighlight">
+\[y_{n+1} - \frac{4}{3} y_{n} + \frac{1}{3} y_{n-1} = \frac{2}{3} h \lambda y_{n+1} \]</div>
+<p><strong>Z-transform.</strong> Using the definition <span class="math notranslate nohighlight">\(\zeta := \lambda h\)</span>, and applying the <span class="math notranslate nohighlight">\(Z\)</span>-transform,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  0 &amp; = \left[ \left( 1 - \frac{2}{3} z \right) - \frac{4}{3} \zeta^{-1} + \frac{1}{3} \zeta^{-2} \right] Y(\zeta) \\
+\end{aligned}\end{split}\]</div>
+<p>the characteristic polynomial reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+  0 &amp; = \pi(\zeta; z) = \left( 3 - 2 z \right) \zeta ^2 - 4 \zeta + 1 \ .
+\end{aligned}\]</div>
+<p>The roots of the polynomial depend on <span class="math notranslate nohighlight">\(z \in \mathbb{C}\)</span>, and the system is stable if all the roots have <span class="math notranslate nohighlight">\(|\zeta_k| \le 1\)</span>. This condition can be summarized with the condition of <strong>spectral radius</strong> of the matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> of the one-step system, <span class="math notranslate nohighlight">\(\rho(\mathbf{A}) = \max |\lambda_k| &lt; 1\)</span>.</p>
+<p><strong>Reduction of difference equation to a one-step system.</strong> The 2-step difference equation above</p>
+<div class="math notranslate nohighlight">
+\[y_{n+1} - \frac{4}{3 - 2 z} y_{n} + \frac{1}{3 - 2 z} y_{n} = 0\]</div>
+<p>can be recast as a system, <span class="math notranslate nohighlight">\(y_n = z_{1,n}\)</span>, <span class="math notranslate nohighlight">\(y_{n-1} = z_{0,n}\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  z_{0,n+1} &amp; = z_{1,n} \\
+  z_{1,n+1} &amp; = \frac{4}{3 - 2 z} z_{1,n} - \frac{1}{3 - 2 z} z_{0,n}
+\end{aligned}\end{split}\]</div>
+<p>or using matrix formalism</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{z}_{n+1} = \mathbf{A} \mathbf{z}_n \ ,\]</div>
+<p>with <span class="math notranslate nohighlight">\(\mathbf{A} = \begin{bmatrix} \cdot &amp; 1 \\ -\frac{1}{3 - 2 z} &amp; \frac{4}{3 - 2 z} \end{bmatrix}\)</span>. The eigenvalues of the system follows from the condition</p>
+<div class="math notranslate nohighlight">
+\[0 = \zeta \left( \zeta - \frac{4}{3 - 2 z} \right) + \frac{1}{3-2 z} \ , \]</div>
+<p>i.e. the same condition as <span class="math notranslate nohighlight">\(\pi(\zeta; z) = 0\)</span>.</p>
+<p><strong>L-stability.</strong> As <span class="math notranslate nohighlight">\(\rightarrow +\infty\)</span>, the polynomials goes to <span class="math notranslate nohighlight">\(\pi(z \rightarrow + \infty; \zeta) \sim - \frac{2}{3} z \zeta^2\)</span> and thus the roots goes to <span class="math notranslate nohighlight">\(z \rightarrow + \infty\)</span>.</p>
+<p><strong>Methods for second-order equations.</strong></p>
+<div class="math notranslate nohighlight">
+\[\ddot{\mathbf{x}} = \mathbf{f}(t, \mathbf{x}) \ ,\]</div>
+<p>or as a first-order system</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{bmatrix} \dot{\mathbf{x}} \\ \dot{\mathbf{v}} \end{bmatrix} = \begin{bmatrix} \mathbf{v} \\ \mathbf{f}(\mathbf{x},t) \end{bmatrix} \ .\end{split}\]</div>
+<p>A test second-order homogeneous equation may be the dynamical equation of an undapmed mass-spring system,</p>
+<div class="math notranslate nohighlight">
+\[\ddot{x} + \Omega^2 x = 0 \ ,\]</div>
+<p>being <span class="math notranslate nohighlight">\(( d_t + i \Omega )( d_t - i \Omega ) x = 0\)</span>. This analysis can be performed with a system with conjugate complex eigenvalues <span class="math notranslate nohighlight">\(\lambda = \sigma + j \omega\)</span> and <span class="math notranslate nohighlight">\(\lambda^* = \sigma - j \omega\)</span>, sot that the test equation becomes</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  0 
+  &amp; = ( d_t - \sigma - i \omega )( d_t - \sigma + i \omega ) x = \\
+  &amp; = d_{tt} x - 2 \sigma d_t x + ( \sigma^2 + \omega^2 ) \ .
+\end{aligned}\end{split}\]</div>
+<p><strong>Leapfrog method.</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left\{\begin{aligned}
+  x_{i+1} &amp; = x_i + h v_i + \frac{h^2}{2} f(x_i) \\
+  v_{i+1} &amp; = v_i + \frac{h}{2} \left( f(x_i) + f(x_{i+1}) \right) \ .
+\end{aligned}\right.\end{split}\]</div>
+<p><strong>Verlet method.</strong> …</p>
+<p><strong>Newmark method.</strong> …</p>
+<p>Test equation has <span class="math notranslate nohighlight">\(f(x) = - \Omega^2 x\)</span>, so that Leapfrog method applied to the test problem reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left\{\begin{aligned}
+  x_{i+1} &amp; = x_i + h v_i - \frac{h^2 \Omega^2}{2} x_i\\
+  v_{i+1} &amp; = v_i - \Omega^2 \frac{h}{2} \left(x_i + x_{i+1} \right) \ .
+\end{aligned}\right.\end{split}\]</div>
+<p>so that the <span class="math notranslate nohighlight">\(\mathbf{z}_{i+1}\)</span> state can be written as a function of the <span class="math notranslate nohighlight">\(\mathbf{z}_i\)</span> state</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{bmatrix} 1 &amp; \cdot \\ \frac{h \Omega^2}{2} &amp; 1 \end{bmatrix} \begin{bmatrix} x \\ v \end{bmatrix}_{i+1} = \begin{bmatrix} 1 - \frac{h^2 \Omega^2}{2} &amp; h \\ -\frac{h \Omega^2}{2} &amp; 1 \end{bmatrix} \begin{bmatrix} x \\ v \end{bmatrix}_i\end{split}\]</div>
+<p>or</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \begin{bmatrix} x \\  h v \end{bmatrix}_{i+1} 
+  &amp; = \begin{bmatrix} 1 &amp; \cdot \\ -\frac{h \Omega^2}{2} &amp; 1 \end{bmatrix}  \begin{bmatrix} 1 - \frac{h^2 \Omega^2}{2} &amp; 1 \\ -\frac{h^2 \Omega^2}{2} &amp; 1 \end{bmatrix} \begin{bmatrix} x \\ h v \end{bmatrix}_i = \\
+  &amp; = \begin{bmatrix} 1 - \frac{h^2 \Omega^2}{2} &amp; 1 \\ - h^2 \Omega^2 \left( 1 - \frac{h^2 \Omega^2}{2} \right) &amp;  1-\frac{h^2 \Omega^2}{2} \end{bmatrix} \begin{bmatrix} x \\ h v \end{bmatrix}_i \ .
+\end{aligned}\end{split}\]</div>
+<p>Generalized test equation has <span class="math notranslate nohighlight">\(f(x,v) = 2 \sigma v - ( \sigma^2 + \omega^2) x = - 2 \xi \Omega v - \Omega^2 x\)</span>, with</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+ \Omega^2 &amp; = \sigma^2 + \omega^2 \\
+ \sigma &amp; = - \xi \Omega  \qquad \rightarrow \qquad \xi = -\frac{\sigma}{\Omega} = - \frac{\sigma}{\sqrt{\sigma^2 + \omega^2}} \\
+\end{aligned}\end{split}\]</div>
+<p>Leapfrog method applied to the test problem reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left\{\begin{aligned}
+  x_{i+1} &amp; = x_i + h v_i + \frac{h^2 }{2} \left( - \Omega^2 x_i - 2 \xi \Omega v_i \right)\\
+  v_{i+1} &amp; = v_i + \frac{h}{2} \left[ -\Omega^2 \left(x_i + x_{i+1} \right) - 2 \xi \Omega \left(v_i + v_{i+1} \right) \right] \ .
+\end{aligned}\right.\end{split}\]</div>
+<p><strong>todo</strong> <em>check!</em></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{bmatrix} 1 &amp; \cdot \\ \frac{h^2 \Omega^2}{2} &amp; 1 + \xi h \Omega \end{bmatrix} \begin{bmatrix} x \\ h v \end{bmatrix}_{i+1} = \begin{bmatrix} 1 - \frac{h^2 \Omega^2}{2} &amp; 1 - \xi h \Omega \\ -\frac{h^2 \Omega^2}{2} &amp; 1 - \xi h \Omega \end{bmatrix} \begin{bmatrix} x \\ h v \end{bmatrix}_i\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \begin{bmatrix} x \\  h v \end{bmatrix}_{i+1} 
+  &amp; = \begin{bmatrix} 1 &amp; \cdot \\ -\frac{h^2 \Omega^2}{2 (1+\xi h \Omega)} &amp; \frac{1}{1+\xi h \Omega} \end{bmatrix} \begin{bmatrix} 1 - \frac{h^2 \Omega^2}{2} &amp; 1 - \xi h \Omega \\ -\frac{h^2 \Omega^2}{2} &amp; 1 - \xi h \Omega \end{bmatrix} \begin{bmatrix} x \\ h v \end{bmatrix}_i = \\
+  &amp; = \begin{bmatrix} 1 - \frac{h^2 \Omega^2}{2} &amp; 1 \\ - \frac{h^2 \Omega^2}{1+\xi h \Omega} \left( 1 - \frac{h^2 \Omega^2}{2} \right) &amp; \frac{1 - \xi h \Omega}{1 + \xi h \Omega} \left( 1-\frac{h^2 \Omega^2}{2} \right) \end{bmatrix} \begin{bmatrix} x \\ h v \end{bmatrix}_i \ .
+\end{aligned}\end{split}\]</div>
+<ul class="simple">
+<li><p>if <span class="math notranslate nohighlight">\(\xi^2 \ge 1\)</span>, then the eigenvalues are real</p></li>
+<li><p>if <span class="math notranslate nohighlight">\(\xi^2 \le 1\)</span>, then the eigenvalues are conjugate complex, <span class="math notranslate nohighlight">\(s_{1,2} = -\xi \Omega \mp j \Omega \sqrt{1 - \xi^2}\)</span></p></li>
+</ul>
 </div>
 <div class="section" id="forced-equation">
-<h4><span class="section-number">27.1.4.2. </span>Forced equation<a class="headerlink" href="#forced-equation" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">27.2.4.2. </span>Forced equation<a class="headerlink" href="#forced-equation" title="Permalink to this heading">#</a></h4>
 <div class="math notranslate nohighlight">
 \[\dot{y} = \lambda y(t) + u(t)\]</div>
 <p><strong>Explicit Euler.</strong></p>
@@ -813,7 +922,7 @@ Contents<div class="sd-summary-down docutils">
 <p>…</p>
 </div>
 <div class="section" id="id1">
-<h4><span class="section-number">27.1.4.3. </span>A-stability<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">27.2.4.3. </span>A-stability<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -823,33 +932,59 @@ Contents<div class="sd-summary-down docutils">
 <span class="n">ampl_fun_ie</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">z</span> <span class="p">)</span>
 <span class="n">ampl_fun_cn</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="p">(</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">z</span><span class="o">/</span><span class="mi">2</span> <span class="p">)</span> <span class="o">/</span> <span class="p">(</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">z</span><span class="o">/</span><span class="mi">2</span> <span class="p">)</span>
 
+<span class="n">A_bdf2</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">.0</span><span class="p">,</span> <span class="mf">1.</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">3</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">z</span><span class="p">),</span> <span class="mi">4</span><span class="o">/</span><span class="p">(</span><span class="mi">3</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">z</span><span class="p">)]])</span>
+<span class="n">ampl_fun_bdf2</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigvals</span><span class="p">(</span><span class="n">A_bdf2</span><span class="p">(</span><span class="n">z</span><span class="p">))))</span>
+
+<span class="k">def</span> <span class="nf">A_lf</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
+    <span class="n">sig</span><span class="p">,</span> <span class="n">om</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">z</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">imag</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+    <span class="n">Om</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span> <span class="n">sig</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">om</span><span class="o">**</span><span class="mi">2</span> <span class="p">)</span>
+    <span class="k">if</span> <span class="n">Om</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+        
+    <span class="n">xi</span> <span class="o">=</span> <span class="o">-</span> <span class="n">sig</span> <span class="o">/</span> <span class="n">Om</span>
+
+    <span class="n">n1</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">Om</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="n">d1</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">xi</span> <span class="o">*</span> <span class="n">Om</span>
+    
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">n1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="n">Om</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="n">d1</span><span class="o">*</span><span class="n">n1</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">xi</span><span class="o">*</span><span class="n">Om</span><span class="p">)</span><span class="o">/</span><span class="n">d1</span><span class="o">*</span><span class="n">n1</span><span class="p">]])</span>
+<span class="n">ampl_fun_lf</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigvals</span><span class="p">(</span><span class="n">A_lf</span><span class="p">(</span><span class="n">z</span><span class="p">))))</span>
+
+
 <span class="n">ampl_funs</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;EE&#39;</span><span class="p">:</span> <span class="n">ampl_fun_ee</span><span class="p">,</span> 
-    <span class="s1">&#39;IE&#39;</span><span class="p">:</span> <span class="n">ampl_fun_ie</span><span class="p">,</span> 
-    <span class="s1">&#39;CN&#39;</span><span class="p">:</span> <span class="n">ampl_fun_cn</span>
+    <span class="s1">&#39;EE&#39;</span><span class="p">:</span> <span class="n">ampl_fun_ee</span><span class="p">,</span>
+    <span class="s1">&#39;IE&#39;</span><span class="p">:</span> <span class="n">ampl_fun_ie</span><span class="p">,</span>
+    <span class="s1">&#39;CN&#39;</span><span class="p">:</span> <span class="n">ampl_fun_cn</span><span class="p">,</span>
+    <span class="s1">&#39;BDF2&#39;</span><span class="p">:</span> <span class="n">ampl_fun_bdf2</span><span class="p">,</span>
+    <span class="s1">&#39;Leapfrog&#39;</span><span class="p">:</span> <span class="n">ampl_fun_lf</span>
 <span class="p">}</span>
 <span class="n">n_methods</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ampl_funs</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">complex_amplification_fun</span><span class="p">(</span><span class="n">ampl_fun</span><span class="p">):</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
     <span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
     <span class="n">Z</span> <span class="o">=</span> <span class="n">X</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">Y</span>
 
-    <span class="k">return</span> <span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span> <span class="n">ampl_fun</span><span class="p">(</span><span class="n">Z</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">ampl_fun</span><span class="p">)(</span><span class="n">Z</span><span class="p">)</span>
 
+<span class="c1">#&gt; </span>
+<span class="n">ncols</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">nrows</span> <span class="o">=</span> <span class="p">(</span> <span class="n">n_methods</span> <span class="o">-</span> <span class="mi">1</span> <span class="p">)</span> <span class="o">//</span> <span class="n">ncols</span> <span class="o">+</span> <span class="mi">1</span>
 
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">n_methods</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">n_methods</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="p">,</span> <span class="n">ncols</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">ncols</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span> <span class="n">nrows</span><span class="o">*</span><span class="mi">3</span><span class="p">))</span>
 
 <span class="n">i_method</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="n">fun</span> <span class="ow">in</span> <span class="n">ampl_funs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
 
+    <span class="n">irow</span> <span class="o">=</span> <span class="n">i_method</span> <span class="o">//</span> <span class="n">ncols</span>
+    <span class="n">icol</span> <span class="o">=</span> <span class="n">i_method</span> <span class="o">%</span> <span class="n">ncols</span>
+
     <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">G</span> <span class="o">=</span> <span class="n">complex_amplification_fun</span><span class="p">(</span><span class="n">fun</span><span class="p">)</span>
-    <span class="n">ax</span><span class="p">[</span><span class="n">i_method</span><span class="p">]</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">G</span><span class="p">),</span> <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="mf">1.0</span><span class="p">],</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="p">[</span><span class="n">i_method</span><span class="p">]</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">G</span><span class="p">),</span> <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span> <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;#ffcccc&#39;</span><span class="p">])</span>
-    <span class="n">ax</span><span class="p">[</span><span class="n">i_method</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Method: </span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="p">[</span><span class="n">i_method</span><span class="p">]</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="p">[</span><span class="n">i_method</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Re(z)&quot;</span><span class="p">);</span> <span class="n">ax</span><span class="p">[</span><span class="n">i_method</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Im(z)&quot;</span><span class="p">);</span> <span class="n">ax</span><span class="p">[</span><span class="n">i_method</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">irow</span><span class="p">,</span> <span class="n">icol</span><span class="p">]</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">G</span><span class="p">),</span> <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="mf">1.0</span><span class="p">],</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">irow</span><span class="p">,</span> <span class="n">icol</span><span class="p">]</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">G</span><span class="p">),</span> <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span> <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;#ffcccc&#39;</span><span class="p">])</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">irow</span><span class="p">,</span> <span class="n">icol</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Method: </span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">irow</span><span class="p">,</span> <span class="n">icol</span><span class="p">]</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">irow</span><span class="p">,</span> <span class="n">icol</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Re(z)&quot;</span><span class="p">);</span> <span class="n">ax</span><span class="p">[</span><span class="n">irow</span><span class="p">,</span> <span class="n">icol</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Im(z)&quot;</span><span class="p">);</span> <span class="n">ax</span><span class="p">[</span><span class="n">irow</span><span class="p">,</span> <span class="n">icol</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
 
     <span class="n">i_method</span> <span class="o">+=</span> <span class="mi">1</span>
 
@@ -863,13 +998,16 @@ Contents<div class="sd-summary-down docutils">
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/0d01faca3b0db3171dd744caf727ae405347f3e95ce084f79e91edbca4d1346a.png" src="../../_images/0d01faca3b0db3171dd744caf727ae405347f3e95ce084f79e91edbca4d1346a.png" />
+<img alt="../../_images/3c5e7327a8fda56de6fcef3aeb1e16eee817f985ac15fda96a107c8eb19d281a.png" src="../../_images/3c5e7327a8fda56de6fcef3aeb1e16eee817f985ac15fda96a107c8eb19d281a.png" />
 </div>
 </div>
 <p><strong>A-stability.</strong> Implicit Euler and Crank-Nicolson methods are A-stable, while explicit Euler is not.</p>
 </div>
+<div class="section" id="g-z-absolute-value-and-phase">
+<h4><span class="section-number">27.2.4.4. </span>G(z): absolute value and phase<a class="headerlink" href="#g-z-absolute-value-and-phase" title="Permalink to this heading">#</a></h4>
+</div>
 <div class="section" id="g-z-on-the-real-axis">
-<h4><span class="section-number">27.1.4.4. </span>G(z) on the real axis<a class="headerlink" href="#g-z-on-the-real-axis" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">27.2.4.5. </span>G(z) on the real axis<a class="headerlink" href="#g-z-on-the-real-axis" title="Permalink to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">n_methods</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">n_methods</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="mi">3</span><span class="p">))</span>
@@ -877,8 +1015,8 @@ Contents<div class="sd-summary-down docutils">
 
 <span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="n">fun</span> <span class="ow">in</span> <span class="n">ampl_funs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
 
-    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
-    <span class="n">G</span> <span class="o">=</span> <span class="n">fun</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">10.34324</span><span class="p">,</span> <span class="mf">2.2343242</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+    <span class="n">G</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">fun</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
     
     <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">i_method</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">G</span><span class="p">))</span>
     <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">i_method</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Method: </span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -897,16 +1035,13 @@ Contents<div class="sd-summary-down docutils">
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_21600/1699983498.py:6: RuntimeWarning: divide by zero encountered in divide
-  ampl_fun_cn = lambda z: ( 1 + z/2 ) / ( 1 - z/2 )
-</pre></div>
-</div>
-<img alt="../../_images/d4fdd8d52a1ea3b94023bf776b1dbc06ad046e637f2296345ed29569f9ea44d3.png" src="../../_images/d4fdd8d52a1ea3b94023bf776b1dbc06ad046e637f2296345ed29569f9ea44d3.png" />
+<img alt="../../_images/eac6796f57e5f5a32b3faf2888fe04369171541f7110e42dfd09112ffb704fd1.png" src="../../_images/eac6796f57e5f5a32b3faf2888fe04369171541f7110e42dfd09112ffb704fd1.png" />
 </div>
 </div>
+<p><strong>Remark.</strong> Here the info about phase in BDF2 and Leapfrog methods is lost, as the radial spectrum is shown.</p>
 </div>
 <div class="section" id="g-z-on-the-imaginary-axis">
-<h4><span class="section-number">27.1.4.5. </span>G(z) on the imaginary axis<a class="headerlink" href="#g-z-on-the-imaginary-axis" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">27.2.4.6. </span>G(z) on the imaginary axis<a class="headerlink" href="#g-z-on-the-imaginary-axis" title="Permalink to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">n_methods</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">n_methods</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="mi">3</span><span class="p">))</span>
@@ -917,8 +1052,8 @@ Contents<div class="sd-summary-down docutils">
 
 <span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="n">fun</span> <span class="ow">in</span> <span class="n">ampl_funs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
 
-    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
-    <span class="n">G</span> <span class="o">=</span> <span class="n">fun</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mf">4.3423</span><span class="p">,</span> <span class="mf">4.32432</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
+    <span class="n">G</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">fun</span><span class="p">)(</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">y</span><span class="p">)</span>
 
     <span class="n">min_absGs</span> <span class="o">+=</span> <span class="p">[</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">G</span><span class="p">))</span> <span class="p">]</span>
     <span class="n">max_absGs</span> <span class="o">+=</span> <span class="p">[</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">G</span><span class="p">))</span> <span class="p">]</span>
@@ -952,11 +1087,15 @@ Contents<div class="sd-summary-down docutils">
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/c57b0bc85c478d490f439d5b21b7ff24023a3d6d88e7da606164ea711070f1d1.png" src="../../_images/c57b0bc85c478d490f439d5b21b7ff24023a3d6d88e7da606164ea711070f1d1.png" />
+<img alt="../../_images/9a0f89437ef3e75ca4417417e09c92d7b3b6100b8f8a443a8033e3cdc40991de.png" src="../../_images/9a0f89437ef3e75ca4417417e09c92d7b3b6100b8f8a443a8033e3cdc40991de.png" />
+</div>
+</div>
+<p><strong>Remark.</strong> Here the info about phase in BDF2 and Leapfrog methods is lost, as the radial spectrum is shown.</p>
+<p><strong>L-stable methods.</strong> Among the methods shown here, only IE and BDF2 are L-stable, i.e. with <span class="math notranslate nohighlight">\(|G(z \rightarrow +\infty)| \rightarrow 0\)</span></p>
 </div>
 </div>
 </div>
-</div>
+<div class="toctree-wrapper compound">
 </div>
 </div>
 
@@ -1000,11 +1139,11 @@ Contents<div class="sd-summary-down docutils">
       </div>
     </a>
     <a class="right-next"
-       href="../system-theory/intro.html"
+       href="integration-schemes-simplectic.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">28. </span>Introduction to System Theory</p>
+        <p class="prev-next-title"><span class="section-number">27.3. </span>Simplectic integrators</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1023,23 +1162,25 @@ Contents<div class="sd-summary-down docutils">
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#concepts">27.1. Concepts</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#local-truncation-error-and-consistency">27.1.1. Local truncation error and Consistency</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#global-truncation-error-and-convergence">27.1.2. Global truncation error and Convergence</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#recurrence-relation-for-one-step-methods">27.1.2.1. Recurrence relation for One-step methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contents">27.1. Contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#concepts">27.2. Concepts</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#local-truncation-error-and-consistency">27.2.1. Local truncation error and Consistency</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#global-truncation-error-and-convergence">27.2.2. Global truncation error and Convergence</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#recurrence-relation-for-one-step-methods">27.2.2.1. Recurrence relation for One-step methods</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stability-of-a-linear-system">27.1.3. Stability of a linear system</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-stability">27.1.3.1. A-stability</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#l-stability">27.1.3.2. L-stability</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stability-of-a-linear-system">27.2.3. Stability of a linear system</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-stability">27.2.3.1. A-stability</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#l-stability">27.2.3.2. L-stability</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#some-schemes">27.1.4. Some schemes</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#homogeneous-equation">27.1.4.1. Homogeneous equation</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#forced-equation">27.1.4.2. Forced equation</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">27.1.4.3. A-stability</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#g-z-on-the-real-axis">27.1.4.4. G(z) on the real axis</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#g-z-on-the-imaginary-axis">27.1.4.5. G(z) on the imaginary axis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#some-schemes">27.2.4. Some schemes</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#homogeneous-equation">27.2.4.1. Homogeneous equation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#forced-equation">27.2.4.2. Forced equation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">27.2.4.3. A-stability</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#g-z-absolute-value-and-phase">27.2.4.4. G(z): absolute value and phase</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#g-z-on-the-real-axis">27.2.4.5. G(z) on the real axis</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#g-z-on-the-imaginary-axis">27.2.4.6. G(z) on the imaginary axis</a></li>
 </ul>
 </li>
 </ul>
