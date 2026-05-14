@@ -593,6 +593,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general-solution">25.1.2. General solution</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-of-the-homogeneous-equation">25.1.2.1. Solution of the homogeneous equation</a><ul class="nav section-nav flex-column">
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#independent-solutions-for-roots-with-miltiplicity-p-1">25.1.2.1.1. Independent solutions for roots with miltiplicity <span class="math notranslate nohighlight">\(\ p &gt; 1\)</span></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#asymptotic-stability-of-the-homogeneous-equation">25.1.2.1.2. Asymptotic stability of the homogeneous equation</a></li>
 </ul>
 </li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#particular-solution">25.1.2.2. Particular solution</a></li>
@@ -710,6 +711,41 @@ Independent solutions for root with multiplicity <span class="math notranslate n
 \[y(x) = C_0 e^{sx} + C_1 \, x \, e^{sx} + \dots C_{p-1} \, x^{p-1} \, e^{sx}\]</div>
 </div>
 </details></div>
+<div class="section" id="asymptotic-stability-of-the-homogeneous-equation">
+<span id="ode-linear-equations-const-coeff-general-sol-homogeneous-as-stability"></span><h5><span class="section-number">25.1.2.1.2. </span>Asymptotic stability of the homogeneous equation<a class="headerlink" href="#asymptotic-stability-of-the-homogeneous-equation" title="Permalink to this heading">#</a></h5>
+<p>The asymptotic stability of the homogeneous equation with non-zero initial conditions is equivalent to the asymptotic stability of the equation to an impulsive force, see <a class="reference internal" href="../system-theory/lti.html#ode-lti-impulsive-force"><span class="std std-ref">LTI: impulsive force</span></a>.</p>
+<p><strong>todo</strong> <em>how many equilibrium points? If only one equilibrium exists, it’s possible to talk about the stability of the whole system, instead of the stability of the individual equilibrium point (without the need of the representation of the phase space</em>)</p>
+<p><strong>todo</strong> <em>General definition of asymptotic stability of an equilibrium.</em></p>
+<ul class="simple">
+<li><p>stable equilibrium: <span class="math notranslate nohighlight">\(y(x) \rightarrow \overline{y}\)</span>, as <span class="math notranslate nohighlight">\(x \rightarrow + \infty\)</span></p></li>
+<li><p>unstable equilibrium: <span class="math notranslate nohighlight">\(|y(x) - \overline{y}| \rightarrow +\infty\)</span>, as <span class="math notranslate nohighlight">\(x \rightarrow + \infty\)</span></p></li>
+<li><p>marginally stable equilibrium: if not stable or unstable, i.e. <span class="math notranslate nohighlight">\(|y(x) - \overline{y}| &lt; M\)</span>, without being asymptotically stable</p></li>
+</ul>
+<p>The conditions for asymptotic stability immediately follows from the general solution of the homogeneous equation:</p>
+<ul>
+<li><p>asymptotically stable: all the eigenvalues have negative real part, so that</p>
+<div class="math notranslate nohighlight">
+\[|e^{s_k x}| = | e^{\text{re}\{ s \} x} e^{j \text{im} \{ s \}} | = e^{\text{re}\{ s \} x} \rightarrow 0 \quad , \quad \text{ as } x \rightarrow + \infty \text{ if } \text{re}\{ s \} &lt; 0 \]</div>
+</li>
+<li><p>unstable: there is either</p>
+<ul>
+<li><p>an eigenvalue with positive real part</p>
+<div class="math notranslate nohighlight">
+\[|e^{s_k x}| = | e^{\text{re}\{ s \} x} e^{j \text{im} \{ s \}} | = e^{\text{re}\{ s \} x} \rightarrow +\infty \quad , \quad \text{ as } x \rightarrow + \infty \text{ if } \text{re}\{ s \} &lt; 0 \]</div>
+</li>
+<li><p>or a multiple eigenvalue with zero real part. As an example a root <span class="math notranslate nohighlight">\(s = j \omega\)</span> with multiplicity <span class="math notranslate nohighlight">\(p = 2\)</span></p>
+<div class="math notranslate nohighlight">
+\[\left|e^{j \omega x}( C_0 + C_1 x )\right| = \left| C_1 x \right| \rightarrow +\infty \quad , \quad \text{ as } x \rightarrow + \infty \]</div>
+<p>if <span class="math notranslate nohighlight">\(C_1 \ne 0\)</span> (but this condition is purely ideal in practical applications, as a perfect zero hardly exists in nature). The same relation holds, when evaluating the pair oc conjugate complex elementary solution, <span class="math notranslate nohighlight">\(e^{j \omega} (C_0 + C_1 x) + e^{-j \omega} (C^*_0 + C^*_1 x )\)</span></p>
+</li>
+</ul>
+</li>
+<li><p>marginally-stable, if all the eigenvalues have negative real part, except for a set of imaginary eigenvalues with multiplicity <span class="math notranslate nohighlight">\(p = 1\)</span>. The asymptotic solution becomes</p>
+<div class="math notranslate nohighlight">
+\[y(x) \rightarrow \sum_{k \in \text{marginal}} C_k e^{j \omega_k x} \]</div>
+</li>
+</ul>
+</div>
 </div>
 <div class="section" id="particular-solution">
 <span id="ode-linear-equations-const-coeff-general-sol-particular"></span><h4><span class="section-number">25.1.2.2. </span>Particular solution<a class="headerlink" href="#particular-solution" title="Permalink to this heading">#</a></h4>
@@ -786,6 +822,7 @@ Independent solutions for root with multiplicity <span class="math notranslate n
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general-solution">25.1.2. General solution</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-of-the-homogeneous-equation">25.1.2.1. Solution of the homogeneous equation</a><ul class="nav section-nav flex-column">
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#independent-solutions-for-roots-with-miltiplicity-p-1">25.1.2.1.1. Independent solutions for roots with miltiplicity <span class="math notranslate nohighlight">\(\ p &gt; 1\)</span></a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#asymptotic-stability-of-the-homogeneous-equation">25.1.2.1.2. Asymptotic stability of the homogeneous equation</a></li>
 </ul>
 </li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#particular-solution">25.1.2.2. Particular solution</a></li>

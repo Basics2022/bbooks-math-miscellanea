@@ -190,6 +190,12 @@ with values of $s$ as the roots of the polynomial
 
 $$s^k + a_{k-1} s^{k-1} + \dots + a_1 s + a_0 = 0 \ .$$
 
+The solution is then
+
+$$x(t) = \sum_{a = 1}^{k} X_a e^{s_a t} \ ,$$
+
+with the integration constants to be determined with the initial conditions provided along with the differential equation.
+
 A linear difference equation can be solved as a linear combination of elementary solutions with expression $x_n = X z^n$
 
 $$x_{n} + a_{k-1} x_{n-1} + \dots + a_1 x_{n-k+2} + a_0 x_{n-k+1} = 0 \ , $$
@@ -197,6 +203,14 @@ $$x_{n} + a_{k-1} x_{n-1} + \dots + a_1 x_{n-k+2} + a_0 x_{n-k+1} = 0 \ , $$
 with values of $z$ as the roots of the polynomial
 
 $$z^k + a_{k-1} z^{k-1} + \dots + a_1 z + a_0 = 0 \ .$$
+
+The solution is then
+
+$$x_n = \sum_{a = 1}^{k} X_a {z_a}^{n} \ ,$$
+
+with the integration constants to be determined with the initial conditions provided along with the difference equation.
+
+
 
 
 ### Analysis of stability of numerical integration methods for ODEs
