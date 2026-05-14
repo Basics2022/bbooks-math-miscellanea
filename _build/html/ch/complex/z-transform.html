@@ -792,12 +792,20 @@ Reduction to first order <span class="math notranslate nohighlight">\(\ k\)</spa
 <p>with values of <span class="math notranslate nohighlight">\(s\)</span> as the roots of the polynomial</p>
 <div class="math notranslate nohighlight">
 \[s^k + a_{k-1} s^{k-1} + \dots + a_1 s + a_0 = 0 \ .\]</div>
+<p>The solution is then</p>
+<div class="math notranslate nohighlight">
+\[x(t) = \sum_{a = 1}^{k} X_a e^{s_a t} \ ,\]</div>
+<p>with the integration constants to be determined with the initial conditions provided along with the differential equation.</p>
 <p>A linear difference equation can be solved as a linear combination of elementary solutions with expression <span class="math notranslate nohighlight">\(x_n = X z^n\)</span></p>
 <div class="math notranslate nohighlight">
 \[x_{n} + a_{k-1} x_{n-1} + \dots + a_1 x_{n-k+2} + a_0 x_{n-k+1} = 0 \ , \]</div>
 <p>with values of <span class="math notranslate nohighlight">\(z\)</span> as the roots of the polynomial</p>
 <div class="math notranslate nohighlight">
 \[z^k + a_{k-1} z^{k-1} + \dots + a_1 z + a_0 = 0 \ .\]</div>
+<p>The solution is then</p>
+<div class="math notranslate nohighlight">
+\[x_n = \sum_{a = 1}^{k} X_a {z_a}^{n} \ ,\]</div>
+<p>with the integration constants to be determined with the initial conditions provided along with the difference equation.</p>
 </div>
 <div class="section" id="analysis-of-stability-of-numerical-integration-methods-for-odes">
 <h3><span class="section-number">22.4.2. </span>Analysis of stability of numerical integration methods for ODEs<a class="headerlink" href="#analysis-of-stability-of-numerical-integration-methods-for-odes" title="Permalink to this heading">#</a></h3>
