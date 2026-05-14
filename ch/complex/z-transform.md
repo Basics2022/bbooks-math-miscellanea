@@ -194,7 +194,7 @@ The solution is then
 
 $$x(t) = \sum_{a = 1}^{k} X_a e^{s_a t} \ ,$$
 
-with the integration constants to be determined with the initial conditions provided along with the differential equation.
+with the integration constants to be determined with the initial conditions provided along with the differential equation. [Asymptotical stability conditions](ode:linear-equations:const-coeff:general-sol:homogeneous:as-stability) depend on the real part of the eigenvalues, and on the multiplicity of the imaginary eigenvalues.
 
 A linear difference equation can be solved as a linear combination of elementary solutions with expression $x_n = X z^n$
 
@@ -210,7 +210,13 @@ $$x_n = \sum_{a = 1}^{k} X_a {z_a}^{n} \ ,$$
 
 with the integration constants to be determined with the initial conditions provided along with the difference equation.
 
+**Stability conditions.** ...
 
+* asymptotically stable if all the eigenvalues are $|z_a| < 1$
+* unstable if...
+* marginally stable if...
+
+**todo** *treat multiple roots*
 
 
 ### Analysis of stability of numerical integration methods for ODEs

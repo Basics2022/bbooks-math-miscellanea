@@ -76,6 +76,8 @@ parts:
   - file: ch/ode/linear-equations
   - file: ch/ode/ode-linear-systems
   - file: ch/ode/integration-schemes
+    sections:
+    - file: ch/ode/integration-schemes-simplectic
 - caption: System Theory
   numbered: True
   chapters:
