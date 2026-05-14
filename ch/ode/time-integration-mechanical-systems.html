@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>27.4. Simplectic integrators &#8212; basics - math</title>
+    <title>27.5. Time-integration of a mechanical system &#8212; basics - math</title>
   
   
   
@@ -67,12 +67,12 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/ode/integration-schemes-simplectic';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/ode/time-integration-mechanical-systems';</script>
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="28. Introduction to System Theory" href="../system-theory/intro.html" />
-    <link rel="prev" title="27. Integration schemes" href="integration-schemes.html" />
+    <link rel="prev" title="27.4. Simplectic integrators" href="integration-schemes-simplectic.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -250,7 +250,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="linear-equations.html">25. Linear equations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ode-linear-systems.html">26. Linear systems</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="integration-schemes.html">27. Integration schemes</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">27.4. Simplectic integrators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="integration-schemes-simplectic.html">27.4. Simplectic integrators</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">27.5. Time-integration of a mechanical system</a></li>
 </ul>
 </li>
 </ul>
@@ -425,6 +426,37 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Basics2022/bbooks-math-miscellanea/blob/master/ch/ode/time-integration-mechanical-systems.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -450,7 +482,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/edit/main/ch/ode/integration-schemes-simplectic.md" target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/edit/main/ch/ode/time-integration-mechanical-systems.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -467,7 +499,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/issues/new?title=Issue%20on%20page%20%2Fch/ode/integration-schemes-simplectic.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/issues/new?title=Issue%20on%20page%20%2Fch/ode/time-integration-mechanical-systems.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -497,7 +529,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/ch/ode/integration-schemes-simplectic.md" target="_blank"
+      <li><a href="../../_sources/ch/ode/time-integration-mechanical-systems.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -507,7 +539,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -568,7 +600,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -579,11 +613,27 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Simplectic integrators</h1>
+    <h1>Time-integration of a mechanical system</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-equation-torsion-of-elastic-beam">27.5.1. Example equation: torsion of elastic beam</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exact-solution">27.5.1.1. Exact solution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finite-element-model">27.5.1.2. Finite element model</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#spectral-decomposition-of-the-undamped-system">27.5.1.2.1. Spectral decomposition of the undamped system</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modal-structural-damping">27.5.1.2.2. Modal structural damping</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -593,45 +643,202 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="simplectic-integrators">
-<span id="ode-integration-schemes-simplectic"></span><h1><span class="section-number">27.4. </span>Simplectic integrators<a class="headerlink" href="#simplectic-integrators" title="Permalink to this heading">#</a></h1>
-<p>For Hamiltonian systems (see <a class="reference external" href="https://basics2022.github.io/bbooks-physics-mechanics/ch/hamilton.html">Classical Mechanics: Hamiltonian Mechanics</a>), simplectic integrators preserve the volume in phase space.</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="time-integration-of-a-mechanical-system">
+<span id="ode-integration-schemes-mechanical-system"></span><h1><span class="section-number">27.5. </span>Time-integration of a mechanical system<a class="headerlink" href="#time-integration-of-a-mechanical-system" title="Permalink to this heading">#</a></h1>
+<p>Reference to:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://basics2022.github.io/bbooks-physics-continuum-mechanics/ch/solids/small-displacements-numerics.html">Modal and numerical methods for mechanical systems - continuum mechanics</a></p></li>
+<li><p><a class="reference external" href="https://basics2022.github.io/myblog/posts/modes-in-structures/">Natural modes in structures - blog</a></p></li>
+</ul>
+<div class="section" id="example-equation-torsion-of-elastic-beam">
+<h2><span class="section-number">27.5.1. </span>Example equation: torsion of elastic beam<a class="headerlink" href="#example-equation-torsion-of-elastic-beam" title="Permalink to this heading">#</a></h2>
+<p>Here, the PDE governing the torsional dynamics of a linear homogeneous elastic beam is used as a toy problem</p>
+<div class="math notranslate nohighlight">
+\[I \partial_{tt} \theta - \partial_x \left( GJ \partial_{x} \theta \right) = m \]</div>
+<p>supplied with proper boundary and initial conditions. Here the clamped-free beam is studied, with prescribed torsional moment <span class="math notranslate nohighlight">\(M(t)\)</span> ath teh “free” end so that the boundary conditions read</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
-  \dot{\mathbf{p}} &amp; =-\partial_{\mathbf{q}} H \\
-  \dot{\mathbf{q}} &amp; = \partial_{\mathbf{p}} H \\
+ \theta(x=0, t) &amp; = 0 \\
+ GJ \partial_x \theta(x=\ell, t) &amp; = M(t) \ .
 \end{aligned}\end{split}\]</div>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
-<summary class="sd-summary-title sd-card-header">
-Preservation of volume in phase space for Hamiltonian systems<div class="sd-summary-down docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="sd-summary-up docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Let <span class="math notranslate nohighlight">\(V_t\)</span> a material domain in phase space. The derivative of its volume reads</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  \frac{d}{dt} \int_{V_t} 1
-  &amp; = \int_{V_t} \int_{V_t} \partial_t 1 + \oint_{\partial V_t} \mathbf{u} \cdot \hat{\mathbf{n}} = \\
-  &amp; = \oint_{\partial V_t} \left( \partial_{\mathbf{p}} H, - \partial_{\mathbf{q}} H \right) \cdot \hat{\mathbf{n}} = \\
-  &amp; = \int_{V_t} \nabla_{\mathbf{q}} \cdot \nabla_{\mathbf{p}} H - \nabla_{\mathbf{p}} \cdot \nabla_{\mathbf{q}} H = \\
-  &amp; = 0 \ .
-\end{aligned}\end{split}\]</div>
-<p class="sd-card-text">having applied Reynolds’ transport theroem in the phase space, with <span class="math notranslate nohighlight">\(\mathbf{u} = \frac{d \mathbf{r}}{dt} = \left( \partial_{\mathbf{p}} H, -\partial_{\mathbf{q}} H \right)\)</span> the “velocity” in the phase space, with the state <span class="math notranslate nohighlight">\(\mathbf{r} = ( \mathbf{q}, \mathbf{p} )\)</span>, and <span class="math notranslate nohighlight">\(\hat{\mathbf{n}}\)</span> the  unit normal vector pointing outwards. In the last steps, Hamilton equations are used to write velocity components as a function of partial derivatives of the Hamiltonian function, and divergence theorem is used in the phase space to transform the surface integral to a volume integral. The last step reads in components reads</p>
-<div class="math notranslate nohighlight">
-\[\nabla_{\mathbf{q}} \cdot \nabla_{\mathbf{p}} H - \nabla_{\mathbf{p}} \cdot \nabla_{\mathbf{q}} H = \frac{\partial^2 H}{\partial q^i \partial p_i} - \frac{\partial^2 H}{\partial p^i \partial q_i} = 0 \ ,\]</div>
-<p class="sd-card-text">under the assumption of sufficient regularity required by the Schwartz theorem about mixed partial derivatives.</p>
+<p>See</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://basics2022.github.io/bbooks-physics-continuum-mechanics/ch/solids/beams.html">Continuum mechanics: Beams</a></p></li>
+<li><p><a class="reference external" href="https://basics2022.github.io/bbooks-physics-continuum-mechanics/ch/solids/beams/timoshenko.html">Continuum mechanics: Timoshenko beam</a></p></li>
+<li><p><a class="reference external" href="https://basics2022.github.io/bbooks-physics-continuum-mechanics/ch/solids/small-displacements-fem-beams.html">Finite element methods for beam structures</a></p></li>
+</ul>
+<div class="section" id="exact-solution">
+<h3><span class="section-number">27.5.1.1. </span>Exact solution<a class="headerlink" href="#exact-solution" title="Permalink to this heading">#</a></h3>
 </div>
-</details><p><strong>Algorithms - examples:</strong></p>
-<ul class="simple">
-<li><p>Verlet: simplectic, time reversible</p></li>
-<li><p>…</p></li>
-</ul>
-<p><strong>Applications - examples:</strong></p>
-<ul class="simple">
-<li><p>Integration of spatial dynamics: motion of planets,…</p></li>
-<li><p>…</p></li>
-</ul>
+<div class="section" id="finite-element-model">
+<h3><span class="section-number">27.5.1.2. </span>Finite element model<a class="headerlink" href="#finite-element-model" title="Permalink to this heading">#</a></h3>
+<p>Semi-discretized model in space</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+ \int_{z=0}^{\ell} w(z) m(z,t) \, dz
+ &amp; = \int_{z=0}^{\ell} w(z) \left\{ I \partial_{tt} \theta - \partial_x \left(GJ \partial_x \theta \right) \right\} \, dz = \\
+ &amp; = \int_{z=0}^{\ell} w(z) I \partial_{tt} \theta(z,t) \, dz + \int_{z=0}^{\ell} \partial_x w(z) GJ \partial_x \theta(z,t) \, dz - \left.\left[ w(x) GJ \partial_x \theta(x,t) \right]\right|_{z=0}^{\ell} \ .
+\end{aligned}\end{split}\]</div>
+<p>With the boundary conditions of the model, the FEM approximation of the problem becomes</p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+ \int_{z=0}^{\ell} w(z) m(z,t) \, dz + w(\ell) M(t) 
+ &amp; = \int_{z=0}^{\ell} w(z) I \partial_{tt} \theta(z,t) \, dz + \int_{z=0}^{\ell} \partial_x w(z) GJ \partial_x \theta(z,t) \, dz \ .
+\end{aligned}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.sparse</span> <span class="kn">import</span> <span class="n">csr_matrix</span>
+
+<span class="k">def</span> <span class="nf">assemble_fem_matrices</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">I_coeff</span><span class="p">,</span> <span class="n">GJ_coeff</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Assembles Sparse Mass and Stiffness matrices for P1 Lagrange elements</span>
+<span class="sd">    based on &#39;Screenshot from 2026-05-14 18-59-39.png&#39;.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Grid setup</span>
+    <span class="n">nodes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">N</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="n">L</span> <span class="o">/</span> <span class="n">N</span>  <span class="c1"># element width</span>
+    <span class="n">num_nodes</span> <span class="o">=</span> <span class="n">N</span> <span class="o">+</span> <span class="mi">1</span>
+
+    <span class="c1"># Local Element Matrices for P1 Lagrange</span>
+    <span class="c1"># Mass Matrix Local: (h/6) * [[2, 1], [1, 2]]</span>
+    <span class="n">m_local</span> <span class="o">=</span> <span class="p">(</span><span class="n">I_coeff</span> <span class="o">*</span> <span class="n">h</span> <span class="o">/</span> <span class="mf">6.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span> 
+                                              <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">]])</span>
+    
+    <span class="c1"># Stiffness Matrix Local: (1/h) * [[1, -1], [-1, 1]]</span>
+    <span class="n">k_local</span> <span class="o">=</span> <span class="p">(</span><span class="n">GJ_coeff</span> <span class="o">/</span> <span class="n">h</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">],</span> 
+                                         <span class="p">[</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]])</span>
+
+    <span class="c1"># Global Assembly using COO format for efficiency</span>
+    <span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">cols</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">mass_data</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">stiff_data</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+        <span class="c1"># Indices for the current element (nodes i and i+1)</span>
+        <span class="n">idx</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+        
+        <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+                <span class="n">rows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">idx</span><span class="p">[</span><span class="n">r</span><span class="p">])</span>
+                <span class="n">cols</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">idx</span><span class="p">[</span><span class="n">c</span><span class="p">])</span>
+                <span class="n">mass_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">m_local</span><span class="p">[</span><span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="p">])</span>
+                <span class="n">stiff_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">k_local</span><span class="p">[</span><span class="n">r</span><span class="p">,</span> <span class="n">c</span><span class="p">])</span>
+
+    <span class="c1"># Convert to CSR (Compressed Sparse Row) format</span>
+    <span class="n">M_sparse</span> <span class="o">=</span> <span class="n">csr_matrix</span><span class="p">((</span><span class="n">mass_data</span><span class="p">,</span> <span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">)),</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">num_nodes</span><span class="p">,</span> <span class="n">num_nodes</span><span class="p">))</span>
+    <span class="n">K_sparse</span> <span class="o">=</span> <span class="n">csr_matrix</span><span class="p">((</span><span class="n">stiff_data</span><span class="p">,</span> <span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">cols</span><span class="p">)),</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">num_nodes</span><span class="p">,</span> <span class="n">num_nodes</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">M_sparse</span><span class="p">,</span> <span class="n">K_sparse</span>
+
+<span class="k">def</span> <span class="nf">get_partitioned_matrices</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">I_coeff</span><span class="p">,</span> <span class="n">GJ_coeff</span><span class="p">,</span> <span class="n">dirichlet_indices</span><span class="p">):</span>
+    <span class="c1"># 1. Reuse the assembly logic to get global matrices</span>
+    <span class="c1"># (Assuming the assembly function from the previous step is defined)</span>
+    <span class="n">M_global</span><span class="p">,</span> <span class="n">K_global</span> <span class="o">=</span> <span class="n">assemble_fem_matrices</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">I_coeff</span><span class="p">,</span> <span class="n">GJ_coeff</span><span class="p">)</span>
+    
+    <span class="n">num_nodes</span> <span class="o">=</span> <span class="n">N</span> <span class="o">+</span> <span class="mi">1</span>
+    
+    <span class="c1"># 2. Define Node Sets</span>
+    <span class="c1"># Node 0 is Dirichlet (index 0), all others are Free</span>
+    <span class="n">all_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">num_nodes</span><span class="p">)</span>
+    <span class="n">free_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">setdiff1d</span><span class="p">(</span><span class="n">all_indices</span><span class="p">,</span> <span class="n">dir_indices</span><span class="p">)</span>
+    
+    <span class="c1"># 3. Partitioning: Extract the FF block (Free-Free)</span>
+    <span class="c1"># This effectively removes the first row and first column</span>
+    <span class="n">M_ff</span> <span class="o">=</span> <span class="n">M_global</span><span class="p">[</span><span class="n">free_indices</span><span class="p">,</span> <span class="p">:][:,</span> <span class="n">free_indices</span><span class="p">]</span>
+    <span class="n">K_ff</span> <span class="o">=</span> <span class="n">K_global</span><span class="p">[</span><span class="n">free_indices</span><span class="p">,</span> <span class="p">:][:,</span> <span class="n">free_indices</span><span class="p">]</span>
+    
+    <span class="k">return</span> <span class="n">M_ff</span><span class="p">,</span> <span class="n">K_ff</span><span class="p">,</span> <span class="n">free_indices</span>
+
+
+<span class="c1"># Example parameters</span>
+<span class="n">L</span> <span class="o">=</span> <span class="mf">1.0</span>           <span class="c1"># Length of the domain</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">10</span>            <span class="c1"># Number of elements</span>
+<span class="n">I_val</span> <span class="o">=</span> <span class="mf">1.0</span>       <span class="c1"># Inertia coefficient (from image)</span>
+<span class="n">GJ_val</span> <span class="o">=</span> <span class="mf">1.0</span>      <span class="c1"># Torsional stiffness (from image)</span>
+<span class="n">dir_indices</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># Dirichlet indices of the nodes with prescribed displacement</span>
+<span class="n">Mff</span><span class="p">,</span> <span class="n">Kff</span><span class="p">,</span> <span class="n">free_indices</span> <span class="o">=</span> <span class="n">get_partitioned_matrices</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">I_val</span><span class="p">,</span> <span class="n">GJ_val</span><span class="p">,</span> <span class="n">dir_indices</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Mass Matrix Shape: </span><span class="si">{</span><span class="n">Mff</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Mass      Matrix (First 3x3 block):</span><span class="se">\n</span><span class="si">{</span><span class="n">Mff</span><span class="o">.</span><span class="n">toarray</span><span class="p">()[:</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="p">:</span><span class="mi">3</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Stiffness Matrix (First 3x3 block):</span><span class="se">\n</span><span class="si">{</span><span class="n">Kff</span><span class="o">.</span><span class="n">toarray</span><span class="p">()[:</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="p">:</span><span class="mi">3</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Sum(Mass Matrix): </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">Mff</span><span class="o">.</span><span class="n">toarray</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mass Matrix Shape: (10, 10)
+Mass      Matrix (First 3x3 block):
+[[0.06666667 0.01666667 0.        ]
+ [0.01666667 0.06666667 0.01666667]
+ [0.         0.01666667 0.06666667]]
+Stiffness Matrix (First 3x3 block):
+[[ 20. -10.   0.]
+ [-10.  20. -10.]
+ [  0. -10.  20.]]
+Sum(Mass Matrix): 0.9333333333333333
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="spectral-decomposition-of-the-undamped-system">
+<h4><span class="section-number">27.5.1.2.1. </span>Spectral decomposition of the undamped system<a class="headerlink" href="#spectral-decomposition-of-the-undamped-system" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.linalg</span> <span class="k">as</span> <span class="nn">la</span>
+
+<span class="k">def</span> <span class="nf">solve_spectral_decomposition</span><span class="p">(</span><span class="n">M_ff</span><span class="p">,</span> <span class="n">K_ff</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Solves the generalized eigenvalue problem K*v = lambda*M*v</span>
+<span class="sd">    using the partitioned matrices derived from the model.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Convert sparse matrices to dense for the standard solver</span>
+    <span class="c1"># (For very large N, use scipy.sparse.linalg.eigsh instead)</span>
+    <span class="n">M_dense</span> <span class="o">=</span> <span class="n">M_ff</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
+    <span class="n">K_dense</span> <span class="o">=</span> <span class="n">K_ff</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
+
+    <span class="c1"># Solve generalized eigenvalue problem</span>
+    <span class="c1"># eigh returns eigenvalues in ascending order</span>
+    <span class="n">eigenvalues</span><span class="p">,</span> <span class="n">eigenvectors</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">eigh</span><span class="p">(</span><span class="n">K_dense</span><span class="p">,</span> <span class="n">M_dense</span><span class="p">)</span>
+    
+    <span class="c1"># Natural frequencies (rad/s) are the square roots of eigenvalues</span>
+    <span class="c1"># omegas = np.sqrt(np.maximum(eigenvalues, 0))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">eigenvalues</span><span class="p">)</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="p">(</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">eigenvalues</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="n">j</span><span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">imag</span><span class="p">(</span><span class="n">eigenvalues</span><span class="p">))</span><span class="o">**</span><span class="mf">.5</span>
+    
+    <span class="k">return</span> <span class="n">eigenvalues</span><span class="p">,</span> <span class="n">eigenvectors</span><span class="p">,</span> <span class="n">s</span> <span class="c1"># omegas</span>
+
+<span class="c1"># --- Execution ---</span>
+<span class="c1"># Using the M_red and K_red from the previous partitioning step</span>
+<span class="n">evals</span><span class="p">,</span> <span class="n">evecs</span><span class="p">,</span> <span class="n">frequencies</span> <span class="o">=</span> <span class="n">solve_spectral_decomposition</span><span class="p">(</span><span class="n">Mff</span><span class="p">,</span> <span class="n">Kff</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;First 3 Natural Frequencies (rad/s): </span><span class="si">{</span><span class="n">frequencies</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[   2.47247865   22.62052505   64.91651253  133.49917214  234.71119998
+  376.36887101  564.28780011  792.22634461 1023.09340791 1178.10853335]
+First 3 Natural Frequencies (rad/s): [0.+1.57241173j 0.+4.75610398j 0.+8.05707841j]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="modal-structural-damping">
+<h4><span class="section-number">27.5.1.2.2. </span>Modal structural damping<a class="headerlink" href="#modal-structural-damping" title="Permalink to this heading">#</a></h4>
+<p>See <a class="reference external" href="https://basics2022.github.io/bbooks-physics-continuum-mechanics/ch/solids/structural-damping.html">Continuum mechanics: structural damping</a></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -646,13 +853,13 @@ Preservation of volume in phase space for Hamiltonian systems<div class="sd-summ
             mode: "python"
         },
         kernelOptions: {
-            name: "python3",
+            name: "python311",
             path: "./ch/ode"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'python311'</script>
 
                 </article>
               
@@ -665,12 +872,12 @@ Preservation of volume in phase space for Hamiltonian systems<div class="sd-summ
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="integration-schemes.html"
+       href="integration-schemes-simplectic.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">27. </span>Integration schemes</p>
+        <p class="prev-next-title"><span class="section-number">27.4. </span>Simplectic integrators</p>
       </div>
     </a>
     <a class="right-next"
@@ -688,6 +895,28 @@ Preservation of volume in phase space for Hamiltonian systems<div class="sd-summ
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-equation-torsion-of-elastic-beam">27.5.1. Example equation: torsion of elastic beam</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exact-solution">27.5.1.1. Exact solution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finite-element-model">27.5.1.2. Finite element model</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#spectral-decomposition-of-the-undamped-system">27.5.1.2.1. Spectral decomposition of the undamped system</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modal-structural-damping">27.5.1.2.2. Modal structural damping</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
