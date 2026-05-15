@@ -625,9 +625,14 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-equation-torsion-of-elastic-beam">27.5.1. Example equation: torsion of elastic beam</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exact-solution">27.5.1.1. Exact solution</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finite-element-model">27.5.1.2. Finite element model</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#spectral-decomposition-of-the-undamped-system">27.5.1.2.1. Spectral decomposition of the undamped system</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modal-structural-damping">27.5.1.2.2. Modal structural damping</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finite-element-model">27.5.1.2. Finite element model</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boundary-conditions">27.5.2. Boundary conditions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-partition">27.5.2.1. Matrix partition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#augmented-system">27.5.2.2. Augmented system</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#spectral-decomposition-of-the-undamped-system">27.5.2.2.1. Spectral decomposition of the undamped system</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modal-structural-damping">27.5.2.2.2. Modal structural damping</a></li>
 </ul>
 </li>
 </ul>
@@ -688,6 +693,8 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
 <span class="kn">from</span> <span class="nn">scipy.sparse</span> <span class="kn">import</span> <span class="n">csr_matrix</span>
 
 <span class="k">def</span> <span class="nf">assemble_fem_matrices</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">I_coeff</span><span class="p">,</span> <span class="n">GJ_coeff</span><span class="p">):</span>
@@ -782,60 +789,293 @@ Sum(Mass Matrix): 0.9333333333333333
 </div>
 </div>
 </div>
+</div>
+</div>
+<div class="section" id="boundary-conditions">
+<h2><span class="section-number">27.5.2. </span>Boundary conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this heading">#</a></h2>
+<p>Matrix partition or augmented system.</p>
+<div class="section" id="matrix-partition">
+<h3><span class="section-number">27.5.2.1. </span>Matrix partition<a class="headerlink" href="#matrix-partition" title="Permalink to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathbf{f}
+  &amp; = \mathbf{M} \ddot{\mathbf{x}} + \mathbf{K} \mathbf{x} \\
+\end{aligned}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \begin{bmatrix} \mathbf{f}_f \\ \mathbf{f}_d \end{bmatrix} &amp; = 
+  \begin{bmatrix} \mathbf{M}_{ff} &amp; \mathbf{M}_{fd} \\ \mathbf{M}_{df} &amp; \mathbf{M}_{dd} \end{bmatrix} \begin{bmatrix} \ddot{\mathbf{x}}_{f} \\ \ddot{\mathbf{x}}_d \end{bmatrix} + 
+  \begin{bmatrix} \mathbf{K}_{ff} &amp; \mathbf{K}_{fd} \\ \mathbf{K}_{df} &amp; \mathbf{K}_{dd} \end{bmatrix} \begin{bmatrix} \mathbf{x}_{f} \\ \mathbf{x}_d \end{bmatrix}
+\end{aligned}\end{split}\]</div>
+<p>Here the value of the kinematic variables <span class="math notranslate nohighlight">\(\mathbf{x}_d\)</span>, and the actions <span class="math notranslate nohighlight">\(\mathbf{f}_f\)</span> is known. The unknowns are <span class="math notranslate nohighlight">\(\mathbf{x}_f\)</span> (the displacement of the free d.o.f.s of the system), and <span class="math notranslate nohighlight">\(\mathbf{f}_d\)</span> (the reactions at the constraints). Separating the unknowns from the known quantities,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathbf{M}_{ff} \ddot{\mathbf{x}}_f + \mathbf{K}_{ff} \mathbf{x}_f &amp; = \mathbf{f}_f - \mathbf{M}_{fd} \ddot{\mathbf{x}}_d - \mathbf{K}_{fd} \mathbf{x}_d \\
+  \mathbf{f}_d &amp; = - \begin{bmatrix} \mathbf{M}_{df} &amp; \mathbf{M}_{dd} \end{bmatrix} \begin{bmatrix} \ddot{\mathbf{x}}_f \\ \ddot{\mathbf{x}}_d \end{bmatrix} - \begin{bmatrix} \mathbf{K}_{df} &amp; \mathbf{K}_{dd} \end{bmatrix} \begin{bmatrix} \mathbf{x}_f \\ \mathbf{x}_d \end{bmatrix}
+\end{aligned}\end{split}\]</div>
+<p>This system is decoupled, as the reactions at the constraints are not involved in the dynamical systems for <span class="math notranslate nohighlight">\(\mathbf{x}_f\)</span>, and thus they can be computed a posteriori.</p>
+</div>
+<div class="section" id="augmented-system">
+<h3><span class="section-number">27.5.2.2. </span>Augmented system<a class="headerlink" href="#augmented-system" title="Permalink to this heading">#</a></h3>
+<p>See the discussion about Poisson equation - i.e. the static version of the dynamical equation used here, with no inertia contribution - in <a class="reference external" href="https://basics2022.github.io/bbooks-math-miscellanea/ch/pde/numerics.html">Math: Numerical methods for PDEs</a></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://basics2022.github.io/bbooks-math-miscellanea/ch/pde/fem-poisson-1d.html#augmenting-the-linear-system">FEM: Poisson equation. Augmenting the linear system</a></p></li>
+<li><p><a class="reference external" href="https://basics2022.github.io/bbooks-math-miscellanea/ch/pde/fvm-poisson-1d.html#augmenting-the-linear-system">FVM: Poisson equation. Augmenting the linear system</a></p></li>
+</ul>
 <div class="section" id="spectral-decomposition-of-the-undamped-system">
-<h4><span class="section-number">27.5.1.2.1. </span>Spectral decomposition of the undamped system<a class="headerlink" href="#spectral-decomposition-of-the-undamped-system" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">27.5.2.2.1. </span>Spectral decomposition of the undamped system<a class="headerlink" href="#spectral-decomposition-of-the-undamped-system" title="Permalink to this heading">#</a></h4>
+<p>Eigenvalue problem focuses on the free response of the system, so all the forcing terms - both prescribed actions in <span class="math notranslate nohighlight">\(\mathbf{f}_f\)</span> and prescribed kinetic variables in <span class="math notranslate nohighlight">\(\mathbf{x}_d\)</span> - are set equal to zero. Thus, it’s possible to focus on the <span class="math notranslate nohighlight">\(f\)</span>-part of the partitioned system only, <span class="math notranslate nohighlight">\(\mathbf{M}_{ff} \ddot{\mathbf{x}}_f + \mathbf{K}_{ff} \mathbf{x}_f = \dots\)</span>. In the following lines, pedices are dropped.</p>
+<p>Either generalized eigenvalue problem of the undamped system as a second-order <span class="math notranslate nohighlight">\(n\)</span>-dimensional system</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{M} \ddot{\mathbf{x}} + \mathbf{K} \mathbf{x} = \mathbf{f} \ ,\]</div>
+<div class="math notranslate nohighlight">
+\[s^2 \mathbf{M} \mathbf{x} + \mathbf{K} \mathbf{x} = \mathbf{0}\]</div>
+<p>or the generalized eigenvalue problem as a first-order <span class="math notranslate nohighlight">\(2n\)</span>-dimensional system</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \begin{bmatrix} \mathbf{I} &amp; \cdot \\ \cdot &amp; \mathbf{M} \end{bmatrix} \begin{bmatrix} \dot{\mathbf{x}} \\ \dot{\mathbf{v}} \end{bmatrix} +
+  \begin{bmatrix} \cdot &amp; - \mathbf{I} \\ \mathbf{K} &amp; \cdot \end{bmatrix} \begin{bmatrix} \mathbf{x} \\ \mathbf{v} \end{bmatrix} = \begin{bmatrix} \mathbf{0} \\ \mathbf{f} \end{bmatrix} \ .
+\end{aligned}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[s \mathbf{A} \mathbf{z} + \mathbf{B} \mathbf{z} = \mathbf{0}\]</div>
+<p><strong>Matrix symmetries and routines.</strong></p>
+<ul class="simple">
+<li><p>In the second-orded system, matrices of a mechanical system are usually symmetric. It’s possible to use the routine for Hermitian matrices <span class="math notranslate nohighlight">\(\texttt{.eigsh()}\)</span></p></li>
+<li><p>In the first-orded system, the augmented matrices are not symmetric. It’s not possible to use the routine for Hermitian matrices. Use the routine for general matrix <span class="math notranslate nohighlight">\(\texttt{.eigs()}\)</span> instead</p></li>
+</ul>
+<p><strong>Solution of the eigenvalue problem, and diagonalization - modal form.</strong> Routines returns mass normalized eigenvectors, so that</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{V}^* \mathbf{M} \mathbf{V} = \mathbf{I} \ .\]</div>
+<p>As the matrix form of the generalized eigenvalue problem reads <span class="math notranslate nohighlight">\(\mathbf{M} \mathbf{V} \mathbf{S}^2 + \mathbf{K} \mathbf{V} = \mathbf{0}\)</span>.</p>
+<p>Changing basis from “nodal” to “modal” variables, <span class="math notranslate nohighlight">\(\mathbf{x} = \mathbf{V} \mathbf{q}\)</span>, and projecting on the eigenvectors, the dynamical equation becomes</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathbf{V}^* \mathbf{f} &amp; = \mathbf{V}^* \left( \mathbf{M} \mathbf{V} \ddot{\mathbf{u}} + \mathbf{K} \mathbf{V} \mathbf{u} \right) \\
+  \mathbf{V}^* \mathbf{f} &amp; = \ddot{\mathbf{u}} + \text{diag} \left\{ - s_i^2 \right\} \mathbf{u} = \\
+   &amp; = \ddot{\mathbf{u}} + \text{diag} \left\{ \Omega_i^2 \right\} \mathbf{u} \ .
+\end{aligned}\end{split}\]</div>
+<p>For a mechanical system with definite positive <span class="math notranslate nohighlight">\(\mathbf{M}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{K}\)</span>, the eigenvalues of the system are imaginary so that <span class="math notranslate nohighlight">\(s_i^2 = - \Omega^2_i\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy.linalg</span> <span class="k">as</span> <span class="nn">la</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy</span> <span class="k">as</span> <span class="nn">sp</span>
 
-<span class="k">def</span> <span class="nf">solve_spectral_decomposition</span><span class="p">(</span><span class="n">M_ff</span><span class="p">,</span> <span class="n">K_ff</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Solves the generalized eigenvalue problem K*v = lambda*M*v</span>
-<span class="sd">    using the partitioned matrices derived from the model.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># Convert sparse matrices to dense for the standard solver</span>
-    <span class="c1"># (For very large N, use scipy.sparse.linalg.eigsh instead)</span>
-    <span class="n">M_dense</span> <span class="o">=</span> <span class="n">M_ff</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
-    <span class="n">K_dense</span> <span class="o">=</span> <span class="n">K_ff</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
+<span class="c1">#&gt; Solve generalized sparse eigenvalue problem with symmetric matrices, s^2 M x + K x = 0</span>
+<span class="c1"># evals, evecs = eigsh(A, k=6, M=None, which=&#39;LM&#39;, ...)</span>
+<span class="c1"># for solving the A v = s M v problem</span>
+<span class="c1"># k=number of evals, evecs computed. k &lt; n (not possible to evaluate all the evals with this routine,</span>
+<span class="c1"># but usually sparse matrix is used for large matrices, and one is not interested in the whole spectrum.</span>
+<span class="c1"># For small matrices, either convert to full matrix or use this routine twice, one looking for SM and one for LM</span>
+<span class="c1"># which=&#39;LM&#39;: largest magnitude, &#39;SM&#39;: smallest magnitude</span>
+<span class="n">evals_</span><span class="p">,</span> <span class="n">evecs</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigsh</span><span class="p">(</span><span class="n">Kff</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">M</span><span class="o">=</span><span class="n">Mff</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;SM&#39;</span><span class="p">)</span>
 
-    <span class="c1"># Solve generalized eigenvalue problem</span>
-    <span class="c1"># eigh returns eigenvalues in ascending order</span>
-    <span class="n">eigenvalues</span><span class="p">,</span> <span class="n">eigenvectors</span> <span class="o">=</span> <span class="n">la</span><span class="o">.</span><span class="n">eigh</span><span class="p">(</span><span class="n">K_dense</span><span class="p">,</span> <span class="n">M_dense</span><span class="p">)</span>
-    
-    <span class="c1"># Natural frequencies (rad/s) are the square roots of eigenvalues</span>
-    <span class="c1"># omegas = np.sqrt(np.maximum(eigenvalues, 0))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">eigenvalues</span><span class="p">)</span>
-    <span class="n">s</span> <span class="o">=</span> <span class="p">(</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">eigenvalues</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="n">j</span><span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">imag</span><span class="p">(</span><span class="n">eigenvalues</span><span class="p">))</span><span class="o">**</span><span class="mf">.5</span>
-    
-    <span class="k">return</span> <span class="n">eigenvalues</span><span class="p">,</span> <span class="n">eigenvectors</span><span class="p">,</span> <span class="n">s</span> <span class="c1"># omegas</span>
+<span class="c1">#&gt; Here evals^2 = - evals_</span>
+<span class="c1"># evals are imaginary, \mp j \omega</span>
+<span class="n">evals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">evals_</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">imag</span><span class="p">(</span><span class="n">evals_</span><span class="p">)</span> <span class="p">)</span>
 
-<span class="c1"># --- Execution ---</span>
-<span class="c1"># Using the M_red and K_red from the previous partitioning step</span>
-<span class="n">evals</span><span class="p">,</span> <span class="n">evecs</span><span class="p">,</span> <span class="n">frequencies</span> <span class="o">=</span> <span class="n">solve_spectral_decomposition</span><span class="p">(</span><span class="n">Mff</span><span class="p">,</span> <span class="n">Kff</span><span class="p">)</span>
+<span class="c1"># print(f&quot;First 3 Omega (rad/s): {np.abs(np.imag(evals[:3]))}&quot;)</span>
+<span class="c1"># print(&quot;First 3 eigenvectors:&quot;)</span>
+<span class="c1"># print(evecs[:,:3])</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;First 3 Natural Frequencies (rad/s): </span><span class="si">{</span><span class="n">frequencies</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="c1">#&gt; Run the routine twice to get eigenvalues with largest magnitude, and assemble them with the eigenvalues with smallest magnitude</span>
+<span class="c1">#&gt; If the full decomposition is required, just used the same routing twice: evaluate SM(k=kSM), and then</span>
+<span class="c1"># evaluate LM(k=kLM), with kSM+kLM = N</span>
+<span class="c1">#&gt; As the routine is runned twice without sharing any info, apply normalization (if it&#39;s meaningful) later</span>
+<span class="c1"># If kSM=N-1, then kLM=1 (without coincident eigvalues with largest magnitude), the eigenvectors could be already</span>
+<span class="c1"># normal. By default the routine returns a mass-normalized eigenvectors</span>
+<span class="n">evals_lm_</span><span class="p">,</span> <span class="n">evecs_lm</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigsh</span><span class="p">(</span><span class="n">Kff</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">M</span><span class="o">=</span><span class="n">Mff</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;LM&#39;</span><span class="p">)</span>
+<span class="n">evals_lm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">evals_lm_</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">imag</span><span class="p">(</span><span class="n">evals_lm_</span><span class="p">)</span> <span class="p">)</span>
+
+<span class="n">evals_all</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">block</span><span class="p">([</span><span class="n">evals</span><span class="p">,</span> <span class="n">evals_lm</span><span class="p">])</span>
+<span class="n">evecs_all</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">block</span><span class="p">([</span><span class="n">evecs</span><span class="p">,</span> <span class="n">evecs_lm</span><span class="p">])</span>
+
+<span class="c1"># print(evals_all)</span>
+<span class="c1"># print(evecs_all)</span>
+
+<span class="k">if</span> <span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span> <span class="n">evecs_all</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">Mff</span> <span class="o">@</span> <span class="n">evecs_all</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">N</span><span class="p">)</span> <span class="p">)</span> <span class="o">&lt;</span> <span class="mf">1e-9</span> <span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mass-normalization of the eigenvectors within the tol</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mass-normalization of the eigenvectors not satisfied, or above the tol</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">evals_</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[   2.47247865   22.62052505   64.91651253  133.49917214  234.71119998
-  376.36887101  564.28780011  792.22634461 1023.09340791 1178.10853335]
-First 3 Natural Frequencies (rad/s): [0.+1.57241173j 0.+4.75610398j 0.+8.05707841j]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0. +1.57241173j 0. +4.75610398j 0. +8.05707841j 0.+11.55418418j
+ 0.+15.3202872j  0.+19.40022863j 0.+23.75474269j 0.+28.14651567j
+ 0.+31.98583136j 0.+34.32358567j]
+Mass-normalization of the eigenvectors within the tol
+
+[   2.47247865   22.62052505   64.91651253  133.49917214  234.71119998
+  376.36887101  564.28780011  792.22634461 1023.09340791]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">I_sparse</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;csr&#39;</span><span class="p">)</span>
+<span class="n">Z_sparse</span> <span class="o">=</span> <span class="kc">None</span>
+
+<span class="n">A</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">bmat</span><span class="p">([</span>
+    <span class="p">[</span> <span class="n">I_sparse</span><span class="p">,</span> <span class="n">Z_sparse</span> <span class="p">],</span>
+    <span class="p">[</span> <span class="n">Z_sparse</span><span class="p">,</span>      <span class="n">Mff</span> <span class="p">]</span>
+<span class="p">])</span>
+
+<span class="n">B</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">bmat</span><span class="p">([</span>
+    <span class="p">[</span> <span class="n">Z_sparse</span><span class="p">,</span> <span class="o">-</span><span class="n">I_sparse</span> <span class="p">],</span>
+    <span class="p">[</span>      <span class="n">Kff</span><span class="p">,</span>  <span class="n">Z_sparse</span> <span class="p">]</span>
+<span class="p">])</span>
+
+<span class="c1">#&gt; Solve generalized sparse eigenvalue problem with non-symmteric matrices,</span>
+<span class="c1"># which=&#39;xy&#39;, x: L(largest), S(smallest), y: M(magnitude), R(real part), I(imag part)</span>
+<span class="n">eevals</span><span class="p">,</span> <span class="n">eevecs</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigs</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">M</span><span class="o">=</span><span class="n">A</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;SM&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;First 3 pairs of eigenvalues:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">evals</span><span class="p">)</span>
+<span class="c1"># print(&quot;First 3 pairs of eigenvectors:&quot;)</span>
+<span class="c1"># print(evecs[:,:6:2])</span>
+
+<span class="c1">#&gt; If the full decomposition is required, just used the same routing twice: evaluate SM(k=kSM), and then</span>
+<span class="c1"># evaluate LM(k=kLM), with kSM+kLM = 2N</span>
+<span class="c1">#&gt; As the routine is runned twice without sharing any info, apply normalization (if it&#39;s meaningful) later</span>
+<span class="c1"># If kSM=2N-2, then kLM=2 (without coincident pairs with largest magnitude), the eigenvectors could be already</span>
+<span class="c1"># normal. By default the routine returns a mass-normalized eigenvectors</span>
+<span class="c1"># evals, evecs = sp.sparse.linalg.eigs(B, k=4, M=A, which=&#39;LM&#39;)</span>
+<span class="c1"># print(evals)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>First 3 pairs of eigenvalues:
+[0. +1.57241173j 0. +4.75610398j 0. +8.05707841j 0.+11.55418418j
+ 0.+15.3202872j  0.+19.40022863j 0.+23.75474269j 0.+28.14651567j
+ 0.+31.98583136j]
 </pre></div>
 </div>
 </div>
 </div>
 </div>
 <div class="section" id="modal-structural-damping">
-<h4><span class="section-number">27.5.1.2.2. </span>Modal structural damping<a class="headerlink" href="#modal-structural-damping" title="Permalink to this heading">#</a></h4>
-<p>See <a class="reference external" href="https://basics2022.github.io/bbooks-physics-continuum-mechanics/ch/solids/structural-damping.html">Continuum mechanics: structural damping</a></p>
+<h4><span class="section-number">27.5.2.2.2. </span>Modal structural damping<a class="headerlink" href="#modal-structural-damping" title="Permalink to this heading">#</a></h4>
+<p>See</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://basics2022.github.io/bbooks-physics-continuum-mechanics/ch/solids/structural-damping.html">Continuum mechanics: structural damping</a></p></li>
+<li><p><a class="reference external" href="https://basics2022.github.io/bbooks-physics-continuum-mechanics/ch/solids/structural-damping.html#sensitivity-of-eigenvalues-and-eigenvectors">Sensitivity of eigenvalues and eigenvectors in a second-order system</a></p></li>
+<li><p><a class="reference external" href="https://basics2022.github.io/bbooks-math-miscellanea/ch/linear-algebra/spectral-sensitivity.html">Sensitivity of spectral decomposition</a></p></li>
+</ul>
+<p>Modal damping for the simultaneous diagonalization of mass, damping and stiffness matrices.</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{V}^* \mathbf{f} = \ddot{\mathbf{u}} + \text{diag}\{ 2 \xi_i \Omega_i \} \dot{\mathbf{u}} + \text{diag}\{ \Omega_i^2 \} \mathbf{u}\]</div>
+<p>i.e. with</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{V}^* \mathbf{C} \mathbf{V} = \text{diag}\{ 2 \xi_i \Omega_i \}\]</div>
+<p>so that the damping matrix in “nodal” variables reads</p>
+<div class="math notranslate nohighlight">
+\[ \mathbf{C} = \mathbf{V} \text{diag}\{ 2 \xi_i \Omega_i \} \mathbf{V}^*\]</div>
+<p>The eigenvalues of the damped system, for <span class="math notranslate nohighlight">\(\xi_i &lt; 1\)</span>, become</p>
+<div class="math notranslate nohighlight">
+\[s_i = - \xi_i \Omega_i \mp j \Omega_i \sqrt{1 - \xi_i^2} \ .\]</div>
+<p><strong>Exact solution.</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  &amp; I \ddot{\theta} - GJ \theta'' = 0  \\
+  &amp; \theta(0,t) = 0 \\
+  &amp; GJ \theta'(\ell,t) = 0 \ .
+\end{aligned}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\theta(z,t) = f(x) g(t)\]</div>
+<div class="math notranslate nohighlight">
+\[\frac{I}{GJ} \frac{\ddot{g}}{g} = \frac{f''}{f} = -k^2\]</div>
+<div class="math notranslate nohighlight">
+\[f(z) = A \cos \left( k z \right) + B \sin \left( k z \right)\]</div>
+<p>with boundary conditions</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  0 &amp; = f(0) = A \\
+  0 &amp; = f'(\ell) = B k \cos \left( k \ell \right)
+\end{aligned}\end{split}\]</div>
+<p>so that <span class="math notranslate nohighlight">\(\cos \left( k \ell \right) = 0\)</span>, and thus <span class="math notranslate nohighlight">\(k_n \ell = \frac{\pi}{2} + n \pi\)</span>, <span class="math notranslate nohighlight">\(n \in \mathbb{N}\)</span>, i.e. the wave numbers of the modes are</p>
+<div class="math notranslate nohighlight">
+\[k_n = \frac{\pi}{\ell} \left( n + \frac{1}{2} \right) \ .\]</div>
+<p>Pulsations of the modes are</p>
+<div class="math notranslate nohighlight">
+\[\omega_n = k_n \sqrt{\frac{GJ}{I}} = \frac{\pi}{\ell} \sqrt{\frac{GJ}{I}} \left( n + \frac{1}{2} \right) \ .\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&gt; Set structural damping, diagonal in modal basis</span>
+<span class="n">xi</span> <span class="o">=</span> <span class="mf">.1</span>
+<span class="n">xi_all</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">N</span><span class="p">)</span> <span class="o">*</span> <span class="n">xi</span>
+<span class="n">Om_all</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">imag</span><span class="p">(</span><span class="n">evals_all</span><span class="p">)</span>
+
+<span class="c1">#&gt; Damping matrix in nodal basis</span>
+<span class="n">Cff</span> <span class="o">=</span> <span class="n">evecs_all</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">xi_all</span><span class="o">*</span><span class="n">Om_all</span><span class="p">)</span> <span class="o">@</span> <span class="n">evecs_all</span><span class="o">.</span><span class="n">T</span>
 </pre></div>
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&gt; Comparing eigenvalues </span>
+<span class="c1"># - damped discrete system</span>
+<span class="c1"># - undamped discrete system</span>
+<span class="c1"># - undamped continuous system (exact)</span>
+
+<span class="c1">#&gt; Exact eigenvalues</span>
+<span class="n">n_exact</span> <span class="o">=</span> <span class="n">N</span>
+<span class="n">om_exact_0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="n">L</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">GJ_val</span><span class="o">/</span><span class="n">I_val</span><span class="p">)</span>
+<span class="n">om_exact</span> <span class="o">=</span> <span class="n">om_exact_0</span> <span class="o">*</span> <span class="p">(</span> <span class="mf">.5</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">evals_exact</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">om_exact</span>
+
+<span class="n">evals_damped</span> <span class="o">=</span> <span class="n">Om_all</span> <span class="o">*</span> <span class="p">(</span> <span class="o">-</span> <span class="n">xi_all</span> <span class="o">-</span> <span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">xi_all</span><span class="o">**</span><span class="mi">2</span> <span class="p">)</span> <span class="p">)</span>
+<span class="n">evals_undamped</span> <span class="o">=</span> <span class="o">-</span> <span class="mi">1</span><span class="n">j</span><span class="o">*</span> <span class="n">Om_all</span>
+
+<span class="n">evals_damped</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">evals_damped</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">conj</span><span class="p">(</span><span class="n">evals_damped</span><span class="p">)])</span>
+<span class="n">evals_undamped</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">evals_undamped</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">conj</span><span class="p">(</span><span class="n">evals_undamped</span><span class="p">)])</span>
+<span class="n">evals_exact</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">evals_exact</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">conj</span><span class="p">(</span><span class="n">evals_exact</span><span class="p">)])</span>
+
+<span class="c1"># print(Om_all)</span>
+<span class="c1"># print(xi_all)</span>
+<span class="c1"># print(evals_damped)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">evals_undamped</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">imag</span><span class="p">(</span><span class="n">evals_undamped</span><span class="p">),</span> <span class="s1">&#39;x&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">evals_damped</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">imag</span><span class="p">(</span><span class="n">evals_damped</span><span class="p">),</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">evals_exact</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">imag</span><span class="p">(</span><span class="n">evals_exact</span><span class="p">),</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">mfc</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">)</span>
+<span class="c1"># ax.set_aspect(&quot;equal&quot;)</span>
+<span class="c1"># ax.set_xlim(-30,10)</span>
+<span class="c1"># ax.set_ylim(-20,20)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  Numerical evals     Exact evals      &quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot; ------------------------------------- &quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">evals_undamped</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="si">:</span><span class="s2">8.4f</span><span class="si">}{</span><span class="n">np</span><span class="o">.</span><span class="n">imag</span><span class="p">(</span><span class="n">evals_undamped</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="si">:</span><span class="s2">8.4f</span><span class="si">}</span><span class="s2"> i&quot;</span><span class="p">,</span> 
+          <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">evals_exact</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="si">:</span><span class="s2">8.4f</span><span class="si">}{</span><span class="n">np</span><span class="o">.</span><span class="n">imag</span><span class="p">(</span><span class="n">evals_exact</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="si">:</span><span class="s2">8.4f</span><span class="si">}</span><span class="s2"> i&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/0553074cfdf0bdca652e883d4d181f55aca1993cbf46a146a6611f374d3f14f7.png" src="../../_images/0553074cfdf0bdca652e883d4d181f55aca1993cbf46a146a6611f374d3f14f7.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Numerical evals     Exact evals      
+ ------------------------------------- 
+  0.0000 -1.5724 i   0.0000 -1.5708 i
+  0.0000 -4.7561 i   0.0000 -4.7124 i
+  0.0000 -8.0571 i   0.0000 -7.8540 i
+  0.0000-11.5542 i   0.0000-10.9956 i
+  0.0000-15.3203 i   0.0000-14.1372 i
+  0.0000-19.4002 i   0.0000-17.2788 i
+  0.0000-23.7547 i   0.0000-20.4204 i
+  0.0000-28.1465 i   0.0000-23.5619 i
+  0.0000-31.9858 i   0.0000-26.7035 i
+  0.0000-34.3236 i   0.0000-29.8451 i
+</pre></div>
+</div>
+</div>
+</div>
+<p>Eigenvalues of the first modes show a good match with the exact eigenvalues. For larger wave-number modes, the modes of the discrete system have higher frequencies than the modes of the continuous system: numerical approximation introduces “numerical constraints” (as it’s not capable of representing the exact solution, but only a system with a finite-number dofs), and thus makes the system “stiffer”: higher frequencies of the numerical eigenvalues agree with this intuition.</p>
 </div>
 </div>
 </div>
@@ -906,9 +1146,14 @@ First 3 Natural Frequencies (rad/s): [0.+1.57241173j 0.+4.75610398j 0.+8.0570784
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-equation-torsion-of-elastic-beam">27.5.1. Example equation: torsion of elastic beam</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exact-solution">27.5.1.1. Exact solution</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finite-element-model">27.5.1.2. Finite element model</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#spectral-decomposition-of-the-undamped-system">27.5.1.2.1. Spectral decomposition of the undamped system</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modal-structural-damping">27.5.1.2.2. Modal structural damping</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finite-element-model">27.5.1.2. Finite element model</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boundary-conditions">27.5.2. Boundary conditions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-partition">27.5.2.1. Matrix partition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#augmented-system">27.5.2.2. Augmented system</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#spectral-decomposition-of-the-undamped-system">27.5.2.2.1. Spectral decomposition of the undamped system</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modal-structural-damping">27.5.2.2.2. Modal structural damping</a></li>
 </ul>
 </li>
 </ul>
