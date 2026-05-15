@@ -637,6 +637,8 @@ document.write(`
 </li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#response-to-a-torsional-moment-at-the-free-end">27.5.3. Response to a torsional moment at the “free” end</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-simulations">27.5.4. Time simulations</a></li>
 </ul>
             </nav>
         </div>
@@ -767,24 +769,10 @@ document.write(`
 <span class="n">dir_indices</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># Dirichlet indices of the nodes with prescribed displacement</span>
 <span class="n">Mff</span><span class="p">,</span> <span class="n">Kff</span><span class="p">,</span> <span class="n">free_indices</span> <span class="o">=</span> <span class="n">get_partitioned_matrices</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">I_val</span><span class="p">,</span> <span class="n">GJ_val</span><span class="p">,</span> <span class="n">dir_indices</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Mass Matrix Shape: </span><span class="si">{</span><span class="n">Mff</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Mass      Matrix (First 3x3 block):</span><span class="se">\n</span><span class="si">{</span><span class="n">Mff</span><span class="o">.</span><span class="n">toarray</span><span class="p">()[:</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="p">:</span><span class="mi">3</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Stiffness Matrix (First 3x3 block):</span><span class="se">\n</span><span class="si">{</span><span class="n">Kff</span><span class="o">.</span><span class="n">toarray</span><span class="p">()[:</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="p">:</span><span class="mi">3</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Sum(Mass Matrix): </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">Mff</span><span class="o">.</span><span class="n">toarray</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mass Matrix Shape: (10, 10)
-Mass      Matrix (First 3x3 block):
-[[0.06666667 0.01666667 0.        ]
- [0.01666667 0.06666667 0.01666667]
- [0.         0.01666667 0.06666667]]
-Stiffness Matrix (First 3x3 block):
-[[ 20. -10.   0.]
- [-10.  20. -10.]
- [  0. -10.  20.]]
-Sum(Mass Matrix): 0.9333333333333333
+<span class="c1"># print(f&quot;Mass Matrix Shape: {Mff.shape}&quot;)</span>
+<span class="c1"># print(f&quot;Mass      Matrix (First 3x3 block):\n{Mff.toarray()[:3, :3]}&quot;)</span>
+<span class="c1"># print(f&quot;Stiffness Matrix (First 3x3 block):\n{Kff.toarray()[:3, :3]}&quot;)</span>
+<span class="c1"># print(f&quot;Sum(Mass Matrix): {np.sum(Mff.toarray())}&quot;)</span>
 </pre></div>
 </div>
 </div>
@@ -855,7 +843,12 @@ Sum(Mass Matrix): 0.9333333333333333
    &amp; = \ddot{\mathbf{u}} + \text{diag} \left\{ \Omega_i^2 \right\} \mathbf{u} \ .
 \end{aligned}\end{split}\]</div>
 <p>For a mechanical system with definite positive <span class="math notranslate nohighlight">\(\mathbf{M}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{K}\)</span>, the eigenvalues of the system are imaginary so that <span class="math notranslate nohighlight">\(s_i^2 = - \Omega^2_i\)</span>.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy</span> <span class="k">as</span> <span class="nn">sp</span>
 
@@ -896,23 +889,23 @@ Sum(Mass Matrix): 0.9333333333333333
 <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Mass-normalization of the eigenvectors not satisfied, or above the tol</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">evals_</span><span class="p">)</span>
+<span class="c1"># print(evals_)</span>
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0. +1.57241173j 0. +4.75610398j 0. +8.05707841j 0.+11.55418418j
- 0.+15.3202872j  0.+19.40022863j 0.+23.75474269j 0.+28.14651567j
- 0.+31.98583136j 0.+34.32358567j]
-Mass-normalization of the eigenvectors within the tol
-
-[   2.47247865   22.62052505   64.91651253  133.49917214  234.71119998
-  376.36887101  564.28780011  792.22634461 1023.09340791]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Mass-normalization of the eigenvectors within the tol
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">I_sparse</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;csr&#39;</span><span class="p">)</span>
 <span class="n">Z_sparse</span> <span class="o">=</span> <span class="kc">None</span>
@@ -931,8 +924,9 @@ Mass-normalization of the eigenvectors within the tol
 <span class="c1"># which=&#39;xy&#39;, x: L(largest), S(smallest), y: M(magnitude), R(real part), I(imag part)</span>
 <span class="n">eevals</span><span class="p">,</span> <span class="n">eevecs</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigs</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">M</span><span class="o">=</span><span class="n">A</span><span class="p">,</span> <span class="n">which</span><span class="o">=</span><span class="s1">&#39;SM&#39;</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;First 3 pairs of eigenvalues:&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">evals</span><span class="p">)</span>
+<span class="c1"># print(&quot;First 3 pairs of eigenvalues:&quot;)</span>
+<span class="c1"># print(evals)</span>
+
 <span class="c1"># print(&quot;First 3 pairs of eigenvectors:&quot;)</span>
 <span class="c1"># print(evecs[:,:6:2])</span>
 
@@ -946,14 +940,7 @@ Mass-normalization of the eigenvectors within the tol
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>First 3 pairs of eigenvalues:
-[0. +1.57241173j 0. +4.75610398j 0. +8.05707841j 0.+11.55418418j
- 0.+15.3202872j  0.+19.40022863j 0.+23.75474269j 0.+28.14651567j
- 0.+31.98583136j]
-</pre></div>
-</div>
-</div>
+</details>
 </div>
 </div>
 <div class="section" id="modal-structural-damping">
@@ -1001,7 +988,12 @@ Mass-normalization of the eigenvectors within the tol
 <p>Pulsations of the modes are</p>
 <div class="math notranslate nohighlight">
 \[\omega_n = k_n \sqrt{\frac{GJ}{I}} = \frac{\pi}{\ell} \sqrt{\frac{GJ}{I}} \left( n + \frac{1}{2} \right) \ .\]</div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&gt; Set structural damping, diagonal in modal basis</span>
 <span class="n">xi</span> <span class="o">=</span> <span class="mf">.1</span>
@@ -1013,8 +1005,14 @@ Mass-normalization of the eigenvectors within the tol
 </pre></div>
 </div>
 </div>
+</details>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&gt; Comparing eigenvalues </span>
 <span class="c1"># - damped discrete system</span>
@@ -1057,6 +1055,7 @@ Mass-normalization of the eigenvectors within the tol
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="../../_images/0553074cfdf0bdca652e883d4d181f55aca1993cbf46a146a6611f374d3f14f7.png" src="../../_images/0553074cfdf0bdca652e883d4d181f55aca1993cbf46a146a6611f374d3f14f7.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Numerical evals     Exact evals      
@@ -1076,6 +1075,254 @@ Mass-normalization of the eigenvectors within the tol
 </div>
 </div>
 <p>Eigenvalues of the first modes show a good match with the exact eigenvalues. For larger wave-number modes, the modes of the discrete system have higher frequencies than the modes of the continuous system: numerical approximation introduces “numerical constraints” (as it’s not capable of representing the exact solution, but only a system with a finite-number dofs), and thus makes the system “stiffer”: higher frequencies of the numerical eigenvalues agree with this intuition.</p>
+</div>
+</div>
+</div>
+<div class="section" id="response-to-a-torsional-moment-at-the-free-end">
+<h2><span class="section-number">27.5.3. </span>Response to a torsional moment at the “free” end<a class="headerlink" href="#response-to-a-torsional-moment-at-the-free-end" title="Permalink to this heading">#</a></h2>
+<p>With force at the free end, the forcing term of the discrete system reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{f}_f = \begin{bmatrix} 0 \\ \dots \\ 0 \\ M(t) \end{bmatrix} = \begin{bmatrix} 0 \\ \dots \\ 0 \\ 1 \end{bmatrix} M(t) \ ,\end{split}\]</div>
+<p>being the last node the free node. In modal variables</p>
+<div class="math notranslate nohighlight">
+\[\ddot{u}_i + 2 \xi_i \Omega_i \dot{u}_i + \Omega_i^2 u_i = \mathbf{v}^*_i \mathbf{f}_f \ .\]</div>
+<p>The input-output relation from the input <span class="math notranslate nohighlight">\(M(t)\)</span> and the <span class="math notranslate nohighlight">\(N-1\)</span>-dimensional output <span class="math notranslate nohighlight">\(u_i\)</span> reads</p>
+<div class="math notranslate nohighlight">
+\[u_i(s) = \frac{\mathbf{v}_i^* \mathbf{F}}{s^2 + 2 \xi_i \Omega_i s + \Omega_i^2} M(t) \ ,\]</div>
+<p>i.e. the transfer function between the torsional moment at the free end <span class="math notranslate nohighlight">\(M(t)\)</span> and the amplitude of the <span class="math notranslate nohighlight">\(i^{th}\)</span> mode is</p>
+<div class="math notranslate nohighlight">
+\[G_i(s) = \frac{\mathbf{v}_i^* \mathbf{F}}{s^2 + 2 \xi_i \Omega_i s + \Omega_i^2} \ .\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">control</span> <span class="k">as</span> <span class="nn">ct</span>
+
+<span class="n">F</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">);</span>  <span class="n">F</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.</span>
+
+<span class="n">omega_freq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+
+    <span class="c1">#&gt; Define the input-output relations with TF</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="p">[</span> <span class="n">evecs_all</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">F</span> <span class="p">]</span>
+    <span class="n">den</span> <span class="o">=</span> <span class="p">[</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span> <span class="o">*</span> <span class="n">xi_all</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">Om_all</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">Om_all</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="p">]</span>
+    <span class="n">sys</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">tf</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="n">den</span><span class="p">)</span>
+
+    <span class="c1">#&gt; Evaluate frequency response, to build Bode diagrams</span>
+    <span class="n">mag_L</span><span class="p">,</span> <span class="n">phase_L</span><span class="p">,</span> <span class="n">omega_L</span> <span class="o">=</span> <span class="n">ct</span><span class="o">.</span><span class="n">frequency_response</span><span class="p">(</span><span class="n">sys</span><span class="p">,</span> <span class="n">omega_freq</span><span class="p">)</span>
+    
+    <span class="c1">#&gt; Plots</span>
+    <span class="c1">#&gt; Bode plots (first line) of L(s)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">omega_L</span><span class="p">,</span> <span class="n">mag_L</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;i=</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">semilogx</span><span class="p">(</span><span class="n">omega_L</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">phase_L</span><span class="p">))</span>
+
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$|G(j\omega)|$&quot;</span><span class="p">)</span>     <span class="p">;</span>  <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\angle G(j\omega)$&quot;</span><span class="p">);</span>  <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\omega$&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Bode plot of $G_i(s)$&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/631ece84508ce368396f2259f4a216d72923e381b3225a417e77a0b0a0cb24a9.png" src="../../_images/631ece84508ce368396f2259f4a216d72923e381b3225a417e77a0b0a0cb24a9.png" />
+</div>
+</div>
+</div>
+<div class="section" id="time-simulations">
+<h2><span class="section-number">27.5.4. </span>Time simulations<a class="headerlink" href="#time-simulations" title="Permalink to this heading">#</a></h2>
+<p>Here different approaches are evaluated:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://basics2022.github.io/bbooks-physics-continuum-mechanics/ch/solids/small-displacements-numerics.html#truncation-and-direct-recovery-of-loads">Truncation and direct recovery of loads</a></p></li>
+<li><p><a class="reference external" href="https://basics2022.github.io/bbooks-physics-continuum-mechanics/ch/solids/small-displacements-numerics.html#mode-acceleration-and-static-recovery-of-fast-modes">Mode acceleration and static recovery of fast modes</a></p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&gt; Forcing</span>
+<span class="n">omega_M</span> <span class="o">=</span> <span class="mf">3.</span>
+<span class="n">M_t</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">omega_M</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span>
+
+<span class="c1">#&gt; Splitting slow and fast modes</span>
+<span class="n">i_slow</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">searchsorted</span><span class="p">(</span><span class="n">Om_all</span> <span class="o">/</span> <span class="mi">3</span><span class="p">,</span> <span class="n">omega_M</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">i_slow</span><span class="p">)</span>
+
+<span class="c1">#&gt; Initial conditions at rest in the non-deformed configuration</span>
+<span class="n">u0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<span class="n">v0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+
+<span class="c1">#&gt; Initial conditions for the reduced (resolved, dynamic, slow) system</span>
+<span class="n">qs0</span>  <span class="o">=</span> <span class="n">evecs_all</span><span class="p">[:,:</span><span class="n">i_slow</span><span class="p">]</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">Mff</span> <span class="o">@</span> <span class="n">u0</span>
+<span class="n">dqs0</span> <span class="o">=</span> <span class="n">evecs_all</span><span class="p">[:,:</span><span class="n">i_slow</span><span class="p">]</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">Mff</span> <span class="o">@</span> <span class="n">v0</span>
+
+<span class="c1">#&gt; Time vec</span>
+<span class="n">nt</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">.1</span>
+<span class="n">tvec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">nt</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Mode acceleration and static recovery of fast modes.</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \begin{bmatrix} \mathbf{u} \\ \mathbf{K} \mathbf{u} \\ \dot{\mathbf{q}}_s \\ \ddot{\mathbf{q}}_s \end{bmatrix} 
+  = \begin{bmatrix} \mathbf{U}_s &amp; \mathbf{0} \\ \mathbf{K} \mathbf{U}_s  &amp;  \mathbf{0} \\ \mathbf{0} &amp; \mathbf{I} \\ -\text{diag}\{ \omega^2_s \} &amp; -\text{diag}\{ 2 \xi_s \omega_s \}  \end{bmatrix} \begin{bmatrix} \mathbf{q}_s \\ \dot{\mathbf{q}}_s  \end{bmatrix} + \begin{bmatrix} \mathbf{K}^{-1} - \mathbf{U}_s \text{diag}\{ (m_s \omega_s^2)^{-1} \} \mathbf{U}^*_s \\ \mathbf{I} - \mathbf{M} \mathbf{U}_s \text{diag}\{ m_s^{-1} \} \mathbf{U}^*_s \\ \mathbf{0} \\ \text{diag}\{ m_s^{-1} \} \mathbf{U}_s^T \end{bmatrix} \mathbf{f} \ .
+\end{aligned}\end{split}\]</div>
+<p>Time integration of the slow part</p>
+<p>First order system</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \frac{d}{dt} \begin{bmatrix} \mathbf{q}_s \\ \dot{\mathbf{q}}_s \end{bmatrix} 
+  = \begin{bmatrix} \mathbf{0} &amp; \mathbf{I} \\ -\text{diag}\{ \omega^2_s \} &amp; -\text{diag}\{ 2 \xi_s \omega_s \}  \end{bmatrix} \begin{bmatrix} \mathbf{q}_s \\ \dot{\mathbf{q}}_s  \end{bmatrix} + \begin{bmatrix} \mathbf{0} \\ \text{diag}\{ m_s^{-1} \} \mathbf{U}_s^T \end{bmatrix} \mathbf{f} \ .
+\end{aligned}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\dot{\mathbf{z}} = \mathbf{A} \mathbf{z} + \mathbf{B} M(t) = \mathbf{f}(t, \mathbf{z})\]</div>
+<p>Second order system</p>
+<div class="math notranslate nohighlight">
+\[\ddot{\mathbf{q}}_s = - \text{diag}\{ \omega_s^2 \} \mathbf{q}_s - \text{diag}\{ 2 \xi \omega_s \} \dot{\mathbf{q}}_s + \text{diag}\{ m_s^{-1} \} \mathbf{U}_s^* \mathbf{f}\]</div>
+<p><strong>Explicit Euler.</strong></p>
+<div class="math notranslate nohighlight">
+\[\mathbf{z}_{n+1} = \mathbf{z}_n + h \mathbf{f}(t_n, \mathbf{z}_n)\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sims</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="k">def</span> <span class="nf">f_fun</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+    <span class="n">n1</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">q</span><span class="p">,</span> <span class="n">dq</span> <span class="o">=</span> <span class="n">z</span><span class="p">[:</span><span class="n">n1</span><span class="p">],</span> <span class="n">z</span><span class="p">[</span><span class="n">n1</span><span class="p">:]</span>
+
+    <span class="n">ddq</span> <span class="o">=</span> <span class="o">-</span> <span class="n">Om_all</span><span class="p">[:</span><span class="n">i_slow</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">q</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">Om_all</span><span class="p">[:</span><span class="n">i_slow</span><span class="p">]</span> <span class="o">*</span> <span class="n">xi_all</span><span class="p">[:</span><span class="n">i_slow</span><span class="p">]</span> <span class="o">*</span> <span class="n">dq</span> <span class="o">+</span> <span class="n">evecs_all</span><span class="p">[:,:</span><span class="n">i_slow</span><span class="p">]</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">F</span> <span class="o">*</span> <span class="n">M_t</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">dq</span><span class="p">,</span> <span class="n">ddq</span><span class="p">])</span>
+
+<span class="n">z0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">qs0</span><span class="p">,</span> <span class="n">dqs0</span><span class="p">])</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">z0</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">ZZ</span> <span class="o">=</span> <span class="p">[</span> <span class="n">z</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="p">]</span>
+
+<span class="n">sims</span><span class="p">[</span><span class="s1">&#39;Explicit Euler&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;Z&#39;</span><span class="p">:</span> <span class="p">[</span> <span class="p">]</span> <span class="p">}</span>
+
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tvec</span><span class="p">:</span>
+
+    <span class="n">z</span> <span class="o">+=</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">f_fun</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+
+    <span class="n">ZZ</span> <span class="o">+=</span> <span class="p">[</span> <span class="n">z</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="p">]</span>
+
+<span class="n">ZZ</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">ZZ</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tvec</span><span class="p">,</span> <span class="n">ZZ</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">,:</span><span class="mi">3</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/c67ca286ad69499e3cca8aead634939e354ef374dbf5d578263c4fb81d2b0557.png" src="../../_images/c67ca286ad69499e3cca8aead634939e354ef374dbf5d578263c4fb81d2b0557.png" />
+</div>
+</div>
+<p><strong>Runge-Kutta.</strong> Exploiting scipy.integrate.solve_ivp</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">solve_ivp</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">tvec</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">F</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">spsolve</span><span class="p">(</span><span class="n">Kff</span><span class="p">,</span> <span class="n">F</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">z0</span><span class="p">)</span>
+
+<span class="c1">#&gt; Slow-modes</span>
+<span class="n">sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span>
+    <span class="n">f_fun</span><span class="p">,</span> 
+    <span class="p">(</span><span class="n">tvec</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">tvec</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span> 
+    <span class="n">z0</span><span class="p">,</span> 
+    <span class="n">method</span><span class="o">=</span><span class="s1">&#39;RK45&#39;</span><span class="p">,</span> 
+    <span class="n">t_eval</span><span class="o">=</span><span class="n">tvec</span><span class="p">,</span>
+    <span class="c1"># rtol=1e-6, </span>
+    <span class="c1"># atol=1e-9</span>
+<span class="p">)</span>
+
+<span class="c1">#&gt; Nodal variables and internal forces</span>
+<span class="n">u_trunc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">bmat</span><span class="p">([</span> <span class="n">evecs_all</span><span class="p">[:,:</span><span class="n">i_slow</span><span class="p">],</span> <span class="mi">0</span><span class="o">*</span><span class="n">evecs_all</span><span class="p">[:,:</span><span class="n">i_slow</span><span class="p">]])</span> <span class="o">@</span> <span class="n">sol</span><span class="o">.</span><span class="n">y</span>
+<span class="n">u_recov</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">spsolve</span><span class="p">(</span><span class="n">Kff</span><span class="p">,</span> <span class="n">F</span><span class="p">),</span> <span class="n">M_t</span><span class="p">(</span><span class="n">tvec</span><span class="p">))</span> \
+        <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">evecs_all</span><span class="p">[:,:</span><span class="n">i_slow</span><span class="p">]</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span> <span class="n">Om_all</span><span class="p">[:</span><span class="n">i_slow</span><span class="p">]</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span> <span class="p">)</span> <span class="o">@</span> <span class="n">evecs_all</span><span class="p">[:,:</span><span class="n">i_slow</span><span class="p">]</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">F</span><span class="p">,</span> <span class="n">M_t</span><span class="p">(</span><span class="n">tvec</span><span class="p">))</span>
+<span class="n">u_m_acc</span> <span class="o">=</span> <span class="n">u_trunc</span> <span class="o">+</span> <span class="n">u_recov</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.  0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.  1.1 1.2 1.3 1.4 1.5 1.6 1.7
+ 1.8 1.9 2.  2.1 2.2 2.3 2.4 2.5 2.6 2.7 2.8 2.9 3.  3.1 3.2 3.3 3.4 3.5
+ 3.6 3.7 3.8 3.9 4.  4.1 4.2 4.3 4.4 4.5 4.6 4.7 4.8 4.9 5.  5.1 5.2 5.3
+ 5.4 5.5 5.6 5.7 5.8 5.9 6.  6.1 6.2 6.3 6.4 6.5 6.6 6.7 6.8 6.9 7.  7.1
+ 7.2 7.3 7.4 7.5 7.6 7.7 7.8 7.9 8.  8.1 8.2 8.3 8.4 8.5 8.6 8.7 8.8 8.9
+ 9.  9.1 9.2 9.3 9.4 9.5 9.6 9.7 9.8 9.9]
+[0. 0. 0. 0. 0. 0. 0. 0. 0. 1.]
+[0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1. ]
+[0. 0. 0. 0. 0. 0.]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">T</span><span class="p">[:,:</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">u_m_acc</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">u_trunc</span><span class="o">.</span><span class="n">T</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">u_m_acc</span><span class="o">.</span><span class="n">T</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;-&#39;</span> <span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;node 1&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">u_trunc</span><span class="o">.</span><span class="n">T</span><span class="p">[:,</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span>  <span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">u_m_acc</span><span class="o">.</span><span class="n">T</span><span class="p">[:,</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span>  <span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;-&#39;</span> <span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;node N&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">u_recov</span><span class="o">.</span><span class="n">T</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">u_recov</span><span class="o">.</span><span class="n">T</span><span class="p">[:,</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span>  <span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">();</span>  <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Amplitude of the slow modes&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">();</span>  <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Nodal variables (Mode acceleration)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">();</span>  <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Truncation and mode acceleration (displ.)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">();</span>  <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Truncation and mode acceleration (diff.)&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="c1">#&gt; Amplitude of the static recovery of fast modes</span>
+<span class="c1"># [ K^-1 - Us * diag( ( ms oms^2 )^-1 ) * Us.T ) * F</span>
+<span class="n">recov_ampl</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">spsolve</span><span class="p">(</span><span class="n">Kff</span><span class="p">,</span> <span class="n">F</span><span class="p">)</span> <span class="o">-</span> <span class="n">evecs_all</span><span class="p">[:,:</span><span class="n">i_slow</span><span class="p">]</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span> <span class="n">Om_all</span><span class="p">[:</span><span class="n">i_slow</span><span class="p">]</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span> <span class="p">)</span> <span class="o">@</span> <span class="n">evecs_all</span><span class="p">[:,:</span><span class="n">i_slow</span><span class="p">]</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">F</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">N</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">recov_ampl</span><span class="p">,</span> <span class="s1">&#39;-o&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Static recovery of fast modes&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Amplitude (negative: counter-phase)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Node id&quot;</span><span class="p">)</span>
+
+
+<span class="c1">#&gt; Plot configurations for the first time-steps</span>
+<span class="c1"># fig, ax=plt.subplots(1,1, figsize=(5,5))</span>
+<span class="c1"># ax.plot(u_trunc[:,0:7])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/84d2c818d20386b712d366c0c40704d5cb93d84b2dcbaae47eb6dadb3924e1bb.png" src="../../_images/84d2c818d20386b712d366c0c40704d5cb93d84b2dcbaae47eb6dadb3924e1bb.png" />
+<img alt="../../_images/5b75c40a88f943eb41ca3527e7eb93104a70707c65c1de52942aa39f447641de.png" src="../../_images/5b75c40a88f943eb41ca3527e7eb93104a70707c65c1de52942aa39f447641de.png" />
 </div>
 </div>
 </div>
@@ -1158,6 +1405,8 @@ Mass-normalization of the eigenvectors within the tol
 </li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#response-to-a-torsional-moment-at-the-free-end">27.5.3. Response to a torsional moment at the “free” end</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-simulations">27.5.4. Time simulations</a></li>
 </ul>
   </nav></div>
 
