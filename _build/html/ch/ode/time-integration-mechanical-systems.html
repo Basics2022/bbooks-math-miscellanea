@@ -1146,7 +1146,7 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&gt; Forcing</span>
 <span class="n">omega_M</span> <span class="o">=</span> <span class="mf">3.</span>
-<span class="n">M_t</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">omega_M</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span>
+<span class="n">M_t</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">t</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">omega_M</span> <span class="o">*</span> <span class="n">t</span><span class="p">)</span>
 
 <span class="c1">#&gt; Splitting slow and fast modes</span>
 <span class="n">i_slow</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">searchsorted</span><span class="p">(</span><span class="n">Om_all</span> <span class="o">/</span> <span class="mi">3</span><span class="p">,</span> <span class="n">omega_M</span><span class="p">)</span>
@@ -1155,10 +1155,17 @@ document.write(`
 <span class="c1">#&gt; Initial conditions at rest in the non-deformed configuration</span>
 <span class="n">u0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
 <span class="n">v0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<span class="c1">#&gt; Mode acceleration</span>
+<span class="n">u0_m_acc</span> <span class="o">=</span> <span class="n">u0</span> \
+        <span class="o">-</span> <span class="n">sp</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">spsolve</span><span class="p">(</span><span class="n">Kff</span><span class="p">,</span> <span class="n">F</span><span class="p">)</span> <span class="o">*</span> <span class="n">M_t</span><span class="p">(</span><span class="n">tvec</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> \
+        <span class="o">+</span> <span class="n">evecs_all</span><span class="p">[:,:</span><span class="n">i_slow</span><span class="p">]</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span> <span class="n">Om_all</span><span class="p">[:</span><span class="n">i_slow</span><span class="p">]</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span> <span class="p">)</span> <span class="o">@</span> <span class="n">evecs_all</span><span class="p">[:,:</span><span class="n">i_slow</span><span class="p">]</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">F</span> <span class="o">*</span> <span class="n">M_t</span><span class="p">(</span><span class="n">tvec</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 
 <span class="c1">#&gt; Initial conditions for the reduced (resolved, dynamic, slow) system</span>
+<span class="c1">#&gt; Truncation</span>
 <span class="n">qs0</span>  <span class="o">=</span> <span class="n">evecs_all</span><span class="p">[:,:</span><span class="n">i_slow</span><span class="p">]</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">Mff</span> <span class="o">@</span> <span class="n">u0</span>
 <span class="n">dqs0</span> <span class="o">=</span> <span class="n">evecs_all</span><span class="p">[:,:</span><span class="n">i_slow</span><span class="p">]</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">Mff</span> <span class="o">@</span> <span class="n">v0</span>
+
+<span class="n">qs0_m_acc</span> <span class="o">=</span> <span class="n">evecs_all</span><span class="p">[:,:</span><span class="n">i_slow</span><span class="p">]</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">Mff</span> <span class="o">@</span> <span class="n">u0_m_acc</span>
 
 <span class="c1">#&gt; Time vec</span>
 <span class="n">nt</span> <span class="o">=</span> <span class="mi">100</span>
@@ -1234,7 +1241,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/c67ca286ad69499e3cca8aead634939e354ef374dbf5d578263c4fb81d2b0557.png" src="../../_images/c67ca286ad69499e3cca8aead634939e354ef374dbf5d578263c4fb81d2b0557.png" />
+<img alt="../../_images/b593892c90baa6fa10d54b09e25ce2aa680438c5f39f79d21a1c6fa3e77f8a54.png" src="../../_images/b593892c90baa6fa10d54b09e25ce2aa680438c5f39f79d21a1c6fa3e77f8a54.png" />
 </div>
 </div>
 <p><strong>Runge-Kutta.</strong> Exploiting scipy.integrate.solve_ivp</p>
@@ -1246,6 +1253,8 @@ document.write(`
 <span class="nb">print</span><span class="p">(</span><span class="n">F</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">spsolve</span><span class="p">(</span><span class="n">Kff</span><span class="p">,</span> <span class="n">F</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">z0</span><span class="p">)</span>
+
+<span class="n">z0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">qs0_m_acc</span><span class="p">,</span> <span class="n">dqs0</span><span class="p">])</span>
 
 <span class="c1">#&gt; Slow-modes</span>
 <span class="n">sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span>
@@ -1263,6 +1272,12 @@ document.write(`
 <span class="n">u_recov</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">spsolve</span><span class="p">(</span><span class="n">Kff</span><span class="p">,</span> <span class="n">F</span><span class="p">),</span> <span class="n">M_t</span><span class="p">(</span><span class="n">tvec</span><span class="p">))</span> \
         <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">evecs_all</span><span class="p">[:,:</span><span class="n">i_slow</span><span class="p">]</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span> <span class="n">Om_all</span><span class="p">[:</span><span class="n">i_slow</span><span class="p">]</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span> <span class="p">)</span> <span class="o">@</span> <span class="n">evecs_all</span><span class="p">[:,:</span><span class="n">i_slow</span><span class="p">]</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">F</span><span class="p">,</span> <span class="n">M_t</span><span class="p">(</span><span class="n">tvec</span><span class="p">))</span>
 <span class="n">u_m_acc</span> <span class="o">=</span> <span class="n">u_trunc</span> <span class="o">+</span> <span class="n">u_recov</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">z0</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">u_trunc</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">u_recov</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">M_t</span><span class="p">(</span><span class="n">tvec</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
 </pre></div>
 </div>
 </div>
@@ -1276,6 +1291,19 @@ document.write(`
 [0. 0. 0. 0. 0. 0. 0. 0. 0. 1.]
 [0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1. ]
 [0. 0. 0. 0. 0. 0.]
+[0. 0. 0. 0. 0. 0.]
+[[0.]
+ [0.]
+ [0.]
+ [0.]
+ [0.]
+ [0.]
+ [0.]
+ [0.]
+ [0.]
+ [0.]]
+[0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+0.0
 </pre></div>
 </div>
 </div>
@@ -1321,7 +1349,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/84d2c818d20386b712d366c0c40704d5cb93d84b2dcbaae47eb6dadb3924e1bb.png" src="../../_images/84d2c818d20386b712d366c0c40704d5cb93d84b2dcbaae47eb6dadb3924e1bb.png" />
+<img alt="../../_images/b4f27d5688649bffeff1f66fef3dda31c1afee0d736e72ad846c4c4a5809b647.png" src="../../_images/b4f27d5688649bffeff1f66fef3dda31c1afee0d736e72ad846c4c4a5809b647.png" />
 <img alt="../../_images/5b75c40a88f943eb41ca3527e7eb93104a70707c65c1de52942aa39f447641de.png" src="../../_images/5b75c40a88f943eb41ca3527e7eb93104a70707c65c1de52942aa39f447641de.png" />
 </div>
 </div>
