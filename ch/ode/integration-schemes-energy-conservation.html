@@ -625,9 +625,21 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">27.5.1. Examples</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verlet">27.5.1.1. Verlet</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implicit-euler">27.5.1.2. Implicit Euler</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explicit-euler">27.5.1.3. Explicit Euler</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verlet">27.5.1.1. Verlet</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#jacobian-of-the-one-step-transformation">27.5.1.1.1. Jacobian of the one-step transformation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#one-step-energy-difference">27.5.1.1.2. One-step energy difference</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explicit-euler">27.5.1.2. Explicit Euler</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">27.5.1.2.1. Jacobian of the one-step transformation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">27.5.1.2.2. One-step energy difference</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implicit-euler">27.5.1.3. Implicit Euler</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">27.5.1.3.1. Jacobian of the one-step transformation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">27.5.1.3.2. One-step energy difference</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#crank-nicolson">27.5.1.4. Crank-Nicolson</a></li>
 </ul>
 </li>
@@ -699,6 +711,8 @@ document.write(`
   \mathbf{v}_{n+1} &amp; = \mathbf{v}_n + h \mathbf{f}\left( \mathbf{x}_n + \frac{h}{2} \mathbf{v}_n \right) \\
   \mathbf{x}_{n+1} &amp; = \mathbf{x}_{n} + h \mathbf{v}_n + \frac{h^2}{2} \mathbf{f}\left( \mathbf{x}_n + \frac{h}{2} \mathbf{v}_n \right) 
 \end{aligned}\end{split}\]</div>
+<div class="section" id="jacobian-of-the-one-step-transformation">
+<h4><span class="section-number">27.5.1.1.1. </span>Jacobian of the one-step transformation<a class="headerlink" href="#jacobian-of-the-one-step-transformation" title="Permalink to this heading">#</a></h4>
 <p>Thus, the Jacobian reads</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\mathbf{J} = \partial_{\mathbf{z}_{n}} \mathbf{z}_{n+1} = \begin{bmatrix} \mathbf{I} + \frac{h^2}{2} \partial_{\widetilde{\mathbf{x}}} \mathbf{f} &amp; h + \frac{h^3}{4} \partial_{\widetilde{\mathbf{x}}} \mathbf{f} \\
@@ -746,11 +760,98 @@ Proof of inverse of block matrix by direct computation<div class="sd-summary-dow
 \end{aligned}\end{split}\]</div>
 </div>
 </details></div>
-<div class="section" id="implicit-euler">
-<h3><span class="section-number">27.5.1.2. </span>Implicit Euler<a class="headerlink" href="#implicit-euler" title="Permalink to this heading">#</a></h3>
+<div class="section" id="one-step-energy-difference">
+<h4><span class="section-number">27.5.1.1.2. </span>One-step energy difference<a class="headerlink" href="#one-step-energy-difference" title="Permalink to this heading">#</a></h4>
+</div>
 </div>
 <div class="section" id="explicit-euler">
-<h3><span class="section-number">27.5.1.3. </span>Explicit Euler<a class="headerlink" href="#explicit-euler" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">27.5.1.2. </span>Explicit Euler<a class="headerlink" href="#explicit-euler" title="Permalink to this heading">#</a></h3>
+<p>For the mechanical system governed by the differential equation <span class="math notranslate nohighlight">\(\ddot{\mathbf{x}} = \mathbf{f}(\mathbf{x},t)\)</span>, or by the first-order system</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\dfrac{d}{dt}\begin{bmatrix} \mathbf{x} \\ \mathbf{v} \end{bmatrix} = \begin{bmatrix} \mathbf{v} \\ \mathbf{f}(\mathbf{x}) \end{bmatrix}\end{split}\]</div>
+<p>the numerical scheme, and the transformation <span class="math notranslate nohighlight">\(\mathbf{z}_{n} \mapsto \mathbf{z}_{n+1}\)</span>, reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathbf{x}_{n+1} &amp; = \mathbf{x}_{n} + h \mathbf{v}_{n} \\
+  \mathbf{v}_{n+1} &amp; = \mathbf{v}_n + h \mathbf{f}( \mathbf{x}_{n})\\
+\end{aligned}\end{split}\]</div>
+<div class="section" id="id1">
+<h4><span class="section-number">27.5.1.2.1. </span>Jacobian of the one-step transformation<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h4>
+<p>Thus, the Jacobian reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{J} = \partial_{\mathbf{z}_{n}} \mathbf{z}_{n+1} = \begin{bmatrix} \mathbf{I} &amp; h \mathbf{I} \\
+h \partial_{\widetilde{\mathbf{x}}} \mathbf{f}  &amp; \mathbf{I} \end{bmatrix}\end{split}\]</div>
+<p>and the value of its determinant can be evaluated - for <span class="math notranslate nohighlight">\(h\)</span> “small enough” the upper-left block is approximately the identity and thus invertible; all the blocks commute, as they’re linear combinations of zero and first power of <span class="math notranslate nohighlight">\(\partial_{\widetilde{\mathbf{x}}} \mathbf{f}\)</span> - as</p>
+<div class="math notranslate nohighlight">
+\[
+ | \mathbf{J} | 
+ = \left| \mathbf{I} - h^2 \partial_{\widetilde{\mathbf{x}}} \mathbf{f} \right| \ .\]</div>
+<p>First-derivative of the force w.r.t. <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> can be related to the stiffness matrix around equilibria,</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{f}(\overline{\mathbf{x}} + \delta \mathbf{x} ) \simeq \mathbf{f}(\overline{\mathbf{x}}) + \delta \mathbf{x} \cdot \partial_{\mathbf{x}} \mathbf{f}(\overline{\mathbf{x}}) = \mathbf{K} \delta \mathbf{x} \ .\]</div>
+<p>For marginally-stable systems, the stiffness matrix has imaginary eigenvalues, <span class="math notranslate nohighlight">\(\lambda_k(\mathbf{K}) = \mp i \Omega_k\)</span>. For the numerical integration of system around an equilibrium, it follows</p>
+<div class="math notranslate nohighlight">
+\[
+ | \mathbf{J} | 
+ = \left| \mathbf{I} - h^2 \mathbf{K} \right| \ ,
+\]</div>
+<p>and thus - recalling that the determinant is equal to the product of the eigenvalues -</p>
+<div class="math notranslate nohighlight">
+\[|\mathbf{J}| = \prod_k \lambda_k( \mathbf{I} - h^2 \mathbf{K} ) = \prod_k \left( 1 - h^2 \lambda_k( \mathbf{K} ) \right) = \prod_k ( 1 + h^2 \Omega_k^2 ) \ge 1 \ .\]</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Eigenproblem of <span class="math notranslate nohighlight">\(\ \mathbf{A} + b \mathbf{I}\)</span><div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">If <span class="math notranslate nohighlight">\(\mathbf{A} \mathbf{v}_k = \alpha_k \mathbf{v}_k\)</span>, then the matrix <span class="math notranslate nohighlight">\(\mathbf{A} + b \mathbf{I}\)</span> has the same eigenvectors <span class="math notranslate nohighlight">\(\mathbf{v}_k\)</span> with eigenvalues <span class="math notranslate nohighlight">\(\lambda_k = \alpha_k + b\)</span></p>
+</div>
+</details></div>
+<div class="section" id="id2">
+<h4><span class="section-number">27.5.1.2.2. </span>One-step energy difference<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h4>
+</div>
+</div>
+<div class="section" id="implicit-euler">
+<h3><span class="section-number">27.5.1.3. </span>Implicit Euler<a class="headerlink" href="#implicit-euler" title="Permalink to this heading">#</a></h3>
+<p>For the mechanical system governed by the differential equation <span class="math notranslate nohighlight">\(\ddot{\mathbf{x}} = \mathbf{f}(\mathbf{x},t)\)</span>, or by the first-order system</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\dfrac{d}{dt}\begin{bmatrix} \mathbf{x} \\ \mathbf{v} \end{bmatrix} = \begin{bmatrix} \mathbf{v} \\ \mathbf{f}(\mathbf{x}) \end{bmatrix}\end{split}\]</div>
+<p>the numerical scheme, and the transformation <span class="math notranslate nohighlight">\(\mathbf{z}_{n} \mapsto \mathbf{z}_{n+1}\)</span>, reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathbf{x}_{n+1} &amp; = \mathbf{x}_{n} + h \mathbf{v}_{n+1} \\
+  \mathbf{v}_{n+1} &amp; = \mathbf{v}_n + h \mathbf{f}( \mathbf{x}_{n+1})\\
+\end{aligned}\end{split}\]</div>
+<div class="section" id="id3">
+<h4><span class="section-number">27.5.1.3.1. </span>Jacobian of the one-step transformation<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h4>
+<p>The Jacobian of the inverse transformation <span class="math notranslate nohighlight">\(\mathbf{z}_{n+1} \mapsto \mathbf{z}_n\)</span> reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{J}^{-1} = \partial_{\mathbf{z}_{n+1}} \mathbf{z}_{n} = \begin{bmatrix} \mathbf{I} &amp; -h \mathbf{I} \\ -h \partial_{\widetilde{\mathbf{x}}} \mathbf{f}  &amp; \mathbf{I} \end{bmatrix}\end{split}\]</div>
+<p>and the value of its determinant can be evaluated - for <span class="math notranslate nohighlight">\(h\)</span> “small enough” the upper-left block is approximately the identity and thus invertible; all the blocks commute, as they’re linear combinations of zero and first power of <span class="math notranslate nohighlight">\(\partial_{\widetilde{\mathbf{x}}} \mathbf{f}\)</span> - as</p>
+<div class="math notranslate nohighlight">
+\[
+ | \mathbf{J}^{-1} | 
+ = \left| \mathbf{I} - h^2 \partial_{\widetilde{\mathbf{x}}} \mathbf{f} \right| \ .\]</div>
+<p>First-derivative of the force w.r.t. <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> can be related to the stiffness matrix around equilibria,</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{f}(\overline{\mathbf{x}} + \delta \mathbf{x} ) \simeq \mathbf{f}(\overline{\mathbf{x}}) + \delta \mathbf{x} \cdot \partial_{\mathbf{x}} \mathbf{f}(\overline{\mathbf{x}}) = \mathbf{K} \delta \mathbf{x} \ .\]</div>
+<p>For marginally-stable systems, the stiffness matrix has imaginary eigenvalues, <span class="math notranslate nohighlight">\(\lambda_k(\mathbf{K}) = \mp i \Omega_k\)</span>. For the numerical integration of system around an equilibrium, it follows</p>
+<div class="math notranslate nohighlight">
+\[
+ | \mathbf{J}^{-1} | 
+ = \left| \mathbf{I} - h^2 \mathbf{K} \right| \ ,
+\]</div>
+<p>and thus - recalling that the determinant is equal to the product of the eigenvalues -</p>
+<div class="math notranslate nohighlight">
+\[|\mathbf{J}^{-1}| = \prod_k \lambda_k( \mathbf{I} - h^2 \mathbf{K} ) = \prod_k \left( 1 - h^2 \lambda_k( \mathbf{K} ) \right) = \prod_k ( 1 + h^2 \Omega_k^2 ) \ge 1 \ ,\]</div>
+<p>and thus</p>
+<div class="math notranslate nohighlight">
+\[\left| \mathbf{J} \right| = \left| \mathbf{J}^{-1} \right|^{-1} = \left[ \prod_k ( 1 + h^2 \Omega_k^2 ) \right]^{-1} \le 1 \ .\]</div>
+</div>
+<div class="section" id="id4">
+<h4><span class="section-number">27.5.1.3.2. </span>One-step energy difference<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h4>
+</div>
 </div>
 <div class="section" id="crank-nicolson">
 <h3><span class="section-number">27.5.1.4. </span>Crank-Nicolson<a class="headerlink" href="#crank-nicolson" title="Permalink to this heading">#</a></h3>
@@ -822,9 +923,21 @@ Proof of inverse of block matrix by direct computation<div class="sd-summary-dow
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">27.5.1. Examples</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verlet">27.5.1.1. Verlet</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implicit-euler">27.5.1.2. Implicit Euler</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explicit-euler">27.5.1.3. Explicit Euler</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verlet">27.5.1.1. Verlet</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#jacobian-of-the-one-step-transformation">27.5.1.1.1. Jacobian of the one-step transformation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#one-step-energy-difference">27.5.1.1.2. One-step energy difference</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explicit-euler">27.5.1.2. Explicit Euler</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">27.5.1.2.1. Jacobian of the one-step transformation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">27.5.1.2.2. One-step energy difference</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implicit-euler">27.5.1.3. Implicit Euler</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">27.5.1.3.1. Jacobian of the one-step transformation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">27.5.1.3.2. One-step energy difference</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#crank-nicolson">27.5.1.4. Crank-Nicolson</a></li>
 </ul>
 </li>
