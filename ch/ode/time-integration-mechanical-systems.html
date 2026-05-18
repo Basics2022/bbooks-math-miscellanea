@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>27.5. Time-integration of a mechanical system &#8212; basics - math</title>
+    <title>27.6. Time-integration of a mechanical system &#8212; basics - math</title>
   
   
   
@@ -72,7 +72,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="28. Introduction to System Theory" href="../system-theory/intro.html" />
-    <link rel="prev" title="27.4. Simplectic integrators" href="integration-schemes-simplectic.html" />
+    <link rel="prev" title="27.5. Energy conservation of integration schemes" href="integration-schemes-energy-conservation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -251,7 +251,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="ode-linear-systems.html">26. Linear systems</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="integration-schemes.html">27. Integration schemes</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="integration-schemes-simplectic.html">27.4. Simplectic integrators</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">27.5. Time-integration of a mechanical system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="integration-schemes-energy-conservation.html">27.5. Energy conservation of integration schemes</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">27.6. Time-integration of a mechanical system</a></li>
 </ul>
 </li>
 </ul>
@@ -623,22 +624,22 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-equation-torsion-of-elastic-beam">27.5.1. Example equation: torsion of elastic beam</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exact-solution">27.5.1.1. Exact solution</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finite-element-model">27.5.1.2. Finite element model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-equation-torsion-of-elastic-beam">27.6.1. Example equation: torsion of elastic beam</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exact-solution">27.6.1.1. Exact solution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finite-element-model">27.6.1.2. Finite element model</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boundary-conditions">27.5.2. Boundary conditions</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-partition">27.5.2.1. Matrix partition</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#augmented-system">27.5.2.2. Augmented system</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#spectral-decomposition-of-the-undamped-system">27.5.2.2.1. Spectral decomposition of the undamped system</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modal-structural-damping">27.5.2.2.2. Modal structural damping</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boundary-conditions">27.6.2. Boundary conditions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-partition">27.6.2.1. Matrix partition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#augmented-system">27.6.2.2. Augmented system</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#spectral-decomposition-of-the-undamped-system">27.6.2.2.1. Spectral decomposition of the undamped system</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modal-structural-damping">27.6.2.2.2. Modal structural damping</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#response-to-a-torsional-moment-at-the-free-end">27.5.3. Response to a torsional moment at the “free” end</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-simulations">27.5.4. Time simulations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#response-to-a-torsional-moment-at-the-free-end">27.6.3. Response to a torsional moment at the “free” end</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-simulations">27.6.4. Time simulations</a></li>
 </ul>
             </nav>
         </div>
@@ -651,14 +652,14 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="time-integration-of-a-mechanical-system">
-<span id="ode-integration-schemes-mechanical-system"></span><h1><span class="section-number">27.5. </span>Time-integration of a mechanical system<a class="headerlink" href="#time-integration-of-a-mechanical-system" title="Permalink to this heading">#</a></h1>
+<span id="ode-integration-schemes-mechanical-system"></span><h1><span class="section-number">27.6. </span>Time-integration of a mechanical system<a class="headerlink" href="#time-integration-of-a-mechanical-system" title="Permalink to this heading">#</a></h1>
 <p>Reference to:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://basics2022.github.io/bbooks-physics-continuum-mechanics/ch/solids/small-displacements-numerics.html">Modal and numerical methods for mechanical systems - continuum mechanics</a></p></li>
 <li><p><a class="reference external" href="https://basics2022.github.io/myblog/posts/modes-in-structures/">Natural modes in structures - blog</a></p></li>
 </ul>
 <div class="section" id="example-equation-torsion-of-elastic-beam">
-<h2><span class="section-number">27.5.1. </span>Example equation: torsion of elastic beam<a class="headerlink" href="#example-equation-torsion-of-elastic-beam" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">27.6.1. </span>Example equation: torsion of elastic beam<a class="headerlink" href="#example-equation-torsion-of-elastic-beam" title="Permalink to this heading">#</a></h2>
 <p>Here, the PDE governing the torsional dynamics of a linear homogeneous elastic beam is used as a toy problem</p>
 <div class="math notranslate nohighlight">
 \[I \partial_{tt} \theta - \partial_x \left( GJ \partial_{x} \theta \right) = m \]</div>
@@ -675,10 +676,10 @@ document.write(`
 <li><p><a class="reference external" href="https://basics2022.github.io/bbooks-physics-continuum-mechanics/ch/solids/small-displacements-fem-beams.html">Finite element methods for beam structures</a></p></li>
 </ul>
 <div class="section" id="exact-solution">
-<h3><span class="section-number">27.5.1.1. </span>Exact solution<a class="headerlink" href="#exact-solution" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">27.6.1.1. </span>Exact solution<a class="headerlink" href="#exact-solution" title="Permalink to this heading">#</a></h3>
 </div>
 <div class="section" id="finite-element-model">
-<h3><span class="section-number">27.5.1.2. </span>Finite element model<a class="headerlink" href="#finite-element-model" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">27.6.1.2. </span>Finite element model<a class="headerlink" href="#finite-element-model" title="Permalink to this heading">#</a></h3>
 <p>Semi-discretized model in space</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
@@ -780,10 +781,10 @@ document.write(`
 </div>
 </div>
 <div class="section" id="boundary-conditions">
-<h2><span class="section-number">27.5.2. </span>Boundary conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">27.6.2. </span>Boundary conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this heading">#</a></h2>
 <p>Matrix partition or augmented system.</p>
 <div class="section" id="matrix-partition">
-<h3><span class="section-number">27.5.2.1. </span>Matrix partition<a class="headerlink" href="#matrix-partition" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">27.6.2.1. </span>Matrix partition<a class="headerlink" href="#matrix-partition" title="Permalink to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
   \mathbf{f}
@@ -804,14 +805,14 @@ document.write(`
 <p>This system is decoupled, as the reactions at the constraints are not involved in the dynamical systems for <span class="math notranslate nohighlight">\(\mathbf{x}_f\)</span>, and thus they can be computed a posteriori.</p>
 </div>
 <div class="section" id="augmented-system">
-<h3><span class="section-number">27.5.2.2. </span>Augmented system<a class="headerlink" href="#augmented-system" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">27.6.2.2. </span>Augmented system<a class="headerlink" href="#augmented-system" title="Permalink to this heading">#</a></h3>
 <p>See the discussion about Poisson equation - i.e. the static version of the dynamical equation used here, with no inertia contribution - in <a class="reference external" href="https://basics2022.github.io/bbooks-math-miscellanea/ch/pde/numerics.html">Math: Numerical methods for PDEs</a></p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://basics2022.github.io/bbooks-math-miscellanea/ch/pde/fem-poisson-1d.html#augmenting-the-linear-system">FEM: Poisson equation. Augmenting the linear system</a></p></li>
 <li><p><a class="reference external" href="https://basics2022.github.io/bbooks-math-miscellanea/ch/pde/fvm-poisson-1d.html#augmenting-the-linear-system">FVM: Poisson equation. Augmenting the linear system</a></p></li>
 </ul>
 <div class="section" id="spectral-decomposition-of-the-undamped-system">
-<h4><span class="section-number">27.5.2.2.1. </span>Spectral decomposition of the undamped system<a class="headerlink" href="#spectral-decomposition-of-the-undamped-system" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">27.6.2.2.1. </span>Spectral decomposition of the undamped system<a class="headerlink" href="#spectral-decomposition-of-the-undamped-system" title="Permalink to this heading">#</a></h4>
 <p>Eigenvalue problem focuses on the free response of the system, so all the forcing terms - both prescribed actions in <span class="math notranslate nohighlight">\(\mathbf{f}_f\)</span> and prescribed kinetic variables in <span class="math notranslate nohighlight">\(\mathbf{x}_d\)</span> - are set equal to zero. Thus, it’s possible to focus on the <span class="math notranslate nohighlight">\(f\)</span>-part of the partitioned system only, <span class="math notranslate nohighlight">\(\mathbf{M}_{ff} \ddot{\mathbf{x}}_f + \mathbf{K}_{ff} \mathbf{x}_f = \dots\)</span>. In the following lines, pedices are dropped.</p>
 <p>Either generalized eigenvalue problem of the undamped system as a second-order <span class="math notranslate nohighlight">\(n\)</span>-dimensional system</p>
 <div class="math notranslate nohighlight">
@@ -944,7 +945,7 @@ document.write(`
 </div>
 </div>
 <div class="section" id="modal-structural-damping">
-<h4><span class="section-number">27.5.2.2.2. </span>Modal structural damping<a class="headerlink" href="#modal-structural-damping" title="Permalink to this heading">#</a></h4>
+<h4><span class="section-number">27.6.2.2.2. </span>Modal structural damping<a class="headerlink" href="#modal-structural-damping" title="Permalink to this heading">#</a></h4>
 <p>See</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://basics2022.github.io/bbooks-physics-continuum-mechanics/ch/solids/structural-damping.html">Continuum mechanics: structural damping</a></p></li>
@@ -1079,7 +1080,7 @@ document.write(`
 </div>
 </div>
 <div class="section" id="response-to-a-torsional-moment-at-the-free-end">
-<h2><span class="section-number">27.5.3. </span>Response to a torsional moment at the “free” end<a class="headerlink" href="#response-to-a-torsional-moment-at-the-free-end" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">27.6.3. </span>Response to a torsional moment at the “free” end<a class="headerlink" href="#response-to-a-torsional-moment-at-the-free-end" title="Permalink to this heading">#</a></h2>
 <p>With force at the free end, the forcing term of the discrete system reads</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\mathbf{f}_f = \begin{bmatrix} 0 \\ \dots \\ 0 \\ M(t) \end{bmatrix} = \begin{bmatrix} 0 \\ \dots \\ 0 \\ 1 \end{bmatrix} M(t) \ ,\end{split}\]</div>
@@ -1136,7 +1137,7 @@ document.write(`
 </div>
 </div>
 <div class="section" id="time-simulations">
-<h2><span class="section-number">27.5.4. </span>Time simulations<a class="headerlink" href="#time-simulations" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">27.6.4. </span>Time simulations<a class="headerlink" href="#time-simulations" title="Permalink to this heading">#</a></h2>
 <p>Here different approaches are evaluated:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://basics2022.github.io/bbooks-physics-continuum-mechanics/ch/solids/small-displacements-numerics.html#truncation-and-direct-recovery-of-loads">Truncation and direct recovery of loads</a></p></li>
@@ -1387,12 +1388,12 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="integration-schemes-simplectic.html"
+       href="integration-schemes-energy-conservation.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">27.4. </span>Simplectic integrators</p>
+        <p class="prev-next-title"><span class="section-number">27.5. </span>Energy conservation of integration schemes</p>
       </div>
     </a>
     <a class="right-next"
@@ -1419,22 +1420,22 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-equation-torsion-of-elastic-beam">27.5.1. Example equation: torsion of elastic beam</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exact-solution">27.5.1.1. Exact solution</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finite-element-model">27.5.1.2. Finite element model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-equation-torsion-of-elastic-beam">27.6.1. Example equation: torsion of elastic beam</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exact-solution">27.6.1.1. Exact solution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finite-element-model">27.6.1.2. Finite element model</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boundary-conditions">27.5.2. Boundary conditions</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-partition">27.5.2.1. Matrix partition</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#augmented-system">27.5.2.2. Augmented system</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#spectral-decomposition-of-the-undamped-system">27.5.2.2.1. Spectral decomposition of the undamped system</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modal-structural-damping">27.5.2.2.2. Modal structural damping</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boundary-conditions">27.6.2. Boundary conditions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-partition">27.6.2.1. Matrix partition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#augmented-system">27.6.2.2. Augmented system</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#spectral-decomposition-of-the-undamped-system">27.6.2.2.1. Spectral decomposition of the undamped system</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#modal-structural-damping">27.6.2.2.2. Modal structural damping</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#response-to-a-torsional-moment-at-the-free-end">27.5.3. Response to a torsional moment at the “free” end</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-simulations">27.5.4. Time simulations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#response-to-a-torsional-moment-at-the-free-end">27.6.3. Response to a torsional moment at the “free” end</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-simulations">27.6.4. Time simulations</a></li>
 </ul>
   </nav></div>
 
