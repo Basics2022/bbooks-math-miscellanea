@@ -78,6 +78,7 @@ parts:
   - file: ch/ode/integration-schemes
     sections:
     - file: ch/ode/integration-schemes-simplectic
+    - file: ch/ode/integration-schemes-energy-conservation
     - file: ch/ode/time-integration-mechanical-systems
 - caption: System Theory
   numbered: True
