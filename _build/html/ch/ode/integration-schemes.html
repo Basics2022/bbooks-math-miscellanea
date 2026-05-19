@@ -945,7 +945,12 @@ Contents<div class="sd-summary-down docutils">
 </div>
 <div class="section" id="id1">
 <h4><span class="section-number">27.3.4.3. </span>A-stability<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h4>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -958,17 +963,15 @@ Contents<div class="sd-summary-down docutils">
 
 <span class="k">def</span> <span class="nf">ampl_A_fun</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">A_fun</span><span class="p">):</span>
     <span class="n">evals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigvals</span><span class="p">(</span><span class="n">A_fun</span><span class="p">(</span><span class="n">z</span><span class="p">))</span>
-    <span class="n">ieval</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">absolute</span><span class="p">(</span><span class="n">evals</span><span class="p">))</span>
+    <span class="n">ieval</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">absolute</span><span class="p">(</span><span class="n">evals</span><span class="p">))</span> <span class="c1"># , keepdims=True)</span>
     
-    <span class="k">return</span> <span class="n">evals</span><span class="p">[</span><span class="n">ieval</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">evals</span><span class="p">[</span><span class="n">ieval</span><span class="p">]</span>  <span class="c1"># [0]]</span>
 
 <span class="k">def</span> <span class="nf">A_lf</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
     <span class="n">sigh</span><span class="p">,</span> <span class="n">omh</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">z</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">imag</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
 
     <span class="n">bh</span> <span class="o">=</span> <span class="o">-</span> <span class="n">sigh</span>
     <span class="n">ch2</span> <span class="o">=</span> <span class="n">sigh</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">omh</span><span class="o">**</span><span class="mi">2</span>
-    <span class="c1"># if c == 0:</span>
-    <span class="c1">#     return np.eye(2)</span>
 
     <span class="n">n1</span> <span class="o">=</span> <span class="mf">1.</span> <span class="o">-</span> <span class="n">bh</span>
     <span class="n">n2</span> <span class="o">=</span> <span class="mf">1.</span> <span class="o">-</span> <span class="n">ch2</span><span class="o">/</span><span class="mf">2.</span>
@@ -979,16 +982,16 @@ Contents<div class="sd-summary-down docutils">
     
 
 <span class="n">ampl_fun_bdf2</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="n">ampl_A_fun</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">A_bdf2</span><span class="p">)</span>
-<span class="n">ampl_fun_lf</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="n">ampl_A_fun</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">A_lf</span><span class="p">)</span>
+<span class="n">ampl_fun_lf</span>   <span class="o">=</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="n">ampl_A_fun</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">A_lf</span><span class="p">)</span>
 
-<span class="c1"># ampl_fun_lf = lambda z: np.max(np.absolute(np.linalg.eigvals(A_lf(z))))</span>
+<span class="n">ampl_fun_lf_2</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">absolute</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigvals</span><span class="p">(</span><span class="n">A_lf</span><span class="p">(</span><span class="n">z</span><span class="p">))))</span>
 
 <span class="n">ampl_funs</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;EE&#39;</span><span class="p">:</span> <span class="n">ampl_fun_ee</span><span class="p">,</span>
     <span class="s1">&#39;IE&#39;</span><span class="p">:</span> <span class="n">ampl_fun_ie</span><span class="p">,</span>
     <span class="s1">&#39;CN&#39;</span><span class="p">:</span> <span class="n">ampl_fun_cn</span><span class="p">,</span>
     <span class="s1">&#39;BDF2&#39;</span><span class="p">:</span> <span class="n">ampl_fun_bdf2</span><span class="p">,</span>
-    <span class="s1">&#39;Leapfrog&#39;</span><span class="p">:</span> <span class="n">ampl_fun_lf</span>
+    <span class="s1">&#39;Leapfrog&#39;</span><span class="p">:</span> <span class="n">ampl_fun_lf</span><span class="p">,</span>
 <span class="p">}</span>
 <span class="n">n_methods</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ampl_funs</span><span class="p">)</span>
 
@@ -998,26 +1001,63 @@ Contents<div class="sd-summary-down docutils">
     <span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
     <span class="n">Z</span> <span class="o">=</span> <span class="n">X</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">Y</span>
 
-    <span class="k">return</span> <span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">ampl_fun</span><span class="p">)(</span><span class="n">Z</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">ampl_fun</span><span class="p">,</span> <span class="n">otypes</span><span class="o">=</span><span class="p">[</span><span class="nb">complex</span><span class="p">])(</span><span class="n">Z</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+</details>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">ampl_funs</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<div class="cell tag_hide-input tag_hide-output docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&gt; Check lf functions</span>
+<span class="c1"># part of the debug. np.vectorize require otypes, otherwise some bad silent casting may occur</span>
+
+<span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z1</span> <span class="o">=</span> <span class="n">complex_amplification_fun</span><span class="p">(</span><span class="n">ampl_fun_lf</span><span class="p">)</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z2</span> <span class="o">=</span> <span class="n">complex_amplification_fun</span><span class="p">(</span><span class="n">ampl_fun_lf_2</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">Z1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">Z2</span><span class="p">))</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">absolute</span><span class="p">(</span><span class="n">Z1</span><span class="p">),</span> <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="mf">1.0</span><span class="p">],</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">absolute</span><span class="p">(</span><span class="n">Z2</span><span class="p">),</span> <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="mf">1.0</span><span class="p">],</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">Z1</span><span class="p">)),</span> <span class="n">shading</span><span class="o">=</span><span class="s1">&#39;gouraud&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="mi">3</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">1.</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">Z2</span><span class="p">)),</span> <span class="n">shading</span><span class="o">=</span><span class="s1">&#39;gouraud&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="mi">3</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">1.</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+</details>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;EE&#39;, &#39;IE&#39;, &#39;CN&#39;, &#39;BDF2&#39;, &#39;Leapfrog&#39;])
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(200, 200)
+(200, 200)
 </pre></div>
 </div>
+<img alt="../../_images/643c8c11c283a24fba43f36ca3907f2a117d1087c934926e6a96f9cafa7692fa.png" src="../../_images/643c8c11c283a24fba43f36ca3907f2a117d1087c934926e6a96f9cafa7692fa.png" />
 </div>
+</details>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">integrate_test_ee</span><span class="p">(</span><span class="n">lam</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">tv</span><span class="p">,):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&gt; Functions for integration of the test equation, for stability analysis of different integration schemes</span>
+<span class="k">def</span> <span class="nf">integrate_test_ee</span><span class="p">(</span><span class="n">lam</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">tv</span><span class="p">,):</span>
     <span class="n">dt</span> <span class="o">=</span> <span class="n">tv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">tv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">nt</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">tv</span><span class="p">)</span>
     <span class="n">xx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nt</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">);</span>   <span class="n">xx</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x0</span>
@@ -1084,10 +1124,17 @@ Contents<div class="sd-summary-down docutils">
 </pre></div>
 </div>
 </div>
+</details>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&gt; Perform integration in time, for different methods, for different values of z=lam*dt in the test equations</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
 
 <span class="n">dt</span><span class="p">,</span> <span class="n">nt</span> <span class="o">=</span> <span class="mf">1.</span><span class="p">,</span> <span class="mi">100</span>
 <span class="n">tv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">nt</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span>
@@ -1106,10 +1153,10 @@ Contents<div class="sd-summary-down docutils">
 <span class="n">XX</span><span class="p">[</span><span class="s1">&#39;CN&#39;</span>  <span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;ic&#39;</span><span class="p">:</span> <span class="mf">1.</span><span class="p">,</span> <span class="s1">&#39;fun&#39;</span><span class="p">:</span> <span class="n">integrate_test_cn</span><span class="p">,</span> <span class="p">}</span>
 <span class="n">XX</span><span class="p">[</span><span class="s1">&#39;BDF2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;ic&#39;</span><span class="p">:</span> <span class="mf">1.</span><span class="p">,</span> <span class="s1">&#39;fun&#39;</span><span class="p">:</span> <span class="n">integrate_test_bdf2</span><span class="p">,</span> <span class="p">}</span>
 <span class="n">XX</span><span class="p">[</span><span class="s1">&#39;Leapfrog&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;ic&#39;</span><span class="p">:</span> <span class="p">[</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">.0</span> <span class="p">],</span> <span class="s1">&#39;fun&#39;</span><span class="p">:</span> <span class="n">integrate_test_leapfrog</span><span class="p">,</span> <span class="p">}</span>
+<span class="c1"># XX[&#39;Leapfrog_2&#39;] = { &#39;ic&#39;: [ 1., .0 ], &#39;fun&#39;: integrate_test_leapfrog, }</span>
 
 <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">XX</span><span class="p">:</span>
      <span class="n">XX</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="s1">&#39;stability&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nz_real</span><span class="p">,</span> <span class="n">nz_imag</span><span class="p">))</span>
-
 
 <span class="c1">#&gt; Numerical integration of test equation</span>
 <span class="k">for</span> <span class="n">method</span> <span class="ow">in</span> <span class="n">XX</span><span class="p">:</span>
@@ -1136,10 +1183,16 @@ Contents<div class="sd-summary-down docutils">
 </pre></div>
 </div>
 </div>
+</details>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&gt; </span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&gt; Plot analytical boundary of stability regions, with scatter of stability from direct integration in time</span>
 <span class="n">ncols</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="n">nrows</span> <span class="o">=</span> <span class="p">(</span> <span class="n">n_methods</span> <span class="o">-</span> <span class="mi">1</span> <span class="p">)</span> <span class="o">//</span> <span class="n">ncols</span> <span class="o">+</span> <span class="mi">1</span>
 
@@ -1183,27 +1236,36 @@ Contents<div class="sd-summary-down docutils">
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../../_images/61095163d579d0d1ddcfb6481df50a8e55285528a3636f94a19b76456e267ffa.png" src="../../_images/61095163d579d0d1ddcfb6481df50a8e55285528a3636f94a19b76456e267ffa.png" />
+<img alt="../../_images/77c28cb6c602bac23010fed89ff06caf796ea0da2c6d34ff2f014d72fe77d0bd.png" src="../../_images/77c28cb6c602bac23010fed89ff06caf796ea0da2c6d34ff2f014d72fe77d0bd.png" />
 </div>
 </div>
 <p><strong>A-stability.</strong> Implicit Euler and Crank-Nicolson methods are A-stable, while explicit Euler is not.</p>
 </div>
 <div class="section" id="g-z-absolute-value-and-phase">
 <h4><span class="section-number">27.3.4.4. </span>G(z): absolute value and phase<a class="headerlink" href="#g-z-absolute-value-and-phase" title="Permalink to this heading">#</a></h4>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ampl_fun_bdf2</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigvals</span><span class="p">(</span><span class="n">A_bdf2</span><span class="p">(</span><span class="n">z</span><span class="p">))))</span>    
-<span class="n">ampl_fun_lf</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigvals</span><span class="p">(</span><span class="n">A_lf</span><span class="p">(</span><span class="n">z</span><span class="p">))))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">ampl_fun_bdf2 = lambda z: np.max(np.abs(np.linalg.eigvals(A_bdf2(z))))    </span>
+<span class="sd">ampl_fun_lf = lambda z: np.max(np.abs(np.linalg.eigvals(A_lf(z))))</span>
 
-<span class="n">ampl_funs</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;EE&#39;</span><span class="p">:</span> <span class="n">ampl_fun_ee</span><span class="p">,</span>
-    <span class="s1">&#39;IE&#39;</span><span class="p">:</span> <span class="n">ampl_fun_ie</span><span class="p">,</span>
-    <span class="s1">&#39;CN&#39;</span><span class="p">:</span> <span class="n">ampl_fun_cn</span><span class="p">,</span>
-    <span class="s1">&#39;BDF2&#39;</span><span class="p">:</span> <span class="n">ampl_fun_bdf2</span><span class="p">,</span>
-    <span class="s1">&#39;Leapfrog&#39;</span><span class="p">:</span> <span class="n">ampl_fun_lf_2</span>
-<span class="p">}</span>
-<span class="n">n_methods</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ampl_funs</span><span class="p">)</span>
+<span class="sd">ampl_funs = {</span>
+<span class="sd">    &#39;EE&#39;: ampl_fun_ee,</span>
+<span class="sd">    &#39;IE&#39;: ampl_fun_ie,</span>
+<span class="sd">    &#39;CN&#39;: ampl_fun_cn,</span>
+<span class="sd">    &#39;BDF2&#39;: ampl_fun_bdf2,</span>
+<span class="sd">    &#39;Leapfrog&#39;: ampl_fun_lf</span>
+<span class="sd">}</span>
+<span class="sd">n_methods = len(ampl_funs)</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
 
 <span class="c1">#&gt; </span>
 <span class="n">ncols</span> <span class="o">=</span> <span class="mi">3</span>
@@ -1227,7 +1289,7 @@ Contents<div class="sd-summary-down docutils">
 
     <span class="n">i_method</span> <span class="o">+=</span> <span class="mi">1</span>
 
-<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Stability regions of numerical methods. |G(z)| &lt; 1&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Magnitude of one-step TF, |G(z)|&quot;</span><span class="p">)</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="c1"># plt.axhline(0, color=&#39;black&#39;, lw=1)</span>
 <span class="c1"># plt.axvline(0, color=&#39;black&#39;, lw=1)</span>
@@ -1236,11 +1298,17 @@ Contents<div class="sd-summary-down docutils">
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../../_images/d7e7a1aa16974b7e6588e5f82f8023e4b001a8fa76a0e0163050b1359f347b3e.png" src="../../_images/d7e7a1aa16974b7e6588e5f82f8023e4b001a8fa76a0e0163050b1359f347b3e.png" />
+<img alt="../../_images/731cfba1f050f109bf5e078182dbdc9b90fc23e124ab33d488c73abeea91e1a4.png" src="../../_images/731cfba1f050f109bf5e078182dbdc9b90fc23e124ab33d488c73abeea91e1a4.png" />
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="p">,</span> <span class="n">ncols</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">ncols</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span> <span class="n">nrows</span><span class="o">*</span><span class="mi">3</span><span class="p">))</span>
 
@@ -1260,7 +1328,7 @@ Contents<div class="sd-summary-down docutils">
 
     <span class="n">i_method</span> <span class="o">+=</span> <span class="mi">1</span>
 
-<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Stability regions of numerical methods. |G(z)| &lt; 1&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Magnitude of one-step TF, $\angle G(z)$&quot;</span><span class="p">)</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="c1"># plt.axhline(0, color=&#39;black&#39;, lw=1)</span>
 <span class="c1"># plt.axvline(0, color=&#39;black&#39;, lw=1)</span>
@@ -1269,14 +1337,20 @@ Contents<div class="sd-summary-down docutils">
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../../_images/b7d07a2a395a9753d976f77aabb58ceb8bf7027ce432c9d68507d8716e894207.png" src="../../_images/b7d07a2a395a9753d976f77aabb58ceb8bf7027ce432c9d68507d8716e894207.png" />
+<img alt="../../_images/6fc1806050aba29579cc41ea1cdf2a95cd3ec7a77b104741f9436e2f1cb76dd9.png" src="../../_images/6fc1806050aba29579cc41ea1cdf2a95cd3ec7a77b104741f9436e2f1cb76dd9.png" />
 </div>
 </div>
 </div>
 <div class="section" id="g-z-on-the-real-axis">
 <h4><span class="section-number">27.3.4.5. </span>G(z) on the real axis<a class="headerlink" href="#g-z-on-the-real-axis" title="Permalink to this heading">#</a></h4>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">n_methods</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">n_methods</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="mi">3</span><span class="p">))</span>
 <span class="n">i_method</span> <span class="o">=</span> <span class="mi">0</span>
@@ -1302,14 +1376,20 @@ Contents<div class="sd-summary-down docutils">
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../../_images/5bcfca15d1e0617d80adb2623860c11ad5ae0f260f3d584c7d04c73757fe7465.png" src="../../_images/5bcfca15d1e0617d80adb2623860c11ad5ae0f260f3d584c7d04c73757fe7465.png" />
+<img alt="../../_images/15453ea85aa1828761566365af14670ea82ee4796787e9edcd9c19ce4270f97b.png" src="../../_images/15453ea85aa1828761566365af14670ea82ee4796787e9edcd9c19ce4270f97b.png" />
 </div>
 </div>
 </div>
 <div class="section" id="g-z-on-the-imaginary-axis">
 <h4><span class="section-number">27.3.4.6. </span>G(z) on the imaginary axis<a class="headerlink" href="#g-z-on-the-imaginary-axis" title="Permalink to this heading">#</a></h4>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">n_methods</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">n_methods</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="mi">3</span><span class="p">))</span>
 <span class="n">i_method</span> <span class="o">=</span> <span class="mi">0</span>
@@ -1353,8 +1433,9 @@ Contents<div class="sd-summary-down docutils">
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../../_images/8e4af016656ba2b22b36796c348ad65d7d9ddcf47fd7bdd6f3726fbdaab2c274.png" src="../../_images/8e4af016656ba2b22b36796c348ad65d7d9ddcf47fd7bdd6f3726fbdaab2c274.png" />
+<img alt="../../_images/bf2a9a6ee60754bf335840c1f7c7ad84ed9dd8c5cebc9edef35f95465cd12dbf.png" src="../../_images/bf2a9a6ee60754bf335840c1f7c7ad84ed9dd8c5cebc9edef35f95465cd12dbf.png" />
 </div>
 </div>
 <p><strong>Remark.</strong> Here the info about phase in BDF2 and Leapfrog methods is lost, as the radial spectrum is shown.</p>

@@ -85,7 +85,7 @@
         
 
 \title{basics - math}
-\date{May 13, 2026}
+\date{May 19, 2026}
 \release{}
 \author{basics}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -3615,10 +3615,10 @@ The proof readily follows extending the result for a single pole \eqref{equation
 \label{\detokenize{ch/complex/analysis:cauchy-argument-principle}}\label{\detokenize{ch/complex/analysis:complex-analysis-mero-fun-cauchy-argument-principle}}
 
 \subsection{Evaluation of integrals}
-\label{\detokenize{ch/complex/analysis:evaluation-of-integrals}}
+\label{\detokenize{ch/complex/analysis:evaluation-of-integrals}}\label{\detokenize{ch/complex/analysis:complex-analysis-mero-fun-evaluation-of-integrals}}
 
 \subsection{Inverse Laplace Transform}
-\label{\detokenize{ch/complex/analysis:inverse-laplace-transform}}
+\label{\detokenize{ch/complex/analysis:inverse-laplace-transform}}\label{\detokenize{ch/complex/analysis:complex-analysis-mero-fun-inverse-laplace}}
 \sphinxAtStartPar
 Given Laplace transform
 \begin{equation*}
@@ -3664,18 +3664,32 @@ having used the transform of {\hyperref[\detokenize{ch/functional-analysis/dirac
 \section{Definition and Properties}
 \label{\detokenize{ch/complex/laplace-def-thm:definition-and-properties}}\label{\detokenize{ch/complex/laplace-def-thm:complex-laplace-def-thm}}\label{\detokenize{ch/complex/laplace-def-thm::doc}}
 
-\subsection{Definition of Lapalce transform}
-\label{\detokenize{ch/complex/laplace-def-thm:definition-of-lapalce-transform}}\begin{equation*}
+\subsection{Definition of Laplace transform}
+\label{\detokenize{ch/complex/laplace-def-thm:definition-of-laplace-transform}}\label{\detokenize{ch/complex/laplace-def-thm:complex-laplace-def-thm-def}}
+\sphinxAtStartPar
+\sphinxstylestrong{Two\sphinxhyphen{}sided Laplace transform.}
+\begin{equation*}
+\begin{split}\mathscr{L}\left\{ f(t) \right\}(s) := \int_{t=-\infty}^{+\infty} e^{-st} f(t) \, dt = F(s) \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{One\sphinxhyphen{}sided Laplace transform.}
+\begin{equation*}
 \begin{split}\mathscr{L}\left\{ f(t) \right\}(s) := \int_{t=0^-}^{+\infty} e^{-st} f(t) \, dt = F(s) \ .\end{split}
 \end{equation*}
+\sphinxAtStartPar
+One\sphinxhyphen{}sided transform can be thought as the two\sphinxhyphen{}sided transform of \sphinxstylestrong{causal functions}, i.e. functions that are equal to zero before a starting time \(t = 0\).
+
 
 \subsection{Inverse transform}
-\label{\detokenize{ch/complex/laplace-def-thm:inverse-transform}}\begin{equation*}
+\label{\detokenize{ch/complex/laplace-def-thm:inverse-transform}}\label{\detokenize{ch/complex/laplace-def-thm:complex-laplace-def-thm-inverse}}\begin{equation*}
 \begin{split}f(t) = \mathscr{L}^{-1}\left\{ F(s) \right\} = \dots\end{split}
 \end{equation*}
+\sphinxAtStartPar
+see {\hyperref[\detokenize{ch/complex/analysis:complex-analysis-mero-fun-inverse-laplace}]{\sphinxcrossref{\DUrole{std,std-ref}{here}}}}
 
-\subsection{Properties}
-\label{\detokenize{ch/complex/laplace-def-thm:properties}}
+
+\subsection{Elementary one\sphinxhyphen{}sided transforms}
+\label{\detokenize{ch/complex/laplace-def-thm:elementary-one-sided-transforms}}\label{\detokenize{ch/complex/laplace-def-thm:complex-laplace-def-thm-elementary}}
 \sphinxAtStartPar
 \sphinxstylestrong{Linearity.}
 \begin{equation*}
@@ -4638,7 +4652,7 @@ i.e. as an infinite sum of uniform\sphinxhyphen{}amplitude harmonics with discre
 \sphinxstepscope
 
 
-\chapter{Practice on Fourier analysis on finite\sphinxhyphen{}time discrete\sphinxhyphen{}time signal}
+\section{Practice on Fourier analysis on finite\sphinxhyphen{}time discrete\sphinxhyphen{}time signal}
 \label{\detokenize{ch/complex/fourier-practice:practice-on-fourier-analysis-on-finite-time-discrete-time-signal}}\label{\detokenize{ch/complex/fourier-practice:fourier-finite-discrete-time}}\label{\detokenize{ch/complex/fourier-practice::doc}}
 \sphinxAtStartPar
 In this section, some application of Fourier analysis of discrete\sphinxhyphen{}time signals with finite\sphinxhyphen{}time window observation. Outside this observation window, the signal can (or is, by some trasnformation) considered as periodic. Discrete\sphinxhyphen{}time signals are common after sampling.
@@ -4665,10 +4679,10 @@ Realizations of signals with given PSD (or average ESD? for finite domains)
 \end{itemize}
 
 
-\section{Fourier transforms}
+\subsection{Fourier transforms}
 \label{\detokenize{ch/complex/fourier-practice:fourier-transforms}}
 
-\subsection{Discrete Fourier Transform (DFT)}
+\subsubsection{Discrete Fourier Transform (DFT)}
 \label{\detokenize{ch/complex/fourier-practice:discrete-fourier-transform-dft}}
 \sphinxAtStartPar
 The function \(\texttt{numpy.fft.fft()}\) computes the one\sphinxhyphen{}dimensional, n\sphinxhyphen{}point discrete Fourier Transform, with the \sphinxstylestrong{FFT algorithm}.
@@ -4687,7 +4701,7 @@ whose inverse transform reads
 The DFT can be thought as … \sphinxstylestrong{todo}: link to Fourier transform of Dirac’s comb sampled infinite sum of shifted function.
 
 
-\section{Leakage}
+\subsection{Leakage}
 \label{\detokenize{ch/complex/fourier-practice:leakage}}
 \sphinxAtStartPar
 Spectral leakage occurs in discrete\sphinxhyphen{}time signals when
@@ -4823,7 +4837,7 @@ Periods    : 0.5, 2.0
 
 \end{sphinxuseclass}
 
-\section{Aliasing}
+\subsection{Aliasing}
 \label{\detokenize{ch/complex/fourier-practice:aliasing}}
 \begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
 
@@ -4962,7 +4976,7 @@ Periods    : 0.4, 2.0
 
 \end{sphinxuseclass}
 
-\section{Realizations of PSD}
+\subsection{Realizations of PSD}
 \label{\detokenize{ch/complex/fourier-practice:realizations-of-psd}}
 \sphinxAtStartPar
 \sphinxstylestrong{Stationary stochastic signals.} For stationary stochastic signals, \(PSD(\nu)\) is defined as the Fourier transform of it auto\sphinxhyphen{}correlation, i.e.
@@ -5035,7 +5049,7 @@ If \(N\) is odd,
 \end{itemize}
 
 
-\subsection{Exact realization}
+\subsubsection{Exact realization}
 \label{\detokenize{ch/complex/fourier-practice:exact-realization}}
 \sphinxAtStartPar
 Frequency discretization of spectrum implies time discretization, as spectral resolution is the inverse of the sampling period, and maximum frequency (of the mirrored spectrum) is the inverse of the time\sphinxhyphen{}step.
@@ -5238,10 +5252,10 @@ Frequency discretization of spectrum implies time discretization, as spectral re
 While magnitude is exactly represented in the realization of the PSD, it contains no information about the phase of the Fourier transform of the original signal, as \(\Phi_X(f) = |X(f)|^2\).
 
 
-\section{Shape filter}
+\subsection{Shape filter}
 \label{\detokenize{ch/complex/fourier-practice:shape-filter}}
 
-\subsection{Time\sphinxhyphen{}continuous domain}
+\subsubsection{Time\sphinxhyphen{}continuous domain}
 \label{\detokenize{ch/complex/fourier-practice:time-continuous-domain}}
 \sphinxAtStartPar
 A shape filter usually takes a white noise \(w\) as an input, to produce a
@@ -5249,10 +5263,10 @@ A shape filter usually takes a white noise \(w\) as an input, to produce a
 \begin{split}u(s) = G(s) w(s)\end{split}
 \end{equation*}
 
-\subsection{Time\sphinxhyphen{}discrete domain}
+\subsubsection{Time\sphinxhyphen{}discrete domain}
 \label{\detokenize{ch/complex/fourier-practice:time-discrete-domain}}
 
-\section{Statistics of realizations}
+\subsection{Statistics of realizations}
 \label{\detokenize{ch/complex/fourier-practice:statistics-of-realizations}}
 \sphinxAtStartPar
 Given a PSD defined for \(\omega \in [0, \omega_{max}]\), a realization has amplitude (equal for all the realizations)
@@ -5383,6 +5397,281 @@ The average of the PSD of the sum of the spectra equals the sum of the average o
 
 
 
+\sphinxstepscope
+
+
+\chapter{Z\sphinxhyphen{}transform}
+\label{\detokenize{ch/complex/z-transform:z-transform}}\label{\detokenize{ch/complex/z-transform:complex-z-transform}}\label{\detokenize{ch/complex/z-transform::doc}}\subsubsection*{Contents}
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Definition
+
+\item {} 
+\sphinxAtStartPar
+Elementary transforms
+
+\item {} 
+\sphinxAtStartPar
+Region of convergence
+
+\item {} 
+\sphinxAtStartPar
+Applications
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Solution of difference equations
+
+\item {} 
+\sphinxAtStartPar
+Analysis of stability of numerical integration methods
+
+\item {} 
+\sphinxAtStartPar
+Discrete\sphinxhyphen{}time design of filters and discrete\sphinxhyphen{}time systems. Relation between continuous\sphinxhyphen{}time and discrete\sphinxhyphen{}time systems due to sampling. Relation with Laplace transform.
+
+\end{itemize}
+
+\end{itemize}
+
+
+\section{Definition}
+\label{\detokenize{ch/complex/z-transform:definition}}\label{\detokenize{ch/complex/z-transform:complex-z-transform-def}}
+\sphinxAtStartPar
+Z\sphinxhyphen{}transform can be considered as a discrete\sphinxhyphen{}time counterpart of the {\hyperref[\detokenize{ch/complex/laplace:complex-laplace}]{\sphinxcrossref{\DUrole{std,std-ref}{Laplace transform}}}}, as section \DUrole{xref,myst}{Laplace transform of a sampled function} tries to show.
+Z\sphinxhyphen{}transform converts a discrete\sphinxhyphen{}time signal \(\{ x_n \}\) into a complex\sphinxhyphen{}valued function \(X(z)\). Similarly to the {\hyperref[\detokenize{ch/complex/laplace-def-thm:complex-laplace-def-thm-def}]{\sphinxcrossref{\DUrole{std,std-ref}{definition of Laplace transform}}}}, Z\sphinxhyphen{}transform can be either two\sphinxhyphen{}sided
+\begin{equation*}
+\begin{split}X(z) = \mathscr{Z}\{ x_n \}(z) = \sum_{n=-\infty}^{+\infty} x_n z^{-n} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+or one\sphinxhyphen{}sided
+\begin{equation*}
+\begin{split}X(z) = \mathscr{Z}\{ x_n \}(z) = \sum_{n=0}^{+\infty} x_n z^{-n} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+that can be also thought as the two\sphinxhyphen{}sided transform of \sphinxstylestrong{causal time\sphinxhyphen{}series}, i.e. \(x_{k} = 0\), \(\forall k < 0\).
+
+
+\subsection{Z\sphinxhyphen{}transform and discrete\sphinxhyphen{}time Fourier transform (DTFT)}
+\label{\detokenize{ch/complex/z-transform:z-transform-and-discrete-time-fourier-transform-dtft}}\label{\detokenize{ch/complex/z-transform:complex-z-transform-z-dtft}}
+\sphinxAtStartPar
+The {\hyperref[\detokenize{ch/complex/fourier-transforms:complex-fourier-dtft}]{\sphinxcrossref{\DUrole{std,std-ref}{discrete\sphinxhyphen{}time Fourier transform}}}} of a sequence, that can be written as \eqref{equation:ch/complex/fourier-transforms:eq:dtft:1},
+\begin{equation*}
+\begin{split}\text{DTFT}(x(t); \Delta t)(\nu) = \Delta t \sum_{n=-\infty}^{+\infty} x(n \Delta t)  e^{-i 2 \pi \nu n \Delta t} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+can be thought as a scaled Z\sphinxhyphen{}transform of the signal, evaluated in \(z = i \omega \Delta t = i 2 \pi \nu \Delta t\),
+\begin{equation*}
+\begin{split}\text{DTFT}(x(t); \Delta t)(\nu) = \Delta t \left.\left[ \sum_{n=-\infty}^{+\infty} x_n  z^{-n} \right]\right|_{z=e^{i \omega \Delta t}} = \Delta t X(z=e^{i \omega \Delta t}) \ ,\end{split}
+\end{equation*}
+
+\subsection{Laplace transform of a sampled function}
+\label{\detokenize{ch/complex/z-transform:laplace-transform-of-a-sampled-function}}\label{\detokenize{ch/complex/z-transform:complex-z-transform-z-laplace}}
+\sphinxAtStartPar
+\sphinxstylestrong{Delta sampling.} Let \(\widetilde{x}(t) = x(t) \text{III}_{\delta t}(t) = x(t) \sum_{m = - \infty}^{+\infty} \delta(t - m \Delta t)\) the sampling of the continuous\sphinxhyphen{}time function \(x(t)\) with Dirac’s comb. Its one\sphinxhyphen{}sided Laplace transform reads
+\begin{equation}\label{equation:ch/complex/z-transform:eq:z-transform:sampling:delta}
+\begin{split}\begin{aligned}
+  \mathscr{L}\{ \widetilde{x}(t) \}(s)
+  & = \int_{t=0^-}^{+\infty} \widetilde{x}(t) e^{-s t} dt = \\
+  & = \sum_{m=-\infty}^{+\infty} \int_{t=0^-}^{+\infty} x(t) \delta( t - m \Delta t ) e^{-s t} dt = \\
+  & = \sum_{m= 0     }^{+\infty} x(m \Delta t) e^{-s m \Delta t} = \\
+  & = \sum_{m= 0     }^{+\infty} x(t_m) e^{-s t_m} = \\
+  & = \sum_{m= 0     }^{+\infty} x_m z^{-m} \ ,
+\end{aligned}\end{split}
+\end{equation}
+\sphinxAtStartPar
+with \(x_m = x(t_m)\), \(t_m = m \Delta t\), and \(z = e^{s \Delta t}\). Here the summation runs over \(m = 0:+\infty\), as the integral of \(\delta(t - m \Delta t)\) produces a non\sphinxhyphen{}zero result only for \(m \ge 0\). The relation \eqref{equation:ch/complex/z-transform:eq:z-transform:sampling:delta} shows that the Laplace transform of the Dirac delta sampled function is equivalent to the Z\sphinxhyphen{}transform of its samples, if the relations between \(t_m\) and \(m\) and \(z\) and \(s \Delta t\) hold.
+
+\sphinxAtStartPar
+\sphinxstylestrong{Sample and Hold.}
+\begin{equation}\label{equation:ch/complex/z-transform:eq:z-transform:sampling:sah}
+\begin{split}\begin{aligned}
+  \mathscr{L}\{ \widetilde{x}(t) \}(s)
+  & = \int_{t=0^-}^{+\infty} \widetilde{x}(t) e^{-s t} dt = \\
+  & = \sum_{m=-\infty}^{+\infty} \int_{t=t_m}^{t_{m+1}} x(t_m) e^{-s t} dt = \\
+  & = \sum_{m=-\infty}^{+\infty} x(t_m) \frac{1}{s} \left[ e^{-s t_m} - e^{-s t_{m+1}} \right] = \\
+  & = \frac{1 - e^{-s \Delta t}}{s} \sum_{m=-\infty}^{+\infty} x_m e^{-s t_m} = \\
+  & = \dots
+\end{aligned}\end{split}
+\end{equation}
+\sphinxAtStartPar
+with \(z = e^{s \Delta t}\), \(s = \frac{1}{\Delta t} \ln z\).
+
+
+\section{Inverse transform}
+\label{\detokenize{ch/complex/z-transform:inverse-transform}}
+\sphinxAtStartPar
+…
+
+
+\section{Elementary one\sphinxhyphen{}sided transforms}
+\label{\detokenize{ch/complex/z-transform:elementary-one-sided-transforms}}
+\sphinxAtStartPar
+In this section, some elementary Z\sphinxhyphen{}transforms are collected. These can be interpreted as the discrete\sphinxhyphen{}time counterpart of the {\hyperref[\detokenize{ch/complex/laplace-def-thm:complex-laplace-def-thm-elementary}]{\sphinxcrossref{\DUrole{std,std-ref}{elementary Laplace transforms}}}}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Linearity.}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Kronecker delta.} \(x_n = \delta_{0n} = \left\{ \begin{aligned} & 1 && n = 0 \\ & 0 && n \ne 0 \end{aligned}\right.\)
+\begin{equation*}
+\begin{split}\mathscr{Z}\{ \delta_{0n} \}(z) = \sum_{n=0}^{+\infty} \delta_{n0} z^{-n} = 1 \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{“Time” delay.} Z\sphinxhyphen{}transform of a causal sequence \(x_n\) (with \(x_n = 0\) for \(n < 0\)), \(x_{n-k}\) with \(k \ge 0\)
+\begin{equation*}
+\begin{split}
+  \mathscr{Z}\{ x_{n-k} \}(z) = z^{-k} X(z)
+\end{split}
+\end{equation*}\subsubsection*{Proof}
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathscr{Z}\{ x_{n-k} \}(z) 
+  & = \sum_{n=0}^{+\infty} x_{n-k} z^{-n} = \\
+  & = \sum_{n=k}^{+\infty} x_{n-k} z^{-(n-k)} z^{-k} = \\
+  & = \sum_{n=0}^{+\infty} x_{n} z^{-n} z^{-k} = \\
+  & = z^{-k} X(z) \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{First difference backward.} Directly follows from the Z\sphinxhyphen{}transform of time delay
+\begin{equation*}
+\begin{split}\mathscr{Z}\left\{ x_n - x_{n-1} \right\} = \left( 1 - z^{-1} \right) X(z)\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{First difference forward.}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Accumulation.}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Convolution.}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Initial value.} If \(x_n\) is causal, i.e. \(x_n = 0\) for \(n < 0\), then
+\begin{equation*}
+\begin{split}x_{0} = \lim_{z \rightarrow +\infty} X(z) \ .\end{split}
+\end{equation*}\subsubsection*{Proof}
+\begin{equation*}
+\begin{split}X(z) = x_0 + \sum_{n=1}^{+\infty} x_n z^{-n}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+As
+\begin{equation*}
+\begin{split}\left|\sum_{n=1}^{+\infty} x_n z^{-n} \right| \le \sum_{n=1}^{+\infty} \left| x_n z^{-n} \right| \le M \sum_{n=1}^{+\infty} |z|^{-n} = M \frac{1}{|z|} \frac{1}{1 - \frac{1}{|z|}} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+for every \(z\), with \(|z| > 1\) s.t. the geometric series is convergent. As \(|z| \rightarrow + \infty\), the series goes to zero, and thus
+\begin{equation*}
+\begin{split}\lim_{z \rightarrow +\infty} X(z) = x_0 \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Final value.} If \sphinxstyleemphasis{the poles of \((z-1) X(z)\) are inside the unit circle (condition for as.stability)}, then
+\begin{equation*}
+\begin{split}x_{+\infty} = \lim_{z \rightarrow 1} (z-1) X(z) \ .\end{split}
+\end{equation*}\subsubsection*{Proof}
+
+\sphinxAtStartPar
+…
+
+
+\section{Applications}
+\label{\detokenize{ch/complex/z-transform:applications}}
+
+\subsection{Solution of difference equations}
+\label{\detokenize{ch/complex/z-transform:solution-of-difference-equations}}
+\sphinxAtStartPar
+\sphinxstylestrong{First\sphinxhyphen{}order reduction.}
+\subsubsection*{Reduction to first order \protect\(\ k\protect\)\sphinxhyphen{}dimensional system of a \protect\(\ k\protect\)\sphinxhyphen{}order ODE}
+
+\sphinxAtStartPar
+From \(k\)\sphinxhyphen{}order difference equation to system of \(1\)\sphinxhyphen{}order difference equations, as it can be done with ODEs. For ODEs
+\begin{equation*}
+\begin{split}x^{(k)} + a_{k-1} x^{(k-1)} + \dots + a_1 \dot{x} + a_0 x = f(t)\end{split}
+\end{equation*}
+\sphinxAtStartPar
+may be written as a first\sphinxhyphen{}order \(k\)\sphinxhyphen{}dimensional system
+\begin{equation*}
+\begin{split}\dot{\mathbf{z}} = \mathbf{f}(\mathbf{z},t) \ \end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\begin{bmatrix} \dot{z}_0  \\ \dot{z}_1 \\ \dots \\ \dot{z}_{k-1} \end{bmatrix} = \begin{bmatrix} z_1 \\ z_2 \\ \dots \\ - a_{k-1} z_{k-1} - \dots - a_1 z_1 - a_0 z_0 + f(t) \end{bmatrix}\end{split}
+\end{equation*}\subsubsection*{Reduction to first order \protect\(\ k\protect\)\sphinxhyphen{}dimensional system of a \protect\(\ k\protect\)\sphinxhyphen{}order difference equation}
+
+\sphinxAtStartPar
+For a difference equation
+\begin{equation*}
+\begin{split}x_{n} + a_{1} x_{n-1} + \dots + a_{k-1} x_{n-k+1} = f_n\end{split}
+\end{equation*}
+\sphinxAtStartPar
+may be written as
+\begin{equation*}
+\begin{split}\mathbf{z}_{n+1} = \mathbf{f}(\mathbf{z}_n, t_n)\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\begin{bmatrix} z_{0,n} \\ z_{1,n} \\ \dots  \\ z_{k-1,n} \end{bmatrix} = \begin{bmatrix} z_{1,n-1} \\ z_{2,n-1} \\ \dots \\ f_n - a_{1} z_{k-1,n-1} \dots - a_{k-1} z_{0,n-1} \end{bmatrix}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+with \(z_{j,n} = x_{n-k+1+j}\), for \(j=0:k-1\).
+
+\sphinxAtStartPar
+\sphinxstylestrong{Ansatz.} The solution of a homogeneous linear ODE can be solved as a linear combination of elementary solutions with expression \(x(t) = X e^{st}\) \sphinxhyphen{} except for the case of {\hyperref[\detokenize{ch/ode/linear-equations:ode-linear-equations-const-coeff-general-sol-homogeneous-multiple-roots}]{\sphinxcrossref{\DUrole{std,std-ref}{multiple roots in the characteristic polynomial}}}}
+\begin{equation*}
+\begin{split}x^{(k)} + a_{k-1} x^{(k-1)} + \dots + a_1 \dot{x} + a_0 x = 0 \ , \end{split}
+\end{equation*}
+\sphinxAtStartPar
+with values of \(s\) as the roots of the polynomial
+\begin{equation*}
+\begin{split}s^k + a_{k-1} s^{k-1} + \dots + a_1 s + a_0 = 0 \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+The solution is then
+\begin{equation*}
+\begin{split}x(t) = \sum_{a = 1}^{k} X_a e^{s_a t} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+with the integration constants to be determined with the initial conditions provided along with the differential equation. {\hyperref[\detokenize{ch/ode/linear-equations:ode-linear-equations-const-coeff-general-sol-homogeneous-as-stability}]{\sphinxcrossref{\DUrole{std,std-ref}{Asymptotical stability conditions}}}} depend on the real part of the eigenvalues, and on the multiplicity of the imaginary eigenvalues.
+
+\sphinxAtStartPar
+A linear difference equation can be solved as a linear combination of elementary solutions with expression \(x_n = X z^n\)
+\begin{equation*}
+\begin{split}x_{n} + a_{k-1} x_{n-1} + \dots + a_1 x_{n-k+2} + a_0 x_{n-k+1} = 0 \ , \end{split}
+\end{equation*}
+\sphinxAtStartPar
+with values of \(z\) as the roots of the polynomial
+\begin{equation*}
+\begin{split}z^k + a_{k-1} z^{k-1} + \dots + a_1 z + a_0 = 0 \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+The solution is then
+\begin{equation*}
+\begin{split}x_n = \sum_{a = 1}^{k} X_a {z_a}^{n} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+with the integration constants to be determined with the initial conditions provided along with the difference equation.
+
+\sphinxAtStartPar
+\sphinxstylestrong{Stability conditions.} …
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+asymptotically stable if all the eigenvalues are \(|z_a| < 1\)
+
+\item {} 
+\sphinxAtStartPar
+unstable if…
+
+\item {} 
+\sphinxAtStartPar
+marginally stable if…
+
+\end{itemize}
+
+\sphinxAtStartPar
+\sphinxstylestrong{todo} \sphinxstyleemphasis{treat multiple roots}
+
+
+\subsection{Analysis of stability of numerical integration methods for ODEs}
+\label{\detokenize{ch/complex/z-transform:analysis-of-stability-of-numerical-integration-methods-for-odes}}
 \sphinxstepscope
 
 
@@ -5725,6 +6014,168 @@ General solution of linear ODEs
 \sphinxstepscope
 
 
+\chapter{Linear equations}
+\label{\detokenize{ch/ode/linear-equations:linear-equations}}\label{\detokenize{ch/ode/linear-equations:ode-linear-equations}}\label{\detokenize{ch/ode/linear-equations::doc}}
+
+\section{Linear equations with constant coefficients}
+\label{\detokenize{ch/ode/linear-equations:linear-equations-with-constant-coefficients}}\label{\detokenize{ch/ode/linear-equations:ode-linear-equations-const-coeff}}
+
+\subsection{Definition}
+\label{\detokenize{ch/ode/linear-equations:definition}}\label{\detokenize{ch/ode/linear-equations:ode-linear-equations-const-coeff-def}}
+
+\subsection{General solution}
+\label{\detokenize{ch/ode/linear-equations:general-solution}}\label{\detokenize{ch/ode/linear-equations:ode-linear-equations-const-coeff-general-sol}}\begin{equation*}
+\begin{split}y(x) = y_o(x) + y_p(x)\end{split}
+\end{equation*}
+
+\subsubsection{Solution of the homogeneous equation}
+\label{\detokenize{ch/ode/linear-equations:solution-of-the-homogeneous-equation}}\label{\detokenize{ch/ode/linear-equations:ode-linear-equations-const-coeff-general-sol-homogeneous}}\subsubsection*{Independent solutions for non\sphinxhyphen{}multiple root}
+\begin{equation*}
+\begin{split}\begin{aligned}
+  0 & = a_n y^{(n)}(x) + \dots a_1 y'(x) + a_0 y(x) = \\
+    & = a_n \left( - s_1 + \frac{d}{dx} \right) \dots \left( - s_n + \frac{d}{dx} \right) y(x) \ ,
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+If all the roots are non\sphinxhyphen{}multiple, then \(n\) independent solutions are found setting the result of every individual operator \(\left( - s_k + \frac{d}{dx} \right)\) on \(y(x)\) equal to zero,
+\begin{equation*}
+\begin{split}0 = \left( - s_k + \frac{d}{dx} \right) y(x) = - s_k y(x) + y'(x) \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+whose solution is \(y_k(x) = A_k e^{s_k x}\).
+
+
+\paragraph{Independent solutions for roots with miltiplicity \protect\(\ p > 1\protect\)}
+\label{\detokenize{ch/ode/linear-equations:independent-solutions-for-roots-with-miltiplicity-p-1}}\label{\detokenize{ch/ode/linear-equations:ode-linear-equations-const-coeff-general-sol-homogeneous-multiple-roots}}\subsubsection*{Independent solutions for root with multiplicity \protect\(\ p=2\protect\)}
+\begin{equation*}
+\begin{split}0 = \left( - s_k + \frac{d}{dx} \right)^2 y(x) = \left( - s_k + \frac{d}{dx} \right) \left( - s_k + \frac{d}{dx} \right) y(x) \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+In order to satisfy this equation, one of the the following two conditions must hold
+\begin{equation*}
+\begin{split}\begin{aligned}
+  - s y(x) + y'(x) & = 0 \\
+  - s y(x) + y'(x) & = A \, e^{s x} \\
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+The solution of the first condition is
+\begin{equation*}
+\begin{split}- s y(x) + y'(x) = 0 \qquad \rightarrow \qquad y(t) = C e^{s x}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+The solution of the second condition is
+\begin{equation*}
+\begin{split}\begin{aligned}
+  - s y(x) + y'(x) & = A \, e^{sx}  \\
+  e^{-sx} \left( - s y(x) + y'(x) \right) & = A  \\
+  \dfrac{d}{dx} \left( e^{-sx} \, y(x) \right) & = A  \\
+  \int \frac{d}{dx} \left( e^{-sx} y(x) \right) & = A \, x + B \\
+   e^{-sx} y(x) & = A \, x + B \qquad \rightarrow \qquad  y(x) = A \, x \, e^{sx} + B \, e^{sx}  \ ,
+\end{aligned}\end{split}
+\end{equation*}\subsubsection*{Independent solutions for root with multiplicity \protect\(\ p=3\protect\)}
+\begin{equation*}
+\begin{split}0 = \left( - s_k + \frac{d}{dx} \right)^3 y(x) = \left( - s_k + \frac{d}{dx} \right) \left( - s_k + \frac{d}{dx} \right) \left( - s_k + \frac{d}{dx} \right) y(x) \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+In order to satisfy this equation, one of the the following two conditions must hold
+\begin{equation*}
+\begin{split}\begin{aligned}
+  - s y(x) + y'(x) & = 0 \\
+  - s y(x) + y'(x) & = A \, e^{s x} \\
+  - s y(x) + y'(x) & = A \, e^{s x} + B \, x \, e^{s x} \\
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+The solution of the first condition is…
+
+\sphinxAtStartPar
+The solution of the second condition is…
+
+\sphinxAtStartPar
+The solution of the third condition is (and contains the solution of the first and the second condition)
+\begin{equation*}
+\begin{split}\begin{aligned}
+  - s y(x) + y'(x) & = A \, e^{sx} + B \, x \, e^{sx} \\
+  e^{-sx} \left( - s y(x) + y'(x) \right) & = A + B x \\
+  \dfrac{d}{dx} \left( e^{-sx} \, y(x) \right) & = A + B x \\
+  \int \frac{d}{dx} \left( e^{-sx} y(x) \right) & = A x + \widetilde{B} x^2 + C \\
+   e^{-sx} y(x) & = A \, x + B \qquad \rightarrow \qquad  y(x) = C_0 e^{sx} + C_1 \, x \, e^{sx} + C_2 \, x^2 \, e^{sx}  \ .
+\end{aligned}\end{split}
+\end{equation*}\subsubsection*{Independent solutions for root with multiplicity \protect\(\ p\protect\)}
+\begin{equation*}
+\begin{split}y(x) = C_0 e^{sx} + C_1 \, x \, e^{sx} + \dots C_{p-1} \, x^{p-1} \, e^{sx}\end{split}
+\end{equation*}
+
+\paragraph{Asymptotic stability of the homogeneous equation}
+\label{\detokenize{ch/ode/linear-equations:asymptotic-stability-of-the-homogeneous-equation}}\label{\detokenize{ch/ode/linear-equations:ode-linear-equations-const-coeff-general-sol-homogeneous-as-stability}}
+\sphinxAtStartPar
+The asymptotic stability of the homogeneous equation with non\sphinxhyphen{}zero initial conditions is equivalent to the asymptotic stability of the equation to an impulsive force, see {\hyperref[\detokenize{ch/system-theory/lti:ode-lti-impulsive-force}]{\sphinxcrossref{\DUrole{std,std-ref}{LTI: impulsive force}}}}.
+
+\sphinxAtStartPar
+\sphinxstylestrong{todo} \sphinxstyleemphasis{how many equilibrium points? If only one equilibrium exists, it’s possible to talk about the stability of the whole system, instead of the stability of the individual equilibrium point (without the need of the representation of the phase space})
+
+\sphinxAtStartPar
+\sphinxstylestrong{todo} \sphinxstyleemphasis{General definition of asymptotic stability of an equilibrium.}
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+stable equilibrium: \(y(x) \rightarrow \overline{y}\), as \(x \rightarrow + \infty\)
+
+\item {} 
+\sphinxAtStartPar
+unstable equilibrium: \(|y(x) - \overline{y}| \rightarrow +\infty\), as \(x \rightarrow + \infty\)
+
+\item {} 
+\sphinxAtStartPar
+marginally stable equilibrium: if not stable or unstable, i.e. \(|y(x) - \overline{y}| < M\), without being asymptotically stable
+
+\end{itemize}
+
+\sphinxAtStartPar
+The conditions for asymptotic stability immediately follows from the general solution of the homogeneous equation:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+asymptotically stable: all the eigenvalues have negative real part, so that
+\begin{equation*}
+\begin{split}|e^{s_k x}| = | e^{\text{re}\{ s \} x} e^{j \text{im} \{ s \}} | = e^{\text{re}\{ s \} x} \rightarrow 0 \quad , \quad \text{ as } x \rightarrow + \infty \text{ if } \text{re}\{ s \} < 0 \end{split}
+\end{equation*}
+\item {} 
+\sphinxAtStartPar
+unstable: there is either
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+an eigenvalue with positive real part
+\begin{equation*}
+\begin{split}|e^{s_k x}| = | e^{\text{re}\{ s \} x} e^{j \text{im} \{ s \}} | = e^{\text{re}\{ s \} x} \rightarrow +\infty \quad , \quad \text{ as } x \rightarrow + \infty \text{ if } \text{re}\{ s \} < 0 \end{split}
+\end{equation*}
+\item {} 
+\sphinxAtStartPar
+or a multiple eigenvalue with zero real part. As an example a root \(s = j \omega\) with multiplicity \(p = 2\)
+\begin{equation*}
+\begin{split}\left|e^{j \omega x}( C_0 + C_1 x )\right| = \left| C_1 x \right| \rightarrow +\infty \quad , \quad \text{ as } x \rightarrow + \infty \end{split}
+\end{equation*}
+\sphinxAtStartPar
+if \(C_1 \ne 0\) (but this condition is purely ideal in practical applications, as a perfect zero hardly exists in nature). The same relation holds, when evaluating the pair oc conjugate complex elementary solution, \(e^{j \omega} (C_0 + C_1 x) + e^{-j \omega} (C^*_0 + C^*_1 x )\)
+
+\end{itemize}
+
+\item {} 
+\sphinxAtStartPar
+marginally\sphinxhyphen{}stable, if all the eigenvalues have negative real part, except for a set of imaginary eigenvalues with multiplicity \(p = 1\). The asymptotic solution becomes
+\begin{equation*}
+\begin{split}y(x) \rightarrow \sum_{k \in \text{marginal}} C_k e^{j \omega_k x} \end{split}
+\end{equation*}
+\end{itemize}
+
+
+\subsubsection{Particular solution}
+\label{\detokenize{ch/ode/linear-equations:particular-solution}}\label{\detokenize{ch/ode/linear-equations:ode-linear-equations-const-coeff-general-sol-particular}}
+\sphinxstepscope
+
+
 \chapter{Linear systems}
 \label{\detokenize{ch/ode/ode-linear-systems:linear-systems}}\label{\detokenize{ch/ode/ode-linear-systems:ode-linear-miscellanea}}\label{\detokenize{ch/ode/ode-linear-systems::doc}}
 
@@ -5914,7 +6365,16 @@ Matrix \(\mathbf{P}(t)\) satisfies the following Lyapunov equation,
 
 
 \chapter{Integration schemes}
-\label{\detokenize{ch/ode/integration-schemes:integration-schemes}}\label{\detokenize{ch/ode/integration-schemes:ode-integration-schemes}}\label{\detokenize{ch/ode/integration-schemes::doc}}\subsubsection*{Contents}
+\label{\detokenize{ch/ode/integration-schemes:integration-schemes}}\label{\detokenize{ch/ode/integration-schemes:ode-integration-schemes}}\label{\detokenize{ch/ode/integration-schemes::doc}}
+\sphinxAtStartPar
+The choice of a integration scheme usually involves a trade\sphinxhyphen{}off between, \sphinxstylestrong{stability}, \sphinxstylestrong{computational cost}, \sphinxstylestrong{fidelity} (accuracy/order, numerical damping/change of phase/amplifications of fast modes \sphinxhyphen{} see transfer function, and stiff problems \sphinxhyphen{}, energy conservation for conservative systems \sphinxhyphen{} see simplectic methods,…)
+
+\sphinxAtStartPar
+Link to {\hyperref[\detokenize{ch/complex/z-transform:complex-z-transform}]{\sphinxcrossref{\DUrole{std,std-ref}{Z\sphinxhyphen{}transform}}}} for discrete\sphinxhyphen{}time signals.
+
+
+\section{Contents}
+\label{\detokenize{ch/ode/integration-schemes:contents}}\subsubsection*{Contents}
 
 \sphinxAtStartPar
 \sphinxstylestrong{Schemes.}
@@ -5997,6 +6457,25 @@ Lax\sphinxhyphen{}Richtmyer
 \item {} 
 \sphinxAtStartPar
 \sphinxhref{https://math.stackexchange.com/questions/1466978/advantage-of-l-stability-compared-to-a-stability}{Advantage of L\sphinxhyphen{}stability compared to A\sphinxhyphen{}stability}, Mathematics Stack Exchange.
+
+\end{itemize}
+
+
+\section{Families of integration methods}
+\label{\detokenize{ch/ode/integration-schemes:families-of-integration-methods}}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Linear multi\sphinxhyphen{}steps:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+from Lagrange approximation of integral: AB (explicit, \(s\)\sphinxhyphen{}step with max order \(s\)), AM (implicit, \(s\)\sphinxhyphen{}step with max order \(s+1\))
+
+\item {} 
+\sphinxAtStartPar
+from approximation of derivative: BDF (implicit)
+
+\end{itemize}
 
 \end{itemize}
 
@@ -6124,11 +6603,25 @@ L\sphinxhyphen{}stability ensures that the method damps extremely fast \sphinxhy
 \begin{split}\lim_{z \rightarrow -\infty} G(z) = 0 \ .\end{split}
 \end{equation*}
 
+\subsubsection{0\sphinxhyphen{}stability}
+\label{\detokenize{ch/ode/integration-schemes:stability}}
+\sphinxAtStartPar
+0\sphinxhyphen{}stability (of a numerical method for a certain differential equation on a given interval) if a perturbation in the starting value of size \(\varepsilon\) causes the numerical solution over the time interval to change less than \(K \varepsilon\) for some \(K\) that doesn’t depend on the time\sphinxhyphen{}step \(h\).
+
+\sphinxAtStartPar
+It’s enough to check the conditions for the differential equation \(y' = 0\) \sphinxstylestrong{todo} \sphinxstyleemphasis{why? check it!}
+
+\sphinxAtStartPar
+A linear multi\sphinxhyphen{}step method is zero\sphinxhyphen{}stable \sphinxstylestrong{iif} the root condition (analogous to at least marginally stable system, i.e. roots with absolute value \(|z| < 1\), or \(|z| = 1\) with multiplicity \(= 1\)) is satisfied.
+
+
 \subsection{Some schemes}
 \label{\detokenize{ch/ode/integration-schemes:some-schemes}}
 
 \subsubsection{Homogeneous equation}
-\label{\detokenize{ch/ode/integration-schemes:homogeneous-equation}}
+\label{\detokenize{ch/ode/integration-schemes:homogeneous-equation}}\begin{equation*}
+\begin{split}\dot{y} = f(t,y) = \lambda y \ .\end{split}
+\end{equation*}
 \sphinxAtStartPar
 \sphinxstylestrong{Explicit Euler.}
 \begin{equation*}
@@ -6156,6 +6649,156 @@ The solution of this difference equation with initial condition \(y_0\) reads
 \end{equation*}\begin{equation*}
 \begin{split}y_{n} = \left[ \frac{1 + \lambda h / 2}{1 - \lambda h / 2} \right]^n y_0 \ .\end{split}
 \end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{BDF 2.} BDF 2 is a multi\sphinxhyphen{}step approach, so either \(Z\)\sphinxhyphen{}transform of the conversion to a one\sphinxhyphen{}step 2\sphinxhyphen{}dimensional system is required to discuss its stability properties, and transfer function.
+\begin{equation*}
+\begin{split}y_{n+1} - \frac{4}{3} y_{n} + \frac{1}{3} y_{n-1} = \frac{2}{3} h f(t_{n+1}, y_{n+1}) \end{split}
+\end{equation*}\begin{equation*}
+\begin{split}y_{n+1} - \frac{4}{3} y_{n} + \frac{1}{3} y_{n-1} = \frac{2}{3} h \lambda y_{n+1} \end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Z\sphinxhyphen{}transform.} Using the definition \(\zeta := \lambda h\), and applying the \(Z\)\sphinxhyphen{}transform,
+\begin{equation*}
+\begin{split}\begin{aligned}
+  0 & = \left[ \left( 1 - \frac{2}{3} z \right) - \frac{4}{3} \zeta^{-1} + \frac{1}{3} \zeta^{-2} \right] Y(\zeta) \\
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+the characteristic polynomial reads
+\begin{equation*}
+\begin{split}\begin{aligned}
+  0 & = \pi(\zeta; z) = \left( 3 - 2 z \right) \zeta ^2 - 4 \zeta + 1 \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+The roots of the polynomial depend on \(z \in \mathbb{C}\), and the system is stable if all the roots have \(|\zeta_k| \le 1\). This condition can be summarized with the condition of \sphinxstylestrong{spectral radius} of the matrix \(\mathbf{A}\) of the one\sphinxhyphen{}step system, \(\rho(\mathbf{A}) = \max |\lambda_k| < 1\).
+
+\sphinxAtStartPar
+\sphinxstylestrong{Reduction of difference equation to a one\sphinxhyphen{}step system.} The 2\sphinxhyphen{}step difference equation above
+\begin{equation*}
+\begin{split}y_{n+1} - \frac{4}{3 - 2 z} y_{n} + \frac{1}{3 - 2 z} y_{n} = 0\end{split}
+\end{equation*}
+\sphinxAtStartPar
+can be recast as a system, \(y_n = z_{1,n}\), \(y_{n-1} = z_{0,n}\)
+\begin{equation*}
+\begin{split}\begin{aligned}
+  z_{0,n+1} & = z_{1,n} \\
+  z_{1,n+1} & = \frac{4}{3 - 2 z} z_{1,n} - \frac{1}{3 - 2 z} z_{0,n}
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+or using matrix formalism
+\begin{equation*}
+\begin{split}\mathbf{z}_{n+1} = \mathbf{A} \mathbf{z}_n \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+with \(\mathbf{A} = \begin{bmatrix} \cdot & 1 \\ -\frac{1}{3 - 2 z} & \frac{4}{3 - 2 z} \end{bmatrix}\). The eigenvalues of the system follows from the condition
+\begin{equation*}
+\begin{split}0 = \zeta \left( \zeta - \frac{4}{3 - 2 z} \right) + \frac{1}{3-2 z} \ , \end{split}
+\end{equation*}
+\sphinxAtStartPar
+i.e. the same condition as \(\pi(\zeta; z) = 0\).
+
+\sphinxAtStartPar
+\sphinxstylestrong{L\sphinxhyphen{}stability.} As \(\rightarrow +\infty\), the polynomials goes to \(\pi(z \rightarrow + \infty; \zeta) \sim - \frac{2}{3} z \zeta^2\) and thus the roots goes to \(z \rightarrow + \infty\).
+
+\sphinxAtStartPar
+\sphinxstylestrong{Methods for second\sphinxhyphen{}order equations.}
+\begin{equation*}
+\begin{split}\ddot{\mathbf{x}} = \mathbf{f}(t, \mathbf{x}) \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+or as a first\sphinxhyphen{}order system
+\begin{equation*}
+\begin{split}\begin{bmatrix} \dot{\mathbf{x}} \\ \dot{\mathbf{v}} \end{bmatrix} = \begin{bmatrix} \mathbf{v} \\ \mathbf{f}(\mathbf{x},t) \end{bmatrix} \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+A test second\sphinxhyphen{}order homogeneous equation may be the dynamical equation of an undapmed mass\sphinxhyphen{}spring system,
+\begin{equation*}
+\begin{split}\ddot{x} + \Omega^2 x = 0 \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+being \(( d_t + i \Omega )( d_t - i \Omega ) x = 0\). This analysis can be performed with a system with conjugate complex eigenvalues \(\lambda = \sigma + j \omega\) and \(\lambda^* = \sigma - j \omega\), sot that the test equation becomes
+\begin{equation*}
+\begin{split}\begin{aligned}
+  0 
+  & = ( d_t - \sigma - i \omega )( d_t - \sigma + i \omega ) x = \\
+  & = d_{tt} x - 2 \sigma d_t x + ( \sigma^2 + \omega^2 ) \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Leapfrog method.}
+\begin{equation*}
+\begin{split}\left\{\begin{aligned}
+  x_{i+1} & = x_i + h v_i + \frac{h^2}{2} f(x_i) \\
+  v_{i+1} & = v_i + \frac{h}{2} \left( f(x_i) + f(x_{i+1}) \right) \ .
+\end{aligned}\right.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Verlet method.} …
+
+\sphinxAtStartPar
+\sphinxstylestrong{Newmark method.} …
+
+\sphinxAtStartPar
+Test equation has \(f(x) = - \Omega^2 x\), so that Leapfrog method applied to the test problem reads
+\begin{equation*}
+\begin{split}\left\{\begin{aligned}
+  x_{i+1} & = x_i + h v_i - \frac{h^2 \Omega^2}{2} x_i\\
+  v_{i+1} & = v_i - \Omega^2 \frac{h}{2} \left(x_i + x_{i+1} \right) \ .
+\end{aligned}\right.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+so that the \(\mathbf{z}_{i+1}\) state can be written as a function of the \(\mathbf{z}_i\) state
+\begin{equation*}
+\begin{split}\begin{bmatrix} 1 & \cdot \\ \frac{h \Omega^2}{2} & 1 \end{bmatrix} \begin{bmatrix} x \\ v \end{bmatrix}_{i+1} = \begin{bmatrix} 1 - \frac{h^2 \Omega^2}{2} & h \\ -\frac{h \Omega^2}{2} & 1 \end{bmatrix} \begin{bmatrix} x \\ v \end{bmatrix}_i\end{split}
+\end{equation*}
+\sphinxAtStartPar
+or
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \begin{bmatrix} x \\  h v \end{bmatrix}_{i+1} 
+  & = \begin{bmatrix} 1 & \cdot \\ -\frac{h \Omega^2}{2} & 1 \end{bmatrix}  \begin{bmatrix} 1 - \frac{h^2 \Omega^2}{2} & 1 \\ -\frac{h^2 \Omega^2}{2} & 1 \end{bmatrix} \begin{bmatrix} x \\ h v \end{bmatrix}_i = \\
+  & = \begin{bmatrix} 1 - \frac{h^2 \Omega^2}{2} & 1 \\ - h^2 \Omega^2 \left( 1 - \frac{h^2 \Omega^2}{4} \right) &  1-\frac{h^2 \Omega^2}{2} \end{bmatrix} \begin{bmatrix} x \\ h v \end{bmatrix}_i \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Generalized test equation has \(f(x,v) = 2 \sigma v - ( \sigma^2 + \omega^2) x = - 2 \xi \Omega v - \Omega^2 x\), with
+\begin{equation*}
+\begin{split}\begin{aligned}
+ \Omega^2 & = \sigma^2 + \omega^2 \\
+ \sigma & = - \xi \Omega  \qquad \rightarrow \qquad \xi = -\frac{\sigma}{\Omega} = - \frac{\sigma}{\sqrt{\sigma^2 + \omega^2}} \\
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Leapfrog method applied to the test problem reads
+\begin{equation*}
+\begin{split}\left\{\begin{aligned}
+  x_{i+1} & = x_i + h v_i + \frac{h^2 }{2} \left( - \Omega^2 x_i - 2 \xi \Omega v_i \right)\\
+  v_{i+1} & = v_i + \frac{h}{2} \left[ -\Omega^2 \left(x_i + x_{i+1} \right) - 2 \xi \Omega \left(v_i + v_{i+1} \right) \right] \ .
+\end{aligned}\right.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{todo} \sphinxstyleemphasis{check!}
+\begin{equation*}
+\begin{split}\begin{bmatrix} 1 & \cdot \\ \frac{h^2 \Omega^2}{2} & 1 + \xi h \Omega \end{bmatrix} \begin{bmatrix} x \\ h v \end{bmatrix}_{i+1} = \begin{bmatrix} 1 - \frac{h^2 \Omega^2}{2} & 1 - \xi h \Omega \\ -\frac{h^2 \Omega^2}{2} & 1 - \xi h \Omega \end{bmatrix} \begin{bmatrix} x \\ h v \end{bmatrix}_i\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\begin{aligned}
+  \begin{bmatrix} x \\  h v \end{bmatrix}_{i+1} 
+  & = \begin{bmatrix} 1 & \cdot \\ -\frac{h^2 \Omega^2}{2 (1+\xi h \Omega)} & \frac{1}{1+\xi h \Omega} \end{bmatrix} \begin{bmatrix} 1 - \frac{h^2 \Omega^2}{2} & 1 - \xi h \Omega \\ -\frac{h^2 \Omega^2}{2} & 1 - \xi h \Omega \end{bmatrix} \begin{bmatrix} x \\ h v \end{bmatrix}_i = \\
+  & = \begin{bmatrix} 1 - \frac{h^2 \Omega^2}{2} & 1 - \xi h \Omega \\ - \frac{h^2 \Omega^2}{1+\xi h \Omega} \left( 1 - \frac{h^2 \Omega^2}{4} \right) & \frac{1 - \xi h \Omega}{1 + \xi h \Omega} \left( 1-\frac{h^2 \Omega^2}{2} \right) \end{bmatrix} \begin{bmatrix} x \\ h v \end{bmatrix}_i \ .
+\end{aligned}\end{split}
+\end{equation*}\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+if \(\xi^2 \ge 1\), then the eigenvalues are real
+
+\item {} 
+\sphinxAtStartPar
+if \(\xi^2 \le 1\), then the eigenvalues are conjugate complex, \(s_{1,2} = -\xi \Omega \mp j \Omega \sqrt{1 - \xi^2}\)
+
+\end{itemize}
+
 
 \subsubsection{Forced equation}
 \label{\detokenize{ch/ode/integration-schemes:forced-equation}}\begin{equation*}
@@ -6188,167 +6831,919 @@ The solution of this difference equation with initial condition \(y_0\) reads
 
 \subsubsection{A\sphinxhyphen{}stability}
 \label{\detokenize{ch/ode/integration-schemes:id1}}
-\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
-
-\begin{sphinxuseclass}{cell_input}
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k}{as} \PYG{n+nn}{np}
-\PYG{k+kn}{import} \PYG{n+nn}{matplotlib}\PYG{n+nn}{.}\PYG{n+nn}{pyplot} \PYG{k}{as} \PYG{n+nn}{plt}
-
-\PYG{n}{ampl\PYGZus{}fun\PYGZus{}ee} \PYG{o}{=} \PYG{k}{lambda} \PYG{n}{z}\PYG{p}{:} \PYG{l+m+mi}{1} \PYG{o}{+} \PYG{n}{z}
-\PYG{n}{ampl\PYGZus{}fun\PYGZus{}ie} \PYG{o}{=} \PYG{k}{lambda} \PYG{n}{z}\PYG{p}{:} \PYG{l+m+mi}{1} \PYG{o}{/} \PYG{p}{(} \PYG{l+m+mi}{1} \PYG{o}{\PYGZhy{}} \PYG{n}{z} \PYG{p}{)}
-\PYG{n}{ampl\PYGZus{}fun\PYGZus{}cn} \PYG{o}{=} \PYG{k}{lambda} \PYG{n}{z}\PYG{p}{:} \PYG{p}{(} \PYG{l+m+mi}{1} \PYG{o}{+} \PYG{n}{z}\PYG{o}{/}\PYG{l+m+mi}{2} \PYG{p}{)} \PYG{o}{/} \PYG{p}{(} \PYG{l+m+mi}{1} \PYG{o}{\PYGZhy{}} \PYG{n}{z}\PYG{o}{/}\PYG{l+m+mi}{2} \PYG{p}{)}
-
-\PYG{n}{ampl\PYGZus{}funs} \PYG{o}{=} \PYG{p}{\PYGZob{}}
-    \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{EE}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{n}{ampl\PYGZus{}fun\PYGZus{}ee}\PYG{p}{,} 
-    \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{IE}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{n}{ampl\PYGZus{}fun\PYGZus{}ie}\PYG{p}{,} 
-    \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{CN}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{n}{ampl\PYGZus{}fun\PYGZus{}cn}
-\PYG{p}{\PYGZcb{}}
-\PYG{n}{n\PYGZus{}methods} \PYG{o}{=} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{ampl\PYGZus{}funs}\PYG{p}{)}
-
-\PYG{k}{def} \PYG{n+nf}{complex\PYGZus{}amplification\PYGZus{}fun}\PYG{p}{(}\PYG{n}{ampl\PYGZus{}fun}\PYG{p}{)}\PYG{p}{:}
-    \PYG{n}{x} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{linspace}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{3}\PYG{p}{,} \PYG{l+m+mi}{1}\PYG{p}{,} \PYG{l+m+mi}{400}\PYG{p}{)}
-    \PYG{n}{y} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{linspace}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{400}\PYG{p}{)}
-    \PYG{n}{X}\PYG{p}{,} \PYG{n}{Y} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{meshgrid}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{y}\PYG{p}{)}
-    \PYG{n}{Z} \PYG{o}{=} \PYG{n}{X} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{n}{j}\PYG{o}{*}\PYG{n}{Y}
-
-    \PYG{k}{return} \PYG{n}{X}\PYG{p}{,}\PYG{n}{Y}\PYG{p}{,} \PYG{n}{ampl\PYGZus{}fun}\PYG{p}{(}\PYG{n}{Z}\PYG{p}{)}
-
-
-\PYG{n}{fig}\PYG{p}{,} \PYG{n}{ax} \PYG{o}{=} \PYG{n}{plt}\PYG{o}{.}\PYG{n}{subplots}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{n\PYGZus{}methods}\PYG{p}{,} \PYG{n}{figsize}\PYG{o}{=}\PYG{p}{(}\PYG{n}{n\PYGZus{}methods}\PYG{o}{*}\PYG{l+m+mi}{3}\PYG{p}{,} \PYG{l+m+mi}{3}\PYG{p}{)}\PYG{p}{)}
-
-\PYG{n}{i\PYGZus{}method} \PYG{o}{=} \PYG{l+m+mi}{0}
-\PYG{k}{for} \PYG{n}{label}\PYG{p}{,} \PYG{n}{fun} \PYG{o+ow}{in} \PYG{n}{ampl\PYGZus{}funs}\PYG{o}{.}\PYG{n}{items}\PYG{p}{(}\PYG{p}{)}\PYG{p}{:}
-
-    \PYG{n}{X}\PYG{p}{,} \PYG{n}{Y}\PYG{p}{,} \PYG{n}{G} \PYG{o}{=} \PYG{n}{complex\PYGZus{}amplification\PYGZus{}fun}\PYG{p}{(}\PYG{n}{fun}\PYG{p}{)}
-    \PYG{n}{ax}\PYG{p}{[}\PYG{n}{i\PYGZus{}method}\PYG{p}{]}\PYG{o}{.}\PYG{n}{contour}\PYG{p}{(}\PYG{n}{X}\PYG{p}{,} \PYG{n}{Y}\PYG{p}{,} \PYG{n}{np}\PYG{o}{.}\PYG{n}{abs}\PYG{p}{(}\PYG{n}{G}\PYG{p}{)}\PYG{p}{,} \PYG{n}{levels}\PYG{o}{=}\PYG{p}{[}\PYG{l+m+mf}{1.0}\PYG{p}{]}\PYG{p}{,} \PYG{n}{colors}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{r}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
-    \PYG{n}{ax}\PYG{p}{[}\PYG{n}{i\PYGZus{}method}\PYG{p}{]}\PYG{o}{.}\PYG{n}{contourf}\PYG{p}{(}\PYG{n}{X}\PYG{p}{,} \PYG{n}{Y}\PYG{p}{,} \PYG{n}{np}\PYG{o}{.}\PYG{n}{abs}\PYG{p}{(}\PYG{n}{G}\PYG{p}{)}\PYG{p}{,} \PYG{n}{levels}\PYG{o}{=}\PYG{p}{[}\PYG{l+m+mf}{0.}\PYG{p}{,} \PYG{l+m+mf}{1.0}\PYG{p}{]}\PYG{p}{,} \PYG{n}{colors}\PYG{o}{=}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZsh{}ffcccc}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{)}
-    \PYG{n}{ax}\PYG{p}{[}\PYG{n}{i\PYGZus{}method}\PYG{p}{]}\PYG{o}{.}\PYG{n}{set\PYGZus{}title}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Method: }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{label}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
-    \PYG{n}{ax}\PYG{p}{[}\PYG{n}{i\PYGZus{}method}\PYG{p}{]}\PYG{o}{.}\PYG{n}{set\PYGZus{}aspect}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{equal}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
-    \PYG{n}{ax}\PYG{p}{[}\PYG{n}{i\PYGZus{}method}\PYG{p}{]}\PYG{o}{.}\PYG{n}{set\PYGZus{}xlabel}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Re(z)}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}\PYG{p}{;} \PYG{n}{ax}\PYG{p}{[}\PYG{n}{i\PYGZus{}method}\PYG{p}{]}\PYG{o}{.}\PYG{n}{set\PYGZus{}ylabel}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Im(z)}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}\PYG{p}{;} \PYG{n}{ax}\PYG{p}{[}\PYG{n}{i\PYGZus{}method}\PYG{p}{]}\PYG{o}{.}\PYG{n}{grid}\PYG{p}{(}\PYG{p}{)}
-
-    \PYG{n}{i\PYGZus{}method} \PYG{o}{+}\PYG{o}{=} \PYG{l+m+mi}{1}
-
-\PYG{n}{fig}\PYG{o}{.}\PYG{n}{suptitle}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Stability regions of numerical methods. |G(z)| \PYGZlt{} 1}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
-\PYG{n}{fig}\PYG{o}{.}\PYG{n}{tight\PYGZus{}layout}\PYG{p}{(}\PYG{p}{)}
-\PYG{c+c1}{\PYGZsh{} plt.axhline(0, color=\PYGZsq{}black\PYGZsq{}, lw=1)}
-\PYG{c+c1}{\PYGZsh{} plt.axvline(0, color=\PYGZsq{}black\PYGZsq{}, lw=1)}
-\PYG{c+c1}{\PYGZsh{} plt.grid(True, linestyle=\PYGZsq{}\PYGZhy{}\PYGZhy{}\PYGZsq{})}
-\PYG{n}{plt}\PYG{o}{.}\PYG{n}{show}\PYG{p}{(}\PYG{p}{)}
-\end{sphinxVerbatim}
-
-\end{sphinxuseclass}\end{sphinxVerbatimInput}
-\begin{sphinxVerbatimOutput}
+\begin{sphinxuseclass}{cell}
+\begin{sphinxuseclass}{tag_hide-input}
+\end{sphinxuseclass}
+\end{sphinxuseclass}
+\begin{sphinxuseclass}{cell}
+\begin{sphinxuseclass}{tag_hide-input}
+\begin{sphinxuseclass}{tag_hide-output}
+\end{sphinxuseclass}
+\end{sphinxuseclass}
+\end{sphinxuseclass}
+\begin{sphinxuseclass}{cell}
+\begin{sphinxuseclass}{tag_hide-input}
+\end{sphinxuseclass}
+\end{sphinxuseclass}
+\begin{sphinxuseclass}{cell}
+\begin{sphinxuseclass}{tag_hide-input}
+\end{sphinxuseclass}
+\end{sphinxuseclass}
+\begin{sphinxuseclass}{cell}
+\begin{sphinxuseclass}{tag_hide-input}\begin{sphinxVerbatimOutput}
 
 \begin{sphinxuseclass}{cell_output}
-\noindent\sphinxincludegraphics{{0d01faca3b0db3171dd744caf727ae405347f3e95ce084f79e91edbca4d1346a}.png}
+\noindent\sphinxincludegraphics{{77c28cb6c602bac23010fed89ff06caf796ea0da2c6d34ff2f014d72fe77d0bd}.png}
 
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
 
+\end{sphinxuseclass}
 \end{sphinxuseclass}
 \sphinxAtStartPar
 \sphinxstylestrong{A\sphinxhyphen{}stability.} Implicit Euler and Crank\sphinxhyphen{}Nicolson methods are A\sphinxhyphen{}stable, while explicit Euler is not.
 
 
-\subsubsection{G(z) on the real axis}
-\label{\detokenize{ch/ode/integration-schemes:g-z-on-the-real-axis}}
-\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
-
-\begin{sphinxuseclass}{cell_input}
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{n}{fig}\PYG{p}{,} \PYG{n}{ax} \PYG{o}{=} \PYG{n}{plt}\PYG{o}{.}\PYG{n}{subplots}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{n}{n\PYGZus{}methods}\PYG{p}{,} \PYG{n}{figsize}\PYG{o}{=}\PYG{p}{(}\PYG{n}{n\PYGZus{}methods}\PYG{o}{*}\PYG{l+m+mi}{3}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{o}{*}\PYG{l+m+mi}{3}\PYG{p}{)}\PYG{p}{)}
-\PYG{n}{i\PYGZus{}method} \PYG{o}{=} \PYG{l+m+mi}{0}
-
-\PYG{k}{for} \PYG{n}{label}\PYG{p}{,} \PYG{n}{fun} \PYG{o+ow}{in} \PYG{n}{ampl\PYGZus{}funs}\PYG{o}{.}\PYG{n}{items}\PYG{p}{(}\PYG{p}{)}\PYG{p}{:}
-
-    \PYG{n}{x} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{linspace}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{10}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{p}{,} \PYG{l+m+mi}{400}\PYG{p}{)}
-    \PYG{n}{G} \PYG{o}{=} \PYG{n}{fun}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)}
-    
-    \PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{n}{i\PYGZus{}method}\PYG{p}{]}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{np}\PYG{o}{.}\PYG{n}{abs}\PYG{p}{(}\PYG{n}{G}\PYG{p}{)}\PYG{p}{)}
-    \PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{n}{i\PYGZus{}method}\PYG{p}{]}\PYG{o}{.}\PYG{n}{set\PYGZus{}title}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Method: }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{label}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
-    \PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{n}{i\PYGZus{}method}\PYG{p}{]}\PYG{o}{.}\PYG{n}{set\PYGZus{}ylabel}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{|G|(z)}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}\PYG{p}{;} \PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{n}{i\PYGZus{}method}\PYG{p}{]}\PYG{o}{.}\PYG{n}{grid}\PYG{p}{(}\PYG{p}{)}
-    \PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{n}{i\PYGZus{}method}\PYG{p}{]}\PYG{o}{.}\PYG{n}{set\PYGZus{}yscale}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{log}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
-    \PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{i\PYGZus{}method}\PYG{p}{]}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{x}\PYG{p}{,} \PYG{n}{np}\PYG{o}{.}\PYG{n}{angle}\PYG{p}{(}\PYG{n}{G}\PYG{p}{)}\PYG{p}{)}
-    \PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{i\PYGZus{}method}\PYG{p}{]}\PYG{o}{.}\PYG{n}{set\PYGZus{}ylabel}\PYG{p}{(}\PYG{l+s+sa}{r}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{\PYGZdl{}}\PYG{l+s+s2}{\PYGZbs{}}\PYG{l+s+s2}{angle G(z)\PYGZdl{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}\PYG{p}{;} \PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{i\PYGZus{}method}\PYG{p}{]}\PYG{o}{.}\PYG{n}{grid}\PYG{p}{(}\PYG{p}{)}
-    \PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{i\PYGZus{}method}\PYG{p}{]}\PYG{o}{.}\PYG{n}{set\PYGZus{}xlabel}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Re(z)}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}\PYG{p}{;} 
-
-    \PYG{n}{i\PYGZus{}method} \PYG{o}{+}\PYG{o}{=} \PYG{l+m+mi}{1}
-
-\PYG{n}{fig}\PYG{o}{.}\PYG{n}{suptitle}\PYG{p}{(}\PYG{l+s+sa}{r}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{One\PYGZhy{}step TF on the real axis, \PYGZdl{}G(z), z }\PYG{l+s+s2}{\PYGZbs{}}\PYG{l+s+s2}{in }\PYG{l+s+s2}{\PYGZbs{}}\PYG{l+s+s2}{mathbb}\PYG{l+s+si}{\PYGZob{}R\PYGZcb{}}\PYG{l+s+s2}{\PYGZdl{}.}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
-\PYG{n}{fig}\PYG{o}{.}\PYG{n}{tight\PYGZus{}layout}\PYG{p}{(}\PYG{p}{)}
-\PYG{n}{plt}\PYG{o}{.}\PYG{n}{show}\PYG{p}{(}\PYG{p}{)}
-\end{sphinxVerbatim}
-
-\end{sphinxuseclass}\end{sphinxVerbatimInput}
-\begin{sphinxVerbatimOutput}
+\subsubsection{G(z): absolute value and phase}
+\label{\detokenize{ch/ode/integration-schemes:g-z-absolute-value-and-phase}}
+\begin{sphinxuseclass}{cell}
+\begin{sphinxuseclass}{tag_hide-input}\begin{sphinxVerbatimOutput}
 
 \begin{sphinxuseclass}{cell_output}
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-/tmp/ipykernel\PYGZus{}21600/1699983498.py:6: RuntimeWarning: divide by zero encountered in divide
-  ampl\PYGZus{}fun\PYGZus{}cn = lambda z: ( 1 + z/2 ) / ( 1 \PYGZhy{} z/2 )
-\end{sphinxVerbatim}
-
-\noindent\sphinxincludegraphics{{d4fdd8d52a1ea3b94023bf776b1dbc06ad046e637f2296345ed29569f9ea44d3}.png}
+\noindent\sphinxincludegraphics{{731cfba1f050f109bf5e078182dbdc9b90fc23e124ab33d488c73abeea91e1a4}.png}
 
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
 
 \end{sphinxuseclass}
-
-\subsubsection{G(z) on the imaginary axis}
-\label{\detokenize{ch/ode/integration-schemes:g-z-on-the-imaginary-axis}}
-\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
-
-\begin{sphinxuseclass}{cell_input}
-\begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{n}{fig}\PYG{p}{,} \PYG{n}{ax} \PYG{o}{=} \PYG{n}{plt}\PYG{o}{.}\PYG{n}{subplots}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{n}{n\PYGZus{}methods}\PYG{p}{,} \PYG{n}{figsize}\PYG{o}{=}\PYG{p}{(}\PYG{n}{n\PYGZus{}methods}\PYG{o}{*}\PYG{l+m+mi}{3}\PYG{p}{,} \PYG{l+m+mi}{2}\PYG{o}{*}\PYG{l+m+mi}{3}\PYG{p}{)}\PYG{p}{)}
-\PYG{n}{i\PYGZus{}method} \PYG{o}{=} \PYG{l+m+mi}{0}
-
-
-\PYG{n}{min\PYGZus{}absGs}\PYG{p}{,} \PYG{n}{max\PYGZus{}absGs} \PYG{o}{=} \PYG{p}{[}\PYG{p}{]}\PYG{p}{,} \PYG{p}{[}\PYG{p}{]}
-
-\PYG{k}{for} \PYG{n}{label}\PYG{p}{,} \PYG{n}{fun} \PYG{o+ow}{in} \PYG{n}{ampl\PYGZus{}funs}\PYG{o}{.}\PYG{n}{items}\PYG{p}{(}\PYG{p}{)}\PYG{p}{:}
-
-    \PYG{n}{y} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{logspace}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{4}\PYG{p}{,} \PYG{l+m+mi}{4}\PYG{p}{,} \PYG{l+m+mi}{400}\PYG{p}{)}
-    \PYG{n}{G} \PYG{o}{=} \PYG{n}{fun}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{n}{j} \PYG{o}{*} \PYG{n}{y}\PYG{p}{)}
-
-    \PYG{n}{min\PYGZus{}absGs} \PYG{o}{+}\PYG{o}{=} \PYG{p}{[} \PYG{n}{np}\PYG{o}{.}\PYG{n}{min}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{abs}\PYG{p}{(}\PYG{n}{G}\PYG{p}{)}\PYG{p}{)} \PYG{p}{]}
-    \PYG{n}{max\PYGZus{}absGs} \PYG{o}{+}\PYG{o}{=} \PYG{p}{[} \PYG{n}{np}\PYG{o}{.}\PYG{n}{max}\PYG{p}{(}\PYG{n}{np}\PYG{o}{.}\PYG{n}{abs}\PYG{p}{(}\PYG{n}{G}\PYG{p}{)}\PYG{p}{)} \PYG{p}{]}
-    
-    \PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{n}{i\PYGZus{}method}\PYG{p}{]}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{y}\PYG{p}{,} \PYG{n}{np}\PYG{o}{.}\PYG{n}{abs}\PYG{p}{(}\PYG{n}{G}\PYG{p}{)}\PYG{p}{)}
-    \PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{n}{i\PYGZus{}method}\PYG{p}{]}\PYG{o}{.}\PYG{n}{set\PYGZus{}title}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Method: }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{label}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
-    \PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{n}{i\PYGZus{}method}\PYG{p}{]}\PYG{o}{.}\PYG{n}{set\PYGZus{}ylabel}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{|G|(z)}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}\PYG{p}{;} \PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{n}{i\PYGZus{}method}\PYG{p}{]}\PYG{o}{.}\PYG{n}{grid}\PYG{p}{(}\PYG{p}{)}
-    \PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{n}{i\PYGZus{}method}\PYG{p}{]}\PYG{o}{.}\PYG{n}{set\PYGZus{}yscale}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{log}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
-    \PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{i\PYGZus{}method}\PYG{p}{]}\PYG{o}{.}\PYG{n}{plot}\PYG{p}{(}\PYG{n}{y}\PYG{p}{,} \PYG{n}{np}\PYG{o}{.}\PYG{n}{angle}\PYG{p}{(}\PYG{n}{G}\PYG{p}{)} \PYG{o}{*} \PYG{l+m+mi}{180}\PYG{o}{/}\PYG{n}{np}\PYG{o}{.}\PYG{n}{pi}\PYG{p}{)}
-    \PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{i\PYGZus{}method}\PYG{p}{]}\PYG{o}{.}\PYG{n}{set\PYGZus{}ylabel}\PYG{p}{(}\PYG{l+s+sa}{r}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{\PYGZdl{}}\PYG{l+s+s2}{\PYGZbs{}}\PYG{l+s+s2}{angle G(z)\PYGZdl{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}\PYG{p}{;} \PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{i\PYGZus{}method}\PYG{p}{]}\PYG{o}{.}\PYG{n}{grid}\PYG{p}{(}\PYG{p}{)}
-    \PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{i\PYGZus{}method}\PYG{p}{]}\PYG{o}{.}\PYG{n}{set\PYGZus{}xlabel}\PYG{p}{(}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Re(z)}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}\PYG{p}{;}
-
-    \PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{n}{i\PYGZus{}method}\PYG{p}{]}\PYG{o}{.}\PYG{n}{set\PYGZus{}xscale}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{log}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}\PYG{p}{;}  \PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{n}{i\PYGZus{}method}\PYG{p}{]}\PYG{o}{.}\PYG{n}{set\PYGZus{}xscale}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{log}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
-
-    \PYG{n}{i\PYGZus{}method} \PYG{o}{+}\PYG{o}{=} \PYG{l+m+mi}{1}
-
-\PYG{n}{min\PYGZus{}absG} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{min}\PYG{p}{(}\PYG{n}{min\PYGZus{}absGs}\PYG{p}{)}
-\PYG{n}{max\PYGZus{}absG} \PYG{o}{=} \PYG{n}{np}\PYG{o}{.}\PYG{n}{max}\PYG{p}{(}\PYG{n}{max\PYGZus{}absGs}\PYG{p}{)}
-
-\PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n}{np}\PYG{o}{.}\PYG{n}{arange}\PYG{p}{(}\PYG{n}{i\PYGZus{}method}\PYG{p}{)}\PYG{p}{:}
-    \PYG{n}{ax}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{,}\PYG{n}{i}\PYG{p}{]}\PYG{o}{.}\PYG{n}{set\PYGZus{}ylim}\PYG{p}{(}\PYG{n}{min\PYGZus{}absG}\PYG{p}{,} \PYG{n}{max\PYGZus{}absG}\PYG{p}{)}
-
-
-\PYG{n}{fig}\PYG{o}{.}\PYG{n}{suptitle}\PYG{p}{(}\PYG{l+s+sa}{r}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{One\PYGZhy{}step TF on the complex axis, \PYGZdl{}G(j y), y }\PYG{l+s+s2}{\PYGZbs{}}\PYG{l+s+s2}{in }\PYG{l+s+s2}{\PYGZbs{}}\PYG{l+s+s2}{mathbb}\PYG{l+s+si}{\PYGZob{}R\PYGZcb{}}\PYG{l+s+s2}{\PYGZdl{}.}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
-\PYG{n}{fig}\PYG{o}{.}\PYG{n}{tight\PYGZus{}layout}\PYG{p}{(}\PYG{p}{)}
-\PYG{c+c1}{\PYGZsh{} plt.axhline(0, color=\PYGZsq{}black\PYGZsq{}, lw=1)}
-\PYG{c+c1}{\PYGZsh{} plt.axvline(0, color=\PYGZsq{}black\PYGZsq{}, lw=1)}
-\PYG{c+c1}{\PYGZsh{} plt.grid(True, linestyle=\PYGZsq{}\PYGZhy{}\PYGZhy{}\PYGZsq{})}
-\PYG{n}{plt}\PYG{o}{.}\PYG{n}{show}\PYG{p}{(}\PYG{p}{)}
-\end{sphinxVerbatim}
-
-\end{sphinxuseclass}\end{sphinxVerbatimInput}
-\begin{sphinxVerbatimOutput}
+\end{sphinxuseclass}
+\begin{sphinxuseclass}{cell}
+\begin{sphinxuseclass}{tag_hide-input}\begin{sphinxVerbatimOutput}
 
 \begin{sphinxuseclass}{cell_output}
-\noindent\sphinxincludegraphics{{c57b0bc85c478d490f439d5b21b7ff24023a3d6d88e7da606164ea711070f1d1}.png}
+\noindent\sphinxincludegraphics{{6fc1806050aba29579cc41ea1cdf2a95cd3ec7a77b104741f9436e2f1cb76dd9}.png}
 
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
 
+\end{sphinxuseclass}
+\end{sphinxuseclass}
+
+\subsubsection{G(z) on the real axis}
+\label{\detokenize{ch/ode/integration-schemes:g-z-on-the-real-axis}}
+\begin{sphinxuseclass}{cell}
+\begin{sphinxuseclass}{tag_hide-input}\begin{sphinxVerbatimOutput}
+
+\begin{sphinxuseclass}{cell_output}
+\noindent\sphinxincludegraphics{{15453ea85aa1828761566365af14670ea82ee4796787e9edcd9c19ce4270f97b}.png}
+
+\end{sphinxuseclass}\end{sphinxVerbatimOutput}
+
+\end{sphinxuseclass}
+\end{sphinxuseclass}
+
+\subsubsection{G(z) on the imaginary axis}
+\label{\detokenize{ch/ode/integration-schemes:g-z-on-the-imaginary-axis}}
+\begin{sphinxuseclass}{cell}
+\begin{sphinxuseclass}{tag_hide-input}\begin{sphinxVerbatimOutput}
+
+\begin{sphinxuseclass}{cell_output}
+\noindent\sphinxincludegraphics{{bf2a9a6ee60754bf335840c1f7c7ad84ed9dd8c5cebc9edef35f95465cd12dbf}.png}
+
+\end{sphinxuseclass}\end{sphinxVerbatimOutput}
+
+\end{sphinxuseclass}
+\end{sphinxuseclass}
+\sphinxAtStartPar
+\sphinxstylestrong{Remark.} Here the info about phase in BDF2 and Leapfrog methods is lost, as the radial spectrum is shown.
+
+\sphinxAtStartPar
+\sphinxstylestrong{L\sphinxhyphen{}stable methods.} Among the methods shown here, only IE and BDF2 are L\sphinxhyphen{}stable, i.e. with \(|G(z \rightarrow +\infty)| \rightarrow 0\)
+
+
+\subsection{Dahlquist barriers \sphinxhyphen{} for linear multi\sphinxhyphen{}step methods}
+\label{\detokenize{ch/ode/integration-schemes:dahlquist-barriers-for-linear-multi-step-methods}}
+\sphinxAtStartPar
+\sphinxstylestrong{First Dahlquist barrier.}
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+A zero\sphinxhyphen{}stable and linear q\sphinxhyphen{}step multis\sphinxhyphen{}tep method has maximum order of convergence \(q+1\) if \(q\) is odd, \(q+2\) if \(q\) is even. If the method is explicit, maximum order of convergence is \(q\).
+
+\end{itemize}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Second Dahlquist barrier.}
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+No explicit linear multi\sphinxhyphen{}step method is A\sphinxhyphen{}stable
+
+\item {} 
+\sphinxAtStartPar
+Maximum order of an (implicit) A\sphinxhyphen{}stable linear multi\sphinxhyphen{}step method is 2
+
+\item {} 
+\sphinxAtStartPar
+Among the A\sphinxhyphen{}stable multi\sphinxhyphen{}step methods of order 2, the trapezoidal rule has the smallest error constant
+
+\end{itemize}
+
+\sphinxAtStartPar
+A \sphinxstylestrong{linear multi\sphinxhyphen{}step method} for the equation \(y'=f(t,y)\) with initial conditions \(y(t_0) = y_0\), reads
+\begin{equation*}
+\begin{split}\sum_{j=0}^{s} a_j y_{n+j} = h \sum_{j=0}^{s} b_j f(t_{n+j}, y_{n+j})\end{split}
+\end{equation*}
+\sphinxAtStartPar
+If \(b_0 = 0\), the method is explicit, otherwise it’s implicit as the unknown \(y_{n+s}\) appears in both the LHS and the RHS.
+
+\sphinxAtStartPar
+\sphinxstylestrong{A\sphinxhyphen{}stability.} For the equation \(y' = \lambda y\), i.e. \(f(t,y) = \lambda y\), the \(Z\)\sphinxhyphen{}transformed integration step becomes
+\begin{equation*}
+\begin{split}0 = \sum_{j=0}^{s} (a_j - h \lambda b_j ) \zeta^{j-s} = \rho(\zeta) - z \sigma(\zeta) = \pi(\zeta, z) \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+with \(z := h \lambda\).
+
+\sphinxAtStartPar
+For explicit methods, \(b_0 = 0\), the degree of \(\sigma(\zeta)\) is lower than the degree of \(\rho(\zeta)\)
+
+\sphinxAtStartPar
+…
+
+\sphinxstepscope
+
+
+\section{Simplectic integrators}
+\label{\detokenize{ch/ode/integration-schemes-simplectic:simplectic-integrators}}\label{\detokenize{ch/ode/integration-schemes-simplectic:ode-integration-schemes-simplectic}}\label{\detokenize{ch/ode/integration-schemes-simplectic::doc}}
+\sphinxAtStartPar
+For Hamiltonian systems (see \sphinxhref{https://basics2022.github.io/bbooks-physics-mechanics/ch/hamilton.html}{Classical Mechanics: Hamiltonian Mechanics}), simplectic integrators preserve the volume in phase space.
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \dot{\mathbf{p}} & =-\partial_{\mathbf{q}} H \\
+  \dot{\mathbf{q}} & = \partial_{\mathbf{p}} H \\
+\end{aligned}\end{split}
+\end{equation*}\subsubsection*{Preservation of volume in phase space for Hamiltonian systems}
+
+\sphinxAtStartPar
+Let \(V_t\) a material domain in phase space. The derivative of its volume reads
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \frac{d}{dt} \int_{V_t} 1
+  & = \int_{V_t} \int_{V_t} \partial_t 1 + \oint_{\partial V_t} \mathbf{u} \cdot \hat{\mathbf{n}} = \\
+  & = \oint_{\partial V_t} \left( \partial_{\mathbf{p}} H, - \partial_{\mathbf{q}} H \right) \cdot \hat{\mathbf{n}} = \\
+  & = \int_{V_t} \nabla_{\mathbf{q}} \cdot \nabla_{\mathbf{p}} H - \nabla_{\mathbf{p}} \cdot \nabla_{\mathbf{q}} H = \\
+  & = 0 \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+having applied Reynolds’ transport theroem in the phase space, with \(\mathbf{u} = \frac{d \mathbf{r}}{dt} = \left( \partial_{\mathbf{p}} H, -\partial_{\mathbf{q}} H \right)\) the “velocity” in the phase space, with the state \(\mathbf{r} = ( \mathbf{q}, \mathbf{p} )\), and \(\hat{\mathbf{n}}\) the  unit normal vector pointing outwards. In the last steps, Hamilton equations are used to write velocity components as a function of partial derivatives of the Hamiltonian function, and divergence theorem is used in the phase space to transform the surface integral to a volume integral. The last step reads in components reads
+\begin{equation*}
+\begin{split}\nabla_{\mathbf{q}} \cdot \nabla_{\mathbf{p}} H - \nabla_{\mathbf{p}} \cdot \nabla_{\mathbf{q}} H = \frac{\partial^2 H}{\partial q^i \partial p_i} - \frac{\partial^2 H}{\partial p^i \partial q_i} = 0 \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+under the assumption of sufficient regularity required by the Schwartz theorem about mixed partial derivatives.
+
+\sphinxAtStartPar
+\sphinxstylestrong{Algorithms \sphinxhyphen{} examples:}
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Verlet: simplectic, time reversible
+
+\item {} 
+\sphinxAtStartPar
+…
+
+\end{itemize}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Applications \sphinxhyphen{} examples:}
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Integration of spatial dynamics: motion of planets,…
+
+\item {} 
+\sphinxAtStartPar
+…
+
+\end{itemize}
+
+\sphinxstepscope
+
+
+\section{Energy conservation of integration schemes}
+\label{\detokenize{ch/ode/integration-schemes-energy-conservation:energy-conservation-of-integration-schemes}}\label{\detokenize{ch/ode/integration-schemes-energy-conservation:ode-integration-schemes-energy-conservation}}\label{\detokenize{ch/ode/integration-schemes-energy-conservation::doc}}
+\sphinxAtStartPar
+Energy conservation can be discussed with:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+the Jacobian of the transformation induced by one\sphinxhyphen{}step of the method, \(\mathbf{z}_n \mapsto \mathbf{z}_{n+1}\)
+
+\item {} 
+\sphinxAtStartPar
+the change of energy \(\Delta E = E_{n+1} - E_n\)
+
+\end{itemize}
+
+\sphinxAtStartPar
+Energy conservation is discussed here for Hamiltonian systems, see {\hyperref[\detokenize{ch/ode/integration-schemes-simplectic:ode-integration-schemes-simplectic}]{\sphinxcrossref{\DUrole{std,std-ref}{simplectic integrators}}}}
+\begin{equation*}
+\begin{split}\left\{\begin{aligned}
+  \dot{\mathbf{q}} & = \partial_{\mathbf{p}} H \\
+  \dot{\mathbf{p}} & = - \partial_{\mathbf{q}} H \\
+\end{aligned}\right.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+or for second\sphinxhyphen{}order mechanical systems
+\begin{equation*}
+\begin{split}\mathbf{M} \ddot{\mathbf{x}} = \mathbf{f}(\mathbf{x},t)\end{split}
+\end{equation*}
+\sphinxAtStartPar
+with \(\mathbf{f} = - \partial_{\mathbf{x}} V(\mathbf{x})\).
+
+\sphinxAtStartPar
+The Hamiltonian function \(H(\mathbf{q}, \mathbf{p})\) can be thought as the energy as a function of the generalized coordinates \(\mathbf{q}\) and the generalized momenta \(\mathbf{p}\). For Hamiltoninan system, where the Hamiltonian function is independent from time, the Hamiltonian (the energy) is conserved along the trajectories of the system,
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \dot{H} 
+  & = \dot{\mathbf{q}} \cdot \partial_{\mathbf{q}} H + \dot{\mathbf{p}} \cdot \partial_{\mathbf{p}} H = \\
+  & = \partial_{\mathbf{p}} H \cdot \partial_{\mathbf{q}} H - \partial_{\mathbf{q}} H \cdot \partial_{\mathbf{p}} H = 0 \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+The second\sphinxhyphen{}order mechanical system is conservative if with \(\mathbf{f} = - \partial_{\mathbf{x}} V(\mathbf{x})\), as the total mechanical energy
+\begin{equation*}
+\begin{split}E = \frac{1}{2} \dot{\mathbf{x}}^* \mathbf{M} \dot{\mathbf{x}} + V(\mathbf{x})\end{split}
+\end{equation*}
+\sphinxAtStartPar
+is conserved along the evolution of the system. This second\sphinxhyphen{}order system can be written \sphinxhyphen{} if \(\mathbf{M}\) is invertible \sphinxhyphen{} as a first\sphinxhyphen{}order system as
+\begin{equation*}
+\begin{split}\dfrac{d}{dt} \begin{bmatrix} \mathbf{x} \\ \mathbf{v} \end{bmatrix} = \begin{bmatrix} \mathbf{v} \\ \mathbf{M}^{-1} \mathbf{f}(\mathbf{x},t) \end{bmatrix} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+or as a first\sphinxhyphen{}order system with Hamiltonian form, with \(H(\mathbf{p}, \mathbf{q}) = \frac{1}{2} \mathbf{p}^* \mathbf{M}^{-1} \mathbf{p} + V(\mathbf{q})\), having defined \(\mathbf{p} := \mathbf{M} \dot{\mathbf{x}}\), \(\mathbf{q}:= \mathbf{x}\),
+\begin{equation*}
+\begin{split}\dfrac{d}{dt} \begin{bmatrix} \mathbf{q} \\ \mathbf{p} \end{bmatrix} = \begin{bmatrix} \mathbf{M}^{-1} \mathbf{p} \\ - \partial_{\mathbf{q}}V(\mathbf{q}) \end{bmatrix} \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+.
+
+
+\subsection{Examples}
+\label{\detokenize{ch/ode/integration-schemes-energy-conservation:examples}}
+
+\subsubsection{Verlet}
+\label{\detokenize{ch/ode/integration-schemes-energy-conservation:verlet}}
+\sphinxAtStartPar
+For the mechanical system governed by the differential equation \(\ddot{\mathbf{x}} = \mathbf{f}(\mathbf{x},t)\), the numerical scheme reads
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \widetilde{\mathbf{x}}_{n+1} & = \mathbf{x}_n + \frac{h}{2} \mathbf{v}_n \\
+  \mathbf{v}_{n+1} & = \mathbf{v}_n + h \mathbf{f}(\widetilde{\mathbf{x}}_{n+1})\\
+  \mathbf{x}_{n+1} & = \widetilde{\mathbf{x}}_{n+1} + \frac{h}{2} \mathbf{v}_{n+1}
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+so that the transformation \(\mathbf{z}_{n} \mapsto \mathbf{z}_{n+1}\) reads
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{v}_{n+1} & = \mathbf{v}_n + h \mathbf{f}(\widetilde{\mathbf{x}}_{n+1}(\mathbf{x}_n, \mathbf{v}_n) )\\
+  \mathbf{x}_{n+1} & = \widetilde{\mathbf{x}}_{n+1}(\mathbf{x}_n, \mathbf{v}_n) + \frac{h}{2} \mathbf{v}_{n+1} = \widetilde{\mathbf{x}}_{n+1}(\mathbf{x}_n, \mathbf{v}_n) + \frac{h}{2} \left[ \mathbf{v}_n + h \mathbf{f}(\widetilde{\mathbf{x}}_{n+1}(\mathbf{x}_n, \mathbf{v}_n) ) \right]
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+or
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{v}_{n+1} & = \mathbf{v}_n + h \mathbf{f}\left( \mathbf{x}_n + \frac{h}{2} \mathbf{v}_n \right) \\
+  \mathbf{x}_{n+1} & = \mathbf{x}_{n} + h \mathbf{v}_n + \frac{h^2}{2} \mathbf{f}\left( \mathbf{x}_n + \frac{h}{2} \mathbf{v}_n \right) 
+\end{aligned}\end{split}
+\end{equation*}
+
+\paragraph{Jacobian of the one\sphinxhyphen{}step transformation}
+\label{\detokenize{ch/ode/integration-schemes-energy-conservation:jacobian-of-the-one-step-transformation}}
+\sphinxAtStartPar
+Thus, the Jacobian reads
+\begin{equation*}
+\begin{split}\mathbf{J} = \partial_{\mathbf{z}_{n}} \mathbf{z}_{n+1} = \begin{bmatrix} \mathbf{I} + \frac{h^2}{2} \partial_{\widetilde{\mathbf{x}}} \mathbf{f} & h + \frac{h^3}{4} \partial_{\widetilde{\mathbf{x}}} \mathbf{f} \\
+h \partial_{\widetilde{\mathbf{x}}} \mathbf{f}  & \mathbf{I} + \frac{h^2}{2} \partial_{\widetilde{\mathbf{x}}} \mathbf{f} \end{bmatrix}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and the value of its determinant can be evaluated \sphinxhyphen{} for \(h\) “small enough” the upper\sphinxhyphen{}left block is approximately the identity and thus invertible; all the blocks commute, as they’re linear combinations of zero and first power of \(\partial_{\widetilde{\mathbf{x}}} \mathbf{f}\) \sphinxhyphen{} as
+\begin{equation*}
+\begin{split}
+ | \mathbf{J} | 
+ = \left| \left( \mathbf{I} + \frac{h^2}{2} \partial_{\widetilde{\mathbf{x}}} \mathbf{f} \right)^2 -h^2 \partial_{\widetilde{\mathbf{x}}} \mathbf{f} \left(  \mathbf{I} + \frac{h^2}{4} \partial_{\widetilde{\mathbf{x}}} \mathbf{f}  \right) \right| = | \mathbf{I} | \ .\end{split}
+\end{equation*}\subsubsection*{Determinant of block matrices \sphinxhyphen{} with Schur complement}
+
+\sphinxAtStartPar
+The determinant of the block matrices \sphinxhyphen{} with \sphinxstylestrong{Schur complement}, if it exists \sphinxhyphen{}
+\begin{equation*}
+\begin{split}\begin{bmatrix} A & B \\ C & D \end{bmatrix} = \begin{bmatrix} I & 0 \\ C A^{-1} & I \end{bmatrix} \begin{bmatrix} A & 0 \\ 0 & D - C A^{-1} B \end{bmatrix}\begin{bmatrix} I & A^{-1} B \\ 0 & I \end{bmatrix}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+reads \sphinxhyphen{} just take the determinants and exploit the property of determinant of the product is equal to the product of the determinants, and the determinant of a block\sphinxhyphen{}diagonal matrix \sphinxhyphen{}
+\begin{equation*}
+\begin{split}\left|\begin{bmatrix} A & B \\ C & D \end{bmatrix} \right| = |A||D - C A^{-1} B| \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+If \(A\), \(B\), \(C\), \(D\) have proper dimensions and \(AC = CA\), i.e. commute, it follows
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \left|\begin{bmatrix} A & B \\ C & D \end{bmatrix} \right| 
+  & = |A||D - C A^{-1} B| = \\
+  & = |A D - A C A^{-1} B | = \\
+  & = |A D - C A A^{-1} B | = \\
+  & = |A D - C B | \ .
+\end{aligned}\end{split}
+\end{equation*}\subsubsection*{Proof of inverse of block matrix by direct computation}
+\begin{equation*}
+\begin{split}\begin{aligned}
+ \begin{bmatrix} I & 0 \\ C A^{-1} & I \end{bmatrix} \begin{bmatrix} A & 0 \\ 0 & D - C A^{-1} B \end{bmatrix}\begin{bmatrix} I & A^{-1} B \\ 0 & I \end{bmatrix} 
+ & = \begin{bmatrix} A & 0 \\ C & D - C A^{-1} B \end{bmatrix}\begin{bmatrix} I & A^{-1} B \\ 0 & I \end{bmatrix} = \\
+ & = \begin{bmatrix} A & B \\ C & D \end{bmatrix}
+\end{aligned}\end{split}
+\end{equation*}
+
+\paragraph{One\sphinxhyphen{}step energy difference}
+\label{\detokenize{ch/ode/integration-schemes-energy-conservation:one-step-energy-difference}}
+
+\subsubsection{Explicit Euler}
+\label{\detokenize{ch/ode/integration-schemes-energy-conservation:explicit-euler}}
+\sphinxAtStartPar
+For the mechanical system governed by the differential equation \(\ddot{\mathbf{x}} = \mathbf{f}(\mathbf{x},t)\), or by the first\sphinxhyphen{}order system
+\begin{equation*}
+\begin{split}\dfrac{d}{dt}\begin{bmatrix} \mathbf{x} \\ \mathbf{v} \end{bmatrix} = \begin{bmatrix} \mathbf{v} \\ \mathbf{f}(\mathbf{x}) \end{bmatrix}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+the numerical scheme, and the transformation \(\mathbf{z}_{n} \mapsto \mathbf{z}_{n+1}\), reads
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{x}_{n+1} & = \mathbf{x}_{n} + h \mathbf{v}_{n} \\
+  \mathbf{v}_{n+1} & = \mathbf{v}_n + h \mathbf{f}( \mathbf{x}_{n})\\
+\end{aligned}\end{split}
+\end{equation*}
+
+\paragraph{Jacobian of the one\sphinxhyphen{}step transformation}
+\label{\detokenize{ch/ode/integration-schemes-energy-conservation:id1}}
+\sphinxAtStartPar
+Thus, the Jacobian reads
+\begin{equation*}
+\begin{split}\mathbf{J} = \partial_{\mathbf{z}_{n}} \mathbf{z}_{n+1} = \begin{bmatrix} \mathbf{I} & h \mathbf{I} \\
+h \partial_{\widetilde{\mathbf{x}}} \mathbf{f}  & \mathbf{I} \end{bmatrix}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and the value of its determinant can be evaluated \sphinxhyphen{} for \(h\) “small enough” the upper\sphinxhyphen{}left block is approximately the identity and thus invertible; all the blocks commute, as they’re linear combinations of zero and first power of \(\partial_{\widetilde{\mathbf{x}}} \mathbf{f}\) \sphinxhyphen{} as
+\begin{equation*}
+\begin{split}
+ | \mathbf{J} | 
+ = \left| \mathbf{I} - h^2 \partial_{\widetilde{\mathbf{x}}} \mathbf{f} \right| \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+First\sphinxhyphen{}derivative of the force w.r.t. \(\mathbf{x}\) can be related to the stiffness matrix around equilibria,
+\begin{equation*}
+\begin{split}\mathbf{f}(\overline{\mathbf{x}} + \delta \mathbf{x} ) \simeq \mathbf{f}(\overline{\mathbf{x}}) + \delta \mathbf{x} \cdot \partial_{\mathbf{x}} \mathbf{f}(\overline{\mathbf{x}}) = \mathbf{K} \delta \mathbf{x} \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+For marginally\sphinxhyphen{}stable systems, the stiffness matrix has imaginary eigenvalues, \(\lambda_k(\mathbf{K}) = \mp i \Omega_k\). For the numerical integration of system around an equilibrium, it follows
+\begin{equation*}
+\begin{split}
+ | \mathbf{J} | 
+ = \left| \mathbf{I} - h^2 \mathbf{K} \right| \ ,
+\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and thus \sphinxhyphen{} recalling that the determinant is equal to the product of the eigenvalues \sphinxhyphen{}
+\begin{equation*}
+\begin{split}|\mathbf{J}| = \prod_k \lambda_k( \mathbf{I} - h^2 \mathbf{K} ) = \prod_k \left( 1 - h^2 \lambda_k( \mathbf{K} ) \right) = \prod_k ( 1 + h^2 \Omega_k^2 ) \ge 1 \ .\end{split}
+\end{equation*}\subsubsection*{Eigenproblem of \protect\(\ \mathbf{A} + b \mathbf{I}\protect\)}
+
+\sphinxAtStartPar
+If \(\mathbf{A} \mathbf{v}_k = \alpha_k \mathbf{v}_k\), then the matrix \(\mathbf{A} + b \mathbf{I}\) has the same eigenvectors \(\mathbf{v}_k\) with eigenvalues \(\lambda_k = \alpha_k + b\)
+
+
+\paragraph{One\sphinxhyphen{}step energy difference}
+\label{\detokenize{ch/ode/integration-schemes-energy-conservation:id2}}
+
+\subsubsection{Implicit Euler}
+\label{\detokenize{ch/ode/integration-schemes-energy-conservation:implicit-euler}}
+\sphinxAtStartPar
+For the mechanical system governed by the differential equation \(\ddot{\mathbf{x}} = \mathbf{f}(\mathbf{x},t)\), or by the first\sphinxhyphen{}order system
+\begin{equation*}
+\begin{split}\dfrac{d}{dt}\begin{bmatrix} \mathbf{x} \\ \mathbf{v} \end{bmatrix} = \begin{bmatrix} \mathbf{v} \\ \mathbf{f}(\mathbf{x}) \end{bmatrix}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+the numerical scheme, and the transformation \(\mathbf{z}_{n} \mapsto \mathbf{z}_{n+1}\), reads
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{x}_{n+1} & = \mathbf{x}_{n} + h \mathbf{v}_{n+1} \\
+  \mathbf{v}_{n+1} & = \mathbf{v}_n + h \mathbf{f}( \mathbf{x}_{n+1})\\
+\end{aligned}\end{split}
+\end{equation*}
+
+\paragraph{Jacobian of the one\sphinxhyphen{}step transformation}
+\label{\detokenize{ch/ode/integration-schemes-energy-conservation:id3}}
+\sphinxAtStartPar
+The Jacobian of the inverse transformation \(\mathbf{z}_{n+1} \mapsto \mathbf{z}_n\) reads
+\begin{equation*}
+\begin{split}\mathbf{J}^{-1} = \partial_{\mathbf{z}_{n+1}} \mathbf{z}_{n} = \begin{bmatrix} \mathbf{I} & -h \mathbf{I} \\ -h \partial_{\widetilde{\mathbf{x}}} \mathbf{f}  & \mathbf{I} \end{bmatrix}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and the value of its determinant can be evaluated \sphinxhyphen{} for \(h\) “small enough” the upper\sphinxhyphen{}left block is approximately the identity and thus invertible; all the blocks commute, as they’re linear combinations of zero and first power of \(\partial_{\widetilde{\mathbf{x}}} \mathbf{f}\) \sphinxhyphen{} as
+\begin{equation*}
+\begin{split}
+ | \mathbf{J}^{-1} | 
+ = \left| \mathbf{I} - h^2 \partial_{\widetilde{\mathbf{x}}} \mathbf{f} \right| \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+First\sphinxhyphen{}derivative of the force w.r.t. \(\mathbf{x}\) can be related to the stiffness matrix around equilibria,
+\begin{equation*}
+\begin{split}\mathbf{f}(\overline{\mathbf{x}} + \delta \mathbf{x} ) \simeq \mathbf{f}(\overline{\mathbf{x}}) + \delta \mathbf{x} \cdot \partial_{\mathbf{x}} \mathbf{f}(\overline{\mathbf{x}}) = \mathbf{K} \delta \mathbf{x} \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+For marginally\sphinxhyphen{}stable systems, the stiffness matrix has imaginary eigenvalues, \(\lambda_k(\mathbf{K}) = \mp i \Omega_k\). For the numerical integration of system around an equilibrium, it follows
+\begin{equation*}
+\begin{split}
+ | \mathbf{J}^{-1} | 
+ = \left| \mathbf{I} - h^2 \mathbf{K} \right| \ ,
+\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and thus \sphinxhyphen{} recalling that the determinant is equal to the product of the eigenvalues \sphinxhyphen{}
+\begin{equation*}
+\begin{split}|\mathbf{J}^{-1}| = \prod_k \lambda_k( \mathbf{I} - h^2 \mathbf{K} ) = \prod_k \left( 1 - h^2 \lambda_k( \mathbf{K} ) \right) = \prod_k ( 1 + h^2 \Omega_k^2 ) \ge 1 \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and thus
+\begin{equation*}
+\begin{split}\left| \mathbf{J} \right| = \left| \mathbf{J}^{-1} \right|^{-1} = \left[ \prod_k ( 1 + h^2 \Omega_k^2 ) \right]^{-1} \le 1 \ .\end{split}
+\end{equation*}
+
+\paragraph{One\sphinxhyphen{}step energy difference}
+\label{\detokenize{ch/ode/integration-schemes-energy-conservation:id4}}
+
+\subsubsection{Crank\sphinxhyphen{}Nicolson}
+\label{\detokenize{ch/ode/integration-schemes-energy-conservation:crank-nicolson}}
+\sphinxstepscope
+
+
+\section{Time\sphinxhyphen{}integration of a mechanical system}
+\label{\detokenize{ch/ode/time-integration-mechanical-systems:time-integration-of-a-mechanical-system}}\label{\detokenize{ch/ode/time-integration-mechanical-systems:ode-integration-schemes-mechanical-system}}\label{\detokenize{ch/ode/time-integration-mechanical-systems::doc}}
+\sphinxAtStartPar
+Reference to:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxhref{https://basics2022.github.io/bbooks-physics-continuum-mechanics/ch/solids/small-displacements-numerics.html}{Modal and numerical methods for mechanical systems \sphinxhyphen{} continuum mechanics}
+
+\item {} 
+\sphinxAtStartPar
+\sphinxhref{https://basics2022.github.io/myblog/posts/modes-in-structures/}{Natural modes in structures \sphinxhyphen{} blog}
+
+\end{itemize}
+
+
+\subsection{Example equation: torsion of elastic beam}
+\label{\detokenize{ch/ode/time-integration-mechanical-systems:example-equation-torsion-of-elastic-beam}}
+\sphinxAtStartPar
+Here, the PDE governing the torsional dynamics of a linear homogeneous elastic beam is used as a toy problem
+\begin{equation*}
+\begin{split}I \partial_{tt} \theta - \partial_x \left( GJ \partial_{x} \theta \right) = m \end{split}
+\end{equation*}
+\sphinxAtStartPar
+supplied with proper boundary and initial conditions. Here the clamped\sphinxhyphen{}free beam is studied, with prescribed torsional moment \(M(t)\) ath teh “free” end so that the boundary conditions read
+\begin{equation*}
+\begin{split}\begin{aligned}
+ \theta(x=0, t) & = 0 \\
+ GJ \partial_x \theta(x=\ell, t) & = M(t) \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+See
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxhref{https://basics2022.github.io/bbooks-physics-continuum-mechanics/ch/solids/beams.html}{Continuum mechanics: Beams}
+
+\item {} 
+\sphinxAtStartPar
+\sphinxhref{https://basics2022.github.io/bbooks-physics-continuum-mechanics/ch/solids/beams/timoshenko.html}{Continuum mechanics: Timoshenko beam}
+
+\item {} 
+\sphinxAtStartPar
+\sphinxhref{https://basics2022.github.io/bbooks-physics-continuum-mechanics/ch/solids/small-displacements-fem-beams.html}{Finite element methods for beam structures}
+
+\end{itemize}
+
+
+\subsubsection{Exact solution}
+\label{\detokenize{ch/ode/time-integration-mechanical-systems:exact-solution}}
+
+\subsubsection{Finite element model}
+\label{\detokenize{ch/ode/time-integration-mechanical-systems:finite-element-model}}
+\sphinxAtStartPar
+Semi\sphinxhyphen{}discretized model in space
+\begin{equation*}
+\begin{split}\begin{aligned}
+ \int_{z=0}^{\ell} w(z) m(z,t) \, dz
+ & = \int_{z=0}^{\ell} w(z) \left\{ I \partial_{tt} \theta - \partial_x \left(GJ \partial_x \theta \right) \right\} \, dz = \\
+ & = \int_{z=0}^{\ell} w(z) I \partial_{tt} \theta(z,t) \, dz + \int_{z=0}^{\ell} \partial_x w(z) GJ \partial_x \theta(z,t) \, dz - \left.\left[ w(x) GJ \partial_x \theta(x,t) \right]\right|_{z=0}^{\ell} \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+With the boundary conditions of the model, the FEM approximation of the problem becomes
+\begin{equation*}
+\begin{split}\begin{aligned}
+ \int_{z=0}^{\ell} w(z) m(z,t) \, dz + w(\ell) M(t) 
+ & = \int_{z=0}^{\ell} w(z) I \partial_{tt} \theta(z,t) \, dz + \int_{z=0}^{\ell} \partial_x w(z) GJ \partial_x \theta(z,t) \, dz \ .
+\end{aligned}\end{split}
+\end{equation*}
+\begin{sphinxuseclass}{cell}
+\begin{sphinxuseclass}{tag_hide-input}
+\end{sphinxuseclass}
+\end{sphinxuseclass}
+
+\subsection{Boundary conditions}
+\label{\detokenize{ch/ode/time-integration-mechanical-systems:boundary-conditions}}
+\sphinxAtStartPar
+Matrix partition or augmented system.
+
+
+\subsubsection{Matrix partition}
+\label{\detokenize{ch/ode/time-integration-mechanical-systems:matrix-partition}}\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{f}
+  & = \mathbf{M} \ddot{\mathbf{x}} + \mathbf{K} \mathbf{x} \\
+\end{aligned}\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\begin{aligned}
+  \begin{bmatrix} \mathbf{f}_f \\ \mathbf{f}_d \end{bmatrix} & = 
+  \begin{bmatrix} \mathbf{M}_{ff} & \mathbf{M}_{fd} \\ \mathbf{M}_{df} & \mathbf{M}_{dd} \end{bmatrix} \begin{bmatrix} \ddot{\mathbf{x}}_{f} \\ \ddot{\mathbf{x}}_d \end{bmatrix} + 
+  \begin{bmatrix} \mathbf{K}_{ff} & \mathbf{K}_{fd} \\ \mathbf{K}_{df} & \mathbf{K}_{dd} \end{bmatrix} \begin{bmatrix} \mathbf{x}_{f} \\ \mathbf{x}_d \end{bmatrix}
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Here the value of the kinematic variables \(\mathbf{x}_d\), and the actions \(\mathbf{f}_f\) is known. The unknowns are \(\mathbf{x}_f\) (the displacement of the free d.o.f.s of the system), and \(\mathbf{f}_d\) (the reactions at the constraints). Separating the unknowns from the known quantities,
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{M}_{ff} \ddot{\mathbf{x}}_f + \mathbf{K}_{ff} \mathbf{x}_f & = \mathbf{f}_f - \mathbf{M}_{fd} \ddot{\mathbf{x}}_d - \mathbf{K}_{fd} \mathbf{x}_d \\
+  \mathbf{f}_d & = - \begin{bmatrix} \mathbf{M}_{df} & \mathbf{M}_{dd} \end{bmatrix} \begin{bmatrix} \ddot{\mathbf{x}}_f \\ \ddot{\mathbf{x}}_d \end{bmatrix} - \begin{bmatrix} \mathbf{K}_{df} & \mathbf{K}_{dd} \end{bmatrix} \begin{bmatrix} \mathbf{x}_f \\ \mathbf{x}_d \end{bmatrix}
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+This system is decoupled, as the reactions at the constraints are not involved in the dynamical systems for \(\mathbf{x}_f\), and thus they can be computed a posteriori.
+
+
+\subsubsection{Augmented system}
+\label{\detokenize{ch/ode/time-integration-mechanical-systems:augmented-system}}
+\sphinxAtStartPar
+See the discussion about Poisson equation \sphinxhyphen{} i.e. the static version of the dynamical equation used here, with no inertia contribution \sphinxhyphen{} in \sphinxhref{https://basics2022.github.io/bbooks-math-miscellanea/ch/pde/numerics.html}{Math: Numerical methods for PDEs}
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxhref{https://basics2022.github.io/bbooks-math-miscellanea/ch/pde/fem-poisson-1d.html\#augmenting-the-linear-system}{FEM: Poisson equation. Augmenting the linear system}
+
+\item {} 
+\sphinxAtStartPar
+\sphinxhref{https://basics2022.github.io/bbooks-math-miscellanea/ch/pde/fvm-poisson-1d.html\#augmenting-the-linear-system}{FVM: Poisson equation. Augmenting the linear system}
+
+\end{itemize}
+
+
+\paragraph{Spectral decomposition of the undamped system}
+\label{\detokenize{ch/ode/time-integration-mechanical-systems:spectral-decomposition-of-the-undamped-system}}
+\sphinxAtStartPar
+Eigenvalue problem focuses on the free response of the system, so all the forcing terms \sphinxhyphen{} both prescribed actions in \(\mathbf{f}_f\) and prescribed kinetic variables in \(\mathbf{x}_d\) \sphinxhyphen{} are set equal to zero. Thus, it’s possible to focus on the \(f\)\sphinxhyphen{}part of the partitioned system only, \(\mathbf{M}_{ff} \ddot{\mathbf{x}}_f + \mathbf{K}_{ff} \mathbf{x}_f = \dots\). In the following lines, pedices are dropped.
+
+\sphinxAtStartPar
+Either generalized eigenvalue problem of the undamped system as a second\sphinxhyphen{}order \(n\)\sphinxhyphen{}dimensional system
+\begin{equation*}
+\begin{split}\mathbf{M} \ddot{\mathbf{x}} + \mathbf{K} \mathbf{x} = \mathbf{f} \ ,\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}s^2 \mathbf{M} \mathbf{x} + \mathbf{K} \mathbf{x} = \mathbf{0}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+or the generalized eigenvalue problem as a first\sphinxhyphen{}order \(2n\)\sphinxhyphen{}dimensional system
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \begin{bmatrix} \mathbf{I} & \cdot \\ \cdot & \mathbf{M} \end{bmatrix} \begin{bmatrix} \dot{\mathbf{x}} \\ \dot{\mathbf{v}} \end{bmatrix} +
+  \begin{bmatrix} \cdot & - \mathbf{I} \\ \mathbf{K} & \cdot \end{bmatrix} \begin{bmatrix} \mathbf{x} \\ \mathbf{v} \end{bmatrix} = \begin{bmatrix} \mathbf{0} \\ \mathbf{f} \end{bmatrix} \ .
+\end{aligned}\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}s \mathbf{A} \mathbf{z} + \mathbf{B} \mathbf{z} = \mathbf{0}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Matrix symmetries and routines.}
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+In the second\sphinxhyphen{}orded system, matrices of a mechanical system are usually symmetric. It’s possible to use the routine for Hermitian matrices \(\texttt{.eigsh()}\)
+
+\item {} 
+\sphinxAtStartPar
+In the first\sphinxhyphen{}orded system, the augmented matrices are not symmetric. It’s not possible to use the routine for Hermitian matrices. Use the routine for general matrix \(\texttt{.eigs()}\) instead
+
+\end{itemize}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Solution of the eigenvalue problem, and diagonalization \sphinxhyphen{} modal form.} Routines returns mass normalized eigenvectors, so that
+\begin{equation*}
+\begin{split}\mathbf{V}^* \mathbf{M} \mathbf{V} = \mathbf{I} \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+As the matrix form of the generalized eigenvalue problem reads \(\mathbf{M} \mathbf{V} \mathbf{S}^2 + \mathbf{K} \mathbf{V} = \mathbf{0}\).
+
+\sphinxAtStartPar
+Changing basis from “nodal” to “modal” variables, \(\mathbf{x} = \mathbf{V} \mathbf{q}\), and projecting on the eigenvectors, the dynamical equation becomes
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{V}^* \mathbf{f} & = \mathbf{V}^* \left( \mathbf{M} \mathbf{V} \ddot{\mathbf{u}} + \mathbf{K} \mathbf{V} \mathbf{u} \right) \\
+  \mathbf{V}^* \mathbf{f} & = \ddot{\mathbf{u}} + \text{diag} \left\{ - s_i^2 \right\} \mathbf{u} = \\
+   & = \ddot{\mathbf{u}} + \text{diag} \left\{ \Omega_i^2 \right\} \mathbf{u} \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+For a mechanical system with definite positive \(\mathbf{M}\) and \(\mathbf{K}\), the eigenvalues of the system are imaginary so that \(s_i^2 = - \Omega^2_i\).
+
+\begin{sphinxuseclass}{cell}
+\begin{sphinxuseclass}{tag_hide-input}\begin{sphinxVerbatimOutput}
+
+\begin{sphinxuseclass}{cell_output}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+Mass\PYGZhy{}normalization of the eigenvectors within the tol
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimOutput}
+
+\end{sphinxuseclass}
+\end{sphinxuseclass}
+\begin{sphinxuseclass}{cell}
+\begin{sphinxuseclass}{tag_hide-input}
+\end{sphinxuseclass}
+\end{sphinxuseclass}
+
+\paragraph{Modal structural damping}
+\label{\detokenize{ch/ode/time-integration-mechanical-systems:modal-structural-damping}}
+\sphinxAtStartPar
+See
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxhref{https://basics2022.github.io/bbooks-physics-continuum-mechanics/ch/solids/structural-damping.html}{Continuum mechanics: structural damping}
+
+\item {} 
+\sphinxAtStartPar
+\sphinxhref{https://basics2022.github.io/bbooks-physics-continuum-mechanics/ch/solids/structural-damping.html\#sensitivity-of-eigenvalues-and-eigenvectors}{Sensitivity of eigenvalues and eigenvectors in a second\sphinxhyphen{}order system}
+
+\item {} 
+\sphinxAtStartPar
+\sphinxhref{https://basics2022.github.io/bbooks-math-miscellanea/ch/linear-algebra/spectral-sensitivity.html}{Sensitivity of spectral decomposition}
+
+\end{itemize}
+
+\sphinxAtStartPar
+Modal damping for the simultaneous diagonalization of mass, damping and stiffness matrices.
+\begin{equation*}
+\begin{split}\mathbf{V}^* \mathbf{f} = \ddot{\mathbf{u}} + \text{diag}\{ 2 \xi_i \Omega_i \} \dot{\mathbf{u}} + \text{diag}\{ \Omega_i^2 \} \mathbf{u}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+i.e. with
+\begin{equation*}
+\begin{split}\mathbf{V}^* \mathbf{C} \mathbf{V} = \text{diag}\{ 2 \xi_i \Omega_i \}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+so that the damping matrix in “nodal” variables reads
+\begin{equation*}
+\begin{split} \mathbf{C} = \mathbf{V} \text{diag}\{ 2 \xi_i \Omega_i \} \mathbf{V}^*\end{split}
+\end{equation*}
+\sphinxAtStartPar
+The eigenvalues of the damped system, for \(\xi_i < 1\), become
+\begin{equation*}
+\begin{split}s_i = - \xi_i \Omega_i \mp j \Omega_i \sqrt{1 - \xi_i^2} \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Exact solution.}
+\begin{equation*}
+\begin{split}\begin{aligned}
+  & I \ddot{\theta} - GJ \theta'' = 0  \\
+  & \theta(0,t) = 0 \\
+  & GJ \theta'(\ell,t) = 0 \ .
+\end{aligned}\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\theta(z,t) = f(x) g(t)\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\frac{I}{GJ} \frac{\ddot{g}}{g} = \frac{f''}{f} = -k^2\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}f(z) = A \cos \left( k z \right) + B \sin \left( k z \right)\end{split}
+\end{equation*}
+\sphinxAtStartPar
+with boundary conditions
+\begin{equation*}
+\begin{split}\begin{aligned}
+  0 & = f(0) = A \\
+  0 & = f'(\ell) = B k \cos \left( k \ell \right)
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+so that \(\cos \left( k \ell \right) = 0\), and thus \(k_n \ell = \frac{\pi}{2} + n \pi\), \(n \in \mathbb{N}\), i.e. the wave numbers of the modes are
+\begin{equation*}
+\begin{split}k_n = \frac{\pi}{\ell} \left( n + \frac{1}{2} \right) \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Pulsations of the modes are
+\begin{equation*}
+\begin{split}\omega_n = k_n \sqrt{\frac{GJ}{I}} = \frac{\pi}{\ell} \sqrt{\frac{GJ}{I}} \left( n + \frac{1}{2} \right) \ .\end{split}
+\end{equation*}
+\begin{sphinxuseclass}{cell}
+\begin{sphinxuseclass}{tag_hide-input}
+\end{sphinxuseclass}
+\end{sphinxuseclass}
+\begin{sphinxuseclass}{cell}
+\begin{sphinxuseclass}{tag_hide-input}\begin{sphinxVerbatimOutput}
+
+\begin{sphinxuseclass}{cell_output}
+\noindent\sphinxincludegraphics{{0553074cfdf0bdca652e883d4d181f55aca1993cbf46a146a6611f374d3f14f7}.png}
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+  Numerical evals     Exact evals      
+ \PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{} 
+  0.0000 \PYGZhy{}1.5724 i   0.0000 \PYGZhy{}1.5708 i
+  0.0000 \PYGZhy{}4.7561 i   0.0000 \PYGZhy{}4.7124 i
+  0.0000 \PYGZhy{}8.0571 i   0.0000 \PYGZhy{}7.8540 i
+  0.0000\PYGZhy{}11.5542 i   0.0000\PYGZhy{}10.9956 i
+  0.0000\PYGZhy{}15.3203 i   0.0000\PYGZhy{}14.1372 i
+  0.0000\PYGZhy{}19.4002 i   0.0000\PYGZhy{}17.2788 i
+  0.0000\PYGZhy{}23.7547 i   0.0000\PYGZhy{}20.4204 i
+  0.0000\PYGZhy{}28.1465 i   0.0000\PYGZhy{}23.5619 i
+  0.0000\PYGZhy{}31.9858 i   0.0000\PYGZhy{}26.7035 i
+  0.0000\PYGZhy{}34.3236 i   0.0000\PYGZhy{}29.8451 i
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimOutput}
+
+\end{sphinxuseclass}
+\end{sphinxuseclass}
+\sphinxAtStartPar
+Eigenvalues of the first modes show a good match with the exact eigenvalues. For larger wave\sphinxhyphen{}number modes, the modes of the discrete system have higher frequencies than the modes of the continuous system: numerical approximation introduces “numerical constraints” (as it’s not capable of representing the exact solution, but only a system with a finite\sphinxhyphen{}number dofs), and thus makes the system “stiffer”: higher frequencies of the numerical eigenvalues agree with this intuition.
+
+
+\subsection{Response to a torsional moment at the “free” end}
+\label{\detokenize{ch/ode/time-integration-mechanical-systems:response-to-a-torsional-moment-at-the-free-end}}
+\sphinxAtStartPar
+With force at the free end, the forcing term of the discrete system reads
+\begin{equation*}
+\begin{split}\mathbf{f}_f = \begin{bmatrix} 0 \\ \dots \\ 0 \\ M(t) \end{bmatrix} = \begin{bmatrix} 0 \\ \dots \\ 0 \\ 1 \end{bmatrix} M(t) \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+being the last node the free node. In modal variables
+\begin{equation*}
+\begin{split}\ddot{u}_i + 2 \xi_i \Omega_i \dot{u}_i + \Omega_i^2 u_i = \mathbf{v}^*_i \mathbf{f}_f \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+The input\sphinxhyphen{}output relation from the input \(M(t)\) and the \(N-1\)\sphinxhyphen{}dimensional output \(u_i\) reads
+\begin{equation*}
+\begin{split}u_i(s) = \frac{\mathbf{v}_i^* \mathbf{F}}{s^2 + 2 \xi_i \Omega_i s + \Omega_i^2} M(t) \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+i.e. the transfer function between the torsional moment at the free end \(M(t)\) and the amplitude of the \(i^{th}\) mode is
+\begin{equation*}
+\begin{split}G_i(s) = \frac{\mathbf{v}_i^* \mathbf{F}}{s^2 + 2 \xi_i \Omega_i s + \Omega_i^2} \ .\end{split}
+\end{equation*}
+\begin{sphinxuseclass}{cell}
+\begin{sphinxuseclass}{tag_hide-input}\begin{sphinxVerbatimOutput}
+
+\begin{sphinxuseclass}{cell_output}
+\noindent\sphinxincludegraphics{{631ece84508ce368396f2259f4a216d72923e381b3225a417e77a0b0a0cb24a9}.png}
+
+\end{sphinxuseclass}\end{sphinxVerbatimOutput}
+
+\end{sphinxuseclass}
+\end{sphinxuseclass}
+
+\subsection{Time simulations}
+\label{\detokenize{ch/ode/time-integration-mechanical-systems:time-simulations}}
+\sphinxAtStartPar
+Here different approaches are evaluated:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxhref{https://basics2022.github.io/bbooks-physics-continuum-mechanics/ch/solids/small-displacements-numerics.html\#truncation-and-direct-recovery-of-loads}{Truncation and direct recovery of loads}
+
+\item {} 
+\sphinxAtStartPar
+\sphinxhref{https://basics2022.github.io/bbooks-physics-continuum-mechanics/ch/solids/small-displacements-numerics.html\#mode-acceleration-and-static-recovery-of-fast-modes}{Mode acceleration and static recovery of fast modes}
+
+\end{itemize}
+
+\begin{sphinxuseclass}{cell}
+\begin{sphinxuseclass}{tag_hide-input}\begin{sphinxVerbatimOutput}
+
+\begin{sphinxuseclass}{cell_output}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+Maximum frequency in forcing spectrum : 3.0
+Threshold for slow/fast mode splitting: 12.0
+Number of slow modes                  : 4
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimOutput}
+
+\end{sphinxuseclass}
+\end{sphinxuseclass}
+\begin{sphinxuseclass}{cell}
+\begin{sphinxuseclass}{tag_hide-input}\begin{sphinxVerbatimOutput}
+
+\begin{sphinxuseclass}{cell_output}
+\noindent\sphinxincludegraphics{{aa8ecca53ad72cd208658f0177432335d7a5554b5373f01a2214725cc314c3e5}.png}
+
+\end{sphinxuseclass}\end{sphinxVerbatimOutput}
+
+\end{sphinxuseclass}
+\end{sphinxuseclass}
+\begin{sphinxuseclass}{cell}
+\begin{sphinxuseclass}{tag_hide-input}
+\end{sphinxuseclass}
+\end{sphinxuseclass}
+\sphinxAtStartPar
+\sphinxstylestrong{Mode acceleration and static recovery of fast modes.}
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \begin{bmatrix} \mathbf{u} \\ \mathbf{K} \mathbf{u} \\ \dot{\mathbf{q}}_s \\ \ddot{\mathbf{q}}_s \end{bmatrix} 
+  = \begin{bmatrix} \mathbf{U}_s & \mathbf{0} \\ \mathbf{K} \mathbf{U}_s  &  \mathbf{0} \\ \mathbf{0} & \mathbf{I} \\ -\text{diag}\{ \omega^2_s \} & -\text{diag}\{ 2 \xi_s \omega_s \}  \end{bmatrix} \begin{bmatrix} \mathbf{q}_s \\ \dot{\mathbf{q}}_s  \end{bmatrix} + \begin{bmatrix} \mathbf{K}^{-1} - \mathbf{U}_s \text{diag}\{ (m_s \omega_s^2)^{-1} \} \mathbf{U}^*_s \\ \mathbf{I} - \mathbf{M} \mathbf{U}_s \text{diag}\{ m_s^{-1} \} \mathbf{U}^*_s \\ \mathbf{0} \\ \text{diag}\{ m_s^{-1} \} \mathbf{U}_s^T \end{bmatrix} \mathbf{f} \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Time integration of the slow part
+
+\sphinxAtStartPar
+First order system
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \frac{d}{dt} \begin{bmatrix} \mathbf{q}_s \\ \dot{\mathbf{q}}_s \end{bmatrix} 
+  = \begin{bmatrix} \mathbf{0} & \mathbf{I} \\ -\text{diag}\{ \omega^2_s \} & -\text{diag}\{ 2 \xi_s \omega_s \}  \end{bmatrix} \begin{bmatrix} \mathbf{q}_s \\ \dot{\mathbf{q}}_s  \end{bmatrix} + \begin{bmatrix} \mathbf{0} \\ \text{diag}\{ m_s^{-1} \} \mathbf{U}_s^T \end{bmatrix} \mathbf{f} \ .
+\end{aligned}\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\dot{\mathbf{z}} = \mathbf{A} \mathbf{z} + \mathbf{B} M(t) = \mathbf{f}(t, \mathbf{z})\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Second order system
+\begin{equation*}
+\begin{split}\ddot{\mathbf{q}}_s = - \text{diag}\{ \omega_s^2 \} \mathbf{q}_s - \text{diag}\{ 2 \xi \omega_s \} \dot{\mathbf{q}}_s + \text{diag}\{ m_s^{-1} \} \mathbf{U}_s^* \mathbf{f}\end{split}
+\end{equation*}
+
+\subsubsection{Explicit Euler}
+\label{\detokenize{ch/ode/time-integration-mechanical-systems:explicit-euler}}
+\sphinxAtStartPar
+\sphinxstylestrong{Explicit Euler.}
+\begin{equation*}
+\begin{split}\mathbf{z}_{n+1} = \mathbf{z}_n + h \mathbf{f}(t_n, \mathbf{z}_n)\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Explicit Euler numerical integration is unstable
+
+\sphinxAtStartPar
+…
+
+\begin{sphinxuseclass}{cell}
+\begin{sphinxuseclass}{tag_hide-input}
+\end{sphinxuseclass}
+\end{sphinxuseclass}
+\begin{sphinxuseclass}{cell}
+\begin{sphinxuseclass}{tag_hide-input}\begin{sphinxVerbatimOutput}
+
+\begin{sphinxuseclass}{cell_output}
+\noindent\sphinxincludegraphics{{c60ccb28baa3d381575b7054829e2f42e50a92a4bae39297987637db16c6f754}.png}
+
+\end{sphinxuseclass}\end{sphinxVerbatimOutput}
+
+\end{sphinxuseclass}
+\end{sphinxuseclass}
+
+\subsubsection{RK4(5)}
+\label{\detokenize{ch/ode/time-integration-mechanical-systems:rk4-5}}
+\sphinxAtStartPar
+\sphinxstylestrong{Runge\sphinxhyphen{}Kutta.} Exploiting \(\texttt{scipy.integrate.solve_ivp}\). RK4(5) is a variable time\sphinxhyphen{}step method.
+
+\sphinxAtStartPar
+\sphinxstylestrong{RK4(5) and high\sphinxhyphen{}frequencies.} This method is not suited for systems with high\sphinxhyphen{}frequency contents, as the method uses smaller and smaller time\sphinxhyphen{}step to keep local truncation error small (and the method stable). Extreme small values of \(dt\) makes the number of iterations explodes and the performance of the method so poor that it becomes useless.
+
+\sphinxAtStartPar
+\sphinxstylestrong{RK4(5) with fast mode truncation and mode acceleration recovery.} Using the fast mode truncation and their static recovery, the dynamical part of the system involves only slow modes. Thus, this approach makes RK4(5) method suitable.
+
+\begin{sphinxuseclass}{cell}
+\begin{sphinxuseclass}{tag_hide-input}
+\end{sphinxuseclass}
+\end{sphinxuseclass}
+\begin{sphinxuseclass}{cell}
+\begin{sphinxuseclass}{tag_hide-input}\begin{sphinxVerbatimOutput}
+
+\begin{sphinxuseclass}{cell_output}
+\noindent\sphinxincludegraphics{{8d2a171880c02ede2fd8df39d8035fbb4528e571fc9b3f9c0a3a7645e318f1a0}.png}
+
+\noindent\sphinxincludegraphics{{7d4d686aac0ad39ffbb0e5b324f8aae276eba13e3f6250dbdebc5a2053c9ab64}.png}
+
+\end{sphinxuseclass}\end{sphinxVerbatimOutput}
+
+\end{sphinxuseclass}
 \end{sphinxuseclass}
 \sphinxstepscope
 
@@ -6516,9 +7911,9 @@ Assuming it’s possible swap derivative operator and summation (when?), it’s 
 \end{aligned}\end{split}
 \end{equation*}
 \sphinxAtStartPar
-for all the values of \(s\) for which \(-s\mathbf{I} + \mathbf{A}\) is asymptotically stable, i.e. has all the eignevalues (thus, assuming that the matrix \(\mathbf{A}\) can be diagonalizable. What happens if not? Exploit other matrix decompositions to draw conclusions) with negative real parts, and thus for all the values of \(s > \max \text{re}\{ s_k(\mathbf{A}) \}\), as it’s shown in {\hyperref[\detokenize{ch/system-theory/lti:matrix-stability-spectrum}]{\sphinxcrossref{Example 28.2.1}}}
+for all the values of \(s\) for which \(-s\mathbf{I} + \mathbf{A}\) is asymptotically stable, i.e. has all the eignevalues (thus, assuming that the matrix \(\mathbf{A}\) can be diagonalizable. What happens if not? Exploit other matrix decompositions to draw conclusions) with negative real parts, and thus for all the values of \(s > \max \text{re}\{ s_k(\mathbf{A}) \}\), as it’s shown in {\hyperref[\detokenize{ch/system-theory/lti:matrix-stability-spectrum}]{\sphinxcrossref{Example 29.2.1}}}
 \label{ch/system-theory/lti:matrix-stability-spectrum}
-\begin{sphinxadmonition}{note}{Example 28.2.1 (Asymptotic stability of a matrix \protect\(\ \mathbf{A}\protect\))}
+\begin{sphinxadmonition}{note}{Example 29.2.1 (Asymptotic stability of a matrix \protect\(\ \mathbf{A}\protect\))}
 
 
 
@@ -6584,7 +7979,7 @@ The characteristic polynomial of the system doesn’t change, as
 \subsection{Gramians}
 \label{\detokenize{ch/system-theory/coordinate-transformation:gramians}}
 \sphinxAtStartPar
-The observability Gramian ({\hyperref[\detokenize{ch/system-theory/observability-detectability:def:observability-gramian}]{\sphinxcrossref{Definition 32.1.1}}}) and controllability Gramian ({\hyperref[\detokenize{ch/system-theory/controllability-reachability:def:controllability-gramian}]{\sphinxcrossref{Definition 33.1.1}}}) of the transformed system read
+The observability Gramian ({\hyperref[\detokenize{ch/system-theory/observability-detectability:def:observability-gramian}]{\sphinxcrossref{Definition 33.1.1}}}) and controllability Gramian ({\hyperref[\detokenize{ch/system-theory/controllability-reachability:def:controllability-gramian}]{\sphinxcrossref{Definition 34.1.1}}}) of the transformed system read
 \begin{equation*}
 \begin{split}\begin{aligned}
 \hat{\mathbf{W}}_o & = \mathbf{T}^{ T} \mathbf{W}_c \mathbf{T}      \\
@@ -7091,7 +8486,7 @@ while for a pole \(p_d\) with multiplicity \(m_d> 1\) all the terms \(\propto \f
 \begin{equation*}
 \begin{split}G(s) = \sum_{d=1}^{N} \dfrac{A_d}{(p_d-s)^{e_d}} \ , \end{split}
 \end{equation*}\label{ch/system-theory/lti-stability-and-feedback:example-0}
-\begin{sphinxadmonition}{note}{Example 31.1.1 (Sum of partial fractions of a TF with poles with multiplicity \protect\(> 1\protect\))}
+\begin{sphinxadmonition}{note}{Example 32.1.1 (Sum of partial fractions of a TF with poles with multiplicity \protect\(> 1\protect\))}
 
 
 
@@ -7196,7 +8591,7 @@ Discuss the \sphinxstylestrong{pullback} of the output to the state space (befor
 
 \end{itemize}
 \label{ch/system-theory/observability-detectability:def:observability-gramian}
-\begin{sphinxadmonition}{note}{Definition 32.1.1 (Observability Gramian)}
+\begin{sphinxadmonition}{note}{Definition 33.1.1 (Observability Gramian)}
 
 
 \begin{equation}\label{equation:ch/system-theory/observability-detectability:eq:observability-gramian:def}
@@ -7375,7 +8770,7 @@ with \(\mathbf{u}_{\mathbf{v}} := \mathbf{U}^* \mathbf{v}\), the projection of t
 
 \end{itemize}
 \label{ch/system-theory/controllability-reachability:def:controllability-gramian}
-\begin{sphinxadmonition}{note}{Definition 33.1.1 (Controllability Gramian)}
+\begin{sphinxadmonition}{note}{Definition 34.1.1 (Controllability Gramian)}
 
 
 \begin{equation}\label{equation:ch/system-theory/controllability-reachability:eq:controllability-gramian:def}
@@ -9049,7 +10444,7 @@ The poles of the closed loop systems are the zeros of the function \(1 + L(s)\).
 \sphinxAtStartPar
 in order to have \(Z = 0\), i.e. the diagram of \(1+G(s)\) must perform \(N\) counter\sphinxhyphen{}clockwise loops around \(0+i0\) equal to the number of its poles with positive real parts. As the poles of \(1+ G(s)\) are the same as the poles of \(G(s)\), it’s possible to formulate Nyquist criterion looking at \(G(s)\), as
 \label{ch/control/frequency-domain:thm-nyquist}
-\begin{sphinxadmonition}{note}{Theorem 42.1.1 (Nyquist theorem)}
+\begin{sphinxadmonition}{note}{Theorem 43.1.1 (Nyquist theorem)}
 
 
 
@@ -9060,7 +10455,7 @@ In order for the closed\sphinxhyphen{}loop system to be asymptotically stable, t
 
 \subsection{Bode stability criterion for minimal phase systems}
 \label{\detokenize{ch/control/frequency-domain:bode-stability-criterion-for-minimal-phase-systems}}\label{\detokenize{ch/control/frequency-domain:control-siso-bode}}\label{ch/control/frequency-domain:def-minimal-phase}
-\begin{sphinxadmonition}{note}{Definition 42.1.1 (Minimal phase systems)}
+\begin{sphinxadmonition}{note}{Definition 43.1.1 (Minimal phase systems)}
 
 
 
@@ -9071,7 +10466,7 @@ In order for the closed\sphinxhyphen{}loop system to be asymptotically stable, t
 \sphinxAtStartPar
 …
 \label{ch/control/frequency-domain:thm-bode}
-\begin{sphinxadmonition}{note}{Theorem 42.1.2 (Bode stability criterion)}
+\begin{sphinxadmonition}{note}{Theorem 43.1.2 (Bode stability criterion)}
 
 
 
@@ -10112,7 +11507,7 @@ and comparing the two different expressions of \(\dot{\boldsymbol{\lambda}}\), i
 \begin{split}\dot{\mathbf{P}} + \mathbf{P} \widetilde{\mathbf{A}} + \widetilde{\mathbf{A}}^T \mathbf{P} - \mathbf{P} \mathbf{B} \mathbf{R}^{-1} \mathbf{B}^T \mathbf{P} + \widetilde{\mathbf{Q}} = \mathbf{0} \ ,\end{split}
 \end{equation*}
 \sphinxAtStartPar
-where \(\widetilde{\mathbf{A}} = \mathbf{A} - \mathbf{B} \mathbf{R}^{-1} \mathbf{S}^T \) and \(\widetilde{\mathbf{Q}} = \mathbf{Q} - \mathbf{S} \mathbf{R}^{-1} \mathbf{S}^T\). Riccati equation is a non\sphinxhyphen{}linear dynamical matrix equation in \(\mathbf{P}\). Algorithms for computing the solution of dynamical and algebraic equation exists, see {\hyperref[\detokenize{ch/control/optimal-control-full-state-old:control-optimal-riccati}]{\sphinxcrossref{Example 43.2.1}}}.
+where \(\widetilde{\mathbf{A}} = \mathbf{A} - \mathbf{B} \mathbf{R}^{-1} \mathbf{S}^T \) and \(\widetilde{\mathbf{Q}} = \mathbf{Q} - \mathbf{S} \mathbf{R}^{-1} \mathbf{S}^T\). Riccati equation is a non\sphinxhyphen{}linear dynamical matrix equation in \(\mathbf{P}\). Algorithms for computing the solution of dynamical and algebraic equation exists, see {\hyperref[\detokenize{ch/control/optimal-control-full-state-old:control-optimal-riccati}]{\sphinxcrossref{Example 44.2.1}}}.
 
 
 
@@ -10129,7 +11524,7 @@ For infinite\sphinxhyphen{}horizone, the algebraic equation (ARE) for the steady
 \sphinxAtStartPar
 with \(\mathbf{G} = \mathbf{R}^{-1} \left( \mathbf{S}^T + \mathbf{B}^T \mathbf{P} \right)\).
 \label{ch/control/optimal-control-full-state-old:control-optimal-riccati}
-\begin{sphinxadmonition}{note}{Example 43.2.1 (Solution of Riccati equation)}
+\begin{sphinxadmonition}{note}{Example 44.2.1 (Solution of Riccati equation)}
 
 
 
@@ -13381,7 +14776,7 @@ the solution is in the \(S_i\) region is
 \begin{equation*}
 \begin{split}u_i(x,t) = \sum_{\lambda_k > \frac{x}{t}} R_{ik} q_{a,k} +  \sum_{\lambda_k < \frac{x}{t}} R_{ik} q_{b,k}\end{split}
 \end{equation*}\label{ch/pde/hyperbolic-dimensions:example-0}
-\begin{sphinxadmonition}{note}{Example 49.2.1 (Linear(ized) P\sphinxhyphen{}system)}
+\begin{sphinxadmonition}{note}{Example 50.2.1 (Linear(ized) P\sphinxhyphen{}system)}
 
 
 
@@ -13419,17 +14814,17 @@ The linear(ized) P\sphinxhyphen{}system around a uniform reference state \(\over
 Subsonic: the two families of characteristic lines have opposite direction; supersonic: the two families of characteristic lines have the same direction.
 \end{sphinxadmonition}
 \label{ch/pde/hyperbolic-dimensions:example-1}
-\begin{sphinxadmonition}{note}{Example 49.2.2 (Linearized shallow water equations)}
+\begin{sphinxadmonition}{note}{Example 50.2.2 (Linearized shallow water equations)}
 
 
 \end{sphinxadmonition}
 \label{ch/pde/hyperbolic-dimensions:example-2}
-\begin{sphinxadmonition}{note}{Example 49.2.3 (Linearized Euler equations (acoustics))}
+\begin{sphinxadmonition}{note}{Example 50.2.3 (Linearized Euler equations (acoustics))}
 
 
 \end{sphinxadmonition}
 \label{ch/pde/hyperbolic-dimensions:example-3}
-\begin{sphinxadmonition}{note}{Example 49.2.4 (Wave equation)}
+\begin{sphinxadmonition}{note}{Example 50.2.4 (Wave equation)}
 
 
 
@@ -13524,7 +14919,7 @@ Different descritpions of integral problem,
   & = \partial_t u_i + \partial_{x_k} u_m \partial_{u_m} F_{ki} (u_l) = \\
 \end{aligned}\end{split}
 \end{equation*}\label{ch/pde/hyperbolic-dimensions:example-4}
-\begin{sphinxadmonition}{note}{Example 49.2.5 (P\sphinxhyphen{}system in 1\sphinxhyphen{}dimensional domain)}
+\begin{sphinxadmonition}{note}{Example 50.2.5 (P\sphinxhyphen{}system in 1\sphinxhyphen{}dimensional domain)}
 
 
 \begin{equation*}
@@ -13558,7 +14953,7 @@ with \(\partial_x P = a^2 \partial_x \rho\),
 \end{aligned}\end{split}
 \end{equation*}\end{sphinxadmonition}
 \label{ch/pde/hyperbolic-dimensions:example-5}
-\begin{sphinxadmonition}{note}{Example 49.2.6 (Euler equations in 1\sphinxhyphen{}dimensional domain)}
+\begin{sphinxadmonition}{note}{Example 50.2.6 (Euler equations in 1\sphinxhyphen{}dimensional domain)}
 
 
 
@@ -13674,7 +15069,7 @@ being
 \begin{split}\mathbf{L} = \dots \end{split}
 \end{equation*}\end{sphinxadmonition}
 \label{ch/pde/hyperbolic-dimensions:example-6}
-\begin{sphinxadmonition}{note}{Example 49.2.7 (Shallow water equation in \protect\(1\protect\)\sphinxhyphen{}dimensional domain)}
+\begin{sphinxadmonition}{note}{Example 50.2.7 (Shallow water equation in \protect\(1\protect\)\sphinxhyphen{}dimensional domain)}
 
 
 
@@ -13748,7 +15143,7 @@ and integration in \(z\)\sphinxhyphen{}direction \sphinxstylestrong{todo} Explic
 \begin{split}0 = |\mathbf{A}(\mathbf{u}) - s^2 \mathbf{I}| = -s \left( 2 u - s \right) + u^2 - g \eta = (s-u)^2 - g  \eta \ .\end{split}
 \end{equation*}\end{sphinxadmonition}
 \label{ch/pde/hyperbolic-dimensions:example-7}
-\begin{sphinxadmonition}{note}{Example 49.2.8 (P\sphinxhyphen{}system in n\sphinxhyphen{}dimensional domain)}
+\begin{sphinxadmonition}{note}{Example 50.2.8 (P\sphinxhyphen{}system in n\sphinxhyphen{}dimensional domain)}
 
 
 \begin{itemize}
@@ -13768,7 +15163,7 @@ Physical variables: e.g. \((\rho, \vec{u})\), \((P, \vec{u})\),…
 \end{cases}\end{split}
 \end{equation*}\end{sphinxadmonition}
 \label{ch/pde/hyperbolic-dimensions:example-8}
-\begin{sphinxadmonition}{note}{Example 49.2.9 (Euler system in n\sphinxhyphen{}dimensional domain)}
+\begin{sphinxadmonition}{note}{Example 50.2.9 (Euler system in n\sphinxhyphen{}dimensional domain)}
 
 
 \begin{itemize}
@@ -13797,7 +15192,7 @@ where \(\Pi\) represents the pressure field as a function of the conservative va
 and \(P\) the pressure field expressed by the \sphinxstylestrong{equation of state of the fluid} as a function of density and internal energy per unit mass as the pair of independent variables determining the thermodynamic state.
 \end{sphinxadmonition}
 \label{ch/pde/hyperbolic-dimensions:example-9}
-\begin{sphinxadmonition}{note}{Example 49.2.10 (Shallow water equations in 2\sphinxhyphen{}dimensional domain)}
+\begin{sphinxadmonition}{note}{Example 50.2.10 (Shallow water equations in 2\sphinxhyphen{}dimensional domain)}
 
 
 \begin{equation*}
@@ -17797,7 +19192,7 @@ The \sphinxstylestrong{integral formulation} of the problem for all the boundary
 \begin{equation}\label{equation:ch/pde/numerics:eq:example:pde:poisson:integral}
 \begin{split}0 = - \oint_{\partial \Omega} \hat{n} \cdot \vec{q} + \int_{\Omega} f \ .\end{split}
 \end{equation}\label{ch/pde/numerics:pde:ex:fvm}
-\begin{sphinxadmonition}{note}{Example 53.1 (Finite volume methods)}
+\begin{sphinxadmonition}{note}{Example 54.1 (Finite volume methods)}
 
 
 
@@ -17813,7 +19208,7 @@ evaluating volume integrals with the internal variables of the cell \(\Omega_k\)
 \end{equation*}
 \sphinxAtStartPar
 Different numerical methods differs in the evaluation of fluxes and sources.
-FVM is \sphinxstylestrong{conservative} as it evaluate flux at interfaces and then distribute it to neighoring cells, see {\hyperref[\detokenize{ch/pde/fvm:fvm:property:conservation}]{\sphinxcrossref{Property 55.1}}}. A rough elementwise\sphinxhyphen{}uniform variable with jump at interfaces and diffusive flux,
+FVM is \sphinxstylestrong{conservative} as it evaluate flux at interfaces and then distribute it to neighoring cells, see {\hyperref[\detokenize{ch/pde/fvm:fvm:property:conservation}]{\sphinxcrossref{Property 56.1}}}. A rough elementwise\sphinxhyphen{}uniform variable with jump at interfaces and diffusive flux,
 \begin{equation*}
 \begin{split}F_{ik} = - A_{ik} \, k \, \frac{u_i - u_k}{d_{ik}} \ ,\end{split}
 \end{equation*}
@@ -17831,7 +19226,7 @@ For regular cubic mesh, \(A_{ik} = \Delta x\), \(d_{ik} = \Delta x\), \(V_k = \D
 \begin{split}0 = k \sum_{i \in \Omega_k} \frac{u_i - u_k}{\Delta x^2} + f_k \ ,\end{split}
 \end{equation*}
 \sphinxAtStartPar
-where the summation is exactly equal to the center\sphinxhyphen{}difference stencil for the Laplacian, used in finite difference method {\hyperref[\detokenize{ch/pde/numerics:pde:ex:fdm}]{\sphinxcrossref{Example 53.2}}}.
+where the summation is exactly equal to the center\sphinxhyphen{}difference stencil for the Laplacian, used in finite difference method {\hyperref[\detokenize{ch/pde/numerics:pde:ex:fdm}]{\sphinxcrossref{Example 54.2}}}.
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
@@ -17855,7 +19250,7 @@ Exploiting the arbitrariety of the volume \(V\), the \sphinxstylestrong{strong f
 \sphinxAtStartPar
 only holds in regions of the domain where the functions involved are continuous and differentiable, i.e. everything written in the problem is not meaningful, i.e. at least it exists.
 \label{ch/pde/numerics:pde:ex:fdm}
-\begin{sphinxadmonition}{note}{Example 53.2 (Finite difference methods)}
+\begin{sphinxadmonition}{note}{Example 54.2 (Finite difference methods)}
 
 
 
@@ -17871,7 +19266,7 @@ Finite different method approximates the strong form of the problem, building a 
 \end{aligned}\end{split}
 \end{equation*}
 \sphinxAtStartPar
-and it’s equal to the same expression already provided for the rough finite volume method with regular grid, in {\hyperref[\detokenize{ch/pde/numerics:pde:ex:fvm}]{\sphinxcrossref{Example 53.1}}}
+and it’s equal to the same expression already provided for the rough finite volume method with regular grid, in {\hyperref[\detokenize{ch/pde/numerics:pde:ex:fvm}]{\sphinxcrossref{Example 54.1}}}
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
@@ -17901,7 +19296,7 @@ Using a test function \(w(\vec{r})\) equal to zero on the boundary where essenti
 \sphinxAtStartPar
 compatible with essential boundary conditions.
 \label{ch/pde/numerics:pde:ex:fem}
-\begin{sphinxadmonition}{note}{Example 53.3 (Finite element methods)}
+\begin{sphinxadmonition}{note}{Example 54.3 (Finite element methods)}
 
 
 
@@ -18307,7 +19702,7 @@ Try to set different values of Dirichlet boundary conditions, u\_dir
 
 \chapter{Finite Volume Method}
 \label{\detokenize{ch/pde/fvm:finite-volume-method}}\label{\detokenize{ch/pde/fvm:pde-fvm}}\label{\detokenize{ch/pde/fvm::doc}}\label{ch/pde/fvm:fvm:property:conservation}
-\begin{sphinxadmonition}{note}{Property 55.1}
+\begin{sphinxadmonition}{note}{Property 56.1}
 
 
 
@@ -18812,7 +20207,7 @@ being \(\hat{\mathbf{A}}(\mathbf{u}_L, \mathbf{u}_R)\) an approximation of the c
 
 \end{enumerate}
 \label{ch/pde/fvm-hyperbolic-pde:example-0}
-\begin{sphinxadmonition}{note}{Example 55.2.1 (P\sphinxhyphen{}sys. Intermediate state)}
+\begin{sphinxadmonition}{note}{Example 56.2.1 (P\sphinxhyphen{}sys. Intermediate state)}
 
 
 
@@ -18887,7 +20282,7 @@ so that the solution that avoids singularities for \(\rho_L = \rho_R\) (the one 
 Arbitrary intermediate value of the density \(\hat{\rho}\) needs to satisfy consistency, as well. Just as an example, if \(\hat{\rho}\) is chosen to be the average of the densities, \(\hat{\rho} = \frac{1}{2}(\rho_L + \rho_R)\), this is consistent choice.
 \end{sphinxadmonition}
 \label{ch/pde/fvm-hyperbolic-pde:example-1}
-\begin{sphinxadmonition}{note}{Example 55.2.2 (Euler equations. Intermediate state)}
+\begin{sphinxadmonition}{note}{Example 56.2.2 (Euler equations. Intermediate state)}
 
 
 
@@ -19022,7 +20417,7 @@ with
 
 \subsubsection{Domain at rest}
 \label{\detokenize{ch/pde/fvm-hyperbolic-bc:domain-at-rest}}\label{ch/pde/fvm-hyperbolic-bc:example-0}
-\begin{sphinxadmonition}{note}{Example 55.3.1 (Wall for Roe flux in 1\sphinxhyphen{}dimensional P\sphinxhyphen{}sys)}
+\begin{sphinxadmonition}{note}{Example 56.3.1 (Wall for Roe flux in 1\sphinxhyphen{}dimensional P\sphinxhyphen{}sys)}
 
 
 
@@ -19085,7 +20480,7 @@ the upwind matrix evaluated on the Roe intermediate state (no need for entropy f
 i.e. there’s \sphinxstylestrong{no mass flux} across the wall, as the first component of the vector \(\mathbf{F}_\partial\) is zero.
 \end{sphinxadmonition}
 \label{ch/pde/fvm-hyperbolic-bc:example-1}
-\begin{sphinxadmonition}{note}{Example 55.3.2 (Wall for Roe flux in 1\sphinxhyphen{}dimensional Euler equations)}
+\begin{sphinxadmonition}{note}{Example 56.3.2 (Wall for Roe flux in 1\sphinxhyphen{}dimensional Euler equations)}
 
 
 \end{sphinxadmonition}
@@ -19872,9 +21267,9 @@ minimum: if the Hessian evalauted in \(\mathbf{x}^*\) is definite positive,
 \end{itemize}
 
 \sphinxAtStartPar
-Here the formalism \(\partial_{\mathbf{x} \mathbf{x}} f(\mathbf{x}^*) < 0\) indicates that the Hessian matrix is negative definite, see {\hyperref[\detokenize{ch/optimization/intro:optimization:hessian:extreme}]{\sphinxcrossref{Example 58.1.1}}}.
+Here the formalism \(\partial_{\mathbf{x} \mathbf{x}} f(\mathbf{x}^*) < 0\) indicates that the Hessian matrix is negative definite, see {\hyperref[\detokenize{ch/optimization/intro:optimization:hessian:extreme}]{\sphinxcrossref{Example 59.1.1}}}.
 \label{ch/optimization/intro:optimization:hessian:extreme}
-\begin{sphinxadmonition}{note}{Example 58.1.1 (Positive/negative definite Hessian)}
+\begin{sphinxadmonition}{note}{Example 59.1.1 (Positive/negative definite Hessian)}
 
 
 
@@ -19933,7 +21328,7 @@ with constraints, such as
 
 \chapter{Markov Processes}
 \label{\detokenize{ch/rl/mdp:markov-processes}}\label{\detokenize{ch/rl/mdp:rl-mdp}}\label{\detokenize{ch/rl/mdp::doc}}\label{ch/rl/mdp:def:stoch-process}
-\begin{sphinxadmonition}{note}{Definition 60.1 (Stochastic process)}
+\begin{sphinxadmonition}{note}{Definition 61.1 (Stochastic process)}
 
 
 
@@ -19944,7 +21339,7 @@ A stochastic process is as collection of random variables \(X(t)\) defined on a 
 \end{equation*}\end{sphinxadmonition}
 
 \sphinxAtStartPar
-Markov process is a memomry\sphinxhyphen{}less stochastic process (see def {\hyperref[\detokenize{ch/rl/mdp:def:stoch-process}]{\sphinxcrossref{Definition 60.1}}}). For discrete\sphinxhyphen{}time Markov processes, state at time \(n\) only depends on state at time \(n-1\)
+Markov process is a memomry\sphinxhyphen{}less stochastic process (see def {\hyperref[\detokenize{ch/rl/mdp:def:stoch-process}]{\sphinxcrossref{Definition 61.1}}}). For discrete\sphinxhyphen{}time Markov processes, state at time \(n\) only depends on state at time \(n-1\)
 \begin{equation*}
 \begin{split}\langle S, P, \mu \rangle\end{split}
 \end{equation*}
@@ -20246,7 +21641,7 @@ Bellman expectation equation for the action\sphinxhyphen{}value function \(Q^{\p
 \sphinxAtStartPar
 \sphinxstylestrong{Optimal value functions, and optimal policies}
 \label{ch/rl/mdp:def:optimal-value-fcns}
-\begin{sphinxadmonition}{note}{Definition 60.2.1 (Optimal value functions)}
+\begin{sphinxadmonition}{note}{Definition 61.2.1 (Optimal value functions)}
 
 
 
@@ -20269,7 +21664,7 @@ Valus functions define a partial ordering of policies,
 \begin{equation*}
 \begin{split}\pi \ge \pi' \ \text{if} \ V^{\pi}(s) \ge V^{\pi'} \, \forall s \in S \ .\end{split}
 \end{equation*}\label{ch/rl/mdp:theorem-2}
-\begin{sphinxadmonition}{note}{Theorem 60.2.1 (Optimal policies)}
+\begin{sphinxadmonition}{note}{Theorem 61.2.1 (Optimal policies)}
 
 
 
@@ -20305,7 +21700,7 @@ a deterministic optimal policy exists, and it’s found optimizing action\sphinx
 \sphinxAtStartPar
 \sphinxstylestrong{todo}
 \label{ch/rl/mdp:prop:optimal-v-q}
-\begin{sphinxadmonition}{note}{Property 60.2.1 (Property: optimal state\sphinxhyphen{}value and action\sphinxhyphen{}value functions)}
+\begin{sphinxadmonition}{note}{Property 61.2.1 (Property: optimal state\sphinxhyphen{}value and action\sphinxhyphen{}value functions)}
 
 
 \begin{equation}\label{equation:ch/rl/mdp:eq:optimality-condition}
@@ -20317,7 +21712,7 @@ a deterministic optimal policy exists, and it’s found optimizing action\sphinx
 
 \sphinxAtStartPar
 \sphinxstylestrong{Bellman optimality equations.}
-Using {\hyperref[\detokenize{ch/rl/mdp:prop:optimal-v-q}]{\sphinxcrossref{Property 60.2.1}}} and the expression of action\sphinxhyphen{}value function in \eqref{equation:ch/rl/mdp:eq:bellman:q:exp}
+Using {\hyperref[\detokenize{ch/rl/mdp:prop:optimal-v-q}]{\sphinxcrossref{Property 61.2.1}}} and the expression of action\sphinxhyphen{}value function in \eqref{equation:ch/rl/mdp:eq:bellman:q:exp}
 \begin{equation*}
 \begin{split}\begin{aligned}
   V^{*}(s) 
@@ -20484,7 +21879,7 @@ and it “improves the value function” (which value function?) of any state,
 \sphinxAtStartPar
 In stochastic optimization, usually {\hyperref[\detokenize{ch/rl/mdp_sol_rl:rl-mdp-sol-rl-control-improv-eps-greedy}]{\sphinxcrossref{\DUrole{std,std-ref}{\(\varepsilon\)\sphinxhyphen{}greedy improvement}}}} is introduced to improve \sphinxstylestrong{exploration} and try to avoid converging to local optimum.
 \label{ch/rl/mdp_sol_dp_lp:thm:pi}
-\begin{sphinxadmonition}{note}{Theorem 61.2.1 (Policy improvement theorem)}
+\begin{sphinxadmonition}{note}{Theorem 62.2.1 (Policy improvement theorem)}
 
 
 
@@ -20877,7 +22272,7 @@ MC evaluation is model\sphinxhyphen{}free. To keep a model\sphinxhyphen{}free co
 \right.
 \end{split}
 \end{equation*}\label{ch/rl/mdp_sol_rl:theorem-0}
-\begin{sphinxadmonition}{note}{Theorem 62.2.1 (\protect\(\varepsilon\protect\)\sphinxhyphen{}greedy Policy Improvement)}
+\begin{sphinxadmonition}{note}{Theorem 63.2.1 (\protect\(\varepsilon\protect\)\sphinxhyphen{}greedy Policy Improvement)}
 
 
 
@@ -20897,7 +22292,7 @@ For …, the \(\varepsilon\)\sphinxhyphen{}greedy policy \(\pi'\) w.r.t. \(Q^{\p
 \end{equation*}
 \sphinxAtStartPar
 having used in \((1)\) …
-And for the policy improvement theorem {\hyperref[\detokenize{ch/rl/mdp_sol_dp_lp:thm:pi}]{\sphinxcrossref{Theorem 61.2.1}}}, \(V^{\pi'}(s) \ge V(s)\). \sphinxstylestrong{todo} \sphinxstyleemphasis{Check it!}
+And for the policy improvement theorem {\hyperref[\detokenize{ch/rl/mdp_sol_dp_lp:thm:pi}]{\sphinxcrossref{Theorem 62.2.1}}}, \(V^{\pi'}(s) \ge V(s)\). \sphinxstylestrong{todo} \sphinxstyleemphasis{Check it!}
 
 \sphinxAtStartPar
 \sphinxstylestrong{GLIE (Greedy in the Limit of Infinite Exploration)} …
@@ -21118,19 +22513,19 @@ actor\sphinxhyphen{}critic
 \item\relax\sphinxstyleindexentry{def:stoch\sphinxhyphen{}process}\sphinxstyleindexextra{ch/rl/mdp}\sphinxstyleindexpageref{ch/rl/mdp:\detokenize{def:stoch-process}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}0}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}0}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/calculus\sphinxhyphen{}euclidean}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/calculus-euclidean:\detokenize{definition-0}}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}0}\sphinxstyleindexextra{ch/complex/analysis}\sphinxstyleindexpageref{ch/complex/analysis:\detokenize{definition-0}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}1}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}1}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/calculus\sphinxhyphen{}euclidean}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/calculus-euclidean:\detokenize{definition-1}}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}1}\sphinxstyleindexextra{ch/complex/analysis}\sphinxstyleindexpageref{ch/complex/analysis:\detokenize{definition-1}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}2}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}2}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/calculus\sphinxhyphen{}euclidean}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/calculus-euclidean:\detokenize{definition-2}}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}2}\sphinxstyleindexextra{ch/complex/analysis}\sphinxstyleindexpageref{ch/complex/analysis:\detokenize{definition-2}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}3}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}3}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/calculus\sphinxhyphen{}euclidean}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/calculus-euclidean:\detokenize{definition-3}}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}3}\sphinxstyleindexextra{ch/complex/analysis}\sphinxstyleindexpageref{ch/complex/analysis:\detokenize{definition-3}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}4}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}4}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/algebra}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/algebra:\detokenize{definition-4}}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}4}\sphinxstyleindexextra{ch/complex/analysis}\sphinxstyleindexpageref{ch/complex/analysis:\detokenize{definition-4}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}5}
 \item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}5}\sphinxstyleindexextra{ch/complex/analysis}\sphinxstyleindexpageref{ch/complex/analysis:\detokenize{definition-5}}
