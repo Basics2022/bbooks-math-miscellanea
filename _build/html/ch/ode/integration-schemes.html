@@ -898,7 +898,7 @@ Contents<div class="sd-summary-down docutils">
 \[\begin{split}\begin{aligned}
   \begin{bmatrix} x \\  h v \end{bmatrix}_{i+1} 
   &amp; = \begin{bmatrix} 1 &amp; \cdot \\ -\frac{h \Omega^2}{2} &amp; 1 \end{bmatrix}  \begin{bmatrix} 1 - \frac{h^2 \Omega^2}{2} &amp; 1 \\ -\frac{h^2 \Omega^2}{2} &amp; 1 \end{bmatrix} \begin{bmatrix} x \\ h v \end{bmatrix}_i = \\
-  &amp; = \begin{bmatrix} 1 - \frac{h^2 \Omega^2}{2} &amp; 1 \\ - h^2 \Omega^2 \left( 1 - \frac{h^2 \Omega^2}{2} \right) &amp;  1-\frac{h^2 \Omega^2}{2} \end{bmatrix} \begin{bmatrix} x \\ h v \end{bmatrix}_i \ .
+  &amp; = \begin{bmatrix} 1 - \frac{h^2 \Omega^2}{2} &amp; 1 \\ - h^2 \Omega^2 \left( 1 - \frac{h^2 \Omega^2}{4} \right) &amp;  1-\frac{h^2 \Omega^2}{2} \end{bmatrix} \begin{bmatrix} x \\ h v \end{bmatrix}_i \ .
 \end{aligned}\end{split}\]</div>
 <p>Generalized test equation has <span class="math notranslate nohighlight">\(f(x,v) = 2 \sigma v - ( \sigma^2 + \omega^2) x = - 2 \xi \Omega v - \Omega^2 x\)</span>, with</p>
 <div class="math notranslate nohighlight">
@@ -919,7 +919,7 @@ Contents<div class="sd-summary-down docutils">
 \[\begin{split}\begin{aligned}
   \begin{bmatrix} x \\  h v \end{bmatrix}_{i+1} 
   &amp; = \begin{bmatrix} 1 &amp; \cdot \\ -\frac{h^2 \Omega^2}{2 (1+\xi h \Omega)} &amp; \frac{1}{1+\xi h \Omega} \end{bmatrix} \begin{bmatrix} 1 - \frac{h^2 \Omega^2}{2} &amp; 1 - \xi h \Omega \\ -\frac{h^2 \Omega^2}{2} &amp; 1 - \xi h \Omega \end{bmatrix} \begin{bmatrix} x \\ h v \end{bmatrix}_i = \\
-  &amp; = \begin{bmatrix} 1 - \frac{h^2 \Omega^2}{2} &amp; 1 \\ - \frac{h^2 \Omega^2}{1+\xi h \Omega} \left( 1 - \frac{h^2 \Omega^2}{2} \right) &amp; \frac{1 - \xi h \Omega}{1 + \xi h \Omega} \left( 1-\frac{h^2 \Omega^2}{2} \right) \end{bmatrix} \begin{bmatrix} x \\ h v \end{bmatrix}_i \ .
+  &amp; = \begin{bmatrix} 1 - \frac{h^2 \Omega^2}{2} &amp; 1 - \xi h \Omega \\ - \frac{h^2 \Omega^2}{1+\xi h \Omega} \left( 1 - \frac{h^2 \Omega^2}{4} \right) &amp; \frac{1 - \xi h \Omega}{1 + \xi h \Omega} \left( 1-\frac{h^2 \Omega^2}{2} \right) \end{bmatrix} \begin{bmatrix} x \\ h v \end{bmatrix}_i \ .
 \end{aligned}\end{split}\]</div>
 <ul class="simple">
 <li><p>if <span class="math notranslate nohighlight">\(\xi^2 \ge 1\)</span>, then the eigenvalues are real</p></li>
@@ -958,25 +958,30 @@ Contents<div class="sd-summary-down docutils">
 
 <span class="k">def</span> <span class="nf">ampl_A_fun</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">A_fun</span><span class="p">):</span>
     <span class="n">evals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigvals</span><span class="p">(</span><span class="n">A_fun</span><span class="p">(</span><span class="n">z</span><span class="p">))</span>
-    <span class="n">ieval</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">evals</span><span class="p">))</span>
+    <span class="n">ieval</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">absolute</span><span class="p">(</span><span class="n">evals</span><span class="p">))</span>
     
     <span class="k">return</span> <span class="n">evals</span><span class="p">[</span><span class="n">ieval</span><span class="p">]</span>
 
 <span class="k">def</span> <span class="nf">A_lf</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
-    <span class="n">sig</span><span class="p">,</span> <span class="n">om</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">z</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">imag</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
-    <span class="n">Om</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span> <span class="n">sig</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">om</span><span class="o">**</span><span class="mi">2</span> <span class="p">)</span>
-    <span class="k">if</span> <span class="n">Om</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-        
-    <span class="n">xi</span> <span class="o">=</span> <span class="o">-</span> <span class="n">sig</span> <span class="o">/</span> <span class="n">Om</span>
+    <span class="n">sigh</span><span class="p">,</span> <span class="n">omh</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">z</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">imag</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
 
-    <span class="n">n1</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">Om</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="mi">2</span>
-    <span class="n">d1</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">xi</span> <span class="o">*</span> <span class="n">Om</span>
+    <span class="n">bh</span> <span class="o">=</span> <span class="o">-</span> <span class="n">sigh</span>
+    <span class="n">ch2</span> <span class="o">=</span> <span class="n">sigh</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">omh</span><span class="o">**</span><span class="mi">2</span>
+    <span class="c1"># if c == 0:</span>
+    <span class="c1">#     return np.eye(2)</span>
+
+    <span class="n">n1</span> <span class="o">=</span> <span class="mf">1.</span> <span class="o">-</span> <span class="n">bh</span>
+    <span class="n">n2</span> <span class="o">=</span> <span class="mf">1.</span> <span class="o">-</span> <span class="n">ch2</span><span class="o">/</span><span class="mf">2.</span>
+    <span class="n">n4</span> <span class="o">=</span> <span class="mf">1.</span> <span class="o">-</span> <span class="n">ch2</span><span class="o">/</span><span class="mf">4.</span>
+    <span class="n">d1</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">bh</span>
     
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">n1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="n">Om</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="n">d1</span><span class="o">*</span><span class="n">n1</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">xi</span><span class="o">*</span><span class="n">Om</span><span class="p">)</span><span class="o">/</span><span class="n">d1</span><span class="o">*</span><span class="n">n1</span><span class="p">]])</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">n2</span><span class="p">,</span> <span class="n">n1</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="n">ch2</span><span class="o">*</span><span class="n">n4</span><span class="o">/</span><span class="n">d1</span><span class="p">,</span> <span class="n">n1</span><span class="o">/</span><span class="n">d1</span><span class="o">*</span><span class="n">n2</span><span class="p">]])</span>
+    
 
 <span class="n">ampl_fun_bdf2</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="n">ampl_A_fun</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">A_bdf2</span><span class="p">)</span>
-<span class="n">ampl_fun_lf</span>   <span class="o">=</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="n">ampl_A_fun</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">A_lf</span><span class="p">)</span>
+<span class="n">ampl_fun_lf</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="n">ampl_A_fun</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">A_lf</span><span class="p">)</span>
+
+<span class="c1"># ampl_fun_lf = lambda z: np.max(np.absolute(np.linalg.eigvals(A_lf(z))))</span>
 
 <span class="n">ampl_funs</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;EE&#39;</span><span class="p">:</span> <span class="n">ampl_fun_ee</span><span class="p">,</span>
@@ -988,14 +993,153 @@ Contents<div class="sd-summary-down docutils">
 <span class="n">n_methods</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ampl_funs</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">complex_amplification_fun</span><span class="p">(</span><span class="n">ampl_fun</span><span class="p">):</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">5.001</span><span class="p">,</span> <span class="mf">5.001</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">5.001</span><span class="p">,</span> <span class="mf">5.001</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
     <span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
     <span class="n">Z</span> <span class="o">=</span> <span class="n">X</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">Y</span>
 
     <span class="k">return</span> <span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">ampl_fun</span><span class="p">)(</span><span class="n">Z</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">ampl_funs</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dict_keys([&#39;EE&#39;, &#39;IE&#39;, &#39;CN&#39;, &#39;BDF2&#39;, &#39;Leapfrog&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">integrate_test_ee</span><span class="p">(</span><span class="n">lam</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">tv</span><span class="p">,):</span>
+    <span class="n">dt</span> <span class="o">=</span> <span class="n">tv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">tv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">nt</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">tv</span><span class="p">)</span>
+    <span class="n">xx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nt</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">);</span>   <span class="n">xx</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x0</span>
 
-<span class="c1">#&gt; </span>
+    <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">tv</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">xx</span><span class="p">[</span><span class="n">it</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span> <span class="mf">1.</span> <span class="o">+</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">lam</span> <span class="p">)</span> <span class="o">*</span> <span class="n">xx</span><span class="p">[</span><span class="n">it</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">xx</span>
+
+
+<span class="k">def</span> <span class="nf">integrate_test_ie</span><span class="p">(</span><span class="n">lam</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">tv</span><span class="p">,):</span>
+    <span class="n">dt</span> <span class="o">=</span> <span class="n">tv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">tv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">nt</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">tv</span><span class="p">)</span>
+    <span class="n">xx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nt</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">);</span>  <span class="n">xx</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x0</span>
+
+    <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">tv</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">xx</span><span class="p">[</span><span class="n">it</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">xx</span><span class="p">[</span><span class="n">it</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span> <span class="mf">1.</span> <span class="o">-</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">lam</span> <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">xx</span>
+
+
+<span class="k">def</span> <span class="nf">integrate_test_cn</span><span class="p">(</span><span class="n">lam</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">tv</span><span class="p">,):</span>
+    <span class="n">dt</span> <span class="o">=</span> <span class="n">tv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">tv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">nt</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">tv</span><span class="p">)</span>
+    <span class="n">xx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nt</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">);</span>   <span class="n">xx</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x0</span>
+
+    <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">tv</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">xx</span><span class="p">[</span><span class="n">it</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">xx</span><span class="p">[</span><span class="n">it</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span> <span class="mf">1.</span> <span class="o">+</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">lam</span><span class="o">/</span><span class="mi">2</span> <span class="p">)</span> <span class="o">/</span> <span class="p">(</span> <span class="mf">1.</span> <span class="o">-</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">lam</span><span class="o">/</span><span class="mi">2</span> <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">xx</span>
+
+
+<span class="k">def</span> <span class="nf">integrate_test_bdf2</span><span class="p">(</span><span class="n">lam</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">tv</span><span class="p">,):</span>
+    <span class="n">dt</span> <span class="o">=</span> <span class="n">tv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">tv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">nt</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">tv</span><span class="p">)</span>
+    <span class="n">xx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nt</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">);</span>   <span class="n">xx</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x0</span>
+
+    <span class="c1">#&gt; First step: implicit Euler</span>
+    <span class="n">xx</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">xx</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">lam</span> <span class="p">)</span>
+     
+    <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">tv</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">xx</span><span class="p">[</span><span class="n">it</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span> <span class="mi">4</span><span class="o">*</span><span class="n">xx</span><span class="p">[</span><span class="n">it</span><span class="p">]</span> <span class="o">-</span> <span class="n">xx</span><span class="p">[</span><span class="n">it</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span> <span class="o">/</span> <span class="p">(</span> <span class="mi">3</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">lam</span> <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">xx</span>
+
+
+<span class="k">def</span> <span class="nf">integrate_test_leapfrog</span><span class="p">(</span><span class="n">lam</span><span class="p">,</span> <span class="n">z0</span><span class="p">,</span> <span class="n">tv</span><span class="p">,):</span>
+
+    <span class="n">sig</span><span class="p">,</span> <span class="n">om</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">lam</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">imag</span><span class="p">(</span><span class="n">lam</span><span class="p">)</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="o">-</span> <span class="n">sig</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">sig</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">om</span><span class="o">**</span><span class="mi">2</span>
+    
+    <span class="n">dt</span> <span class="o">=</span> <span class="n">tv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">tv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">nt</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">tv</span><span class="p">)</span>
+    
+    <span class="n">xx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nt</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">);</span>   <span class="n">xx</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">z0</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">vv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nt</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">);</span>   <span class="n">vv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">z0</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">tv</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">xx</span><span class="p">[</span><span class="n">it</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">xx</span><span class="p">[</span><span class="n">it</span><span class="p">]</span> <span class="o">+</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">vv</span><span class="p">[</span><span class="n">it</span><span class="p">]</span> <span class="o">+</span> <span class="n">dt</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span> <span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">b</span> <span class="o">*</span> <span class="n">vv</span><span class="p">[</span><span class="n">it</span><span class="p">]</span> <span class="o">-</span> <span class="n">c</span> <span class="o">*</span> <span class="n">xx</span><span class="p">[</span><span class="n">it</span><span class="p">]</span> <span class="p">)</span>
+        <span class="n">vv</span><span class="p">[</span><span class="n">it</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span> <span class="n">vv</span><span class="p">[</span><span class="n">it</span><span class="p">]</span> <span class="o">+</span> <span class="n">dt</span><span class="o">/</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span> <span class="o">-</span><span class="n">c</span><span class="o">*</span> <span class="p">(</span> <span class="n">xx</span><span class="p">[</span><span class="n">it</span><span class="p">]</span> <span class="o">+</span> <span class="n">xx</span><span class="p">[</span><span class="n">it</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">b</span> <span class="o">*</span> <span class="n">vv</span><span class="p">[</span><span class="n">it</span><span class="p">]</span> <span class="p">)</span> <span class="p">)</span> <span class="o">/</span> <span class="p">(</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">dt</span> <span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">xx</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+
+<span class="n">dt</span><span class="p">,</span> <span class="n">nt</span> <span class="o">=</span> <span class="mf">1.</span><span class="p">,</span> <span class="mi">100</span>
+<span class="n">tv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">nt</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span>
+
+<span class="n">nz_real</span> <span class="o">=</span> <span class="mi">17</span>
+<span class="n">nz_imag</span> <span class="o">=</span> <span class="mi">17</span>
+<span class="n">z_real</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">5.123</span><span class="p">,</span> <span class="mf">5.123</span><span class="p">,</span> <span class="n">nz_real</span><span class="p">)</span>
+<span class="n">z_imag</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">5.123</span><span class="p">,</span> <span class="mf">5.123</span><span class="p">,</span> <span class="n">nz_imag</span><span class="p">)</span>
+
+<span class="n">Zreal</span><span class="p">,</span> <span class="n">Zimag</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">z_real</span><span class="p">,</span> <span class="n">z_imag</span><span class="p">)</span>
+
+<span class="n">XX</span> <span class="o">=</span> <span class="p">{</span> <span class="n">k</span><span class="p">:</span> <span class="p">{</span>  <span class="p">}</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">ampl_funs</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="p">}</span>
+
+<span class="n">XX</span><span class="p">[</span><span class="s1">&#39;EE&#39;</span>  <span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;ic&#39;</span><span class="p">:</span> <span class="mf">1.</span><span class="p">,</span> <span class="s1">&#39;fun&#39;</span><span class="p">:</span> <span class="n">integrate_test_ee</span><span class="p">,</span> <span class="p">}</span>
+<span class="n">XX</span><span class="p">[</span><span class="s1">&#39;IE&#39;</span>  <span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;ic&#39;</span><span class="p">:</span> <span class="mf">1.</span><span class="p">,</span> <span class="s1">&#39;fun&#39;</span><span class="p">:</span> <span class="n">integrate_test_ie</span><span class="p">,</span> <span class="p">}</span>
+<span class="n">XX</span><span class="p">[</span><span class="s1">&#39;CN&#39;</span>  <span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;ic&#39;</span><span class="p">:</span> <span class="mf">1.</span><span class="p">,</span> <span class="s1">&#39;fun&#39;</span><span class="p">:</span> <span class="n">integrate_test_cn</span><span class="p">,</span> <span class="p">}</span>
+<span class="n">XX</span><span class="p">[</span><span class="s1">&#39;BDF2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;ic&#39;</span><span class="p">:</span> <span class="mf">1.</span><span class="p">,</span> <span class="s1">&#39;fun&#39;</span><span class="p">:</span> <span class="n">integrate_test_bdf2</span><span class="p">,</span> <span class="p">}</span>
+<span class="n">XX</span><span class="p">[</span><span class="s1">&#39;Leapfrog&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;ic&#39;</span><span class="p">:</span> <span class="p">[</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">.0</span> <span class="p">],</span> <span class="s1">&#39;fun&#39;</span><span class="p">:</span> <span class="n">integrate_test_leapfrog</span><span class="p">,</span> <span class="p">}</span>
+
+<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">XX</span><span class="p">:</span>
+     <span class="n">XX</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="s1">&#39;stability&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nz_real</span><span class="p">,</span> <span class="n">nz_imag</span><span class="p">))</span>
+
+
+<span class="c1">#&gt; Numerical integration of test equation</span>
+<span class="k">for</span> <span class="n">method</span> <span class="ow">in</span> <span class="n">XX</span><span class="p">:</span>
+    <span class="n">integrate_test</span> <span class="o">=</span> <span class="n">XX</span><span class="p">[</span><span class="n">method</span><span class="p">][</span><span class="s1">&#39;fun&#39;</span><span class="p">]</span>
+    <span class="n">x0</span> <span class="o">=</span> <span class="n">XX</span><span class="p">[</span><span class="n">method</span><span class="p">][</span><span class="s1">&#39;ic&#39;</span><span class="p">]</span>
+
+    <span class="n">i_imag</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">zi</span> <span class="ow">in</span> <span class="n">z_imag</span><span class="p">:</span>
+        <span class="n">i_real</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">zr</span> <span class="ow">in</span> <span class="n">z_real</span><span class="p">:</span>
+            <span class="n">z</span> <span class="o">=</span> <span class="n">zr</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">zi</span>
+    
+            <span class="n">xx</span> <span class="o">=</span> <span class="n">integrate_test</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">tv</span><span class="p">)</span>
+            
+            <span class="c1">#&gt; Check if diverging or not</span>
+            <span class="k">if</span> <span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">xx</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mf">1.001</span> <span class="p">):</span>
+                <span class="n">XX</span><span class="p">[</span><span class="n">method</span><span class="p">][</span><span class="s1">&#39;stability&#39;</span><span class="p">][</span><span class="n">i_imag</span><span class="p">,</span> <span class="n">i_real</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">XX</span><span class="p">[</span><span class="n">method</span><span class="p">][</span><span class="s1">&#39;stability&#39;</span><span class="p">][</span><span class="n">i_imag</span><span class="p">,</span> <span class="n">i_real</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+ 
+            <span class="n">i_real</span> <span class="o">+=</span> <span class="mi">1</span>
+        
+        <span class="n">i_imag</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&gt; </span>
 <span class="n">ncols</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="n">nrows</span> <span class="o">=</span> <span class="p">(</span> <span class="n">n_methods</span> <span class="o">-</span> <span class="mi">1</span> <span class="p">)</span> <span class="o">//</span> <span class="n">ncols</span> <span class="o">+</span> <span class="mi">1</span>
 
@@ -1008,13 +1152,27 @@ Contents<div class="sd-summary-down docutils">
     <span class="n">icol</span> <span class="o">=</span> <span class="n">i_method</span> <span class="o">%</span> <span class="n">ncols</span>
 
     <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">G</span> <span class="o">=</span> <span class="n">complex_amplification_fun</span><span class="p">(</span><span class="n">fun</span><span class="p">)</span>
-    <span class="n">ax</span><span class="p">[</span><span class="n">irow</span><span class="p">,</span> <span class="n">icol</span><span class="p">]</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">G</span><span class="p">),</span> <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="mf">1.0</span><span class="p">],</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="p">[</span><span class="n">irow</span><span class="p">,</span> <span class="n">icol</span><span class="p">]</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">G</span><span class="p">),</span> <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span> <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;#ffcccc&#39;</span><span class="p">])</span>
+    
+    <span class="n">ax</span><span class="p">[</span><span class="n">irow</span><span class="p">,</span> <span class="n">icol</span><span class="p">]</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">absolute</span><span class="p">(</span><span class="n">G</span><span class="p">),</span> <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="mf">1.0</span><span class="p">],</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">irow</span><span class="p">,</span> <span class="n">icol</span><span class="p">]</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">absolute</span><span class="p">(</span><span class="n">G</span><span class="p">),</span> <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span> <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;#ffcccc&#39;</span><span class="p">])</span>
     <span class="n">ax</span><span class="p">[</span><span class="n">irow</span><span class="p">,</span> <span class="n">icol</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Method: </span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="n">ax</span><span class="p">[</span><span class="n">irow</span><span class="p">,</span> <span class="n">icol</span><span class="p">]</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
     <span class="n">ax</span><span class="p">[</span><span class="n">irow</span><span class="p">,</span> <span class="n">icol</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Re(z)&quot;</span><span class="p">);</span> <span class="n">ax</span><span class="p">[</span><span class="n">irow</span><span class="p">,</span> <span class="n">icol</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Im(z)&quot;</span><span class="p">);</span> <span class="n">ax</span><span class="p">[</span><span class="n">irow</span><span class="p">,</span> <span class="n">icol</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
 
-    <span class="n">i_method</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="c1">#&gt;</span>
+    <span class="n">stable_mask</span> <span class="o">=</span> <span class="p">(</span> <span class="n">XX</span><span class="p">[</span><span class="n">label</span><span class="p">][</span><span class="s1">&#39;stability&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">)</span>
+    <span class="n">unstable_mask</span> <span class="o">=</span> <span class="p">(</span> <span class="n">XX</span><span class="p">[</span><span class="n">label</span><span class="p">][</span><span class="s1">&#39;stability&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">)</span>
+    
+    <span class="n">ax</span><span class="p">[</span><span class="n">irow</span><span class="p">,</span> <span class="n">icol</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span> <span class="n">Zreal</span><span class="p">[</span><span class="n">stable_mask</span><span class="p">],</span> 
+                            <span class="n">Zimag</span><span class="p">[</span><span class="n">stable_mask</span><span class="p">],</span>
+                            <span class="n">s</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Stable&#39;</span><span class="p">)</span>
+   
+    <span class="n">ax</span><span class="p">[</span><span class="n">irow</span><span class="p">,</span> <span class="n">icol</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span> <span class="n">Zreal</span><span class="p">[</span><span class="n">unstable_mask</span><span class="p">],</span> 
+                            <span class="n">Zimag</span><span class="p">[</span><span class="n">unstable_mask</span><span class="p">],</span>
+                            <span class="n">s</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Unstable&#39;</span><span class="p">)</span>
+    
+    <span class="n">i_method</span> <span class="o">+=</span> <span class="mi">1</span>  
+
 
 <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Stability regions of numerical methods. |G(z)| &lt; 1&quot;</span><span class="p">)</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
@@ -1026,7 +1184,7 @@ Contents<div class="sd-summary-down docutils">
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d3fe38ab99e938fafd4cb98af43b9f73db5809abcf1f22a928275990d3b82418.png" src="../../_images/d3fe38ab99e938fafd4cb98af43b9f73db5809abcf1f22a928275990d3b82418.png" />
+<img alt="../../_images/61095163d579d0d1ddcfb6481df50a8e55285528a3636f94a19b76456e267ffa.png" src="../../_images/61095163d579d0d1ddcfb6481df50a8e55285528a3636f94a19b76456e267ffa.png" />
 </div>
 </div>
 <p><strong>A-stability.</strong> Implicit Euler and Crank-Nicolson methods are A-stable, while explicit Euler is not.</p>
@@ -1035,24 +1193,18 @@ Contents<div class="sd-summary-down docutils">
 <h4><span class="section-number">27.3.4.4. </span>G(z): absolute value and phase<a class="headerlink" href="#g-z-absolute-value-and-phase" title="Permalink to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">ampl_fun_bdf2 = lambda z: np.max(np.abs(np.linalg.eigvals(A_bdf2(z))))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ampl_fun_bdf2</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigvals</span><span class="p">(</span><span class="n">A_bdf2</span><span class="p">(</span><span class="n">z</span><span class="p">))))</span>    
+<span class="n">ampl_fun_lf</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigvals</span><span class="p">(</span><span class="n">A_lf</span><span class="p">(</span><span class="n">z</span><span class="p">))))</span>
 
-<span class="sd">def A_lf(z):</span>
-<span class="sd">    sig, om = np.real(z), np.imag(z)</span>
-<span class="sd">    Om = np.sqrt( sig**2 + om**2 )</span>
-<span class="sd">    if Om == 0:</span>
-<span class="sd">        return np.eye(2)</span>
-<span class="sd">        </span>
-<span class="sd">    xi = - sig / Om</span>
+<span class="n">ampl_funs</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;EE&#39;</span><span class="p">:</span> <span class="n">ampl_fun_ee</span><span class="p">,</span>
+    <span class="s1">&#39;IE&#39;</span><span class="p">:</span> <span class="n">ampl_fun_ie</span><span class="p">,</span>
+    <span class="s1">&#39;CN&#39;</span><span class="p">:</span> <span class="n">ampl_fun_cn</span><span class="p">,</span>
+    <span class="s1">&#39;BDF2&#39;</span><span class="p">:</span> <span class="n">ampl_fun_bdf2</span><span class="p">,</span>
+    <span class="s1">&#39;Leapfrog&#39;</span><span class="p">:</span> <span class="n">ampl_fun_lf_2</span>
+<span class="p">}</span>
+<span class="n">n_methods</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ampl_funs</span><span class="p">)</span>
 
-<span class="sd">    n1 = 1 - Om**2 / 2</span>
-<span class="sd">    d1 = 1 + xi * Om</span>
-<span class="sd">    </span>
-<span class="sd">    return np.array([[n1, 1], [-Om**2/d1*n1, (1-xi*Om)/d1*n1]])</span>
-<span class="sd">    </span>
-<span class="sd">ampl_fun_lf = lambda z: np.max(np.abs(np.linalg.eigvals(A_lf(z))))</span>
-<span class="sd">&quot;&quot;&quot;</span>
 <span class="c1">#&gt; </span>
 <span class="n">ncols</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="n">nrows</span> <span class="o">=</span> <span class="p">(</span> <span class="n">n_methods</span> <span class="o">-</span> <span class="mi">1</span> <span class="p">)</span> <span class="o">//</span> <span class="n">ncols</span> <span class="o">+</span> <span class="mi">1</span>
@@ -1066,9 +1218,9 @@ Contents<div class="sd-summary-down docutils">
     <span class="n">icol</span> <span class="o">=</span> <span class="n">i_method</span> <span class="o">%</span> <span class="n">ncols</span>
 
     <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">G</span> <span class="o">=</span> <span class="n">complex_amplification_fun</span><span class="p">(</span><span class="n">fun</span><span class="p">)</span>
-    <span class="n">ax</span><span class="p">[</span><span class="n">irow</span><span class="p">,</span> <span class="n">icol</span><span class="p">]</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">G</span><span class="p">),</span> <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="mf">1.0</span><span class="p">],</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">irow</span><span class="p">,</span> <span class="n">icol</span><span class="p">]</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">absolute</span><span class="p">(</span><span class="n">G</span><span class="p">),</span> <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="mf">1.0</span><span class="p">],</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
     <span class="c1"># ax[irow, icol].contourf(X, Y, np.abs(G), levels=[0., 1.0], colors=[&#39;#ffcccc&#39;])</span>
-    <span class="n">ax</span><span class="p">[</span><span class="n">irow</span><span class="p">,</span> <span class="n">icol</span><span class="p">]</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">G</span><span class="p">)),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;hsv&#39;</span><span class="p">,</span> <span class="n">shading</span><span class="o">=</span><span class="s1">&#39;gouraud&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="mi">3</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">1.</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">irow</span><span class="p">,</span> <span class="n">icol</span><span class="p">]</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">absolute</span><span class="p">(</span><span class="n">G</span><span class="p">)),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;hsv&#39;</span><span class="p">,</span> <span class="n">shading</span><span class="o">=</span><span class="s1">&#39;gouraud&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="mi">3</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">1.</span><span class="p">)</span>
     <span class="n">ax</span><span class="p">[</span><span class="n">irow</span><span class="p">,</span> <span class="n">icol</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Method: </span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="n">ax</span><span class="p">[</span><span class="n">irow</span><span class="p">,</span> <span class="n">icol</span><span class="p">]</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
     <span class="n">ax</span><span class="p">[</span><span class="n">irow</span><span class="p">,</span> <span class="n">icol</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Re(z)&quot;</span><span class="p">);</span> <span class="n">ax</span><span class="p">[</span><span class="n">irow</span><span class="p">,</span> <span class="n">icol</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Im(z)&quot;</span><span class="p">);</span> <span class="n">ax</span><span class="p">[</span><span class="n">irow</span><span class="p">,</span> <span class="n">icol</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
@@ -1085,7 +1237,7 @@ Contents<div class="sd-summary-down docutils">
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/a756c4cab722668426d04147f6bc577e69189fec16a8b7457e289c0bffc7ce67.png" src="../../_images/a756c4cab722668426d04147f6bc577e69189fec16a8b7457e289c0bffc7ce67.png" />
+<img alt="../../_images/d7e7a1aa16974b7e6588e5f82f8023e4b001a8fa76a0e0163050b1359f347b3e.png" src="../../_images/d7e7a1aa16974b7e6588e5f82f8023e4b001a8fa76a0e0163050b1359f347b3e.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1118,7 +1270,7 @@ Contents<div class="sd-summary-down docutils">
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/2c8b33d4b11f6a4300ee2eb0ba561641773b5bc9598caf239f98b61629d1a5dd.png" src="../../_images/2c8b33d4b11f6a4300ee2eb0ba561641773b5bc9598caf239f98b61629d1a5dd.png" />
+<img alt="../../_images/b7d07a2a395a9753d976f77aabb58ceb8bf7027ce432c9d68507d8716e894207.png" src="../../_images/b7d07a2a395a9753d976f77aabb58ceb8bf7027ce432c9d68507d8716e894207.png" />
 </div>
 </div>
 </div>
@@ -1151,7 +1303,7 @@ Contents<div class="sd-summary-down docutils">
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/9759d67ec3236e393779128c44c92a811da61265455241b5ceb6b6cc48c53ecc.png" src="../../_images/9759d67ec3236e393779128c44c92a811da61265455241b5ceb6b6cc48c53ecc.png" />
+<img alt="../../_images/5bcfca15d1e0617d80adb2623860c11ad5ae0f260f3d584c7d04c73757fe7465.png" src="../../_images/5bcfca15d1e0617d80adb2623860c11ad5ae0f260f3d584c7d04c73757fe7465.png" />
 </div>
 </div>
 </div>
@@ -1202,7 +1354,7 @@ Contents<div class="sd-summary-down docutils">
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/e25d7eefc5574a45a3f42944743217f1f396a503ebe55a0aa654e8865f6305c2.png" src="../../_images/e25d7eefc5574a45a3f42944743217f1f396a503ebe55a0aa654e8865f6305c2.png" />
+<img alt="../../_images/8e4af016656ba2b22b36796c348ad65d7d9ddcf47fd7bdd6f3726fbdaab2c274.png" src="../../_images/8e4af016656ba2b22b36796c348ad65d7d9ddcf47fd7bdd6f3726fbdaab2c274.png" />
 </div>
 </div>
 <p><strong>Remark.</strong> Here the info about phase in BDF2 and Leapfrog methods is lost, as the radial spectrum is shown.</p>
