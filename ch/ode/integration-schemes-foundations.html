@@ -65,6 +65,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'ch/ode/integration-schemes-foundations';</script>
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -240,7 +242,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Approximation of Functions</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../function-approx/intro.html">23. Function approximation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../function-approx/intro.html">23. Introduction to function approximation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../function-approx/lagrange-interp.html">24. Lagrange interpolation</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Calculus of Variations</span></p>
@@ -255,10 +257,11 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="integration-schemes.html">29. Integration schemes for Cauchy problems</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">29.1. Foundations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="integration-schemes-common.html">29.2. Families of integration methods</a></li>
-<li class="toctree-l2"><a class="reference internal" href="integration-schemes-stability.html">29.3. Stability properties of numerical schemes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="integration-schemes-simplectic.html">29.4. Simplectic integrators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="integration-schemes-energy-conservation.html">29.5. Energy conservation of integration schemes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="time-integration-mechanical-systems.html">29.6. Time-integration of a mechanical system</a></li>
+<li class="toctree-l2"><a class="reference internal" href="integration-schemes-stability.html">29.3. Stability of a first-order linear system</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="integration-schemes-simplectic.html">29.5. Simplectic integrators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="integration-schemes-energy-conservation.html">29.6. Energy conservation of integration schemes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="time-integration-mechanical-systems.html">29.7. Time-integration of a mechanical system</a></li>
 </ul>
 </li>
 </ul>
@@ -607,7 +610,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -623,6 +628,18 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#local-truncation-error-and-consistency">29.1.1. Local truncation error and Consistency</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#global-truncation-error-and-convergence">29.1.2. Global truncation error and Convergence</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recurrence-relation-for-one-step-methods">29.1.2.1. Recurrence relation for One-step methods</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -634,6 +651,46 @@ document.write(`
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="foundations">
 <span id="ode-integration-schemes-foundations"></span><h1><span class="section-number">29.1. </span>Foundations<a class="headerlink" href="#foundations" title="Permalink to this heading">#</a></h1>
+<p>…</p>
+<div class="section" id="local-truncation-error-and-consistency">
+<h2><span class="section-number">29.1.1. </span>Local truncation error and Consistency<a class="headerlink" href="#local-truncation-error-and-consistency" title="Permalink to this heading">#</a></h2>
+<p>Let</p>
+<div class="math notranslate nohighlight">
+\[y_{n+1} = \Psi(t_{n+1}; y_n, ..., y_{n-k+1}; h, f(\cdot)) = y_n + h A(t_{n+1}; y_n, ..., y_{n-k+1}; h, f(\cdot)) \ ,\]</div>
+<p>the numerical method for the solution of the initial value problem</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \dot{y}(t) &amp; = f(y(t),t) \\
+  y(0) &amp; = y_0 \ . 
+\end{aligned}\end{split}\]</div>
+<p>The <strong>local truncation error</strong> is the error produced by <strong>one step of the method</strong>, i.e.</p>
+<div class="math notranslate nohighlight">
+\[\delta_{n+k}^h := y_{n+k} - y(t_{n+k}) \ ,\]</div>
+<p>being <span class="math notranslate nohighlight">\(y_{n+k}\)</span> the result of one step of the numerical method, and <span class="math notranslate nohighlight">\(y(t_{n+k})\)</span> the exact solution using the same initial conditions (assuming, there’s no error in previous steps). A numerical method is defined <strong>consistent</strong> if</p>
+<div class="math notranslate nohighlight">
+\[\lim_{h \rightarrow 0} \frac{\delta^h_{n+k}}{h} = 0 \ .\]</div>
+<p>The method has <strong>order</strong> <span class="math notranslate nohighlight">\(p\)</span> if</p>
+<div class="math notranslate nohighlight">
+\[\delta^h_{n+k} = O(h^{p+1}) \quad , \quad \text{for } h \rightarrow 0 \ .\]</div>
+</div>
+<div class="section" id="global-truncation-error-and-convergence">
+<h2><span class="section-number">29.1.2. </span>Global truncation error and Convergence<a class="headerlink" href="#global-truncation-error-and-convergence" title="Permalink to this heading">#</a></h2>
+<p>The <strong>global truncation error</strong> <span class="math notranslate nohighlight">\(e_n\)</span> is the accumulation of the error up to time <span class="math notranslate nohighlight">\(t_n\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[e_n^h := y_{n} - y(t_n) \ .\]</div>
+<p>A numerical method is defined <strong>convergent</strong> if</p>
+<div class="math notranslate nohighlight">
+\[\lim_{h \rightarrow 0} \max_n | e_{n} | = 0 \ .\]</div>
+<div class="section" id="recurrence-relation-for-one-step-methods">
+<h3><span class="section-number">29.1.2.1. </span>Recurrence relation for One-step methods<a class="headerlink" href="#recurrence-relation-for-one-step-methods" title="Permalink to this heading">#</a></h3>
+<p>A one-step method reads</p>
+<div class="math notranslate nohighlight">
+\[y_{n+1} = \Psi(t_{n+1}; y_n; h, f(\cdot)) = y_n + h A(t_{n+1}; y_n; h, f(\cdot)) \ ,\]</div>
+<p>A recurrence relation exists between the global and the local truncation error</p>
+<p>…</p>
+<p><em>this implies some bound of the global error, see <a class="reference external" href="https://en.wikipedia.org/wiki/Truncation_error_(numerical_integration)">wiki</a></em></p>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -690,6 +747,24 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#local-truncation-error-and-consistency">29.1.1. Local truncation error and Consistency</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#global-truncation-error-and-convergence">29.1.2. Global truncation error and Convergence</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recurrence-relation-for-one-step-methods">29.1.2.1. Recurrence relation for One-step methods</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

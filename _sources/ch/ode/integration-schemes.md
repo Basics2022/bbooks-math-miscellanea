@@ -1,6 +1,36 @@
 (ode:integration-schemes)=
 # Integration schemes for Cauchy problems
 
+```{dropdown} OLD-Contents
+
+**Schemes.**
+
+* Euler methods, CN
+* RK
+* Multi-step: AB, AM, BDF,...
+* Other methods:
+  * Newmark-beta, Verlet (Leapfrog),...
+
+**Concepts.**
+
+* Convergence:
+* Consistence:
+* Stability:
+  * zero-stability
+  * A-stability
+  * L-stability
+* Stiffness
+
+**Theoretical results**
+
+* Dahlquist barriers
+* Lax-Richtmyer
+
+**References**
+
+* [Advantage of L-stability compared to A-stability](https://math.stackexchange.com/questions/1466978/advantage-of-l-stability-compared-to-a-stability), Mathematics Stack Exchange.
+
+```
 
 Many models of real-life systems are governed by Ordinary Differential Equations (ODEs). While simple linear equations yield elegant analytical solutions, as shown in sections about [Linear ODEs with constant coefficients](ode:linear-equations) and [Linear ODEs in state-space representation](ode:linear:miscellanea), real-world engineering problems demand numerical approximations, as no practical closed-form solution exists.
 
