@@ -635,6 +635,10 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#one-step-methods-ii-runge-kutta-rk">27.2.3. One-step methods (II): Runge-Kutta (RK)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lagrange-polynomial-interpolation-of-a-function">27.2.4. Lagrange polynomial interpolation of a function</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lagrangian-basis">27.2.4.1. Lagrangian basis</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -686,6 +690,25 @@ document.write(`
 </div>
 <div class="section" id="one-step-methods-ii-runge-kutta-rk">
 <h2><span class="section-number">27.2.3. </span>One-step methods (II): Runge-Kutta (RK)<a class="headerlink" href="#one-step-methods-ii-runge-kutta-rk" title="Permalink to this heading">#</a></h2>
+<p>…</p>
+</div>
+<div class="section" id="lagrange-polynomial-interpolation-of-a-function">
+<h2><span class="section-number">27.2.4. </span>Lagrange polynomial interpolation of a function<a class="headerlink" href="#lagrange-polynomial-interpolation-of-a-function" title="Permalink to this heading">#</a></h2>
+<p>Let <span class="math notranslate nohighlight">\(p_n(t)\)</span> a polynomial interpolation of the points <span class="math notranslate nohighlight">\(\left\{(t_k, y_k) \right\}_{k=0:n}\)</span>, with <span class="math notranslate nohighlight">\(y_k = y(t_k)\)</span>. Lagrange interpolation of <span class="math notranslate nohighlight">\(n+1\)</span> points requires a polynomial of degree <span class="math notranslate nohighlight">\(n\)</span>.</p>
+<div class="section" id="lagrangian-basis">
+<h3><span class="section-number">27.2.4.1. </span>Lagrangian basis<a class="headerlink" href="#lagrangian-basis" title="Permalink to this heading">#</a></h3>
+<p>The Lagrangian basis is a set of <span class="math notranslate nohighlight">\(n+1\)</span> functions <span class="math notranslate nohighlight">\(\ell_k(t)\)</span>, so that <span class="math notranslate nohighlight">\(\ell_k(t_j) = \delta_{jk}\)</span>. In order to satisfy these n+1 conditions, the <span class="math notranslate nohighlight">\(k^{th}\)</span> function of the Lagrange basis reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\ell_j(t) = \prod_{\begin{aligned} 0 \le m \le n \\ m \ne j \end{aligned}} \frac{t - t_m}{t_j - t_m} \ .\end{split}\]</div>
+<p>The Lagrange interpolating polynomial immediately follows as the linear combination</p>
+<div class="math notranslate nohighlight">
+\[L_n\left\{ y(t) \right\}(t) = \sum_{j = 0}^{n} y_j \ell_j(t) \ .\]</div>
+<p>For an integration scheme with constant time-step, <span class="math notranslate nohighlight">\(t_j - t_m = (j-m) h \)</span>, and thus the interpolant becomes</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+ L_n(t) &amp; = \sum_{j=0}^{n} y_j \prod_{\begin{aligned} 0 \le m \le n \\ m \ne j \end{aligned}} \frac{t - t_m}{t_j - t_m} = \\
+\end{aligned}\end{split}\]</div>
+</div>
 </div>
 </div>
 
@@ -760,6 +783,10 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#one-step-methods-ii-runge-kutta-rk">27.2.3. One-step methods (II): Runge-Kutta (RK)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lagrange-polynomial-interpolation-of-a-function">27.2.4. Lagrange polynomial interpolation of a function</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lagrangian-basis">27.2.4.1. Lagrangian basis</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
