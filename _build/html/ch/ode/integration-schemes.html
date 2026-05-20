@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>27. Integration schemes &#8212; basics - math</title>
+    <title>27. Integration schemes for Cauchy problems &#8212; basics - math</title>
   
   
   
@@ -71,7 +71,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="27.4. Simplectic integrators" href="integration-schemes-simplectic.html" />
+    <link rel="next" title="27.1. Foundations" href="integration-schemes-foundations.html" />
     <link rel="prev" title="26. Linear systems" href="ode-linear-systems.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -249,7 +249,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="intro.html">24. Introduction to Ordinary Differential Equations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="linear-equations.html">25. Linear equations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ode-linear-systems.html">26. Linear systems</a></li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">27. Integration schemes</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">27. Integration schemes for Cauchy problems</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="integration-schemes-foundations.html">27.1. Foundations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="integration-schemes-common.html">27.2. Families of integration methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="integration-schemes-stability.html">27.3. Stability properties of numerical schemes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="integration-schemes-simplectic.html">27.4. Simplectic integrators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="integration-schemes-energy-conservation.html">27.5. Energy conservation of integration schemes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="time-integration-mechanical-systems.html">27.6. Time-integration of a mechanical system</a></li>
@@ -427,37 +430,6 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<div class="dropdown dropdown-launch-buttons">
-  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
-    <i class="fas fa-rocket"></i>
-  </button>
-  <ul class="dropdown-menu">
-      
-      
-      
-      <li><a href="https://colab.research.google.com/github/Basics2022/bbooks-math-miscellanea/blob/master/ch/ode/integration-schemes.ipynb" target="_blank"
-   class="btn btn-sm dropdown-item"
-   title="Launch onColab"
-   data-bs-placement="left" data-bs-toggle="tooltip"
->
-  
-
-<span class="btn__icon-container">
-  
-    <img src="../../_static/images/logo_colab.png">
-  </span>
-<span class="btn__text-container">Colab</span>
-</a>
-</li>
-      
-  </ul>
-</div>
-
-
-
-
-
-
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -483,7 +455,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/edit/main/ch/ode/integration-schemes.ipynb" target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/edit/main/ch/ode/integration-schemes.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -530,7 +502,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/ch/ode/integration-schemes.ipynb" target="_blank"
+      <li><a href="../../_sources/ch/ode/integration-schemes.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -540,7 +512,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.ipynb</span>
+<span class="btn__text-container">.md</span>
 </a>
 </li>
       
@@ -601,9 +573,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -614,44 +584,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Integration schemes</h1>
+    <h1>Integration schemes for Cauchy problems</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contents">27.1. Contents</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#families-of-integration-methods">27.2. Families of integration methods</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#concepts">27.3. Concepts</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#local-truncation-error-and-consistency">27.3.1. Local truncation error and Consistency</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#global-truncation-error-and-convergence">27.3.2. Global truncation error and Convergence</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#recurrence-relation-for-one-step-methods">27.3.2.1. Recurrence relation for One-step methods</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stability-of-a-linear-system">27.3.3. Stability of a linear system</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-stability">27.3.3.1. A-stability</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#l-stability">27.3.3.2. L-stability</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#stability">27.3.3.3. 0-stability</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#some-schemes">27.3.4. Some schemes</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#homogeneous-equation">27.3.4.1. Homogeneous equation</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#forced-equation">27.3.4.2. Forced equation</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">27.3.4.3. A-stability</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#g-z-absolute-value-and-phase">27.3.4.4. G(z): absolute value and phase</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#g-z-on-the-real-axis">27.3.4.5. G(z) on the real axis</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#g-z-on-the-imaginary-axis">27.3.4.6. G(z) on the imaginary axis</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dahlquist-barriers-for-linear-multi-step-methods">27.3.5. Dahlquist barriers - for linear multi-step methods</a></li>
-</ul>
-</li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -661,811 +598,110 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="integration-schemes">
-<span id="ode-integration-schemes"></span><h1><span class="section-number">27. </span>Integration schemes<a class="headerlink" href="#integration-schemes" title="Permalink to this heading">#</a></h1>
-<p>The choice of a integration scheme usually involves a trade-off between, <strong>stability</strong>, <strong>computational cost</strong>, <strong>fidelity</strong> (accuracy/order, numerical damping/change of phase/amplifications of fast modes - see transfer function, and stiff problems -, energy conservation for conservative systems - see simplectic methods,…)</p>
-<p>Link to <a class="reference internal" href="../complex/z-transform.html#complex-z-transform"><span class="std std-ref">Z-transform</span></a> for discrete-time signals.</p>
-<div class="section" id="contents">
-<h2><span class="section-number">27.1. </span>Contents<a class="headerlink" href="#contents" title="Permalink to this heading">#</a></h2>
+  <div class="tex2jax_ignore mathjax_ignore section" id="integration-schemes-for-cauchy-problems">
+<span id="ode-integration-schemes"></span><h1><span class="section-number">27. </span>Integration schemes for Cauchy problems<a class="headerlink" href="#integration-schemes-for-cauchy-problems" title="Permalink to this heading">#</a></h1>
+<p>Many models of real-life systems are governed by Ordinary Differential Equations (ODEs). While simple linear equations yield elegant analytical solutions, as shown in sections about <a class="reference internal" href="linear-equations.html#ode-linear-equations"><span class="std std-ref">Linear ODEs with constant coefficients</span></a> and <a class="reference internal" href="ode-linear-systems.html#ode-linear-miscellanea"><span class="std std-ref">Linear ODEs in state-space representation</span></a>, real-world engineering problems demand numerical approximations, as no practical closed-form solution exists.</p>
+<p>The choice of a time-integration scheme is far more than a software implementation detail; it represents a fundamental trade-off between <strong>accuracy</strong>, <strong>computational cost</strong>, and <strong>fidelity</strong>: a naive choice of solver can damp out physically vital high-frequency oscillations, generate artificial energy out of nothing, or completely explode due to numerical instability.</p>
+<p>This chapter tries to provide some rigorous mathematical foundation needed to analyze, select, (and build? Do we need any new algorithm? Do not re-invent the wheel!) robust time-integration schemes.</p>
+<p><strong>Contents.</strong></p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
 <summary class="sd-summary-title sd-card-header">
-Contents<div class="sd-summary-down docutils">
+<a class="reference internal" href="integration-schemes-foundations.html#ode-integration-schemes-foundations"><span class="std std-ref">Foundations of numerical integration of initial value problems</span></a><div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text"><strong>Schemes.</strong></p>
+<p class="sd-card-text">First, the canonical problem<a class="footnote-reference brackets" href="#second-order-canonical-problem" id="id1">1</a></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\left\{\begin{aligned}
+  &amp; \dot{\mathbf{y}} = \mathbf{f}(t, \mathbf{y}(t)) \\
+  &amp; \mathbf{y}(0) = \mathbf{y}_0
+\end{aligned}\right.
+\end{split}\]</div>
+<p class="sd-card-text">is discussed, along with the definition of</p>
 <ul class="simple">
-<li><p class="sd-card-text">Euler methods, CN</p></li>
-<li><p class="sd-card-text">RK</p></li>
-<li><p class="sd-card-text">Multi-step: AB, AM, BDF,…</p></li>
-<li><p class="sd-card-text">Other methods:</p>
+<li><p class="sd-card-text"><strong>local truncation error</strong> and <strong>consistency</strong></p></li>
+<li><p class="sd-card-text"><strong>global truncation error</strong> and <strong>convergence</strong></p></li>
+</ul>
+<!--
+We begin with core properties like consistency, order, and convergence before diving into stability analysis in the complex plane. We will explore how geometric integrators preserve underlying physical structures, such as phase-space volume and energy. Finally, we will bring these abstract mathematical tools down to earth by building a complete, high-fidelity simulation of the continuous torsional dynamics of an elastic homogeneous beam.
+-->
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+<a class="reference internal" href="integration-schemes-common.html#ode-integration-schemes-common"><span class="std std-ref">Common integration schemes</span></a><div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><strong>For first-order equation.</strong></p>
+<ul class="simple">
+<li><p class="sd-card-text">One-step methods(I):</p>
 <ul>
-<li><p class="sd-card-text">Newmark-beta, Verlet (Leapfrog),…</p></li>
+<li><p class="sd-card-text">Explicit: Explicit Euler, Heun (special case of RK)</p></li>
+<li><p class="sd-card-text">Implicit: Implicit Euler, Crank-Nicolson</p></li>
+</ul>
+</li>
+<li><p class="sd-card-text">One-step methods(II): Runge-Kutta (RK) methods</p></li>
+<li><p class="sd-card-text">Linear multi-step methods:</p>
+<ul>
+<li><p class="sd-card-text">Adams-Bashforth (AB)</p></li>
+<li><p class="sd-card-text">Adams-Moulton   (AM)</p></li>
+<li><p class="sd-card-text">Backward Differentiation Formulas (BDF)</p></li>
 </ul>
 </li>
 </ul>
-<p class="sd-card-text"><strong>Concepts.</strong></p>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+<a class="reference internal" href="integration-schemes-stability.html#ode-integration-schemes-stability"><span class="std std-ref">Stability analysis</span></a><div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Linear stability on test equations, <span class="math notranslate nohighlight">\(\dot{y} = \lambda y\)</span> for the first-order system, <span class="math notranslate nohighlight">\(\ddot{y} = \dots\)</span> for the second-order system.
+Through one-step transfer function <span class="math notranslate nohighlight">\(G(z)\)</span>, <span class="math notranslate nohighlight">\(z = \lambda \, dt\)</span>, <span class="math notranslate nohighlight">\(y_{n+1} = G(z) y_{n}\)</span>,</p>
 <ul class="simple">
-<li><p class="sd-card-text">Convergence:</p></li>
-<li><p class="sd-card-text">Consistence:</p></li>
-<li><p class="sd-card-text">Stability:</p>
-<ul>
-<li><p class="sd-card-text">zero-stability</p></li>
+<li><p class="sd-card-text">Stability region of numerical methods</p></li>
+<li><p class="sd-card-text">0-ztability</p></li>
 <li><p class="sd-card-text">A-stability</p></li>
 <li><p class="sd-card-text">L-stability</p></li>
 </ul>
-</li>
-<li><p class="sd-card-text">Stiffness</p></li>
-</ul>
-<p class="sd-card-text"><strong>Theoretical results</strong></p>
+<p class="sd-card-text"><strong>Theorems and limits</strong></p>
 <ul class="simple">
 <li><p class="sd-card-text">Dahlquist barriers</p></li>
-<li><p class="sd-card-text">Lax-Richtmyer</p></li>
+<li><p class="sd-card-text">Lax theorem: consistency + stability = convergence</p></li>
 </ul>
-<p class="sd-card-text"><strong>References</strong></p>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+<a class="reference internal" href="integration-schemes-energy-conservation.html#ode-integration-schemes-energy-conservation"><span class="std std-ref">Integration and conservation laws</span></a><div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Some physical systems satisfy some conservation laws. As an example, <strong>Hamiltonian systems</strong> satisfy <strong>energy conservation</strong> or - equivalently - volume conservation in phase space.</p>
+<p class="sd-card-text">Simplectic integrators are numerical methods that preserves these conservation laws of the original system.
+…</p>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Examples<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
 <ul class="simple">
-<li><p class="sd-card-text"><a class="reference external" href="https://math.stackexchange.com/questions/1466978/advantage-of-l-stability-compared-to-a-stability">Advantage of L-stability compared to A-stability</a>, Mathematics Stack Exchange.</p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="time-integration-mechanical-systems.html#ode-integration-schemes-mechanical-system"><span class="std std-ref">Example: torsional dynamics of an elastic beam</span></a>: finite element method of the continuous model is built; spectral decomposition of the discrete problem is discussed and compared with the eigenvalues of the continuous system; diagonal structural damping is introduced; previous results are used for an aware numerical integration in time of the dynamics of the beam subject to a harmonic torsional moment, using fast mode truncation and their static recovery.</p></li>
 </ul>
 </div>
-</details></div>
-<div class="section" id="families-of-integration-methods">
-<h2><span class="section-number">27.2. </span>Families of integration methods<a class="headerlink" href="#families-of-integration-methods" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p>Linear multi-steps:</p>
-<ul>
-<li><p>from Lagrange approximation of integral: AB (explicit, <span class="math notranslate nohighlight">\(s\)</span>-step with max order <span class="math notranslate nohighlight">\(s\)</span>), AM (implicit, <span class="math notranslate nohighlight">\(s\)</span>-step with max order <span class="math notranslate nohighlight">\(s+1\)</span>)</p></li>
-<li><p>from approximation of derivative: BDF (implicit)</p></li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="section" id="concepts">
-<h2><span class="section-number">27.3. </span>Concepts<a class="headerlink" href="#concepts" title="Permalink to this heading">#</a></h2>
-<div class="section" id="local-truncation-error-and-consistency">
-<h3><span class="section-number">27.3.1. </span>Local truncation error and Consistency<a class="headerlink" href="#local-truncation-error-and-consistency" title="Permalink to this heading">#</a></h3>
-<p>Let</p>
-<div class="math notranslate nohighlight">
-\[y_{n+1} = \Psi(t_{n+1}; y_n, ..., y_{n-k+1}; h, f(\cdot)) = y_n + h A(t_{n+1}; y_n, ..., y_{n-k+1}; h, f(\cdot)) \ ,\]</div>
-<p>the numerical method for the solution of the initial value problem</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  \dot{y}(t) &amp; = f(y(t),t) \\
-  y(0) &amp; = y_0 \ . 
-\end{aligned}\end{split}\]</div>
-<p>The <strong>local truncation error</strong> is the error produced by <strong>one step of the method</strong>, i.e.</p>
-<div class="math notranslate nohighlight">
-\[\delta_{n+k}^h := y_{n+k} - y(t_{n+k}) \ ,\]</div>
-<p>being <span class="math notranslate nohighlight">\(y_{n+k}\)</span> the result of one step of the numerical method, and <span class="math notranslate nohighlight">\(y(t_{n+k})\)</span> the exact solution using the same initial conditions (assuming, there’s no error in previous steps). A numerical method is defined <strong>consistent</strong> if</p>
-<div class="math notranslate nohighlight">
-\[\lim_{h \rightarrow 0} \frac{\delta^h_{n+k}}{h} = 0 \ .\]</div>
-<p>The method has <strong>order</strong> <span class="math notranslate nohighlight">\(p\)</span> if</p>
-<div class="math notranslate nohighlight">
-\[\delta^h_{n+k} = O(h^{p+1}) \quad , \quad \text{for } h \rightarrow 0 \ .\]</div>
-</div>
-<div class="section" id="global-truncation-error-and-convergence">
-<h3><span class="section-number">27.3.2. </span>Global truncation error and Convergence<a class="headerlink" href="#global-truncation-error-and-convergence" title="Permalink to this heading">#</a></h3>
-<p>The <strong>global truncation error</strong> <span class="math notranslate nohighlight">\(e_n\)</span> is the accumulation of the error up to time <span class="math notranslate nohighlight">\(t_n\)</span>,</p>
-<div class="math notranslate nohighlight">
-\[e_n^h := y_{n} - y(t_n) \ .\]</div>
-<p>A numerical method is defined <strong>convergent</strong> if</p>
-<div class="math notranslate nohighlight">
-\[\lim_{h \rightarrow 0} \max_n | e_{n} | = 0 \ .\]</div>
-<div class="section" id="recurrence-relation-for-one-step-methods">
-<h4><span class="section-number">27.3.2.1. </span>Recurrence relation for One-step methods<a class="headerlink" href="#recurrence-relation-for-one-step-methods" title="Permalink to this heading">#</a></h4>
-<p>A one-step method reads</p>
-<div class="math notranslate nohighlight">
-\[y_{n+1} = \Psi(t_{n+1}; y_n; h, f(\cdot)) = y_n + h A(t_{n+1}; y_n; h, f(\cdot)) \ ,\]</div>
-<p>A recurrence relation exists between the global and the local truncation error</p>
-<p>…</p>
-<p><em>this implies some bound of the global error, see <a class="reference external" href="https://en.wikipedia.org/wiki/Truncation_error_(numerical_integration)">wiki</a></em></p>
-</div>
-</div>
-<div class="section" id="stability-of-a-linear-system">
-<h3><span class="section-number">27.3.3. </span>Stability of a linear system<a class="headerlink" href="#stability-of-a-linear-system" title="Permalink to this heading">#</a></h3>
-<p>Linear homogeneous equation (or system?)</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  \dot{y} &amp; = \lambda y \\
-  y(0) &amp; = y_0 \ ,
-\end{aligned}\end{split}\]</div>
-<p>is a first test for the stability of a numerical method. The problem has the exact solution</p>
-<div class="math notranslate nohighlight">
-\[y(t) = y_0 e^{\lambda t} \ ,\]</div>
-<p>and is <strong>asymptotically stable</strong> if <span class="math notranslate nohighlight">\(\text{re}\{\lambda\} &lt; 0\)</span>, as</p>
-<div class="math notranslate nohighlight">
-\[\lim_{t \rightarrow +\infty} y(t) = \lim_{t \rightarrow +\infty} y_0 e^{\lambda t} =  \lim_{t \rightarrow +\infty} y_0 e^{\text{re}\{\lambda\} t} e^{j \, \text{im}\{\lambda\} t} \ . \]</div>
-<p>Forced linear equation (or system?)</p>
-<div class="math notranslate nohighlight">
-\[\dot{y} = \lambda y + u \ .\]</div>
-<p>The exact solution converges to the forced solution if the system is asymptotically stable, For periodic forcing, the behavior can be evaluated in frequency (Laplace or Fourier) domain</p>
-<div class="math notranslate nohighlight">
-\[y(s) = \frac{1}{s - \lambda} u(s) \ .\]</div>
-<div class="section" id="a-stability">
-<h4><span class="section-number">27.3.3.1. </span>A-stability<a class="headerlink" href="#a-stability" title="Permalink to this heading">#</a></h4>
-<p>A-stability ensures the numerical method doesn’t explode in the simulation of a asymptotically stable system.</p>
-<p>A numerical method is defined A-stable if its stability region includes the whole left half plane.</p>
-</div>
-<div class="section" id="l-stability">
-<h4><span class="section-number">27.3.3.2. </span>L-stability<a class="headerlink" href="#l-stability" title="Permalink to this heading">#</a></h4>
-<p>Let <span class="math notranslate nohighlight">\(z := h \lambda\)</span>. For <strong>one-step methods</strong>, it’s possible to define a <strong>scalar transfer function</strong> <span class="math notranslate nohighlight">\(G(z)\)</span> between <span class="math notranslate nohighlight">\(y_{n}\)</span> and <span class="math notranslate nohighlight">\(y_{n+1}\)</span>,</p>
-<div class="math notranslate nohighlight">
-\[y_{n+1} = G(z) y_n \ .\]</div>
-<p>For <strong>multi-step methods</strong>… proerties of characteristic polynomial and its roots</p>
-<p>For <strong>systems</strong>… amplification matrix…</p>
-<p>L-stability ensures that the method damps extremely fast - <strong>stiff</strong> - modes, that are usually physically irrelevant but that can be numerically troublesome. A method is defined L-stable if</p>
-<div class="math notranslate nohighlight">
-\[\lim_{z \rightarrow -\infty} G(z) = 0 \ .\]</div>
-</div>
-<div class="section" id="stability">
-<h4><span class="section-number">27.3.3.3. </span>0-stability<a class="headerlink" href="#stability" title="Permalink to this heading">#</a></h4>
-<p>0-stability (of a numerical method for a certain differential equation on a given interval) if a perturbation in the starting value of size <span class="math notranslate nohighlight">\(\varepsilon\)</span> causes the numerical solution over the time interval to change less than <span class="math notranslate nohighlight">\(K \varepsilon\)</span> for some <span class="math notranslate nohighlight">\(K\)</span> that doesn’t depend on the time-step <span class="math notranslate nohighlight">\(h\)</span>.</p>
-<p>It’s enough to check the conditions for the differential equation <span class="math notranslate nohighlight">\(y' = 0\)</span> <strong>todo</strong> <em>why? check it!</em></p>
-<p>A linear multi-step method is zero-stable <strong>iif</strong> the root condition (analogous to at least marginally stable system, i.e. roots with absolute value <span class="math notranslate nohighlight">\(|z| &lt; 1\)</span>, or <span class="math notranslate nohighlight">\(|z| = 1\)</span> with multiplicity <span class="math notranslate nohighlight">\(= 1\)</span>) is satisfied.</p>
-</div>
-</div>
-<div class="section" id="some-schemes">
-<h3><span class="section-number">27.3.4. </span>Some schemes<a class="headerlink" href="#some-schemes" title="Permalink to this heading">#</a></h3>
-<div class="section" id="homogeneous-equation">
-<h4><span class="section-number">27.3.4.1. </span>Homogeneous equation<a class="headerlink" href="#homogeneous-equation" title="Permalink to this heading">#</a></h4>
-<div class="math notranslate nohighlight">
-\[\dot{y} = f(t,y) = \lambda y \ .\]</div>
-<p><strong>Explicit Euler.</strong></p>
-<div class="math notranslate nohighlight">
-\[y_{n+1} = y_{n} + h f(y_n, t_n) = y_n + h \lambda y_n = ( 1 + h \lambda ) y_n \ .\]</div>
-<p>The solution of this difference equation with initial condition <span class="math notranslate nohighlight">\(y_0\)</span> reads</p>
-<div class="math notranslate nohighlight">
-\[y_{n} = ( 1 + h \lambda )^n y_0 \ .\]</div>
-<p><strong>Implicit Euler.</strong></p>
-<div class="math notranslate nohighlight">
-\[y_{n+1} = y_{n} + h f(y_{n+1}, t_{n+1}) = y_n + h \lambda y_{n+1} \ .\]</div>
-<p>The solution of this difference equation with initial condition <span class="math notranslate nohighlight">\(y_0\)</span> reads</p>
-<div class="math notranslate nohighlight">
-\[y_{n} = \frac{1}{( 1 - h \lambda )^n} y_0 \ .\]</div>
-<p><strong>Crank-Nicolson.</strong></p>
-<div class="math notranslate nohighlight">
-\[y_{n+1} = y_n + \frac{h}{2} \left[ f(y_{n}, t_{n}) + f(y_{n+1}, t_{n+1}) \right] = y_n + \frac{h}{2} \left[ \lambda y_{n} + \lambda y_{n+1} \right] \ .\]</div>
-<div class="math notranslate nohighlight">
-\[y_{n} = \left[ \frac{1 + \lambda h / 2}{1 - \lambda h / 2} \right]^n y_0 \ .\]</div>
-<p><strong>BDF 2.</strong> BDF 2 is a multi-step approach, so either <span class="math notranslate nohighlight">\(Z\)</span>-transform of the conversion to a one-step 2-dimensional system is required to discuss its stability properties, and transfer function.</p>
-<div class="math notranslate nohighlight">
-\[y_{n+1} - \frac{4}{3} y_{n} + \frac{1}{3} y_{n-1} = \frac{2}{3} h f(t_{n+1}, y_{n+1}) \]</div>
-<div class="math notranslate nohighlight">
-\[y_{n+1} - \frac{4}{3} y_{n} + \frac{1}{3} y_{n-1} = \frac{2}{3} h \lambda y_{n+1} \]</div>
-<p><strong>Z-transform.</strong> Using the definition <span class="math notranslate nohighlight">\(\zeta := \lambda h\)</span>, and applying the <span class="math notranslate nohighlight">\(Z\)</span>-transform,</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  0 &amp; = \left[ \left( 1 - \frac{2}{3} z \right) - \frac{4}{3} \zeta^{-1} + \frac{1}{3} \zeta^{-2} \right] Y(\zeta) \\
-\end{aligned}\end{split}\]</div>
-<p>the characteristic polynomial reads</p>
-<div class="math notranslate nohighlight">
-\[\begin{aligned}
-  0 &amp; = \pi(\zeta; z) = \left( 3 - 2 z \right) \zeta ^2 - 4 \zeta + 1 \ .
-\end{aligned}\]</div>
-<p>The roots of the polynomial depend on <span class="math notranslate nohighlight">\(z \in \mathbb{C}\)</span>, and the system is stable if all the roots have <span class="math notranslate nohighlight">\(|\zeta_k| \le 1\)</span>. This condition can be summarized with the condition of <strong>spectral radius</strong> of the matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> of the one-step system, <span class="math notranslate nohighlight">\(\rho(\mathbf{A}) = \max |\lambda_k| &lt; 1\)</span>.</p>
-<p><strong>Reduction of difference equation to a one-step system.</strong> The 2-step difference equation above</p>
-<div class="math notranslate nohighlight">
-\[y_{n+1} - \frac{4}{3 - 2 z} y_{n} + \frac{1}{3 - 2 z} y_{n} = 0\]</div>
-<p>can be recast as a system, <span class="math notranslate nohighlight">\(y_n = z_{1,n}\)</span>, <span class="math notranslate nohighlight">\(y_{n-1} = z_{0,n}\)</span></p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  z_{0,n+1} &amp; = z_{1,n} \\
-  z_{1,n+1} &amp; = \frac{4}{3 - 2 z} z_{1,n} - \frac{1}{3 - 2 z} z_{0,n}
-\end{aligned}\end{split}\]</div>
-<p>or using matrix formalism</p>
-<div class="math notranslate nohighlight">
-\[\mathbf{z}_{n+1} = \mathbf{A} \mathbf{z}_n \ ,\]</div>
-<p>with <span class="math notranslate nohighlight">\(\mathbf{A} = \begin{bmatrix} \cdot &amp; 1 \\ -\frac{1}{3 - 2 z} &amp; \frac{4}{3 - 2 z} \end{bmatrix}\)</span>. The eigenvalues of the system follows from the condition</p>
-<div class="math notranslate nohighlight">
-\[0 = \zeta \left( \zeta - \frac{4}{3 - 2 z} \right) + \frac{1}{3-2 z} \ , \]</div>
-<p>i.e. the same condition as <span class="math notranslate nohighlight">\(\pi(\zeta; z) = 0\)</span>.</p>
-<p><strong>L-stability.</strong> As <span class="math notranslate nohighlight">\(\rightarrow +\infty\)</span>, the polynomials goes to <span class="math notranslate nohighlight">\(\pi(z \rightarrow + \infty; \zeta) \sim - \frac{2}{3} z \zeta^2\)</span> and thus the roots goes to <span class="math notranslate nohighlight">\(z \rightarrow + \infty\)</span>.</p>
-<p><strong>Methods for second-order equations.</strong></p>
-<div class="math notranslate nohighlight">
-\[\ddot{\mathbf{x}} = \mathbf{f}(t, \mathbf{x}) \ ,\]</div>
-<p>or as a first-order system</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{bmatrix} \dot{\mathbf{x}} \\ \dot{\mathbf{v}} \end{bmatrix} = \begin{bmatrix} \mathbf{v} \\ \mathbf{f}(\mathbf{x},t) \end{bmatrix} \ .\end{split}\]</div>
-<p>A test second-order homogeneous equation may be the dynamical equation of an undapmed mass-spring system,</p>
-<div class="math notranslate nohighlight">
-\[\ddot{x} + \Omega^2 x = 0 \ ,\]</div>
-<p>being <span class="math notranslate nohighlight">\(( d_t + i \Omega )( d_t - i \Omega ) x = 0\)</span>. This analysis can be performed with a system with conjugate complex eigenvalues <span class="math notranslate nohighlight">\(\lambda = \sigma + j \omega\)</span> and <span class="math notranslate nohighlight">\(\lambda^* = \sigma - j \omega\)</span>, sot that the test equation becomes</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  0 
-  &amp; = ( d_t - \sigma - i \omega )( d_t - \sigma + i \omega ) x = \\
-  &amp; = d_{tt} x - 2 \sigma d_t x + ( \sigma^2 + \omega^2 ) \ .
-\end{aligned}\end{split}\]</div>
-<p><strong>Leapfrog method.</strong></p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\left\{\begin{aligned}
-  x_{i+1} &amp; = x_i + h v_i + \frac{h^2}{2} f(x_i) \\
-  v_{i+1} &amp; = v_i + \frac{h}{2} \left( f(x_i) + f(x_{i+1}) \right) \ .
-\end{aligned}\right.\end{split}\]</div>
-<p><strong>Verlet method.</strong> …</p>
-<p><strong>Newmark method.</strong> …</p>
-<p>Test equation has <span class="math notranslate nohighlight">\(f(x) = - \Omega^2 x\)</span>, so that Leapfrog method applied to the test problem reads</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\left\{\begin{aligned}
-  x_{i+1} &amp; = x_i + h v_i - \frac{h^2 \Omega^2}{2} x_i\\
-  v_{i+1} &amp; = v_i - \Omega^2 \frac{h}{2} \left(x_i + x_{i+1} \right) \ .
-\end{aligned}\right.\end{split}\]</div>
-<p>so that the <span class="math notranslate nohighlight">\(\mathbf{z}_{i+1}\)</span> state can be written as a function of the <span class="math notranslate nohighlight">\(\mathbf{z}_i\)</span> state</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{bmatrix} 1 &amp; \cdot \\ \frac{h \Omega^2}{2} &amp; 1 \end{bmatrix} \begin{bmatrix} x \\ v \end{bmatrix}_{i+1} = \begin{bmatrix} 1 - \frac{h^2 \Omega^2}{2} &amp; h \\ -\frac{h \Omega^2}{2} &amp; 1 \end{bmatrix} \begin{bmatrix} x \\ v \end{bmatrix}_i\end{split}\]</div>
-<p>or</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  \begin{bmatrix} x \\  h v \end{bmatrix}_{i+1} 
-  &amp; = \begin{bmatrix} 1 &amp; \cdot \\ -\frac{h \Omega^2}{2} &amp; 1 \end{bmatrix}  \begin{bmatrix} 1 - \frac{h^2 \Omega^2}{2} &amp; 1 \\ -\frac{h^2 \Omega^2}{2} &amp; 1 \end{bmatrix} \begin{bmatrix} x \\ h v \end{bmatrix}_i = \\
-  &amp; = \begin{bmatrix} 1 - \frac{h^2 \Omega^2}{2} &amp; 1 \\ - h^2 \Omega^2 \left( 1 - \frac{h^2 \Omega^2}{4} \right) &amp;  1-\frac{h^2 \Omega^2}{2} \end{bmatrix} \begin{bmatrix} x \\ h v \end{bmatrix}_i \ .
-\end{aligned}\end{split}\]</div>
-<p>Generalized test equation has <span class="math notranslate nohighlight">\(f(x,v) = 2 \sigma v - ( \sigma^2 + \omega^2) x = - 2 \xi \Omega v - \Omega^2 x\)</span>, with</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
- \Omega^2 &amp; = \sigma^2 + \omega^2 \\
- \sigma &amp; = - \xi \Omega  \qquad \rightarrow \qquad \xi = -\frac{\sigma}{\Omega} = - \frac{\sigma}{\sqrt{\sigma^2 + \omega^2}} \\
-\end{aligned}\end{split}\]</div>
-<p>Leapfrog method applied to the test problem reads</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\left\{\begin{aligned}
-  x_{i+1} &amp; = x_i + h v_i + \frac{h^2 }{2} \left( - \Omega^2 x_i - 2 \xi \Omega v_i \right)\\
-  v_{i+1} &amp; = v_i + \frac{h}{2} \left[ -\Omega^2 \left(x_i + x_{i+1} \right) - 2 \xi \Omega \left(v_i + v_{i+1} \right) \right] \ .
-\end{aligned}\right.\end{split}\]</div>
-<p><strong>todo</strong> <em>check!</em></p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{bmatrix} 1 &amp; \cdot \\ \frac{h^2 \Omega^2}{2} &amp; 1 + \xi h \Omega \end{bmatrix} \begin{bmatrix} x \\ h v \end{bmatrix}_{i+1} = \begin{bmatrix} 1 - \frac{h^2 \Omega^2}{2} &amp; 1 - \xi h \Omega \\ -\frac{h^2 \Omega^2}{2} &amp; 1 - \xi h \Omega \end{bmatrix} \begin{bmatrix} x \\ h v \end{bmatrix}_i\end{split}\]</div>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  \begin{bmatrix} x \\  h v \end{bmatrix}_{i+1} 
-  &amp; = \begin{bmatrix} 1 &amp; \cdot \\ -\frac{h^2 \Omega^2}{2 (1+\xi h \Omega)} &amp; \frac{1}{1+\xi h \Omega} \end{bmatrix} \begin{bmatrix} 1 - \frac{h^2 \Omega^2}{2} &amp; 1 - \xi h \Omega \\ -\frac{h^2 \Omega^2}{2} &amp; 1 - \xi h \Omega \end{bmatrix} \begin{bmatrix} x \\ h v \end{bmatrix}_i = \\
-  &amp; = \begin{bmatrix} 1 - \frac{h^2 \Omega^2}{2} &amp; 1 - \xi h \Omega \\ - \frac{h^2 \Omega^2}{1+\xi h \Omega} \left( 1 - \frac{h^2 \Omega^2}{4} \right) &amp; \frac{1 - \xi h \Omega}{1 + \xi h \Omega} \left( 1-\frac{h^2 \Omega^2}{2} \right) \end{bmatrix} \begin{bmatrix} x \\ h v \end{bmatrix}_i \ .
-\end{aligned}\end{split}\]</div>
-<ul class="simple">
-<li><p>if <span class="math notranslate nohighlight">\(\xi^2 \ge 1\)</span>, then the eigenvalues are real</p></li>
-<li><p>if <span class="math notranslate nohighlight">\(\xi^2 \le 1\)</span>, then the eigenvalues are conjugate complex, <span class="math notranslate nohighlight">\(s_{1,2} = -\xi \Omega \mp j \Omega \sqrt{1 - \xi^2}\)</span></p></li>
-</ul>
-</div>
-<div class="section" id="forced-equation">
-<h4><span class="section-number">27.3.4.2. </span>Forced equation<a class="headerlink" href="#forced-equation" title="Permalink to this heading">#</a></h4>
-<div class="math notranslate nohighlight">
-\[\dot{y} = \lambda y(t) + u(t)\]</div>
-<p><strong>Explicit Euler.</strong></p>
-<div class="math notranslate nohighlight">
-\[y_{n+1} = y_{n} + h f(y_n, t_n) = y_n + h \lambda y_n = ( 1 + h \lambda ) y_n + h u(t_n) \ .\]</div>
-<p>…</p>
-<p><strong>Implicit Euler.</strong></p>
-<div class="math notranslate nohighlight">
-\[y_{n+1} = y_{n} + h f(y_{n+1}, t_{n+1}) = y_n + h \lambda y_{n+1} + h y(t_n) \ .\]</div>
-<p>…</p>
-<p><strong>Crank-Nicolson.</strong></p>
-<div class="math notranslate nohighlight">
-\[y_{n+1} = y_n + \frac{h}{2} \left[ f(y_{n}, t_{n}) + f(y_{n+1}, t_{n+1}) \right] = y_n + \frac{h}{2} \left[ \lambda y_{n} + \lambda y_{n+1} \right] + \frac{h}{2} \left[ u(t_n) + u(t_{n+1}) \right] \ .\]</div>
-<p>…</p>
-</div>
-<div class="section" id="id1">
-<h4><span class="section-number">27.3.4.3. </span>A-stability<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h4>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-
-<span class="n">ampl_fun_ee</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">z</span>
-<span class="n">ampl_fun_ie</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">z</span> <span class="p">)</span>
-<span class="n">ampl_fun_cn</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="p">(</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">z</span><span class="o">/</span><span class="mi">2</span> <span class="p">)</span> <span class="o">/</span> <span class="p">(</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">z</span><span class="o">/</span><span class="mi">2</span> <span class="p">)</span>
-
-<span class="n">A_bdf2</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">.0</span><span class="p">,</span> <span class="mf">1.</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">3</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">z</span><span class="p">),</span> <span class="mi">4</span><span class="o">/</span><span class="p">(</span><span class="mi">3</span><span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">z</span><span class="p">)]])</span>
-
-<span class="k">def</span> <span class="nf">ampl_A_fun</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">A_fun</span><span class="p">):</span>
-    <span class="n">evals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigvals</span><span class="p">(</span><span class="n">A_fun</span><span class="p">(</span><span class="n">z</span><span class="p">))</span>
-    <span class="n">ieval</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">absolute</span><span class="p">(</span><span class="n">evals</span><span class="p">))</span> <span class="c1"># , keepdims=True)</span>
-    
-    <span class="k">return</span> <span class="n">evals</span><span class="p">[</span><span class="n">ieval</span><span class="p">]</span>  <span class="c1"># [0]]</span>
-
-<span class="k">def</span> <span class="nf">A_lf</span><span class="p">(</span><span class="n">z</span><span class="p">):</span>
-    <span class="n">sigh</span><span class="p">,</span> <span class="n">omh</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">z</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">imag</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
-
-    <span class="n">bh</span> <span class="o">=</span> <span class="o">-</span> <span class="n">sigh</span>
-    <span class="n">ch2</span> <span class="o">=</span> <span class="n">sigh</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">omh</span><span class="o">**</span><span class="mi">2</span>
-
-    <span class="n">n1</span> <span class="o">=</span> <span class="mf">1.</span> <span class="o">-</span> <span class="n">bh</span>
-    <span class="n">n2</span> <span class="o">=</span> <span class="mf">1.</span> <span class="o">-</span> <span class="n">ch2</span><span class="o">/</span><span class="mf">2.</span>
-    <span class="n">n4</span> <span class="o">=</span> <span class="mf">1.</span> <span class="o">-</span> <span class="n">ch2</span><span class="o">/</span><span class="mf">4.</span>
-    <span class="n">d1</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">bh</span>
-    
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">n2</span><span class="p">,</span> <span class="n">n1</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="n">ch2</span><span class="o">*</span><span class="n">n4</span><span class="o">/</span><span class="n">d1</span><span class="p">,</span> <span class="n">n1</span><span class="o">/</span><span class="n">d1</span><span class="o">*</span><span class="n">n2</span><span class="p">]])</span>
-    
-
-<span class="n">ampl_fun_bdf2</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="n">ampl_A_fun</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">A_bdf2</span><span class="p">)</span>
-<span class="n">ampl_fun_lf</span>   <span class="o">=</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="n">ampl_A_fun</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">A_lf</span><span class="p">)</span>
-
-<span class="n">ampl_fun_lf_2</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">z</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">absolute</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigvals</span><span class="p">(</span><span class="n">A_lf</span><span class="p">(</span><span class="n">z</span><span class="p">))))</span>
-
-<span class="n">ampl_funs</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;EE&#39;</span><span class="p">:</span> <span class="n">ampl_fun_ee</span><span class="p">,</span>
-    <span class="s1">&#39;IE&#39;</span><span class="p">:</span> <span class="n">ampl_fun_ie</span><span class="p">,</span>
-    <span class="s1">&#39;CN&#39;</span><span class="p">:</span> <span class="n">ampl_fun_cn</span><span class="p">,</span>
-    <span class="s1">&#39;BDF2&#39;</span><span class="p">:</span> <span class="n">ampl_fun_bdf2</span><span class="p">,</span>
-    <span class="s1">&#39;Leapfrog&#39;</span><span class="p">:</span> <span class="n">ampl_fun_lf</span><span class="p">,</span>
-<span class="p">}</span>
-<span class="n">n_methods</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ampl_funs</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">complex_amplification_fun</span><span class="p">(</span><span class="n">ampl_fun</span><span class="p">):</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">5.001</span><span class="p">,</span> <span class="mf">5.001</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">5.001</span><span class="p">,</span> <span class="mf">5.001</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
-    <span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-    <span class="n">Z</span> <span class="o">=</span> <span class="n">X</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">Y</span>
-
-    <span class="k">return</span> <span class="n">X</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">ampl_fun</span><span class="p">,</span> <span class="n">otypes</span><span class="o">=</span><span class="p">[</span><span class="nb">complex</span><span class="p">])(</span><span class="n">Z</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</details>
-</div>
-<div class="cell tag_hide-input tag_hide-output docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
-<div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&gt; Check lf functions</span>
-<span class="c1"># part of the debug. np.vectorize require otypes, otherwise some bad silent casting may occur</span>
-
-<span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z1</span> <span class="o">=</span> <span class="n">complex_amplification_fun</span><span class="p">(</span><span class="n">ampl_fun_lf</span><span class="p">)</span>
-<span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">Z2</span> <span class="o">=</span> <span class="n">complex_amplification_fun</span><span class="p">(</span><span class="n">ampl_fun_lf_2</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">Z1</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">Z2</span><span class="p">))</span>
-
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">absolute</span><span class="p">(</span><span class="n">Z1</span><span class="p">),</span> <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="mf">1.0</span><span class="p">],</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">absolute</span><span class="p">(</span><span class="n">Z2</span><span class="p">),</span> <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="mf">1.0</span><span class="p">],</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
-
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">Z1</span><span class="p">)),</span> <span class="n">shading</span><span class="o">=</span><span class="s1">&#39;gouraud&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="mi">3</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">1.</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">Z2</span><span class="p">)),</span> <span class="n">shading</span><span class="o">=</span><span class="s1">&#39;gouraud&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="mi">3</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">1.</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</details>
-<details class="hide below-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell output</span>
-<span class="expanded">Hide code cell output</span>
-</summary>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(200, 200)
-(200, 200)
-</pre></div>
-</div>
-<img alt="../../_images/643c8c11c283a24fba43f36ca3907f2a117d1087c934926e6a96f9cafa7692fa.png" src="../../_images/643c8c11c283a24fba43f36ca3907f2a117d1087c934926e6a96f9cafa7692fa.png" />
-</div>
-</details>
-</div>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&gt; Functions for integration of the test equation, for stability analysis of different integration schemes</span>
-<span class="k">def</span> <span class="nf">integrate_test_ee</span><span class="p">(</span><span class="n">lam</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">tv</span><span class="p">,):</span>
-    <span class="n">dt</span> <span class="o">=</span> <span class="n">tv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">tv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">nt</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">tv</span><span class="p">)</span>
-    <span class="n">xx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nt</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">);</span>   <span class="n">xx</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x0</span>
-
-    <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">tv</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-        <span class="n">xx</span><span class="p">[</span><span class="n">it</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span> <span class="mf">1.</span> <span class="o">+</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">lam</span> <span class="p">)</span> <span class="o">*</span> <span class="n">xx</span><span class="p">[</span><span class="n">it</span><span class="p">]</span>
-
-    <span class="k">return</span> <span class="n">xx</span>
-
-
-<span class="k">def</span> <span class="nf">integrate_test_ie</span><span class="p">(</span><span class="n">lam</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">tv</span><span class="p">,):</span>
-    <span class="n">dt</span> <span class="o">=</span> <span class="n">tv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">tv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">nt</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">tv</span><span class="p">)</span>
-    <span class="n">xx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nt</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">);</span>  <span class="n">xx</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x0</span>
-
-    <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">tv</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-        <span class="n">xx</span><span class="p">[</span><span class="n">it</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">xx</span><span class="p">[</span><span class="n">it</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span> <span class="mf">1.</span> <span class="o">-</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">lam</span> <span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">xx</span>
-
-
-<span class="k">def</span> <span class="nf">integrate_test_cn</span><span class="p">(</span><span class="n">lam</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">tv</span><span class="p">,):</span>
-    <span class="n">dt</span> <span class="o">=</span> <span class="n">tv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">tv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">nt</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">tv</span><span class="p">)</span>
-    <span class="n">xx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nt</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">);</span>   <span class="n">xx</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x0</span>
-
-    <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">tv</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-        <span class="n">xx</span><span class="p">[</span><span class="n">it</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">xx</span><span class="p">[</span><span class="n">it</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span> <span class="mf">1.</span> <span class="o">+</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">lam</span><span class="o">/</span><span class="mi">2</span> <span class="p">)</span> <span class="o">/</span> <span class="p">(</span> <span class="mf">1.</span> <span class="o">-</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">lam</span><span class="o">/</span><span class="mi">2</span> <span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">xx</span>
-
-
-<span class="k">def</span> <span class="nf">integrate_test_bdf2</span><span class="p">(</span><span class="n">lam</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">tv</span><span class="p">,):</span>
-    <span class="n">dt</span> <span class="o">=</span> <span class="n">tv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">tv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">nt</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">tv</span><span class="p">)</span>
-    <span class="n">xx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nt</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">);</span>   <span class="n">xx</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x0</span>
-
-    <span class="c1">#&gt; First step: implicit Euler</span>
-    <span class="n">xx</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">xx</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">lam</span> <span class="p">)</span>
-     
-    <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">tv</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-        <span class="n">xx</span><span class="p">[</span><span class="n">it</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span> <span class="mi">4</span><span class="o">*</span><span class="n">xx</span><span class="p">[</span><span class="n">it</span><span class="p">]</span> <span class="o">-</span> <span class="n">xx</span><span class="p">[</span><span class="n">it</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span> <span class="o">/</span> <span class="p">(</span> <span class="mi">3</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">lam</span> <span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">xx</span>
-
-
-<span class="k">def</span> <span class="nf">integrate_test_leapfrog</span><span class="p">(</span><span class="n">lam</span><span class="p">,</span> <span class="n">z0</span><span class="p">,</span> <span class="n">tv</span><span class="p">,):</span>
-
-    <span class="n">sig</span><span class="p">,</span> <span class="n">om</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">real</span><span class="p">(</span><span class="n">lam</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">imag</span><span class="p">(</span><span class="n">lam</span><span class="p">)</span>
-    <span class="n">b</span> <span class="o">=</span> <span class="o">-</span> <span class="n">sig</span>
-    <span class="n">c</span> <span class="o">=</span> <span class="n">sig</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">om</span><span class="o">**</span><span class="mi">2</span>
-    
-    <span class="n">dt</span> <span class="o">=</span> <span class="n">tv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">tv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">nt</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">tv</span><span class="p">)</span>
-    
-    <span class="n">xx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nt</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">);</span>   <span class="n">xx</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">z0</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">vv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nt</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">);</span>   <span class="n">vv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">z0</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-
-    <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">tv</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-        <span class="n">xx</span><span class="p">[</span><span class="n">it</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">xx</span><span class="p">[</span><span class="n">it</span><span class="p">]</span> <span class="o">+</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">vv</span><span class="p">[</span><span class="n">it</span><span class="p">]</span> <span class="o">+</span> <span class="n">dt</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span> <span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">b</span> <span class="o">*</span> <span class="n">vv</span><span class="p">[</span><span class="n">it</span><span class="p">]</span> <span class="o">-</span> <span class="n">c</span> <span class="o">*</span> <span class="n">xx</span><span class="p">[</span><span class="n">it</span><span class="p">]</span> <span class="p">)</span>
-        <span class="n">vv</span><span class="p">[</span><span class="n">it</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span> <span class="n">vv</span><span class="p">[</span><span class="n">it</span><span class="p">]</span> <span class="o">+</span> <span class="n">dt</span><span class="o">/</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span> <span class="o">-</span><span class="n">c</span><span class="o">*</span> <span class="p">(</span> <span class="n">xx</span><span class="p">[</span><span class="n">it</span><span class="p">]</span> <span class="o">+</span> <span class="n">xx</span><span class="p">[</span><span class="n">it</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="p">)</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">b</span> <span class="o">*</span> <span class="n">vv</span><span class="p">[</span><span class="n">it</span><span class="p">]</span> <span class="p">)</span> <span class="p">)</span> <span class="o">/</span> <span class="p">(</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">dt</span> <span class="p">)</span>
-    
-    <span class="k">return</span> <span class="n">xx</span>
-</pre></div>
-</div>
-</div>
-</details>
-</div>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&gt; Perform integration in time, for different methods, for different values of z=lam*dt in the test equations</span>
-<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
-
-<span class="n">dt</span><span class="p">,</span> <span class="n">nt</span> <span class="o">=</span> <span class="mf">1.</span><span class="p">,</span> <span class="mi">100</span>
-<span class="n">tv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">nt</span><span class="p">)</span> <span class="o">*</span> <span class="n">dt</span>
-
-<span class="n">nz_real</span> <span class="o">=</span> <span class="mi">17</span>
-<span class="n">nz_imag</span> <span class="o">=</span> <span class="mi">17</span>
-<span class="n">z_real</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">5.123</span><span class="p">,</span> <span class="mf">5.123</span><span class="p">,</span> <span class="n">nz_real</span><span class="p">)</span>
-<span class="n">z_imag</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">5.123</span><span class="p">,</span> <span class="mf">5.123</span><span class="p">,</span> <span class="n">nz_imag</span><span class="p">)</span>
-
-<span class="n">Zreal</span><span class="p">,</span> <span class="n">Zimag</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">z_real</span><span class="p">,</span> <span class="n">z_imag</span><span class="p">)</span>
-
-<span class="n">XX</span> <span class="o">=</span> <span class="p">{</span> <span class="n">k</span><span class="p">:</span> <span class="p">{</span>  <span class="p">}</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">ampl_funs</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="p">}</span>
-
-<span class="n">XX</span><span class="p">[</span><span class="s1">&#39;EE&#39;</span>  <span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;ic&#39;</span><span class="p">:</span> <span class="mf">1.</span><span class="p">,</span> <span class="s1">&#39;fun&#39;</span><span class="p">:</span> <span class="n">integrate_test_ee</span><span class="p">,</span> <span class="p">}</span>
-<span class="n">XX</span><span class="p">[</span><span class="s1">&#39;IE&#39;</span>  <span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;ic&#39;</span><span class="p">:</span> <span class="mf">1.</span><span class="p">,</span> <span class="s1">&#39;fun&#39;</span><span class="p">:</span> <span class="n">integrate_test_ie</span><span class="p">,</span> <span class="p">}</span>
-<span class="n">XX</span><span class="p">[</span><span class="s1">&#39;CN&#39;</span>  <span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;ic&#39;</span><span class="p">:</span> <span class="mf">1.</span><span class="p">,</span> <span class="s1">&#39;fun&#39;</span><span class="p">:</span> <span class="n">integrate_test_cn</span><span class="p">,</span> <span class="p">}</span>
-<span class="n">XX</span><span class="p">[</span><span class="s1">&#39;BDF2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;ic&#39;</span><span class="p">:</span> <span class="mf">1.</span><span class="p">,</span> <span class="s1">&#39;fun&#39;</span><span class="p">:</span> <span class="n">integrate_test_bdf2</span><span class="p">,</span> <span class="p">}</span>
-<span class="n">XX</span><span class="p">[</span><span class="s1">&#39;Leapfrog&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;ic&#39;</span><span class="p">:</span> <span class="p">[</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">.0</span> <span class="p">],</span> <span class="s1">&#39;fun&#39;</span><span class="p">:</span> <span class="n">integrate_test_leapfrog</span><span class="p">,</span> <span class="p">}</span>
-<span class="c1"># XX[&#39;Leapfrog_2&#39;] = { &#39;ic&#39;: [ 1., .0 ], &#39;fun&#39;: integrate_test_leapfrog, }</span>
-
-<span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">XX</span><span class="p">:</span>
-     <span class="n">XX</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="s1">&#39;stability&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nz_real</span><span class="p">,</span> <span class="n">nz_imag</span><span class="p">))</span>
-
-<span class="c1">#&gt; Numerical integration of test equation</span>
-<span class="k">for</span> <span class="n">method</span> <span class="ow">in</span> <span class="n">XX</span><span class="p">:</span>
-    <span class="n">integrate_test</span> <span class="o">=</span> <span class="n">XX</span><span class="p">[</span><span class="n">method</span><span class="p">][</span><span class="s1">&#39;fun&#39;</span><span class="p">]</span>
-    <span class="n">x0</span> <span class="o">=</span> <span class="n">XX</span><span class="p">[</span><span class="n">method</span><span class="p">][</span><span class="s1">&#39;ic&#39;</span><span class="p">]</span>
-
-    <span class="n">i_imag</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">zi</span> <span class="ow">in</span> <span class="n">z_imag</span><span class="p">:</span>
-        <span class="n">i_real</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="k">for</span> <span class="n">zr</span> <span class="ow">in</span> <span class="n">z_real</span><span class="p">:</span>
-            <span class="n">z</span> <span class="o">=</span> <span class="n">zr</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">zi</span>
-    
-            <span class="n">xx</span> <span class="o">=</span> <span class="n">integrate_test</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">tv</span><span class="p">)</span>
-            
-            <span class="c1">#&gt; Check if diverging or not</span>
-            <span class="k">if</span> <span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">xx</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mf">1.001</span> <span class="p">):</span>
-                <span class="n">XX</span><span class="p">[</span><span class="n">method</span><span class="p">][</span><span class="s1">&#39;stability&#39;</span><span class="p">][</span><span class="n">i_imag</span><span class="p">,</span> <span class="n">i_real</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">XX</span><span class="p">[</span><span class="n">method</span><span class="p">][</span><span class="s1">&#39;stability&#39;</span><span class="p">][</span><span class="n">i_imag</span><span class="p">,</span> <span class="n">i_real</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
- 
-            <span class="n">i_real</span> <span class="o">+=</span> <span class="mi">1</span>
-        
-        <span class="n">i_imag</span> <span class="o">+=</span> <span class="mi">1</span>
-</pre></div>
-</div>
-</div>
-</details>
-</div>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&gt; Plot analytical boundary of stability regions, with scatter of stability from direct integration in time</span>
-<span class="n">ncols</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="n">nrows</span> <span class="o">=</span> <span class="p">(</span> <span class="n">n_methods</span> <span class="o">-</span> <span class="mi">1</span> <span class="p">)</span> <span class="o">//</span> <span class="n">ncols</span> <span class="o">+</span> <span class="mi">1</span>
-
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="p">,</span> <span class="n">ncols</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">ncols</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span> <span class="n">nrows</span><span class="o">*</span><span class="mi">3</span><span class="p">))</span>
-
-<span class="n">i_method</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="n">fun</span> <span class="ow">in</span> <span class="n">ampl_funs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-
-    <span class="n">irow</span> <span class="o">=</span> <span class="n">i_method</span> <span class="o">//</span> <span class="n">ncols</span>
-    <span class="n">icol</span> <span class="o">=</span> <span class="n">i_method</span> <span class="o">%</span> <span class="n">ncols</span>
-
-    <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">G</span> <span class="o">=</span> <span class="n">complex_amplification_fun</span><span class="p">(</span><span class="n">fun</span><span class="p">)</span>
-    
-    <span class="n">ax</span><span class="p">[</span><span class="n">irow</span><span class="p">,</span> <span class="n">icol</span><span class="p">]</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">absolute</span><span class="p">(</span><span class="n">G</span><span class="p">),</span> <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="mf">1.0</span><span class="p">],</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="p">[</span><span class="n">irow</span><span class="p">,</span> <span class="n">icol</span><span class="p">]</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">absolute</span><span class="p">(</span><span class="n">G</span><span class="p">),</span> <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span> <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;#ffcccc&#39;</span><span class="p">])</span>
-    <span class="n">ax</span><span class="p">[</span><span class="n">irow</span><span class="p">,</span> <span class="n">icol</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Method: </span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="p">[</span><span class="n">irow</span><span class="p">,</span> <span class="n">icol</span><span class="p">]</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="p">[</span><span class="n">irow</span><span class="p">,</span> <span class="n">icol</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Re(z)&quot;</span><span class="p">);</span> <span class="n">ax</span><span class="p">[</span><span class="n">irow</span><span class="p">,</span> <span class="n">icol</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Im(z)&quot;</span><span class="p">);</span> <span class="n">ax</span><span class="p">[</span><span class="n">irow</span><span class="p">,</span> <span class="n">icol</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
-
-    <span class="c1">#&gt;</span>
-    <span class="n">stable_mask</span> <span class="o">=</span> <span class="p">(</span> <span class="n">XX</span><span class="p">[</span><span class="n">label</span><span class="p">][</span><span class="s1">&#39;stability&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">)</span>
-    <span class="n">unstable_mask</span> <span class="o">=</span> <span class="p">(</span> <span class="n">XX</span><span class="p">[</span><span class="n">label</span><span class="p">][</span><span class="s1">&#39;stability&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">)</span>
-    
-    <span class="n">ax</span><span class="p">[</span><span class="n">irow</span><span class="p">,</span> <span class="n">icol</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span> <span class="n">Zreal</span><span class="p">[</span><span class="n">stable_mask</span><span class="p">],</span> 
-                            <span class="n">Zimag</span><span class="p">[</span><span class="n">stable_mask</span><span class="p">],</span>
-                            <span class="n">s</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Stable&#39;</span><span class="p">)</span>
-   
-    <span class="n">ax</span><span class="p">[</span><span class="n">irow</span><span class="p">,</span> <span class="n">icol</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span> <span class="n">Zreal</span><span class="p">[</span><span class="n">unstable_mask</span><span class="p">],</span> 
-                            <span class="n">Zimag</span><span class="p">[</span><span class="n">unstable_mask</span><span class="p">],</span>
-                            <span class="n">s</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Unstable&#39;</span><span class="p">)</span>
-    
-    <span class="n">i_method</span> <span class="o">+=</span> <span class="mi">1</span>  
-
-
-<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Stability regions of numerical methods. |G(z)| &lt; 1&quot;</span><span class="p">)</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="c1"># plt.axhline(0, color=&#39;black&#39;, lw=1)</span>
-<span class="c1"># plt.axvline(0, color=&#39;black&#39;, lw=1)</span>
-<span class="c1"># plt.grid(True, linestyle=&#39;--&#39;)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</details>
-<div class="cell_output docutils container">
-<img alt="../../_images/77c28cb6c602bac23010fed89ff06caf796ea0da2c6d34ff2f014d72fe77d0bd.png" src="../../_images/77c28cb6c602bac23010fed89ff06caf796ea0da2c6d34ff2f014d72fe77d0bd.png" />
-</div>
-</div>
-<p><strong>A-stability.</strong> Implicit Euler and Crank-Nicolson methods are A-stable, while explicit Euler is not.</p>
-</div>
-<div class="section" id="g-z-absolute-value-and-phase">
-<h4><span class="section-number">27.3.4.4. </span>G(z): absolute value and phase<a class="headerlink" href="#g-z-absolute-value-and-phase" title="Permalink to this heading">#</a></h4>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">ampl_fun_bdf2 = lambda z: np.max(np.abs(np.linalg.eigvals(A_bdf2(z))))    </span>
-<span class="sd">ampl_fun_lf = lambda z: np.max(np.abs(np.linalg.eigvals(A_lf(z))))</span>
-
-<span class="sd">ampl_funs = {</span>
-<span class="sd">    &#39;EE&#39;: ampl_fun_ee,</span>
-<span class="sd">    &#39;IE&#39;: ampl_fun_ie,</span>
-<span class="sd">    &#39;CN&#39;: ampl_fun_cn,</span>
-<span class="sd">    &#39;BDF2&#39;: ampl_fun_bdf2,</span>
-<span class="sd">    &#39;Leapfrog&#39;: ampl_fun_lf</span>
-<span class="sd">}</span>
-<span class="sd">n_methods = len(ampl_funs)</span>
-
-<span class="sd">&quot;&quot;&quot;</span>
-
-<span class="c1">#&gt; </span>
-<span class="n">ncols</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="n">nrows</span> <span class="o">=</span> <span class="p">(</span> <span class="n">n_methods</span> <span class="o">-</span> <span class="mi">1</span> <span class="p">)</span> <span class="o">//</span> <span class="n">ncols</span> <span class="o">+</span> <span class="mi">1</span>
-
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="p">,</span> <span class="n">ncols</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">ncols</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span> <span class="n">nrows</span><span class="o">*</span><span class="mi">3</span><span class="p">))</span>
-
-<span class="n">i_method</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="n">fun</span> <span class="ow">in</span> <span class="n">ampl_funs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-
-    <span class="n">irow</span> <span class="o">=</span> <span class="n">i_method</span> <span class="o">//</span> <span class="n">ncols</span>
-    <span class="n">icol</span> <span class="o">=</span> <span class="n">i_method</span> <span class="o">%</span> <span class="n">ncols</span>
-
-    <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">G</span> <span class="o">=</span> <span class="n">complex_amplification_fun</span><span class="p">(</span><span class="n">fun</span><span class="p">)</span>
-    <span class="n">ax</span><span class="p">[</span><span class="n">irow</span><span class="p">,</span> <span class="n">icol</span><span class="p">]</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">absolute</span><span class="p">(</span><span class="n">G</span><span class="p">),</span> <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="mf">1.0</span><span class="p">],</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
-    <span class="c1"># ax[irow, icol].contourf(X, Y, np.abs(G), levels=[0., 1.0], colors=[&#39;#ffcccc&#39;])</span>
-    <span class="n">ax</span><span class="p">[</span><span class="n">irow</span><span class="p">,</span> <span class="n">icol</span><span class="p">]</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">absolute</span><span class="p">(</span><span class="n">G</span><span class="p">)),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;hsv&#39;</span><span class="p">,</span> <span class="n">shading</span><span class="o">=</span><span class="s1">&#39;gouraud&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="mi">3</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mf">1.</span><span class="p">)</span>
-    <span class="n">ax</span><span class="p">[</span><span class="n">irow</span><span class="p">,</span> <span class="n">icol</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Method: </span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="p">[</span><span class="n">irow</span><span class="p">,</span> <span class="n">icol</span><span class="p">]</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="p">[</span><span class="n">irow</span><span class="p">,</span> <span class="n">icol</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Re(z)&quot;</span><span class="p">);</span> <span class="n">ax</span><span class="p">[</span><span class="n">irow</span><span class="p">,</span> <span class="n">icol</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Im(z)&quot;</span><span class="p">);</span> <span class="n">ax</span><span class="p">[</span><span class="n">irow</span><span class="p">,</span> <span class="n">icol</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
-
-    <span class="n">i_method</span> <span class="o">+=</span> <span class="mi">1</span>
-
-<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s2">&quot;Magnitude of one-step TF, |G(z)|&quot;</span><span class="p">)</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="c1"># plt.axhline(0, color=&#39;black&#39;, lw=1)</span>
-<span class="c1"># plt.axvline(0, color=&#39;black&#39;, lw=1)</span>
-<span class="c1"># plt.grid(True, linestyle=&#39;--&#39;)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</details>
-<div class="cell_output docutils container">
-<img alt="../../_images/731cfba1f050f109bf5e078182dbdc9b90fc23e124ab33d488c73abeea91e1a4.png" src="../../_images/731cfba1f050f109bf5e078182dbdc9b90fc23e124ab33d488c73abeea91e1a4.png" />
-</div>
-</div>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="p">,</span> <span class="n">ncols</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">ncols</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span> <span class="n">nrows</span><span class="o">*</span><span class="mi">3</span><span class="p">))</span>
-
-<span class="n">i_method</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="n">fun</span> <span class="ow">in</span> <span class="n">ampl_funs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-
-    <span class="n">irow</span> <span class="o">=</span> <span class="n">i_method</span> <span class="o">//</span> <span class="n">ncols</span>
-    <span class="n">icol</span> <span class="o">=</span> <span class="n">i_method</span> <span class="o">%</span> <span class="n">ncols</span>
-
-    <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">G</span> <span class="o">=</span> <span class="n">complex_amplification_fun</span><span class="p">(</span><span class="n">fun</span><span class="p">)</span>
-    <span class="n">ax</span><span class="p">[</span><span class="n">irow</span><span class="p">,</span> <span class="n">icol</span><span class="p">]</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">G</span><span class="p">),</span> <span class="n">levels</span><span class="o">=</span><span class="p">[</span><span class="mf">1.0</span><span class="p">],</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
-    <span class="c1"># ax[irow, icol].contourf(X, Y, np.abs(G), levels=[0., 1.0], colors=[&#39;#ffcccc&#39;])</span>
-    <span class="n">ax</span><span class="p">[</span><span class="n">irow</span><span class="p">,</span> <span class="n">icol</span><span class="p">]</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span><span class="n">G</span><span class="p">),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;hsv&#39;</span><span class="p">,</span> <span class="n">shading</span><span class="o">=</span><span class="s1">&#39;gouraud&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
-    <span class="n">ax</span><span class="p">[</span><span class="n">irow</span><span class="p">,</span> <span class="n">icol</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Method: </span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="p">[</span><span class="n">irow</span><span class="p">,</span> <span class="n">icol</span><span class="p">]</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="p">[</span><span class="n">irow</span><span class="p">,</span> <span class="n">icol</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Re(z)&quot;</span><span class="p">);</span> <span class="n">ax</span><span class="p">[</span><span class="n">irow</span><span class="p">,</span> <span class="n">icol</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Im(z)&quot;</span><span class="p">);</span> <span class="n">ax</span><span class="p">[</span><span class="n">irow</span><span class="p">,</span> <span class="n">icol</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
-
-    <span class="n">i_method</span> <span class="o">+=</span> <span class="mi">1</span>
-
-<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Magnitude of one-step TF, $\angle G(z)$&quot;</span><span class="p">)</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="c1"># plt.axhline(0, color=&#39;black&#39;, lw=1)</span>
-<span class="c1"># plt.axvline(0, color=&#39;black&#39;, lw=1)</span>
-<span class="c1"># plt.grid(True, linestyle=&#39;--&#39;)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</details>
-<div class="cell_output docutils container">
-<img alt="../../_images/6fc1806050aba29579cc41ea1cdf2a95cd3ec7a77b104741f9436e2f1cb76dd9.png" src="../../_images/6fc1806050aba29579cc41ea1cdf2a95cd3ec7a77b104741f9436e2f1cb76dd9.png" />
-</div>
-</div>
-</div>
-<div class="section" id="g-z-on-the-real-axis">
-<h4><span class="section-number">27.3.4.5. </span>G(z) on the real axis<a class="headerlink" href="#g-z-on-the-real-axis" title="Permalink to this heading">#</a></h4>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">n_methods</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">n_methods</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="mi">3</span><span class="p">))</span>
-<span class="n">i_method</span> <span class="o">=</span> <span class="mi">0</span>
-
-<span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="n">fun</span> <span class="ow">in</span> <span class="n">ampl_funs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-
-    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">10.34324</span><span class="p">,</span> <span class="mf">2.2343242</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
-    <span class="n">G</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">fun</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
-    
-    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">i_method</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">G</span><span class="p">))</span>
-    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">i_method</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Method: </span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">i_method</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;|G|(z)&quot;</span><span class="p">);</span> <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">i_method</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
-    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">i_method</span><span class="p">]</span><span class="o">.</span><span class="n">set_yscale</span><span class="p">(</span><span class="s2">&quot;log&quot;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="n">i_method</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span><span class="n">G</span><span class="p">))</span>
-    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="n">i_method</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\angle G(z)$&quot;</span><span class="p">);</span> <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="n">i_method</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
-    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="n">i_method</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Re(z)&quot;</span><span class="p">);</span> 
-
-    <span class="n">i_method</span> <span class="o">+=</span> <span class="mi">1</span>
-
-<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;One-step TF on the real axis, $G(z), z \in \mathbb</span><span class="si">{R}</span><span class="s2">$.&quot;</span><span class="p">)</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</details>
-<div class="cell_output docutils container">
-<img alt="../../_images/15453ea85aa1828761566365af14670ea82ee4796787e9edcd9c19ce4270f97b.png" src="../../_images/15453ea85aa1828761566365af14670ea82ee4796787e9edcd9c19ce4270f97b.png" />
-</div>
-</div>
-</div>
-<div class="section" id="g-z-on-the-imaginary-axis">
-<h4><span class="section-number">27.3.4.6. </span>G(z) on the imaginary axis<a class="headerlink" href="#g-z-on-the-imaginary-axis" title="Permalink to this heading">#</a></h4>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">n_methods</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">n_methods</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="mi">3</span><span class="p">))</span>
-<span class="n">i_method</span> <span class="o">=</span> <span class="mi">0</span>
-
-
-<span class="n">min_absGs</span><span class="p">,</span> <span class="n">max_absGs</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
-
-<span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="n">fun</span> <span class="ow">in</span> <span class="n">ampl_funs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-
-    <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="o">-</span><span class="mf">4.3423</span><span class="p">,</span> <span class="mf">4.32432</span><span class="p">,</span> <span class="mi">400</span><span class="p">)</span>
-    <span class="n">G</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">fun</span><span class="p">)(</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">y</span><span class="p">)</span>
-
-    <span class="n">min_absGs</span> <span class="o">+=</span> <span class="p">[</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">G</span><span class="p">))</span> <span class="p">]</span>
-    <span class="n">max_absGs</span> <span class="o">+=</span> <span class="p">[</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">G</span><span class="p">))</span> <span class="p">]</span>
-    
-    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">i_method</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">G</span><span class="p">))</span>
-    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">i_method</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Method: </span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">i_method</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;|G|(z)&quot;</span><span class="p">);</span> <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">i_method</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
-    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">i_method</span><span class="p">]</span><span class="o">.</span><span class="n">set_yscale</span><span class="p">(</span><span class="s2">&quot;log&quot;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="n">i_method</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">angle</span><span class="p">(</span><span class="n">G</span><span class="p">)</span> <span class="o">*</span> <span class="mi">180</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
-    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="n">i_method</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$\angle G(z)$&quot;</span><span class="p">);</span> <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="n">i_method</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
-    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="n">i_method</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Re(z)&quot;</span><span class="p">);</span>
-
-    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">i_method</span><span class="p">]</span><span class="o">.</span><span class="n">set_xscale</span><span class="p">(</span><span class="s2">&quot;log&quot;</span><span class="p">);</span>  <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="n">i_method</span><span class="p">]</span><span class="o">.</span><span class="n">set_xscale</span><span class="p">(</span><span class="s2">&quot;log&quot;</span><span class="p">)</span>
-
-    <span class="n">i_method</span> <span class="o">+=</span> <span class="mi">1</span>
-
-<span class="n">min_absG</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">min_absGs</span><span class="p">)</span>
-<span class="n">max_absG</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">max_absGs</span><span class="p">)</span>
-
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">i_method</span><span class="p">):</span>
-    <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">min_absG</span><span class="p">,</span> <span class="n">max_absG</span><span class="p">)</span>
-
-
-<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;One-step TF on the complex axis, $G(j y), y \in \mathbb</span><span class="si">{R}</span><span class="s2">$.&quot;</span><span class="p">)</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="c1"># plt.axhline(0, color=&#39;black&#39;, lw=1)</span>
-<span class="c1"># plt.axvline(0, color=&#39;black&#39;, lw=1)</span>
-<span class="c1"># plt.grid(True, linestyle=&#39;--&#39;)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</details>
-<div class="cell_output docutils container">
-<img alt="../../_images/bf2a9a6ee60754bf335840c1f7c7ad84ed9dd8c5cebc9edef35f95465cd12dbf.png" src="../../_images/bf2a9a6ee60754bf335840c1f7c7ad84ed9dd8c5cebc9edef35f95465cd12dbf.png" />
-</div>
-</div>
-<p><strong>Remark.</strong> For multiple-steps methods, like BDF2 and Leapfrog, the magnitude and phase of the eigenvalue of the one-step matrix <span class="math notranslate nohighlight">\(\mathbf{G}(z)\)</span> is shown here.</p>
-<p><strong>L-stable methods.</strong> Among the methods shown here, only IE and BDF2 are L-stable, i.e. with <span class="math notranslate nohighlight">\(|G(z \rightarrow +\infty)| \rightarrow 0\)</span></p>
-</div>
-</div>
-<div class="section" id="dahlquist-barriers-for-linear-multi-step-methods">
-<h3><span class="section-number">27.3.5. </span>Dahlquist barriers - for linear multi-step methods<a class="headerlink" href="#dahlquist-barriers-for-linear-multi-step-methods" title="Permalink to this heading">#</a></h3>
-<p><strong>First Dahlquist barrier.</strong></p>
-<ul class="simple">
-<li><p>A zero-stable and linear q-step multis-tep method has maximum order of convergence <span class="math notranslate nohighlight">\(q+1\)</span> if <span class="math notranslate nohighlight">\(q\)</span> is odd, <span class="math notranslate nohighlight">\(q+2\)</span> if <span class="math notranslate nohighlight">\(q\)</span> is even. If the method is explicit, maximum order of convergence is <span class="math notranslate nohighlight">\(q\)</span>.</p></li>
-</ul>
-<p><strong>Second Dahlquist barrier.</strong></p>
-<ul class="simple">
-<li><p>No explicit linear multi-step method is A-stable</p></li>
-<li><p>Maximum order of an (implicit) A-stable linear multi-step method is 2</p></li>
-<li><p>Among the A-stable multi-step methods of order 2, the trapezoidal rule has the smallest error constant</p></li>
-</ul>
-<p>A <strong>linear multi-step method</strong> for the equation <span class="math notranslate nohighlight">\(y'=f(t,y)\)</span> with initial conditions <span class="math notranslate nohighlight">\(y(t_0) = y_0\)</span>, reads</p>
-<div class="math notranslate nohighlight">
-\[\sum_{j=0}^{s} a_j y_{n+j} = h \sum_{j=0}^{s} b_j f(t_{n+j}, y_{n+j})\]</div>
-<p>If <span class="math notranslate nohighlight">\(b_0 = 0\)</span>, the method is explicit, otherwise it’s implicit as the unknown <span class="math notranslate nohighlight">\(y_{n+s}\)</span> appears in both the LHS and the RHS.</p>
-<p><strong>A-stability.</strong> For the equation <span class="math notranslate nohighlight">\(y' = \lambda y\)</span>, i.e. <span class="math notranslate nohighlight">\(f(t,y) = \lambda y\)</span>, the <span class="math notranslate nohighlight">\(Z\)</span>-transformed integration step becomes</p>
-<div class="math notranslate nohighlight">
-\[0 = \sum_{j=0}^{s} (a_j - h \lambda b_j ) \zeta^{j-s} = \rho(\zeta) - z \sigma(\zeta) = \pi(\zeta, z) \ ,\]</div>
-<p>with <span class="math notranslate nohighlight">\(z := h \lambda\)</span>.</p>
-<p>For explicit methods, <span class="math notranslate nohighlight">\(b_0 = 0\)</span>, the degree of <span class="math notranslate nohighlight">\(\sigma(\zeta)\)</span> is lower than the degree of <span class="math notranslate nohighlight">\(\rho(\zeta)\)</span></p>
-<p>…</p>
-</div>
-</div>
+</details><hr class="footnotes docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="second-order-canonical-problem"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>A second-order canonical problem <span class="math notranslate nohighlight">\( \mathbf{M} \ddot{\mathbf{y}} + \mathbf{C} \dot{\mathbf{y}} + \mathbf{K} \mathbf{y} = \mathbf{f}(t, \mathbf{y}(t))\)</span>, with proper initial conditions, is also discussed. This problem often arises with some interesting properties - symmetry of matrices - usually arises from a <span class="xref myst">Lagrangian approach</span> to classical mechanics systems. Some numerical methods targeting this form of equations exist, like [Leapfrog], [Verlet], or [Newmark] methods.</p>
+</dd>
+</dl>
 <div class="toctree-wrapper compound">
 </div>
 </div>
@@ -1482,13 +718,13 @@ Contents<div class="sd-summary-down docutils">
             mode: "python"
         },
         kernelOptions: {
-            name: "python311",
+            name: "python3",
             path: "./ch/ode"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python311'</script>
+    <script>kernelName = 'python3'</script>
 
                 </article>
               
@@ -1510,11 +746,11 @@ Contents<div class="sd-summary-down docutils">
       </div>
     </a>
     <a class="right-next"
-       href="integration-schemes-simplectic.html"
+       href="integration-schemes-foundations.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">27.4. </span>Simplectic integrators</p>
+        <p class="prev-next-title"><span class="section-number">27.1. </span>Foundations</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1524,45 +760,6 @@ Contents<div class="sd-summary-down docutils">
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contents">27.1. Contents</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#families-of-integration-methods">27.2. Families of integration methods</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#concepts">27.3. Concepts</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#local-truncation-error-and-consistency">27.3.1. Local truncation error and Consistency</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#global-truncation-error-and-convergence">27.3.2. Global truncation error and Convergence</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#recurrence-relation-for-one-step-methods">27.3.2.1. Recurrence relation for One-step methods</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stability-of-a-linear-system">27.3.3. Stability of a linear system</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#a-stability">27.3.3.1. A-stability</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#l-stability">27.3.3.2. L-stability</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#stability">27.3.3.3. 0-stability</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#some-schemes">27.3.4. Some schemes</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#homogeneous-equation">27.3.4.1. Homogeneous equation</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#forced-equation">27.3.4.2. Forced equation</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">27.3.4.3. A-stability</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#g-z-absolute-value-and-phase">27.3.4.4. G(z): absolute value and phase</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#g-z-on-the-real-axis">27.3.4.5. G(z) on the real axis</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#g-z-on-the-imaginary-axis">27.3.4.6. G(z) on the imaginary axis</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dahlquist-barriers-for-linear-multi-step-methods">27.3.5. Dahlquist barriers - for linear multi-step methods</a></li>
-</ul>
-</li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>

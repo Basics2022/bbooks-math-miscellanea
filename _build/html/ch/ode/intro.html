@@ -247,10 +247,11 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">24. Introduction to Ordinary Differential Equations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="linear-equations.html">25. Linear equations</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ode-linear-systems.html">26. Linear systems</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="integration-schemes.html">27. Integration schemes</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="integration-schemes-simplectic.html">27.4. Simplectic integrators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="integration-schemes-energy-conservation.html">27.5. Energy conservation of integration schemes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="time-integration-mechanical-systems.html">27.6. Time-integration of a mechanical system</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="integration-schemes.html">27. Integration schemes for Cauchy problems</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="integration-schemes-stability.html">27.1. Integration schemes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="integration-schemes-simplectic.html">27.2. Simplectic integrators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="integration-schemes-energy-conservation.html">27.3. Energy conservation of integration schemes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="time-integration-mechanical-systems.html">27.4. Time-integration of a mechanical system</a></li>
 </ul>
 </li>
 </ul>
@@ -595,10 +596,26 @@ document.write(`
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="introduction-to-ordinary-differential-equations">
 <span id="ode-intro"></span><h1><span class="section-number">24. </span>Introduction to Ordinary Differential Equations<a class="headerlink" href="#introduction-to-ordinary-differential-equations" title="Permalink to this heading">#</a></h1>
+<p><strong>todo</strong> <em>Introduction.</em></p>
+<!--
+Physical systems — whether it is the trajectory of a spacecraft, the continuous vibrations of an elastic structure,...  — often involves Ordinary Differential Equations (ODEs). Newton simoultaneously developed **classical mechanics** and introduced/refined **infinitesimal calculus**, from derivatives and integrals, to ordinary differential equations as the mathematical tools governing many systems in classical mechanics.
+
+While simple linear equations yield elegant analytical solutions, there's no closed-form solutions real-world engineering problems demand numerical approximations.
+-->
+<p><strong>Initial value problems.</strong></p>
 <ul class="simple">
-<li><p>Theorems</p></li>
-<li><p>General solution of linear ODEs</p></li>
+<li><p><a class="reference internal" href="linear-equations.html#ode-linear-equations"><span class="std std-ref">Linear ODEs with constant coefficients</span></a></p></li>
+<li><p><a class="reference internal" href="ode-linear-systems.html#ode-linear-miscellanea"><span class="std std-ref">Linear ODEs in state-space representation</span></a></p></li>
+<li><p><a class="reference internal" href="integration-schemes.html#ode-integration-schemes"><span class="std std-ref">Numerical solution of initial value problems</span></a></p></li>
 </ul>
+<p><strong>Boundary value problems.</strong> <em>todo</em></p>
+<ul class="simple">
+<li><p><em><a class="reference internal" href="../pde/numerics.html#pde-numerics"><span class="std std-ref">link to numerical methods for PDEs</span></a>: steady-state version of PDEs often leads to a boundary value problem governed by a ODE, <span class="xref myst">FDM</span>, <span class="xref myst">FEM</span>, <span class="xref myst">FVM</span></em></p></li>
+</ul>
+<!--
+* Theorems
+* General solution of linear ODEs
+-->
 <div class="tip admonition">
 <p class="admonition-title">Links</p>
 <ul class="simple">

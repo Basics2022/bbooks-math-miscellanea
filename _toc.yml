@@ -77,6 +77,9 @@ parts:
   - file: ch/ode/ode-linear-systems
   - file: ch/ode/integration-schemes
     sections:
+    - file: ch/ode/integration-schemes-foundations
+    - file: ch/ode/integration-schemes-common
+    - file: ch/ode/integration-schemes-stability
     - file: ch/ode/integration-schemes-simplectic
     - file: ch/ode/integration-schemes-energy-conservation
     - file: ch/ode/time-integration-mechanical-systems

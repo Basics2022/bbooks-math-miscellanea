@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>27.5. Energy conservation of integration schemes &#8212; basics - math</title>
+    <title>27.2. Families of integration methods &#8212; basics - math</title>
   
   
   
@@ -65,14 +65,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/ode/integration-schemes-energy-conservation';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/ode/integration-schemes-common';</script>
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="27.6. Time-integration of a mechanical system" href="time-integration-mechanical-systems.html" />
-    <link rel="prev" title="27.4. Simplectic integrators" href="integration-schemes-simplectic.html" />
+    <link rel="next" title="27.3. Stability properties of numerical schemes" href="integration-schemes-stability.html" />
+    <link rel="prev" title="27.1. Foundations" href="integration-schemes-foundations.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -251,10 +249,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="ode-linear-systems.html">26. Linear systems</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="integration-schemes.html">27. Integration schemes for Cauchy problems</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="integration-schemes-foundations.html">27.1. Foundations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="integration-schemes-common.html">27.2. Families of integration methods</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">27.2. Families of integration methods</a></li>
 <li class="toctree-l2"><a class="reference internal" href="integration-schemes-stability.html">27.3. Stability properties of numerical schemes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="integration-schemes-simplectic.html">27.4. Simplectic integrators</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">27.5. Energy conservation of integration schemes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="integration-schemes-energy-conservation.html">27.5. Energy conservation of integration schemes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="time-integration-mechanical-systems.html">27.6. Time-integration of a mechanical system</a></li>
 </ul>
 </li>
@@ -438,7 +436,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://colab.research.google.com/github/Basics2022/bbooks-math-miscellanea/blob/master/ch/ode/integration-schemes-energy-conservation.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/Basics2022/bbooks-math-miscellanea/blob/master/ch/ode/integration-schemes-common.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onColab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -486,7 +484,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/edit/main/ch/ode/integration-schemes-energy-conservation.ipynb" target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/edit/main/ch/ode/integration-schemes-common.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -503,7 +501,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/issues/new?title=Issue%20on%20page%20%2Fch/ode/integration-schemes-energy-conservation.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/issues/new?title=Issue%20on%20page%20%2Fch/ode/integration-schemes-common.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -533,7 +531,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/ch/ode/integration-schemes-energy-conservation.ipynb" target="_blank"
+      <li><a href="../../_sources/ch/ode/integration-schemes-common.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -604,9 +602,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -617,37 +613,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Energy conservation of integration schemes</h1>
+    <h1>Families of integration methods</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">27.5.1. Examples</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verlet">27.5.1.1. Verlet</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#jacobian-of-the-one-step-transformation">27.5.1.1.1. Jacobian of the one-step transformation</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#one-step-energy-difference">27.5.1.1.2. One-step energy difference</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explicit-euler">27.5.1.2. Explicit Euler</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">27.5.1.2.1. Jacobian of the one-step transformation</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">27.5.1.2.2. One-step energy difference</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implicit-euler">27.5.1.3. Implicit Euler</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">27.5.1.3.1. Jacobian of the one-step transformation</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">27.5.1.3.2. One-step energy difference</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#crank-nicolson">27.5.1.4. Crank-Nicolson</a></li>
-</ul>
-</li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -657,209 +627,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="energy-conservation-of-integration-schemes">
-<span id="ode-integration-schemes-energy-conservation"></span><h1><span class="section-number">27.5. </span>Energy conservation of integration schemes<a class="headerlink" href="#energy-conservation-of-integration-schemes" title="Permalink to this heading">#</a></h1>
-<p>Energy conservation can be discussed with:</p>
-<ul class="simple">
-<li><p>the Jacobian of the transformation induced by one-step of the method, <span class="math notranslate nohighlight">\(\mathbf{z}_n \mapsto \mathbf{z}_{n+1}\)</span></p></li>
-<li><p>the change of energy <span class="math notranslate nohighlight">\(\Delta E = E_{n+1} - E_n\)</span></p></li>
-</ul>
-<p>Energy conservation is discussed here for Hamiltonian systems, see <a class="reference internal" href="integration-schemes-simplectic.html#ode-integration-schemes-simplectic"><span class="std std-ref">simplectic integrators</span></a></p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\left\{\begin{aligned}
-  \dot{\mathbf{q}} &amp; = \partial_{\mathbf{p}} H \\
-  \dot{\mathbf{p}} &amp; = - \partial_{\mathbf{q}} H \\
-\end{aligned}\right.\end{split}\]</div>
-<p>or for second-order mechanical systems</p>
-<div class="math notranslate nohighlight">
-\[\mathbf{M} \ddot{\mathbf{x}} = \mathbf{f}(\mathbf{x},t)\]</div>
-<p>with <span class="math notranslate nohighlight">\(\mathbf{f} = - \partial_{\mathbf{x}} V(\mathbf{x})\)</span>.</p>
-<p>The Hamiltonian function <span class="math notranslate nohighlight">\(H(\mathbf{q}, \mathbf{p})\)</span> can be thought as the energy as a function of the generalized coordinates <span class="math notranslate nohighlight">\(\mathbf{q}\)</span> and the generalized momenta <span class="math notranslate nohighlight">\(\mathbf{p}\)</span>. For Hamiltoninan system, where the Hamiltonian function is independent from time, the Hamiltonian (the energy) is conserved along the trajectories of the system,</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  \dot{H} 
-  &amp; = \dot{\mathbf{q}} \cdot \partial_{\mathbf{q}} H + \dot{\mathbf{p}} \cdot \partial_{\mathbf{p}} H = \\
-  &amp; = \partial_{\mathbf{p}} H \cdot \partial_{\mathbf{q}} H - \partial_{\mathbf{q}} H \cdot \partial_{\mathbf{p}} H = 0 \ .
-\end{aligned}\end{split}\]</div>
-<p>The second-order mechanical system is conservative if with <span class="math notranslate nohighlight">\(\mathbf{f} = - \partial_{\mathbf{x}} V(\mathbf{x})\)</span>, as the total mechanical energy</p>
-<div class="math notranslate nohighlight">
-\[E = \frac{1}{2} \dot{\mathbf{x}}^* \mathbf{M} \dot{\mathbf{x}} + V(\mathbf{x})\]</div>
-<p>is conserved along the evolution of the system. This second-order system can be written - if <span class="math notranslate nohighlight">\(\mathbf{M}\)</span> is invertible - as a first-order system as</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\dfrac{d}{dt} \begin{bmatrix} \mathbf{x} \\ \mathbf{v} \end{bmatrix} = \begin{bmatrix} \mathbf{v} \\ \mathbf{M}^{-1} \mathbf{f}(\mathbf{x},t) \end{bmatrix} \ ,\end{split}\]</div>
-<p>or as a first-order system with Hamiltonian form, with <span class="math notranslate nohighlight">\(H(\mathbf{p}, \mathbf{q}) = \frac{1}{2} \mathbf{p}^* \mathbf{M}^{-1} \mathbf{p} + V(\mathbf{q})\)</span>, having defined <span class="math notranslate nohighlight">\(\mathbf{p} := \mathbf{M} \dot{\mathbf{x}}\)</span>, <span class="math notranslate nohighlight">\(\mathbf{q}:= \mathbf{x}\)</span>,</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\dfrac{d}{dt} \begin{bmatrix} \mathbf{q} \\ \mathbf{p} \end{bmatrix} = \begin{bmatrix} \mathbf{M}^{-1} \mathbf{p} \\ - \partial_{\mathbf{q}}V(\mathbf{q}) \end{bmatrix} \ .\end{split}\]</div>
-<p>.</p>
-<div class="section" id="examples">
-<h2><span class="section-number">27.5.1. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">#</a></h2>
-<div class="section" id="verlet">
-<h3><span class="section-number">27.5.1.1. </span>Verlet<a class="headerlink" href="#verlet" title="Permalink to this heading">#</a></h3>
-<p>For the mechanical system governed by the differential equation <span class="math notranslate nohighlight">\(\ddot{\mathbf{x}} = \mathbf{f}(\mathbf{x},t)\)</span>, the numerical scheme reads</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  \widetilde{\mathbf{x}}_{n+1} &amp; = \mathbf{x}_n + \frac{h}{2} \mathbf{v}_n \\
-  \mathbf{v}_{n+1} &amp; = \mathbf{v}_n + h \mathbf{f}(\widetilde{\mathbf{x}}_{n+1})\\
-  \mathbf{x}_{n+1} &amp; = \widetilde{\mathbf{x}}_{n+1} + \frac{h}{2} \mathbf{v}_{n+1}
-\end{aligned}\end{split}\]</div>
-<p>so that the transformation <span class="math notranslate nohighlight">\(\mathbf{z}_{n} \mapsto \mathbf{z}_{n+1}\)</span> reads</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  \mathbf{v}_{n+1} &amp; = \mathbf{v}_n + h \mathbf{f}(\widetilde{\mathbf{x}}_{n+1}(\mathbf{x}_n, \mathbf{v}_n) )\\
-  \mathbf{x}_{n+1} &amp; = \widetilde{\mathbf{x}}_{n+1}(\mathbf{x}_n, \mathbf{v}_n) + \frac{h}{2} \mathbf{v}_{n+1} = \widetilde{\mathbf{x}}_{n+1}(\mathbf{x}_n, \mathbf{v}_n) + \frac{h}{2} \left[ \mathbf{v}_n + h \mathbf{f}(\widetilde{\mathbf{x}}_{n+1}(\mathbf{x}_n, \mathbf{v}_n) ) \right]
-\end{aligned}\end{split}\]</div>
-<p>or</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  \mathbf{v}_{n+1} &amp; = \mathbf{v}_n + h \mathbf{f}\left( \mathbf{x}_n + \frac{h}{2} \mathbf{v}_n \right) \\
-  \mathbf{x}_{n+1} &amp; = \mathbf{x}_{n} + h \mathbf{v}_n + \frac{h^2}{2} \mathbf{f}\left( \mathbf{x}_n + \frac{h}{2} \mathbf{v}_n \right) 
-\end{aligned}\end{split}\]</div>
-<div class="section" id="jacobian-of-the-one-step-transformation">
-<h4><span class="section-number">27.5.1.1.1. </span>Jacobian of the one-step transformation<a class="headerlink" href="#jacobian-of-the-one-step-transformation" title="Permalink to this heading">#</a></h4>
-<p>Thus, the Jacobian reads</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\mathbf{J} = \partial_{\mathbf{z}_{n}} \mathbf{z}_{n+1} = \begin{bmatrix} \mathbf{I} + \frac{h^2}{2} \partial_{\widetilde{\mathbf{x}}} \mathbf{f} &amp; h + \frac{h^3}{4} \partial_{\widetilde{\mathbf{x}}} \mathbf{f} \\
-h \partial_{\widetilde{\mathbf{x}}} \mathbf{f}  &amp; \mathbf{I} + \frac{h^2}{2} \partial_{\widetilde{\mathbf{x}}} \mathbf{f} \end{bmatrix}\end{split}\]</div>
-<p>and the value of its determinant can be evaluated - for <span class="math notranslate nohighlight">\(h\)</span> “small enough” the upper-left block is approximately the identity and thus invertible; all the blocks commute, as they’re linear combinations of zero and first power of <span class="math notranslate nohighlight">\(\partial_{\widetilde{\mathbf{x}}} \mathbf{f}\)</span> - as</p>
-<div class="math notranslate nohighlight">
-\[
- | \mathbf{J} | 
- = \left| \left( \mathbf{I} + \frac{h^2}{2} \partial_{\widetilde{\mathbf{x}}} \mathbf{f} \right)^2 -h^2 \partial_{\widetilde{\mathbf{x}}} \mathbf{f} \left(  \mathbf{I} + \frac{h^2}{4} \partial_{\widetilde{\mathbf{x}}} \mathbf{f}  \right) \right| = | \mathbf{I} | \ .\]</div>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
-<summary class="sd-summary-title sd-card-header">
-Determinant of block matrices - with Schur complement<div class="sd-summary-down docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="sd-summary-up docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">The determinant of the block matrices - with <strong>Schur complement</strong>, if it exists -</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{bmatrix} A &amp; B \\ C &amp; D \end{bmatrix} = \begin{bmatrix} I &amp; 0 \\ C A^{-1} &amp; I \end{bmatrix} \begin{bmatrix} A &amp; 0 \\ 0 &amp; D - C A^{-1} B \end{bmatrix}\begin{bmatrix} I &amp; A^{-1} B \\ 0 &amp; I \end{bmatrix}\end{split}\]</div>
-<p class="sd-card-text">reads - just take the determinants and exploit the property of determinant of the product is equal to the product of the determinants, and the determinant of a block-diagonal matrix -</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\left|\begin{bmatrix} A &amp; B \\ C &amp; D \end{bmatrix} \right| = |A||D - C A^{-1} B| \ .\end{split}\]</div>
-<p class="sd-card-text">If <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span>, <span class="math notranslate nohighlight">\(C\)</span>, <span class="math notranslate nohighlight">\(D\)</span> have proper dimensions and <span class="math notranslate nohighlight">\(AC = CA\)</span>, i.e. commute, it follows</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  \left|\begin{bmatrix} A &amp; B \\ C &amp; D \end{bmatrix} \right| 
-  &amp; = |A||D - C A^{-1} B| = \\
-  &amp; = |A D - A C A^{-1} B | = \\
-  &amp; = |A D - C A A^{-1} B | = \\
-  &amp; = |A D - C B | \ .
-\end{aligned}\end{split}\]</div>
-</div>
-</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
-<summary class="sd-summary-title sd-card-header">
-Proof of inverse of block matrix by direct computation<div class="sd-summary-down docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="sd-summary-up docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="sd-summary-content sd-card-body docutils">
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
- \begin{bmatrix} I &amp; 0 \\ C A^{-1} &amp; I \end{bmatrix} \begin{bmatrix} A &amp; 0 \\ 0 &amp; D - C A^{-1} B \end{bmatrix}\begin{bmatrix} I &amp; A^{-1} B \\ 0 &amp; I \end{bmatrix} 
- &amp; = \begin{bmatrix} A &amp; 0 \\ C &amp; D - C A^{-1} B \end{bmatrix}\begin{bmatrix} I &amp; A^{-1} B \\ 0 &amp; I \end{bmatrix} = \\
- &amp; = \begin{bmatrix} A &amp; B \\ C &amp; D \end{bmatrix}
-\end{aligned}\end{split}\]</div>
-</div>
-</details></div>
-<div class="section" id="one-step-energy-difference">
-<h4><span class="section-number">27.5.1.1.2. </span>One-step energy difference<a class="headerlink" href="#one-step-energy-difference" title="Permalink to this heading">#</a></h4>
-</div>
-</div>
-<div class="section" id="explicit-euler">
-<h3><span class="section-number">27.5.1.2. </span>Explicit Euler<a class="headerlink" href="#explicit-euler" title="Permalink to this heading">#</a></h3>
-<p>For the mechanical system governed by the differential equation <span class="math notranslate nohighlight">\(\ddot{\mathbf{x}} = \mathbf{f}(\mathbf{x},t)\)</span>, or by the first-order system</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\dfrac{d}{dt}\begin{bmatrix} \mathbf{x} \\ \mathbf{v} \end{bmatrix} = \begin{bmatrix} \mathbf{v} \\ \mathbf{f}(\mathbf{x}) \end{bmatrix}\end{split}\]</div>
-<p>the numerical scheme, and the transformation <span class="math notranslate nohighlight">\(\mathbf{z}_{n} \mapsto \mathbf{z}_{n+1}\)</span>, reads</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  \mathbf{x}_{n+1} &amp; = \mathbf{x}_{n} + h \mathbf{v}_{n} \\
-  \mathbf{v}_{n+1} &amp; = \mathbf{v}_n + h \mathbf{f}( \mathbf{x}_{n})\\
-\end{aligned}\end{split}\]</div>
-<div class="section" id="id1">
-<h4><span class="section-number">27.5.1.2.1. </span>Jacobian of the one-step transformation<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h4>
-<p>Thus, the Jacobian reads</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\mathbf{J} = \partial_{\mathbf{z}_{n}} \mathbf{z}_{n+1} = \begin{bmatrix} \mathbf{I} &amp; h \mathbf{I} \\
-h \partial_{\widetilde{\mathbf{x}}} \mathbf{f}  &amp; \mathbf{I} \end{bmatrix}\end{split}\]</div>
-<p>and the value of its determinant can be evaluated - for <span class="math notranslate nohighlight">\(h\)</span> “small enough” the upper-left block is approximately the identity and thus invertible; all the blocks commute, as they’re linear combinations of zero and first power of <span class="math notranslate nohighlight">\(\partial_{\widetilde{\mathbf{x}}} \mathbf{f}\)</span> - as</p>
-<div class="math notranslate nohighlight">
-\[
- | \mathbf{J} | 
- = \left| \mathbf{I} - h^2 \partial_{\widetilde{\mathbf{x}}} \mathbf{f} \right| \ .\]</div>
-<p>First-derivative of the force w.r.t. <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> can be related to the stiffness matrix around equilibria,</p>
-<div class="math notranslate nohighlight">
-\[\mathbf{f}(\overline{\mathbf{x}} + \delta \mathbf{x} ) \simeq \mathbf{f}(\overline{\mathbf{x}}) + \delta \mathbf{x} \cdot \partial_{\mathbf{x}} \mathbf{f}(\overline{\mathbf{x}}) = \mathbf{K} \delta \mathbf{x} \ .\]</div>
-<p>For marginally-stable systems, the stiffness matrix has imaginary eigenvalues, <span class="math notranslate nohighlight">\(\lambda_k(\mathbf{K}) = \mp i \Omega_k\)</span>. For the numerical integration of system around an equilibrium, it follows</p>
-<div class="math notranslate nohighlight">
-\[
- | \mathbf{J} | 
- = \left| \mathbf{I} - h^2 \mathbf{K} \right| \ ,
-\]</div>
-<p>and thus - recalling that the determinant is equal to the product of the eigenvalues -</p>
-<div class="math notranslate nohighlight">
-\[|\mathbf{J}| = \prod_k \lambda_k( \mathbf{I} - h^2 \mathbf{K} ) = \prod_k \left( 1 - h^2 \lambda_k( \mathbf{K} ) \right) = \prod_k ( 1 + h^2 \Omega_k^2 ) \ge 1 \ .\]</div>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
-<summary class="sd-summary-title sd-card-header">
-Eigenproblem of <span class="math notranslate nohighlight">\(\ \mathbf{A} + b \mathbf{I}\)</span><div class="sd-summary-down docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="sd-summary-up docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">If <span class="math notranslate nohighlight">\(\mathbf{A} \mathbf{v}_k = \alpha_k \mathbf{v}_k\)</span>, then the matrix <span class="math notranslate nohighlight">\(\mathbf{A} + b \mathbf{I}\)</span> has the same eigenvectors <span class="math notranslate nohighlight">\(\mathbf{v}_k\)</span> with eigenvalues <span class="math notranslate nohighlight">\(\lambda_k = \alpha_k + b\)</span></p>
-</div>
-</details></div>
-<div class="section" id="id2">
-<h4><span class="section-number">27.5.1.2.2. </span>One-step energy difference<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h4>
-</div>
-</div>
-<div class="section" id="implicit-euler">
-<h3><span class="section-number">27.5.1.3. </span>Implicit Euler<a class="headerlink" href="#implicit-euler" title="Permalink to this heading">#</a></h3>
-<p>For the mechanical system governed by the differential equation <span class="math notranslate nohighlight">\(\ddot{\mathbf{x}} = \mathbf{f}(\mathbf{x},t)\)</span>, or by the first-order system</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\dfrac{d}{dt}\begin{bmatrix} \mathbf{x} \\ \mathbf{v} \end{bmatrix} = \begin{bmatrix} \mathbf{v} \\ \mathbf{f}(\mathbf{x}) \end{bmatrix}\end{split}\]</div>
-<p>the numerical scheme, and the transformation <span class="math notranslate nohighlight">\(\mathbf{z}_{n} \mapsto \mathbf{z}_{n+1}\)</span>, reads</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  \mathbf{x}_{n+1} &amp; = \mathbf{x}_{n} + h \mathbf{v}_{n+1} \\
-  \mathbf{v}_{n+1} &amp; = \mathbf{v}_n + h \mathbf{f}( \mathbf{x}_{n+1})\\
-\end{aligned}\end{split}\]</div>
-<div class="section" id="id3">
-<h4><span class="section-number">27.5.1.3.1. </span>Jacobian of the one-step transformation<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h4>
-<p>The Jacobian of the inverse transformation <span class="math notranslate nohighlight">\(\mathbf{z}_{n+1} \mapsto \mathbf{z}_n\)</span> reads</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\mathbf{J}^{-1} = \partial_{\mathbf{z}_{n+1}} \mathbf{z}_{n} = \begin{bmatrix} \mathbf{I} &amp; -h \mathbf{I} \\ -h \partial_{\widetilde{\mathbf{x}}} \mathbf{f}  &amp; \mathbf{I} \end{bmatrix}\end{split}\]</div>
-<p>and the value of its determinant can be evaluated - for <span class="math notranslate nohighlight">\(h\)</span> “small enough” the upper-left block is approximately the identity and thus invertible; all the blocks commute, as they’re linear combinations of zero and first power of <span class="math notranslate nohighlight">\(\partial_{\widetilde{\mathbf{x}}} \mathbf{f}\)</span> - as</p>
-<div class="math notranslate nohighlight">
-\[
- | \mathbf{J}^{-1} | 
- = \left| \mathbf{I} - h^2 \partial_{\widetilde{\mathbf{x}}} \mathbf{f} \right| \ .\]</div>
-<p>First-derivative of the force w.r.t. <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> can be related to the stiffness matrix around equilibria,</p>
-<div class="math notranslate nohighlight">
-\[\mathbf{f}(\overline{\mathbf{x}} + \delta \mathbf{x} ) \simeq \mathbf{f}(\overline{\mathbf{x}}) + \delta \mathbf{x} \cdot \partial_{\mathbf{x}} \mathbf{f}(\overline{\mathbf{x}}) = \mathbf{K} \delta \mathbf{x} \ .\]</div>
-<p>For marginally-stable systems, the stiffness matrix has imaginary eigenvalues, <span class="math notranslate nohighlight">\(\lambda_k(\mathbf{K}) = \mp i \Omega_k\)</span>. For the numerical integration of system around an equilibrium, it follows</p>
-<div class="math notranslate nohighlight">
-\[
- | \mathbf{J}^{-1} | 
- = \left| \mathbf{I} - h^2 \mathbf{K} \right| \ ,
-\]</div>
-<p>and thus - recalling that the determinant is equal to the product of the eigenvalues -</p>
-<div class="math notranslate nohighlight">
-\[|\mathbf{J}^{-1}| = \prod_k \lambda_k( \mathbf{I} - h^2 \mathbf{K} ) = \prod_k \left( 1 - h^2 \lambda_k( \mathbf{K} ) \right) = \prod_k ( 1 + h^2 \Omega_k^2 ) \ge 1 \ ,\]</div>
-<p>and thus</p>
-<div class="math notranslate nohighlight">
-\[\left| \mathbf{J} \right| = \left| \mathbf{J}^{-1} \right|^{-1} = \left[ \prod_k ( 1 + h^2 \Omega_k^2 ) \right]^{-1} \le 1 \ .\]</div>
-</div>
-<div class="section" id="id4">
-<h4><span class="section-number">27.5.1.3.2. </span>One-step energy difference<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h4>
-</div>
-</div>
-<div class="section" id="crank-nicolson">
-<h3><span class="section-number">27.5.1.4. </span>Crank-Nicolson<a class="headerlink" href="#crank-nicolson" title="Permalink to this heading">#</a></h3>
-</div>
-</div>
+  <div class="tex2jax_ignore mathjax_ignore section" id="families-of-integration-methods">
+<span id="ode-integration-schemes-common"></span><h1><span class="section-number">27.2. </span>Families of integration methods<a class="headerlink" href="#families-of-integration-methods" title="Permalink to this heading">#</a></h1>
 </div>
 
     <script type="text/x-thebe-config">
@@ -893,20 +662,20 @@ Eigenproblem of <span class="math notranslate nohighlight">\(\ \mathbf{A} + b \m
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="integration-schemes-simplectic.html"
+       href="integration-schemes-foundations.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">27.4. </span>Simplectic integrators</p>
+        <p class="prev-next-title"><span class="section-number">27.1. </span>Foundations</p>
       </div>
     </a>
     <a class="right-next"
-       href="time-integration-mechanical-systems.html"
+       href="integration-schemes-stability.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">27.6. </span>Time-integration of a mechanical system</p>
+        <p class="prev-next-title"><span class="section-number">27.3. </span>Stability properties of numerical schemes</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -916,38 +685,6 @@ Eigenproblem of <span class="math notranslate nohighlight">\(\ \mathbf{A} + b \m
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">27.5.1. Examples</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#verlet">27.5.1.1. Verlet</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#jacobian-of-the-one-step-transformation">27.5.1.1.1. Jacobian of the one-step transformation</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#one-step-energy-difference">27.5.1.1.2. One-step energy difference</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#explicit-euler">27.5.1.2. Explicit Euler</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">27.5.1.2.1. Jacobian of the one-step transformation</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">27.5.1.2.2. One-step energy difference</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#implicit-euler">27.5.1.3. Implicit Euler</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">27.5.1.3.1. Jacobian of the one-step transformation</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">27.5.1.3.2. One-step energy difference</a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#crank-nicolson">27.5.1.4. Crank-Nicolson</a></li>
-</ul>
-</li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>
