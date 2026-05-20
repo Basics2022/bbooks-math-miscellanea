@@ -65,6 +65,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'ch/ode/integration-schemes-common';</script>
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -602,7 +604,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -618,6 +622,21 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#one-step-methods-i-euler-crank-nicolson">27.2.1. One-step methods (I): Euler, Crank-Nicolson</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-step-methods">27.2.2. Multi-step methods</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adams-bashforth-ab">27.2.2.1. Adams-Bashforth (AB)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adams-moulton-am">27.2.2.2. Adams-Moulton (AM)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backward-differentiation-formulas-bdf">27.2.2.3. Backward Differentiation Formulas (BDF)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#one-step-methods-ii-runge-kutta-rk">27.2.3. One-step methods (II): Runge-Kutta (RK)</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -629,6 +648,45 @@ document.write(`
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="families-of-integration-methods">
 <span id="ode-integration-schemes-common"></span><h1><span class="section-number">27.2. </span>Families of integration methods<a class="headerlink" href="#families-of-integration-methods" title="Permalink to this heading">#</a></h1>
+<p>Methods for the first-order IVP</p>
+<div class="math notranslate nohighlight" id="equation-eq-ode-numerical-integration-first-order">
+<span class="eqno">(27.1)<a class="headerlink" href="#equation-eq-ode-numerical-integration-first-order" title="Permalink to this equation">#</a></span>\[\begin{split}\left\{
+\begin{aligned}
+ &amp; \dot{\mathbf{y}} = \mathbf{f}(t,\mathbf{y}) \\
+ &amp; \mathbf{y}(0) = \mathbf{y}_0 \ .
+\end{aligned}\right.\end{split}\]</div>
+<div class="section" id="one-step-methods-i-euler-crank-nicolson">
+<h2><span class="section-number">27.2.1. </span>One-step methods (I): Euler, Crank-Nicolson<a class="headerlink" href="#one-step-methods-i-euler-crank-nicolson" title="Permalink to this heading">#</a></h2>
+</div>
+<div class="section" id="multi-step-methods">
+<h2><span class="section-number">27.2.2. </span>Multi-step methods<a class="headerlink" href="#multi-step-methods" title="Permalink to this heading">#</a></h2>
+<p><strong>Adams-Bashforth and Adams-Moulton.</strong> The integration of the first-order equation <a class="reference internal" href="#equation-eq-ode-numerical-integration-first-order">(27.1)</a> between <span class="math notranslate nohighlight">\(t_n\)</span> and <span class="math notranslate nohighlight">\(t_{n+1}\)</span> reads</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{y}(t_{n+1}) - \mathbf{y}(t_n) = \int_{\tau = t_n}^{t_{n+1}} \mathbf{f}(\tau, \mathbf{y}(\tau)) \, d \tau \ .\]</div>
+<p>AB and AM methods replace the function <span class="math notranslate nohighlight">\(\mathbf{f}(t, \mathbf{y}(t))\)</span> with a polynomial Lagrangian approximation <span class="math notranslate nohighlight">\(\mathbf{p}_s(t) \simeq \mathbf{f}(t)\)</span> built with values of <span class="math notranslate nohighlight">\(\mathbf{f}(t_{n-k}, \mathbf{y}(t_{n-k}) )\)</span>, with <span class="math notranslate nohighlight">\(k_{AB} = 0:s-1\)</span> (AB are explicit methods) and <span class="math notranslate nohighlight">\(k_{AM} = -1:s-1\)</span> (AM are implicit methods).</p>
+<p>Once the original function is replaced by its polynomial approximation, the integration can be performed exactly.</p>
+<p><strong>Backward Differentiation Formulas.</strong> BDF methods exploits the derivative of the polynomial approximation <span class="math notranslate nohighlight">\(\mathbf{q}_s(t) \simeq \mathbf{y}(t)\)</span>. The value of the derivative <span class="math notranslate nohighlight">\(\dot{\mathbf{q}}_s(t)\)</span> evaluated in <span class="math notranslate nohighlight">\((t_{n+1}, \mathbf{y}_{n+1})\)</span> can be written as a linear combinations of the <span class="math notranslate nohighlight">\(\{ \mathbf{y}_{n-k} \}_{k=-1:s-1}\)</span> values. BDF immediately follows from the comparison</p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+  \mathbf{f}(t_{n+1}, \mathbf{y}_{n+1})
+  &amp; = \dot{\mathbf{y}}(t_{n+1}) \simeq \dot{\mathbf{q}}_s(t) = \sum_{k=-1}^{s-1} a_k \mathbf{y}_{n-k}
+\end{aligned}\]</div>
+<div class="section" id="adams-bashforth-ab">
+<h3><span class="section-number">27.2.2.1. </span>Adams-Bashforth (AB)<a class="headerlink" href="#adams-bashforth-ab" title="Permalink to this heading">#</a></h3>
+<p>…</p>
+</div>
+<div class="section" id="adams-moulton-am">
+<h3><span class="section-number">27.2.2.2. </span>Adams-Moulton (AM)<a class="headerlink" href="#adams-moulton-am" title="Permalink to this heading">#</a></h3>
+<p>…</p>
+</div>
+<div class="section" id="backward-differentiation-formulas-bdf">
+<h3><span class="section-number">27.2.2.3. </span>Backward Differentiation Formulas (BDF)<a class="headerlink" href="#backward-differentiation-formulas-bdf" title="Permalink to this heading">#</a></h3>
+<p>…</p>
+</div>
+</div>
+<div class="section" id="one-step-methods-ii-runge-kutta-rk">
+<h2><span class="section-number">27.2.3. </span>One-step methods (II): Runge-Kutta (RK)<a class="headerlink" href="#one-step-methods-ii-runge-kutta-rk" title="Permalink to this heading">#</a></h2>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -685,6 +743,27 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#one-step-methods-i-euler-crank-nicolson">27.2.1. One-step methods (I): Euler, Crank-Nicolson</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multi-step-methods">27.2.2. Multi-step methods</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adams-bashforth-ab">27.2.2.1. Adams-Bashforth (AB)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adams-moulton-am">27.2.2.2. Adams-Moulton (AM)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backward-differentiation-formulas-bdf">27.2.2.3. Backward Differentiation Formulas (BDF)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#one-step-methods-ii-runge-kutta-rk">27.2.3. One-step methods (II): Runge-Kutta (RK)</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
