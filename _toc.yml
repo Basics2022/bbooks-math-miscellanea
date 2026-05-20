@@ -65,6 +65,11 @@ parts:
     - file: ch/complex/fourier-transforms
     - file: ch/complex/fourier-practice
   - file: ch/complex/z-transform
+- caption: Approximation of Functions
+  numbered: True
+  chapters:
+  - file: ch/function-approx/intro
+  - file: ch/function-approx/lagrange-interp
 - caption: Calculus of Variations
   numbered: True
   chapters:
