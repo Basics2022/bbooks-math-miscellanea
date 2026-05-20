@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>31. Linear Time-Invariant Systems &#8212; basics - math</title>
+    <title>24. Lagrange interpolation &#8212; basics - math</title>
   
   
   
@@ -67,12 +67,12 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/system-theory/lti';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/function-approx/lagrange-interp';</script>
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="32. Coordinate transformation" href="coordinate-transformation.html" />
-    <link rel="prev" title="30. Introduction to System Theory" href="intro.html" />
+    <link rel="next" title="25. Introduction to Calculus of Variations" href="../calculus-variations/intro.html" />
+    <link rel="prev" title="23. Introduction to function approximation" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -241,9 +241,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../complex/z-transform.html">22. Z-transform</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Approximation of Functions</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../function-approx/intro.html">23. Function approximation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../function-approx/lagrange-interp.html">24. Lagrange interpolation</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">23. Introduction to function approximation</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">24. Lagrange interpolation</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Calculus of Variations</span></p>
 <ul class="nav bd-sidenav">
@@ -265,23 +265,23 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">System Theory</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="intro.html">30. Introduction to System Theory</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">31. Linear Time-Invariant Systems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="coordinate-transformation.html">32. Coordinate transformation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lti-response.html">33. LTI system response</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lti-stability-and-feedback.html">34. LTI: stability and feedback</a></li>
-<li class="toctree-l1"><a class="reference internal" href="observability-detectability.html">35. Observability and Detectability</a></li>
-<li class="toctree-l1"><a class="reference internal" href="controllability-reachability.html">36. Reachability and Controllability</a></li>
-<li class="toctree-l1"><a class="reference internal" href="realizations.html">37. State-space realizations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="kalman-decomposition.html">38. Kalman decomposition</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lyapunov-equation.html">39. Lyapunov equation</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="order-reduction.html">40. Order reduction of dynamical systems</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="order-reduction-balanced-truncation.html">40.1. Balanced truncation</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../system-theory/intro.html">30. Introduction to System Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system-theory/lti.html">31. Linear Time-Invariant Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system-theory/coordinate-transformation.html">32. Coordinate transformation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system-theory/lti-response.html">33. LTI system response</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system-theory/lti-stability-and-feedback.html">34. LTI: stability and feedback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system-theory/observability-detectability.html">35. Observability and Detectability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system-theory/controllability-reachability.html">36. Reachability and Controllability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system-theory/realizations.html">37. State-space realizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system-theory/kalman-decomposition.html">38. Kalman decomposition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system-theory/lyapunov-equation.html">39. Lyapunov equation</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../system-theory/order-reduction.html">40. Order reduction of dynamical systems</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../system-theory/order-reduction-balanced-truncation.html">40.1. Balanced truncation</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="shape-filter.html">41. Shape filter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="time-delay-pade.html">42. Padé approximation of time delay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system-theory/shape-filter.html">41. Shape filter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system-theory/time-delay-pade.html">42. Padé approximation of time delay</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Control Theory</span></p>
 <ul class="nav bd-sidenav">
@@ -435,6 +435,37 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Basics2022/bbooks-math-miscellanea/blob/master/ch/function-approx/lagrange-interp.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
 <div class="dropdown dropdown-source-buttons">
   <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
     <i class="fab fa-github"></i>
@@ -460,7 +491,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/edit/main/ch/system-theory/lti.md" target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/edit/main/ch/function-approx/lagrange-interp.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -477,7 +508,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/issues/new?title=Issue%20on%20page%20%2Fch/system-theory/lti.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/issues/new?title=Issue%20on%20page%20%2Fch/function-approx/lagrange-interp.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -507,7 +538,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/ch/system-theory/lti.md" target="_blank"
+      <li><a href="../../_sources/ch/function-approx/lagrange-interp.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -517,7 +548,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -591,7 +622,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Linear Time-Invariant Systems</h1>
+    <h1>Lagrange interpolation</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -601,8 +632,17 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#impulsive-force">31.1. Impulsive force</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#properties">31.2. Properties</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lagrangian-basis-and-polynomial-interpolation">24.1. Lagrangian basis, and polynomial interpolation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#low-degree-approximations-with-constant-steps">24.2. Low-degree approximations with constant steps</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applications">24.3. Applications</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lagrange-interpolation-and-multi-step-methods-for-ivps-governed-by-odes">24.3.1. Lagrange interpolation and multi-step methods for IVPs governed by ODEs</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#adams-bashforth">24.3.1.1. Adams-Bashforth</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#adams-moulton">24.3.1.2. Adams-Moulton</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#backward-differentiation-formulas">24.3.1.3. Backward Differentiation Formulas</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -614,113 +654,153 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="linear-time-invariant-systems">
-<span id="ode-lti"></span><h1><span class="section-number">31. </span>Linear Time-Invariant Systems<a class="headerlink" href="#linear-time-invariant-systems" title="Permalink to this heading">#</a></h1>
-<p>A linear time invariant system is governed by a linear ODE with constant coefficients. These equations can be recast as a first order system of ODEs,</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="lagrange-interpolation">
+<span id="fun-approx-lagrange-interp"></span><h1><span class="section-number">24. </span>Lagrange interpolation<a class="headerlink" href="#lagrange-interpolation" title="Permalink to this heading">#</a></h1>
+<p>Let <span class="math notranslate nohighlight">\(p_n(t)\)</span> a polynomial interpolation of the points <span class="math notranslate nohighlight">\(\left\{(t_k, y_k) \right\}_{k=0:n}\)</span>, with <span class="math notranslate nohighlight">\(y_k = y(t_k)\)</span>. Lagrange interpolation of <span class="math notranslate nohighlight">\(n+1\)</span> points requires a polynomial of degree <span class="math notranslate nohighlight">\(n\)</span>.</p>
+<div class="section" id="lagrangian-basis-and-polynomial-interpolation">
+<span id="fun-approx-lagrange-interp-basis-interp"></span><h2><span class="section-number">24.1. </span>Lagrangian basis, and polynomial interpolation<a class="headerlink" href="#lagrangian-basis-and-polynomial-interpolation" title="Permalink to this heading">#</a></h2>
+<p><strong>Lagrangian basis.</strong> The Lagrangian basis is a set of <span class="math notranslate nohighlight">\(n+1\)</span> functions <span class="math notranslate nohighlight">\(\ell_k(t)\)</span>, so that</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\begin{cases}
-  \dot{\mathbf{x}} = \mathbf{A} \mathbf{x} + \mathbf{B} \mathbf{u} \\
-       \mathbf{y}  = \mathbf{C} \mathbf{x} + \mathbf{D} \mathbf{u} \\
-  \mathbf{x}(0^-) = \mathbf{x}_0
-\end{cases}\end{split}\]</div>
-<p>Exploiting the <a class="reference internal" href="#ode-lti-matrix-properties"><span class="std std-ref">properties of matrix exponential</span></a> the general expression of the state can be written as the sum of the free response to initial condition and the forced response.</p>
+\[\ell_k(t_j) = \delta_{jk} \ .\]</div>
+<p>In order to satisfy these n+1 conditions, the <span class="math notranslate nohighlight">\(k^{th}\)</span> function of the Lagrange basis reads</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  \mathbf{x}(t) &amp; = e^{\mathbf{A}t} \mathbf{x}_0 + \int_{\tau=0^-}^{t} e^{\mathbf{A}(t-\tau)} \mathbf{B} \mathbf{u} (\tau) \, d \tau \\
-  \mathbf{y}(t) &amp; = \mathbf{C} e^{\mathbf{A}t} \mathbf{x}_0 + \mathbf{C} \int_{\tau=0^-}^{t} e^{\mathbf{A}(t-\tau)} \mathbf{B} \mathbf{u} (\tau) \, d \tau  + \mathbf{D} \mathbf{u}(t) \\
-\end{aligned}\end{split}\]</div>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
-<summary class="sd-summary-title sd-card-header">
-Proof in time domain<div class="sd-summary-down docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="sd-summary-up docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Multipying by <span class="math notranslate nohighlight">\(e^{-\mathbf{A} t}\)</span>,</p>
+\[\begin{split}\ell_j(t) = \prod_{\begin{aligned} 0 \le &amp; m \le n \\ m &amp; \ne j \end{aligned}} \frac{t - t_m}{t_j - t_m} \ .\end{split}\]</div>
+<p><strong>Properties.</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\ell_k(t_j) = \delta_{jk}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\sum_k \ell_k(t) = 1\)</span> <strong>todo</strong> <em>Prove it!</em></p></li>
+</ul>
+<p><strong>Polynomial approximation.</strong> The Lagrange interpolating polynomial immediately follows as the linear combination</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  e^{-\mathbf{A}t} ( \dot{x}(t) - \mathbf{A} \mathbf{x}(t) ) &amp; = e^{-\mathbf{A} t} \mathbf{B} \mathbf{u}(t) \\
-    \dfrac{d}{dt} \left( \mathbf{x} e^{-\mathbf{A}t} \right) &amp; = e^{-\mathbf{A} t} \mathbf{B} \mathbf{u}(t) \\
-\end{aligned}\end{split}\]</div>
-<p class="sd-card-text">and integrating from <span class="math notranslate nohighlight">\(0^-\)</span> to a generic time value <span class="math notranslate nohighlight">\(t\)</span>,</p>
-<div class="math notranslate nohighlight">
-\[e^{-\mathbf{A}t} \mathbf{x}(t) - \mathbf{x}_0 = \int_{\tau=0^-}^{t} e^{-\mathbf{A}\tau} \mathbf{B} \mathbf{u} (\tau) \, d \tau\]</div>
-<p class="sd-card-text">The state <span class="math notranslate nohighlight">\(\mathbf{x}(t)\)</span> can be written as the sum of the free response and a force response. The general expression of the state and the output as a function reads</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  \mathbf{x}(t) &amp; = e^{\mathbf{A}t} \mathbf{x}_0 + \int_{\tau=0^-}^{t} e^{\mathbf{A}(t-\tau)} \mathbf{B} \mathbf{u} (\tau) \, d \tau \\
-  \mathbf{y}(t) &amp; = \mathbf{C} e^{\mathbf{A}t} \mathbf{x}_0 + \mathbf{C} \int_{\tau=0^-}^{t} e^{\mathbf{A}(t-\tau)} \mathbf{B} \mathbf{u} (\tau) \, d \tau  + \mathbf{D} \mathbf{u}(t) \\
-\end{aligned}\end{split}\]</div>
+\[L_n\left\{ y(t) \right\}(t) = \sum_{j = 0}^{n} y_j \ell_j(t) \ .\]</div>
 </div>
-</details><p><strong>Laplace domain.</strong>
-The <a class="reference internal" href="../complex/laplace.html#complex-laplace"><span class="std std-ref">Laplace transform</span></a> of the problem reads</p>
+<div class="section" id="low-degree-approximations-with-constant-steps">
+<span id="fun-approx-lagrange-interp-low-degree"></span><h2><span class="section-number">24.2. </span>Low-degree approximations with constant steps<a class="headerlink" href="#low-degree-approximations-with-constant-steps" title="Permalink to this heading">#</a></h2>
+<p>Constant-step sampling means <span class="math notranslate nohighlight">\(t_k = t_0 + k h\)</span>, being <span class="math notranslate nohighlight">\(h\)</span> the step.</p>
+<ul>
+<li><p>One-node approximation, <span class="math notranslate nohighlight">\((t_0, y_0)\)</span></p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\begin{cases}
-   s \hat{\mathbf{x}} = \mathbf{A} \hat{\mathbf{x}} + \mathbf{B} \hat{\mathbf{u}} + \mathbf{x}_0 \\
-     \hat{\mathbf{y}} = \mathbf{C} \hat{\mathbf{x}} + \mathbf{D} \hat{\mathbf{u}} \\
-\end{cases}\end{split}\]</div>
-<div class="math notranslate nohighlight">
-\[(s\mathbf{I} - \mathbf{A}) \hat{\mathbf{x}} = \mathbf{B} \hat{\mathbf{u}} + \mathbf{x}_0\]</div>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  \hat{\mathbf{x}}(s) &amp; = (s\mathbf{I} - \mathbf{A})^{-1} \mathbf{x}_0 + (s\mathbf{I} - \mathbf{A})^{-1} \mathbf{B} \hat{\mathbf{u}}(s) \\
-  \hat{\mathbf{y}}(s) &amp; = \mathbf{C} (s\mathbf{I} - \mathbf{A})^{-1}\mathbf{x}_0 + \left[ \mathbf{C} (s\mathbf{I} - \mathbf{A})^{-1} \mathbf{B} + \mathbf{D} \right] \hat{\mathbf{u}}(s)
-\end{aligned}\end{split}\]</div>
-<p>Performing inverse Laplace transform allows to go back to time domain (just use Laplace inverse transform of a matrix exponential, and the formula <a class="reference internal" href="../complex/laplace-def-thm.html#equation-laplace-convolution">(20.1)</a> for Laplace transform of convolution).</p>
-<div class="section" id="impulsive-force">
-<span id="ode-lti-impulsive-force"></span><h2><span class="section-number">31.1. </span>Impulsive force<a class="headerlink" href="#impulsive-force" title="Permalink to this heading">#</a></h2>
-<p>The effect of an impulsive force <span class="math notranslate nohighlight">\(\mathbf{u}_{\delta} \delta(t)\)</span> at time <span class="math notranslate nohighlight">\(t=0\)</span> is equivalent to an instantaneous change in the initial state, <span class="math notranslate nohighlight">\(\Delta \mathbf{x}_0 = \mathbf{B} \mathbf{u}_{\delta}\)</span>, from time <span class="math notranslate nohighlight">\(0^-\)</span> before the impulse to time <span class="math notranslate nohighlight">\(0^+\)</span> after the impulse. Splitting the input <span class="math notranslate nohighlight">\(\mathbf{u}(t)\)</span> as the sum of impulsive input and regular input,</p>
+\[\ell_0(t) = 1\]</div>
+<p>so that the constant approximation reads <span class="math notranslate nohighlight">\(L_0(t) = y_0 \ell_0(t) = y_0\)</span>.</p>
+</li>
+<li><p>Two-node approximation, <span class="math notranslate nohighlight">\((t_0, y_0)\)</span>, <span class="math notranslate nohighlight">\((t_1, y_1)\)</span></p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
-  \mathbf{u}(t) &amp; = \mathbf{u}_r(t) + \mathbf{u}_\delta \delta(t) \\
-  \hat{\mathbf{u}}(s) &amp; = \hat{\mathbf{u}}_r(s) + \mathbf{u}_\delta \\
-\end{aligned}\end{split}\]</div>
-<p>the solution in <strong>time domain</strong> reads</p>
+     \ell_0(t) &amp; = \frac{t-t_1}{t_0 - t_1} = - \frac{t-t_1}{h} \\
+     \ell_1(t) &amp; = \frac{t-t_0}{t_1 - t_0} =   \frac{t-t_0}{h} \\
+   \end{aligned}\end{split}\]</div>
+<p>so that the 1-degree approximation reads <span class="math notranslate nohighlight">\(L_1(t) = y_0 \ell_0(t) + y_1 \ell_1(t)\)</span>.</p>
+</li>
+<li><p>Three-node approximation, <span class="math notranslate nohighlight">\((t_0, y_0)\)</span>, <span class="math notranslate nohighlight">\((t_1, y_1)\)</span>, <span class="math notranslate nohighlight">\((t_2, y_2)\)</span></p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
-  \mathbf{x}(t)
-  &amp; = e^{\mathbf{A}t} \mathbf{x}_0 + \int_{\tau=0^-}^{t} e^{\mathbf{A}(t-\tau)} \mathbf{B} \left( \mathbf{u}_r (\tau) + \mathbf{u}_\delta \delta(\tau) \right) \, d \tau = \\ 
-  &amp; = e^{\mathbf{A}t} \left( \mathbf{x}_0 + \mathbf{B} \mathbf{u}_\delta \right) + \int_{\tau=0^-}^{t} e^{\mathbf{A}(t-\tau)} \mathbf{B} \mathbf{u}_r (\tau) \, d \tau \\
-  \mathbf{y}(t)
-  &amp; = \mathbf{C} e^{\mathbf{A}t} \left( \mathbf{x}_0 + \mathbf{B} \mathbf{u}_\delta \right) + \int_{\tau=0^-}^{t} \mathbf{C} e^{\mathbf{A}(t-\tau)} \mathbf{B} \mathbf{u}_r (\tau) \, d \tau + \mathbf{D} \mathbf{u}_r(t) + \mathbf{D} \mathbf{u}_\delta(t) \\
-\end{aligned}\end{split}\]</div>
-<p>while in <strong>Laplace domain</strong> reads</p>
+     \ell_0(t) &amp; = \frac{(t-t_1)(t-t_2)}{(t_0 - t_1)(t_0 - t_2)} =   \frac{(t-t_1)(t-t_2)}{2 h^2} \\
+     \ell_1(t) &amp; = \frac{(t-t_0)(t-t_2)}{(t_1 - t_0)(t_1 - t_2)} = - \frac{(t-t_0)(t-t_2)}{  h^2} \\
+     \ell_2(t) &amp; = \frac{(t-t_0)(t-t_1)}{(t_2 - t_0)(t_2 - t_0)} =   \frac{(t-t_0)(t-t_1)}{2 h^2} \\
+   \end{aligned}\end{split}\]</div>
+<p>so that the 2-degree approximation reads <span class="math notranslate nohighlight">\(L_2(t) = y_0 \ell_0(t) + y_1 \ell_1(t) + y_2 \ell_2(t)\)</span>.</p>
+</li>
+<li><p>Four-node approximation, <span class="math notranslate nohighlight">\((t_0, y_0)\)</span>, <span class="math notranslate nohighlight">\((t_1, y_1)\)</span>, <span class="math notranslate nohighlight">\((t_2, y_2)\)</span>, <span class="math notranslate nohighlight">\((t_3, y_3)\)</span></p>
 <div class="math notranslate nohighlight">
-\[\begin{split}
-  \hat{\mathbf{x}}(s) &amp; = (s\mathbf{I} - \mathbf{A})^{-1} \mathbf{B} \hat{\mathbf{u}}_r(s) + (s\mathbf{I} - \mathbf{A})^{-1} \left( \mathbf{x}_0 + \mathbf{B} \mathbf{u}_\delta \right) \\
-  \hat{\mathbf{y}}(s) &amp; = \left[ \mathbf{C} (s\mathbf{I} - \mathbf{A})^{-1} \mathbf{B} + \mathbf{D} \right] \hat{\mathbf{u}}_r(s) + \mathbf{C} (s\mathbf{I} - \mathbf{A})^{-1} \left( \mathbf{x}_0 + \mathbf{B} \mathbf{u}_\delta \right) + \mathbf{D} \mathbf{u}_{\delta}
-\end{split}\]</div>
+\[\begin{split}\begin{aligned}
+     \ell_0(t) &amp; = - \frac{(t-t_1)(t-t_2)(t-t_3)}{6 h^3} \\
+     \ell_1(t) &amp; =   \frac{(t-t_0)(t-t_2)(t-t_3)}{2 h^3} \\
+     \ell_2(t) &amp; = - \frac{(t-t_0)(t-t_1)(t-t_3)}{2 h^3} \\
+     \ell_3(t) &amp; =   \frac{(t-t_0)(t-t_1)(t-t_2)}{6 h^3} \\
+   \end{aligned}\end{split}\]</div>
+<p>so that the 3-degree approximation reads <span class="math notranslate nohighlight">\(L_3(t) = \sum_{k=0}^{3} y_k \ell_k(t)\)</span>.</p>
+</li>
+</ul>
 </div>
-<div class="section" id="properties">
-<span id="ode-lti-matrix-properties"></span><h2><span class="section-number">31.2. </span>Properties<a class="headerlink" href="#properties" title="Permalink to this heading">#</a></h2>
-<p><strong>Matrix exponential.</strong></p>
-<div class="math notranslate nohighlight">
-\[e^{\mathbf{A} t} = \sum_{k = 0}^{+\infty} \frac{\mathbf{A}^k t^k}{k!} \ .\]</div>
-<p>Assuming it’s possible swap derivative operator and summation (when?), it’s possible to write</p>
-<div class="math notranslate nohighlight">
-\[\frac{d}{dt} e^{\mathbf{A}t} = \dfrac{d}{dt} \sum_{k = 0}^{+\infty} \frac{\mathbf{A}^k t^k}{k!} = \sum_{k=1}^{+\infty} k t^{k-1} \frac{\mathbf{A}^k t^{k-1}}{k!} = \mathbf{A} e^{\mathbf{A} t} \ .\]</div>
-<p><strong>Laplace transform of exponential matrix.</strong></p>
+<div class="section" id="applications">
+<span id="fun-approx-lagrange-interp-applications"></span><h2><span class="section-number">24.3. </span>Applications<a class="headerlink" href="#applications" title="Permalink to this heading">#</a></h2>
+<div class="section" id="lagrange-interpolation-and-multi-step-methods-for-ivps-governed-by-odes">
+<span id="fun-approx-lagrange-interp-applications-odes"></span><h3><span class="section-number">24.3.1. </span>Lagrange interpolation and multi-step methods for IVPs governed by ODEs<a class="headerlink" href="#lagrange-interpolation-and-multi-step-methods-for-ivps-governed-by-odes" title="Permalink to this heading">#</a></h3>
+<div class="section" id="adams-bashforth">
+<span id="fun-approx-lagrange-interp-applications-odes-ab"></span><h4><span class="section-number">24.3.1.1. </span>Adams-Bashforth<a class="headerlink" href="#adams-bashforth" title="Permalink to this heading">#</a></h4>
+<p><strong>AB1.</strong> Using <span class="math notranslate nohighlight">\(n=0\)</span> approximation with points <span class="math notranslate nohighlight">\((t_0, f_0)\)</span> to integrate from <span class="math notranslate nohighlight">\(t_0\)</span> to <span class="math notranslate nohighlight">\(t_1\)</span></p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
-  \mathscr{L}\left\{ e^{\mathbf{A}t} \right\}(s)
-  &amp; := \int_{t=0^-}^{+\infty} e^{\mathbf{A} t} e^{-s t} \, dt = \\
-  &amp; = \int_{t=0^-}^{+\infty} e^{(-s\mathbf{I} + \mathbf{A}) t} \, dt = \\
-  &amp; = (-s\mathbf{I} + \mathbf{A})^{-1} \left.e^{(-s\mathbf{I} + \mathbf{A}) t}\right|_{t=0^-}^{+\infty} = \\
-  &amp; = (s \mathbf{I} - \mathbf{A})^{-1} \ ,
+  y_{1} - y_{0} 
+  &amp; = \int_{t = t_0}^{t_1} f_0  d t = \\
+  &amp; = h f_0
 \end{aligned}\end{split}\]</div>
-<p>for all the values of <span class="math notranslate nohighlight">\(s\)</span> for which <span class="math notranslate nohighlight">\(-s\mathbf{I} + \mathbf{A}\)</span> is asymptotically stable, i.e. has all the eignevalues (thus, assuming that the matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> can be diagonalizable. What happens if not? Exploit other matrix decompositions to draw conclusions) with negative real parts, and thus for all the values of <span class="math notranslate nohighlight">\(s &gt; \max \text{re}\{ s_k(\mathbf{A}) \}\)</span>, as it’s shown in <a class="reference internal" href="#matrix-stability-spectrum">Example 31.1</a></p>
-<div class="proof example admonition" id="matrix-stability-spectrum">
-<p class="admonition-title"><span class="caption-number">Example 31.1 </span> (Asymptotic stability of a matrix <span class="math notranslate nohighlight">\(\ \mathbf{A}\)</span>)</p>
-<div class="example-content section" id="proof-content">
-<p>An <span class="math notranslate nohighlight">\(N \times N\)</span> diagnonalizable matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span>,</p>
-<div class="math notranslate nohighlight" id="equation-eq-matrix-stability-spectrum-a">
-<span class="eqno">(31.1)<a class="headerlink" href="#equation-eq-matrix-stability-spectrum-a" title="Permalink to this equation">#</a></span>\[\mathbf{A} \mathbf{v}_k = \mathbf{v}_k \, s_k\]</div>
-<p>has all the eigenvalues with negative real part, <span class="math notranslate nohighlight">\(\text{re}\left\{ s_k \right\} &lt; 0\)</span>, <span class="math notranslate nohighlight">\(\forall k=1:N\)</span>.</p>
-<p>The eigenvalues of a matrix <span class="math notranslate nohighlight">\(a \mathbf{I} + \mathbf{A}\)</span> are <span class="math notranslate nohighlight">\(a + s_k\)</span>, while the eigenvectors are the same as those of the matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span>. This can be easily proved adding <span class="math notranslate nohighlight">\(a \mathbf{I} \mathbf{v}_k\)</span> to both sides of equation <a class="reference internal" href="#equation-eq-matrix-stability-spectrum-a">(31.1)</a>,</p>
+<p>and thus, AB1 is the <strong>explicit Euler</strong> method</p>
 <div class="math notranslate nohighlight">
-\[\left( a \mathbf{I} + \mathbf{A} \right) \mathbf{v}_k = \mathbf{v}_k (a + s_k) \ .\]</div>
+\[y_{n+1} = y_{n} + h f(t_n, y_n) \ .\]</div>
+<p><strong>AB2.</strong> Using <span class="math notranslate nohighlight">\(n=1\)</span> approximation with points <span class="math notranslate nohighlight">\((t_0, f_0)\)</span>, <span class="math notranslate nohighlight">\((t_1, f_1)\)</span> to integrate from <span class="math notranslate nohighlight">\(t_1\)</span> to <span class="math notranslate nohighlight">\(t_2\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  y_{2} - y_{1} 
+  &amp; = \int_{t = t_1}^{t_2} \left\{ - f_0 \frac{t-t_1}{h} + f_1 \frac{t-t_0}{h} \right\} d t = \\
+  &amp; = \frac{1}{h} \left.\left\{ - f_0 \frac{(t-t_1)^2}{2} + f_1 \frac{(t-t_0)^2}{2} \right\}\right|_{t_1}^{t_2} = \\
+  &amp; = \frac{1}{h} \left\{ - f_0 \frac{h^2}{2} + f_1 \frac{3 h^2}{2} \right\} \ ,
+\end{aligned}\end{split}\]</div>
+<p>and thus</p>
+<div class="math notranslate nohighlight">
+\[y_{n+1} = y_{n} + h \left( \frac{3}{2} f(t_{n}, y_{n}) - \frac{1}{2} f(t_{n-1}, y_{n-1}) \right)\]</div>
 </div>
-</div><p><strong>Transform of the convolution.</strong></p>
+<div class="section" id="adams-moulton">
+<span id="fun-approx-lagrange-interp-applications-odes-am"></span><h4><span class="section-number">24.3.1.2. </span>Adams-Moulton<a class="headerlink" href="#adams-moulton" title="Permalink to this heading">#</a></h4>
+<p><strong>AM1.</strong> Using <span class="math notranslate nohighlight">\(n=0\)</span> approximation with points <span class="math notranslate nohighlight">\((t_1, f_1)\)</span> to integrate from <span class="math notranslate nohighlight">\(t_0\)</span> to <span class="math notranslate nohighlight">\(t_1\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  y_{1} - y_{0} 
+  &amp; = \int_{t = t_0}^{t_1} f_1 d t = \\
+  &amp; = h f_0
+\end{aligned}\end{split}\]</div>
+<p>and thus, AB1 is the <strong>implicit Euler</strong> method</p>
+<div class="math notranslate nohighlight">
+\[y_{n+1} = y_{n} + h f(t_{n+1}, y_{n+1}) \ .\]</div>
+<p><strong>AM2.</strong> Using <span class="math notranslate nohighlight">\(n=1\)</span> approximation with points <span class="math notranslate nohighlight">\((t_1, f_1)\)</span>, <span class="math notranslate nohighlight">\((t_2, f_2)\)</span> to integrate from <span class="math notranslate nohighlight">\(t_1\)</span> to <span class="math notranslate nohighlight">\(t_2\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  y_{2} - y_{1} 
+  &amp; = \int_{t = t_1}^{t_2} \left\{ - f_1 \frac{t-t_2}{h} + f_2 \frac{t-t_1}{h} \right\} d t = \\
+  &amp; = \frac{1}{h} \left.\left\{ - f_1 \frac{(t-t_2)^2}{2} + f_2 \frac{(t-t_1)^2}{2} \right\}\right|_{t_1}^{t_2} = \\
+  &amp; = \frac{1}{h} \left\{ f_1 \frac{h^2}{2} + f_2 \frac{h^2}{2} \right\} \ ,
+\end{aligned}\end{split}\]</div>
+<p>and thus</p>
+<div class="math notranslate nohighlight">
+\[y_{n+1} = y_{n} + h \left( \frac{1}{2} f(t_{n+1}, y_{n+1}) + \frac{1}{2} f(t_{n}, y_{n}) \right)\]</div>
+</div>
+<div class="section" id="backward-differentiation-formulas">
+<span id="fun-approx-lagrange-interp-applications-odes-bdf"></span><h4><span class="section-number">24.3.1.3. </span>Backward Differentiation Formulas<a class="headerlink" href="#backward-differentiation-formulas" title="Permalink to this heading">#</a></h4>
+<p><strong>BDF1</strong> Using <span class="math notranslate nohighlight">\(n=1\)</span> approximation</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+ f_1
+ &amp; = \left.\frac{d}{dt} y(t) \right|_{t=t_1} \simeq \\
+ &amp; = \left.\frac{d}{dt} \left[ - y_0 \frac{t-t_1}{h} + y_1 \frac{t-t_0}{h} \right]\right|_{t=t_1} = \\
+ &amp; = \frac{1}{h} \left( - y_0 + y_1 \right) \ ,
+\end{aligned}\end{split}\]</div>
+<p>and thus, BDF1 is the <strong>implicit Euler</strong> method,</p>
+<div class="math notranslate nohighlight">
+\[y_{n+1} = y_{n} + h f(t_{n+1}, y_{n+1}) \ .\]</div>
+<p><strong>BDF2</strong> Using <span class="math notranslate nohighlight">\(n=2\)</span> approximation</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+ f_2
+ &amp; = \left.\frac{d}{dt} y(t) \right|_{t=t_2} \simeq \\
+ &amp; = \left.\frac{d}{dt} \left[ y_0 \frac{(t-t_1)(t-t_2)}{2 h^2} - y_1 \frac{(t-t_0)(t-t_2)}{h^2} + y_2 \frac{(t-t_0)(t-t_1)}{2 h^2}  \right]\right|_{t=t_2} = \\
+  &amp; = \frac{1}{h^2} \left.\left[ \frac{y_0}{2} ( 2 t - t_1 - t_2 ) - y_1 ( 2 t - t_0 - t_2 ) + \frac{y_2}{2} ( 2 t - t_0 - t_1 ) \right]\right|_{t=t_2} = \\
+  &amp; = \frac{1}{h^2} \left[ \frac{y_0}{2} h - y_1 \cdot 2 h + \frac{y_2}{2} \cdot 3 h \right] \ ,
+\end{aligned}\end{split}\]</div>
+<p>and thus</p>
+<div class="math notranslate nohighlight">
+\[\frac{3}{2} y_{n+1} - 2 y_{n} + \frac{1}{2} y_{n-1} = h f(t_{n+1}, y_{n+1})\]</div>
+<p>i.e.</p>
+<div class="math notranslate nohighlight">
+\[y_{n+1} - \frac{4}{3} y_{n} + \frac{1}{3} y_{n-1} = \frac{2}{3} h f(t_{n+1}, y_{n+1}) \ .\]</div>
+<!--
+For an integration scheme with constant time-step, $t_j - t_m = (j-m) h $, and thus the interpolant becomes
+
+$$\begin{aligned}
+ L_n(t) & = \sum_{j=0}^{n} y_j \prod_{\begin{aligned} 0 \le & m \le n \\ m & \ne j \end{aligned}} \frac{t - t_m}{t_j - t_m} = \\
+\end{aligned}$$
+-->
+</div>
+</div>
 </div>
 </div>
 
@@ -736,13 +816,13 @@ The <a class="reference internal" href="../complex/laplace.html#complex-laplace"
             mode: "python"
         },
         kernelOptions: {
-            name: "python3",
-            path: "./ch/system-theory"
+            name: "python311",
+            path: "./ch/function-approx"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'python311'</script>
 
                 </article>
               
@@ -760,15 +840,15 @@ The <a class="reference internal" href="../complex/laplace.html#complex-laplace"
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">30. </span>Introduction to System Theory</p>
+        <p class="prev-next-title"><span class="section-number">23. </span>Introduction to function approximation</p>
       </div>
     </a>
     <a class="right-next"
-       href="coordinate-transformation.html"
+       href="../calculus-variations/intro.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">32. </span>Coordinate transformation</p>
+        <p class="prev-next-title"><span class="section-number">25. </span>Introduction to Calculus of Variations</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -787,8 +867,17 @@ The <a class="reference internal" href="../complex/laplace.html#complex-laplace"
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#impulsive-force">31.1. Impulsive force</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#properties">31.2. Properties</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lagrangian-basis-and-polynomial-interpolation">24.1. Lagrangian basis, and polynomial interpolation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#low-degree-approximations-with-constant-steps">24.2. Low-degree approximations with constant steps</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applications">24.3. Applications</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#lagrange-interpolation-and-multi-step-methods-for-ivps-governed-by-odes">24.3.1. Lagrange interpolation and multi-step methods for IVPs governed by ODEs</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#adams-bashforth">24.3.1.1. Adams-Bashforth</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#adams-moulton">24.3.1.2. Adams-Moulton</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#backward-differentiation-formulas">24.3.1.3. Backward Differentiation Formulas</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
