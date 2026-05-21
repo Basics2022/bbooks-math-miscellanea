@@ -1156,7 +1156,7 @@ document.write(`
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../../_images/631ece84508ce368396f2259f4a216d72923e381b3225a417e77a0b0a0cb24a9.png" src="../../_images/631ece84508ce368396f2259f4a216d72923e381b3225a417e77a0b0a0cb24a9.png" />
+<img alt="../../_images/8221072a553d86aa3550b5e5b6ed8b1360c8175dc18e0b1d5ad612fbf960b22c.png" src="../../_images/8221072a553d86aa3550b5e5b6ed8b1360c8175dc18e0b1d5ad612fbf960b22c.png" />
 </div>
 </div>
 </div>
@@ -1242,7 +1242,7 @@ Number of slow modes                  : 4
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../../_images/aa8ecca53ad72cd208658f0177432335d7a5554b5373f01a2214725cc314c3e5.png" src="../../_images/aa8ecca53ad72cd208658f0177432335d7a5554b5373f01a2214725cc314c3e5.png" />
+<img alt="../../_images/33414b72910af470e5605c9f72579435d0732bbe3b96a8ec038cffbf66122f6c.png" src="../../_images/33414b72910af470e5605c9f72579435d0732bbe3b96a8ec038cffbf66122f6c.png" />
 </div>
 </div>
 <div class="cell tag_hide-input docutils container">
@@ -1275,6 +1275,23 @@ Number of slow modes                  : 4
 </div>
 </div>
 </details>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">6</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">u0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">v0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1">#&gt; Mode acceleration</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">u0_m_acc</span> <span class="o">=</span> <span class="n">u0</span> \
+<span class="ne">----&gt; </span><span class="mi">6</span>         <span class="o">-</span> <span class="n">sp</span><span class="o">.</span><span class="n">sparse</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">spsolve</span><span class="p">(</span><span class="n">Kff</span><span class="p">,</span> <span class="n">F</span><span class="p">)</span> <span class="o">*</span> <span class="n">M_t</span><span class="p">(</span><span class="n">tvec</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> \
+<span class="g g-Whitespace">      </span><span class="mi">7</span>         <span class="o">+</span> <span class="n">evecs_all</span><span class="p">[:,:</span><span class="n">i_slow</span><span class="p">]</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span> <span class="n">Om_all</span><span class="p">[:</span><span class="n">i_slow</span><span class="p">]</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span> <span class="p">)</span> <span class="o">@</span> <span class="n">evecs_all</span><span class="p">[:,:</span><span class="n">i_slow</span><span class="p">]</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">F</span> <span class="o">*</span> <span class="n">M_t</span><span class="p">(</span><span class="n">tvec</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> 
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="c1">#&gt; Initial conditions for the reduced (resolved, dynamic, slow) system</span>
+
+<span class="ne">NameError</span>: name &#39;tvec&#39; is not defined
+</pre></div>
+</div>
+</div>
 </div>
 <p><strong>Mode acceleration and static recovery of fast modes.</strong></p>
 <div class="math notranslate nohighlight">
