@@ -1,6 +1,12 @@
 (math:spectral:sensitivity)=
 # Sensitivity of spectral decomposition
 
+```{admonition} See also
+
+Sensitivity of the spectral decomposition of a second-order system is used in [Continuum Mechanics: Structural Mechanics: Structural Damping](https://basics2022.github.io/bbooks-physics-continuum-mechanics/ch/solids/structural-damping.html) to discuss the nature of structural damping in linear structures.
+
+```
+
 Matrices involved in a eigenvalue problem can be function of some parameters $p$. Sensitivity analysis evaluates first-order changes[^first-order-taylor] of eigenvalues and eigenvectors following a increment of the parameter $p = \overline{p} + \Delta p$,
 
 $$\begin{aligned}
@@ -223,6 +229,9 @@ with $C^{b,i} = D^{(b)} v^{(b) \ *}_d M_{de/p} u^{(i)}_e = \frac{\mathbf{v}^*_b 
 
 (math:spectral:sensitivity:second-order)=
 ## Generalized eigenvalue problem (second order)
+
+See as an example, sensitivity of the spectral decomposition of a second-order system is used in [Continuum Mechanics: Structural Mechanics: Structural Damping](https://basics2022.github.io/bbooks-physics-continuum-mechanics/ch/solids/structural-damping.html) to discuss the nature of structural damping in linear structures.
+
 
 ### Right and left eigenvalue problem
 
