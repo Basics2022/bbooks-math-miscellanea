@@ -705,14 +705,29 @@ document.write(`
   \dots \\
   k_s &amp; = f\left(t_n + h c_s, y_n + h \sum_{j=1}^{s-1} a_{sj} k_j \right) \ .
 \end{aligned}\end{split}\]</div>
-<p><strong>Rationale.</strong> Starting from a <span class="math notranslate nohighlight">\(n\)</span>-order Taylor series</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Rationale<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Starting from a <span class="math notranslate nohighlight">\(n\)</span>-order Taylor series</p>
 <div class="math notranslate nohighlight">
 \[y(t+h) = \sum_{p=0}^{n} \frac{h^p}{p!} y^{(p)}(t) \ ,\]</div>
-<p>and matching it with a linear combination of evaluations of the first-order derivative,</p>
+<p class="sd-card-text">and matching it with a linear combination of evaluations of the first-order derivative,</p>
 <div class="math notranslate nohighlight">
 \[y_{n+1} = y_{n} + h \sum_{m=1}^s b_m k_m \ ,\]</div>
-<p>with <span class="math notranslate nohighlight">\(t_{n+1} = t_n + h\)</span>.</p>
-<p><strong>Butcher tableau.</strong> The coefficients of a RK method can be organized in Butcher tableau</p>
+<p class="sd-card-text">with <span class="math notranslate nohighlight">\(t_{n+1} = t_n + h\)</span>.</p>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Butcher tableau<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The coefficients of a RK method can be organized in Butcher tableau</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{array}{c|c}
 \mathbf{c} &amp; \mathbf{A} \\
@@ -729,10 +744,18 @@ c_s &amp; a_{s1} &amp; a_{s2} &amp; \dots &amp; a_{s,s-1} &amp; \\
 \hline
 &amp; b_1 &amp; b_2 &amp; \dots &amp; b_{s-1} &amp; b_s
 \end{array}\end{split}\]</div>
-<p><strong>Constraints.</strong> …</p>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Constraints<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
 <div class="math notranslate nohighlight">
 \[\sum_{j=1}^{s} b_j = 1 \ .\]</div>
-<div class="section" id="example-rk2">
+</div>
+</details><div class="section" id="example-rk2">
 <h3><span class="section-number">29.2.3.1. </span>Example: RK2<a class="headerlink" href="#example-rk2" title="Permalink to this heading">#</a></h3>
 <p>RK2 methods include mid-point, Heun and Ralston methods.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
