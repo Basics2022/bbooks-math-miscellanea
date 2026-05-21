@@ -71,7 +71,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="29.3. Stability properties of numerical schemes" href="integration-schemes-stability.html" />
+    <link rel="next" title="29.3. Stability of integration schemes" href="integration-schemes-stability.html" />
     <link rel="prev" title="29.1. Foundations" href="integration-schemes-foundations.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -257,7 +257,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="integration-schemes.html">29. Integration schemes for Cauchy problems</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="integration-schemes-foundations.html">29.1. Foundations</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">29.2. Families of integration methods</a></li>
-<li class="toctree-l2"><a class="reference internal" href="integration-schemes-stability.html">29.3. Stability properties of numerical schemes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="integration-schemes-stability.html">29.3. Stability of integration schemes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="integration-schemes-simplectic.html">29.4. Simplectic integrators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="integration-schemes-energy-conservation.html">29.5. Energy conservation of integration schemes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="time-integration-mechanical-systems.html">29.6. Time-integration of a mechanical system</a></li>
@@ -639,7 +639,10 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backward-differentiation-formulas-bdf">29.2.2.3. Backward Differentiation Formulas (BDF)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#one-step-methods-ii-runge-kutta-rk">29.2.3. One-step methods (II): Runge-Kutta (RK)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#one-step-methods-ii-runge-kutta-rk">29.2.3. One-step methods (II): Runge-Kutta (RK)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-rk2">29.2.3.1. Example: RK2</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -691,7 +694,116 @@ document.write(`
 </div>
 <div class="section" id="one-step-methods-ii-runge-kutta-rk">
 <h2><span class="section-number">29.2.3. </span>One-step methods (II): Runge-Kutta (RK)<a class="headerlink" href="#one-step-methods-ii-runge-kutta-rk" title="Permalink to this heading">#</a></h2>
-<p>…</p>
+<p><strong>Rationale.</strong> Starting from a <span class="math notranslate nohighlight">\(n\)</span>-order Taylor series</p>
+<div class="math notranslate nohighlight">
+\[y(t+h) = \sum_{p=0}^{n} \frac{h^p}{p!} y^{(p)}(t) \ ,\]</div>
+<p>and matching it with a linear combination of evaluations of the first-order derivative,</p>
+<div class="math notranslate nohighlight">
+\[y_{n+1} = y_{n} + h \sum_{m=1}^s b_m k_m \ ,\]</div>
+<p>with <span class="math notranslate nohighlight">\(t_{n+1} = t_n + h\)</span>.</p>
+<p><strong>Method.</strong></p>
+<div class="math notranslate nohighlight">
+\[y_{n+1} = y_{n} + h \sum_{m=1}^s b_m k_m \ ,\]</div>
+<p>with</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  k_1 &amp; = f(t_n,y_n) \\
+  k_2 &amp; = f(t_n + h c_2, y_n + h a_{21} k_1 ) \\
+  \dots \\
+  k_s &amp; = f\left(t_n + h c_s, y_n + h \sum_{j=1}^{s-1} a_{sj} k_j \right) \ .
+\end{aligned}\end{split}\]</div>
+<p><strong>Butcher tableau.</strong> The coefficients of a RK method can be organized in Butcher tableau</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{c|c}
+\mathbf{c} &amp; \mathbf{A} \\
+\hline
+&amp; \mathbf{b}^T
+\end{array}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{array}{c|ccccc}
+0 &amp; &amp; &amp; &amp; \\
+c_2 &amp; a_{21} &amp; &amp; &amp; &amp; \\
+c_3 &amp; a_{31} &amp; a_{32} &amp; &amp; &amp; \\
+\vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; &amp; \\
+c_s &amp; a_{s1} &amp; a_{s2} &amp; \dots &amp; a_{s,s-1} &amp; \\
+\hline
+&amp; b_1 &amp; b_2 &amp; \dots &amp; b_{s-1} &amp; b_s
+\end{array}\end{split}\]</div>
+<p><strong>Constraints.</strong> …</p>
+<div class="math notranslate nohighlight">
+\[\sum_{j=1}^{s} b_j = 1 \ .\]</div>
+<div class="section" id="example-rk2">
+<h3><span class="section-number">29.2.3.1. </span>Example: RK2<a class="headerlink" href="#example-rk2" title="Permalink to this heading">#</a></h3>
+<p>Starting from a <span class="math notranslate nohighlight">\(2\)</span>-order Taylor series, and matching it with a linear combination of evaluations of the first-order derivative.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  y(t+h) 
+  &amp; = y(t) + h y'(t) + \frac{h^2}{2} y''(t) + o(h^2) = \\
+  &amp; = y(t) + h f(t, y(t)) + \frac{h^2}{2} \left[ f_t(t,y(t)) + y'(t) f_y(t,y(t)) \right] + o(h^2) = \\
+  &amp; = y(t) + h f(t, y(t)) + \frac{h^2}{2} \left[ f_t(t,y(t)) + f(t,y(t)) f_y(t,y(t)) \right] + o(h^2) \ ,
+\end{aligned}\end{split}\]</div>
+<p>with <span class="math notranslate nohighlight">\(y'(t) = f(t, y(t))\)</span>, so that <span class="math notranslate nohighlight">\(y''(t) = f_t(t,y(t)) + y'(t) f_y(t,y(t))\)</span>.</p>
+<p><strong>RK approximation.</strong></p>
+<div class="math notranslate nohighlight">
+\[y_{n+1} = y_{n} + h( b_1 k_1 + b_2 k_2 ) \ ,\]</div>
+<p>with</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  k_1 &amp; = f(t_n,y_n) \\
+  k_2 &amp; = f(t_n + h c_2, y_n + h a_{21} k_1 ) \ .
+\end{aligned}\end{split}\]</div>
+<p>Expanding in Taylor series <span class="math notranslate nohighlight">\(k_2\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  k_2 
+  &amp; = f(t_n + h c_2, y_n + h a_{21} k_1 ) = \\
+  &amp; = f(t_n, y_n) + h c_2 f_t(t_n, y_n) + h a_{21} k_1 f_y(t_n, y_n) + O(h^2) \ ,
+\end{aligned}\end{split}\]</div>
+<p>inserting in the RK2 scheme</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  y_{n+1} 
+  &amp; = y_n + h b_1 f(t_n,y_n) + h b_2 \left[ f(t_n, y_n) + h c_2 f_t(t_n, y_n) + h a_{21} k_1 f_y(t_n, y_n) \right] + o(h^2) = \\
+  &amp; = y_n + h \left[ b_1 + b_2 \right] f(t_n, y_n) + h^2 b_2 c_2 f_t(t_n, y_n) + h^2 b_2 a_{21} f(t_n, y_n) f_y(t_n, y_n) + o(h^2) \ ,
+\end{aligned}\end{split}\]</div>
+<p>and matching coefficients of Taylor expansions, the coefficients of the RK method are computed as the solution of a <strong>underdetermined system</strong> of 3 equations with 4 unknowns</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{cases}
+   b_1 + b_2 = 1 \\
+   b_2 c_2 = \frac{1}{2} \\
+   b_2 a_{21} = \frac{1}{2}
+\end{cases}
+\qquad , \qquad
+\begin{array}{c|cc}
+0 &amp; &amp; \\
+c_2 &amp; a_{21} &amp; \\
+\hline
+&amp; b_1 &amp; b_2 
+\end{array}
+\end{split}\]</div>
+<p>or leaving <span class="math notranslate nohighlight">\(\alpha = c_2 = a_{21}\)</span> as a free parameter,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{cases}
+   b_1 = 1 - \frac{1}{2 \alpha} \\
+   b_2 = \frac{1}{2 \alpha} \\
+   c_2 = \alpha \\
+   a_{21} = \alpha
+\end{cases}
+\qquad , \qquad
+\begin{array}{c|cc}
+0 &amp; &amp; \\
+\alpha &amp; \alpha &amp; \\
+\hline
+&amp; 1 - \frac{1}{2 \alpha} &amp; \frac{1}{2 \alpha}
+\end{array}
+\end{split}\]</div>
+<p>This system has infinite solutions. Different methods correspond to different choices among these solutions:</p>
+<ul class="simple">
+<li><p>mid-point method, <span class="math notranslate nohighlight">\(\alpha = \frac{1}{2}\)</span></p></li>
+<li><p>Heun method, <span class="math notranslate nohighlight">\(\alpha = 1\)</span></p></li>
+<li><p>Ralston’s method (minimum truncation error), <span class="math notranslate nohighlight">\(\alpha = \frac{2}{3}\)</span></p></li>
+</ul>
+</div>
 </div>
 </div>
 
@@ -739,7 +851,7 @@ document.write(`
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">29.3. </span>Stability properties of numerical schemes</p>
+        <p class="prev-next-title"><span class="section-number">29.3. </span>Stability of integration schemes</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -765,7 +877,10 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backward-differentiation-formulas-bdf">29.2.2.3. Backward Differentiation Formulas (BDF)</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#one-step-methods-ii-runge-kutta-rk">29.2.3. One-step methods (II): Runge-Kutta (RK)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#one-step-methods-ii-runge-kutta-rk">29.2.3. One-step methods (II): Runge-Kutta (RK)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-rk2">29.2.3.1. Example: RK2</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
