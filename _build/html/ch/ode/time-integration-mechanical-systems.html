@@ -1360,7 +1360,7 @@ Number of slow modes                  : 4
 </div>
 <div class="section" id="rk4-5">
 <h3><span class="section-number">29.6.4.2. </span>RK4(5)<a class="headerlink" href="#rk4-5" title="Permalink to this heading">#</a></h3>
-<p><strong>Runge-Kutta.</strong> Exploiting <span class="math notranslate nohighlight">\(\texttt{scipy.integrate.solve_ivp}\)</span>. RK4(5) is a variable time-step method.</p>
+<p><strong>Runge-Kutta.</strong> Exploiting <strong>scipy.integrate.solve_ivp</strong>. RK4(5) is a variable time-step method.</p>
 <p><strong>RK4(5) and high-frequencies.</strong> This method is not suited for systems with high-frequency contents, as the method uses smaller and smaller time-step to keep local truncation error small (and the method stable). Extreme small values of <span class="math notranslate nohighlight">\(dt\)</span> makes the number of iterations explodes and the performance of the method so poor that it becomes useless.</p>
 <p><strong>RK4(5) with fast mode truncation and mode acceleration recovery.</strong> Using the fast mode truncation and their static recovery, the dynamical part of the system involves only slow modes. Thus, this approach makes RK4(5) method suitable.</p>
 <div class="cell tag_hide-input docutils container">
