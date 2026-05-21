@@ -1,0 +1,54 @@
+Traceback (most recent call last):
+  File "/home/davide/.local/lib/python3.8/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/home/davide/.local/lib/python3.8/site-packages/nbclient/client.py", line 1305, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/home/davide/.local/lib/python3.8/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+  File "/usr/lib/python3.8/asyncio/base_events.py", line 616, in run_until_complete
+    return future.result()
+  File "/home/davide/.local/lib/python3.8/site-packages/nbclient/client.py", line 705, in async_execute
+    await self.async_execute_cell(
+  File "/home/davide/.local/lib/python3.8/site-packages/nbclient/client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/home/davide/.local/lib/python3.8/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+#> Initial conditions at rest in the non-deformed configuration
+u0 = np.zeros(N)
+v0 = np.zeros(N)
+#> Mode acceleration
+u0_m_acc = u0 \
+        - sp.sparse.linalg.spsolve(Kff, F) * M_t(tvec[0]) \
+        + evecs_all[:,:i_slow] @ np.diag( Om_all[:i_slow]**(-2) ) @ evecs_all[:,:i_slow].T @ F * M_t(tvec[0])
+
+#> Initial conditions for the reduced (resolved, dynamic, slow) system
+#> Truncation
+qs0  = evecs_all[:,:i_slow].T @ Mff @ u0
+dqs0 = evecs_all[:,:i_slow].T @ Mff @ v0
+
+qs0_m_acc = evecs_all[:,:i_slow].T @ Mff @ u0_m_acc
+
+#> Time vec
+nt = 100
+dt = .1
+tvec = np.arange(nt) * dt
+
+------------------
+
+
+[31m---------------------------------------------------------------------------[39m
+[31mNameError[39m                                 Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[9][39m[32m, line 6[39m
+[32m      2[39m u0 = np.zeros(N)
+[32m      3[39m v0 = np.zeros(N)
+[32m      4[39m [38;5;66;03m#> Mode acceleration[39;00m
+[32m      5[39m u0_m_acc = u0 \
+[32m----> [39m[32m6[39m         - sp.sparse.linalg.spsolve(Kff, F) * M_t(tvec[[32m0[39m]) \
+[32m      7[39m         + evecs_all[:,:i_slow] @ np.diag( Om_all[:i_slow]**(-[32m2[39m) ) @ evecs_all[:,:i_slow].T @ F * M_t(tvec[[32m0[39m])
+[32m      8[39m 
+[32m      9[39m [38;5;66;03m#> Initial conditions for the reduced (resolved, dynamic, slow) system[39;00m
+
+[31mNameError[39m: name 'tvec' is not defined
+
