@@ -85,7 +85,7 @@
         
 
 \title{basics - math}
-\date{May 19, 2026}
+\date{May 21, 2026}
 \release{}
 \author{basics}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -5675,6 +5675,250 @@ marginally stable if…
 \sphinxstepscope
 
 
+\part{Approximation of Functions}
+
+\sphinxstepscope
+
+
+\chapter{Introduction to function approximation}
+\label{\detokenize{ch/function-approx/intro:introduction-to-function-approximation}}\label{\detokenize{ch/function-approx/intro:function-approx}}\label{\detokenize{ch/function-approx/intro::doc}}\subsubsection*{Lagrange interpolation}
+
+\sphinxAtStartPar
+Useful, because derivatives and integrals of polynomial functions are easy to evaluate exactly. Used in:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+numerical methods for ODEs, e.g. {\hyperref[\detokenize{ch/ode/integration-schemes-common:ode-integration-schemes-common-multi-step}]{\sphinxcrossref{\DUrole{std,std-ref}{multi\sphinxhyphen{}step methods}}}}
+
+\item {} 
+\sphinxAtStartPar
+numerical methods for PDEs, e.g. base functions of {\hyperref[\detokenize{ch/pde/fem:pde-fem}]{\sphinxcrossref{\DUrole{std,std-ref}{FEM}}}}.
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Gaussian quadrature provides exact integration of integrals.
+
+\item {} 
+\sphinxAtStartPar
+FEM uses \sphinxstylestrong{piece\sphinxhyphen{}wise} Lagrangian interpolation of the fields
+
+\end{itemize}
+
+\item {} 
+\sphinxAtStartPar
+…
+
+\end{itemize}
+
+\sphinxstepscope
+
+
+\chapter{Lagrange interpolation}
+\label{\detokenize{ch/function-approx/lagrange-interp:lagrange-interpolation}}\label{\detokenize{ch/function-approx/lagrange-interp:fun-approx-lagrange-interp}}\label{\detokenize{ch/function-approx/lagrange-interp::doc}}
+\sphinxAtStartPar
+Let \(p_n(t)\) a polynomial interpolation of the points \(\left\{(t_k, y_k) \right\}_{k=0:n}\), with \(y_k = y(t_k)\). Lagrange interpolation of \(n+1\) points requires a polynomial of degree \(n\).
+
+
+\section{Lagrangian basis, and polynomial interpolation}
+\label{\detokenize{ch/function-approx/lagrange-interp:lagrangian-basis-and-polynomial-interpolation}}\label{\detokenize{ch/function-approx/lagrange-interp:fun-approx-lagrange-interp-basis-interp}}
+\sphinxAtStartPar
+\sphinxstylestrong{Lagrangian basis.} The Lagrangian basis is a set of \(n+1\) functions \(\ell_k(t)\), so that
+\begin{equation*}
+\begin{split}\ell_k(t_j) = \delta_{jk} \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+In order to satisfy these n+1 conditions, the \(k^{th}\) function of the Lagrange basis reads
+\begin{equation*}
+\begin{split}\ell_j(t) = \prod_{\begin{aligned} 0 \le & m \le n \\ m & \ne j \end{aligned}} \frac{t - t_m}{t_j - t_m} \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Properties.}
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\(\ell_k(t_j) = \delta_{jk}\)
+
+\item {} 
+\sphinxAtStartPar
+\(\sum_k \ell_k(t) = 1\) \sphinxstylestrong{todo} \sphinxstyleemphasis{Prove it!}
+
+\end{itemize}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Polynomial approximation.} The Lagrange interpolating polynomial immediately follows as the linear combination
+\begin{equation*}
+\begin{split}L_n\left\{ y(t) \right\}(t) = \sum_{j = 0}^{n} y_j \ell_j(t) \ .\end{split}
+\end{equation*}
+
+\section{Low\sphinxhyphen{}degree approximations with constant steps}
+\label{\detokenize{ch/function-approx/lagrange-interp:low-degree-approximations-with-constant-steps}}\label{\detokenize{ch/function-approx/lagrange-interp:fun-approx-lagrange-interp-low-degree}}
+\sphinxAtStartPar
+Constant\sphinxhyphen{}step sampling means \(t_k = t_0 + k h\), being \(h\) the step.
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+One\sphinxhyphen{}node approximation, \((t_0, y_0)\)
+\begin{equation*}
+\begin{split}\ell_0(t) = 1\end{split}
+\end{equation*}
+\sphinxAtStartPar
+so that the constant approximation reads \(L_0(t) = y_0 \ell_0(t) = y_0\).
+
+\item {} 
+\sphinxAtStartPar
+Two\sphinxhyphen{}node approximation, \((t_0, y_0)\), \((t_1, y_1)\)
+\begin{equation*}
+\begin{split}\begin{aligned}
+     \ell_0(t) & = \frac{t-t_1}{t_0 - t_1} = - \frac{t-t_1}{h} \\
+     \ell_1(t) & = \frac{t-t_0}{t_1 - t_0} =   \frac{t-t_0}{h} \\
+   \end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+so that the 1\sphinxhyphen{}degree approximation reads \(L_1(t) = y_0 \ell_0(t) + y_1 \ell_1(t)\).
+
+\item {} 
+\sphinxAtStartPar
+Three\sphinxhyphen{}node approximation, \((t_0, y_0)\), \((t_1, y_1)\), \((t_2, y_2)\)
+\begin{equation*}
+\begin{split}\begin{aligned}
+     \ell_0(t) & = \frac{(t-t_1)(t-t_2)}{(t_0 - t_1)(t_0 - t_2)} =   \frac{(t-t_1)(t-t_2)}{2 h^2} \\
+     \ell_1(t) & = \frac{(t-t_0)(t-t_2)}{(t_1 - t_0)(t_1 - t_2)} = - \frac{(t-t_0)(t-t_2)}{  h^2} \\
+     \ell_2(t) & = \frac{(t-t_0)(t-t_1)}{(t_2 - t_0)(t_2 - t_0)} =   \frac{(t-t_0)(t-t_1)}{2 h^2} \\
+   \end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+so that the 2\sphinxhyphen{}degree approximation reads \(L_2(t) = y_0 \ell_0(t) + y_1 \ell_1(t) + y_2 \ell_2(t)\).
+
+\item {} 
+\sphinxAtStartPar
+Four\sphinxhyphen{}node approximation, \((t_0, y_0)\), \((t_1, y_1)\), \((t_2, y_2)\), \((t_3, y_3)\)
+\begin{equation*}
+\begin{split}\begin{aligned}
+     \ell_0(t) & = - \frac{(t-t_1)(t-t_2)(t-t_3)}{6 h^3} \\
+     \ell_1(t) & =   \frac{(t-t_0)(t-t_2)(t-t_3)}{2 h^3} \\
+     \ell_2(t) & = - \frac{(t-t_0)(t-t_1)(t-t_3)}{2 h^3} \\
+     \ell_3(t) & =   \frac{(t-t_0)(t-t_1)(t-t_2)}{6 h^3} \\
+   \end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+so that the 3\sphinxhyphen{}degree approximation reads \(L_3(t) = \sum_{k=0}^{3} y_k \ell_k(t)\).
+
+\end{itemize}
+
+
+\section{Applications}
+\label{\detokenize{ch/function-approx/lagrange-interp:applications}}\label{\detokenize{ch/function-approx/lagrange-interp:fun-approx-lagrange-interp-applications}}
+
+\subsection{Lagrange interpolation and multi\sphinxhyphen{}step methods for IVPs governed by ODEs}
+\label{\detokenize{ch/function-approx/lagrange-interp:lagrange-interpolation-and-multi-step-methods-for-ivps-governed-by-odes}}\label{\detokenize{ch/function-approx/lagrange-interp:fun-approx-lagrange-interp-applications-odes}}
+
+\subsubsection{Adams\sphinxhyphen{}Bashforth}
+\label{\detokenize{ch/function-approx/lagrange-interp:adams-bashforth}}\label{\detokenize{ch/function-approx/lagrange-interp:fun-approx-lagrange-interp-applications-odes-ab}}
+\sphinxAtStartPar
+\sphinxstylestrong{AB1.} Using \(n=0\) approximation with points \((t_0, f_0)\) to integrate from \(t_0\) to \(t_1\)
+\begin{equation*}
+\begin{split}\begin{aligned}
+  y_{1} - y_{0} 
+  & = \int_{t = t_0}^{t_1} f_0  d t = \\
+  & = h f_0
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and thus, AB1 is the \sphinxstylestrong{explicit Euler} method
+\begin{equation*}
+\begin{split}y_{n+1} = y_{n} + h f(t_n, y_n) \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{AB2.} Using \(n=1\) approximation with points \((t_0, f_0)\), \((t_1, f_1)\) to integrate from \(t_1\) to \(t_2\)
+\begin{equation*}
+\begin{split}\begin{aligned}
+  y_{2} - y_{1} 
+  & = \int_{t = t_1}^{t_2} \left\{ - f_0 \frac{t-t_1}{h} + f_1 \frac{t-t_0}{h} \right\} d t = \\
+  & = \frac{1}{h} \left.\left\{ - f_0 \frac{(t-t_1)^2}{2} + f_1 \frac{(t-t_0)^2}{2} \right\}\right|_{t_1}^{t_2} = \\
+  & = \frac{1}{h} \left\{ - f_0 \frac{h^2}{2} + f_1 \frac{3 h^2}{2} \right\} \ ,
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and thus
+\begin{equation*}
+\begin{split}y_{n+1} = y_{n} + h \left( \frac{3}{2} f(t_{n}, y_{n}) - \frac{1}{2} f(t_{n-1}, y_{n-1}) \right)\end{split}
+\end{equation*}
+
+\subsubsection{Adams\sphinxhyphen{}Moulton}
+\label{\detokenize{ch/function-approx/lagrange-interp:adams-moulton}}\label{\detokenize{ch/function-approx/lagrange-interp:fun-approx-lagrange-interp-applications-odes-am}}
+\sphinxAtStartPar
+\sphinxstylestrong{AM1.} Using \(n=0\) approximation with points \((t_1, f_1)\) to integrate from \(t_0\) to \(t_1\)
+\begin{equation*}
+\begin{split}\begin{aligned}
+  y_{1} - y_{0} 
+  & = \int_{t = t_0}^{t_1} f_1 d t = \\
+  & = h f_0
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and thus, AB1 is the \sphinxstylestrong{implicit Euler} method
+\begin{equation*}
+\begin{split}y_{n+1} = y_{n} + h f(t_{n+1}, y_{n+1}) \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{AM2.} Using \(n=1\) approximation with points \((t_1, f_1)\), \((t_2, f_2)\) to integrate from \(t_1\) to \(t_2\)
+\begin{equation*}
+\begin{split}\begin{aligned}
+  y_{2} - y_{1} 
+  & = \int_{t = t_1}^{t_2} \left\{ - f_1 \frac{t-t_2}{h} + f_2 \frac{t-t_1}{h} \right\} d t = \\
+  & = \frac{1}{h} \left.\left\{ - f_1 \frac{(t-t_2)^2}{2} + f_2 \frac{(t-t_1)^2}{2} \right\}\right|_{t_1}^{t_2} = \\
+  & = \frac{1}{h} \left\{ f_1 \frac{h^2}{2} + f_2 \frac{h^2}{2} \right\} \ ,
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and thus
+\begin{equation*}
+\begin{split}y_{n+1} = y_{n} + h \left( \frac{1}{2} f(t_{n+1}, y_{n+1}) + \frac{1}{2} f(t_{n}, y_{n}) \right)\end{split}
+\end{equation*}
+
+\subsubsection{Backward Differentiation Formulas}
+\label{\detokenize{ch/function-approx/lagrange-interp:backward-differentiation-formulas}}\label{\detokenize{ch/function-approx/lagrange-interp:fun-approx-lagrange-interp-applications-odes-bdf}}
+\sphinxAtStartPar
+\sphinxstylestrong{BDF1} Using \(n=1\) approximation
+\begin{equation*}
+\begin{split}\begin{aligned}
+ f_1
+ & = \left.\frac{d}{dt} y(t) \right|_{t=t_1} \simeq \\
+ & = \left.\frac{d}{dt} \left[ - y_0 \frac{t-t_1}{h} + y_1 \frac{t-t_0}{h} \right]\right|_{t=t_1} = \\
+ & = \frac{1}{h} \left( - y_0 + y_1 \right) \ ,
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and thus, BDF1 is the \sphinxstylestrong{implicit Euler} method,
+\begin{equation*}
+\begin{split}y_{n+1} = y_{n} + h f(t_{n+1}, y_{n+1}) \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{BDF2} Using \(n=2\) approximation
+\begin{equation*}
+\begin{split}\begin{aligned}
+ f_2
+ & = \left.\frac{d}{dt} y(t) \right|_{t=t_2} \simeq \\
+ & = \left.\frac{d}{dt} \left[ y_0 \frac{(t-t_1)(t-t_2)}{2 h^2} - y_1 \frac{(t-t_0)(t-t_2)}{h^2} + y_2 \frac{(t-t_0)(t-t_1)}{2 h^2}  \right]\right|_{t=t_2} = \\
+  & = \frac{1}{h^2} \left.\left[ \frac{y_0}{2} ( 2 t - t_1 - t_2 ) - y_1 ( 2 t - t_0 - t_2 ) + \frac{y_2}{2} ( 2 t - t_0 - t_1 ) \right]\right|_{t=t_2} = \\
+  & = \frac{1}{h^2} \left[ \frac{y_0}{2} h - y_1 \cdot 2 h + \frac{y_2}{2} \cdot 3 h \right] \ ,
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and thus
+\begin{equation*}
+\begin{split}\frac{3}{2} y_{n+1} - 2 y_{n} + \frac{1}{2} y_{n-1} = h f(t_{n+1}, y_{n+1})\end{split}
+\end{equation*}
+\sphinxAtStartPar
+i.e.
+\begin{equation*}
+\begin{split}y_{n+1} - \frac{4}{3} y_{n} + \frac{1}{3} y_{n-1} = \frac{2}{3} h f(t_{n+1}, y_{n+1}) \ .\end{split}
+\end{equation*}
+
+
+\sphinxstepscope
+
+
 \part{Calculus of Variations}
 
 \sphinxstepscope
@@ -5898,7 +6142,7 @@ where Einstein’s summation notation of repeated index is used. Euler\sphinxhyp
 \begin{equation*}
 \begin{split}\dfrac{d}{dx} \left[ L - q' \dfrac{\partial L}{\partial q'} \right] = \dfrac{\partial L}{\partial x} \ .\end{split}
 \end{equation*}\label{ch/calculus-variations/intro:example-0}
-\begin{sphinxadmonition}{note}{Example 23.1.1 (Euler\sphinxhyphen{}Beltrami with \protect\(L(q'(x),q(x),x)\protect\), Hamiltonian, energy and E.Noether)}
+\begin{sphinxadmonition}{note}{Example 25.1.1 (Euler\sphinxhyphen{}Beltrami with \protect\(L(q'(x),q(x),x)\protect\), Hamiltonian, energy and E.Noether)}
 
 
 
@@ -5922,7 +6166,7 @@ In mechanics, if \(\partial_t L = 0\), the Hamiltonian is a constant of motion. 
 \sphinxAtStartPar
 \sphinxstylestrong{Classical examples.}
 \label{ch/calculus-variations/intro:example-1}
-\begin{sphinxadmonition}{note}{Example 23.1.2 (Brachistochrone)}
+\begin{sphinxadmonition}{note}{Example 25.1.2 (Brachistochrone)}
 
 
 
@@ -5968,12 +6212,12 @@ Squaring \(2 g C^2 = \frac{1}{y(1+y'^2)}\), it’s possible to write
 Making the substitution \(y(x)' = \dots\)
 \end{sphinxadmonition}
 \label{ch/calculus-variations/intro:example-2}
-\begin{sphinxadmonition}{note}{Example 23.1.3 (Catenary)}
+\begin{sphinxadmonition}{note}{Example 25.1.3 (Catenary)}
 
 
 \end{sphinxadmonition}
 \label{ch/calculus-variations/intro:example-3}
-\begin{sphinxadmonition}{note}{Example 23.1.4 (Isoperimetric problem)}
+\begin{sphinxadmonition}{note}{Example 25.1.4 (Isoperimetric problem)}
 
 
 \end{sphinxadmonition}
@@ -5987,16 +6231,39 @@ Making the substitution \(y(x)' = \dots\)
 
 
 \chapter{Introduction to Ordinary Differential Equations}
-\label{\detokenize{ch/ode/intro:introduction-to-ordinary-differential-equations}}\label{\detokenize{ch/ode/intro:ode-intro}}\label{\detokenize{ch/ode/intro::doc}}\begin{itemize}
+\label{\detokenize{ch/ode/intro:introduction-to-ordinary-differential-equations}}\label{\detokenize{ch/ode/intro:ode-intro}}\label{\detokenize{ch/ode/intro::doc}}
+\sphinxAtStartPar
+\sphinxstylestrong{todo} \sphinxstyleemphasis{Introduction.}
+
+
+
+\sphinxAtStartPar
+\sphinxstylestrong{Initial value problems.}
+\begin{itemize}
 \item {} 
 \sphinxAtStartPar
-Theorems
+{\hyperref[\detokenize{ch/ode/linear-equations:ode-linear-equations}]{\sphinxcrossref{\DUrole{std,std-ref}{Linear ODEs with constant coefficients}}}}
 
 \item {} 
 \sphinxAtStartPar
-General solution of linear ODEs
+{\hyperref[\detokenize{ch/ode/ode-linear-systems:ode-linear-miscellanea}]{\sphinxcrossref{\DUrole{std,std-ref}{Linear ODEs in state\sphinxhyphen{}space representation}}}}
+
+\item {} 
+\sphinxAtStartPar
+{\hyperref[\detokenize{ch/ode/integration-schemes:ode-integration-schemes}]{\sphinxcrossref{\DUrole{std,std-ref}{Numerical solution of initial value problems}}}}
 
 \end{itemize}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Boundary value problems.} \sphinxstyleemphasis{todo}
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+\sphinxstyleemphasis{{\hyperref[\detokenize{ch/pde/numerics:pde-numerics}]{\sphinxcrossref{\DUrole{std,std-ref}{link to numerical methods for PDEs}}}}: steady\sphinxhyphen{}state version of PDEs often leads to a boundary value problem governed by a ODE, \DUrole{xref,myst}{FDM}, \DUrole{xref,myst}{FEM}, \DUrole{xref,myst}{FVM}}
+
+\end{itemize}
+
+
 
 \begin{sphinxadmonition}{note}{Links}
 \begin{itemize}
@@ -6364,17 +6631,8 @@ Matrix \(\mathbf{P}(t)\) satisfies the following Lyapunov equation,
 \sphinxstepscope
 
 
-\chapter{Integration schemes}
-\label{\detokenize{ch/ode/integration-schemes:integration-schemes}}\label{\detokenize{ch/ode/integration-schemes:ode-integration-schemes}}\label{\detokenize{ch/ode/integration-schemes::doc}}
-\sphinxAtStartPar
-The choice of a integration scheme usually involves a trade\sphinxhyphen{}off between, \sphinxstylestrong{stability}, \sphinxstylestrong{computational cost}, \sphinxstylestrong{fidelity} (accuracy/order, numerical damping/change of phase/amplifications of fast modes \sphinxhyphen{} see transfer function, and stiff problems \sphinxhyphen{}, energy conservation for conservative systems \sphinxhyphen{} see simplectic methods,…)
-
-\sphinxAtStartPar
-Link to {\hyperref[\detokenize{ch/complex/z-transform:complex-z-transform}]{\sphinxcrossref{\DUrole{std,std-ref}{Z\sphinxhyphen{}transform}}}} for discrete\sphinxhyphen{}time signals.
-
-
-\section{Contents}
-\label{\detokenize{ch/ode/integration-schemes:contents}}\subsubsection*{Contents}
+\chapter{Integration schemes for Cauchy problems}
+\label{\detokenize{ch/ode/integration-schemes:integration-schemes-for-cauchy-problems}}\label{\detokenize{ch/ode/integration-schemes:ode-integration-schemes}}\label{\detokenize{ch/ode/integration-schemes::doc}}\subsubsection*{OLD\sphinxhyphen{}Contents}
 
 \sphinxAtStartPar
 \sphinxstylestrong{Schemes.}
@@ -6460,31 +6718,156 @@ Lax\sphinxhyphen{}Richtmyer
 
 \end{itemize}
 
-
-\section{Families of integration methods}
-\label{\detokenize{ch/ode/integration-schemes:families-of-integration-methods}}\begin{itemize}
-\item {} 
 \sphinxAtStartPar
-Linear multi\sphinxhyphen{}steps:
+Many models of real\sphinxhyphen{}life systems are governed by Ordinary Differential Equations (ODEs). While simple linear equations yield elegant analytical solutions, as shown in sections about {\hyperref[\detokenize{ch/ode/linear-equations:ode-linear-equations}]{\sphinxcrossref{\DUrole{std,std-ref}{Linear ODEs with constant coefficients}}}} and {\hyperref[\detokenize{ch/ode/ode-linear-systems:ode-linear-miscellanea}]{\sphinxcrossref{\DUrole{std,std-ref}{Linear ODEs in state\sphinxhyphen{}space representation}}}}, real\sphinxhyphen{}world engineering problems demand numerical approximations, as no practical closed\sphinxhyphen{}form solution exists.
+
+\sphinxAtStartPar
+The choice of a time\sphinxhyphen{}integration scheme is far more than a software implementation detail; it represents a fundamental trade\sphinxhyphen{}off between \sphinxstylestrong{accuracy}, \sphinxstylestrong{computational cost}, and \sphinxstylestrong{fidelity}: a naive choice of solver can damp out physically vital high\sphinxhyphen{}frequency oscillations, generate artificial energy out of nothing, or completely explode due to numerical instability.
+
+\sphinxAtStartPar
+This chapter tries to provide some rigorous mathematical foundation needed to analyze, select, (and build? Do we need any new algorithm? Do not re\sphinxhyphen{}invent the wheel!) robust time\sphinxhyphen{}integration schemes.
+
+\sphinxAtStartPar
+\sphinxstylestrong{Contents.}
+\subsubsection*{Foundations of numerical integration of initial value problems}
+
+\sphinxAtStartPar
+First, the canonical problem%
+\begin{footnote}[1]\sphinxAtStartFootnote
+A second\sphinxhyphen{}order canonical problem \( \mathbf{M} \ddot{\mathbf{y}} + \mathbf{C} \dot{\mathbf{y}} + \mathbf{K} \mathbf{y} = \mathbf{f}(t, \mathbf{y}(t))\), with proper initial conditions, is also discussed. This problem often arises with some interesting properties \sphinxhyphen{} symmetry of matrices \sphinxhyphen{} usually arises from a \DUrole{xref,myst}{Lagrangian approach} to classical mechanics systems. Some numerical methods targeting this form of equations exist, like {[}Leapfrog{]}, {[}Verlet{]}, or {[}Newmark{]} methods.
+%
+\end{footnote}
+\begin{equation*}
+\begin{split}
+\left\{\begin{aligned}
+  & \dot{\mathbf{y}} = \mathbf{f}(t, \mathbf{y}(t)) \\
+  & \mathbf{y}(0) = \mathbf{y}_0
+\end{aligned}\right.
+\end{split}
+\end{equation*}
+\sphinxAtStartPar
+is discussed, along with the definition of
 \begin{itemize}
 \item {} 
 \sphinxAtStartPar
-from Lagrange approximation of integral: AB (explicit, \(s\)\sphinxhyphen{}step with max order \(s\)), AM (implicit, \(s\)\sphinxhyphen{}step with max order \(s+1\))
+\sphinxstylestrong{local truncation error} and \sphinxstylestrong{consistency}
 
 \item {} 
 \sphinxAtStartPar
-from approximation of derivative: BDF (implicit)
+\sphinxstylestrong{global truncation error} and \sphinxstylestrong{convergence}
+
+\end{itemize}
+
+
+\subsubsection*{Common integration schemes}
+
+\sphinxAtStartPar
+\sphinxstylestrong{For first\sphinxhyphen{}order equation.}
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+One\sphinxhyphen{}step methods(I):
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Explicit: Explicit Euler, Heun (special case of RK)
+
+\item {} 
+\sphinxAtStartPar
+Implicit: Implicit Euler, Crank\sphinxhyphen{}Nicolson
+
+\end{itemize}
+
+\item {} 
+\sphinxAtStartPar
+One\sphinxhyphen{}step methods(II): Runge\sphinxhyphen{}Kutta (RK) methods
+
+\item {} 
+\sphinxAtStartPar
+Linear multi\sphinxhyphen{}step methods:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Adams\sphinxhyphen{}Bashforth (AB)
+
+\item {} 
+\sphinxAtStartPar
+Adams\sphinxhyphen{}Moulton   (AM)
+
+\item {} 
+\sphinxAtStartPar
+Backward Differentiation Formulas (BDF)
 
 \end{itemize}
 
 \end{itemize}
+\subsubsection*{Stability analysis}
+
+\sphinxAtStartPar
+Linear stability on test equations, \(\dot{y} = \lambda y\) for the first\sphinxhyphen{}order system, \(\ddot{y} = \dots\) for the second\sphinxhyphen{}order system.
+Through one\sphinxhyphen{}step transfer function \(G(z)\), \(z = \lambda \, dt\), \(y_{n+1} = G(z) y_{n}\),
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Stability region of numerical methods
+
+\item {} 
+\sphinxAtStartPar
+0\sphinxhyphen{}ztability
+
+\item {} 
+\sphinxAtStartPar
+A\sphinxhyphen{}stability
+
+\item {} 
+\sphinxAtStartPar
+L\sphinxhyphen{}stability
+
+\end{itemize}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Theorems and limits}
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+Dahlquist barriers
+
+\item {} 
+\sphinxAtStartPar
+Lax theorem: consistency + stability = convergence
+
+\end{itemize}
+\subsubsection*{Integration and conservation laws}
+
+\sphinxAtStartPar
+Some physical systems satisfy some conservation laws. As an example, \sphinxstylestrong{Hamiltonian systems} satisfy \sphinxstylestrong{energy conservation} or \sphinxhyphen{} equivalently \sphinxhyphen{} volume conservation in phase space.
+
+\sphinxAtStartPar
+Simplectic integrators are numerical methods that preserves these conservation laws of the original system.
+…
+\subsubsection*{Examples}
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+{\hyperref[\detokenize{ch/ode/time-integration-mechanical-systems:ode-integration-schemes-mechanical-system}]{\sphinxcrossref{\DUrole{std,std-ref}{Example: torsional dynamics of an elastic beam}}}}: finite element method of the continuous model is built; spectral decomposition of the discrete problem is discussed and compared with the eigenvalues of the continuous system; diagonal structural damping is introduced; previous results are used for an aware numerical integration in time of the dynamics of the beam subject to a harmonic torsional moment, using fast mode truncation and their static recovery.
+
+\end{itemize}
 
 
-\section{Concepts}
-\label{\detokenize{ch/ode/integration-schemes:concepts}}
+\bigskip\hrule\bigskip
+
+
+\sphinxstepscope
+
+
+\section{Foundations}
+\label{\detokenize{ch/ode/integration-schemes-foundations:foundations}}\label{\detokenize{ch/ode/integration-schemes-foundations:ode-integration-schemes-foundations}}\label{\detokenize{ch/ode/integration-schemes-foundations::doc}}
+\sphinxAtStartPar
+…
+
 
 \subsection{Local truncation error and Consistency}
-\label{\detokenize{ch/ode/integration-schemes:local-truncation-error-and-consistency}}
+\label{\detokenize{ch/ode/integration-schemes-foundations:local-truncation-error-and-consistency}}
 \sphinxAtStartPar
 Let
 \begin{equation*}
@@ -6515,7 +6898,7 @@ The method has \sphinxstylestrong{order} \(p\) if
 \end{equation*}
 
 \subsection{Global truncation error and Convergence}
-\label{\detokenize{ch/ode/integration-schemes:global-truncation-error-and-convergence}}
+\label{\detokenize{ch/ode/integration-schemes-foundations:global-truncation-error-and-convergence}}
 \sphinxAtStartPar
 The \sphinxstylestrong{global truncation error} \(e_n\) is the accumulation of the error up to time \(t_n\),
 \begin{equation*}
@@ -6528,7 +6911,7 @@ A numerical method is defined \sphinxstylestrong{convergent} if
 \end{equation*}
 
 \subsubsection{Recurrence relation for One\sphinxhyphen{}step methods}
-\label{\detokenize{ch/ode/integration-schemes:recurrence-relation-for-one-step-methods}}
+\label{\detokenize{ch/ode/integration-schemes-foundations:recurrence-relation-for-one-step-methods}}
 \sphinxAtStartPar
 A one\sphinxhyphen{}step method reads
 \begin{equation*}
@@ -6543,9 +6926,229 @@ A recurrence relation exists between the global and the local truncation error
 \sphinxAtStartPar
 \sphinxstyleemphasis{this implies some bound of the global error, see \sphinxhref{https://en.wikipedia.org/wiki/Truncation\_error\_(numerical\_integration)}{wiki}}
 
+\sphinxstepscope
 
-\subsection{Stability of a linear system}
-\label{\detokenize{ch/ode/integration-schemes:stability-of-a-linear-system}}
+
+\section{Families of integration methods}
+\label{\detokenize{ch/ode/integration-schemes-common:families-of-integration-methods}}\label{\detokenize{ch/ode/integration-schemes-common:ode-integration-schemes-common}}\label{\detokenize{ch/ode/integration-schemes-common::doc}}
+\sphinxAtStartPar
+Methods for the first\sphinxhyphen{}order IVP
+\begin{equation}\label{equation:ch/ode/integration-schemes-common:eq:ode:numerical-integration:first-order}
+\begin{split}\left\{
+\begin{aligned}
+ & \dot{\mathbf{y}} = \mathbf{f}(t,\mathbf{y}) \\
+ & \mathbf{y}(0) = \mathbf{y}_0 \ .
+\end{aligned}\right.\end{split}
+\end{equation}
+
+\subsection{One\sphinxhyphen{}step methods (I): Euler, Crank\sphinxhyphen{}Nicolson}
+\label{\detokenize{ch/ode/integration-schemes-common:one-step-methods-i-euler-crank-nicolson}}
+
+\subsection{Multi\sphinxhyphen{}step methods}
+\label{\detokenize{ch/ode/integration-schemes-common:multi-step-methods}}\label{\detokenize{ch/ode/integration-schemes-common:ode-integration-schemes-common-multi-step}}
+\sphinxAtStartPar
+\sphinxstylestrong{Adams\sphinxhyphen{}Bashforth and Adams\sphinxhyphen{}Moulton.} The integration of the first\sphinxhyphen{}order equation \eqref{equation:ch/ode/integration-schemes-common:eq:ode:numerical-integration:first-order} between \(t_n\) and \(t_{n+1}\) reads
+\begin{equation*}
+\begin{split}\mathbf{y}(t_{n+1}) - \mathbf{y}(t_n) = \int_{\tau = t_n}^{t_{n+1}} \mathbf{f}(\tau, \mathbf{y}(\tau)) \, d \tau \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+AB and AM methods replace the function \(\mathbf{f}(t, \mathbf{y}(t))\) with a polynomial Lagrangian approximation \(\mathbf{p}_s(t) \simeq \mathbf{f}(t)\) built with values of \(\mathbf{f}(t_{n-k}, \mathbf{y}(t_{n-k}) )\), with \(k_{AB} = 0:s-1\) (AB are explicit methods) and \(k_{AM} = -1:s-1\) (AM are implicit methods).
+
+\sphinxAtStartPar
+Once the original function is replaced by its polynomial approximation, the integration can be performed exactly.
+
+\sphinxAtStartPar
+\sphinxstylestrong{Backward Differentiation Formulas.} BDF methods exploits the derivative of the polynomial approximation \(\mathbf{q}_s(t) \simeq \mathbf{y}(t)\). The value of the derivative \(\dot{\mathbf{q}}_s(t)\) evaluated in \((t_{n+1}, \mathbf{y}_{n+1})\) can be written as a linear combinations of the \(\{ \mathbf{y}_{n-k} \}_{k=-1:s-1}\) values. BDF immediately follows from the comparison
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{f}(t_{n+1}, \mathbf{y}_{n+1})
+  & = \dot{\mathbf{y}}(t_{n+1}) \simeq \dot{\mathbf{q}}_s(t) = \sum_{k=-1}^{s-1} a_k \mathbf{y}_{n-k}
+\end{aligned}\end{split}
+\end{equation*}
+
+\subsubsection{Adams\sphinxhyphen{}Bashforth (AB)}
+\label{\detokenize{ch/ode/integration-schemes-common:adams-bashforth-ab}}
+\sphinxAtStartPar
+For the derivation of the low\sphinxhyphen{}order AB methods, see {\hyperref[\detokenize{ch/function-approx/lagrange-interp:fun-approx-lagrange-interp-applications-odes-ab}]{\sphinxcrossref{\DUrole{std,std-ref}{Lagrange interpolation: Applications: Adams\sphinxhyphen{}Bashforth}}}}
+
+
+\subsubsection{Adams\sphinxhyphen{}Moulton (AM)}
+\label{\detokenize{ch/ode/integration-schemes-common:adams-moulton-am}}
+\sphinxAtStartPar
+For the derivation of the low\sphinxhyphen{}order AB methods, see {\hyperref[\detokenize{ch/function-approx/lagrange-interp:fun-approx-lagrange-interp-applications-odes-am}]{\sphinxcrossref{\DUrole{std,std-ref}{Lagrange interpolation: Applications: Adams\sphinxhyphen{}Moulton}}}}
+
+
+\subsubsection{Backward Differentiation Formulas (BDF)}
+\label{\detokenize{ch/ode/integration-schemes-common:backward-differentiation-formulas-bdf}}
+\sphinxAtStartPar
+For the derivation of the low\sphinxhyphen{}order AB methods, see {\hyperref[\detokenize{ch/function-approx/lagrange-interp:fun-approx-lagrange-interp-applications-odes-bdf}]{\sphinxcrossref{\DUrole{std,std-ref}{Lagrange interpolation: Applications: BDF}}}}
+
+
+\subsection{One\sphinxhyphen{}step methods (II): Runge\sphinxhyphen{}Kutta (RK)}
+\label{\detokenize{ch/ode/integration-schemes-common:one-step-methods-ii-runge-kutta-rk}}
+\sphinxAtStartPar
+\sphinxstylestrong{Method.}
+\begin{equation*}
+\begin{split}y_{n+1} = y_{n} + h \sum_{m=1}^s b_m k_m \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+with
+\begin{equation*}
+\begin{split}\begin{aligned}
+  k_1 & = f(t_n,y_n) \\
+  k_2 & = f(t_n + h c_2, y_n + h a_{21} k_1 ) \\
+  \dots \\
+  k_s & = f\left(t_n + h c_s, y_n + h \sum_{j=1}^{s-1} a_{sj} k_j \right) \ .
+\end{aligned}\end{split}
+\end{equation*}\subsubsection*{Rationale}
+
+\sphinxAtStartPar
+Starting from a \(n\)\sphinxhyphen{}order Taylor series
+\begin{equation*}
+\begin{split}y(t+h) = \sum_{p=0}^{n} \frac{h^p}{p!} y^{(p)}(t) \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and matching it with a linear combination of evaluations of the first\sphinxhyphen{}order derivative,
+\begin{equation*}
+\begin{split}y_{n+1} = y_{n} + h \sum_{m=1}^s b_m k_m \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+with \(t_{n+1} = t_n + h\).
+\subsubsection*{Butcher tableau}
+
+\sphinxAtStartPar
+The coefficients of a RK method can be organized in Butcher tableau
+\begin{equation*}
+\begin{split}\begin{array}{c|c}
+\mathbf{c} & \mathbf{A} \\
+\hline
+& \mathbf{b}^T
+\end{array}\end{split}
+\end{equation*}\begin{equation*}
+\begin{split}\begin{array}{c|ccccc}
+0 & & & & \\
+c_2 & a_{21} & & & & \\
+c_3 & a_{31} & a_{32} & & & \\
+\vdots & \vdots & \vdots & \ddots & & \\
+c_s & a_{s1} & a_{s2} & \dots & a_{s,s-1} & \\
+\hline
+& b_1 & b_2 & \dots & b_{s-1} & b_s
+\end{array}\end{split}
+\end{equation*}\subsubsection*{Constraints}
+\begin{equation*}
+\begin{split}\sum_{j=1}^{s} b_j = 1 \ .\end{split}
+\end{equation*}
+
+\subsubsection{Example: RK2}
+\label{\detokenize{ch/ode/integration-schemes-common:example-rk2}}
+\sphinxAtStartPar
+RK2 methods include mid\sphinxhyphen{}point, Heun and Ralston methods.
+\subsubsection*{Derivation.}
+
+\sphinxAtStartPar
+Starting from a \(2\)\sphinxhyphen{}order Taylor series, and matching it with a linear combination of evaluations of the first\sphinxhyphen{}order derivative.
+\begin{equation*}
+\begin{split}\begin{aligned}
+  y(t+h) 
+  & = y(t) + h y'(t) + \frac{h^2}{2} y''(t) + o(h^2) = \\
+  & = y(t) + h f(t, y(t)) + \frac{h^2}{2} \left[ f_t(t,y(t)) + y'(t) f_y(t,y(t)) \right] + o(h^2) = \\
+  & = y(t) + h f(t, y(t)) + \frac{h^2}{2} \left[ f_t(t,y(t)) + f(t,y(t)) f_y(t,y(t)) \right] + o(h^2) \ ,
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+with \(y'(t) = f(t, y(t))\), so that \(y''(t) = f_t(t,y(t)) + y'(t) f_y(t,y(t))\).
+
+\sphinxAtStartPar
+\sphinxstylestrong{RK approximation.}
+\begin{equation*}
+\begin{split}y_{n+1} = y_{n} + h( b_1 k_1 + b_2 k_2 ) \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+with
+\begin{equation*}
+\begin{split}\begin{aligned}
+  k_1 & = f(t_n,y_n) \\
+  k_2 & = f(t_n + h c_2, y_n + h a_{21} k_1 ) \ .
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Expanding in Taylor series \(k_2\),
+\begin{equation*}
+\begin{split}\begin{aligned}
+  k_2 
+  & = f(t_n + h c_2, y_n + h a_{21} k_1 ) = \\
+  & = f(t_n, y_n) + h c_2 f_t(t_n, y_n) + h a_{21} k_1 f_y(t_n, y_n) + O(h^2) \ ,
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+inserting in the RK2 scheme
+\begin{equation*}
+\begin{split}\begin{aligned}
+  y_{n+1} 
+  & = y_n + h b_1 f(t_n,y_n) + h b_2 \left[ f(t_n, y_n) + h c_2 f_t(t_n, y_n) + h a_{21} k_1 f_y(t_n, y_n) \right] + o(h^2) = \\
+  & = y_n + h \left[ b_1 + b_2 \right] f(t_n, y_n) + h^2 b_2 c_2 f_t(t_n, y_n) + h^2 b_2 a_{21} f(t_n, y_n) f_y(t_n, y_n) + o(h^2) \ ,
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and matching coefficients of Taylor expansions, the coefficients of the RK method are computed as the solution of a \sphinxstylestrong{underdetermined system} of 3 equations with 4 unknowns
+\begin{equation*}
+\begin{split}\begin{cases}
+   b_1 + b_2 = 1 \\
+   b_2 c_2 = \frac{1}{2} \\
+   b_2 a_{21} = \frac{1}{2}
+\end{cases}
+\qquad , \qquad
+\begin{array}{c|cc}
+0 & & \\
+c_2 & a_{21} & \\
+\hline
+& b_1 & b_2 
+\end{array}
+\end{split}
+\end{equation*}
+\sphinxAtStartPar
+or leaving \(\alpha = c_2 = a_{21}\) as a free parameter,
+\begin{equation*}
+\begin{split}\begin{cases}
+   b_1 = 1 - \frac{1}{2 \alpha} \\
+   b_2 = \frac{1}{2 \alpha} \\
+   c_2 = \alpha \\
+   a_{21} = \alpha
+\end{cases}
+\qquad , \qquad
+\begin{array}{c|cc}
+0 & & \\
+\alpha & \alpha & \\
+\hline
+& 1 - \frac{1}{2 \alpha} & \frac{1}{2 \alpha}
+\end{array}
+\end{split}
+\end{equation*}
+\sphinxAtStartPar
+This system has infinite solutions. Different methods correspond to different choices among these solutions:
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+mid\sphinxhyphen{}point method, \(\alpha = \frac{1}{2}\)
+
+\item {} 
+\sphinxAtStartPar
+Heun method, \(\alpha = 1\)
+
+\item {} 
+\sphinxAtStartPar
+Ralston’s method (minimum truncation error \sphinxstylestrong{todo} \sphinxstyleemphasis{prove it!}), \(\alpha = \frac{2}{3}\)
+
+\end{itemize}
+
+\sphinxstepscope
+
+
+\section{Stability of integration schemes}
+\label{\detokenize{ch/ode/integration-schemes-stability:stability-of-integration-schemes}}\label{\detokenize{ch/ode/integration-schemes-stability:ode-integration-schemes-stability}}\label{\detokenize{ch/ode/integration-schemes-stability::doc}}
+
+\subsection{Stability of a first\sphinxhyphen{}order linear system}
+\label{\detokenize{ch/ode/integration-schemes-stability:stability-of-a-first-order-linear-system}}
 \sphinxAtStartPar
 Linear homogeneous equation (or system?)
 \begin{equation*}
@@ -6576,7 +7179,7 @@ The exact solution converges to the forced solution if the system is asymptotica
 \end{equation*}
 
 \subsubsection{A\sphinxhyphen{}stability}
-\label{\detokenize{ch/ode/integration-schemes:a-stability}}
+\label{\detokenize{ch/ode/integration-schemes-stability:a-stability}}
 \sphinxAtStartPar
 A\sphinxhyphen{}stability ensures the numerical method doesn’t explode in the simulation of a asymptotically stable system.
 
@@ -6585,7 +7188,7 @@ A numerical method is defined A\sphinxhyphen{}stable if its stability region inc
 
 
 \subsubsection{L\sphinxhyphen{}stability}
-\label{\detokenize{ch/ode/integration-schemes:l-stability}}
+\label{\detokenize{ch/ode/integration-schemes-stability:l-stability}}
 \sphinxAtStartPar
 Let \(z := h \lambda\). For \sphinxstylestrong{one\sphinxhyphen{}step methods}, it’s possible to define a \sphinxstylestrong{scalar transfer function} \(G(z)\) between \(y_{n}\) and \(y_{n+1}\),
 \begin{equation*}
@@ -6604,7 +7207,7 @@ L\sphinxhyphen{}stability ensures that the method damps extremely fast \sphinxhy
 \end{equation*}
 
 \subsubsection{0\sphinxhyphen{}stability}
-\label{\detokenize{ch/ode/integration-schemes:stability}}
+\label{\detokenize{ch/ode/integration-schemes-stability:stability}}
 \sphinxAtStartPar
 0\sphinxhyphen{}stability (of a numerical method for a certain differential equation on a given interval) if a perturbation in the starting value of size \(\varepsilon\) causes the numerical solution over the time interval to change less than \(K \varepsilon\) for some \(K\) that doesn’t depend on the time\sphinxhyphen{}step \(h\).
 
@@ -6616,10 +7219,10 @@ A linear multi\sphinxhyphen{}step method is zero\sphinxhyphen{}stable \sphinxsty
 
 
 \subsection{Some schemes}
-\label{\detokenize{ch/ode/integration-schemes:some-schemes}}
+\label{\detokenize{ch/ode/integration-schemes-stability:some-schemes}}
 
 \subsubsection{Homogeneous equation}
-\label{\detokenize{ch/ode/integration-schemes:homogeneous-equation}}\begin{equation*}
+\label{\detokenize{ch/ode/integration-schemes-stability:homogeneous-equation}}\begin{equation*}
 \begin{split}\dot{y} = f(t,y) = \lambda y \ .\end{split}
 \end{equation*}
 \sphinxAtStartPar
@@ -6735,7 +7338,7 @@ being \(( d_t + i \Omega )( d_t - i \Omega ) x = 0\). This analysis can be perfo
 \end{aligned}\right.\end{split}
 \end{equation*}
 \sphinxAtStartPar
-\sphinxstylestrong{Verlet method.} …
+\sphinxstylestrong{Verlet method.} Position Verlet is algebrically equivalent to the Leapfrom method, so it shares the same stability properties.
 
 \sphinxAtStartPar
 \sphinxstylestrong{Newmark method.} …
@@ -6763,7 +7366,7 @@ or
 \end{aligned}\end{split}
 \end{equation*}
 \sphinxAtStartPar
-Generalized test equation has \(f(x,v) = 2 \sigma v - ( \sigma^2 + \omega^2) x = - 2 \xi \Omega v - \Omega^2 x\), with
+\sphinxstylestrong{Generalized test} equation \sphinxhyphen{} with general pair of complex eigenvalues, not only imaginary eigenvalues \sphinxhyphen{} has \(f(x,v) = 2 \sigma v - ( \sigma^2 + \omega^2) x = - 2 \xi \Omega v - \Omega^2 x\), with
 \begin{equation*}
 \begin{split}\begin{aligned}
  \Omega^2 & = \sigma^2 + \omega^2 \\
@@ -6801,36 +7404,15 @@ if \(\xi^2 \le 1\), then the eigenvalues are conjugate complex, \(s_{1,2} = -\xi
 
 
 \subsubsection{Forced equation}
-\label{\detokenize{ch/ode/integration-schemes:forced-equation}}\begin{equation*}
-\begin{split}\dot{y} = \lambda y(t) + u(t)\end{split}
-\end{equation*}
-\sphinxAtStartPar
-\sphinxstylestrong{Explicit Euler.}
-\begin{equation*}
-\begin{split}y_{n+1} = y_{n} + h f(y_n, t_n) = y_n + h \lambda y_n = ( 1 + h \lambda ) y_n + h u(t_n) \ .\end{split}
-\end{equation*}
+\label{\detokenize{ch/ode/integration-schemes-stability:forced-equation}}
 \sphinxAtStartPar
 …
 
-\sphinxAtStartPar
-\sphinxstylestrong{Implicit Euler.}
-\begin{equation*}
-\begin{split}y_{n+1} = y_{n} + h f(y_{n+1}, t_{n+1}) = y_n + h \lambda y_{n+1} + h y(t_n) \ .\end{split}
-\end{equation*}
-\sphinxAtStartPar
-…
 
-\sphinxAtStartPar
-\sphinxstylestrong{Crank\sphinxhyphen{}Nicolson.}
-\begin{equation*}
-\begin{split}y_{n+1} = y_n + \frac{h}{2} \left[ f(y_{n}, t_{n}) + f(y_{n+1}, t_{n+1}) \right] = y_n + \frac{h}{2} \left[ \lambda y_{n} + \lambda y_{n+1} \right] + \frac{h}{2} \left[ u(t_n) + u(t_{n+1}) \right] \ .\end{split}
-\end{equation*}
-\sphinxAtStartPar
-…
 
 
 \subsubsection{A\sphinxhyphen{}stability}
-\label{\detokenize{ch/ode/integration-schemes:id1}}
+\label{\detokenize{ch/ode/integration-schemes-stability:id1}}
 \begin{sphinxuseclass}{cell}
 \begin{sphinxuseclass}{tag_hide-input}
 \end{sphinxuseclass}
@@ -6863,8 +7445,8 @@ if \(\xi^2 \le 1\), then the eigenvalues are conjugate complex, \(s_{1,2} = -\xi
 \sphinxstylestrong{A\sphinxhyphen{}stability.} Implicit Euler and Crank\sphinxhyphen{}Nicolson methods are A\sphinxhyphen{}stable, while explicit Euler is not.
 
 
-\subsubsection{G(z): absolute value and phase}
-\label{\detokenize{ch/ode/integration-schemes:g-z-absolute-value-and-phase}}
+\paragraph{G(z): absolute value and phase}
+\label{\detokenize{ch/ode/integration-schemes-stability:g-z-absolute-value-and-phase}}
 \begin{sphinxuseclass}{cell}
 \begin{sphinxuseclass}{tag_hide-input}\begin{sphinxVerbatimOutput}
 
@@ -6886,8 +7468,8 @@ if \(\xi^2 \le 1\), then the eigenvalues are conjugate complex, \(s_{1,2} = -\xi
 \end{sphinxuseclass}
 \end{sphinxuseclass}
 
-\subsubsection{G(z) on the real axis}
-\label{\detokenize{ch/ode/integration-schemes:g-z-on-the-real-axis}}
+\paragraph{G(z) on the real axis}
+\label{\detokenize{ch/ode/integration-schemes-stability:g-z-on-the-real-axis}}
 \begin{sphinxuseclass}{cell}
 \begin{sphinxuseclass}{tag_hide-input}\begin{sphinxVerbatimOutput}
 
@@ -6899,8 +7481,8 @@ if \(\xi^2 \le 1\), then the eigenvalues are conjugate complex, \(s_{1,2} = -\xi
 \end{sphinxuseclass}
 \end{sphinxuseclass}
 
-\subsubsection{G(z) on the imaginary axis}
-\label{\detokenize{ch/ode/integration-schemes:g-z-on-the-imaginary-axis}}
+\paragraph{G(z) on the imaginary axis}
+\label{\detokenize{ch/ode/integration-schemes-stability:g-z-on-the-imaginary-axis}}
 \begin{sphinxuseclass}{cell}
 \begin{sphinxuseclass}{tag_hide-input}\begin{sphinxVerbatimOutput}
 
@@ -6912,14 +7494,14 @@ if \(\xi^2 \le 1\), then the eigenvalues are conjugate complex, \(s_{1,2} = -\xi
 \end{sphinxuseclass}
 \end{sphinxuseclass}
 \sphinxAtStartPar
-\sphinxstylestrong{Remark.} Here the info about phase in BDF2 and Leapfrog methods is lost, as the radial spectrum is shown.
+\sphinxstylestrong{Remark.} For multiple\sphinxhyphen{}steps methods, like BDF2 and Leapfrog, the magnitude and phase of the eigenvalue of the one\sphinxhyphen{}step matrix \(\mathbf{G}(z)\) is shown here.
 
 \sphinxAtStartPar
 \sphinxstylestrong{L\sphinxhyphen{}stable methods.} Among the methods shown here, only IE and BDF2 are L\sphinxhyphen{}stable, i.e. with \(|G(z \rightarrow +\infty)| \rightarrow 0\)
 
 
-\subsection{Dahlquist barriers \sphinxhyphen{} for linear multi\sphinxhyphen{}step methods}
-\label{\detokenize{ch/ode/integration-schemes:dahlquist-barriers-for-linear-multi-step-methods}}
+\subsubsection{Dahlquist barriers \sphinxhyphen{} for linear multi\sphinxhyphen{}step methods}
+\label{\detokenize{ch/ode/integration-schemes-stability:dahlquist-barriers-for-linear-multi-step-methods}}
 \sphinxAtStartPar
 \sphinxstylestrong{First Dahlquist barrier.}
 \begin{itemize}
@@ -7721,7 +8303,7 @@ Explicit Euler numerical integration is unstable
 \subsubsection{RK4(5)}
 \label{\detokenize{ch/ode/time-integration-mechanical-systems:rk4-5}}
 \sphinxAtStartPar
-\sphinxstylestrong{Runge\sphinxhyphen{}Kutta.} Exploiting \(\texttt{scipy.integrate.solve_ivp}\). RK4(5) is a variable time\sphinxhyphen{}step method.
+\sphinxstylestrong{Runge\sphinxhyphen{}Kutta.} Exploiting \sphinxstylestrong{scipy.integrate.solve\_ivp}. RK4(5) is a variable time\sphinxhyphen{}step method.
 
 \sphinxAtStartPar
 \sphinxstylestrong{RK4(5) and high\sphinxhyphen{}frequencies.} This method is not suited for systems with high\sphinxhyphen{}frequency contents, as the method uses smaller and smaller time\sphinxhyphen{}step to keep local truncation error small (and the method stable). Extreme small values of \(dt\) makes the number of iterations explodes and the performance of the method so poor that it becomes useless.
@@ -7911,9 +8493,9 @@ Assuming it’s possible swap derivative operator and summation (when?), it’s 
 \end{aligned}\end{split}
 \end{equation*}
 \sphinxAtStartPar
-for all the values of \(s\) for which \(-s\mathbf{I} + \mathbf{A}\) is asymptotically stable, i.e. has all the eignevalues (thus, assuming that the matrix \(\mathbf{A}\) can be diagonalizable. What happens if not? Exploit other matrix decompositions to draw conclusions) with negative real parts, and thus for all the values of \(s > \max \text{re}\{ s_k(\mathbf{A}) \}\), as it’s shown in {\hyperref[\detokenize{ch/system-theory/lti:matrix-stability-spectrum}]{\sphinxcrossref{Example 29.2.1}}}
+for all the values of \(s\) for which \(-s\mathbf{I} + \mathbf{A}\) is asymptotically stable, i.e. has all the eignevalues (thus, assuming that the matrix \(\mathbf{A}\) can be diagonalizable. What happens if not? Exploit other matrix decompositions to draw conclusions) with negative real parts, and thus for all the values of \(s > \max \text{re}\{ s_k(\mathbf{A}) \}\), as it’s shown in {\hyperref[\detokenize{ch/system-theory/lti:matrix-stability-spectrum}]{\sphinxcrossref{Example 31.2.1}}}
 \label{ch/system-theory/lti:matrix-stability-spectrum}
-\begin{sphinxadmonition}{note}{Example 29.2.1 (Asymptotic stability of a matrix \protect\(\ \mathbf{A}\protect\))}
+\begin{sphinxadmonition}{note}{Example 31.2.1 (Asymptotic stability of a matrix \protect\(\ \mathbf{A}\protect\))}
 
 
 
@@ -7979,7 +8561,7 @@ The characteristic polynomial of the system doesn’t change, as
 \subsection{Gramians}
 \label{\detokenize{ch/system-theory/coordinate-transformation:gramians}}
 \sphinxAtStartPar
-The observability Gramian ({\hyperref[\detokenize{ch/system-theory/observability-detectability:def:observability-gramian}]{\sphinxcrossref{Definition 33.1.1}}}) and controllability Gramian ({\hyperref[\detokenize{ch/system-theory/controllability-reachability:def:controllability-gramian}]{\sphinxcrossref{Definition 34.1.1}}}) of the transformed system read
+The observability Gramian ({\hyperref[\detokenize{ch/system-theory/observability-detectability:def:observability-gramian}]{\sphinxcrossref{Definition 35.1.1}}}) and controllability Gramian ({\hyperref[\detokenize{ch/system-theory/controllability-reachability:def:controllability-gramian}]{\sphinxcrossref{Definition 36.1.1}}}) of the transformed system read
 \begin{equation*}
 \begin{split}\begin{aligned}
 \hat{\mathbf{W}}_o & = \mathbf{T}^{ T} \mathbf{W}_c \mathbf{T}      \\
@@ -8486,7 +9068,7 @@ while for a pole \(p_d\) with multiplicity \(m_d> 1\) all the terms \(\propto \f
 \begin{equation*}
 \begin{split}G(s) = \sum_{d=1}^{N} \dfrac{A_d}{(p_d-s)^{e_d}} \ , \end{split}
 \end{equation*}\label{ch/system-theory/lti-stability-and-feedback:example-0}
-\begin{sphinxadmonition}{note}{Example 32.1.1 (Sum of partial fractions of a TF with poles with multiplicity \protect\(> 1\protect\))}
+\begin{sphinxadmonition}{note}{Example 34.1.1 (Sum of partial fractions of a TF with poles with multiplicity \protect\(> 1\protect\))}
 
 
 
@@ -8591,7 +9173,7 @@ Discuss the \sphinxstylestrong{pullback} of the output to the state space (befor
 
 \end{itemize}
 \label{ch/system-theory/observability-detectability:def:observability-gramian}
-\begin{sphinxadmonition}{note}{Definition 33.1.1 (Observability Gramian)}
+\begin{sphinxadmonition}{note}{Definition 35.1.1 (Observability Gramian)}
 
 
 \begin{equation}\label{equation:ch/system-theory/observability-detectability:eq:observability-gramian:def}
@@ -8770,7 +9352,7 @@ with \(\mathbf{u}_{\mathbf{v}} := \mathbf{U}^* \mathbf{v}\), the projection of t
 
 \end{itemize}
 \label{ch/system-theory/controllability-reachability:def:controllability-gramian}
-\begin{sphinxadmonition}{note}{Definition 34.1.1 (Controllability Gramian)}
+\begin{sphinxadmonition}{note}{Definition 36.1.1 (Controllability Gramian)}
 
 
 \begin{equation}\label{equation:ch/system-theory/controllability-reachability:eq:controllability-gramian:def}
@@ -10444,7 +11026,7 @@ The poles of the closed loop systems are the zeros of the function \(1 + L(s)\).
 \sphinxAtStartPar
 in order to have \(Z = 0\), i.e. the diagram of \(1+G(s)\) must perform \(N\) counter\sphinxhyphen{}clockwise loops around \(0+i0\) equal to the number of its poles with positive real parts. As the poles of \(1+ G(s)\) are the same as the poles of \(G(s)\), it’s possible to formulate Nyquist criterion looking at \(G(s)\), as
 \label{ch/control/frequency-domain:thm-nyquist}
-\begin{sphinxadmonition}{note}{Theorem 43.1.1 (Nyquist theorem)}
+\begin{sphinxadmonition}{note}{Theorem 45.1.1 (Nyquist theorem)}
 
 
 
@@ -10455,7 +11037,7 @@ In order for the closed\sphinxhyphen{}loop system to be asymptotically stable, t
 
 \subsection{Bode stability criterion for minimal phase systems}
 \label{\detokenize{ch/control/frequency-domain:bode-stability-criterion-for-minimal-phase-systems}}\label{\detokenize{ch/control/frequency-domain:control-siso-bode}}\label{ch/control/frequency-domain:def-minimal-phase}
-\begin{sphinxadmonition}{note}{Definition 43.1.1 (Minimal phase systems)}
+\begin{sphinxadmonition}{note}{Definition 45.1.1 (Minimal phase systems)}
 
 
 
@@ -10466,7 +11048,7 @@ In order for the closed\sphinxhyphen{}loop system to be asymptotically stable, t
 \sphinxAtStartPar
 …
 \label{ch/control/frequency-domain:thm-bode}
-\begin{sphinxadmonition}{note}{Theorem 43.1.2 (Bode stability criterion)}
+\begin{sphinxadmonition}{note}{Theorem 45.1.2 (Bode stability criterion)}
 
 
 
@@ -11507,7 +12089,7 @@ and comparing the two different expressions of \(\dot{\boldsymbol{\lambda}}\), i
 \begin{split}\dot{\mathbf{P}} + \mathbf{P} \widetilde{\mathbf{A}} + \widetilde{\mathbf{A}}^T \mathbf{P} - \mathbf{P} \mathbf{B} \mathbf{R}^{-1} \mathbf{B}^T \mathbf{P} + \widetilde{\mathbf{Q}} = \mathbf{0} \ ,\end{split}
 \end{equation*}
 \sphinxAtStartPar
-where \(\widetilde{\mathbf{A}} = \mathbf{A} - \mathbf{B} \mathbf{R}^{-1} \mathbf{S}^T \) and \(\widetilde{\mathbf{Q}} = \mathbf{Q} - \mathbf{S} \mathbf{R}^{-1} \mathbf{S}^T\). Riccati equation is a non\sphinxhyphen{}linear dynamical matrix equation in \(\mathbf{P}\). Algorithms for computing the solution of dynamical and algebraic equation exists, see {\hyperref[\detokenize{ch/control/optimal-control-full-state-old:control-optimal-riccati}]{\sphinxcrossref{Example 44.2.1}}}.
+where \(\widetilde{\mathbf{A}} = \mathbf{A} - \mathbf{B} \mathbf{R}^{-1} \mathbf{S}^T \) and \(\widetilde{\mathbf{Q}} = \mathbf{Q} - \mathbf{S} \mathbf{R}^{-1} \mathbf{S}^T\). Riccati equation is a non\sphinxhyphen{}linear dynamical matrix equation in \(\mathbf{P}\). Algorithms for computing the solution of dynamical and algebraic equation exists, see {\hyperref[\detokenize{ch/control/optimal-control-full-state-old:control-optimal-riccati}]{\sphinxcrossref{Example 46.2.1}}}.
 
 
 
@@ -11524,7 +12106,7 @@ For infinite\sphinxhyphen{}horizone, the algebraic equation (ARE) for the steady
 \sphinxAtStartPar
 with \(\mathbf{G} = \mathbf{R}^{-1} \left( \mathbf{S}^T + \mathbf{B}^T \mathbf{P} \right)\).
 \label{ch/control/optimal-control-full-state-old:control-optimal-riccati}
-\begin{sphinxadmonition}{note}{Example 44.2.1 (Solution of Riccati equation)}
+\begin{sphinxadmonition}{note}{Example 46.2.1 (Solution of Riccati equation)}
 
 
 
@@ -14776,7 +15358,7 @@ the solution is in the \(S_i\) region is
 \begin{equation*}
 \begin{split}u_i(x,t) = \sum_{\lambda_k > \frac{x}{t}} R_{ik} q_{a,k} +  \sum_{\lambda_k < \frac{x}{t}} R_{ik} q_{b,k}\end{split}
 \end{equation*}\label{ch/pde/hyperbolic-dimensions:example-0}
-\begin{sphinxadmonition}{note}{Example 50.2.1 (Linear(ized) P\sphinxhyphen{}system)}
+\begin{sphinxadmonition}{note}{Example 52.2.1 (Linear(ized) P\sphinxhyphen{}system)}
 
 
 
@@ -14814,17 +15396,17 @@ The linear(ized) P\sphinxhyphen{}system around a uniform reference state \(\over
 Subsonic: the two families of characteristic lines have opposite direction; supersonic: the two families of characteristic lines have the same direction.
 \end{sphinxadmonition}
 \label{ch/pde/hyperbolic-dimensions:example-1}
-\begin{sphinxadmonition}{note}{Example 50.2.2 (Linearized shallow water equations)}
+\begin{sphinxadmonition}{note}{Example 52.2.2 (Linearized shallow water equations)}
 
 
 \end{sphinxadmonition}
 \label{ch/pde/hyperbolic-dimensions:example-2}
-\begin{sphinxadmonition}{note}{Example 50.2.3 (Linearized Euler equations (acoustics))}
+\begin{sphinxadmonition}{note}{Example 52.2.3 (Linearized Euler equations (acoustics))}
 
 
 \end{sphinxadmonition}
 \label{ch/pde/hyperbolic-dimensions:example-3}
-\begin{sphinxadmonition}{note}{Example 50.2.4 (Wave equation)}
+\begin{sphinxadmonition}{note}{Example 52.2.4 (Wave equation)}
 
 
 
@@ -14919,7 +15501,7 @@ Different descritpions of integral problem,
   & = \partial_t u_i + \partial_{x_k} u_m \partial_{u_m} F_{ki} (u_l) = \\
 \end{aligned}\end{split}
 \end{equation*}\label{ch/pde/hyperbolic-dimensions:example-4}
-\begin{sphinxadmonition}{note}{Example 50.2.5 (P\sphinxhyphen{}system in 1\sphinxhyphen{}dimensional domain)}
+\begin{sphinxadmonition}{note}{Example 52.2.5 (P\sphinxhyphen{}system in 1\sphinxhyphen{}dimensional domain)}
 
 
 \begin{equation*}
@@ -14953,7 +15535,7 @@ with \(\partial_x P = a^2 \partial_x \rho\),
 \end{aligned}\end{split}
 \end{equation*}\end{sphinxadmonition}
 \label{ch/pde/hyperbolic-dimensions:example-5}
-\begin{sphinxadmonition}{note}{Example 50.2.6 (Euler equations in 1\sphinxhyphen{}dimensional domain)}
+\begin{sphinxadmonition}{note}{Example 52.2.6 (Euler equations in 1\sphinxhyphen{}dimensional domain)}
 
 
 
@@ -15069,7 +15651,7 @@ being
 \begin{split}\mathbf{L} = \dots \end{split}
 \end{equation*}\end{sphinxadmonition}
 \label{ch/pde/hyperbolic-dimensions:example-6}
-\begin{sphinxadmonition}{note}{Example 50.2.7 (Shallow water equation in \protect\(1\protect\)\sphinxhyphen{}dimensional domain)}
+\begin{sphinxadmonition}{note}{Example 52.2.7 (Shallow water equation in \protect\(1\protect\)\sphinxhyphen{}dimensional domain)}
 
 
 
@@ -15143,7 +15725,7 @@ and integration in \(z\)\sphinxhyphen{}direction \sphinxstylestrong{todo} Explic
 \begin{split}0 = |\mathbf{A}(\mathbf{u}) - s^2 \mathbf{I}| = -s \left( 2 u - s \right) + u^2 - g \eta = (s-u)^2 - g  \eta \ .\end{split}
 \end{equation*}\end{sphinxadmonition}
 \label{ch/pde/hyperbolic-dimensions:example-7}
-\begin{sphinxadmonition}{note}{Example 50.2.8 (P\sphinxhyphen{}system in n\sphinxhyphen{}dimensional domain)}
+\begin{sphinxadmonition}{note}{Example 52.2.8 (P\sphinxhyphen{}system in n\sphinxhyphen{}dimensional domain)}
 
 
 \begin{itemize}
@@ -15163,7 +15745,7 @@ Physical variables: e.g. \((\rho, \vec{u})\), \((P, \vec{u})\),…
 \end{cases}\end{split}
 \end{equation*}\end{sphinxadmonition}
 \label{ch/pde/hyperbolic-dimensions:example-8}
-\begin{sphinxadmonition}{note}{Example 50.2.9 (Euler system in n\sphinxhyphen{}dimensional domain)}
+\begin{sphinxadmonition}{note}{Example 52.2.9 (Euler system in n\sphinxhyphen{}dimensional domain)}
 
 
 \begin{itemize}
@@ -15192,7 +15774,7 @@ where \(\Pi\) represents the pressure field as a function of the conservative va
 and \(P\) the pressure field expressed by the \sphinxstylestrong{equation of state of the fluid} as a function of density and internal energy per unit mass as the pair of independent variables determining the thermodynamic state.
 \end{sphinxadmonition}
 \label{ch/pde/hyperbolic-dimensions:example-9}
-\begin{sphinxadmonition}{note}{Example 50.2.10 (Shallow water equations in 2\sphinxhyphen{}dimensional domain)}
+\begin{sphinxadmonition}{note}{Example 52.2.10 (Shallow water equations in 2\sphinxhyphen{}dimensional domain)}
 
 
 \begin{equation*}
@@ -19192,7 +19774,7 @@ The \sphinxstylestrong{integral formulation} of the problem for all the boundary
 \begin{equation}\label{equation:ch/pde/numerics:eq:example:pde:poisson:integral}
 \begin{split}0 = - \oint_{\partial \Omega} \hat{n} \cdot \vec{q} + \int_{\Omega} f \ .\end{split}
 \end{equation}\label{ch/pde/numerics:pde:ex:fvm}
-\begin{sphinxadmonition}{note}{Example 54.1 (Finite volume methods)}
+\begin{sphinxadmonition}{note}{Example 56.1 (Finite volume methods)}
 
 
 
@@ -19208,7 +19790,7 @@ evaluating volume integrals with the internal variables of the cell \(\Omega_k\)
 \end{equation*}
 \sphinxAtStartPar
 Different numerical methods differs in the evaluation of fluxes and sources.
-FVM is \sphinxstylestrong{conservative} as it evaluate flux at interfaces and then distribute it to neighoring cells, see {\hyperref[\detokenize{ch/pde/fvm:fvm:property:conservation}]{\sphinxcrossref{Property 56.1}}}. A rough elementwise\sphinxhyphen{}uniform variable with jump at interfaces and diffusive flux,
+FVM is \sphinxstylestrong{conservative} as it evaluate flux at interfaces and then distribute it to neighoring cells, see {\hyperref[\detokenize{ch/pde/fvm:fvm:property:conservation}]{\sphinxcrossref{Property 58.1}}}. A rough elementwise\sphinxhyphen{}uniform variable with jump at interfaces and diffusive flux,
 \begin{equation*}
 \begin{split}F_{ik} = - A_{ik} \, k \, \frac{u_i - u_k}{d_{ik}} \ ,\end{split}
 \end{equation*}
@@ -19226,7 +19808,7 @@ For regular cubic mesh, \(A_{ik} = \Delta x\), \(d_{ik} = \Delta x\), \(V_k = \D
 \begin{split}0 = k \sum_{i \in \Omega_k} \frac{u_i - u_k}{\Delta x^2} + f_k \ ,\end{split}
 \end{equation*}
 \sphinxAtStartPar
-where the summation is exactly equal to the center\sphinxhyphen{}difference stencil for the Laplacian, used in finite difference method {\hyperref[\detokenize{ch/pde/numerics:pde:ex:fdm}]{\sphinxcrossref{Example 54.2}}}.
+where the summation is exactly equal to the center\sphinxhyphen{}difference stencil for the Laplacian, used in finite difference method {\hyperref[\detokenize{ch/pde/numerics:pde:ex:fdm}]{\sphinxcrossref{Example 56.2}}}.
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
@@ -19250,7 +19832,7 @@ Exploiting the arbitrariety of the volume \(V\), the \sphinxstylestrong{strong f
 \sphinxAtStartPar
 only holds in regions of the domain where the functions involved are continuous and differentiable, i.e. everything written in the problem is not meaningful, i.e. at least it exists.
 \label{ch/pde/numerics:pde:ex:fdm}
-\begin{sphinxadmonition}{note}{Example 54.2 (Finite difference methods)}
+\begin{sphinxadmonition}{note}{Example 56.2 (Finite difference methods)}
 
 
 
@@ -19266,7 +19848,7 @@ Finite different method approximates the strong form of the problem, building a 
 \end{aligned}\end{split}
 \end{equation*}
 \sphinxAtStartPar
-and it’s equal to the same expression already provided for the rough finite volume method with regular grid, in {\hyperref[\detokenize{ch/pde/numerics:pde:ex:fvm}]{\sphinxcrossref{Example 54.1}}}
+and it’s equal to the same expression already provided for the rough finite volume method with regular grid, in {\hyperref[\detokenize{ch/pde/numerics:pde:ex:fvm}]{\sphinxcrossref{Example 56.1}}}
 \end{sphinxadmonition}
 
 \sphinxAtStartPar
@@ -19296,7 +19878,7 @@ Using a test function \(w(\vec{r})\) equal to zero on the boundary where essenti
 \sphinxAtStartPar
 compatible with essential boundary conditions.
 \label{ch/pde/numerics:pde:ex:fem}
-\begin{sphinxadmonition}{note}{Example 54.3 (Finite element methods)}
+\begin{sphinxadmonition}{note}{Example 56.3 (Finite element methods)}
 
 
 
@@ -19702,7 +20284,7 @@ Try to set different values of Dirichlet boundary conditions, u\_dir
 
 \chapter{Finite Volume Method}
 \label{\detokenize{ch/pde/fvm:finite-volume-method}}\label{\detokenize{ch/pde/fvm:pde-fvm}}\label{\detokenize{ch/pde/fvm::doc}}\label{ch/pde/fvm:fvm:property:conservation}
-\begin{sphinxadmonition}{note}{Property 56.1}
+\begin{sphinxadmonition}{note}{Property 58.1}
 
 
 
@@ -20207,7 +20789,7 @@ being \(\hat{\mathbf{A}}(\mathbf{u}_L, \mathbf{u}_R)\) an approximation of the c
 
 \end{enumerate}
 \label{ch/pde/fvm-hyperbolic-pde:example-0}
-\begin{sphinxadmonition}{note}{Example 56.2.1 (P\sphinxhyphen{}sys. Intermediate state)}
+\begin{sphinxadmonition}{note}{Example 58.2.1 (P\sphinxhyphen{}sys. Intermediate state)}
 
 
 
@@ -20282,7 +20864,7 @@ so that the solution that avoids singularities for \(\rho_L = \rho_R\) (the one 
 Arbitrary intermediate value of the density \(\hat{\rho}\) needs to satisfy consistency, as well. Just as an example, if \(\hat{\rho}\) is chosen to be the average of the densities, \(\hat{\rho} = \frac{1}{2}(\rho_L + \rho_R)\), this is consistent choice.
 \end{sphinxadmonition}
 \label{ch/pde/fvm-hyperbolic-pde:example-1}
-\begin{sphinxadmonition}{note}{Example 56.2.2 (Euler equations. Intermediate state)}
+\begin{sphinxadmonition}{note}{Example 58.2.2 (Euler equations. Intermediate state)}
 
 
 
@@ -20417,7 +20999,7 @@ with
 
 \subsubsection{Domain at rest}
 \label{\detokenize{ch/pde/fvm-hyperbolic-bc:domain-at-rest}}\label{ch/pde/fvm-hyperbolic-bc:example-0}
-\begin{sphinxadmonition}{note}{Example 56.3.1 (Wall for Roe flux in 1\sphinxhyphen{}dimensional P\sphinxhyphen{}sys)}
+\begin{sphinxadmonition}{note}{Example 58.3.1 (Wall for Roe flux in 1\sphinxhyphen{}dimensional P\sphinxhyphen{}sys)}
 
 
 
@@ -20480,7 +21062,7 @@ the upwind matrix evaluated on the Roe intermediate state (no need for entropy f
 i.e. there’s \sphinxstylestrong{no mass flux} across the wall, as the first component of the vector \(\mathbf{F}_\partial\) is zero.
 \end{sphinxadmonition}
 \label{ch/pde/fvm-hyperbolic-bc:example-1}
-\begin{sphinxadmonition}{note}{Example 56.3.2 (Wall for Roe flux in 1\sphinxhyphen{}dimensional Euler equations)}
+\begin{sphinxadmonition}{note}{Example 58.3.2 (Wall for Roe flux in 1\sphinxhyphen{}dimensional Euler equations)}
 
 
 \end{sphinxadmonition}
@@ -21267,9 +21849,9 @@ minimum: if the Hessian evalauted in \(\mathbf{x}^*\) is definite positive,
 \end{itemize}
 
 \sphinxAtStartPar
-Here the formalism \(\partial_{\mathbf{x} \mathbf{x}} f(\mathbf{x}^*) < 0\) indicates that the Hessian matrix is negative definite, see {\hyperref[\detokenize{ch/optimization/intro:optimization:hessian:extreme}]{\sphinxcrossref{Example 59.1.1}}}.
+Here the formalism \(\partial_{\mathbf{x} \mathbf{x}} f(\mathbf{x}^*) < 0\) indicates that the Hessian matrix is negative definite, see {\hyperref[\detokenize{ch/optimization/intro:optimization:hessian:extreme}]{\sphinxcrossref{Example 61.1.1}}}.
 \label{ch/optimization/intro:optimization:hessian:extreme}
-\begin{sphinxadmonition}{note}{Example 59.1.1 (Positive/negative definite Hessian)}
+\begin{sphinxadmonition}{note}{Example 61.1.1 (Positive/negative definite Hessian)}
 
 
 
@@ -21328,7 +21910,7 @@ with constraints, such as
 
 \chapter{Markov Processes}
 \label{\detokenize{ch/rl/mdp:markov-processes}}\label{\detokenize{ch/rl/mdp:rl-mdp}}\label{\detokenize{ch/rl/mdp::doc}}\label{ch/rl/mdp:def:stoch-process}
-\begin{sphinxadmonition}{note}{Definition 61.1 (Stochastic process)}
+\begin{sphinxadmonition}{note}{Definition 63.1 (Stochastic process)}
 
 
 
@@ -21339,7 +21921,7 @@ A stochastic process is as collection of random variables \(X(t)\) defined on a 
 \end{equation*}\end{sphinxadmonition}
 
 \sphinxAtStartPar
-Markov process is a memomry\sphinxhyphen{}less stochastic process (see def {\hyperref[\detokenize{ch/rl/mdp:def:stoch-process}]{\sphinxcrossref{Definition 61.1}}}). For discrete\sphinxhyphen{}time Markov processes, state at time \(n\) only depends on state at time \(n-1\)
+Markov process is a memomry\sphinxhyphen{}less stochastic process (see def {\hyperref[\detokenize{ch/rl/mdp:def:stoch-process}]{\sphinxcrossref{Definition 63.1}}}). For discrete\sphinxhyphen{}time Markov processes, state at time \(n\) only depends on state at time \(n-1\)
 \begin{equation*}
 \begin{split}\langle S, P, \mu \rangle\end{split}
 \end{equation*}
@@ -21641,7 +22223,7 @@ Bellman expectation equation for the action\sphinxhyphen{}value function \(Q^{\p
 \sphinxAtStartPar
 \sphinxstylestrong{Optimal value functions, and optimal policies}
 \label{ch/rl/mdp:def:optimal-value-fcns}
-\begin{sphinxadmonition}{note}{Definition 61.2.1 (Optimal value functions)}
+\begin{sphinxadmonition}{note}{Definition 63.2.1 (Optimal value functions)}
 
 
 
@@ -21664,7 +22246,7 @@ Valus functions define a partial ordering of policies,
 \begin{equation*}
 \begin{split}\pi \ge \pi' \ \text{if} \ V^{\pi}(s) \ge V^{\pi'} \, \forall s \in S \ .\end{split}
 \end{equation*}\label{ch/rl/mdp:theorem-2}
-\begin{sphinxadmonition}{note}{Theorem 61.2.1 (Optimal policies)}
+\begin{sphinxadmonition}{note}{Theorem 63.2.1 (Optimal policies)}
 
 
 
@@ -21700,7 +22282,7 @@ a deterministic optimal policy exists, and it’s found optimizing action\sphinx
 \sphinxAtStartPar
 \sphinxstylestrong{todo}
 \label{ch/rl/mdp:prop:optimal-v-q}
-\begin{sphinxadmonition}{note}{Property 61.2.1 (Property: optimal state\sphinxhyphen{}value and action\sphinxhyphen{}value functions)}
+\begin{sphinxadmonition}{note}{Property 63.2.1 (Property: optimal state\sphinxhyphen{}value and action\sphinxhyphen{}value functions)}
 
 
 \begin{equation}\label{equation:ch/rl/mdp:eq:optimality-condition}
@@ -21712,7 +22294,7 @@ a deterministic optimal policy exists, and it’s found optimizing action\sphinx
 
 \sphinxAtStartPar
 \sphinxstylestrong{Bellman optimality equations.}
-Using {\hyperref[\detokenize{ch/rl/mdp:prop:optimal-v-q}]{\sphinxcrossref{Property 61.2.1}}} and the expression of action\sphinxhyphen{}value function in \eqref{equation:ch/rl/mdp:eq:bellman:q:exp}
+Using {\hyperref[\detokenize{ch/rl/mdp:prop:optimal-v-q}]{\sphinxcrossref{Property 63.2.1}}} and the expression of action\sphinxhyphen{}value function in \eqref{equation:ch/rl/mdp:eq:bellman:q:exp}
 \begin{equation*}
 \begin{split}\begin{aligned}
   V^{*}(s) 
@@ -21879,7 +22461,7 @@ and it “improves the value function” (which value function?) of any state,
 \sphinxAtStartPar
 In stochastic optimization, usually {\hyperref[\detokenize{ch/rl/mdp_sol_rl:rl-mdp-sol-rl-control-improv-eps-greedy}]{\sphinxcrossref{\DUrole{std,std-ref}{\(\varepsilon\)\sphinxhyphen{}greedy improvement}}}} is introduced to improve \sphinxstylestrong{exploration} and try to avoid converging to local optimum.
 \label{ch/rl/mdp_sol_dp_lp:thm:pi}
-\begin{sphinxadmonition}{note}{Theorem 62.2.1 (Policy improvement theorem)}
+\begin{sphinxadmonition}{note}{Theorem 64.2.1 (Policy improvement theorem)}
 
 
 
@@ -22272,7 +22854,7 @@ MC evaluation is model\sphinxhyphen{}free. To keep a model\sphinxhyphen{}free co
 \right.
 \end{split}
 \end{equation*}\label{ch/rl/mdp_sol_rl:theorem-0}
-\begin{sphinxadmonition}{note}{Theorem 63.2.1 (\protect\(\varepsilon\protect\)\sphinxhyphen{}greedy Policy Improvement)}
+\begin{sphinxadmonition}{note}{Theorem 65.2.1 (\protect\(\varepsilon\protect\)\sphinxhyphen{}greedy Policy Improvement)}
 
 
 
@@ -22292,7 +22874,7 @@ For …, the \(\varepsilon\)\sphinxhyphen{}greedy policy \(\pi'\) w.r.t. \(Q^{\p
 \end{equation*}
 \sphinxAtStartPar
 having used in \((1)\) …
-And for the policy improvement theorem {\hyperref[\detokenize{ch/rl/mdp_sol_dp_lp:thm:pi}]{\sphinxcrossref{Theorem 62.2.1}}}, \(V^{\pi'}(s) \ge V(s)\). \sphinxstylestrong{todo} \sphinxstyleemphasis{Check it!}
+And for the policy improvement theorem {\hyperref[\detokenize{ch/rl/mdp_sol_dp_lp:thm:pi}]{\sphinxcrossref{Theorem 64.2.1}}}, \(V^{\pi'}(s) \ge V(s)\). \sphinxstylestrong{todo} \sphinxstyleemphasis{Check it!}
 
 \sphinxAtStartPar
 \sphinxstylestrong{GLIE (Greedy in the Limit of Infinite Exploration)} …
@@ -22513,19 +23095,19 @@ actor\sphinxhyphen{}critic
 \item\relax\sphinxstyleindexentry{def:stoch\sphinxhyphen{}process}\sphinxstyleindexextra{ch/rl/mdp}\sphinxstyleindexpageref{ch/rl/mdp:\detokenize{def:stoch-process}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}0}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}0}\sphinxstyleindexextra{ch/complex/analysis}\sphinxstyleindexpageref{ch/complex/analysis:\detokenize{definition-0}}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}0}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/calculus\sphinxhyphen{}euclidean}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/calculus-euclidean:\detokenize{definition-0}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}1}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}1}\sphinxstyleindexextra{ch/complex/analysis}\sphinxstyleindexpageref{ch/complex/analysis:\detokenize{definition-1}}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}1}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/calculus\sphinxhyphen{}euclidean}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/calculus-euclidean:\detokenize{definition-1}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}2}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}2}\sphinxstyleindexextra{ch/complex/analysis}\sphinxstyleindexpageref{ch/complex/analysis:\detokenize{definition-2}}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}2}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/calculus\sphinxhyphen{}euclidean}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/calculus-euclidean:\detokenize{definition-2}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}3}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}3}\sphinxstyleindexextra{ch/complex/analysis}\sphinxstyleindexpageref{ch/complex/analysis:\detokenize{definition-3}}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}3}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/calculus\sphinxhyphen{}euclidean}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/calculus-euclidean:\detokenize{definition-3}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}4}
-\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}4}\sphinxstyleindexextra{ch/complex/analysis}\sphinxstyleindexpageref{ch/complex/analysis:\detokenize{definition-4}}
+\item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}4}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/algebra}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/algebra:\detokenize{definition-4}}
 \indexspace
 \bigletter{definition\sphinxhyphen{}5}
 \item\relax\sphinxstyleindexentry{definition\sphinxhyphen{}5}\sphinxstyleindexextra{ch/complex/analysis}\sphinxstyleindexpageref{ch/complex/analysis:\detokenize{definition-5}}
