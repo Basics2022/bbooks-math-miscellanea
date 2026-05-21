@@ -285,7 +285,7 @@
 \contentsline {subsection}{\numberline {29.6.3}Response to a torsional moment at the “free” end}{181}{subsection.29.6.3}%
 \contentsline {subsection}{\numberline {29.6.4}Time simulations}{182}{subsection.29.6.4}%
 \contentsline {subsubsection}{Explicit Euler}{184}{subsubsection*.96}%
-\contentsline {subsubsection}{RK4(5)}{184}{subsubsection*.97}%
+\contentsline {subsubsection}{RK4(5)}{185}{subsubsection*.97}%
 \contentsline {part}{X\hspace {1em}System Theory}{187}{part.10}%
 \contentsline {chapter}{\numberline {30}Introduction to System Theory}{189}{chapter.30}%
 \contentsline {chapter}{\numberline {31}Linear Time\sphinxhyphen {}Invariant Systems}{191}{chapter.31}%
@@ -599,89 +599,89 @@
 \contentsline {paragraph}{Simulation parameters}{420}{paragraph*.229}%
 \contentsline {paragraph}{Time loop}{420}{paragraph*.230}%
 \contentsline {paragraph}{Post\sphinxhyphen {}processing}{420}{paragraph*.231}%
-\contentsline {subsection}{\numberline {58.4.2}1\sphinxhyphen {}dimensional Euler equations for Perfect Ideal Gas}{420}{subsection.58.4.2}%
-\contentsline {subsubsection}{Useful classes for numerical methods}{420}{subsubsection*.232}%
-\contentsline {paragraph}{Basic libraries}{420}{paragraph*.233}%
-\contentsline {paragraph}{Parent class}{420}{paragraph*.234}%
-\contentsline {paragraph}{Euler equations for perfect ideal gas class}{420}{paragraph*.235}%
-\contentsline {subsubsection}{Numerical simulation}{420}{subsubsection*.236}%
-\contentsline {paragraph}{System of equations}{420}{paragraph*.237}%
-\contentsline {paragraph}{Domain}{420}{paragraph*.238}%
-\contentsline {paragraph}{Boundary conditions}{420}{paragraph*.239}%
-\contentsline {paragraph}{Initial conditions}{420}{paragraph*.240}%
-\contentsline {paragraph}{Simulation parameters}{420}{paragraph*.241}%
-\contentsline {paragraph}{Time loop}{421}{paragraph*.242}%
-\contentsline {paragraph}{Post\sphinxhyphen {}processing}{421}{paragraph*.243}%
-\contentsline {subsection}{\numberline {58.4.3}Quasi 1\sphinxhyphen {}dimensional Euler equations for Perfect Ideal Gas}{421}{subsection.58.4.3}%
-\contentsline {subsubsection}{Useful classes for numerical methods}{421}{subsubsection*.244}%
-\contentsline {paragraph}{Basic libraries}{421}{paragraph*.245}%
-\contentsline {paragraph}{Parent class}{421}{paragraph*.246}%
-\contentsline {paragraph}{Euler equations for perfect ideal gas class}{421}{paragraph*.247}%
-\contentsline {subsubsection}{Numerical simulation}{421}{subsubsection*.248}%
-\contentsline {paragraph}{System of equations}{421}{paragraph*.249}%
-\contentsline {paragraph}{Domain}{421}{paragraph*.250}%
-\contentsline {paragraph}{Boundary conditions}{421}{paragraph*.251}%
-\contentsline {paragraph}{Initial conditions}{421}{paragraph*.252}%
-\contentsline {paragraph}{Simulation parameters}{421}{paragraph*.253}%
-\contentsline {paragraph}{Time loop}{422}{paragraph*.254}%
-\contentsline {paragraph}{Post\sphinxhyphen {}processing}{422}{paragraph*.255}%
-\contentsline {subsection}{\numberline {58.4.4}1\sphinxhyphen {}dimensional Euler equations for Perfect Ideal Gas on moving mesh (ALE)}{422}{subsection.58.4.4}%
-\contentsline {subsubsection}{Useful classes for numerical methods}{422}{subsubsection*.256}%
-\contentsline {paragraph}{Basic libraries}{422}{paragraph*.257}%
-\contentsline {paragraph}{Parent class}{422}{paragraph*.258}%
-\contentsline {paragraph}{Euler equations for perfect ideal gas class}{422}{paragraph*.259}%
-\contentsline {paragraph}{Time dependent mesh}{422}{paragraph*.260}%
-\contentsline {subsubsection}{Numerical simulation}{423}{subsubsection*.261}%
-\contentsline {paragraph}{System of equations}{423}{paragraph*.262}%
-\contentsline {paragraph}{Domain}{423}{paragraph*.263}%
-\contentsline {subparagraph}{VV of the moving mesh}{423}{subparagraph*.264}%
-\contentsline {paragraph}{Boundary conditions}{423}{paragraph*.265}%
-\contentsline {paragraph}{Initial conditions}{423}{paragraph*.266}%
-\contentsline {paragraph}{Simulation parameters}{423}{paragraph*.267}%
-\contentsline {paragraph}{Time loop}{423}{paragraph*.268}%
-\contentsline {paragraph}{Post\sphinxhyphen {}processing}{423}{paragraph*.269}%
-\contentsline {chapter}{\numberline {59}Boundary Element Method}{425}{chapter.59}%
-\contentsline {part}{XIV\hspace {1em}Boundary Methods for PDEs}{427}{part.14}%
-\contentsline {chapter}{\numberline {60}Green’s function method}{429}{chapter.60}%
-\contentsline {section}{\numberline {60.1}Poisson equation}{429}{section.60.1}%
-\contentsline {section}{\numberline {60.2}Helmholtz equation}{430}{section.60.2}%
-\contentsline {section}{\numberline {60.3}Wave equation}{432}{section.60.3}%
-\contentsline {part}{XV\hspace {1em}Optimization}{433}{part.15}%
-\contentsline {chapter}{\numberline {61}Optimization}{435}{chapter.61}%
-\contentsline {section}{\numberline {61.1}Unconstrained optimization}{435}{section.61.1}%
-\contentsline {section}{\numberline {61.2}Constrained optimization}{436}{section.61.2}%
-\contentsline {subsection}{\numberline {61.2.1}Method of Lagrange multipliers for equality constraints}{436}{subsection.61.2.1}%
-\contentsline {part}{XVI\hspace {1em}Reinforcement Learning}{437}{part.16}%
-\contentsline {chapter}{\numberline {62}Introduction to Reinforcement Learning}{439}{chapter.62}%
-\contentsline {chapter}{\numberline {63}Markov Processes}{441}{chapter.63}%
-\contentsline {section}{\numberline {63.1}Markov Reward Processes}{442}{section.63.1}%
-\contentsline {subsection}{\numberline {63.1.1}Bellman Equation for \(V(s)\)}{443}{subsection.63.1.1}%
-\contentsline {section}{\numberline {63.2}Markov Decision Processes}{444}{section.63.2}%
-\contentsline {subsection}{\numberline {63.2.1}Policies}{444}{subsection.63.2.1}%
-\contentsline {subsection}{\numberline {63.2.2}Bellman Equations}{445}{subsection.63.2.2}%
-\contentsline {chapter}{\numberline {64}Methods of solution of MPD: DP and LP}{449}{chapter.64}%
-\contentsline {section}{\numberline {64.1}Brute force: policy search}{449}{section.64.1}%
-\contentsline {section}{\numberline {64.2}Dynamic programming}{449}{section.64.2}%
-\contentsline {subsection}{\numberline {64.2.1}Policy iteration}{449}{subsection.64.2.1}%
-\contentsline {subsubsection}{Policy Evaluation}{450}{subsubsection*.271}%
-\contentsline {subsubsection}{Policy Improvement}{450}{subsubsection*.272}%
-\contentsline {subsubsection}{Policy Iteration algorithm}{451}{subsubsection*.273}%
-\contentsline {subsection}{\numberline {64.2.2}Value Iteration}{451}{subsection.64.2.2}%
-\contentsline {subsection}{\numberline {64.2.3}Dynamic programming: extensions}{451}{subsection.64.2.3}%
-\contentsline {section}{\numberline {64.3}Linear programming}{451}{section.64.3}%
-\contentsline {chapter}{\numberline {65}Methods of solution of MPD: RL}{453}{chapter.65}%
-\contentsline {section}{\numberline {65.1}Evaluation}{453}{section.65.1}%
-\contentsline {subsection}{\numberline {65.1.1}Monte\sphinxhyphen {}Carlo RL}{453}{subsection.65.1.1}%
-\contentsline {subsection}{\numberline {65.1.2}Temporal Difference (TD) Learning}{454}{subsection.65.1.2}%
-\contentsline {subsection}{\numberline {65.1.3}TD prediction}{454}{subsection.65.1.3}%
-\contentsline {section}{\numberline {65.2}Model control}{455}{section.65.2}%
-\contentsline {subsection}{\numberline {65.2.1}On\sphinxhyphen {} and Off\sphinxhyphen {}Policy Learning}{455}{subsection.65.2.1}%
-\contentsline {subsection}{\numberline {65.2.2}MC control}{455}{subsection.65.2.2}%
-\contentsline {subsection}{\numberline {65.2.3}\(\mitepsilon \)\sphinxhyphen {}greedy policy improvement }{456}{subsection.65.2.3}%
-\contentsline {subsection}{\numberline {65.2.4}TD control}{457}{subsection.65.2.4}%
-\contentsline {subsection}{\numberline {65.2.5}Off\sphinxhyphen {}policy learning}{457}{subsection.65.2.5}%
-\contentsline {section}{\numberline {65.3}Actor\sphinxhyphen {}Critic}{457}{section.65.3}%
-\contentsline {section}{\numberline {65.4}Learning and planning}{457}{section.65.4}%
-\contentsline {chapter}{\numberline {66}Large or Continuous MDPs}{459}{chapter.66}%
-\contentsline {section}{\numberline {66.1}Value and Policy\sphinxhyphen {}Based RL}{460}{section.66.1}%
-\contentsline {chapter}{Proof Index}{461}{section*.274}%
+\contentsline {subsection}{\numberline {58.4.2}1\sphinxhyphen {}dimensional Euler equations for Perfect Ideal Gas}{422}{subsection.58.4.2}%
+\contentsline {subsubsection}{Useful classes for numerical methods}{422}{subsubsection*.232}%
+\contentsline {paragraph}{Basic libraries}{422}{paragraph*.233}%
+\contentsline {paragraph}{Parent class}{422}{paragraph*.234}%
+\contentsline {paragraph}{Euler equations for perfect ideal gas class}{422}{paragraph*.235}%
+\contentsline {subsubsection}{Numerical simulation}{422}{subsubsection*.236}%
+\contentsline {paragraph}{System of equations}{422}{paragraph*.237}%
+\contentsline {paragraph}{Domain}{422}{paragraph*.238}%
+\contentsline {paragraph}{Boundary conditions}{422}{paragraph*.239}%
+\contentsline {paragraph}{Initial conditions}{422}{paragraph*.240}%
+\contentsline {paragraph}{Simulation parameters}{422}{paragraph*.241}%
+\contentsline {paragraph}{Time loop}{422}{paragraph*.242}%
+\contentsline {paragraph}{Post\sphinxhyphen {}processing}{422}{paragraph*.243}%
+\contentsline {subsection}{\numberline {58.4.3}Quasi 1\sphinxhyphen {}dimensional Euler equations for Perfect Ideal Gas}{424}{subsection.58.4.3}%
+\contentsline {subsubsection}{Useful classes for numerical methods}{424}{subsubsection*.244}%
+\contentsline {paragraph}{Basic libraries}{424}{paragraph*.245}%
+\contentsline {paragraph}{Parent class}{424}{paragraph*.246}%
+\contentsline {paragraph}{Euler equations for perfect ideal gas class}{424}{paragraph*.247}%
+\contentsline {subsubsection}{Numerical simulation}{424}{subsubsection*.248}%
+\contentsline {paragraph}{System of equations}{424}{paragraph*.249}%
+\contentsline {paragraph}{Domain}{424}{paragraph*.250}%
+\contentsline {paragraph}{Boundary conditions}{424}{paragraph*.251}%
+\contentsline {paragraph}{Initial conditions}{424}{paragraph*.252}%
+\contentsline {paragraph}{Simulation parameters}{424}{paragraph*.253}%
+\contentsline {paragraph}{Time loop}{424}{paragraph*.254}%
+\contentsline {paragraph}{Post\sphinxhyphen {}processing}{425}{paragraph*.255}%
+\contentsline {subsection}{\numberline {58.4.4}1\sphinxhyphen {}dimensional Euler equations for Perfect Ideal Gas on moving mesh (ALE)}{427}{subsection.58.4.4}%
+\contentsline {subsubsection}{Useful classes for numerical methods}{427}{subsubsection*.256}%
+\contentsline {paragraph}{Basic libraries}{427}{paragraph*.257}%
+\contentsline {paragraph}{Parent class}{427}{paragraph*.258}%
+\contentsline {paragraph}{Euler equations for perfect ideal gas class}{427}{paragraph*.259}%
+\contentsline {paragraph}{Time dependent mesh}{427}{paragraph*.260}%
+\contentsline {subsubsection}{Numerical simulation}{427}{subsubsection*.261}%
+\contentsline {paragraph}{System of equations}{427}{paragraph*.262}%
+\contentsline {paragraph}{Domain}{428}{paragraph*.263}%
+\contentsline {subparagraph}{VV of the moving mesh}{428}{subparagraph*.264}%
+\contentsline {paragraph}{Boundary conditions}{428}{paragraph*.265}%
+\contentsline {paragraph}{Initial conditions}{428}{paragraph*.266}%
+\contentsline {paragraph}{Simulation parameters}{428}{paragraph*.267}%
+\contentsline {paragraph}{Time loop}{428}{paragraph*.268}%
+\contentsline {paragraph}{Post\sphinxhyphen {}processing}{428}{paragraph*.269}%
+\contentsline {chapter}{\numberline {59}Boundary Element Method}{433}{chapter.59}%
+\contentsline {part}{XIV\hspace {1em}Boundary Methods for PDEs}{435}{part.14}%
+\contentsline {chapter}{\numberline {60}Green’s function method}{437}{chapter.60}%
+\contentsline {section}{\numberline {60.1}Poisson equation}{437}{section.60.1}%
+\contentsline {section}{\numberline {60.2}Helmholtz equation}{438}{section.60.2}%
+\contentsline {section}{\numberline {60.3}Wave equation}{440}{section.60.3}%
+\contentsline {part}{XV\hspace {1em}Optimization}{441}{part.15}%
+\contentsline {chapter}{\numberline {61}Optimization}{443}{chapter.61}%
+\contentsline {section}{\numberline {61.1}Unconstrained optimization}{443}{section.61.1}%
+\contentsline {section}{\numberline {61.2}Constrained optimization}{444}{section.61.2}%
+\contentsline {subsection}{\numberline {61.2.1}Method of Lagrange multipliers for equality constraints}{444}{subsection.61.2.1}%
+\contentsline {part}{XVI\hspace {1em}Reinforcement Learning}{445}{part.16}%
+\contentsline {chapter}{\numberline {62}Introduction to Reinforcement Learning}{447}{chapter.62}%
+\contentsline {chapter}{\numberline {63}Markov Processes}{449}{chapter.63}%
+\contentsline {section}{\numberline {63.1}Markov Reward Processes}{450}{section.63.1}%
+\contentsline {subsection}{\numberline {63.1.1}Bellman Equation for \(V(s)\)}{451}{subsection.63.1.1}%
+\contentsline {section}{\numberline {63.2}Markov Decision Processes}{452}{section.63.2}%
+\contentsline {subsection}{\numberline {63.2.1}Policies}{452}{subsection.63.2.1}%
+\contentsline {subsection}{\numberline {63.2.2}Bellman Equations}{453}{subsection.63.2.2}%
+\contentsline {chapter}{\numberline {64}Methods of solution of MPD: DP and LP}{457}{chapter.64}%
+\contentsline {section}{\numberline {64.1}Brute force: policy search}{457}{section.64.1}%
+\contentsline {section}{\numberline {64.2}Dynamic programming}{457}{section.64.2}%
+\contentsline {subsection}{\numberline {64.2.1}Policy iteration}{457}{subsection.64.2.1}%
+\contentsline {subsubsection}{Policy Evaluation}{458}{subsubsection*.271}%
+\contentsline {subsubsection}{Policy Improvement}{458}{subsubsection*.272}%
+\contentsline {subsubsection}{Policy Iteration algorithm}{459}{subsubsection*.273}%
+\contentsline {subsection}{\numberline {64.2.2}Value Iteration}{459}{subsection.64.2.2}%
+\contentsline {subsection}{\numberline {64.2.3}Dynamic programming: extensions}{459}{subsection.64.2.3}%
+\contentsline {section}{\numberline {64.3}Linear programming}{459}{section.64.3}%
+\contentsline {chapter}{\numberline {65}Methods of solution of MPD: RL}{461}{chapter.65}%
+\contentsline {section}{\numberline {65.1}Evaluation}{461}{section.65.1}%
+\contentsline {subsection}{\numberline {65.1.1}Monte\sphinxhyphen {}Carlo RL}{461}{subsection.65.1.1}%
+\contentsline {subsection}{\numberline {65.1.2}Temporal Difference (TD) Learning}{462}{subsection.65.1.2}%
+\contentsline {subsection}{\numberline {65.1.3}TD prediction}{462}{subsection.65.1.3}%
+\contentsline {section}{\numberline {65.2}Model control}{463}{section.65.2}%
+\contentsline {subsection}{\numberline {65.2.1}On\sphinxhyphen {} and Off\sphinxhyphen {}Policy Learning}{463}{subsection.65.2.1}%
+\contentsline {subsection}{\numberline {65.2.2}MC control}{463}{subsection.65.2.2}%
+\contentsline {subsection}{\numberline {65.2.3}\(\mitepsilon \)\sphinxhyphen {}greedy policy improvement }{464}{subsection.65.2.3}%
+\contentsline {subsection}{\numberline {65.2.4}TD control}{465}{subsection.65.2.4}%
+\contentsline {subsection}{\numberline {65.2.5}Off\sphinxhyphen {}policy learning}{465}{subsection.65.2.5}%
+\contentsline {section}{\numberline {65.3}Actor\sphinxhyphen {}Critic}{465}{section.65.3}%
+\contentsline {section}{\numberline {65.4}Learning and planning}{465}{section.65.4}%
+\contentsline {chapter}{\numberline {66}Large or Continuous MDPs}{467}{chapter.66}%
+\contentsline {section}{\numberline {66.1}Value and Policy\sphinxhyphen {}Based RL}{468}{section.66.1}%
+\contentsline {chapter}{Proof Index}{469}{section*.274}%
