@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>22. Z-transform &#8212; basics - math</title>
+    <title>19.5. Sequences and Series in the Complex Field &#8212; basics - math</title>
   
   
   
@@ -67,12 +67,12 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/complex/z-transform';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/complex/series';</script>
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="23. Introduction to function approximation" href="../function-approx/intro.html" />
-    <link rel="prev" title="21.4. Practice on Fourier analysis on finite-time discrete-time signal" href="fourier-practice.html" />
+    <link rel="next" title="20. Laplace Transform" href="laplace.html" />
+    <link rel="prev" title="19. Complex Analysis" href="analysis.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -225,8 +225,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Complex Calculus</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="algebra.html">18. Complex Algebra</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="analysis.html">19. Complex Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="series.html">19.5. Sequences and Series in the Complex Field</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="analysis.html">19. Complex Analysis</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">19.5. Sequences and Series in the Complex Field</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="laplace.html">20. Laplace Transform</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -241,7 +241,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="fourier-practice.html">21.4. Practice on Fourier analysis on finite-time discrete-time signal</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">22. Z-transform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="z-transform.html">22. Z-transform</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Approximation of Functions</span></p>
 <ul class="nav bd-sidenav">
@@ -463,7 +463,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/edit/main/ch/complex/z-transform.md" target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/edit/main/ch/complex/series.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -480,7 +480,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/issues/new?title=Issue%20on%20page%20%2Fch/complex/z-transform.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/issues/new?title=Issue%20on%20page%20%2Fch/complex/series.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -510,7 +510,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/ch/complex/z-transform.md" target="_blank"
+      <li><a href="../../_sources/ch/complex/series.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -594,7 +594,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Z-transform</h1>
+    <h1>Sequences and Series in the Complex Field</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -604,16 +604,20 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition">22.1. Definition</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#z-transform-and-discrete-time-fourier-transform-dtft">22.1.1. Z-transform and discrete-time Fourier transform (DTFT)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#laplace-transform-of-a-sampled-function">22.1.2. Laplace transform of a sampled function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-numerical-sequences-and-series">19.5.1. Complex Numerical Sequences and Series</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-numerical-sequences">19.5.1.1. Complex Numerical Sequences</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#convergence">19.5.1.1.1. Convergence</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inverse-transform">22.2. Inverse transform</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#elementary-one-sided-transforms">22.3. Elementary one-sided transforms</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applications">22.4. Applications</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-of-difference-equations">22.4.1. Solution of difference equations</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-of-stability-of-numerical-integration-methods-for-odes">22.4.2. Analysis of stability of numerical integration methods for ODEs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-numerical-series">19.5.1.2. Complex Numerical Series</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-series-numerical-series-convergence">19.5.1.2.1. Convergence</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-sequences-and-series-of-functions">19.5.2. Complex Sequences and Series of Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convergence-types-of-sequences">19.5.2.1. Convergence types of Sequences</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weierstrass-theorem">19.5.2.2. Weierstrass theorem</a></li>
 </ul>
 </li>
 </ul>
@@ -627,211 +631,186 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="z-transform">
-<span id="complex-z-transform"></span><h1><span class="section-number">22. </span>Z-transform<a class="headerlink" href="#z-transform" title="Permalink to this heading">#</a></h1>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
-<summary class="sd-summary-title sd-card-header">
-Contents<div class="sd-summary-down docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="sd-summary-up docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="sd-summary-content sd-card-body docutils">
-<ul class="simple">
-<li><p class="sd-card-text">Definition</p></li>
-<li><p class="sd-card-text">Elementary transforms</p></li>
-<li><p class="sd-card-text">Region of convergence</p></li>
-<li><p class="sd-card-text">Applications</p>
-<ul>
-<li><p class="sd-card-text">Solution of difference equations</p></li>
-<li><p class="sd-card-text">Analysis of stability of numerical integration methods</p></li>
-<li><p class="sd-card-text">Discrete-time design of filters and discrete-time systems. Relation between continuous-time and discrete-time systems due to sampling. Relation with Laplace transform.</p></li>
-</ul>
+  <div class="tex2jax_ignore mathjax_ignore section" id="sequences-and-series-in-the-complex-field">
+<span id="complex-series"></span><h1><span class="section-number">19.5. </span>Sequences and Series in the Complex Field<a class="headerlink" href="#sequences-and-series-in-the-complex-field" title="Permalink to this heading">#</a></h1>
+<p>The extension of sequences and series from the real line <span class="math notranslate nohighlight">\(\mathbb{R}\)</span> to the complex plane <span class="math notranslate nohighlight">\(\mathbb{C} \cong \mathbb{R}^2\)</span> preserves many fundamental operational properties while introducing deeper geometric and analytic structures. Most notably, the equivalence between complex differentiability (<strong>holomorphy</strong>) and power series convergence (<strong>analyticity</strong>) forms the cornerstone of complex analysis.</p>
+<div class="section" id="complex-numerical-sequences-and-series">
+<span id="complex-series-numerical"></span><h2><span class="section-number">19.5.1. </span>Complex Numerical Sequences and Series<a class="headerlink" href="#complex-numerical-sequences-and-series" title="Permalink to this heading">#</a></h2>
+<div class="section" id="complex-numerical-sequences">
+<span id="complex-series-numerical-sequence"></span><h3><span class="section-number">19.5.1.1. </span>Complex Numerical Sequences<a class="headerlink" href="#complex-numerical-sequences" title="Permalink to this heading">#</a></h3>
+<p>A complex sequence <span class="math notranslate nohighlight">\(\{z_n\}_{n \in \mathbb{N}} \subset \mathbb{C}\)</span> can be decomposed into its real and imaginary components:</p>
+<div class="math notranslate nohighlight">
+\[z_n = x_n + i y_n, \quad \text{where } x_n, y_n \in \mathbb{R}\]</div>
+<div class="section" id="convergence">
+<span id="complex-series-numerical-sequence-convergence"></span><h4><span class="section-number">19.5.1.1.1. </span>Convergence<a class="headerlink" href="#convergence" title="Permalink to this heading">#</a></h4>
+<div class="admonition-definition-convergence-in-mathbb-c admonition">
+<p class="admonition-title">Definition: Convergence in <span class="math notranslate nohighlight">\(\mathbb{C}\)</span></p>
+<p>A sequence <span class="math notranslate nohighlight">\(\{z_n\}\)</span> <strong>converges</strong> to <span class="math notranslate nohighlight">\(L = u + i v \in \mathbb{C}\)</span> (written <span class="math notranslate nohighlight">\(\lim_{n \to \infty} z_n = L\)</span>) if:</p>
+<div class="math notranslate nohighlight">
+\[\lim_{n \to \infty} |z_n - L| = 0 \ .\]</div>
+<p>Or, with the <span class="math notranslate nohighlight">\(\espilon\)</span>-definition: given <span class="math notranslate nohighlight">\(\varepsilon &gt; 0\)</span>, <span class="math notranslate nohighlight">\(\exists N\)</span> s.t. <span class="math notranslate nohighlight">\(| z_n - L | &lt; \varepsilon\)</span> for <span class="math notranslate nohighlight">\(\forall n &gt; N\)</span>.</p>
+</div>
+<p>Equivalently, convergence in <span class="math notranslate nohighlight">\(\mathbb{C}\)</span> under the standard Euclidean metric can be written component-wise, with <span class="math notranslate nohighlight">\(z_n = x_n + i y_n\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\lim_{n \to \infty} z_n = L \iff \left( \lim_{n \to \infty} x_n = u \quad \text{and} \quad \lim_{n \to \infty} y_n = v \right)\]</div>
+<!--
+#### Cauchy Criterion
+Since $\mathbb{C}$ equipped with the modulus metric $|z| = \sqrt{\text{Re}(z)^2 + \text{Im}(z)^2}$ is a **complete metric space** (a Cauchy space/ anach space over $\mathbb{C}$), a sequence $\{z_n\}$ converges if and only if it satisfies the Cauchy criterion:
+
+$$\forall \varepsilon > 0, \, \exists N \in \mathbb{N} \quad \text{such that} \quad \forall n, m > N \implies |z_n - z_m| < \varepsilon$$
+
+-->
+</div>
+</div>
+<div class="section" id="complex-numerical-series">
+<span id="complex-series-numerical-series"></span><h3><span class="section-number">19.5.1.2. </span>Complex Numerical Series<a class="headerlink" href="#complex-numerical-series" title="Permalink to this heading">#</a></h3>
+<p>A complex infinite series is defined as the formal sum:</p>
+<div class="math notranslate nohighlight">
+\[\sum_{n=0}^{+\infty} z_n, \quad z_n \in \mathbb{C}\]</div>
+<p>It converges to <span class="math notranslate nohighlight">\(S \in \mathbb{C}\)</span> if the sequence of partial sums <span class="math notranslate nohighlight">\(S_N = \sum_{n=0}^{N} z_n\)</span> converges to <span class="math notranslate nohighlight">\(S\)</span>.</p>
+<div class="section" id="complex-series-numerical-series-convergence">
+<span id="id1"></span><h4><span class="section-number">19.5.1.2.1. </span>Convergence<a class="headerlink" href="#complex-series-numerical-series-convergence" title="Permalink to this heading">#</a></h4>
+<p><strong>Convergence.</strong> Using the <a class="reference internal" href="#complex-series-numerical-sequence-convergence"><span class="std std-ref">convergence of a sequence</span></a>, a series is convergent if the sequence of the partial sums <span class="math notranslate nohighlight">\(S_N = \sum_{n=0}^{N} z_n\)</span> converges.</p>
+<p><strong>Absolute Convergence:</strong> The series <span class="math notranslate nohighlight">\(\sum z_n\)</span> converges absolutely if the real-valued series of moduli converges:</p>
+<div class="math notranslate nohighlight">
+\[\sum_{n=0}^{+\infty} |z_n| &lt; +\infty\]</div>
+<p><em>Property:</em> Absolute convergence in <span class="math notranslate nohighlight">\(\mathbb{C}\)</span> implies standard convergence.</p>
+<p><strong>Conditional Convergence:</strong> The series converges, but <span class="math notranslate nohighlight">\(\sum |z_n| = +\infty\)</span>. As an example:</p>
+<div class="math notranslate nohighlight">
+\[1 - \frac{1}{2} + \frac{1}{3} - \frac{1}{4} + ...\]</div>
+<div class="admonition-tests-for-absolute-convergence admonition">
+<p class="admonition-title">Tests for absolute convergence</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-left head"><p>Test</p></th>
+<th class="text-left head"><p>Statement</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><strong>Ratio Test</strong></p></td>
+<td class="text-left"><p>If <span class="math notranslate nohighlight">\(\lim_{n \to \infty} \left|\frac{z_{n+1}}{z_n}\right| = L\)</span>, then: <br> • <span class="math notranslate nohighlight">\(L &lt; 1 \implies\)</span> Absolutely Convergent <br> • <span class="math notranslate nohighlight">\(L &gt; 1 \implies\)</span> Divergent</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><strong>Root Test</strong></p></td>
+<td class="text-left"><p>If <span class="math notranslate nohighlight">\(\limsup_{n \to \infty} \sqrt[n]{|z_n|} = L\)</span>, then: <br> • <span class="math notranslate nohighlight">\(L &lt; 1 \implies\)</span> Absolutely Convergent <br> • <span class="math notranslate nohighlight">\(L &gt; 1 \implies\)</span> Divergent</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="complex-sequences-and-series-of-functions">
+<h2><span class="section-number">19.5.2. </span>Complex Sequences and Series of Functions<a class="headerlink" href="#complex-sequences-and-series-of-functions" title="Permalink to this heading">#</a></h2>
+<p>Let <span class="math notranslate nohighlight">\(\Omega \subseteq \mathbb{C}\)</span> be an open set and let <span class="math notranslate nohighlight">\(\{f_n\}_{n \in \mathbb{N}}\)</span> be a sequence of complex-valued functions <span class="math notranslate nohighlight">\(f_n: \Omega \to \mathbb{C}\)</span>.</p>
+<div class="section" id="convergence-types-of-sequences">
+<h3><span class="section-number">19.5.2.1. </span>Convergence types of Sequences<a class="headerlink" href="#convergence-types-of-sequences" title="Permalink to this heading">#</a></h3>
+<ol class="arabic">
+<li><p><strong>Pointwise Convergence:</strong> <span class="math notranslate nohighlight">\(f_n \to f\)</span> pointwise on <span class="math notranslate nohighlight">\(\Omega\)</span> if for every <span class="math notranslate nohighlight">\(z \in \Omega\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\lim_{n \to \infty} |f_n(z) - f(z)| = 0\]</div>
+<p>(or for <span class="math notranslate nohighlight">\(\forall z \in \Omega\)</span>, <span class="math notranslate nohighlight">\(\forall \varepsilon &gt; 0\)</span>, <span class="math notranslate nohighlight">\(\exists N\)</span> so that <span class="math notranslate nohighlight">\(| f_n(z) - f(z) | &lt; \varepsilon\)</span> for <span class="math notranslate nohighlight">\(\forall n &gt; N\)</span>.)</p>
 </li>
-</ul>
+<li><p><strong>Uniform Convergence:</strong> <span class="math notranslate nohighlight">\(f_n \rightrightarrows f\)</span> uniformly on <span class="math notranslate nohighlight">\(E \subseteq \Omega\)</span> if:</p>
+<div class="math notranslate nohighlight">
+\[\lim_{n \to \infty} \sup_{z \in E} |f_n(z) - f(z)| = 0\]</div>
+<p>(or for <span class="math notranslate nohighlight">\(\forall \varepsilon &gt; 0\)</span>, <span class="math notranslate nohighlight">\(\exists N\)</span> so that <span class="math notranslate nohighlight">\(| f_n(z) - f(z) | &lt; \varepsilon\)</span> for <span class="math notranslate nohighlight">\(\forall n &gt; N\)</span>, <span class="math notranslate nohighlight">\(\forall z \in \Omega\)</span>.)</p>
+</li>
+<li><p><strong>Locally Uniform (Compact) Convergence:</strong> <span class="math notranslate nohighlight">\(f_n \to f\)</span> uniformly on every compact subset <span class="math notranslate nohighlight">\(K \subset \Omega\)</span>.</p></li>
+</ol>
 </div>
-</details><div class="section" id="definition">
-<span id="complex-z-transform-def"></span><h2><span class="section-number">22.1. </span>Definition<a class="headerlink" href="#definition" title="Permalink to this heading">#</a></h2>
-<p>Z-transform can be considered as a discrete-time counterpart of the <a class="reference internal" href="laplace.html#complex-laplace"><span class="std std-ref">Laplace transform</span></a>, as section <span class="xref myst">Laplace transform of a sampled function</span> tries to show.
-Z-transform converts a discrete-time signal <span class="math notranslate nohighlight">\(\{ x_n \}\)</span> into a complex-valued function <span class="math notranslate nohighlight">\(X(z)\)</span>. Similarly to the <a class="reference internal" href="laplace-def-thm.html#complex-laplace-def-thm-def"><span class="std std-ref">definition of Laplace transform</span></a>, Z-transform can be either two-sided</p>
-<div class="math notranslate nohighlight">
-\[X(z) = \mathscr{Z}\{ x_n \}(z) = \sum_{n=-\infty}^{+\infty} x_n z^{-n} \ ,\]</div>
-<p>or one-sided</p>
-<div class="math notranslate nohighlight">
-\[X(z) = \mathscr{Z}\{ x_n \}(z) = \sum_{n=0}^{+\infty} x_n z^{-n} \ ,\]</div>
-<p>that can be also thought as the two-sided transform of <strong>causal time-series</strong>, i.e. <span class="math notranslate nohighlight">\(x_{k} = 0\)</span>, <span class="math notranslate nohighlight">\(\forall k &lt; 0\)</span>.</p>
-<div class="section" id="z-transform-and-discrete-time-fourier-transform-dtft">
-<span id="complex-z-transform-z-dtft"></span><h3><span class="section-number">22.1.1. </span>Z-transform and discrete-time Fourier transform (DTFT)<a class="headerlink" href="#z-transform-and-discrete-time-fourier-transform-dtft" title="Permalink to this heading">#</a></h3>
-<p>The <a class="reference internal" href="fourier-transforms.html#complex-fourier-dtft"><span class="std std-ref">discrete-time Fourier transform</span></a> of a sequence, that can be written as <a class="reference internal" href="fourier-transforms.html#equation-eq-dtft-1">(21.6)</a>,</p>
-<div class="math notranslate nohighlight">
-\[\text{DTFT}(x(t); \Delta t)(\nu) = \Delta t \sum_{n=-\infty}^{+\infty} x(n \Delta t)  e^{-i 2 \pi \nu n \Delta t} \ ,\]</div>
-<p>can be thought as a scaled Z-transform of the signal, evaluated in <span class="math notranslate nohighlight">\(z = i \omega \Delta t = i 2 \pi \nu \Delta t\)</span>,</p>
-<div class="math notranslate nohighlight">
-\[\text{DTFT}(x(t); \Delta t)(\nu) = \Delta t \left.\left[ \sum_{n=-\infty}^{+\infty} x_n  z^{-n} \right]\right|_{z=e^{i \omega \Delta t}} = \Delta t X(z=e^{i \omega \Delta t}) \ ,\]</div>
-</div>
-<div class="section" id="laplace-transform-of-a-sampled-function">
-<span id="complex-z-transform-z-laplace"></span><h3><span class="section-number">22.1.2. </span>Laplace transform of a sampled function<a class="headerlink" href="#laplace-transform-of-a-sampled-function" title="Permalink to this heading">#</a></h3>
-<p><strong>Delta sampling.</strong> Let <span class="math notranslate nohighlight">\(\widetilde{x}(t) = x(t) \text{III}_{\delta t}(t) = x(t) \sum_{m = - \infty}^{+\infty} \delta(t - m \Delta t)\)</span> the sampling of the continuous-time function <span class="math notranslate nohighlight">\(x(t)\)</span> with Dirac’s comb. Its one-sided Laplace transform reads</p>
-<div class="math notranslate nohighlight" id="equation-eq-z-transform-sampling-delta">
-<span class="eqno">(22.1)<a class="headerlink" href="#equation-eq-z-transform-sampling-delta" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
-  \mathscr{L}\{ \widetilde{x}(t) \}(s)
-  &amp; = \int_{t=0^-}^{+\infty} \widetilde{x}(t) e^{-s t} dt = \\
-  &amp; = \sum_{m=-\infty}^{+\infty} \int_{t=0^-}^{+\infty} x(t) \delta( t - m \Delta t ) e^{-s t} dt = \\
-  &amp; = \sum_{m= 0     }^{+\infty} x(m \Delta t) e^{-s m \Delta t} = \\
-  &amp; = \sum_{m= 0     }^{+\infty} x(t_m) e^{-s t_m} = \\
-  &amp; = \sum_{m= 0     }^{+\infty} x_m z^{-m} \ ,
-\end{aligned}\end{split}\]</div>
-<p>with <span class="math notranslate nohighlight">\(x_m = x(t_m)\)</span>, <span class="math notranslate nohighlight">\(t_m = m \Delta t\)</span>, and <span class="math notranslate nohighlight">\(z = e^{s \Delta t}\)</span>. Here the summation runs over <span class="math notranslate nohighlight">\(m = 0:+\infty\)</span>, as the integral of <span class="math notranslate nohighlight">\(\delta(t - m \Delta t)\)</span> produces a non-zero result only for <span class="math notranslate nohighlight">\(m \ge 0\)</span>. The relation <a class="reference internal" href="#equation-eq-z-transform-sampling-delta">(22.1)</a> shows that the Laplace transform of the Dirac delta sampled function is equivalent to the Z-transform of its samples, if the relations between <span class="math notranslate nohighlight">\(t_m\)</span> and <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(z\)</span> and <span class="math notranslate nohighlight">\(s \Delta t\)</span> hold.</p>
-<p><strong>Sample and Hold.</strong></p>
-<div class="math notranslate nohighlight" id="equation-eq-z-transform-sampling-sah">
-<span class="eqno">(22.2)<a class="headerlink" href="#equation-eq-z-transform-sampling-sah" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
-  \mathscr{L}\{ \widetilde{x}(t) \}(s)
-  &amp; = \int_{t=0^-}^{+\infty} \widetilde{x}(t) e^{-s t} dt = \\
-  &amp; = \sum_{m=-\infty}^{+\infty} \int_{t=t_m}^{t_{m+1}} x(t_m) e^{-s t} dt = \\
-  &amp; = \sum_{m=-\infty}^{+\infty} x(t_m) \frac{1}{s} \left[ e^{-s t_m} - e^{-s t_{m+1}} \right] = \\
-  &amp; = \frac{1 - e^{-s \Delta t}}{s} \sum_{m=-\infty}^{+\infty} x_m e^{-s t_m} = \\
-  &amp; = \dots
-\end{aligned}\end{split}\]</div>
-<p>with <span class="math notranslate nohighlight">\(z = e^{s \Delta t}\)</span>, <span class="math notranslate nohighlight">\(s = \frac{1}{\Delta t} \ln z\)</span>.</p>
-</div>
-</div>
-<div class="section" id="inverse-transform">
-<h2><span class="section-number">22.2. </span>Inverse transform<a class="headerlink" href="#inverse-transform" title="Permalink to this heading">#</a></h2>
-<p>…</p>
-</div>
-<div class="section" id="elementary-one-sided-transforms">
-<h2><span class="section-number">22.3. </span>Elementary one-sided transforms<a class="headerlink" href="#elementary-one-sided-transforms" title="Permalink to this heading">#</a></h2>
-<p>In this section, some elementary Z-transforms are collected. These can be interpreted as the discrete-time counterpart of the <a class="reference internal" href="laplace-def-thm.html#complex-laplace-def-thm-elementary"><span class="std std-ref">elementary Laplace transforms</span></a></p>
-<p><strong>Linearity.</strong></p>
-<p><strong>Kronecker delta.</strong> <span class="math notranslate nohighlight">\(x_n = \delta_{0n} = \left\{ \begin{aligned} &amp; 1 &amp;&amp; n = 0 \\ &amp; 0 &amp;&amp; n \ne 0 \end{aligned}\right.\)</span></p>
-<div class="math notranslate nohighlight">
-\[\mathscr{Z}\{ \delta_{0n} \}(z) = \sum_{n=0}^{+\infty} \delta_{n0} z^{-n} = 1 \ .\]</div>
-<p><strong>“Time” delay.</strong> Z-transform of a causal sequence <span class="math notranslate nohighlight">\(x_n\)</span> (with <span class="math notranslate nohighlight">\(x_n = 0\)</span> for <span class="math notranslate nohighlight">\(n &lt; 0\)</span>), <span class="math notranslate nohighlight">\(x_{n-k}\)</span> with <span class="math notranslate nohighlight">\(k \ge 0\)</span></p>
-<div class="math notranslate nohighlight">
-\[
-  \mathscr{Z}\{ x_{n-k} \}(z) = z^{-k} X(z)
-\]</div>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
-<summary class="sd-summary-title sd-card-header">
-Proof<div class="sd-summary-down docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="sd-summary-up docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="sd-summary-content sd-card-body docutils">
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  \mathscr{Z}\{ x_{n-k} \}(z) 
-  &amp; = \sum_{n=0}^{+\infty} x_{n-k} z^{-n} = \\
-  &amp; = \sum_{n=k}^{+\infty} x_{n-k} z^{-(n-k)} z^{-k} = \\
-  &amp; = \sum_{n=0}^{+\infty} x_{n} z^{-n} z^{-k} = \\
-  &amp; = z^{-k} X(z) \ .
-\end{aligned}\end{split}\]</div>
-</div>
-</details><p><strong>First difference backward.</strong> Directly follows from the Z-transform of time delay</p>
-<div class="math notranslate nohighlight">
-\[\mathscr{Z}\left\{ x_n - x_{n-1} \right\} = \left( 1 - z^{-1} \right) X(z)\]</div>
-<p><strong>First difference forward.</strong></p>
-<p><strong>Accumulation.</strong></p>
-<p><strong>Convolution.</strong></p>
-<p><strong>Initial value.</strong> If <span class="math notranslate nohighlight">\(x_n\)</span> is causal, i.e. <span class="math notranslate nohighlight">\(x_n = 0\)</span> for <span class="math notranslate nohighlight">\(n &lt; 0\)</span>, then</p>
-<div class="math notranslate nohighlight">
-\[x_{0} = \lim_{z \rightarrow +\infty} X(z) \ .\]</div>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
-<summary class="sd-summary-title sd-card-header">
-Proof<div class="sd-summary-down docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="sd-summary-up docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="sd-summary-content sd-card-body docutils">
-<div class="math notranslate nohighlight">
-\[X(z) = x_0 + \sum_{n=1}^{+\infty} x_n z^{-n}\]</div>
-<p class="sd-card-text">As</p>
-<div class="math notranslate nohighlight">
-\[\left|\sum_{n=1}^{+\infty} x_n z^{-n} \right| \le \sum_{n=1}^{+\infty} \left| x_n z^{-n} \right| \le M \sum_{n=1}^{+\infty} |z|^{-n} = M \frac{1}{|z|} \frac{1}{1 - \frac{1}{|z|}} \ ,\]</div>
-<p class="sd-card-text">for every <span class="math notranslate nohighlight">\(z\)</span>, with <span class="math notranslate nohighlight">\(|z| &gt; 1\)</span> s.t. the geometric series is convergent. As <span class="math notranslate nohighlight">\(|z| \rightarrow + \infty\)</span>, the series goes to zero, and thus</p>
-<div class="math notranslate nohighlight">
-\[\lim_{z \rightarrow +\infty} X(z) = x_0 \ .\]</div>
-</div>
-</details><p><strong>Final value.</strong> If <em>the poles of <span class="math notranslate nohighlight">\((z-1) X(z)\)</span> are inside the unit circle (condition for as.stability)</em>, then</p>
-<div class="math notranslate nohighlight">
-\[x_{+\infty} = \lim_{z \rightarrow 1} (z-1) X(z) \ .\]</div>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
-<summary class="sd-summary-title sd-card-header">
-Proof<div class="sd-summary-down docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="sd-summary-up docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">…</p>
-</div>
-</details></div>
-<div class="section" id="applications">
-<h2><span class="section-number">22.4. </span>Applications<a class="headerlink" href="#applications" title="Permalink to this heading">#</a></h2>
-<div class="section" id="solution-of-difference-equations">
-<h3><span class="section-number">22.4.1. </span>Solution of difference equations<a class="headerlink" href="#solution-of-difference-equations" title="Permalink to this heading">#</a></h3>
-<p><strong>First-order reduction.</strong></p>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
-<summary class="sd-summary-title sd-card-header">
-Reduction to first order <span class="math notranslate nohighlight">\(\ k\)</span>-dimensional system of a <span class="math notranslate nohighlight">\(\ k\)</span>-order ODE<div class="sd-summary-down docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="sd-summary-up docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">From <span class="math notranslate nohighlight">\(k\)</span>-order difference equation to system of <span class="math notranslate nohighlight">\(1\)</span>-order difference equations, as it can be done with ODEs. For ODEs</p>
-<div class="math notranslate nohighlight">
-\[x^{(k)} + a_{k-1} x^{(k-1)} + \dots + a_1 \dot{x} + a_0 x = f(t)\]</div>
-<p class="sd-card-text">may be written as a first-order <span class="math notranslate nohighlight">\(k\)</span>-dimensional system</p>
-<div class="math notranslate nohighlight">
-\[\dot{\mathbf{z}} = \mathbf{f}(\mathbf{z},t) \ \]</div>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{bmatrix} \dot{z}_0  \\ \dot{z}_1 \\ \dots \\ \dot{z}_{k-1} \end{bmatrix} = \begin{bmatrix} z_1 \\ z_2 \\ \dots \\ - a_{k-1} z_{k-1} - \dots - a_1 z_1 - a_0 z_0 + f(t) \end{bmatrix}\end{split}\]</div>
-</div>
-</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
-<summary class="sd-summary-title sd-card-header">
-Reduction to first order <span class="math notranslate nohighlight">\(\ k\)</span>-dimensional system of a <span class="math notranslate nohighlight">\(\ k\)</span>-order difference equation<div class="sd-summary-down docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="sd-summary-up docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">For a difference equation</p>
-<div class="math notranslate nohighlight">
-\[x_{n} + a_{1} x_{n-1} + \dots + a_{k-1} x_{n-k+1} = f_n\]</div>
-<p class="sd-card-text">may be written as</p>
-<div class="math notranslate nohighlight">
-\[\mathbf{z}_{n+1} = \mathbf{f}(\mathbf{z}_n, t_n)\]</div>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{bmatrix} z_{0,n} \\ z_{1,n} \\ \dots  \\ z_{k-1,n} \end{bmatrix} = \begin{bmatrix} z_{1,n-1} \\ z_{2,n-1} \\ \dots \\ f_n - a_{1} z_{k-1,n-1} \dots - a_{k-1} z_{0,n-1} \end{bmatrix}\end{split}\]</div>
-<p class="sd-card-text">with <span class="math notranslate nohighlight">\(z_{j,n} = x_{n-k+1+j}\)</span>, for <span class="math notranslate nohighlight">\(j=0:k-1\)</span>.</p>
-</div>
-</details><p><strong>Ansatz.</strong> The solution of a homogeneous linear ODE can be solved as a linear combination of elementary solutions with expression <span class="math notranslate nohighlight">\(x(t) = X e^{st}\)</span> - except for the case of <a class="reference internal" href="../ode/linear-equations.html#ode-linear-equations-const-coeff-general-sol-homogeneous-multiple-roots"><span class="std std-ref">multiple roots in the characteristic polynomial</span></a></p>
-<div class="math notranslate nohighlight">
-\[x^{(k)} + a_{k-1} x^{(k-1)} + \dots + a_1 \dot{x} + a_0 x = 0 \ , \]</div>
-<p>with values of <span class="math notranslate nohighlight">\(s\)</span> as the roots of the polynomial</p>
-<div class="math notranslate nohighlight">
-\[s^k + a_{k-1} s^{k-1} + \dots + a_1 s + a_0 = 0 \ .\]</div>
-<p>The solution is then</p>
-<div class="math notranslate nohighlight">
-\[x(t) = \sum_{a = 1}^{k} X_a e^{s_a t} \ ,\]</div>
-<p>with the integration constants to be determined with the initial conditions provided along with the differential equation. <a class="reference internal" href="../ode/linear-equations.html#ode-linear-equations-const-coeff-general-sol-homogeneous-as-stability"><span class="std std-ref">Asymptotical stability conditions</span></a> depend on the real part of the eigenvalues, and on the multiplicity of the imaginary eigenvalues.</p>
-<p>A linear difference equation can be solved as a linear combination of elementary solutions with expression <span class="math notranslate nohighlight">\(x_n = X z^n\)</span></p>
-<div class="math notranslate nohighlight">
-\[x_{n} + a_{k-1} x_{n-1} + \dots + a_1 x_{n-k+2} + a_0 x_{n-k+1} = 0 \ , \]</div>
-<p>with values of <span class="math notranslate nohighlight">\(z\)</span> as the roots of the polynomial</p>
-<div class="math notranslate nohighlight">
-\[z^k + a_{k-1} z^{k-1} + \dots + a_1 z + a_0 = 0 \ .\]</div>
-<p>The solution is then</p>
-<div class="math notranslate nohighlight">
-\[x_n = \sum_{a = 1}^{k} X_a {z_a}^{n} \ ,\]</div>
-<p>with the integration constants to be determined with the initial conditions provided along with the difference equation.</p>
-<p><strong>Stability conditions.</strong> …</p>
-<ul class="simple">
-<li><p>asymptotically stable if all the eigenvalues are <span class="math notranslate nohighlight">\(|z_a| &lt; 1\)</span></p></li>
-<li><p>unstable if…</p></li>
-<li><p>marginally stable if…</p></li>
-</ul>
-<p><strong>todo</strong> <em>treat multiple roots</em></p>
-</div>
-<div class="section" id="analysis-of-stability-of-numerical-integration-methods-for-odes">
-<h3><span class="section-number">22.4.2. </span>Analysis of stability of numerical integration methods for ODEs<a class="headerlink" href="#analysis-of-stability-of-numerical-integration-methods-for-odes" title="Permalink to this heading">#</a></h3>
+<hr class="docutils" />
+<div class="section" id="weierstrass-theorem">
+<h3><span class="section-number">19.5.2.2. </span>Weierstrass theorem<a class="headerlink" href="#weierstrass-theorem" title="Permalink to this heading">#</a></h3>
+<p><strong>todo</strong> <em>Uncomment?</em></p>
+<hr class="docutils" />
+<p><strong>todo</strong></p>
+<!--
+###The Rigidity of Complex Holomorphic Limits: Weierstrass's Theorem
+
+In real analysis, a uniform limit of continuously differentiable ($C^1$) functions is continuous, but not necessarily differentiable. In complex analysis, the Cauchy Integral Formula enforces a much stronger rigidity.
+
+```{admonition} Weierstrass's Theorem on Holomorphic Limits
+:class: note
+Let $\{f_n\}$ be a sequence of **holomorphic** functions on an open domain $\Omega \subset \mathbb{C}$.
+If $f_n \to f$ **uniformly on every compact subset** $K \subset \Omega$, then:
+
+1. The limit function $f(z)$ is **holomorphic** in $\Omega$.
+2. The sequence of derivatives $\{f_n'\}$ converges compact-uniformly in $\Omega$ to $f'(z)$:
+   $$f_n' \rightrightarrows f' \quad \text{on compacts } K \subset \Omega$$
+```
+
+*Proof Sketch:* By Morera's Theorem, if $\oint_\gamma f_n(z) \, dz = 0$ for every closed triangular contour $\gamma \subset \Omega$, uniform convergence allows interchanging the limit and the integral:
+$$\oint_\gamma f(z) \, dz = \oint_\gamma \left(\lim_{n \to \infty} f_n(z)\right) dz = \lim_{n \to \infty} \oint_\gamma f_n(z) \, dz = 0$$
+Hence, $f$ is holomorphic. Derivatives follow via Cauchy's Integral Formula for derivatives.
+
+-->
+<!--
+## Complex Power Series
+
+A complex power series centered at $z_0 \in \mathbb{C}$ is a function series of the form:
+
+$$P(z) = \sum_{n=0}^{+\infty} a_n (z - z_0)^n, \quad a_n, z_0 \in \mathbb{C}$$
+
+### Cauchy-Hadamard Theorem and the Radius of Convergence
+
+The geometry of convergence for power series in $\mathbb{C}$ is defined by a disk centered at $z_0$.
+
+```{admonition} Cauchy-Hadamard Theorem
+Given the power series $\sum_{n=0}^{+\infty} a_n (z - z_0)^n$, define the **radius of convergence** $R \in [0, +\infty]$ by:
+
+$$\frac{1}{R} = \limsup_{n \to \infty} \sqrt[n]{|a_n|}$$
+
+Then:
+1. **Inside the Disk ($|z - z_0| < R$):** The series converges **absolutely**, and converges **uniformly** on any closed disk $\{z : |z - z_0| \le r < R\}$.
+2. **Outside the Disk ($|z - z_0| > R$):** The series **diverges** for all $z$.
+3. **On the Boundary ($|z - z_0| = R$):** The behavior is subtle and varies point by point.
+```
+
+---
+
+### Holomorphy and Distance to Singularities
+
+Every complex power series represents a holomorphic function inside its open disk of convergence $D_R(z_0) = \{z \in \mathbb{C} : |z - z_0| < R\}$.
+
+Conversely, any function $f(z)$ holomorphic in a domain $\Omega$ can be expanded in a unique Taylor series centered at any $z_0 \in \Omega$:
+
+$$f(z) = \sum_{n=0}^{+\infty} \frac{f^{(n)}(z_0)}{n!} (z - z_0)^n$$
+
+```{admonition} The Singularity Distance Principle
+:class: tip
+The radius of convergence $R$ of the Taylor series of $f(z)$ centered at $z_0$ is precisely the **distance from $z_0$ to the nearest singularity** of $f(z)$ in the complex plane:
+
+$$R = \text{dist}(z_0, \partial \Omega) = \min \{ |z_0 - z_{\text{sing}}| : f \text{ fails to be holomorphic at } z_{\text{sing}} \}$$
+```
+
+---
+
+## Generalization: Laurent Series
+
+When studying a function $f(z)$ near an isolated singularity $z_0$ (where $f$ is not holomorphic at $z_0$ itself), Taylor series cannot be applied. Instead, we use a **Laurent series**, which includes negative powers of $(z - z_0)$:
+
+$$f(z) = \sum_{n=-\infty}^{+\infty} a_n (z - z_0)^n = \underbrace{\sum_{n=1}^{+\infty} \frac{a_{-n}}{(z - z_0)^n}}_{\text{Principal Part}} + \underbrace{\sum_{n=0}^{+\infty} a_n (z - z_0)^n}_{\text{Analytic / Regular Part}}$$
+
+### Domain of Convergence
+A Laurent series converges in an **annular domain** (ring) $A(z_0, r, R)$:
+
+$$A(z_0, r, R) = \{ z \in \mathbb{C} : r < |z - z_0| < R \}$$
+
+where:
+* $R = \left(\limsup_{n \to \infty} \sqrt[n]{|a_n|}\right)^{-1}$ (governs convergence of positive powers).
+* $r = \limsup_{n \to \infty} \sqrt[n]{|a_{-n}|}$ (governs convergence of negative powers).
+
+
+### Classification of Singularities via Laurent Series
+
+The structure of the Principal Part $\sum_{n=1}^{\infty} a_{-n} (z - z_0)^{-n}$ classifies the singularity at $z_0$:
+
+1. **Removable Singularity:** All $a_{-n} = 0$ for $n \ge 1$ (Principal part is identically zero).
+2. **Pole of Order $m$ ($m \ge 1$):** $a_{-m} \neq 0$, but $a_{-n} = 0$ for all $n > m$.
+3. **Essential Singularity:** Infinitely many negative coefficients $a_{-n} \neq 0$ are non-zero (e.g., $e^{1/z}$ at $z_0 = 0$).
+
+-->
 </div>
 </div>
 </div>
@@ -867,20 +846,20 @@ Reduction to first order <span class="math notranslate nohighlight">\(\ k\)</spa
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="fourier-practice.html"
+       href="analysis.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">21.4. </span>Practice on Fourier analysis on finite-time discrete-time signal</p>
+        <p class="prev-next-title"><span class="section-number">19. </span>Complex Analysis</p>
       </div>
     </a>
     <a class="right-next"
-       href="../function-approx/intro.html"
+       href="laplace.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">23. </span>Introduction to function approximation</p>
+        <p class="prev-next-title"><span class="section-number">20. </span>Laplace Transform</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -899,16 +878,20 @@ Reduction to first order <span class="math notranslate nohighlight">\(\ k\)</spa
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition">22.1. Definition</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#z-transform-and-discrete-time-fourier-transform-dtft">22.1.1. Z-transform and discrete-time Fourier transform (DTFT)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#laplace-transform-of-a-sampled-function">22.1.2. Laplace transform of a sampled function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-numerical-sequences-and-series">19.5.1. Complex Numerical Sequences and Series</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-numerical-sequences">19.5.1.1. Complex Numerical Sequences</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#convergence">19.5.1.1.1. Convergence</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inverse-transform">22.2. Inverse transform</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#elementary-one-sided-transforms">22.3. Elementary one-sided transforms</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#applications">22.4. Applications</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-of-difference-equations">22.4.1. Solution of difference equations</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analysis-of-stability-of-numerical-integration-methods-for-odes">22.4.2. Analysis of stability of numerical integration methods for ODEs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-numerical-series">19.5.1.2. Complex Numerical Series</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-series-numerical-series-convergence">19.5.1.2.1. Convergence</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-sequences-and-series-of-functions">19.5.2. Complex Sequences and Series of Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convergence-types-of-sequences">19.5.2.1. Convergence types of Sequences</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weierstrass-theorem">19.5.2.2. Weierstrass theorem</a></li>
 </ul>
 </li>
 </ul>

@@ -54,6 +54,8 @@ parts:
   chapters:
   - file: ch/complex/algebra
   - file: ch/complex/analysis
+    sections:
+    - file: ch/complex/series
   - file: ch/complex/laplace
     sections:
     - file: ch/complex/laplace-def-thm
