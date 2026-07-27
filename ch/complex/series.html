@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>22.2. Fourier Transform &#8212; basics - math</title>
+    <title>20.5. Sequences and Series in the Complex Field &#8212; basics - math</title>
   
   
   
@@ -67,12 +67,12 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/complex/fourier-transform';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/complex/series';</script>
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="22.3. Relations between Fourier transforms" href="fourier-transforms.html" />
-    <link rel="prev" title="22.1. Fourier Series" href="fourier-series.html" />
+    <link rel="next" title="21. Laplace Transform" href="laplace.html" />
+    <link rel="prev" title="20. Complex Analysis" href="analysis.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -226,8 +226,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Complex Calculus</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="algebra.html">19. Complex Algebra</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="analysis.html">20. Complex Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="series.html">20.5. Sequences and Series in the Complex Field</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="analysis.html">20. Complex Analysis</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">20.5. Sequences and Series in the Complex Field</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="laplace.html">21. Laplace Transform</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -235,9 +235,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="laplace-applications.html">21.2. Applications of Laplace Transform</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="fourier.html">22. Fourier Transforms</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l1 has-children"><a class="reference internal" href="fourier.html">22. Fourier Transforms</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="fourier-series.html">22.1. Fourier Series</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">22.2. Fourier Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fourier-transform.html">22.2. Fourier Transform</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fourier-transforms.html">22.3. Relations between Fourier transforms</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fourier-practice.html">22.4. Practice on Fourier analysis on finite-time discrete-time signal</a></li>
 </ul>
@@ -464,7 +464,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/edit/main/ch/complex/fourier-transform.md" target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/edit/main/ch/complex/series.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -481,7 +481,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/issues/new?title=Issue%20on%20page%20%2Fch/complex/fourier-transform.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/issues/new?title=Issue%20on%20page%20%2Fch/complex/series.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -511,7 +511,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/ch/complex/fourier-transform.md" target="_blank"
+      <li><a href="../../_sources/ch/complex/series.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -595,7 +595,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Fourier Transform</h1>
+    <h1>Sequences and Series in the Complex Field</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -605,11 +605,22 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition">22.2.1. Definition</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#properties">22.2.2. Properties</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inverse-fourier-transform">22.2.3. Inverse Fourier Transform</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plancherel-s-theorem">22.2.4. Plancherel’s theorem</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uncertainty-relation">22.2.5. Uncertainty relation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-numerical-sequences-and-series">20.5.1. Complex Numerical Sequences and Series</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-numerical-sequences">20.5.1.1. Complex Numerical Sequences</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#convergence">20.5.1.1.1. Convergence</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-numerical-series">20.5.1.2. Complex Numerical Series</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-series-numerical-series-convergence">20.5.1.2.1. Convergence</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-sequences-and-series-of-functions">20.5.2. Complex Sequences and Series of Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convergence-types-of-sequences">20.5.2.1. Convergence types of Sequences</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weierstrass-theorem">20.5.2.2. Weierstrass theorem</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -621,314 +632,188 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="fourier-transform">
-<span id="complex-fourier-transform"></span><h1><span class="section-number">22.2. </span>Fourier Transform<a class="headerlink" href="#fourier-transform" title="Permalink to this heading">#</a></h1>
-<p><strong>Contents</strong>: <a class="reference internal" href="#complex-fourier-transform-def"><span class="std std-ref">definition</span></a>; <a class="reference internal" href="#complex-fourier-transform-properties"><span class="std std-ref">properties</span></a>; <a class="reference internal" href="#complex-fourier-transform-inverse"><span class="std std-ref">inverse transform</span></a>; <a class="reference internal" href="#complex-fourier-transform-plancherel"><span class="std std-ref">Plancherel’s theorem</span></a>; <a class="reference internal" href="#complex-fourier-transform-uncertainty"><span class="std std-ref">uncertainty relation</span></a></p>
-<div class="section" id="definition">
-<span id="complex-fourier-transform-def"></span><h2><span class="section-number">22.2.1. </span>Definition<a class="headerlink" href="#definition" title="Permalink to this heading">#</a></h2>
-<p>…</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="sequences-and-series-in-the-complex-field">
+<span id="complex-series"></span><h1><span class="section-number">20.5. </span>Sequences and Series in the Complex Field<a class="headerlink" href="#sequences-and-series-in-the-complex-field" title="Permalink to this heading">#</a></h1>
+<p>The extension of sequences and series from the real line <span class="math notranslate nohighlight">\(\mathbb{R}\)</span> to the complex plane <span class="math notranslate nohighlight">\(\mathbb{C} \cong \mathbb{R}^2\)</span> preserves many fundamental operational properties while introducing deeper geometric and analytic structures. Most notably, the equivalence between complex differentiability (<strong>holomorphy</strong>) and power series convergence (<strong>analyticity</strong>) forms the cornerstone of complex analysis.</p>
+<div class="section" id="complex-numerical-sequences-and-series">
+<span id="complex-series-numerical"></span><h2><span class="section-number">20.5.1. </span>Complex Numerical Sequences and Series<a class="headerlink" href="#complex-numerical-sequences-and-series" title="Permalink to this heading">#</a></h2>
+<div class="section" id="complex-numerical-sequences">
+<span id="complex-series-numerical-sequence"></span><h3><span class="section-number">20.5.1.1. </span>Complex Numerical Sequences<a class="headerlink" href="#complex-numerical-sequences" title="Permalink to this heading">#</a></h3>
+<p>A complex sequence <span class="math notranslate nohighlight">\(\{z_n\}_{n \in \mathbb{N}} \subset \mathbb{C}\)</span> can be decomposed into its real and imaginary components:</p>
 <div class="math notranslate nohighlight">
-\[\mathscr{F}\left\{ g(t) \right\}(f) := \int_{t = -\infty}^{+\infty} g(t) \, e^{-i 2 \pi f t} \, dt .\]</div>
+\[z_n = x_n + i y_n, \quad \text{where } x_n, y_n \in \mathbb{R}\]</div>
+<div class="section" id="convergence">
+<span id="complex-series-numerical-sequence-convergence"></span><h4><span class="section-number">20.5.1.1.1. </span>Convergence<a class="headerlink" href="#convergence" title="Permalink to this heading">#</a></h4>
+<div class="admonition-definition-convergence-in-mathbb-c admonition">
+<p class="admonition-title">Definition: Convergence in <span class="math notranslate nohighlight">\(\mathbb{C}\)</span></p>
+<p>A sequence <span class="math notranslate nohighlight">\(\{z_n\}\)</span> <strong>converges</strong> to <span class="math notranslate nohighlight">\(L = u + i v \in \mathbb{C}\)</span> (written <span class="math notranslate nohighlight">\(\lim_{n \to \infty} z_n = L\)</span>) if:</p>
+<div class="math notranslate nohighlight">
+\[\lim_{n \to \infty} |z_n - L| = 0 \ .\]</div>
+<p>Or, with the <span class="math notranslate nohighlight">\(\espilon\)</span>-definition: given <span class="math notranslate nohighlight">\(\varepsilon &gt; 0\)</span>, <span class="math notranslate nohighlight">\(\exists N\)</span> s.t. <span class="math notranslate nohighlight">\(| z_n - L | &lt; \varepsilon\)</span> for <span class="math notranslate nohighlight">\(\forall n &gt; N\)</span>.</p>
 </div>
-<div class="section" id="properties">
-<span id="complex-fourier-transform-properties"></span><h2><span class="section-number">22.2.2. </span>Properties<a class="headerlink" href="#properties" title="Permalink to this heading">#</a></h2>
-<p><strong>Linearity</strong></p>
-<p><strong><a class="reference internal" href="../functional-analysis/dirac-delta.html#functional-analysis-dirac-delta"><span class="std std-ref">Dirac delta</span></a>.</strong></p>
-<div class="math notranslate nohighlight" id="equation-eq-complex-fourier-transform-properties-delta">
-<span class="eqno">(22.3)<a class="headerlink" href="#equation-eq-complex-fourier-transform-properties-delta" title="Permalink to this equation">#</a></span>\[\mathscr{L}\left\{ \delta(t) \right\} = \int_{t=-\infty}^{+\infty} \delta(t) \, e^{-i 2 \pi f t} \, dt = 1 \]</div>
-<p><strong>Time delay.</strong></p>
-<p><strong>Derivative.</strong></p>
-<p><strong>Integral.</strong></p>
-<p><strong>Initial value.</strong></p>
-<p><strong>Final value.</strong></p>
-<div class="proof property admonition" id="transform:fourier:convolution">
-<p class="admonition-title"><span class="caption-number">Property 22.1 </span> (Transform of convolution)</p>
-<div class="property-content section" id="proof-content">
+<p>Equivalently, convergence in <span class="math notranslate nohighlight">\(\mathbb{C}\)</span> under the standard Euclidean metric can be written component-wise, with <span class="math notranslate nohighlight">\(z_n = x_n + i y_n\)</span>,</p>
 <div class="math notranslate nohighlight">
-\[\mathscr{F}\left\{ a \ast b (t)  \right\}(f) = \mathscr{F}\left\{ a(t) \right\}(f) \, \mathscr{F}\left\{ b(t) \right\}(f)\]</div>
-</div>
-</div><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
-<summary class="sd-summary-title sd-card-header">
-Proof.<div class="sd-summary-down docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="sd-summary-up docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="sd-summary-content sd-card-body docutils">
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  \mathscr{F}\left\{ a \ast b (t)  \right\}(f)
-  &amp; = \int_{t = -\infty}^{+\infty} \int_{\tau=-\infty}^{+\infty} a(\tau) b(t - \tau) \, d \tau \, e^{-i 2 \pi f t} \, d t = &amp;&amp; (1) \\
-  &amp; = \int_{\tau=-\infty}^{+\infty} a(\tau) \, e^{-i 2 \pi f \tau} \, d \tau \, \int_{z = -\infty}^{+\infty} b(z) \, e^{-i 2 \pi f z} = \\
-  &amp; = \mathscr{F}\{ a(t) \}(f) \, \mathscr{F}\{ b(t) \} (f) \ ,
-\end{aligned}\end{split}\]</div>
-<p class="sd-card-text">having used <span class="math notranslate nohighlight">\((1)\)</span> transformation of coordinates <span class="math notranslate nohighlight">\((z, \tau) = (t - \tau, \tau)\)</span> with unit Jacobian</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\dfrac{\partial(z, \tau)}{\partial(t, \tau)} = \left|\begin{matrix} 1 &amp; - 1 \\ 0 &amp; 1 \end{matrix}\right| = 1 \ .\end{split}\]</div>
-</div>
-</details></div>
-<div class="section" id="inverse-fourier-transform">
-<span id="complex-fourier-transform-inverse"></span><h2><span class="section-number">22.2.3. </span>Inverse Fourier Transform<a class="headerlink" href="#inverse-fourier-transform" title="Permalink to this heading">#</a></h2>
-<p>Under the assumptions …<strong>todo</strong>, the inverse Fourier transform reads</p>
-<div class="math notranslate nohighlight">
-\[\mathscr{F}^{-1}\left\{ G(f) \right\}(t) := \int_{f = -\infty}^{+\infty} G(f) \, e^{i 2 \pi f t} \, df .\]</div>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
-<summary class="sd-summary-title sd-card-header">
-Proof using Dirac’s delta expression.<div class="sd-summary-down docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="sd-summary-up docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="sd-summary-content sd-card-body docutils">
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-\mathscr{F}^{-1}\left\{ G(f) \right\}(t) := \int_{f = -\infty}^{+\infty} G(f) \, e^{i 2 \pi f t} \, df 
-  &amp; = \int_{f = -\infty}^{+\infty} \int_{\tau=-\infty}^{+\infty} g(\tau) e^{-i 2 \pi f \tau} \, e^{i 2 \pi f t} \, df = \\ 
-  &amp; = \int_{f = -\infty}^{+\infty} \int_{\tau=-\infty}^{+\infty} g(\tau) e^{-i 2 \pi f \tau} \, e^{i 2 \pi f t} \, df = \\ 
-  &amp; = \int_{f = -\infty}^{+\infty} \int_{\tau=-\infty}^{+\infty} g(\tau) e^{i 2 \pi f (t-\tau)} \, df = \\ 
-  &amp; = \int_{\tau=-\infty}^{+\infty} g(\tau) \delta(t-\tau) \, d\tau = g(t) \ . 
-\end{aligned}\end{split}\]</div>
-</div>
-</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
-<summary class="sd-summary-title sd-card-header">
-Proof using dominated convergence theorem and Fubini’s lemma.<div class="sd-summary-down docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="sd-summary-up docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text"><strong>Proof.</strong> By the <em>dominated convergence theorem</em>, it follows that</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  \int_{\mathbb{R}} e^{i 2 \pi x \xi} F(\xi) \, d \xi
-  &amp; = \lim_{\varepsilon \rightarrow 0} \int_{\mathbb{R}} \underbrace{e^{-\pi \varepsilon^2 \xi^2 + i 2 \pi x \xi}}_{G(\xi;x,\varepsilon)} F(\xi) \, d \xi = \\
-  &amp; = \lim_{\varepsilon \rightarrow 0} \int_{\mathbb{R}} g(y;x,\varepsilon) f(y) \, dy = \\
-  &amp; = \lim_{\varepsilon \rightarrow 0} \int_{\mathbb{R}} \varphi_{\varepsilon}(x-y) \, f(y) \, dy = \\
-  &amp; = \int_{\mathbb{R}} \delta(x-y) \, f(y) \, dy = f(x)
-\end{aligned}\end{split}\]</div>
-<p class="sd-card-text"><strong>Lemma 1.</strong> The Fourier transform of function <span class="math notranslate nohighlight">\(\varphi(t):= e^{-\pi|t|^2}\)</span> reads</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-\mathscr{F}\{ \varphi(t) \}(\omega) 
- &amp; = \int_{t=-\infty}^{+\infty} \varphi(t) e^{-i \omega t} \, dt = \\ 
- &amp; = \int_{t=-\infty}^{+\infty} e^{-\pi|t|^2} e^{-i \omega t} \, dt = \\
- &amp; = \int_{t=-\infty}^{+\infty} e^{-\pi \left( t^2 + i \frac{\omega}{\pi} t - \frac{\omega^2}{4 \pi^2}  \right)} \, dt \, e^{- \frac{\omega^2}{4 \pi^2}} = \\
- &amp; = \int_{t=-\infty}^{+\infty} e^{-\pi \left( t + i \frac{\omega}{2 \pi}  \right)^2} \, dt \, e^{- \frac{\omega^2}{4 \pi}} = \\
- &amp; = e^{- \frac{\omega^2}{4 \pi}} \ ,
-\end{aligned}\end{split}\]</div>
-<p class="sd-card-text">having evaluated <a class="reference internal" href="../functional-analysis/dirac-delta.html#integral-e-x2"><span class="std std-ref">the integral <span class="math notranslate nohighlight">\(\int_{-\infty}^{+\infty} e^{-\alpha x^2}\)</span></span></a> with <span class="math notranslate nohighlight">\(\alpha = \pi\)</span>. <strong>todo</strong> <em>justify the result for complex exponential. Use Bromwich contour integrals</em></p>
-<p class="sd-card-text"><strong>Lemma 2.</strong> Fourier transform of <span class="math notranslate nohighlight">\(f(\alpha t)\)</span>, <span class="math notranslate nohighlight">\(\alpha &gt; 0\)</span></p>
-<div class="math notranslate nohighlight">
-\[\mathscr{F}\{ f(\alpha t) \}(\omega) = \int_{\mathbb{R}} f(\alpha t) e^{-j\omega t} \, dt = \int_{\tau \in \mathbb{R}} f(\tau) e^{-j \frac{\omega}{\alpha} \tau} \, d\tau \frac{1}{\alpha} = \frac{1}{\alpha} F\left(\frac{\omega}{\alpha} \right) \]</div>
-<p class="sd-card-text"><strong>Lemma 3.</strong> <span class="math notranslate nohighlight">\(\frac{1}{\varepsilon} \varphi\left(\frac{t}{\varepsilon} \right) \rightarrow \delta(x)\)</span> for <span class="math notranslate nohighlight">\(\varepsilon \rightarrow 0\)</span></p>
-<div class="math notranslate nohighlight">
-\[\mathscr{F}\left\{\frac{1}{\varepsilon}\varphi\left(\frac{t}{\varepsilon} \right) \right\}(\omega) = \frac{1}{\varepsilon} \varepsilon e^{-\frac{\omega^2}{4 \pi \varepsilon^2}} = e^{-\frac{\omega^2}{4 \pi \varepsilon^2}}\]</div>
-<ol class="arabic simple" start="0">
-<li><p class="sd-card-text">Fourier transform</p></li>
-</ol>
-<div class="math notranslate nohighlight">
-\[G(f) = \int_{t=-\infty}^{\infty} e^{-i \omega t} g(t) \, dt\]</div>
-<ol class="arabic simple">
-<li></li>
-</ol>
-<div class="math notranslate nohighlight">
-\[g(t) = e^{i \alpha t} \psi(t)\]</div>
-<div class="math notranslate nohighlight">
-\[\mathscr{F}\{ g(t) \}(\omega) = \int_{t=-\infty}^{+\infty} g(t) e^{-i \omega t} \, dt = \int_{t=-\infty}^{+\infty} \psi(t) e^{i \alpha t} e^{-i \omega t} \, dt =  \int_{t=-\infty}^{+\infty} \psi(t) e^{-i (\omega-\alpha) t} \, dt = \mathscr{F}\{ \psi(t) \}(\omega-\alpha) \ .\]</div>
-<ol class="arabic simple" start="2">
-<li></li>
-</ol>
-<div class="math notranslate nohighlight">
-\[\psi(t) = \phi(\alpha t)\]</div>
-<div class="math notranslate nohighlight">
-\[
-\mathscr{F}\{ \psi(t) \} 
- = \int_{t=-\infty}^{+\infty} \psi(t) e^{-i \omega t} \, dt 
- = \int_{t=-\infty}^{+\infty} \phi(\alpha t) e^{-i \omega t} \, dt 
- = \int_{\tau = -\infty}^{+\infty} \phi(\tau) e^{-i \frac{\omega}{\alpha} \tau} \, \frac{d \tau}{\alpha} 
- = \frac{1}{\alpha} \mathscr{F}\{ \phi(t) \}\left( \frac{\omega}{\alpha} \right) \ .
-\]</div>
-<ol class="arabic simple" start="3">
-<li><p class="sd-card-text">Fubini’s theorem</p></li>
-<li></li>
-</ol>
-<div class="math notranslate nohighlight">
-\[\varphi(t):= e^{-\pi t^2}\]</div>
-<div class="math notranslate nohighlight">
-\[
-\mathscr{F}\{ \varphi(t) \} 
- = \int_{t=-\infty}^{+\infty} \varphi(t) e^{-i \omega t} \, dt 
- = \int_{t=-\infty}^{+\infty} e^{-\pi t^2} e^{-i \omega t} \, dt 
-\]</div>
-<div class="math notranslate nohighlight">
-\[0 = \oint_{\gamma} e^{-\alpha |z|^2} \, dz = \int_{\dots} \dots\]</div>
-<div class="math notranslate nohighlight">
-\[z = R e^{i \theta}, \quad dz = i R e^{i \theta} d \theta\]</div>
-<div class="math notranslate nohighlight">
-\[\int_{C/4} e^{-\alpha |z|^2} \, dz = \int_{\theta=0}^{\frac{\pi}{2}} e^{-\alpha R^2} i R e^{i\theta} d \theta = i R e^{-\alpha R^2 } \frac{e^{-i \theta}}{i}|_{\theta= 0}^{\frac{\pi}{2}}\]</div>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  \int_{t=0}^{+\infty} e^{-\pi t^2} e^{-i \omega t} \, dt 
-  &amp; = \int_{t=0}^{+\infty} e^{-\left( \pi t^2 + i \omega t - \frac{\omega^2}{4 \pi} \right)} \, dt \, e^{-\frac{\omega^2}{4 \pi}} = \\
-  &amp; = \int_{t=0}^{+\infty} e^{-\pi \left( t + i \frac{\omega}{2 \pi} \right)^2} \, dt \, e^{-\frac{\omega^2}{4 \pi}} \\
-\end{aligned}\end{split}\]</div>
-<ol class="arabic" start="5">
-<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(\varphi_{\varepsilon}(t) = \frac{1}{\varepsilon^n} \varphi\left( \frac{t}{\varepsilon} \right)\)</span>, <span class="math notranslate nohighlight">\(t \in \mathbb{R}^n\)</span>, is an approximation of Dirac’s delta for <span class="math notranslate nohighlight">\(\varepsilon \rightarrow 0\)</span>, so that</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-      &amp; \lim_{\varepsilon \rightarrow 0} \int_{t = -\infty}^{+\infty} \varphi_{\varepsilon}(t- \tau) f(t) \, dt = f(\tau) \\
-      &amp; \lim_{\varepsilon \rightarrow 0} \int_{t = -\infty}^{+\infty} \varphi_{\varepsilon}(t) \, dt = 1 \\
-    \end{aligned}\end{split}\]</div>
-<p class="sd-card-text">As the Fourier transform <span class="math notranslate nohighlight">\(\mathscr{F}\left\{\varphi_{\varepsilon}(t)\right\}(\omega) \rightarrow 1\)</span> for <span class="math notranslate nohighlight">\(\varepsilon \rightarrow 0\)</span>, then <span class="math notranslate nohighlight">\(\varphi_{\varepsilon}(t) \rightarrow \delta(t)\)</span>.</p>
-</li>
-</ol>
-</div>
-</details><!--
-    The Fourier transform of the convolution $\varphi_{\varepsilon} \ast f$ reads
-    
-    $$\mathscr{F}\left\{ \varphi_\varepsilon \ast f \right\} = \mathscr{F}\left\{ \varphi_\varepsilon \right\} \mathscr{F}\left\{ f \right\} = \frac{1}{\varepsilon} \varepsilon 2 e^{-\frac{\varepsilon^2 \omega^2}{4 \pi}} F(\omega)$$
+\[\lim_{n \to \infty} z_n = L \iff \left( \lim_{n \to \infty} x_n = u \quad \text{and} \quad \lim_{n \to \infty} y_n = v \right)\]</div>
+<!--
+#### Cauchy Criterion
+Since $\mathbb{C}$ equipped with the modulus metric $|z| = \sqrt{\text{Re}(z)^2 + \text{Im}(z)^2}$ is a **complete metric space** (a Cauchy space/ anach space over $\mathbb{C}$), a sequence $\{z_n\}$ converges if and only if it satisfies the Cauchy criterion:
+
+$$\forall \varepsilon > 0, \, \exists N \in \mathbb{N} \quad \text{such that} \quad \forall n, m > N \implies |z_n - z_m| < \varepsilon$$
+
 -->
 </div>
-<div class="section" id="plancherel-s-theorem">
-<span id="complex-fourier-transform-plancherel"></span><h2><span class="section-number">22.2.4. </span>Plancherel’s theorem<a class="headerlink" href="#plancherel-s-theorem" title="Permalink to this heading">#</a></h2>
-<p>…assumptions…<strong>todo</strong></p>
-<div class="math notranslate nohighlight" id="equation-eq-fourier-transform-plancherel-magnitude">
-<span class="eqno">(22.4)<a class="headerlink" href="#equation-eq-fourier-transform-plancherel-magnitude" title="Permalink to this equation">#</a></span>\[\int_{f=-\infty}^{+\infty} |G(f)|^2 \, df = \int_{t=-\infty}^{+\infty} |g(t)|^2 \, dt \]</div>
-<p>and</p>
-<div class="math notranslate nohighlight" id="equation-eq-fourier-transform-plancherel">
-<span class="eqno">(22.5)<a class="headerlink" href="#equation-eq-fourier-transform-plancherel" title="Permalink to this equation">#</a></span>\[\int_{f=-\infty}^{+\infty} A^*(f) \, G(f)\, df = \int_{t=-\infty}^{+\infty} a^*(t) \, g(t) \, dt \ .\]</div>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
-<summary class="sd-summary-title sd-card-header">
-Proof of Plancherel’s thm for the magnitude<div class="sd-summary-down docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="sd-summary-up docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="sd-summary-content sd-card-body docutils">
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-\int_{f=-\infty}^{+\infty} |G(f)|^2 \, df 
-&amp; = \int_{f=-\infty}^{+\infty} G(f)^* G(f) \, df =  \\
-&amp; = \int_{f=-\infty}^{+\infty} \left( \int_{t_1=-\infty}^{+\infty} g(t_1) e^{-i 2 \pi f t_1} dt_1 \right)^* \left( \int_{t_2=-\infty}^{+\infty} g(t_2) e^{-i 2 \pi f t_2} dt_2  \right) \, df =  \\
-&amp; =  \int_{t_1, t_2=-\infty}^{+\infty} g^*(t_1) \, g(t_2) \, \int_{f=-\infty}^{+\infty} e^{i 2 \pi f ( t_1 - t_2 )} \, df \, dt_1 \, dt_2 =  &amp;&amp; (1) \\
-&amp; =  \int_{t_1, t_2=-\infty}^{+\infty} g^*(t_1) \, g(t_2) \, \delta( t_1 - t_2 ) \, dt_1 \, dt_2 = &amp;&amp; (2) \\
-&amp; =  \int_{t_1=-\infty}^{+\infty} g^*(t_1) \, g(t_1) \, dt_1 = &amp;&amp; (3) \\
-&amp; =  \int_{t_1=-\infty}^{+\infty} |g(t_1)|^2 \, dt_1 \ .
-\end{aligned}\end{split}\]</div>
-<p class="sd-card-text">having used (1) the approximation <a class="reference internal" href="../functional-analysis/dirac-delta.html#equation-eq-dirac-fourier-transform">(18.3)</a> of Dirac’s delta, and (2) property <a class="reference internal" href="../functional-analysis/dirac-delta.html#equation-dirac-delta-prop-2">(18.2)</a> of Dirac’s delta, and (3) the expression of the absolute value of complex functions <span class="math notranslate nohighlight">\(g^*(t_1) g(t_1) = |g(t_1)|^2\)</span>.</p>
 </div>
-</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
-<summary class="sd-summary-title sd-card-header">
-Proof of Plancherel’s thm for the product of functions<div class="sd-summary-down docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="sd-summary-up docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="section" id="complex-numerical-series">
+<span id="complex-series-numerical-series"></span><h3><span class="section-number">20.5.1.2. </span>Complex Numerical Series<a class="headerlink" href="#complex-numerical-series" title="Permalink to this heading">#</a></h3>
+<p>A complex infinite series is defined as the formal sum:</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-\int_{f=-\infty}^{+\infty} A^*(f) \, G(f) \, df 
-&amp; = \int_{f=-\infty}^{+\infty} G(f)^* G(f) \, df =  \\
-&amp; = \int_{f=-\infty}^{+\infty} \left( \int_{t_1=-\infty}^{+\infty} a(t_1) e^{-i 2 \pi f t_1} dt_1 \right)^* \left( \int_{t_2=-\infty}^{+\infty} g(t_2) e^{-i 2 \pi f t_2} dt_2  \right) \, df =  \\
-&amp; =  \int_{t_1, t_2=-\infty}^{+\infty} a^*(t_1) \, g(t_2) \, \int_{f=-\infty}^{+\infty} e^{i 2 \pi f ( t_1 - t_2 )} \, df \, dt_1 \, dt_2 =  &amp;&amp; (1) \\
-&amp; =  \int_{t_1, t_2=-\infty}^{+\infty} a^*(t_1) \, g(t_2) \, \delta( t_1 - t_2 ) \, dt_1 \, dt_2 = &amp;&amp; (2) \\
-&amp; =  \int_{t_1=-\infty}^{+\infty} a^*(t_1) \, g(t_1) \, dt_1 \ .
-\end{aligned}\end{split}\]</div>
-<p class="sd-card-text">having used (1) the approximation <a class="reference internal" href="../functional-analysis/dirac-delta.html#equation-eq-dirac-fourier-transform">(18.3)</a> of Dirac’s delta, and (2) property <a class="reference internal" href="../functional-analysis/dirac-delta.html#equation-dirac-delta-prop-2">(18.2)</a> of Dirac’s delta.</p>
+\[\sum_{n=0}^{+\infty} z_n, \quad z_n \in \mathbb{C}\]</div>
+<p>It converges to <span class="math notranslate nohighlight">\(S \in \mathbb{C}\)</span> if the sequence of partial sums <span class="math notranslate nohighlight">\(S_N = \sum_{n=0}^{N} z_n\)</span> converges to <span class="math notranslate nohighlight">\(S\)</span>.</p>
+<div class="section" id="complex-series-numerical-series-convergence">
+<span id="id1"></span><h4><span class="section-number">20.5.1.2.1. </span>Convergence<a class="headerlink" href="#complex-series-numerical-series-convergence" title="Permalink to this heading">#</a></h4>
+<p><strong>Convergence.</strong> Using the <a class="reference internal" href="#complex-series-numerical-sequence-convergence"><span class="std std-ref">convergence of a sequence</span></a>, a series is convergent if the sequence of the partial sums <span class="math notranslate nohighlight">\(S_N = \sum_{n=0}^{N} z_n\)</span> converges.</p>
+<p><strong>Absolute Convergence:</strong> The series <span class="math notranslate nohighlight">\(\sum z_n\)</span> converges absolutely if the real-valued series of moduli converges:</p>
+<div class="math notranslate nohighlight">
+\[\sum_{n=0}^{+\infty} |z_n| &lt; +\infty\]</div>
+<p><em>Property:</em> Absolute convergence in <span class="math notranslate nohighlight">\(\mathbb{C}\)</span> implies standard convergence.</p>
+<p><strong>Conditional Convergence:</strong> The series converges, but <span class="math notranslate nohighlight">\(\sum |z_n| = +\infty\)</span>. As an example:</p>
+<div class="math notranslate nohighlight">
+\[1 - \frac{1}{2} + \frac{1}{3} - \frac{1}{4} + ...\]</div>
+<div class="admonition-tests-for-absolute-convergence admonition">
+<p class="admonition-title">Tests for absolute convergence</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-left head"><p>Test</p></th>
+<th class="text-left head"><p>Statement</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><strong>Ratio Test</strong></p></td>
+<td class="text-left"><p>If <span class="math notranslate nohighlight">\(\lim_{n \to \infty} \left|\frac{z_{n+1}}{z_n}\right| = L\)</span>, then: <br> • <span class="math notranslate nohighlight">\(L &lt; 1 \implies\)</span> Absolutely Convergent <br> • <span class="math notranslate nohighlight">\(L &gt; 1 \implies\)</span> Divergent</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><strong>Root Test</strong></p></td>
+<td class="text-left"><p>If <span class="math notranslate nohighlight">\(\limsup_{n \to \infty} \sqrt[n]{|z_n|} = L\)</span>, then: <br> • <span class="math notranslate nohighlight">\(L &lt; 1 \implies\)</span> Absolutely Convergent <br> • <span class="math notranslate nohighlight">\(L &gt; 1 \implies\)</span> Divergent</p></td>
+</tr>
+</tbody>
+</table>
 </div>
-</details></div>
-<div class="section" id="uncertainty-relation">
-<span id="complex-fourier-transform-uncertainty"></span><h2><span class="section-number">22.2.5. </span>Uncertainty relation<a class="headerlink" href="#uncertainty-relation" title="Permalink to this heading">#</a></h2>
-<p>An uncertainty relation holds linking standard deviations of a probability density function in time domain and a probability density function built with its Fourier transform. From this very same relation, <a class="reference external" href="https://basics2022.github.io/bbooks-physics-modern/ch/quantum-mechanics/intro.html#heisenberg-uncertainty-relation">Heisenberg uncertainty relation</a> between position and momentum in <a class="reference external" href="https://basics2022.github.io/bbooks-physics-modern/ch/quantum-mechanics/intro.html">Quantum Mechanics</a> seamlessly follows.</p>
-<p>Given a function <span class="math notranslate nohighlight">\(g(t)\)</span> whose square of the absolute value is normalized to one, and thus it can be used as a probability density function in time domain,</p>
-<div class="math notranslate nohighlight">
-\[\int_{t = -\infty}^{+\infty} |g(t)|^2 \, dt =  \int_{t = -\infty}^{+\infty} g^*(t) \, g(t) \, dt = 1 \ .\]</div>
-<p>for <a class="reference internal" href="#complex-fourier-transform-plancherel"><span class="std std-ref">Plancherel’s theorem</span></a>, the square of the magnitude of Fourier transform <span class="math notranslate nohighlight">\(G(f)\)</span> is unitary as well,</p>
-<div class="math notranslate nohighlight">
-\[\int_{f = -\infty}^{+\infty} |G(f)|^2 \, df =  \int_{f = -\infty}^{+\infty} G^*(f) \, G(f) \, df = 1 \ ,\]</div>
-<p>and thus it can be interpreted as a probability density function in frequency domain. The following uncertainty relation holds</p>
-<div class="math notranslate nohighlight">
-\[\sigma_{t,g}^2 \sigma_{f,G}^2 \ge \left( \frac{1}{2 \pi} \frac{1}{2} \right)^2 \ , \]</div>
-<p>or in terms of pulsation <span class="math notranslate nohighlight">\(\omega = 2 \pi \, f\)</span>,</p>
-<div class="math notranslate nohighlight">
-\[\sigma_{t,g}^2 \sigma_{\omega,G}^2 \ge \left( \frac{1}{2} \right)^2 \ , \]</div>
-<div class="admonition-heisenberg-uncertainty-relation-in-quantum-mechanics admonition" id="fourier-uncertainty-heisenberg">
-<p class="admonition-title">Heisenberg uncertainty relation in quantum mechanics</p>
-<p>Space and momentum representation of the state function <span class="math notranslate nohighlight">\(\Psi\)</span> are related by the transformation,</p>
-<div class="math notranslate nohighlight">
-\[\langle x | \Psi \rangle := \psi(x,t) = \int_{p=-\infty}^{+\infty} \psi_p(p,t) \, e^{i \frac{p}{\hbar} x} \, dp \ ,\]</div>
-<p>as it’s shown in the section <a class="reference external" href="https://basics2022.github.io/bbooks-physics-modern/ch/quantum-mechanics/intro.html#from-position-to-momentum-representation">Quantum Mechanics:From position to momentum representation</a>.
-The wave number reads <span class="math notranslate nohighlight">\(k = \frac{p}{\hbar}\)</span>. Starting from the uncertainty relation between the space coordinate <span class="math notranslate nohighlight">\(x\)</span> and the wave number <span class="math notranslate nohighlight">\(k\)</span>,</p>
-<div class="math notranslate nohighlight">
-\[\sigma_{x} \sigma_{k} \ge  \frac{1}{2}  \ , \]</div>
-<p>Heisenberg uncertainty principle for position and momentum (for the same Cartesian coordinates) reads</p>
-<div class="math notranslate nohighlight">
-\[\sigma_{x} \sigma_{p} \ge \frac{\hbar}{2} \ . \]</div>
 </div>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
-<summary class="sd-summary-title sd-card-header">
-Proof of the uncertainty relation<div class="sd-summary-down docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="sd-summary-up docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Assuming zero average <span class="math notranslate nohighlight">\(\overline{t} = 0\)</span>, <span class="math notranslate nohighlight">\(\overline{f} = 0\)</span> (see below for proof without this assumption)</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
- \sigma_{t,g}^2 \sigma_{f,G}^2
- &amp; = \int_{t=-\infty}^{+\infty} \left| t \right|^2 \, g^*(t) \, g(t)  \, dt \,  \int_{f=-\infty}^{+\infty} \left| f \right|^2 \, G^*(f) \, G(f) \, df = \\
- &amp; = \int_{t=-\infty}^{+\infty} \left| t  \, g(t) \right|^2 \, dt \,  \int_{f=-\infty}^{+\infty} \left| f  \,  G(f)\right|^2 \, df = &amp;&amp; (1) \\
- &amp; = \int_{t=-\infty}^{+\infty} \left| t  \, g(t) \right|^2 \, dt \, \int_{t=-\infty}^{+\infty} \left|  -\frac{i}{2 \pi} \, \dot{g}(t) \right|^2 \, dt \ge &amp;&amp; (2) \\
- &amp; = \left| \int_{t=-\infty}^{+\infty} - t  \, g^*(t)  \frac{i}{2 \pi} \, \dot{g}(t) \, dt \right|^2 \ge &amp;&amp; (3)  \\
- &amp; = \left( \frac{1}{2\pi} \right)^2 \left( \frac{1}{2} \right)^2
-\end{aligned}\end{split}\]</div>
-<p class="sd-card-text">having used in</p>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
-<summary class="sd-summary-title sd-card-header">
-(1)<div class="sd-summary-down docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="sd-summary-up docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="sd-summary-content sd-card-body docutils">
-<div class="math notranslate nohighlight">
-\[\mathscr{F}\{ \dot{g}(t) \}(f) = \int_{t=-\infty}^{+\infty} \dot{g}(t) e^{-i 2 \pi f t} \, dt = \dots = i 2 \pi \, f \, G(f) \ , \]</div>
-<div class="math notranslate nohighlight">
-\[f \, G(f) = -i \, \frac{\mathscr{F}\{ \dot{g}(t) \}}{2 \pi}\]</div>
-<p class="sd-card-text">and thus <a class="reference internal" href="#complex-fourier-transform-plancherel"><span class="std std-ref">Plancherel’s theorem</span></a></p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
- \int_{f=-\infty}^{+\infty} | f \, G(f) |^2 \, df
- &amp; = \int_{f=-\infty}^{+\infty} \left|  -\frac{i}{2 \pi} \, \mathscr{F}\{ \dot{g}(t) \} \right|^2 \, df = \\
- &amp; = \int_{t=-\infty}^{+\infty} \left|  -\frac{i}{2 \pi} \, \dot{g}(t) \right|^2 \, dt
-\end{aligned}\end{split}\]</div>
 </div>
-</details><p class="sd-card-text">in (2) Cauchy-Schwartz inequality,</p>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
-<summary class="sd-summary-title sd-card-header">
-(3)<div class="sd-summary-down docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="sd-summary-up docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="sd-summary-content sd-card-body docutils">
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  a 
-  &amp; := \int_{t=-\infty}^{+\infty} t g^*(t) \dot{g}(t) \, dt = \\
-  &amp;  = \underbrace{\left[ t \, g^*(t) \, g(t) \right]|_{-\infty}^{+\infty}}_{=0} - \int_{t=-\infty}^{+\infty} \dfrac{d}{dt} \left( t g^*(t) \right) g(t) \, dt = \\
-  &amp; = - \int_{t=-\infty}^{+\infty}  g^*(t) \,  g(t) \, dt - \int_{t=-\infty}^{+\infty} t \dot{g}^*(t) g(t) \, dt = \\
-  &amp; = - 1 - a^* \ .
-\end{aligned}\end{split}\]</div>
-<div class="math notranslate nohighlight">
-\[-1 = a + a^* = 2 \, \text{re}\{a\} \ ,\]</div>
-<p class="sd-card-text">and thus</p>
-<div class="math notranslate nohighlight">
-\[|a|^2 \ge \text{re}\{a\}^2 = \frac{1}{4} \ .\]</div>
 </div>
-</details><p class="sd-card-text">If <span class="math notranslate nohighlight">\(\overline{t} \ne 0\)</span>, or <span class="math notranslate nohighlight">\(\overline{f} \ne 0\)</span>,</p>
+<hr class="docutils" />
+<div class="section" id="complex-sequences-and-series-of-functions">
+<h2><span class="section-number">20.5.2. </span>Complex Sequences and Series of Functions<a class="headerlink" href="#complex-sequences-and-series-of-functions" title="Permalink to this heading">#</a></h2>
+<p>Let <span class="math notranslate nohighlight">\(\Omega \subseteq \mathbb{C}\)</span> be an open set and let <span class="math notranslate nohighlight">\(\{f_n\}_{n \in \mathbb{N}}\)</span> be a sequence of complex-valued functions <span class="math notranslate nohighlight">\(f_n: \Omega \to \mathbb{C}\)</span>.</p>
+<div class="section" id="convergence-types-of-sequences">
+<h3><span class="section-number">20.5.2.1. </span>Convergence types of Sequences<a class="headerlink" href="#convergence-types-of-sequences" title="Permalink to this heading">#</a></h3>
+<ol class="arabic">
+<li><p><strong>Pointwise Convergence:</strong> <span class="math notranslate nohighlight">\(f_n \to f\)</span> pointwise on <span class="math notranslate nohighlight">\(\Omega\)</span> if for every <span class="math notranslate nohighlight">\(z \in \Omega\)</span>:</p>
 <div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
- \sigma_{t,g}^2 \sigma_{f,G}^2
- &amp; = \int_{t=-\infty}^{+\infty} \left| t - \overline{t} \right|^2 \, g^*(t) \, g(t)  \, dt \,  \int_{f=-\infty}^{+\infty} \left| f - \overline{f} \right|^2 \, G^*(f) \, G(f) \, df = \\
- &amp; = \int_{t=-\infty}^{+\infty} \left| ( t - \overline{t} ) \, g(t) \right|^2 \, dt \,  \int_{f=-\infty}^{+\infty} \left| ( f - \overline{f} ) \,  G(f)\right|^2 \, df = &amp;&amp; (1) \\
- &amp; = \dots \\
-\end{aligned}\end{split}\]</div>
+\[\lim_{n \to \infty} |f_n(z) - f(z)| = 0\]</div>
+<p>(or for <span class="math notranslate nohighlight">\(\forall z \in \Omega\)</span>, <span class="math notranslate nohighlight">\(\forall \varepsilon &gt; 0\)</span>, <span class="math notranslate nohighlight">\(\exists N\)</span> so that <span class="math notranslate nohighlight">\(| f_n(z) - f(z) | &lt; \varepsilon\)</span> for <span class="math notranslate nohighlight">\(\forall n &gt; N\)</span>.)</p>
+</li>
+<li><p><strong>Uniform Convergence:</strong> <span class="math notranslate nohighlight">\(f_n \rightrightarrows f\)</span> uniformly on <span class="math notranslate nohighlight">\(E \subseteq \Omega\)</span> if:</p>
+<div class="math notranslate nohighlight">
+\[\lim_{n \to \infty} \sup_{z \in E} |f_n(z) - f(z)| = 0\]</div>
+<p>(or for <span class="math notranslate nohighlight">\(\forall \varepsilon &gt; 0\)</span>, <span class="math notranslate nohighlight">\(\exists N\)</span> so that <span class="math notranslate nohighlight">\(| f_n(z) - f(z) | &lt; \varepsilon\)</span> for <span class="math notranslate nohighlight">\(\forall n &gt; N\)</span>, <span class="math notranslate nohighlight">\(\forall z \in \Omega\)</span>.)</p>
+</li>
+<li><p><strong>Locally Uniform (Compact) Convergence:</strong> <span class="math notranslate nohighlight">\(f_n \to f\)</span> uniformly on every compact subset <span class="math notranslate nohighlight">\(K \subset \Omega\)</span>.</p></li>
+</ol>
 </div>
-</details></div>
+<hr class="docutils" />
+<div class="section" id="weierstrass-theorem">
+<h3><span class="section-number">20.5.2.2. </span>Weierstrass theorem<a class="headerlink" href="#weierstrass-theorem" title="Permalink to this heading">#</a></h3>
+<p><strong>todo</strong> <em>Uncomment?</em></p>
+<hr class="docutils" />
+<p><strong>todo</strong></p>
+<!--
+###The Rigidity of Complex Holomorphic Limits: Weierstrass's Theorem
+
+In real analysis, a uniform limit of continuously differentiable ($C^1$) functions is continuous, but not necessarily differentiable. In complex analysis, the Cauchy Integral Formula enforces a much stronger rigidity.
+
+```{admonition} Weierstrass's Theorem on Holomorphic Limits
+:class: note
+Let $\{f_n\}$ be a sequence of **holomorphic** functions on an open domain $\Omega \subset \mathbb{C}$.
+If $f_n \to f$ **uniformly on every compact subset** $K \subset \Omega$, then:
+
+1. The limit function $f(z)$ is **holomorphic** in $\Omega$.
+2. The sequence of derivatives $\{f_n'\}$ converges compact-uniformly in $\Omega$ to $f'(z)$:
+   $$f_n' \rightrightarrows f' \quad \text{on compacts } K \subset \Omega$$
+```
+
+*Proof Sketch:* By Morera's Theorem, if $\oint_\gamma f_n(z) \, dz = 0$ for every closed triangular contour $\gamma \subset \Omega$, uniform convergence allows interchanging the limit and the integral:
+$$\oint_\gamma f(z) \, dz = \oint_\gamma \left(\lim_{n \to \infty} f_n(z)\right) dz = \lim_{n \to \infty} \oint_\gamma f_n(z) \, dz = 0$$
+Hence, $f$ is holomorphic. Derivatives follow via Cauchy's Integral Formula for derivatives.
+
+-->
+<!--
+## Complex Power Series
+
+A complex power series centered at $z_0 \in \mathbb{C}$ is a function series of the form:
+
+$$P(z) = \sum_{n=0}^{+\infty} a_n (z - z_0)^n, \quad a_n, z_0 \in \mathbb{C}$$
+
+### Cauchy-Hadamard Theorem and the Radius of Convergence
+
+The geometry of convergence for power series in $\mathbb{C}$ is defined by a disk centered at $z_0$.
+
+```{admonition} Cauchy-Hadamard Theorem
+Given the power series $\sum_{n=0}^{+\infty} a_n (z - z_0)^n$, define the **radius of convergence** $R \in [0, +\infty]$ by:
+
+$$\frac{1}{R} = \limsup_{n \to \infty} \sqrt[n]{|a_n|}$$
+
+Then:
+1. **Inside the Disk ($|z - z_0| < R$):** The series converges **absolutely**, and converges **uniformly** on any closed disk $\{z : |z - z_0| \le r < R\}$.
+2. **Outside the Disk ($|z - z_0| > R$):** The series **diverges** for all $z$.
+3. **On the Boundary ($|z - z_0| = R$):** The behavior is subtle and varies point by point.
+```
+
+---
+
+### Holomorphy and Distance to Singularities
+
+Every complex power series represents a holomorphic function inside its open disk of convergence $D_R(z_0) = \{z \in \mathbb{C} : |z - z_0| < R\}$.
+
+Conversely, any function $f(z)$ holomorphic in a domain $\Omega$ can be expanded in a unique Taylor series centered at any $z_0 \in \Omega$:
+
+$$f(z) = \sum_{n=0}^{+\infty} \frac{f^{(n)}(z_0)}{n!} (z - z_0)^n$$
+
+```{admonition} The Singularity Distance Principle
+:class: tip
+The radius of convergence $R$ of the Taylor series of $f(z)$ centered at $z_0$ is precisely the **distance from $z_0$ to the nearest singularity** of $f(z)$ in the complex plane:
+
+$$R = \text{dist}(z_0, \partial \Omega) = \min \{ |z_0 - z_{\text{sing}}| : f \text{ fails to be holomorphic at } z_{\text{sing}} \}$$
+```
+
+---
+
+## Generalization: Laurent Series
+
+When studying a function $f(z)$ near an isolated singularity $z_0$ (where $f$ is not holomorphic at $z_0$ itself), Taylor series cannot be applied. Instead, we use a **Laurent series**, which includes negative powers of $(z - z_0)$:
+
+$$f(z) = \sum_{n=-\infty}^{+\infty} a_n (z - z_0)^n = \underbrace{\sum_{n=1}^{+\infty} \frac{a_{-n}}{(z - z_0)^n}}_{\text{Principal Part}} + \underbrace{\sum_{n=0}^{+\infty} a_n (z - z_0)^n}_{\text{Analytic / Regular Part}}$$
+
+### Domain of Convergence
+A Laurent series converges in an **annular domain** (ring) $A(z_0, r, R)$:
+
+$$A(z_0, r, R) = \{ z \in \mathbb{C} : r < |z - z_0| < R \}$$
+
+where:
+* $R = \left(\limsup_{n \to \infty} \sqrt[n]{|a_n|}\right)^{-1}$ (governs convergence of positive powers).
+* $r = \limsup_{n \to \infty} \sqrt[n]{|a_{-n}|}$ (governs convergence of negative powers).
+
+
+### Classification of Singularities via Laurent Series
+
+The structure of the Principal Part $\sum_{n=1}^{\infty} a_{-n} (z - z_0)^{-n}$ classifies the singularity at $z_0$:
+
+1. **Removable Singularity:** All $a_{-n} = 0$ for $n \ge 1$ (Principal part is identically zero).
+2. **Pole of Order $m$ ($m \ge 1$):** $a_{-m} \neq 0$, but $a_{-n} = 0$ for all $n > m$.
+3. **Essential Singularity:** Infinitely many negative coefficients $a_{-n} \neq 0$ are non-zero (e.g., $e^{1/z}$ at $z_0 = 0$).
+
+-->
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -962,20 +847,20 @@ Proof of the uncertainty relation<div class="sd-summary-down docutils">
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="fourier-series.html"
+       href="analysis.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">22.1. </span>Fourier Series</p>
+        <p class="prev-next-title"><span class="section-number">20. </span>Complex Analysis</p>
       </div>
     </a>
     <a class="right-next"
-       href="fourier-transforms.html"
+       href="laplace.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">22.3. </span>Relations between Fourier transforms</p>
+        <p class="prev-next-title"><span class="section-number">21. </span>Laplace Transform</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -994,11 +879,22 @@ Proof of the uncertainty relation<div class="sd-summary-down docutils">
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definition">22.2.1. Definition</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#properties">22.2.2. Properties</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inverse-fourier-transform">22.2.3. Inverse Fourier Transform</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plancherel-s-theorem">22.2.4. Plancherel’s theorem</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uncertainty-relation">22.2.5. Uncertainty relation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-numerical-sequences-and-series">20.5.1. Complex Numerical Sequences and Series</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-numerical-sequences">20.5.1.1. Complex Numerical Sequences</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#convergence">20.5.1.1.1. Convergence</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-numerical-series">20.5.1.2. Complex Numerical Series</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-series-numerical-series-convergence">20.5.1.2.1. Convergence</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#complex-sequences-and-series-of-functions">20.5.2. Complex Sequences and Series of Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convergence-types-of-sequences">20.5.2.1. Convergence types of Sequences</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#weierstrass-theorem">20.5.2.2. Weierstrass theorem</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
