@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>21.3. Relations between Fourier transforms &#8212; basics - math</title>
+    <title>22.3. Relations between Fourier transforms &#8212; basics - math</title>
   
   
   
@@ -71,8 +71,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="21.4. Practice on Fourier analysis on finite-time discrete-time signal" href="fourier-practice.html" />
-    <link rel="prev" title="21.2. Fourier Transform" href="fourier-transform.html" />
+    <link rel="next" title="22.4. Practice on Fourier analysis on finite-time discrete-time signal" href="fourier-practice.html" />
+    <link rel="prev" title="22.2. Fourier Transform" href="fourier-transform.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -197,201 +197,202 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Multivariable Calculus</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../multivariable/intro.html">7. Introduction to multi-variable calculus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../multivariable/interchange-operators.html">8. Interchanging operators</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Differential Geometry</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../differential-geometry/intro.html">8. Introduction to Differential Geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../differential-geometry/intro.html">9. Introduction to Differential Geometry</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Vector and Tensor Algebra and Calculus</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/algebra.html">9. Tensor Algebra</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean.html">10. Tensor Calculus in Euclidean Spaces</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean-cartesian.html">10.5. Tensor Calculus in Euclidean Spaces - Cartesian coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean-cylindrical.html">10.6. Tensor Calculus in Euclidean Spaces - cylindrical coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
-<li class="toctree-l2"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean-spherical.html">10.7. Tensor Calculus in Euclidean Spaces - Spehrical coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/algebra.html">10. Tensor Algebra</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean.html">11. Tensor Calculus in Euclidean Spaces</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean-cartesian.html">11.5. Tensor Calculus in Euclidean Spaces - Cartesian coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean-cylindrical.html">11.6. Tensor Calculus in Euclidean Spaces - cylindrical coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean-spherical.html">11.7. Tensor Calculus in Euclidean Spaces - Spehrical coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/tensor-invariants.html">11. Tensor Invariants</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/algebra-rotation-tensors.html">12. Unitary and rotation tensors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/algebra-isotropic-tensors.html">13. Isotropic Tensors</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/time-derivative-of-integrals.html">14. Time derivative of integrals over moving domains</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/calculus-identities.html">15. Calculus identities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/tensor-invariants.html">12. Tensor Invariants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/algebra-rotation-tensors.html">13. Unitary and rotation tensors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/algebra-isotropic-tensors.html">14. Isotropic Tensors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/time-derivative-of-integrals.html">15. Time derivative of integrals over moving domains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/calculus-identities.html">16. Calculus identities</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Functional Analysis</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../functional-analysis/intro.html">16. Introduction to Functional Analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../functional-analysis/dirac-delta.html">17. Dirac’s delta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functional-analysis/intro.html">17. Introduction to Functional Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functional-analysis/dirac-delta.html">18. Dirac’s delta</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Complex Calculus</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="algebra.html">18. Complex Algebra</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="analysis.html">19. Complex Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="series.html">19.5. Sequences and Series in the Complex Field</a></li>
+<li class="toctree-l1"><a class="reference internal" href="algebra.html">19. Complex Algebra</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="analysis.html">20. Complex Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="series.html">20.5. Sequences and Series in the Complex Field</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="laplace.html">20. Laplace Transform</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="laplace-def-thm.html">20.1. Definition and Properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="laplace-applications.html">20.2. Applications of Laplace Transform</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="laplace.html">21. Laplace Transform</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="laplace-def-thm.html">21.1. Definition and Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="laplace-applications.html">21.2. Applications of Laplace Transform</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="fourier.html">21. Fourier Transforms</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="fourier-series.html">21.1. Fourier Series</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fourier-transform.html">21.2. Fourier Transform</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">21.3. Relations between Fourier transforms</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fourier-practice.html">21.4. Practice on Fourier analysis on finite-time discrete-time signal</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="fourier.html">22. Fourier Transforms</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="fourier-series.html">22.1. Fourier Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fourier-transform.html">22.2. Fourier Transform</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">22.3. Relations between Fourier transforms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fourier-practice.html">22.4. Practice on Fourier analysis on finite-time discrete-time signal</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="z-transform.html">22. Z-transform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="z-transform.html">23. Z-transform</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Approximation of Functions</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../function-approx/intro.html">23. Introduction to function approximation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../function-approx/lagrange-interp.html">24. Lagrange interpolation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../function-approx/intro.html">24. Introduction to function approximation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../function-approx/lagrange-interp.html">25. Lagrange interpolation</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Calculus of Variations</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../calculus-variations/intro.html">25. Introduction to Calculus of Variations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../calculus-variations/intro.html">26. Introduction to Calculus of Variations</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Ordinary Differential Equations</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../ode/intro.html">26. Introduction to Ordinary Differential Equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ode/linear-equations.html">27. Linear equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ode/ode-linear-systems.html">28. Linear systems</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../ode/integration-schemes.html">29. Integration schemes for Cauchy problems</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../ode/integration-schemes-foundations.html">29.1. Foundations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../ode/integration-schemes-common.html">29.2. Families of integration methods</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../ode/integration-schemes-stability.html">29.3. Stability of integration schemes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../ode/integration-schemes-simplectic.html">29.4. Simplectic integrators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../ode/integration-schemes-energy-conservation.html">29.5. Energy conservation of integration schemes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../ode/time-integration-mechanical-systems.html">29.6. Time-integration of a mechanical system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ode/intro.html">27. Introduction to Ordinary Differential Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ode/linear-equations.html">28. Linear equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ode/ode-linear-systems.html">29. Linear systems</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ode/integration-schemes.html">30. Integration schemes for Cauchy problems</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ode/integration-schemes-foundations.html">30.1. Foundations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ode/integration-schemes-common.html">30.2. Families of integration methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ode/integration-schemes-stability.html">30.3. Stability of integration schemes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ode/integration-schemes-simplectic.html">30.4. Simplectic integrators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ode/integration-schemes-energy-conservation.html">30.5. Energy conservation of integration schemes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ode/time-integration-mechanical-systems.html">30.6. Time-integration of a mechanical system</a></li>
 </ul>
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">System Theory</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../system-theory/intro.html">30. Introduction to System Theory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../system-theory/lti.html">31. Linear Time-Invariant Systems</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../system-theory/coordinate-transformation.html">32. Coordinate transformation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../system-theory/lti-response.html">33. LTI system response</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../system-theory/lti-stability-and-feedback.html">34. LTI: stability and feedback</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../system-theory/observability-detectability.html">35. Observability and Detectability</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../system-theory/controllability-reachability.html">36. Reachability and Controllability</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../system-theory/realizations.html">37. State-space realizations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../system-theory/kalman-decomposition.html">38. Kalman decomposition</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../system-theory/lyapunov-equation.html">39. Lyapunov equation</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../system-theory/order-reduction.html">40. Order reduction of dynamical systems</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../system-theory/order-reduction-balanced-truncation.html">40.1. Balanced truncation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system-theory/intro.html">31. Introduction to System Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system-theory/lti.html">32. Linear Time-Invariant Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system-theory/coordinate-transformation.html">33. Coordinate transformation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system-theory/lti-response.html">34. LTI system response</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system-theory/lti-stability-and-feedback.html">35. LTI: stability and feedback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system-theory/observability-detectability.html">36. Observability and Detectability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system-theory/controllability-reachability.html">37. Reachability and Controllability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system-theory/realizations.html">38. State-space realizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system-theory/kalman-decomposition.html">39. Kalman decomposition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system-theory/lyapunov-equation.html">40. Lyapunov equation</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../system-theory/order-reduction.html">41. Order reduction of dynamical systems</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../system-theory/order-reduction-balanced-truncation.html">41.1. Balanced truncation</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../system-theory/shape-filter.html">41. Shape filter</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../system-theory/time-delay-pade.html">42. Padé approximation of time delay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system-theory/shape-filter.html">42. Shape filter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system-theory/time-delay-pade.html">43. Padé approximation of time delay</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Control Theory</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../control/intro.html">43. Introduction to control methods</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../control/closed-loop-requirements-performance.html">44. Closed-loop control: requirements and performance</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../control/closed-loop-requirements-performance-siso-stability.html">44.1. Stability (SISO)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../control/closed-loop-requirements-performance-siso-ref-tracking.html">44.2. Reference tracking (SISO)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../control/intro.html">44. Introduction to control methods</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../control/closed-loop-requirements-performance.html">45. Closed-loop control: requirements and performance</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../control/closed-loop-requirements-performance-siso-stability.html">45.1. Stability (SISO)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control/closed-loop-requirements-performance-siso-ref-tracking.html">45.2. Reference tracking (SISO)</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../control/frequency-domain.html">45. Frequency domain control</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../control/optimal-control.html">46. Optimal control</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../control/optimal-control-full-state.html">46.1. Full-state feedback</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../control/optimal-control-full-state-general-ode.html">46.1.1. Generic ODE without exogenous inputs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../control/optimal-control-full-state-linear.html">46.1.2. Linear system without exogenous inputs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../control/optimal-control-full-state-linear-infinite-time.html">46.1.3. Linear system without exogenous inputs - infinite time horizon</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../control/frequency-domain.html">46. Frequency domain control</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../control/optimal-control.html">47. Optimal control</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../control/optimal-control-full-state.html">47.1. Full-state feedback</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../control/optimal-control-full-state-general-ode.html">47.1.1. Generic ODE without exogenous inputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../control/optimal-control-full-state-linear.html">47.1.2. Linear system without exogenous inputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../control/optimal-control-full-state-linear-infinite-time.html">47.1.3. Linear system without exogenous inputs - infinite time horizon</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-full-state-old.html">46.2. Full-state feedback (OLD)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-margins.html">46.3. Phase and gain margin of optimal control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-observer-stochastic.html">46.4. Optimal observer for stochastic disturbance</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-observer-deterministic.html">46.5. Optimal observer for deterministic disturbances</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-output.html">46.6. Sub-optimal control for output feedback</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-regulator-observer.html">46.7. Combination of controller and observer</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../control/optimal-control-ref-tracking.html">46.8. Optimal control for reference tracking</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../control/optimal-control-ref-tracking-example.html">46.8.3. Example of optimal control for tracking reference input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-full-state-old.html">47.2. Full-state feedback (OLD)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-margins.html">47.3. Phase and gain margin of optimal control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-observer-stochastic.html">47.4. Optimal observer for stochastic disturbance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-observer-deterministic.html">47.5. Optimal observer for deterministic disturbances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-output.html">47.6. Sub-optimal control for output feedback</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-regulator-observer.html">47.7. Combination of controller and observer</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../control/optimal-control-ref-tracking.html">47.8. Optimal control for reference tracking</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../control/optimal-control-ref-tracking-example.html">47.8.3. Example of optimal control for tracking reference input</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../control/kalman.html">46.9. Kalman filter</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../control/hjb.html">46.10. Hamilton Bellman Jacobi equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control/kalman.html">47.9. Kalman filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control/hjb.html">47.10. Hamilton Bellman Jacobi equation</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../control/pole-placement.html">47. Pole placement</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../control/examples.html">48. Examples</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-first-order-ref-tracking.html">48.1. First order system - Reference tracking</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-first-order-with-time-delay-ref-tracking.html">48.2. First order system w/ time delay - Reference tracking</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-inverted-pendulum.html">48.3. Inverted pendulum</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-inverted-pendulum-cart.html">48.4. Inverted pendulum on a cart</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-inverted-pendulum-cart-only-force.html">48.5. Inverted pendulum on a cart - only force actuation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../control/pole-placement.html">48. Pole placement</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../control/examples.html">49. Examples</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-first-order-ref-tracking.html">49.1. First order system - Reference tracking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-first-order-with-time-delay-ref-tracking.html">49.2. First order system w/ time delay - Reference tracking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-inverted-pendulum.html">49.3. Inverted pendulum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-inverted-pendulum-cart.html">49.4. Inverted pendulum on a cart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-inverted-pendulum-cart-only-force.html">49.5. Inverted pendulum on a cart - only force actuation</a></li>
 </ul>
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Partial Differential Equations</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../pde/intro.html">49. Introduction to Partial Differential Equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pde/elliptic.html">50. Elliptic equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pde/parabolic.html">51. Parabolic equations</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/hyperbolic.html">52. Hyperbolic equations</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-intro.html">52.1. Hyperbolic problems and conservation laws</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-dimensions.html">52.2. Hyperbolic problems - dimensions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-1d-scalar-linear.html">52.3. Scalar linear equation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-1d-vector-linear.html">52.4. Linear vector equation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-1d-scalar-nonlinear.html">52.5. Scalar non-linear equation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/characteristics.html">52.6. Method of characteristics</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../pde/hyperbolic-nd.html">52.7. Hyperbolic problems in multi-dimensional domains</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-draft.html">52.7.1. General hyperbolic problem</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-psys.html">52.7.2. P-system</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-euler.html">52.7.3. Euler equations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-shallow-water.html">52.7.4. Shallow water</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/intro.html">50. Introduction to Partial Differential Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/elliptic.html">51. Elliptic equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/parabolic.html">52. Parabolic equations</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/hyperbolic.html">53. Hyperbolic equations</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-intro.html">53.1. Hyperbolic problems and conservation laws</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-dimensions.html">53.2. Hyperbolic problems - dimensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-1d-scalar-linear.html">53.3. Scalar linear equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-1d-vector-linear.html">53.4. Linear vector equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-1d-scalar-nonlinear.html">53.5. Scalar non-linear equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/characteristics.html">53.6. Method of characteristics</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../pde/hyperbolic-nd.html">53.7. Hyperbolic problems in multi-dimensional domains</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-draft.html">53.7.1. General hyperbolic problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-psys.html">53.7.2. P-system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-euler.html">53.7.3. Euler equations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-shallow-water.html">53.7.4. Shallow water</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-riemann-pb.html">52.8. Riemann problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-entropy.html">52.9. Physical solution in hyperbolic problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-convexity.html">52.10. Convexity in hyperbolic problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-non-convex.html">52.11. Non-convex hyperbolic problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-riemann-pb.html">53.8. Riemann problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-entropy.html">53.9. Physical solution in hyperbolic problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-convexity.html">53.10. Convexity in hyperbolic problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-non-convex.html">53.11. Non-convex hyperbolic problems</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../pde/nc.html">53. Navier-Cauchy equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pde/ns.html">54. Navier-Stokes equations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../pde/ale.html">55. Arbitrary Lagrangian-Eulerian description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/nc.html">54. Navier-Cauchy equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/ns.html">55. Navier-Stokes equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/ale.html">56. Arbitrary Lagrangian-Eulerian description</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Numerical Methods for PDEs</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../pde/numerics.html">56. Introduction to numerical methods for PDEs</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/fem.html">57. Finite Element Method</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../pde/fem-poisson-1d.html">57.1. 1-dimensional Poisson equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/numerics.html">57. Introduction to numerical methods for PDEs</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/fem.html">58. Finite Element Method</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pde/fem-poisson-1d.html">58.1. 1-dimensional Poisson equation</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/fvm.html">58. Finite Volume Method</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../pde/fvm-poisson-1d.html">58.1. 1-dimensional Poisson equation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/fvm-hyperbolic-pde.html">58.2. FVM for hyperbolic problems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pde/fvm-hyperbolic-bc.html">58.3. Boundary conditions in hyperbolic problems</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../pde/fvm-hyperbolic-examples.html">58.4. Examples of FVM for hyperbolic problems</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../pde/psys-1d.html">58.4.1. 1-dimensional P-system</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../pde/euler-1d.html">58.4.2. 1-dimensional Euler equations for Perfect Ideal Gas</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../pde/euler-quasi-1d.html">58.4.3. Quasi 1-dimensional Euler equations for Perfect Ideal Gas</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../pde/euler-1d-ale-piston.html">58.4.4. 1-dimensional Euler equations for Perfect Ideal Gas on moving mesh (ALE)</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/fvm.html">59. Finite Volume Method</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pde/fvm-poisson-1d.html">59.1. 1-dimensional Poisson equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/fvm-hyperbolic-pde.html">59.2. FVM for hyperbolic problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/fvm-hyperbolic-bc.html">59.3. Boundary conditions in hyperbolic problems</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../pde/fvm-hyperbolic-examples.html">59.4. Examples of FVM for hyperbolic problems</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../pde/psys-1d.html">59.4.1. 1-dimensional P-system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/euler-1d.html">59.4.2. 1-dimensional Euler equations for Perfect Ideal Gas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/euler-quasi-1d.html">59.4.3. Quasi 1-dimensional Euler equations for Perfect Ideal Gas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/euler-1d-ale-piston.html">59.4.4. 1-dimensional Euler equations for Perfect Ideal Gas on moving mesh (ALE)</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../pde/bem.html">59. Boundary Element Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/bem.html">60. Boundary Element Method</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Boundary Methods for PDEs</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../pde/bem-poisson-helmholtz-waves.html">60. Green’s function method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/bem-poisson-helmholtz-waves.html">61. Green’s function method</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Optimization</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../optimization/intro.html">61. Optimization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../optimization/intro.html">62. Optimization</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Reinforcement Learning</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../rl/intro.html">62. Introduction to Reinforcement Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rl/mdp.html">63. Markov Processes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_sol_dp_lp.html">64. Methods of solution of MPD: DP and LP</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_sol_rl.html">65. Methods of solution of MPD: RL</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_large_continuous.html">66. Large or Continuous MDPs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/intro.html">63. Introduction to Reinforcement Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp.html">64. Markov Processes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_sol_dp_lp.html">65. Methods of solution of MPD: DP and LP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_sol_rl.html">66. Methods of solution of MPD: RL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_large_continuous.html">67. Large or Continuous MDPs</a></li>
 </ul>
 
     </div>
@@ -604,13 +605,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fourier-transform-of-integrable-functions">21.3.1. Fourier transform of integrable functions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fourier-series">21.3.2. Fourier series</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-time-fourier-transform">21.3.3. Discrete-time Fourier transform</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-fourier-transform">21.3.4. Discrete Fourier transform</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-properties">21.3.5. Useful properties</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dirac-s-comb-text-iii-delta-t-t">21.3.5.1. Dirac’s comb <span class="math notranslate nohighlight">\(\text{III}_{\Delta t}(t)\)</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#symmetry-of-fourier-transform">21.3.5.2. Symmetry of Fourier transform</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fourier-transform-of-integrable-functions">22.3.1. Fourier transform of integrable functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fourier-series">22.3.2. Fourier series</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-time-fourier-transform">22.3.3. Discrete-time Fourier transform</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-fourier-transform">22.3.4. Discrete Fourier transform</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-properties">22.3.5. Useful properties</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dirac-s-comb-text-iii-delta-t-t">22.3.5.1. Dirac’s comb <span class="math notranslate nohighlight">\(\text{III}_{\Delta t}(t)\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#symmetry-of-fourier-transform">22.3.5.2. Symmetry of Fourier transform</a></li>
 </ul>
 </li>
 </ul>
@@ -625,7 +626,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="relations-between-fourier-transforms">
-<span id="complex-fourier-transforms"></span><h1><span class="section-number">21.3. </span>Relations between Fourier transforms<a class="headerlink" href="#relations-between-fourier-transforms" title="Permalink to this heading">#</a></h1>
+<span id="complex-fourier-transforms"></span><h1><span class="section-number">22.3. </span>Relations between Fourier transforms<a class="headerlink" href="#relations-between-fourier-transforms" title="Permalink to this heading">#</a></h1>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Some freestyle in changing order of summations and integrals, and use of generalized functions here…check it!</p>
@@ -659,14 +660,14 @@ Different Fourier transforms<div class="sd-summary-down docutils">
 <li><p>putting the last two points together, the Fourier transform of a infinite sum of <span class="math notranslate nohighlight">\(T\)</span>-shifted <span class="math notranslate nohighlight">\(\Delta t\)</span>-sampled function is evaluated resulting in…<strong>DFT</strong></p></li>
 </ul>
 <div class="section" id="fourier-transform-of-integrable-functions">
-<span id="complex-fourier-transform"></span><h2><span class="section-number">21.3.1. </span>Fourier transform of integrable functions<a class="headerlink" href="#fourier-transform-of-integrable-functions" title="Permalink to this heading">#</a></h2>
+<span id="complex-fourier-transform"></span><h2><span class="section-number">22.3.1. </span>Fourier transform of integrable functions<a class="headerlink" href="#fourier-transform-of-integrable-functions" title="Permalink to this heading">#</a></h2>
 <div class="math notranslate nohighlight">
 \[F(\nu) := \mathscr{F}\left\{f(t)\right\}(\nu) := \int_{t=-\infty}^{+\infty} f(t) e^{-i 2 \pi \nu t} \, dt \ ,\]</div>
 <p>…</p>
 <p>this is the starndard Fourier transform.</p>
 </div>
 <div class="section" id="fourier-series">
-<span id="complex-fourier-series"></span><h2><span class="section-number">21.3.2. </span>Fourier series<a class="headerlink" href="#fourier-series" title="Permalink to this heading">#</a></h2>
+<span id="complex-fourier-series"></span><h2><span class="section-number">22.3.2. </span>Fourier series<a class="headerlink" href="#fourier-series" title="Permalink to this heading">#</a></h2>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
 <summary class="sd-summary-title sd-card-header">
 Fourier transform of the sum of shifted integrable functions<div class="sd-summary-down docutils">
@@ -708,7 +709,7 @@ The function $\widetilde{f}_T(t)$ is $T$-periodic by definition. Its Fourier ser
 </div>
 </details></div>
 <div class="section" id="discrete-time-fourier-transform">
-<span id="complex-fourier-dtft"></span><h2><span class="section-number">21.3.3. </span>Discrete-time Fourier transform<a class="headerlink" href="#discrete-time-fourier-transform" title="Permalink to this heading">#</a></h2>
+<span id="complex-fourier-dtft"></span><h2><span class="section-number">22.3.3. </span>Discrete-time Fourier transform<a class="headerlink" href="#discrete-time-fourier-transform" title="Permalink to this heading">#</a></h2>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
 <summary class="sd-summary-title sd-card-header">
 Fourier transform of an integrable function sampled with a Dirac comb<div class="sd-summary-down docutils">
@@ -723,7 +724,7 @@ Fourier transform of an integrable function sampled with a Dirac comb<div class=
  &amp; = \Delta t \int_{t=-\infty}^{+\infty} f(t) \, \text{III}_{\Delta t}(t) e^{-i 2 \pi \nu t} \, dt =  \\
 \end{aligned}\end{split}\]</div>
 <div class="math notranslate nohighlight" id="equation-eq-dtft-1">
-<span class="eqno">(21.6)<a class="headerlink" href="#equation-eq-dtft-1" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+<span class="eqno">(22.6)<a class="headerlink" href="#equation-eq-dtft-1" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
  &amp; \sim \Delta t \frac{1}{\Delta t} \int_{t=-\infty}^{+\infty} f(t) \, \sum_{n=-\infty}^{+\infty} e^{i n \frac{2 \pi}{\Delta t} t} e^{-i 2 \pi \nu t} \, dt =  \\
  &amp; = \sum_{n=-\infty}^{+\infty}  \int_{t=-\infty}^{+\infty} f(t) \, e^{-i 2 \pi \left( \nu - n \nu_s \right) t} \, dt =  \\
  &amp; = \sum_{n=-\infty}^{+\infty} F\left(\nu - n \nu_s \right) = \text{DTFT}(f(t); \Delta t) \ ,
@@ -734,7 +735,7 @@ Fourier transform of an integrable function sampled with a Dirac comb<div class=
 <p class="sd-card-text">From this last sentence and from the <a class="reference internal" href="#complex-fourier-useful-properties-symmetry"><span class="std std-ref">symmetry properties of Fourier transform</span></a>, <strong>Nyquist-Shannon sampling theorem</strong> follows seamlessly.</p>
 </div>
 </details><div class="proof theorem admonition" id="thm-shannon-nyquist">
-<p class="admonition-title"><span class="caption-number">Theorem 21.1 </span> (Nyquist-Shannon sampling theorem)</p>
+<p class="admonition-title"><span class="caption-number">Theorem 22.1 </span> (Nyquist-Shannon sampling theorem)</p>
 <div class="theorem-content section" id="proof-content">
 <p>In order to <strong>avoid aliasing</strong> the sampling frequency must be twice the maxiumum<a class="footnote-reference brackets" href="#shannon-max-frequency" id="id1">1</a> frequency in the signal,</p>
 <div class="math notranslate nohighlight">
@@ -749,14 +750,14 @@ Alternative form of DTFT<div class="sd-summary-down docutils">
 </summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text"><strong>todo</strong> check alternative expressions if using the definition of train of impulses instead of the Fourier series of Dirac’s comb.</p>
 <div class="math notranslate nohighlight" id="equation-eq-dtft-2">
-<span class="eqno">(21.7)<a class="headerlink" href="#equation-eq-dtft-2" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+<span class="eqno">(22.7)<a class="headerlink" href="#equation-eq-dtft-2" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
  &amp; = \Delta t \int_{t=-\infty}^{+\infty} f(t) \sum_{k=-\infty}^{+\infty} \delta(t - k \Delta t) \, e^{-i 2 \pi \nu t} \, dt = \\
  &amp; = \Delta t \sum_{k=-\infty}^{+\infty} f(k \Delta t)  e^{-i 2 \pi \nu k \Delta t} = \text{DTFT}\left( f(t); \Delta t \right)(\nu) \ .
 \end{aligned}\end{split}\]</div>
 </div>
 </details></div>
 <div class="section" id="discrete-fourier-transform">
-<span id="complex-fourier-dft"></span><h2><span class="section-number">21.3.4. </span>Discrete Fourier transform<a class="headerlink" href="#discrete-fourier-transform" title="Permalink to this heading">#</a></h2>
+<span id="complex-fourier-dft"></span><h2><span class="section-number">22.3.4. </span>Discrete Fourier transform<a class="headerlink" href="#discrete-fourier-transform" title="Permalink to this heading">#</a></h2>
 <p>The discrete Fourier transform is a Fourier transform of a finite sequence of <span class="math notranslate nohighlight">\(N\)</span> elements <span class="math notranslate nohighlight">\(\{ f_n \}_{n=0:N-1}\)</span>, defined as</p>
 <div class="math notranslate nohighlight">
 \[F_k := \sum_{n=0}^{N-1} f_n \, e^{-i 2 \pi \frac{k}{N}{n}} \ , \quad \text{for $k = 0:N-1$} \ ,\]</div>
@@ -832,16 +833,16 @@ Relation between DFT and sampling<div class="sd-summary-down docutils">
 </div>
 </details></div>
 <div class="section" id="useful-properties">
-<span id="complex-fourier-useful-properties"></span><h2><span class="section-number">21.3.5. </span>Useful properties<a class="headerlink" href="#useful-properties" title="Permalink to this heading">#</a></h2>
+<span id="complex-fourier-useful-properties"></span><h2><span class="section-number">22.3.5. </span>Useful properties<a class="headerlink" href="#useful-properties" title="Permalink to this heading">#</a></h2>
 <div class="section" id="dirac-s-comb-text-iii-delta-t-t">
-<span id="complex-fourier-useful-properties-dirac-comb"></span><h3><span class="section-number">21.3.5.1. </span>Dirac’s comb <span class="math notranslate nohighlight">\(\text{III}_{\Delta t}(t)\)</span><a class="headerlink" href="#dirac-s-comb-text-iii-delta-t-t" title="Permalink to this heading">#</a></h3>
+<span id="complex-fourier-useful-properties-dirac-comb"></span><h3><span class="section-number">22.3.5.1. </span>Dirac’s comb <span class="math notranslate nohighlight">\(\text{III}_{\Delta t}(t)\)</span><a class="headerlink" href="#dirac-s-comb-text-iii-delta-t-t" title="Permalink to this heading">#</a></h3>
 <p>Dirac comb <span class="math notranslate nohighlight">\(\text{III}_{\Delta t}(t)\)</span> is defined as a train of Dirac’s delta</p>
 <div class="math notranslate nohighlight">
 \[\text{III}_{\Delta t}(t) = \sum_{m=-\infty}^{+\infty} \delta(t-m \Delta t) \ .\]</div>
-<p>Dirac comb $<span class="math notranslate nohighlight">\(\text{III}_{\Delta t}(t)\)</span><span class="math notranslate nohighlight">\( is a \)</span>\Delta t$-periodic (generalized) function. Thus (…), it can be represented as its Fourier series, here in the exponential form <a class="reference internal" href="fourier-series.html#equation-eq-fourier-series-exp">(21.1)</a>, as</p>
+<p>Dirac comb $<span class="math notranslate nohighlight">\(\text{III}_{\Delta t}(t)\)</span><span class="math notranslate nohighlight">\( is a \)</span>\Delta t$-periodic (generalized) function. Thus (…), it can be represented as its Fourier series, here in the exponential form <a class="reference internal" href="fourier-series.html#equation-eq-fourier-series-exp">(22.1)</a>, as</p>
 <div class="math notranslate nohighlight">
 \[\text{III}_{\Delta t}(t) \sim \sum_{n=-\infty}^{+\infty} c_n e^{i n \frac{2 \pi}{\Delta t} t}\ .\]</div>
-<p>with coefficients given by <a class="reference internal" href="fourier-series.html#equation-eq-fourier-series-exp-coeff">(21.2)</a></p>
+<p>with coefficients given by <a class="reference internal" href="fourier-series.html#equation-eq-fourier-series-exp-coeff">(22.2)</a></p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
   c_n 
@@ -855,7 +856,7 @@ Relation between DFT and sampling<div class="sd-summary-down docutils">
 <p>i.e. as an infinite sum of uniform-amplitude harmonics with discrete frequencies <span class="math notranslate nohighlight">\(\nu_n\)</span>, that are integer multiple of a fundamental freqeuncy <span class="math notranslate nohighlight">\(\nu_s = \frac{1}{\Delta t}\)</span>, being <span class="math notranslate nohighlight">\(\Delta t\)</span> the sampling time (time-step of the discrete sequence), inverse of sampling frequency.</p>
 </div>
 <div class="section" id="symmetry-of-fourier-transform">
-<span id="complex-fourier-useful-properties-symmetry"></span><h3><span class="section-number">21.3.5.2. </span>Symmetry of Fourier transform<a class="headerlink" href="#symmetry-of-fourier-transform" title="Permalink to this heading">#</a></h3>
+<span id="complex-fourier-useful-properties-symmetry"></span><h3><span class="section-number">22.3.5.2. </span>Symmetry of Fourier transform<a class="headerlink" href="#symmetry-of-fourier-transform" title="Permalink to this heading">#</a></h3>
 <hr class="footnotes docutils" />
 <dl class="footnote brackets">
 <dt class="label" id="shannon-max-frequency"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
@@ -902,7 +903,7 @@ Relation between DFT and sampling<div class="sd-summary-down docutils">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">21.2. </span>Fourier Transform</p>
+        <p class="prev-next-title"><span class="section-number">22.2. </span>Fourier Transform</p>
       </div>
     </a>
     <a class="right-next"
@@ -910,7 +911,7 @@ Relation between DFT and sampling<div class="sd-summary-down docutils">
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">21.4. </span>Practice on Fourier analysis on finite-time discrete-time signal</p>
+        <p class="prev-next-title"><span class="section-number">22.4. </span>Practice on Fourier analysis on finite-time discrete-time signal</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -929,13 +930,13 @@ Relation between DFT and sampling<div class="sd-summary-down docutils">
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fourier-transform-of-integrable-functions">21.3.1. Fourier transform of integrable functions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fourier-series">21.3.2. Fourier series</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-time-fourier-transform">21.3.3. Discrete-time Fourier transform</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-fourier-transform">21.3.4. Discrete Fourier transform</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-properties">21.3.5. Useful properties</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dirac-s-comb-text-iii-delta-t-t">21.3.5.1. Dirac’s comb <span class="math notranslate nohighlight">\(\text{III}_{\Delta t}(t)\)</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#symmetry-of-fourier-transform">21.3.5.2. Symmetry of Fourier transform</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fourier-transform-of-integrable-functions">22.3.1. Fourier transform of integrable functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fourier-series">22.3.2. Fourier series</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-time-fourier-transform">22.3.3. Discrete-time Fourier transform</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discrete-fourier-transform">22.3.4. Discrete Fourier transform</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-properties">22.3.5. Useful properties</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dirac-s-comb-text-iii-delta-t-t">22.3.5.1. Dirac’s comb <span class="math notranslate nohighlight">\(\text{III}_{\Delta t}(t)\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#symmetry-of-fourier-transform">22.3.5.2. Symmetry of Fourier transform</a></li>
 </ul>
 </li>
 </ul>
