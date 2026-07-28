@@ -119,6 +119,9 @@ Let $f(x) < C$ for $x \in U_{x_0}$. Then $L := \lim_{x \rightarrow x_0} f(x) \le
 (multivariable:interchanging-operators:limit-integral)=
 ## Interchange limit and integral
 
+(multivariable:interchanging-operators:limit-integral:riemann)=
+### Riemann integral
+
 If
 
 * $[a,b]$ compact
@@ -149,7 +152,48 @@ As $\sup g = \sup ( f + g - f ) \le \sup f + \sup |f-g|$, $\inf g = \inf ( f + g
 
 $$U(g,P) - L(g,P) \le U(f,P) - U(f,P) + 2 \sup|f-g| (b-a) < \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon \ .$$
 
+For Riemann crieterion, $g$ is Riemann integrable. Then
 
+$$\left| \int_{a}^{b} f(x,y) \, dx - \int_{a}^{b} g(x) \, dx \right| \le \int_{a}^{b} \left| f(x,y) - g(x) \right| \, dx \le (b-a) \sup_{x \in [a,b]} | f(x,y) - g(x) | < \frac{varepsilon}{4} \ ,$$
+
+and thus
+
+$$\lim_{y \rightarrow y_0} \int_{a}^{b} f(x,y) \, dx = \int_{a}^{b} \lim_{y \rightarrow y_0} f(x,y) \, dx \ .$$
+
+
+```
+
+**Counter-example.** $f(x,y) = y^2 x ( 1 - x )^y$, for $x \in [0,1]$, for $y \rightarrow +\infty$.
+
+```{dropdown} Details
+
+As $y \rightarrow + \infty$, $f(x,y) \rightarrow 0$ for all $x \in [0,1]$, and thus $\int_{0}^{1} \lim_{y \rightarrow +\infty} f(x,y) \, dx = 0$.
+On the other hand, 
+
+$$\begin{aligned}
+  \int_{0}^{1} y^2 x ( 1 - x )^y \, dx & = (u = 1 - x, \ du = -dx) \\
+  & = \int_{0}^{1} y^2 ( 1 - u ) u^y du = \\
+  & = y^2 \left.\left( \frac{1}{y+1} u^{y+1} - \frac{1}{y+2} u^{y+2} \right)\right|_{u=0}^{1} = \\
+  & = \frac{y^2}{(y+1)(y+2)} \ ,
+\end{aligned}$$
+
+and thus $\lim_{y \rightarrow +\infty} \int_{0}^{1} f(x,y) \, dx = 1$.
+
+This occurs because $f(x,y)$ doesn't converge uniformly as $y \rightarrow +\infty$. This can be easily proved as:
+* the function $f(x,y)$ converges pointwise to $0$ as $y \rightarrow +\infty$
+* but
+
+  $$\sup_{x \in [0,1]} | f(x,y) - 0 | = y^2 \left( 1 - \frac{1}{1+y} \right)^{y+1} \rightarrow +\infty \, \text{as $y \rightarrow + \infty$}$$
+
+since
+
+$$\partial_x f(x,y) = y^2 \left[ (1-x)^y - y x ( 1 - x )^{y-1} \right] = y^2 ( 1 - x )^{y-1} ( 1 - x - x y )$$
+
+$$0 = \partial_x f(\overline{x}, y) \quad \Rightarrow \quad \overline{x}_1 = 1 \ , \quad \overline{x}_2 = \frac{1}{1+y}$$
+
+$$f(\overline{x}_2, y) = y^2 \left( 1 - \frac{1}{1+y} \right)^{y+1} $$
+
+as $\lim_{y \rightarrow +\infty} \left( 1 - \frac{1}{1+y} \right)^{y+1} = e^{-1}$, it follows that $\lim_{y \rightarrow +\infty} f(\overline{x}_2, y) = +\infty$. Thus $\lim_{y \rightarrow + \infty} \sup_{x \in [0,1]} | f(x,y) - 0 | = +\infty$, and $f(x,y)$ doesn't converge uniformly to $0$.
 
 ```
 
@@ -162,13 +206,117 @@ with $\xi_n \in [x_n, x_{n+1}]$ with $x_0 = a$, $x_N = b$.
 
 ```
 
-(multivariable:interchanging-operators:limit-integral:riemann)=
-### Riemann integral
+```{dropdown} Riemann criterion for integrability
+:open:
+
+
+```
+
 
 (multivariable:interchanging-operators:limit-integral:lebesgue)=
 ### Lebesgue integral
 
+...
+
+**Counter-example.** $f(x,y) = y \cdot 1_{\left(0,\frac{1}{y}\right)}(x)$ for $x \in [0,1]$, for $y \rightarrow +\infty$.
+
 
 (multivariable:interchanging-operators:limit-derivative)=
 ## Interchange limit and derivative
+
+* $I$ **open** interval
+* $f(\cdot,y)$ differentaible on $I$ for $\forall y \in V_{y_0}$, punctured
+
+Suppose:
+1. $f(x_1,y)$ converges as $y\rightarrow y_0$ for at least one point $x_1 \in I$
+2. $f_x(x,y) \rightarrow h(x)$ uniformly as $y\rightarrow y_0$ for $x$ in every compact subinterval $J \subseteq I$ *(This is required for differentiation as $I$ is open)*
+
+Then:
+
+* $f(x,y)$ converges locally uniformly for $\forall x \in I$ to some $g(x)$, as $y \rightarrow y_0$
+* $g(x)$ is differentiable on $I$ and
+
+   $$\frac{d}{dx} \left( \lim_{y \rightarrow y_0} f(x,y) \right) = g'(x) = h(x) = \lim_{y \rightarrow y_0} \frac{\partial f}{\partial x}(x,y) \ .$$
+
+```{Dropdown} Proof
+:open:
+
+Let (and fix) $J \subset I$ compact, with $x_1 \in J$, and length $|J|$.
+
+**Step 1. 1. and 2. implies that $f(\cdot, y)$ converges uniformly to some $g(x)$ for $x \in J$.** By 2., for all $\varepsilon > 0$, $\exists V_{y_0, \delta}$ so that (Cauchy criterion)
+
+$$\sup_{\xi \in J}|f_x(\xi,y) - f_x(\xi,y')| < \frac{\varepsilon}{2 (|J| + 1)} \ ,$$ (eq:interchange:diff:1)
+
+for all $y, \, y' \in V_{y_0}$. Applying Mean Value Theorem to $\Phi(x) := f(x,y) - f(x,y')$, differentiable for $x \in I$, there's a $\xi \in [x, x_1]$ so that
+
+$$\Phi(x) - \Phi(x_1) = \Phi'(\xi) \, (x - x_1) = \left[ f_x'(\xi, y) - f_x'(x,y) \right] ( x - x_1 ) \ ,$$
+
+and 
+
+$$\left| f(x,y) - f(x,y') \right| \le \left| f(x_1,y) - f(x_1,y') \right| + \left|  \left[ f_x'(\xi, y) - f_x'(x,y) \right] ( x - x_1 )  \right|$$
+
+By 1., for $\forall \varepsilon > 0$, there's a $V_{y_0,\delta_1}$ ($\subseteq V_{y_0,\delta$, so that the uniform convergence of $f_x(\cdot, y)$ still holds) so that $\left| f(x_1, y) - f(x_1, y') \right| < \frac{\varepsilon}{2}$. Using {eq}`eq:interchange:diff:1`, the second term is bounded by $\frac{\varepsilon}{2(|J|+1)}|J| < \frac{\varepsilon}{2}$, and thus for all $x \in J$
+
+$$\left| f(x,y) - f(x,y') \right| < \varepsilon \ ,$$
+
+i.e. $f(x,y)$ converges uniformly for $x \in J$ (to some $g(x)$) as $y \rightarrow y_0$. **todo** *Discuss how $g(x)$ can be defined "interval-wise" through uniform convergence on all the $J \subset I$*.
+
+**Step 2. Differentiability of $g$, through Moore-Osgood.** As the derivative can be defined as the limit of the incremental ratio, the limit of a derivative and the derivative of a limit involve two limits on different variables. Thus, the possibility of interchanging limit and derivative operators can be proved trhough Moore-Osgood theorem.
+
+Fix $x \in I$. For $t \ne 0$ so that $[x, x+t] \in I$ (or $[x+t,x] \in I$), define the incremental ratios
+
+$$Q(t,y) := \frac{f(x+t,y)-f(x,y)}{t} \quad , \quad \varphi(t) := \frac{g(x+t) - g(x)}{t} \ .$$
+
+Let's check the assumptions of Moore-Osgood theorem for the limits $\lim_{t \rightarrow 0}$, $\lim_{y \rightarrow y_0}$ applied to $Q$
+
+* **Assumption 1. of M-O theorem** For every $y \in V_{y_0}$, $\lim_{t \rightarrow 0} Q(t,y)$ exists for all $x \in J \subset I$, and it's equal (by definition) to $\lim_{t \rightarrow 0} Q(t,y) = f_{x}(x,y)$
+
+* **Assumption 2. of M-O theorem** ($Q(t,y) \rightarrow \varphi(t)$ uniformly as $y \rightarrow y_0$ for $t \in T_0$ punctured). For every fixed $t$, $Q(t,y) \rightarrow \varphi(y)$ as $f(\cdot,y) \rightarrow g(\cdot)$ as $y \rightarrow y_0$ (and this convergence holds for $x$, $x+t$). In order to proof that the convergence is uniform in $t$, let's apply MVT to $f(x+t,y) - f(x+t,y')$
+
+  $$\left| Q(t,y) - Q(t,y') \right| = \left| \frac{f(x+t,y) - f(x,y) - f(x+t,y') + f(x,y')}{t} \right| = \left| f_x(\xi,y) - f_x(\xi,y') \right| \ ,$$
+
+  for some $\xi \in [x, x+t]$. By 2., for $\forall \eta > 0$ $\exists V_{y_0}$ (and Cauchy criterion) so that $|f_x(\xi, y) - f_x(\xi,y')| < \eta$ for $y, y' \in V_{y_0}$, independently of $t$. Thus $Q(t, \cdot)$ converges uniformly in $t$ as $y \rightarrow y_0$. Since $Q(t,y) \rightarrow \varphi(t)$ pointwise for $y \rightarrow y_0$, and $Q(t,y)$ converges uniformly, thus $Q(t,y) \rightarrow \varphi(t)$ uniformly in $t$ for $y \rightarrow y_0$.
+
+As the two assumptions of Moore-Osgood theorem holds for $Q(t,y)$, the theorem implies that
+
+* $\lim_{y \rightarrow y_0} f_x(x,y)$ exists
+* $\lim_{t \rightarrow 0} \varphi(t)$ exists
+* and
+
+   $$h(x) := \lim_{y \rightarrow y_0} f_x(x,y) = \lim_{t \rightarrow 0} \varphi(t) = \dfrac{d}{dx} g(x) = \dfrac{d}{dx} \left( \lim_{y \rightarrow y_0} f(x,y) \right) \ . \quad \blacksquare$$
+
+
+```
+
+**Counter-example.** $f(x,y) = \frac{\sin(yx)}{\sqrt{y}}$, with $x \in \mathbb{R}$ and $y \rightarrow +\infty$.
+
+The function $f(x,y) \rightarrow 0$ uniformly as $y \rightarrow +\infty$ (it converges pointwise to $0$ and $\sup |f(x,y) - 0| = \frac{1}{\sqrt{y}} \rightarrow 0$ as $y \rightarrow + \infty$).
+
+The derivative $\partial_x f(x,y) = \sqrt{y} \cos(yx)$ doesn't converge to any function as $y \rightarrow + \infty$, and thus it doesn't converge uniformly neither. It meaningless even to try evaluating its derivative.
+
+## Extra
+
+**Uniqueness of the theorem.** If $\lim_{x \rightarrow x_0} f(x) = L_1$, and $\lim_{x \rightarrow x_0} f(x) = L_2$, then $L_1 = L_2$.
+
+```{Drodpown} Uniqueness of the limit
+:open:
+
+With the very definition of the limit
+
+* for $\forall \varepsilon_1 > 0$, $\exists \delta_1 > 0$ s.t.
+
+   $$| f(x) - L_1 | < \varepsilon_1 \ , \quad \forall 0 < |y - y_0| < \delta_1 \ , $$
+
+* for $\forall \varepsilon_2 > 0$, $\exists \delta_2 > 0$ s.t.
+
+   $$| f(x) - L_2 | < \varepsilon_2 \ , \quad \forall 0 < |y - y_0| < \delta_2 \ . $$
+
+For $\forall \varepsilon > 0$ choose $\varepsilon_1 = \varepsilon_2 = \frac{\varepsilon}{2}$. Choose $\delta = \min \{ \delta_1, \delta_2 \}$ and choose $y$ with $0 < | y - y_0 | < \delta$. Then
+
+$$| L_1 - L_2 | = | L_1 - f(x) + f_(x) - L_2 | \le |f(x)-L_1| + |f(x)-L_2| \le \varepsilon \ ,$$
+
+and thus, as this holds for $\forall \varepsilon > 0$. Then $| L_1 - L_2 |$ must be $= 0$, and thus $L_1 = L_2$.
+
+
+```
 

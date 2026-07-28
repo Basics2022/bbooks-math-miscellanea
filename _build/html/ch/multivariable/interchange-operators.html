@@ -76,15 +76,6 @@ const thebe_selector_output = ".output, .cell_output"
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPXX63Z3XR"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-JPXX63Z3XR');
-</script>
-
   
   
   <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
@@ -612,6 +603,7 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interchange-limit-and-derivative">8.3. Interchange limit and derivative</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extra">8.4. Extra</a></li>
 </ul>
             </nav>
         </div>
@@ -730,6 +722,8 @@ From <span class="math notranslate nohighlight">\(\ &lt; \ \)</span> to <span cl
 </details></div>
 <div class="section" id="interchange-limit-and-integral">
 <span id="multivariable-interchanging-operators-limit-integral"></span><h2><span class="section-number">8.2. </span>Interchange limit and integral<a class="headerlink" href="#interchange-limit-and-integral" title="Permalink to this heading">#</a></h2>
+<div class="section" id="riemann-integral">
+<span id="multivariable-interchanging-operators-limit-integral-riemann"></span><h3><span class="section-number">8.2.1. </span>Riemann integral<a class="headerlink" href="#riemann-integral" title="Permalink to this heading">#</a></h3>
 <p>If</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\([a,b]\)</span> compact</p></li>
@@ -762,6 +756,47 @@ Proof<div class="sd-summary-down docutils">
 <p class="sd-card-text">As <span class="math notranslate nohighlight">\(\sup g = \sup ( f + g - f ) \le \sup f + \sup |f-g|\)</span>, <span class="math notranslate nohighlight">\(\inf g = \inf ( f + g - f ) \le \inf f - \sup | f-g |\)</span>,</p>
 <div class="math notranslate nohighlight">
 \[U(g,P) - L(g,P) \le U(f,P) - U(f,P) + 2 \sup|f-g| (b-a) &lt; \frac{\varepsilon}{2} + \frac{\varepsilon}{2} = \varepsilon \ .\]</div>
+<p class="sd-card-text">For Riemann crieterion, <span class="math notranslate nohighlight">\(g\)</span> is Riemann integrable. Then</p>
+<div class="math notranslate nohighlight">
+\[\left| \int_{a}^{b} f(x,y) \, dx - \int_{a}^{b} g(x) \, dx \right| \le \int_{a}^{b} \left| f(x,y) - g(x) \right| \, dx \le (b-a) \sup_{x \in [a,b]} | f(x,y) - g(x) | &lt; \frac{varepsilon}{4} \ ,\]</div>
+<p class="sd-card-text">and thus</p>
+<div class="math notranslate nohighlight">
+\[\lim_{y \rightarrow y_0} \int_{a}^{b} f(x,y) \, dx = \int_{a}^{b} \lim_{y \rightarrow y_0} f(x,y) \, dx \ .\]</div>
+</div>
+</details><p><strong>Counter-example.</strong> <span class="math notranslate nohighlight">\(f(x,y) = y^2 x ( 1 - x )^y\)</span>, for <span class="math notranslate nohighlight">\(x \in [0,1]\)</span>, for <span class="math notranslate nohighlight">\(y \rightarrow +\infty\)</span>.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Details<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">As <span class="math notranslate nohighlight">\(y \rightarrow + \infty\)</span>, <span class="math notranslate nohighlight">\(f(x,y) \rightarrow 0\)</span> for all <span class="math notranslate nohighlight">\(x \in [0,1]\)</span>, and thus <span class="math notranslate nohighlight">\(\int_{0}^{1} \lim_{y \rightarrow +\infty} f(x,y) \, dx = 0\)</span>.
+On the other hand,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \int_{0}^{1} y^2 x ( 1 - x )^y \, dx &amp; = (u = 1 - x, \ du = -dx) \\
+  &amp; = \int_{0}^{1} y^2 ( 1 - u ) u^y du = \\
+  &amp; = y^2 \left.\left( \frac{1}{y+1} u^{y+1} - \frac{1}{y+2} u^{y+2} \right)\right|_{u=0}^{1} = \\
+  &amp; = \frac{y^2}{(y+1)(y+2)} \ ,
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">and thus <span class="math notranslate nohighlight">\(\lim_{y \rightarrow +\infty} \int_{0}^{1} f(x,y) \, dx = 1\)</span>.</p>
+<p class="sd-card-text">This occurs because <span class="math notranslate nohighlight">\(f(x,y)\)</span> doesn’t converge uniformly as <span class="math notranslate nohighlight">\(y \rightarrow +\infty\)</span>. This can be easily proved as:</p>
+<ul>
+<li><p class="sd-card-text">the function <span class="math notranslate nohighlight">\(f(x,y)\)</span> converges pointwise to <span class="math notranslate nohighlight">\(0\)</span> as <span class="math notranslate nohighlight">\(y \rightarrow +\infty\)</span></p></li>
+<li><p class="sd-card-text">but</p>
+<div class="math notranslate nohighlight">
+\[\sup_{x \in [0,1]} | f(x,y) - 0 | = y^2 \left( 1 - \frac{1}{1+y} \right)^{y+1} \rightarrow +\infty \, \text{as $y \rightarrow + \infty$}\]</div>
+</li>
+</ul>
+<p class="sd-card-text">since</p>
+<div class="math notranslate nohighlight">
+\[\partial_x f(x,y) = y^2 \left[ (1-x)^y - y x ( 1 - x )^{y-1} \right] = y^2 ( 1 - x )^{y-1} ( 1 - x - x y )\]</div>
+<div class="math notranslate nohighlight">
+\[0 = \partial_x f(\overline{x}, y) \quad \Rightarrow \quad \overline{x}_1 = 1 \ , \quad \overline{x}_2 = \frac{1}{1+y}\]</div>
+<div class="math notranslate nohighlight">
+\[f(\overline{x}_2, y) = y^2 \left( 1 - \frac{1}{1+y} \right)^{y+1} \]</div>
+<p class="sd-card-text">as <span class="math notranslate nohighlight">\(\lim_{y \rightarrow +\infty} \left( 1 - \frac{1}{1+y} \right)^{y+1} = e^{-1}\)</span>, it follows that <span class="math notranslate nohighlight">\(\lim_{y \rightarrow +\infty} f(\overline{x}_2, y) = +\infty\)</span>. Thus <span class="math notranslate nohighlight">\(\lim_{y \rightarrow + \infty} \sup_{x \in [0,1]} | f(x,y) - 0 | = +\infty\)</span>, and <span class="math notranslate nohighlight">\(f(x,y)\)</span> doesn’t converge uniformly to <span class="math notranslate nohighlight">\(0\)</span>.</p>
 </div>
 </details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
 <summary class="sd-summary-title sd-card-header">
@@ -774,15 +809,91 @@ Riemann integrable function<div class="sd-summary-down docutils">
 \[\int_{x=a}^{b} f(x) \,\ dx = \lim_{\Delta x \rightarrow +\infty} \sum_{n=1}^{N} f(\xi_n) ( x_{n} - x_{n-1} ) \ ,\]</div>
 <p class="sd-card-text">with <span class="math notranslate nohighlight">\(\xi_n \in [x_n, x_{n+1}]\)</span> with <span class="math notranslate nohighlight">\(x_0 = a\)</span>, <span class="math notranslate nohighlight">\(x_N = b\)</span>.</p>
 </div>
-</details><div class="section" id="riemann-integral">
-<span id="multivariable-interchanging-operators-limit-integral-riemann"></span><h3><span class="section-number">8.2.1. </span>Riemann integral<a class="headerlink" href="#riemann-integral" title="Permalink to this heading">#</a></h3>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Riemann criterion for integrability<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
 </div>
+</details></div>
 <div class="section" id="lebesgue-integral">
 <span id="multivariable-interchanging-operators-limit-integral-lebesgue"></span><h3><span class="section-number">8.2.2. </span>Lebesgue integral<a class="headerlink" href="#lebesgue-integral" title="Permalink to this heading">#</a></h3>
+<p>…</p>
+<p><strong>Counter-example.</strong> <span class="math notranslate nohighlight">\(f(x,y) = y \cdot 1_{\left(0,\frac{1}{y}\right)}(x)\)</span> for <span class="math notranslate nohighlight">\(x \in [0,1]\)</span>, for <span class="math notranslate nohighlight">\(y \rightarrow +\infty\)</span>.</p>
 </div>
 </div>
 <div class="section" id="interchange-limit-and-derivative">
 <span id="multivariable-interchanging-operators-limit-derivative"></span><h2><span class="section-number">8.3. </span>Interchange limit and derivative<a class="headerlink" href="#interchange-limit-and-derivative" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(I\)</span> <strong>open</strong> interval</p></li>
+<li><p><span class="math notranslate nohighlight">\(f(\cdot,y)\)</span> differentaible on <span class="math notranslate nohighlight">\(I\)</span> for <span class="math notranslate nohighlight">\(\forall y \in V_{y_0}\)</span>, punctured</p></li>
+</ul>
+<p>Suppose:</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(f(x_1,y)\)</span> converges as <span class="math notranslate nohighlight">\(y\rightarrow y_0\)</span> for at least one point <span class="math notranslate nohighlight">\(x_1 \in I\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(f_x(x,y) \rightarrow h(x)\)</span> uniformly as <span class="math notranslate nohighlight">\(y\rightarrow y_0\)</span> for <span class="math notranslate nohighlight">\(x\)</span> in every compact subinterval <span class="math notranslate nohighlight">\(J \subseteq I\)</span> <em>(This is required for differentiation as <span class="math notranslate nohighlight">\(I\)</span> is open)</em></p></li>
+</ol>
+<p>Then:</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(f(x,y)\)</span> converges locally uniformly for <span class="math notranslate nohighlight">\(\forall x \in I\)</span> to some <span class="math notranslate nohighlight">\(g(x)\)</span>, as <span class="math notranslate nohighlight">\(y \rightarrow y_0\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(g(x)\)</span> is differentiable on <span class="math notranslate nohighlight">\(I\)</span> and</p>
+<div class="math notranslate nohighlight">
+\[\frac{d}{dx} \left( \lim_{y \rightarrow y_0} f(x,y) \right) = g'(x) = h(x) = \lim_{y \rightarrow y_0} \frac{\partial f}{\partial x}(x,y) \ .\]</div>
+</li>
+</ul>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Proof<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Let (and fix) <span class="math notranslate nohighlight">\(J \subset I\)</span> compact, with <span class="math notranslate nohighlight">\(x_1 \in J\)</span>, and length <span class="math notranslate nohighlight">\(|J|\)</span>.</p>
+<p class="sd-card-text"><strong>Step 1. 1. and 2. implies that <span class="math notranslate nohighlight">\(f(\cdot, y)\)</span> converges uniformly to some <span class="math notranslate nohighlight">\(g(x)\)</span> for <span class="math notranslate nohighlight">\(x \in J\)</span>.</strong> By 2., for all <span class="math notranslate nohighlight">\(\varepsilon &gt; 0\)</span>, <span class="math notranslate nohighlight">\(\exists V_{y_0, \delta}\)</span> so that (Cauchy criterion)</p>
+<div class="math notranslate nohighlight" id="equation-eq-interchange-diff-1">
+<span class="eqno">(8.1)<a class="headerlink" href="#equation-eq-interchange-diff-1" title="Permalink to this equation">#</a></span>\[\sup_{\xi \in J}|f_x(\xi,y) - f_x(\xi,y')| &lt; \frac{\varepsilon}{2 (|J| + 1)} \ ,\]</div>
+<p class="sd-card-text">for all <span class="math notranslate nohighlight">\(y, \, y' \in V_{y_0}\)</span>. Applying Mean Value Theorem to <span class="math notranslate nohighlight">\(\Phi(x) := f(x,y) - f(x,y')\)</span>, differentiable for <span class="math notranslate nohighlight">\(x \in I\)</span>, there’s a <span class="math notranslate nohighlight">\(\xi \in [x, x_1]\)</span> so that</p>
+<div class="math notranslate nohighlight">
+\[\Phi(x) - \Phi(x_1) = \Phi'(\xi) \, (x - x_1) = \left[ f_x'(\xi, y) - f_x'(x,y) \right] ( x - x_1 ) \ ,\]</div>
+<p class="sd-card-text">and</p>
+<div class="math notranslate nohighlight">
+\[\left| f(x,y) - f(x,y') \right| \le \left| f(x_1,y) - f(x_1,y') \right| + \left|  \left[ f_x'(\xi, y) - f_x'(x,y) \right] ( x - x_1 )  \right|\]</div>
+<p class="sd-card-text">By 1., for <span class="math notranslate nohighlight">\(\forall \varepsilon &gt; 0\)</span>, there’s a <span class="math notranslate nohighlight">\(V_{y_0,\delta_1}\)</span> (<span class="math notranslate nohighlight">\(\subseteq V_{y_0,\delta\)</span>, so that the uniform convergence of <span class="math notranslate nohighlight">\(f_x(\cdot, y)\)</span> still holds) so that <span class="math notranslate nohighlight">\(\left| f(x_1, y) - f(x_1, y') \right| &lt; \frac{\varepsilon}{2}\)</span>. Using <a class="reference internal" href="#equation-eq-interchange-diff-1">(8.1)</a>, the second term is bounded by <span class="math notranslate nohighlight">\(\frac{\varepsilon}{2(|J|+1)}|J| &lt; \frac{\varepsilon}{2}\)</span>, and thus for all <span class="math notranslate nohighlight">\(x \in J\)</span></p>
+<div class="math notranslate nohighlight">
+\[\left| f(x,y) - f(x,y') \right| &lt; \varepsilon \ ,\]</div>
+<p class="sd-card-text">i.e. <span class="math notranslate nohighlight">\(f(x,y)\)</span> converges uniformly for <span class="math notranslate nohighlight">\(x \in J\)</span> (to some <span class="math notranslate nohighlight">\(g(x)\)</span>) as <span class="math notranslate nohighlight">\(y \rightarrow y_0\)</span>. <strong>todo</strong> <em>Discuss how <span class="math notranslate nohighlight">\(g(x)\)</span> can be defined “interval-wise” through uniform convergence on all the <span class="math notranslate nohighlight">\(J \subset I\)</span></em>.</p>
+<p class="sd-card-text"><strong>Step 2. Differentiability of <span class="math notranslate nohighlight">\(g\)</span>, through Moore-Osgood.</strong> As the derivative can be defined as the limit of the incremental ratio, the limit of a derivative and the derivative of a limit involve two limits on different variables. Thus, the possibility of interchanging limit and derivative operators can be proved trhough Moore-Osgood theorem.</p>
+<p class="sd-card-text">Fix <span class="math notranslate nohighlight">\(x \in I\)</span>. For <span class="math notranslate nohighlight">\(t \ne 0\)</span> so that <span class="math notranslate nohighlight">\([x, x+t] \in I\)</span> (or <span class="math notranslate nohighlight">\([x+t,x] \in I\)</span>), define the incremental ratios</p>
+<div class="math notranslate nohighlight">
+\[Q(t,y) := \frac{f(x+t,y)-f(x,y)}{t} \quad , \quad \varphi(t) := \frac{g(x+t) - g(x)}{t} \ .\]</div>
+<p class="sd-card-text">Let’s check the assumptions of Moore-Osgood theorem for the limits <span class="math notranslate nohighlight">\(\lim_{t \rightarrow 0}\)</span>, <span class="math notranslate nohighlight">\(\lim_{y \rightarrow y_0}\)</span> applied to <span class="math notranslate nohighlight">\(Q\)</span></p>
+<ul>
+<li><p class="sd-card-text"><strong>Assumption 1. of M-O theorem</strong> For every <span class="math notranslate nohighlight">\(y \in V_{y_0}\)</span>, <span class="math notranslate nohighlight">\(\lim_{t \rightarrow 0} Q(t,y)\)</span> exists for all <span class="math notranslate nohighlight">\(x \in J \subset I\)</span>, and it’s equal (by definition) to <span class="math notranslate nohighlight">\(\lim_{t \rightarrow 0} Q(t,y) = f_{x}(x,y)\)</span></p></li>
+<li><p class="sd-card-text"><strong>Assumption 2. of M-O theorem</strong> (<span class="math notranslate nohighlight">\(Q(t,y) \rightarrow \varphi(t)\)</span> uniformly as <span class="math notranslate nohighlight">\(y \rightarrow y_0\)</span> for <span class="math notranslate nohighlight">\(t \in T_0\)</span> punctured). For every fixed <span class="math notranslate nohighlight">\(t\)</span>, <span class="math notranslate nohighlight">\(Q(t,y) \rightarrow \varphi(y)\)</span> as <span class="math notranslate nohighlight">\(f(\cdot,y) \rightarrow g(\cdot)\)</span> as <span class="math notranslate nohighlight">\(y \rightarrow y_0\)</span> (and this convergence holds for <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(x+t\)</span>). In order to proof that the convergence is uniform in <span class="math notranslate nohighlight">\(t\)</span>, let’s apply MVT to <span class="math notranslate nohighlight">\(f(x+t,y) - f(x+t,y')\)</span></p>
+<div class="math notranslate nohighlight">
+\[\left| Q(t,y) - Q(t,y') \right| = \left| \frac{f(x+t,y) - f(x,y) - f(x+t,y') + f(x,y')}{t} \right| = \left| f_x(\xi,y) - f_x(\xi,y') \right| \ ,\]</div>
+<p class="sd-card-text">for some <span class="math notranslate nohighlight">\(\xi \in [x, x+t]\)</span>. By 2., for <span class="math notranslate nohighlight">\(\forall \eta &gt; 0\)</span> <span class="math notranslate nohighlight">\(\exists V_{y_0}\)</span> (and Cauchy criterion) so that <span class="math notranslate nohighlight">\(|f_x(\xi, y) - f_x(\xi,y')| &lt; \eta\)</span> for <span class="math notranslate nohighlight">\(y, y' \in V_{y_0}\)</span>, independently of <span class="math notranslate nohighlight">\(t\)</span>. Thus <span class="math notranslate nohighlight">\(Q(t, \cdot)\)</span> converges uniformly in <span class="math notranslate nohighlight">\(t\)</span> as <span class="math notranslate nohighlight">\(y \rightarrow y_0\)</span>. Since <span class="math notranslate nohighlight">\(Q(t,y) \rightarrow \varphi(t)\)</span> pointwise for <span class="math notranslate nohighlight">\(y \rightarrow y_0\)</span>, and <span class="math notranslate nohighlight">\(Q(t,y)\)</span> converges uniformly, thus <span class="math notranslate nohighlight">\(Q(t,y) \rightarrow \varphi(t)\)</span> uniformly in <span class="math notranslate nohighlight">\(t\)</span> for <span class="math notranslate nohighlight">\(y \rightarrow y_0\)</span>.</p>
+</li>
+</ul>
+<p class="sd-card-text">As the two assumptions of Moore-Osgood theorem holds for <span class="math notranslate nohighlight">\(Q(t,y)\)</span>, the theorem implies that</p>
+<ul>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(\lim_{y \rightarrow y_0} f_x(x,y)\)</span> exists</p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(\lim_{t \rightarrow 0} \varphi(t)\)</span> exists</p></li>
+<li><p class="sd-card-text">and</p>
+<div class="math notranslate nohighlight">
+\[h(x) := \lim_{y \rightarrow y_0} f_x(x,y) = \lim_{t \rightarrow 0} \varphi(t) = \dfrac{d}{dx} g(x) = \dfrac{d}{dx} \left( \lim_{y \rightarrow y_0} f(x,y) \right) \ . \quad \blacksquare\]</div>
+</li>
+</ul>
+</div>
+</details><p><strong>Counter-example.</strong> <span class="math notranslate nohighlight">\(f(x,y) = \frac{\sin(yx)}{\sqrt{y}}\)</span>, with <span class="math notranslate nohighlight">\(x \in \mathbb{R}\)</span> and <span class="math notranslate nohighlight">\(y \rightarrow +\infty\)</span>.</p>
+<p>The function <span class="math notranslate nohighlight">\(f(x,y) \rightarrow 0\)</span> uniformly as <span class="math notranslate nohighlight">\(y \rightarrow +\infty\)</span> (it converges pointwise to <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(\sup |f(x,y) - 0| = \frac{1}{\sqrt{y}} \rightarrow 0\)</span> as <span class="math notranslate nohighlight">\(y \rightarrow + \infty\)</span>).</p>
+<p>The derivative <span class="math notranslate nohighlight">\(\partial_x f(x,y) = \sqrt{y} \cos(yx)\)</span> doesn’t converge to any function as <span class="math notranslate nohighlight">\(y \rightarrow + \infty\)</span>, and thus it doesn’t converge uniformly neither. It meaningless even to try evaluating its derivative.</p>
+</div>
+<div class="section" id="extra">
+<h2><span class="section-number">8.4. </span>Extra<a class="headerlink" href="#extra" title="Permalink to this heading">#</a></h2>
+<p><strong>Uniqueness of the theorem.</strong> If <span class="math notranslate nohighlight">\(\lim_{x \rightarrow x_0} f(x) = L_1\)</span>, and <span class="math notranslate nohighlight">\(\lim_{x \rightarrow x_0} f(x) = L_2\)</span>, then <span class="math notranslate nohighlight">\(L_1 = L_2\)</span>.</p>
 </div>
 </div>
 
@@ -856,6 +967,7 @@ Riemann integrable function<div class="sd-summary-down docutils">
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interchange-limit-and-derivative">8.3. Interchange limit and derivative</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extra">8.4. Extra</a></li>
 </ul>
   </nav></div>
 
