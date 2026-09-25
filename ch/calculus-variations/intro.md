@@ -38,9 +38,10 @@ $$S[q(t),t] = \int_{t=t_0}^{t_1} L(\dot{q}(t), \, q(t), \, t) \, dt$$
 
 its variation w.r.t. the function $q(t)$ reads
 
-$$\delta S[q(t), t] = \lim_{\varepsilon \rightarrow 0} \frac{1}{\varepsilon} \left( S[q(t)+\varepsilon w(t), \, t] - S[q(t),\, t]\right)$$
+$$\delta S[q(t), t] = \lim_{\varepsilon \rightarrow 0} \frac{1}{\varepsilon} \left( S[q(t)+\varepsilon w(t), \, t] - S[q(t),\, t]\right) \ ,$$
 
 where the function $w(t)$ is arbitrary, among those satisfying the constraint of the problems: as an example here, if the function $q(t)$ has prescribed values $q^*$ for some values of the independent variable, $t^*$, the variation $w(t)$ of the function $q(t)$ is zero there, $w(t^*)$ so that the variated function $q(t) + \varepsilon w(t)$ satisfies the constraint as well, i.e. $q(t^*) + \varepsilon w(t^*) = q^*$.
+
 
 **Variation involves only small changes of function arguments**, since these ones are the elements that can be effectively changed, while the independent variable is not.
 
