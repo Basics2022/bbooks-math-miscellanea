@@ -100,4 +100,98 @@ $$\left\{ \begin{aligned}
 (calculus-variations:examples:lagrange-equations:special-relativity)=
 ## Lagrange equations in special relativity
 
+Equations of motion and physical principles **must** be written using physical properties, and thus be independent from an arbitrary parametrization.
+
+**Strong formulation.** Let the equation of motion of a particle be
+
+$$m \dfrac{d \mathbf{U}}{d \tau} = \mathbf{K} \ ,$$
+
+with $m$ the rest mass, $\tau$ the proper time, $\mathbf{U} = \frac{d \mathbf{X}}{d \tau}$ the 4-velocity, and $\mathbf{K}$ the 4-force. 
+
+**Weak formulation.** Multiplying by an arbitrary test 4-vector $\mathbf{W}(\tau)$ and integrating over an arbitrary interval $\tau \in [ \tau_0, \tau_1]$,
+
+$$\begin{aligned}
+  0 
+  & = \int_{\tau_0}^{\tau_1} \mathbf{W} \cdot \left\{ m \dfrac{d \mathbf{U}}{d \tau} - \mathbf{K} \right\} d \tau \ .
+\end{aligned}$$
+
+The parametrization of the trajectory is changed from $\tau$ to an arbitrary parameter $\lambda$, so that $\mathbf{X}_{0,1} = \mathbf{X}(\tau_{0,1}) = \mathbf{X}(\tau(\lambda_{0,1}))$ are prescribed for given values $\lambda_{0,1}$. As the invariant $d \tau$ is defined through
+
+$$c^2 d \tau^2 = d s^2 = d \mathbf{X} \cdot d \mathbf{X} = \mathbf{X}'(\lambda) \cdot \mathbf{X}'(\lambda) \, d \lambda^2 \ ,$$
+
+the relation between the differentials and the rule of derivation of composite functions read
+
+$$d \tau = \dfrac{\sqrt{\mathbf{X}' \cdot \mathbf{X}'}}{c} \, d \lambda \qquad , \qquad \dfrac{d}{d \tau} = \dfrac{d \lambda}{d \tau} \dfrac{d}{d \lambda} = \dfrac{c}{\sqrt{\mathbf{X}' \cdot \mathbf{X}'}} \dfrac{d}{d \lambda} \ .$$
+
+The velocity vector becomes 
+
+$$\mathbf{U} = \dfrac{d \mathbf{X}}{d \tau} = \dfrac{d \lambda}{d \tau} \dfrac{d \mathbf{X}}{d \lambda} = \dfrac{c}{\sqrt{\mathbf{X}' \cdot \mathbf{X}'}} \mathbf{X}' \ . $$
+
+The integral thus becomes
+
+$$\begin{aligned}
+  0
+  & = \int_{\tau_0}^{\tau_1} \mathbf{W} \cdot \left\{ m \dfrac{d \mathbf{U}}{d \tau} - \mathbf{K} \right\} d \tau = \\
+  & = \int_{\lambda_0}^{\lambda_1} \mathbf{W} \cdot \left\{ m \dfrac{c}{\sqrt{\mathbf{X}' \cdot \mathbf{X}'}} \left( \dfrac{c}{\sqrt{\mathbf{X}' \cdot \mathbf{X}'}} \mathbf{X}' \right)' - \mathbf{K} \right\} \dfrac{\sqrt{\mathbf{X}' \cdot \mathbf{X}'}}{c} d \lambda = \\
+  & = \int_{\lambda_0}^{\lambda_1} \mathbf{W} \cdot \left( \dfrac{mc}{\sqrt{\mathbf{X}' \cdot \mathbf{X}'}} \mathbf{X}' \right)' \, d \lambda - \int_{\lambda_0}^{\lambda_1} \mathbf{W} \cdot \mathbf{K} \dfrac{\sqrt{\mathbf{X}' \cdot \mathbf{X}'}}{c} d \lambda = \\
+\end{aligned}$$
+
+**Lagrange mechanics** immediately follows choosing the test function $\mathbf{W} = \delta \mathbf{X}$.
+
+* Free particle. For a free particle, $\mathbf{K} = \mathbf{0}$.
+
+   $$\begin{aligned}
+     0 
+     & = \int_{\lambda_0}^{\lambda_1} \delta \mathbf{X} \cdot \left( \dfrac{mc}{\sqrt{\mathbf{X}' \cdot \mathbf{X}'}} \mathbf{X}' \right)' \, d \lambda = \\
+     & = \underbrace{\left. \left[ \delta \mathbf{X} \cdot \dfrac{mc}{\sqrt{\mathbf{X}' \cdot \mathbf{X}'}} \mathbf{X}'  \right)  \right|_{\lambda_0}^{\lambda_1}}_{= 0} - \int_{\lambda_0}^{\lambda_1} \delta \mathbf{X}' \cdot \dfrac{mc}{\sqrt{\mathbf{X}' \cdot \mathbf{X}'}} \mathbf{X}' \, d \lambda = \\
+     & = - \delta \int_{\lambda_0}^{\lambda_1} mc \, \sqrt{\mathbf{X}' \cdot \mathbf{X}'} \, d \lambda = \\
+     & = - \delta \int_{\tau_0}^{\tau_1} mc^2 \, d \tau = \\
+     & = - \delta \int_{s_0}^{s_1} mc \, d s = \\
+     & = \delta S \ ,
+   \end{aligned}$$
+
+   where the change of the independent parameters is made after the variation is put outside the integral $\int_{\lambda_0}^{\lambda_1}$, with given extreme values.
+
+* Particle subjecd to Lorentz force, 
+
+   $$\mathbf{K} = q \mathbf{F}(\mathbf{X}) \cdot \mathbf{U} = q \mathbf{F}(\mathbf{X}) \frac{c}{\sqrt{\mathbf{X}' \cdot \mathbf{X}'}} \mathbf{X}' \ .$$
+
+   The second integral becomes
+
+   $$\begin{aligned}
+     - \int_{\lambda_0}^{\lambda_1} \delta \mathbf{X} \cdot \mathbf{K} \dfrac{\sqrt{\mathbf{X}' \cdot \mathbf{X}'}}{c} d \lambda 
+     & = - q \int_{\lambda_0}^{\lambda_1} \delta \mathbf{X} \cdot \mathbf{F} \cdot \mathbf{U} \dfrac{\sqrt{\mathbf{X}' \cdot \mathbf{X}'}}{c} d \lambda = \\ 
+     & = - q \int_{\lambda_0}^{\lambda_1} \delta \mathbf{X} \cdot \mathbf{F} \cdot \mathbf{X}' \, d \lambda = \\
+     & = - q \int_{\lambda_0}^{\lambda_1} \delta \mathbf{X} \cdot \left[ \nabla \mathbf{A} - \nabla^T \mathbf{A} \right] \cdot \mathbf{X}' \, d \lambda = && \text{(see details, below)} \\
+     & = - \delta \int_{\lambda_0}^{\lambda_1} q \mathbf{A}(\mathbf{X}) \cdot \mathbf{X}' \, d \lambda = \\
+     & = - \delta \int_{\tau_0}^{\tau_1} q \mathbf{A}(\mathbf{X}) \cdot \mathbf{U} \, d \tau
+   \end{aligned}$$
+
+   The variational principle thus reads
+
+   $$\begin{aligned}
+     0 & = \delta S = \\
+       & = \delta \int_{\tau_0}^{\tau_1} \left\{ - m c^2 - q \mathbf{A}(\mathbf{X}(\tau)) \cdot \mathbf{U}(\tau) \right\} \, d \tau = \\
+       & = \delta \int_{\lambda_0}^{\lambda_1} \left\{ - m c \sqrt{\mathbf{X}'(\lambda) \cdot \mathbf{X}'(\lambda)} - q \mathbf{A}\left(\mathbf{X}(\lambda)\right) \cdot \mathbf{X}'(\lambda) \right\} \, d \lambda \ .
+   \end{aligned}$$
+
+   ```{dropdown} EM field force - details
+   :open:
+
+   $$\begin{aligned}
+     \delta \int_{\lambda_0}^{\lambda_1} \mathbf{A}(\mathbf{X}) \cdot \mathbf{X}' \, d \lambda
+     & =
+       \int_{\lambda_0}^{\lambda_1} \delta \mathbf{X} \cdot \nabla \mathbf{A}(\mathbf{X}) \cdot \mathbf{X}' \, d \lambda
+     + \int_{\lambda_0}^{\lambda_1} \mathbf{A}(\mathbf{X}) \cdot \delta \mathbf{X}' \, d \lambda \\
+     & =
+       \int_{\lambda_0}^{\lambda_1} \delta \mathbf{X} \cdot \nabla \mathbf{A}(\mathbf{X}) \cdot \mathbf{X}' \, d \lambda
+     + \left[ \mathbf{A}(\mathbf{X}) \cdot \delta \mathbf{X} \right]_{\lambda_0}^{\lambda_1} - \int_{\lambda_0}^{\lambda_1} \dfrac{d}{d \lambda} \mathbf{A}(\mathbf{X}(\lambda)) \cdot \delta \mathbf{X} = \\
+     & = 
+       \int_{\lambda_0}^{\lambda_1} \delta \mathbf{X} \cdot \nabla \mathbf{A}(\mathbf{X}) \cdot \mathbf{X}' \, d \lambda
+     - \int_{\lambda_0}^{\lambda_1} \mathbf{X}' \cdot \mathbf{A}(\mathbf{X}(\lambda)) \cdot \delta \mathbf{X} = \\
+     & = 
+       \int_{\lambda_0}^{\lambda_1} \delta \mathbf{X} \cdot \left[ \nabla \mathbf{A}(\mathbf{X}) - \nabla^T \mathbf{A}(\mathbf{X}) \right] \cdot \mathbf{X}' \, d \lambda
+   \end{aligned}$$
+
+   ```
 
