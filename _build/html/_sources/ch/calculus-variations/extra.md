@@ -70,7 +70,7 @@ having assumed a function $s(s_\delta)$ associating every point on curve $\gamma
 ```{dropdown} Fermat principle
 :open:
 
-Following [Fermat principles](calculus-variations:examples:fermat), the differential equations of the trajectory of a light ray come from the condition
+Following [Fermat principle](calculus-variations:examples:fermat), the differential equations of the trajectory of a light ray come from the condition
 
 $$\delta \int_{\gamma} \frac{1}{c} \, ds = \frac{1}{c_0} \delta \int_{\gamma} n \, ds\ .$$
 

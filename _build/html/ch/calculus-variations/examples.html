@@ -76,15 +76,6 @@ const thebe_selector_output = ".output, .cell_output"
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPXX63Z3XR"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-JPXX63Z3XR');
-</script>
-
   
   
   <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
@@ -710,6 +701,94 @@ Using the results of <a class="reference internal" href="../differential-geometr
 </div>
 <div class="section" id="lagrange-equations-in-special-relativity">
 <span id="calculus-variations-examples-lagrange-equations-special-relativity"></span><h2><span class="section-number">26.2.4. </span>Lagrange equations in special relativity<a class="headerlink" href="#lagrange-equations-in-special-relativity" title="Permalink to this heading">#</a></h2>
+<p>Equations of motion and physical principles <strong>must</strong> be written using physical properties, and thus be independent from an arbitrary parametrization.</p>
+<p><strong>Strong formulation.</strong> Let the equation of motion of a particle be</p>
+<div class="math notranslate nohighlight">
+\[m \dfrac{d \mathbf{U}}{d \tau} = \mathbf{K} \ ,\]</div>
+<p>with <span class="math notranslate nohighlight">\(m\)</span> the rest mass, <span class="math notranslate nohighlight">\(\tau\)</span> the proper time, <span class="math notranslate nohighlight">\(\mathbf{U} = \frac{d \mathbf{X}}{d \tau}\)</span> the 4-velocity, and <span class="math notranslate nohighlight">\(\mathbf{K}\)</span> the 4-force.</p>
+<p><strong>Weak formulation.</strong> Multiplying by an arbitrary test 4-vector <span class="math notranslate nohighlight">\(\mathbf{W}(\tau)\)</span> and integrating over an arbitrary interval <span class="math notranslate nohighlight">\(\tau \in [ \tau_0, \tau_1]\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+  0 
+  &amp; = \int_{\tau_0}^{\tau_1} \mathbf{W} \cdot \left\{ m \dfrac{d \mathbf{U}}{d \tau} - \mathbf{K} \right\} d \tau \ .
+\end{aligned}\]</div>
+<p>The parametrization of the trajectory is changed from <span class="math notranslate nohighlight">\(\tau\)</span> to an arbitrary parameter <span class="math notranslate nohighlight">\(\lambda\)</span>, so that <span class="math notranslate nohighlight">\(\mathbf{X}_{0,1} = \mathbf{X}(\tau_{0,1}) = \mathbf{X}(\tau(\lambda_{0,1}))\)</span> are prescribed for given values <span class="math notranslate nohighlight">\(\lambda_{0,1}\)</span>. As the invariant <span class="math notranslate nohighlight">\(d \tau\)</span> is defined through</p>
+<div class="math notranslate nohighlight">
+\[c^2 d \tau^2 = d s^2 = d \mathbf{X} \cdot d \mathbf{X} = \mathbf{X}'(\lambda) \cdot \mathbf{X}'(\lambda) \, d \lambda^2 \ ,\]</div>
+<p>the relation between the differentials and the rule of derivation of composite functions read</p>
+<div class="math notranslate nohighlight">
+\[d \tau = \dfrac{\sqrt{\mathbf{X}' \cdot \mathbf{X}'}}{c} \, d \lambda \qquad , \qquad \dfrac{d}{d \tau} = \dfrac{d \lambda}{d \tau} \dfrac{d}{d \lambda} = \dfrac{c}{\sqrt{\mathbf{X}' \cdot \mathbf{X}'}} \dfrac{d}{d \lambda} \ .\]</div>
+<p>The velocity vector becomes</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{U} = \dfrac{d \mathbf{X}}{d \tau} = \dfrac{d \lambda}{d \tau} \dfrac{d \mathbf{X}}{d \lambda} = \dfrac{c}{\sqrt{\mathbf{X}' \cdot \mathbf{X}'}} \mathbf{X}' \ . \]</div>
+<p>The integral thus becomes</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  0
+  &amp; = \int_{\tau_0}^{\tau_1} \mathbf{W} \cdot \left\{ m \dfrac{d \mathbf{U}}{d \tau} - \mathbf{K} \right\} d \tau = \\
+  &amp; = \int_{\lambda_0}^{\lambda_1} \mathbf{W} \cdot \left\{ m \dfrac{c}{\sqrt{\mathbf{X}' \cdot \mathbf{X}'}} \left( \dfrac{c}{\sqrt{\mathbf{X}' \cdot \mathbf{X}'}} \mathbf{X}' \right)' - \mathbf{K} \right\} \dfrac{\sqrt{\mathbf{X}' \cdot \mathbf{X}'}}{c} d \lambda = \\
+  &amp; = \int_{\lambda_0}^{\lambda_1} \mathbf{W} \cdot \left( \dfrac{mc}{\sqrt{\mathbf{X}' \cdot \mathbf{X}'}} \mathbf{X}' \right)' \, d \lambda - \int_{\lambda_0}^{\lambda_1} \mathbf{W} \cdot \mathbf{K} \dfrac{\sqrt{\mathbf{X}' \cdot \mathbf{X}'}}{c} d \lambda = \\
+\end{aligned}\end{split}\]</div>
+<p><strong>Lagrange mechanics</strong> immediately follows choosing the test function <span class="math notranslate nohighlight">\(\mathbf{W} = \delta \mathbf{X}\)</span>.</p>
+<ul>
+<li><p>Free particle. For a free particle, <span class="math notranslate nohighlight">\(\mathbf{K} = \mathbf{0}\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+     0 
+     &amp; = \int_{\lambda_0}^{\lambda_1} \delta \mathbf{X} \cdot \left( \dfrac{mc}{\sqrt{\mathbf{X}' \cdot \mathbf{X}'}} \mathbf{X}' \right)' \, d \lambda = \\
+     &amp; = \underbrace{\left. \left[ \delta \mathbf{X} \cdot \dfrac{mc}{\sqrt{\mathbf{X}' \cdot \mathbf{X}'}} \mathbf{X}'  \right)  \right|_{\lambda_0}^{\lambda_1}}_{= 0} - \int_{\lambda_0}^{\lambda_1} \delta \mathbf{X}' \cdot \dfrac{mc}{\sqrt{\mathbf{X}' \cdot \mathbf{X}'}} \mathbf{X}' \, d \lambda = \\
+     &amp; = - \delta \int_{\lambda_0}^{\lambda_1} mc \, \sqrt{\mathbf{X}' \cdot \mathbf{X}'} \, d \lambda = \\
+     &amp; = - \delta \int_{\tau_0}^{\tau_1} mc^2 \, d \tau = \\
+     &amp; = - \delta \int_{s_0}^{s_1} mc \, d s = \\
+     &amp; = \delta S \ ,
+   \end{aligned}\end{split}\]</div>
+<p>where the change of the independent parameters is made after the variation is put outside the integral <span class="math notranslate nohighlight">\(\int_{\lambda_0}^{\lambda_1}\)</span>, with given extreme values.</p>
+</li>
+<li><p>Particle subjecd to Lorentz force,</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{K} = q \mathbf{F}(\mathbf{X}) \cdot \mathbf{U} = q \mathbf{F}(\mathbf{X}) \frac{c}{\sqrt{\mathbf{X}' \cdot \mathbf{X}'}} \mathbf{X}' \ .\]</div>
+<p>The second integral becomes</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+     - \int_{\lambda_0}^{\lambda_1} \delta \mathbf{X} \cdot \mathbf{K} \dfrac{\sqrt{\mathbf{X}' \cdot \mathbf{X}'}}{c} d \lambda 
+     &amp; = - q \int_{\lambda_0}^{\lambda_1} \delta \mathbf{X} \cdot \mathbf{F} \cdot \mathbf{U} \dfrac{\sqrt{\mathbf{X}' \cdot \mathbf{X}'}}{c} d \lambda = \\ 
+     &amp; = - q \int_{\lambda_0}^{\lambda_1} \delta \mathbf{X} \cdot \mathbf{F} \cdot \mathbf{X}' \, d \lambda = \\
+     &amp; = - q \int_{\lambda_0}^{\lambda_1} \delta \mathbf{X} \cdot \left[ \nabla \mathbf{A} - \nabla^T \mathbf{A} \right] \cdot \mathbf{X}' \, d \lambda = &amp;&amp; \text{(see details, below)} \\
+     &amp; = - \delta \int_{\lambda_0}^{\lambda_1} q \mathbf{A}(\mathbf{X}) \cdot \mathbf{X}' \, d \lambda = \\
+     &amp; = - \delta \int_{\tau_0}^{\tau_1} q \mathbf{A}(\mathbf{X}) \cdot \mathbf{U} \, d \tau
+   \end{aligned}\end{split}\]</div>
+<p>The variational principle thus reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+     0 &amp; = \delta S = \\
+       &amp; = \delta \int_{\tau_0}^{\tau_1} \left\{ - m c^2 - q \mathbf{A}(\mathbf{X}(\tau)) \cdot \mathbf{U}(\tau) \right\} \, d \tau = \\
+       &amp; = \delta \int_{\lambda_0}^{\lambda_1} \left\{ - m c \sqrt{\mathbf{X}'(\lambda) \cdot \mathbf{X}'(\lambda)} - q \mathbf{A}\left(\mathbf{X}(\lambda)\right) \cdot \mathbf{X}'(\lambda) \right\} \, d \lambda \ .
+   \end{aligned}\end{split}\]</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+EM field force - details<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \delta \int_{\lambda_0}^{\lambda_1} \mathbf{A}(\mathbf{X}) \cdot \mathbf{X}' \, d \lambda
+  &amp; =
+    \int_{\lambda_0}^{\lambda_1} \delta \mathbf{X} \cdot \nabla \mathbf{A}(\mathbf{X}) \cdot \mathbf{X}' \, d \lambda
+  + \int_{\lambda_0}^{\lambda_1} \mathbf{A}(\mathbf{X}) \cdot \delta \mathbf{X}' \, d \lambda \\
+  &amp; =
+    \int_{\lambda_0}^{\lambda_1} \delta \mathbf{X} \cdot \nabla \mathbf{A}(\mathbf{X}) \cdot \mathbf{X}' \, d \lambda
+  + \left[ \mathbf{A}(\mathbf{X}) \cdot \delta \mathbf{X} \right]_{\lambda_0}^{\lambda_1} - \int_{\lambda_0}^{\lambda_1} \dfrac{d}{d \lambda} \mathbf{A}(\mathbf{X}(\lambda)) \cdot \delta \mathbf{X} = \\
+  &amp; = 
+    \int_{\lambda_0}^{\lambda_1} \delta \mathbf{X} \cdot \nabla \mathbf{A}(\mathbf{X}) \cdot \mathbf{X}' \, d \lambda
+  - \int_{\lambda_0}^{\lambda_1} \mathbf{X}' \cdot \mathbf{A}(\mathbf{X}(\lambda)) \cdot \delta \mathbf{X} = \\
+  &amp; = 
+    \int_{\lambda_0}^{\lambda_1} \delta \mathbf{X} \cdot \left[ \nabla \mathbf{A}(\mathbf{X}) - \nabla^T \mathbf{A}(\mathbf{X}) \right] \cdot \mathbf{X}' \, d \lambda
+\end{aligned}\end{split}\]</div>
+</div>
+</details></li>
+</ul>
 </div>
 </div>
 
