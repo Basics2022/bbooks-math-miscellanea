@@ -78,7 +78,7 @@ $$\mathbb{P}_{\perp \hat{\mathbf{t}}} \cdot \nabla n = \dfrac{n}{|\mathbf{r}'|} 
 
 or, re-introducting the "physical" variable $s$ (the arc-length is the parameter with physical, geometrical, non arbitrary meaning; the equations should be invariant from the parametrization, so we should be happy of the following result, written in invariant form),
 
-$$\mathbb{P}_{\perp \hat{\mathbf{t}}} \cdot \nabla n = n \dfrac{d \hat{\mathbf{t}}}{ds} \ .$$
+$$\mathbb{P}_{\perp \hat{\mathbf{t}}} \cdot \nabla n = n \dfrac{d \hat{\mathbf{t}}}{ds} \ .$$ (eq:variations:fermat:invariant)
 
 being $\mathbb{P}_{\perp \hat{\mathbf{t}}}$ the orthogonal projector in the direction perpendicular to the unit tangent vector $\hat{\mathbf{t}}$.
 Using the results of [geometry of curves](differential-geometry:intro), the derivative $\hat{\mathbf{t}}'(s) = \kappa(s) \hat{\mathbf{n}}(s)$, being $\hat{\mathbf{n}}$ the unit normal vector pointing towards the local center of curvature (center of the osculator circle, tangent with the same second order derivative), and $\kappa(s) = \frac{1}{R(s)}$ is the local curvature, and $R(s)$ the radius of curvature (the radius of the osculator circle). Thus

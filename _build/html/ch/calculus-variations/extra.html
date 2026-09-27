@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>26.2. Examples &#8212; basics - math</title>
+    <title>26.3. Extra &#8212; basics - math</title>
   
   
   
@@ -67,12 +67,12 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/calculus-variations/examples';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/calculus-variations/extra';</script>
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="26.3. Extra" href="extra.html" />
-    <link rel="prev" title="26. Introduction to Calculus of Variations" href="intro.html" />
+    <link rel="next" title="27. Introduction to Ordinary Differential Equations" href="../ode/intro.html" />
+    <link rel="prev" title="26.2. Examples" href="examples.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -252,8 +252,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Calculus of Variations</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">26. Introduction to Calculus of Variations</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">26.2. Examples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="extra.html">26.3. Extra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="examples.html">26.2. Examples</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">26.3. Extra</a></li>
 </ul>
 </li>
 </ul>
@@ -468,7 +468,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/edit/main/ch/calculus-variations/examples.md" target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/edit/main/ch/calculus-variations/extra.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -485,7 +485,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/issues/new?title=Issue%20on%20page%20%2Fch/calculus-variations/examples.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/issues/new?title=Issue%20on%20page%20%2Fch/calculus-variations/extra.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -515,7 +515,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/ch/calculus-variations/examples.md" target="_blank"
+      <li><a href="../../_sources/ch/calculus-variations/extra.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -599,7 +599,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Examples</h1>
+    <h1>Extra</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -609,10 +609,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shortest-path">26.2.1. Shortest path</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fermat-principle">26.2.2. Fermat principle</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lagrange-equations-in-classical-mechanics">26.2.3. Lagrange equations in classical mechanics</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lagrange-equations-in-special-relativity">26.2.4. Lagrange equations in special relativity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametrization-of-the-integral-with-the-arc-length">26.3.1. Parametrization of the integral with the arc-length</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integral-with-non-prescirbed-ends">26.3.2. Integral with non prescirbed ends</a></li>
 </ul>
             </nav>
         </div>
@@ -624,92 +622,102 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="examples">
-<span id="calculus-variations-examples"></span><h1><span class="section-number">26.2. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">#</a></h1>
-<div class="section" id="shortest-path">
-<span id="calculus-variations-examples-line-length"></span><h2><span class="section-number">26.2.1. </span>Shortest path<a class="headerlink" href="#shortest-path" title="Permalink to this heading">#</a></h2>
-<p>Shortest path between two given points <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span>. The length of a curve <span class="math notranslate nohighlight">\(\gamma_{AB}\)</span> connecting the two points reads</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="extra">
+<span id="calculus-variations-extra"></span><h1><span class="section-number">26.3. </span>Extra<a class="headerlink" href="#extra" title="Permalink to this heading">#</a></h1>
+<!--
+(calculus-variations:extra:non-prescribed-extreme-s)=
+## Prescribed ends but non-prescribed extreme values of the parameter $s$
+-->
+<div class="section" id="parametrization-of-the-integral-with-the-arc-length">
+<span id="calculus-variations-extra-s-parametrization"></span><h2><span class="section-number">26.3.1. </span>Parametrization of the integral with the arc-length<a class="headerlink" href="#parametrization-of-the-integral-with-the-arc-length" title="Permalink to this heading">#</a></h2>
+<p>Parametrization of the curve <span class="math notranslate nohighlight">\(\gamma_{AB}: \, \mathbf{r}(s)\)</span>, with a physical parameter <span class="math notranslate nohighlight">\(s \in [s_A, s_B]\)</span> whose values at extreme points may depend on the solution itself: i.e. even though <span class="math notranslate nohighlight">\(\mathbf{r}_A\)</span>, <span class="math notranslate nohighlight">\(\mathbf{r}_B\)</span> are prescribed, the values <span class="math notranslate nohighlight">\(s_A\)</span>, <span class="math notranslate nohighlight">\(s_B\)</span>, s.t. <span class="math notranslate nohighlight">\(\mathbf{r}_A = \mathbf{r}(s_A)\)</span>, <span class="math notranslate nohighlight">\(\mathbf{r}_B = \mathbf{r}(s_B)\)</span>, are not. The functional reads</p>
 <div class="math notranslate nohighlight">
-\[L_{\gamma_{AB}} = \int_{\gamma_{AB}} ds \ ,\]</div>
-<p>with <span class="math notranslate nohighlight">\(s\)</span> the arc-length parameter. The value of <span class="math notranslate nohighlight">\(s\)</span> at the extremes of integration <strong>is not independent</strong> on the curve <span class="math notranslate nohighlight">\(\gamma_{AB}\)</span>, and thus on the result. In order to write the integrals w.r.t. a parameter with given values at the extreme points, a change of parameter is required. Let’s define a parameter <span class="math notranslate nohighlight">\(\ell\)</span>, so that the curve in space can be represented as <span class="math notranslate nohighlight">\(\gamma: \, \mathbf{r}(t)\)</span>, <span class="math notranslate nohighlight">\(t \in [t_A, t_B]\)</span>, with <span class="math notranslate nohighlight">\(t_A\)</span>, <span class="math notranslate nohighlight">\(t_B\)</span> given, and <span class="math notranslate nohighlight">\(\mathbf{r}(t_A) = \mathbf{r}_A\)</span>, <span class="math notranslate nohighlight">\(\mathbf{r}(t_B) = \mathbf{r}_B\)</span> given. The elementary length <span class="math notranslate nohighlight">\(ds\)</span> becomes</p>
-<div class="math notranslate nohighlight">
-\[| d \mathbf{r} | = \underbrace{| \mathbf{r}'(s)|}_{=1, \, \text{by def of $s$}} ds = | \mathbf{r}'(\ell) | \, d \ell \ .\]</div>
-<p>The integral thus becomes</p>
-<div class="math notranslate nohighlight">
-\[L_{\gamma_{AB}} = L[\mathbf{r}(\ell)] = \int_{\ell_A}^{\ell_B} |\mathbf{r}'(\ell)| \, d \ell \ ,\]</div>
-<p>where the dependence on the curve <span class="math notranslate nohighlight">\(\mathbf{r}(\ell)\)</span> is made explicit, and the values of the parameter <span class="math notranslate nohighlight">\(\ell\)</span> at the extreme is given.
-Variation of the functional reads</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  \delta L
-  &amp; = \delta \int_{\ell_A}^{\ell_B} |\mathbf{r}'(\ell)| \, d \ell = \\
-  &amp; = \int_{\ell_A}^{\ell_B} \delta |\mathbf{r}'(\ell)| \, d \ell = \\
-  &amp; = \int_{\ell_A}^{\ell_B} \delta \mathbf{r}' \cdot \dfrac{\mathbf{r}'}{|\mathbf{r}'|} d \ell = \\
-  &amp; = \underbrace{ \left.\delta \mathbf{r} \cdot \hat{\mathbf{t}} \right|_{\ell_A}^{\ell_B}}_{= 0} - \int_{\ell_A}^{\ell_B} \delta \mathbf{r} \cdot \dfrac{d \hat{\mathbf{t}}}{d \ell} d \ell \ ,
-\end{aligned}\end{split}\]</div>
-<p>being <span class="math notranslate nohighlight">\(\hat{\mathbf{t}}(\ell) = \frac{\mathbf{r}'(\ell)}{|\mathbf{r}'(\ell)|}\)</span>, the unit-length tangent vector to the curve. Stationariety of <span class="math notranslate nohighlight">\(L\)</span>, for any possible variation <span class="math notranslate nohighlight">\(\delta \mathbf{r}(\ell)\)</span> implies</p>
-<div class="math notranslate nohighlight">
-\[\dfrac{d \hat{\mathbf{t}}}{d \ell} = \mathbf{0} \ ,\]</div>
-<p>Thus, the solution reads <span class="math notranslate nohighlight">\(\mathbf{r}(\ell) = \alpha \hat{\mathbf{t}} \, \ell + \mathbf{r}_0\)</span>, and prescribing the boundary conditions</p>
-<div class="math notranslate nohighlight">
-\[\mathbf{r}(\ell) = \mathbf{r}_A + \frac{\ell-\ell_A}{\ell_B-\ell_A} \left( \mathbf{r}_B-\mathbf{r}_A \right) \ .\]</div>
+\[S_{\gamma_{AB}} = S[\mathbf{r}(s)] = \int_{\mathbf{r} \in \gamma_{AB}} \mathcal{L}(\mathbf{r}, s) \, ds = \int_{s_A}^{s_B} \mathcal{L}(\mathbf{r}(s), s) \, ds \]</div>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
 <summary class="sd-summary-title sd-card-header">
-Details about the integration<div class="sd-summary-down docutils">
+Method 1.<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \Delta S_{\gamma_{AB}} 
+  &amp; = S[\mathbf{r}(s_\delta)+\varepsilon \delta\mathbf{r}(s_\delta)] - S[\mathbf{r}(s)+\varepsilon \delta\mathbf{r}(s)] = \\
+  &amp; = \int_{\mathbf{r} \in \mathbf{r}(s_\delta)+\varepsilon \delta \mathbf{r}(s_\delta)} \mathcal{L}(\mathbf{r}, s_{\delta}) \, ds_{\delta} - \dots = \\
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">Here <span class="math notranslate nohighlight">\(d s_{\delta}\)</span> is the arc-length of the elementary vector of the curve <span class="math notranslate nohighlight">\(\gamma_\delta\)</span>, <span class="math notranslate nohighlight">\(d \mathbf{r}_{\delta} = d \mathbf{r} + \varepsilon d \delta \mathbf{r}\)</span>, i.e.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  d s_{\delta}^2
+  &amp; = \left( d \mathbf{r} + \varepsilon d \delta \mathbf{r} \right) \cdot \left( d \mathbf{r} + \varepsilon d \delta \mathbf{r} \right) = \\
+  &amp; = | d \mathbf{r} |^2 + 2 \varepsilon d \mathbf{r} \cdot d \delta \mathbf{r} + o(\varepsilon) = \\
+  &amp; \simeq | d \mathbf{r} |^2 \left( 1 + 2 \varepsilon \dfrac{d \delta \mathbf{r} \cdot d \mathbf{r}}{|d \mathbf{r}|^2} \right) + o(\varepsilon)  \ ,
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">so that first-order approximation reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  d s_{\delta} 
+  &amp; = | d \mathbf{r} | \left( 1 + \varepsilon \dfrac{d \delta \mathbf{r} \cdot d \mathbf{r}}{|d \mathbf{r}|^2}  \right) = \\
+  &amp; = ds + \varepsilon \hat{\mathbf{t}} \cdot d \delta \mathbf{r} \ .
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">The first integral in the difference thus becomes</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  &amp; \int_{s_{\delta} = s_{\delta,A}}^{s_{\delta,B}}  \mathcal{L}(\mathbf{r}_\delta(s_\delta), s_\delta ) \left( ds + \varepsilon \hat{\mathbf{t}} \cdot d \delta \mathbf{r} \right) \\ 
+  &amp; \qquad = \int_{s_{\delta} = s_{\delta,A}}^{s_{\delta,B}}  \left[ \mathcal{L}(\mathbf{r}(s_\delta), s_\delta ) + \varepsilon \delta \mathbf{r} \cdot \nabla \mathcal{L}(\mathbf{r}(s_\delta), s_\delta) + o(\varepsilon) \right] \left( \dfrac{ds}{d s_\delta} + \varepsilon \hat{\mathbf{t}} \cdot \frac{d \delta \mathbf{r}}{d s_\delta} \right) d s_{\delta} = \\
+  &amp; \qquad = \int_{s = s_{A}}^{s_{B}} \mathcal{L}(\mathbf{r}(s), s) \, ds + 
+  \varepsilon \int_{s = s_{A}}^{s_{B}} \delta \mathbf{r} \cdot \nabla \mathcal{L}(\mathbf{r}(s), s) \, ds + \\ 
+  &amp; \qquad + \varepsilon \left.\left[ \delta \mathbf{r} \cdot \hat{\mathbf{t}} \mathcal{L} \right]\right|_{A}^{B}
+  - \varepsilon \int_{s_\delta = s_{\delta,A}}^{s_{\delta,B}} \delta \mathbf{r} \cdot \dfrac{d}{ds}\left( \hat{\mathbf{t}} \mathcal{L} \right) d s_\delta
+  + o(\varepsilon) = \\
+  &amp; \qquad = \int_{s = s_{A}}^{s_{B}} \mathcal{L}(\mathbf{r}(s), s) \, ds + 
+  \varepsilon \int_{s = s_{A}}^{s_{B}} \delta \mathbf{r} \cdot \left\{ \nabla \mathcal{L}(\mathbf{r}(s), s) - \dfrac{d}{ds_\delta}\left( \hat{\mathbf{t}} \mathcal{L} \right) \right\} \, ds + \\ 
+  &amp; \qquad + \varepsilon \left.\left[ \delta \mathbf{r} \cdot \hat{\mathbf{t}} \mathcal{L} \right]\right|_{A}^{B}
+  + o(\varepsilon) \ .
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">Thus, the variation becomes</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \delta_{\mathbf{r}} S
+  &amp; = \lim_{\varepsilon \rightarrow 0} \dfrac{1}{\varepsilon} \Delta_{\mathbf{r}} S = \\
+  &amp; = 
+  \int_{s = s_{A}}^{s_{B}} \delta \mathbf{r} \cdot \left\{ \nabla \mathcal{L}(\mathbf{r}(s), s) - \dfrac{d}{ds}\left( \hat{\mathbf{t}} \mathcal{L} \right) \right\} \, ds + 
+  \left.\left[ \delta \mathbf{r} \cdot \hat{\mathbf{t}} \mathcal{L} \right]\right|_{A}^{B}
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">having assumed a function <span class="math notranslate nohighlight">\(s(s_\delta)\)</span> associating every point on curve <span class="math notranslate nohighlight">\(\gamma_{AB}\)</span> to a value of the parameter <span class="math notranslate nohighlight">\(s_{\delta}\)</span>, and having used the rules for changing independent variables in the integrals, <span class="math notranslate nohighlight">\(\frac{ds}{ds_{\delta}} ds_{\delta} = d_s\)</span>, and for the derivative of compsite functions <span class="math notranslate nohighlight">\(\frac{d}{ds_\delta} = \frac{d s}{d s_\delta} \frac{d}{d s}\)</span>.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Fermat principle<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Following <a class="reference internal" href="examples.html#calculus-variations-examples-fermat"><span class="std std-ref">Fermat principles</span></a>, the differential equations of the trajectory of a light ray come from the condition</p>
+<div class="math notranslate nohighlight">
+\[\delta \int_{\gamma} \frac{1}{c} \, ds = \frac{1}{c_0} \delta \int_{\gamma} n \, ds\ .\]</div>
+<p class="sd-card-text">Here the integrand is <span class="math notranslate nohighlight">\(\mathcal{L}(\mathbf{r}(s),s) = n(\mathbf{r}(s),s)\)</span>, and following the general formulation of the variational problem with prescribed ends <span class="math notranslate nohighlight">\(\delta \mathbf{r}|_{A,B} = \mathbf{0}\)</span> gives</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathbf{0}
+  &amp; = \nabla \mathcal{L} - \dfrac{d}{ds} \left( \hat{\mathbf{t}} \mathcal{L} \right) = \\
+  &amp; = \nabla \mathcal{L} - \kappa \hat{\mathbf{n}} \mathcal{L} - \hat{\mathbf{t}} \hat{\mathbf{t}} \cdot \mathcal{L} = \\
+  &amp; = \mathbb{P}_{\perp \hat{\mathbf{t}}} \cdot \nabla \mathcal{L} - \kappa \hat{\mathbf{n}} \mathcal{L} \ ,
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">i.e. the very same equations as <a class="reference internal" href="examples.html#equation-eq-variations-fermat-invariant">(26.1)</a>, having recalled that the derivative of the tangent unit vector to a line w.r.t. the arc-length is proportional to the unit normal vector, through the curvature, <span class="math notranslate nohighlight">\(\frac{d \hat{\mathbf{t}}}{d s}= \kappa \hat{\mathbf{n}}\)</span>.</p>
+</div>
+</details></div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Method 2.<div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
 </div>
 </details></div>
-<div class="section" id="fermat-principle">
-<span id="calculus-variations-examples-fermat"></span><h2><span class="section-number">26.2.2. </span>Fermat principle<a class="headerlink" href="#fermat-principle" title="Permalink to this heading">#</a></h2>
-<p>In geometrical optics, Fermat principles asserts that a light ray between two points represent the path with the shortest travelling time connecting them. Let <span class="math notranslate nohighlight">\(\gamma\)</span> a curve in space. The travelling time of a light ray with speed <span class="math notranslate nohighlight">\(c\)</span> reads</p>
-<div class="math notranslate nohighlight">
-\[T = \int_{\gamma_{AB}} dt = \int_{\gamma_{AB}} \dfrac{1}{c} d s \ ,\]</div>
-<p>begin <span class="math notranslate nohighlight">\(ds = c dt\)</span>. Let <span class="math notranslate nohighlight">\(\ell\)</span> be a parameter, so that <span class="math notranslate nohighlight">\(\gamma: \, \mathbf{r}(\ell)\)</span> is a parametrization of the curve, with the extreme points independent from the result. The speed of light may depend on the position in space, <span class="math notranslate nohighlight">\(c(\mathbf{r})\)</span>, and it can be written as a function of the speed of light in vacuum and the refractive index <span class="math notranslate nohighlight">\(n(\mathbf{r})\)</span> as <span class="math notranslate nohighlight">\(c(\mathbf{r}) = \frac{c_0}{n(\mathbf{r})}\)</span>. Making the dependence on <span class="math notranslate nohighlight">\(\mathbf{r}(\ell)\)</span>, <span class="math notranslate nohighlight">\(\mathbf{r}'(\ell)\)</span> explicit in the functional,</p>
-<div class="math notranslate nohighlight">
-\[T[\mathbf{r}(\ell)] = \int_{\ell_A}^{\ell_B} n(\mathbf{r}(\ell)) \, |\mathbf{r}'(\ell)| \, d \ell \ .\]</div>
-<p>Fermat principle reads</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  0
-  &amp; = \delta T = \\
-  &amp; = \delta  \int_{\ell_A}^{\ell_B} n(\mathbf{r}(\ell)) \, |\mathbf{r}'(\ell)| \, d \ell = \\
-  &amp; = \int_{\ell_A}^{\ell_B} \left\{ \delta \mathbf{r} \cdot \nabla_{\mathbf{r}} n |\mathbf{r}|' + \delta \mathbf{r}' \cdot \frac{\mathbf{r}'}{|\mathbf{r}'|} n(\mathbf{r}) \right\} \, d \ell = \\ 
-  &amp; = \int_{\ell_A}^{\ell_B} \delta \mathbf{r} \cdot \left\{ \nabla_{\mathbf{r}} n \, |\mathbf{r}|' - \dfrac{d}{d \ell} \left( \frac{\mathbf{r}'}{|\mathbf{r}'|} n(\mathbf{r}) \right) \right\} \, d \ell + \underbrace{ \left. \delta \mathbf{r} \cdot \frac{\mathbf{r}'}{|\mathbf{r}'|} n(\mathbf{r}) \right|_{\ell_A}^{\ell_B}}_{=0} \ , 
-\end{aligned}\end{split}\]</div>
-<p>From the arbitrarieness of <span class="math notranslate nohighlight">\(\delta \mathbf{r}\)</span>,</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  0 
-  &amp; = \dfrac{d}{d \ell} \left( n(\mathbf{r}(\ell)) \dfrac{\mathbf{r}'(\ell)}{|\mathbf{r}'(\ell)|} \right) - |\mathbf{r}'(\ell)| \, \nabla n(\mathbf{r}(\ell)) = \\
-  &amp; = \dfrac{\mathbf{r}'}{|\mathbf{r}|} \mathbf{r}' \cdot \nabla n - n \dfrac{d}{d \ell} \left( \dfrac{\mathbf{r}'}{|\mathbf{r}'|} \right) - |\mathbf{r}'| \nabla n = \\
-  &amp; = | \mathbf{r}' | \left[ \mathbb{I} - \dfrac{\mathbf{r}' \cdot \mathbf{r}'}{|\mathbf{r}'|^2} \right] \cdot \nabla n - n \dfrac{d}{d\ell} \left( \dfrac{\mathbf{r}'}{|\mathbf{r}'|} \right) \ . 
-\end{aligned}\end{split}\]</div>
-<p>and thus</p>
-<div class="math notranslate nohighlight">
-\[\mathbb{P}_{\perp \hat{\mathbf{t}}} \cdot \nabla n = \dfrac{n}{|\mathbf{r}'|} \dfrac{d \hat{\mathbf{t}}}{d \ell} \ ,\]</div>
-<p>or, re-introducting the “physical” variable <span class="math notranslate nohighlight">\(s\)</span> (the arc-length is the parameter with physical, geometrical, non arbitrary meaning; the equations should be invariant from the parametrization, so we should be happy of the following result, written in invariant form),</p>
-<div class="math notranslate nohighlight" id="equation-eq-variations-fermat-invariant">
-<span class="eqno">(26.1)<a class="headerlink" href="#equation-eq-variations-fermat-invariant" title="Permalink to this equation">#</a></span>\[\mathbb{P}_{\perp \hat{\mathbf{t}}} \cdot \nabla n = n \dfrac{d \hat{\mathbf{t}}}{ds} \ .\]</div>
-<p>being <span class="math notranslate nohighlight">\(\mathbb{P}_{\perp \hat{\mathbf{t}}}\)</span> the orthogonal projector in the direction perpendicular to the unit tangent vector <span class="math notranslate nohighlight">\(\hat{\mathbf{t}}\)</span>.
-Using the results of <a class="reference internal" href="../differential-geometry/intro.html#differential-geometry-intro"><span class="std std-ref">geometry of curves</span></a>, the derivative <span class="math notranslate nohighlight">\(\hat{\mathbf{t}}'(s) = \kappa(s) \hat{\mathbf{n}}(s)\)</span>, being <span class="math notranslate nohighlight">\(\hat{\mathbf{n}}\)</span> the unit normal vector pointing towards the local center of curvature (center of the osculator circle, tangent with the same second order derivative), and <span class="math notranslate nohighlight">\(\kappa(s) = \frac{1}{R(s)}\)</span> is the local curvature, and <span class="math notranslate nohighlight">\(R(s)\)</span> the radius of curvature (the radius of the osculator circle). Thus</p>
-<div class="math notranslate nohighlight">
-\[\kappa \hat{\mathbf{n}} = \left[ \mathbb{I} - \hat{\mathbf{t}} \otimes \hat{\mathbf{t}} \right] \cdot \frac{\nabla n}{n}\]</div>
-<p>Projecting this equation on the local Frenet basis <span class="math notranslate nohighlight">\(\{ \hat{\mathbf{t}}, \hat{\mathbf{n}}, \hat{\mathbf{b}} \}\)</span>,</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\left\{ \begin{aligned}
-  t: &amp; \, 0 = \frac{1}{n} \hat{\mathbf{t}} \cdot \nabla n \\
-  n: &amp; \, \kappa = \frac{1}{n} \hat{\mathbf{n}} \cdot \nabla n \\
-  b: &amp; \, 0 = \frac{1}{n} \hat{\mathbf{b}} \cdot \nabla n \\
-\end{aligned} \right.\end{split}\]</div>
-</div>
-<div class="section" id="lagrange-equations-in-classical-mechanics">
-<span id="calculus-variations-examples-lagrange-equations-classical-mechanics"></span><h2><span class="section-number">26.2.3. </span>Lagrange equations in classical mechanics<a class="headerlink" href="#lagrange-equations-in-classical-mechanics" title="Permalink to this heading">#</a></h2>
-</div>
-<div class="section" id="lagrange-equations-in-special-relativity">
-<span id="calculus-variations-examples-lagrange-equations-special-relativity"></span><h2><span class="section-number">26.2.4. </span>Lagrange equations in special relativity<a class="headerlink" href="#lagrange-equations-in-special-relativity" title="Permalink to this heading">#</a></h2>
+<div class="section" id="integral-with-non-prescirbed-ends">
+<span id="calculus-variations-extra-non-prescribed-ends"></span><h2><span class="section-number">26.3.2. </span>Integral with non prescirbed ends<a class="headerlink" href="#integral-with-non-prescirbed-ends" title="Permalink to this heading">#</a></h2>
 </div>
 </div>
 
@@ -744,20 +752,20 @@ Using the results of <a class="reference internal" href="../differential-geometr
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="intro.html"
+       href="examples.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">26. </span>Introduction to Calculus of Variations</p>
+        <p class="prev-next-title"><span class="section-number">26.2. </span>Examples</p>
       </div>
     </a>
     <a class="right-next"
-       href="extra.html"
+       href="../ode/intro.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">26.3. </span>Extra</p>
+        <p class="prev-next-title"><span class="section-number">27. </span>Introduction to Ordinary Differential Equations</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -776,10 +784,8 @@ Using the results of <a class="reference internal" href="../differential-geometr
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shortest-path">26.2.1. Shortest path</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fermat-principle">26.2.2. Fermat principle</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lagrange-equations-in-classical-mechanics">26.2.3. Lagrange equations in classical mechanics</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lagrange-equations-in-special-relativity">26.2.4. Lagrange equations in special relativity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parametrization-of-the-integral-with-the-arc-length">26.3.1. Parametrization of the integral with the arc-length</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integral-with-non-prescirbed-ends">26.3.2. Integral with non prescirbed ends</a></li>
 </ul>
   </nav></div>
 
