@@ -100,6 +100,9 @@ $$\left\{ \begin{aligned}
 (calculus-variations:examples:lagrange-equations:special-relativity)=
 ## Lagrange equations in special relativity
 
+(calculus-variations:examples:lagrange-equations:special-relativity:tensor)=
+### Using tensor formalism
+
 Equations of motion and physical principles **must** be written using physical properties, and thus be independent from an arbitrary parametrization.
 
 **Strong formulation.** Let the equation of motion of a particle be
@@ -194,4 +197,58 @@ $$\begin{aligned}
    \end{aligned}$$
 
    ```
+   
+   ```{dropdown} From the variational principle to the equations of motion
+   :open:
+
+   $$\begin{aligned}
+     0 
+       & = \delta \int_{\lambda_0}^{\lambda_1} \mathcal{L}\left( \mathbf{X}(\lambda), \mathbf{X}'(\lambda), \lambda \right) \, d \lambda = \\
+       & = \int_{\lambda_0}^{\lambda_1} \left\{ \delta \mathbf{X}'(\lambda) \cdot \nabla_{\mathbf{X}'} \mathcal{L} + \delta \mathbf{X}(\lambda) \cdot \nabla_{\mathbf{X}} \mathcal{L}  \right\} \, d \lambda = \\
+       & = \underbrace{\left.\left[ \delta \mathbf{X} \cdot \nabla_{\mathbf{X}'} \mathcal{L} \right]\right|_{\lambda_0}^{\lambda_1}}_{=0} - \int_{\lambda_0}^{\lambda_1}  \delta \mathbf{X} \cdot \left\{ \dfrac{d}{d\lambda} \left( \nabla_{\mathbf{X}'} \mathcal{L} \right) - \nabla_{\mathbf{X}} \mathcal{L}  \right\} \, d \lambda \ ,
+   \end{aligned}$$
+
+   and, since $\delta \mathbf{X}$ must be arbitary, Lagrange equations follow
+
+   $$\dfrac{d}{d\lambda} \left( \nabla_{\mathbf{X}'} \mathcal{L} \right) - \nabla_{\mathbf{X}} \mathcal{L} = \mathbf{0} \ .$$
+
+   If the Lagrangian funcion is
+
+   $$\mathcal{L}(\mathbf{X}, \mathbf{X}', \lambda) = - m c \sqrt{\mathbf{X}'(\lambda) \cdot \mathbf{X}'(\lambda)} - q \mathbf{A}\left(\mathbf{X}(\lambda)\right) \cdot \mathbf{X}'(\lambda) \ ,$$
+
+   its derivatives are
+
+   $$\begin{aligned}
+    \nabla_{\mathbf{X}'} \mathcal{L} & = - \dfrac{m c}{\sqrt{\mathbf{X}' \cdot \mathbf{X}'}} \mathbf{X}' - q \mathbf{A}(\mathbf{X}) = - m \mathbf{U} - q \mathbf{A} \\
+    \nabla_{\mathbf{X} } \mathcal{L} & = - q \nabla \mathbf{A} \cdot \mathbf{X}' = - q \nabla \mathbf{A} \cdot \mathbf{U} \dfrac{\sqrt{\mathbf{X}' \cdot \mathbf{X}'}}{c} \\
+   \end{aligned}$$
+
+   and 
+
+   $$\begin{aligned}
+   \dfrac{d}{d\lambda} \nabla_{\mathbf{X}'} \mathcal{L}
+   & = \dfrac{d \tau}{d\lambda} \dfrac{d}{d \tau} \left( - m \mathbf{U} - q \mathbf{A} \right) = \\
+   & = \dfrac{\sqrt{\mathbf{X}' \cdot \mathbf{X}'}}{c} \dfrac{d }{d \tau} \left(- m \mathbf{U} - q \mathbf{A}(\mathbf{X}) \right) = \\
+   & = \dfrac{\sqrt{\mathbf{X}' \cdot \mathbf{X}'}}{c} \left(- m  \dfrac{d }{d \tau}\mathbf{U} - q \mathbf{U} \cdot \nabla \mathbf{A}(\mathbf{X}) \right) \ .
+   \end{aligned}$$
+
+   Putting together all the pieces of the Lagrange equations, and dividing by $\frac{\sqrt{\mathbf{X}' \cdot \mathbf{X}'}}{c}$ - different from zero, if the 3-velocity of the particle is $|\mathbf{v}| < c$ -,
+
+   $$0 = - m \dfrac{d \mathbf{U}}{d \tau} - q \mathbf{U} \cdot \nabla \mathbf{A} + q \nabla \mathbf{A} \cdot \mathbf{U} \ ,$$
+
+   and thus
+
+   $$m \dfrac{d \mathbf{U}}{d \tau} = q \left[ \nabla \mathbf{A} - \nabla^T \mathbf{A} \right] \cdot \mathbf{U} \ .$$
+
+
+
+   ```
+
+ 
+
+(calculus-variations:examples:lagrange-equations:special-relativity:coordinates)=
+### Using coordinates
+
+With $\mathbf{X}\left( q^{\mu}(\lambda) \right)$,...
+
 
