@@ -902,7 +902,7 @@ Derivative w.r.t. the conjugate conjugate variable<div class="sd-summary-down do
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Let a function <span class="math notranslate nohighlight">\(f(z) = u(z) + i v(z) = U(x,y) + i V(x,y)\)</span>, with <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span> indepdendent variables. With a change of coordinates,</p>
+<p class="sd-card-text">Let a function <span class="math notranslate nohighlight">\(f(z) = u(z) + i v(z) = U(x,y) + i V(x,y)\)</span>, with <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span> independent variables. With a change of coordinates,</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \left\{
@@ -959,7 +959,7 @@ Free-style approach<div class="sd-summary-down docutils">
   &amp; = \delta \Psi^* \partial_t \Psi + \partial_t \left( \Psi^* \delta \Psi \right) - \delta \Psi^* \partial_t \Psi - \delta \Psi \partial_t \Psi^* - \partial_t \left( \Psi \delta \Psi^* \right) + \partial_t \Psi \delta \Psi^* = \\
   &amp; = 2 \left( \delta \Psi^* \partial_t \Psi - \delta \Psi \partial_t \Psi^* \right) + \partial_t \left( \dots \right) \ .
 \end{aligned}\end{split}\]</div>
-<p class="sd-card-text">having used integration by parts and switched the variation and the partial derivative w.r.t. time (<strong>but</strong>, is that legal? See below <code class="xref eq docutils literal notranslate"><span class="pre">eq:calculus-variation:switch-d-delta</span></code>). Thus the variational principle - with prescribed <span class="math notranslate nohighlight">\(\delta \Psi\)</span> at boundary of space and time domain - reads</p>
+<p class="sd-card-text">having used integration by parts and switched the variation and the partial derivative w.r.t. time (<strong>but</strong>, is that legal? See below <a class="reference internal" href="#equation-eq-calculus-variation-switch-d-delta">(26.6)</a>). Thus the variational principle - with prescribed <span class="math notranslate nohighlight">\(\delta \Psi\)</span> at boundary of space and time domain - reads</p>
 <div class="math notranslate nohighlight">
 \[0 = - \delta \int_{T} \int_{\Omega} \left\{ i \frac{\hbar}{2} \left( \Psi^* \partial_t \Psi - \Psi \partial_t \Psi^* \right) - \dfrac{\hbar^2}{2 m } \nabla \Psi^* \cdot \nabla \Psi - \Psi^* V(\mathbf{r}) \Psi \right\} d \mathbf{r} \, d t \ .\]</div>
 <p class="sd-card-text">The function inside the integral is defined as the Lagrangian function</p>
@@ -1007,31 +1007,53 @@ A more rigorous approach<div class="sd-summary-down docutils">
 </div>
 </details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
 <summary class="sd-summary-title sd-card-header">
-Exchanging derivatives and variation<div class="sd-summary-down docutils">
+Variation of a function<div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Let <span class="math notranslate nohighlight">\(f(q^i(x,t), x,t)\)</span>, and</p>
+<p class="sd-card-text"><strong>Function of 1-variable <span class="math notranslate nohighlight">\(t\)</span>.</strong> Let <span class="math notranslate nohighlight">\(f\)</span> be a function of <span class="math notranslate nohighlight">\(t\)</span>, <span class="math notranslate nohighlight">\(q(t)\)</span> and its first <span class="math notranslate nohighlight">\(n\)</span> derivatives <span class="math notranslate nohighlight">\(q^{k}(t)\)</span>, i.e.</p>
+<div class="math notranslate nohighlight">
+\[f\left(q^{(n)}(t), \dots, q(t), t \right) \ .\]</div>
+<p class="sd-card-text">The variation of this function w.r.t. <span class="math notranslate nohighlight">\(q(t)\)</span> is defined through an arbitrary variation <span class="math notranslate nohighlight">\(\delta q(t)\)</span> as</p>
+<div class="math notranslate nohighlight" id="equation-eq-calculus-variations-def-1">
+<span class="eqno">(26.3)<a class="headerlink" href="#equation-eq-calculus-variations-def-1" title="Permalink to this equation">#</a></span>\[\delta f = \sum_{k} \delta q^{(k)} \, \partial_{q^{(k)}} f \ .\]</div>
+<p class="sd-card-text">…<strong>todo</strong> <em>Add the definitions for multi-dimensional functions, and independent variables,…</em></p>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Exchanging derivatives and variation of the function <span class="math notranslate nohighlight">\(\ f\left( q^i(x^k), x^k \right)\)</span><div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Let <span class="math notranslate nohighlight">\(F\left(x^k \right) = f( q^i(x^k), x^k)\)</span> be a function of the <span class="math notranslate nohighlight">\(x^k\)</span>, through <span class="math notranslate nohighlight">\(q^k\)</span> - or not, if there’s no explicit dependence on <span class="math notranslate nohighlight">\(x^k\)</span>,</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
-  \partial_x f &amp; = \partial_x q^i \partial_{q^i} f + \partial_x f \\
+  \partial_{x^k} f &amp; = \partial_{x^k} q^j \partial_{q^j} f + \partial_{x^k} f \\
   \delta f     &amp; = \delta q^i \partial_{q^i} f
 \end{aligned}\end{split}\]</div>
-<p class="sd-card-text">Thus</p>
-<!--
-
-$$
-\delta \partial_x f = \delta q^i \partial_{q^i} \partial_x f = \delta q^i \partial_{q^i} \left( \partial_x q^k \partial_{q^k} f + \partial_x f \right)
-$$
-
-$$\begin{aligned}
-\partial_x \delta f =
-\partial_x \left( \delta q^i \partial_{q^i} f \right) =
-\partial_x \delta q^i \partial_{q^i} f + \delta q^i \partial_{q^k} \partial_{q^i} f \partial_x q^k 
-\end{aligned}$$(eq:calculus-variation:switch-d-delta)
-
--->
+<p class="sd-card-text">The derivative <span class="math notranslate nohighlight">\(\partial_{x^k} f\)</span> is a function of <span class="math notranslate nohighlight">\(x^k\)</span>, <span class="math notranslate nohighlight">\(q^i(x^k)\)</span>, <span class="math notranslate nohighlight">\(\partial_{x^m} q^i(x^k)\)</span>. Thus, using the definition <a class="reference internal" href="#equation-eq-calculus-variations-def-1">(26.3)</a>, it follows</p>
+<div class="math notranslate nohighlight" id="equation-eq-calculus-variation-switch-d-delta-delta-d">
+<span class="eqno">(26.4)<a class="headerlink" href="#equation-eq-calculus-variation-switch-d-delta-delta-d" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+\delta \partial_{x^k} f
+&amp; = \delta \left( \partial_{x^k} q^j \partial_{q^j} f + \partial_{x^k} f \right) = \\
+&amp; = \delta q^i \partial_{q^i} \left( \dots \right) + \partial_{x^m} \delta q^i \, \partial_{\partial_{x^m} q^i} \left( \dots \right) = \\
+&amp; = \delta q^i \left( \partial_x q^j \partial_{q^i q^j} f + \partial_{q^i x^k} f \right) + \partial_{x^m} \delta q^i \delta^m_k \delta^j_i \partial_{q^j} f = \\
+&amp; = \delta q^i \left( \partial_x q^j \partial_{q^i q^j} f + \partial_{q^i x^k} f \right) + \partial_{x^k} \delta q^i \partial_{q^i} f \ .
+\end{aligned}\end{split}\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-calculus-variation-switch-d-delta-d-delta">
+<span class="eqno">(26.5)<a class="headerlink" href="#equation-eq-calculus-variation-switch-d-delta-d-delta" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+\partial_{x^k} \delta f
+&amp; = \partial_{x^k} \left( \delta q^i \partial_{q^i} f \right) = \\
+&amp; = \partial_{x^k} \delta q^i \partial_{q^i} f + \delta q^i \left( \partial_{q^j q^i} f \partial_{x^k} q^j + \partial_{x^k q^i} f \right) \ .
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">Comparing the expressions <a class="reference internal" href="#equation-eq-calculus-variation-switch-d-delta-delta-d">(26.4)</a> and <a class="reference internal" href="#equation-eq-calculus-variation-switch-d-delta-d-delta">(26.5)</a>, it follows that</p>
+<div class="math notranslate nohighlight">
+\[\delta \partial_{x^k} f = \partial_{x^k} \delta f \ .\]</div>
+<p class="sd-card-text">If the variation is performed only on the function <span class="math notranslate nohighlight">\(q^i(x^k)\)</span>, a similar property holds for any pair of indices <span class="math notranslate nohighlight">\(i\)</span>, <span class="math notranslate nohighlight">\(k\)</span></p>
+<div class="math notranslate nohighlight" id="equation-eq-calculus-variation-switch-d-delta">
+<span class="eqno">(26.6)<a class="headerlink" href="#equation-eq-calculus-variation-switch-d-delta" title="Permalink to this equation">#</a></span>\[\delta_{q^i} \partial_{x^k} f = \partial_{x^k} \delta_{q^i} f \ .\]</div>
 </div>
 </details></div>
 </div>

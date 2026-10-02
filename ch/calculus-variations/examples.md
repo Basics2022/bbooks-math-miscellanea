@@ -299,7 +299,7 @@ $$\begin{aligned}
 ```{dropdown} Derivative w.r.t. the conjugate conjugate variable
 :open:
 
-Let a function $f(z) = u(z) + i v(z) = U(x,y) + i V(x,y)$, with $x$, $y$ indepdendent variables. With a change of coordinates,
+Let a function $f(z) = u(z) + i v(z) = U(x,y) + i V(x,y)$, with $x$, $y$ independent variables. With a change of coordinates,
 
 $$
 \left\{
@@ -407,30 +407,55 @@ $$\delta \Psi = \delta q^j \partial_{q^j} \Psi \ .$$
 
 ```
 
-```{dropdown} Exchanging derivatives and variation
+```{dropdown} Variation of a function
 :open:
 
-Let $f(q^i(x,t), x,t)$, and 
+**Function of 1-variable $t$.** Let $f$ be a function of $t$, $q(t)$ and its first $n$ derivatives $q^{k}(t)$, i.e.
+
+$$f\left(q^{(n)}(t), \dots, q(t), t \right) \ .$$
+
+The variation of this function w.r.t. $q(t)$ is defined through an arbitrary variation $\delta q(t)$ as
+
+$$\delta f = \sum_{k} \delta q^{(k)} \, \partial_{q^{(k)}} f \ .$$ (eq:calculus-variations:def:1)
+
+...**todo** *Add the definitions for multi-dimensional functions, and independent variables,...*
+
+```
+
+
+
+```{dropdown} Exchanging derivatives and variation of the function $\ f\left( q^i(x^k), x^k \right)$
+:open:
+
+Let $F\left(x^k \right) = f( q^i(x^k), x^k)$ be a function of the $x^k$, through $q^k$ - or not, if there's no explicit dependence on $x^k$,
 
 $$\begin{aligned}
-  \partial_x f & = \partial_x q^i \partial_{q^i} f + \partial_x f \\
+  \partial_{x^k} f & = \partial_{x^k} q^j \partial_{q^j} f + \partial_{x^k} f \\
   \delta f     & = \delta q^i \partial_{q^i} f
 \end{aligned}$$
 
-Thus
-
-<!--
-
-$$
-\delta \partial_x f = \delta q^i \partial_{q^i} \partial_x f = \delta q^i \partial_{q^i} \left( \partial_x q^k \partial_{q^k} f + \partial_x f \right)
-$$
+The derivative $\partial_{x^k} f$ is a function of $x^k$, $q^i(x^k)$, $\partial_{x^m} q^i(x^k)$. Thus, using the definition {eq}`eq:calculus-variations:def:1`, it follows
 
 $$\begin{aligned}
-\partial_x \delta f =
-\partial_x \left( \delta q^i \partial_{q^i} f \right) =
-\partial_x \delta q^i \partial_{q^i} f + \delta q^i \partial_{q^k} \partial_{q^i} f \partial_x q^k 
-\end{aligned}$$(eq:calculus-variation:switch-d-delta)
+\delta \partial_{x^k} f
+& = \delta \left( \partial_{x^k} q^j \partial_{q^j} f + \partial_{x^k} f \right) = \\
+& = \delta q^i \partial_{q^i} \left( \dots \right) + \partial_{x^m} \delta q^i \, \partial_{\partial_{x^m} q^i} \left( \dots \right) = \\
+& = \delta q^i \left( \partial_x q^j \partial_{q^i q^j} f + \partial_{q^i x^k} f \right) + \partial_{x^m} \delta q^i \delta^m_k \delta^j_i \partial_{q^j} f = \\
+& = \delta q^i \left( \partial_x q^j \partial_{q^i q^j} f + \partial_{q^i x^k} f \right) + \partial_{x^k} \delta q^i \partial_{q^i} f \ .
+\end{aligned}$$ (eq:calculus-variation:switch-d-delta:delta-d)
 
--->
+$$\begin{aligned}
+\partial_{x^k} \delta f
+& = \partial_{x^k} \left( \delta q^i \partial_{q^i} f \right) = \\
+& = \partial_{x^k} \delta q^i \partial_{q^i} f + \delta q^i \left( \partial_{q^j q^i} f \partial_{x^k} q^j + \partial_{x^k q^i} f \right) \ .
+\end{aligned}$$ (eq:calculus-variation:switch-d-delta:d-delta)
+
+Comparing the expressions {eq}`eq:calculus-variation:switch-d-delta:delta-d` and {eq}`eq:calculus-variation:switch-d-delta:d-delta`, it follows that
+
+$$\delta \partial_{x^k} f = \partial_{x^k} \delta f \ .$$
+
+If the variation is performed only on the function $q^i(x^k)$, a similar property holds for any pair of indices $i$, $k$
+
+$$\delta_{q^i} \partial_{x^k} f = \partial_{x^k} \delta_{q^i} f \ .$$ (eq:calculus-variation:switch-d-delta)
 
 ```
