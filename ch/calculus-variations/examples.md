@@ -456,6 +456,8 @@ $$\delta \partial_{x^k} f = \partial_{x^k} \delta f \ .$$
 
 If the variation is performed only on the function $q^i(x^k)$, a similar property holds for any pair of indices $i$, $k$
 
-$$\delta_{q^i} \partial_{x^k} f = \partial_{x^k} \delta_{q^i} f \ .$$ (eq:calculus-variation:switch-d-delta)
+$$\delta_{q^i} \partial_{x^k} f = \partial_{x^k} \delta_{q^i} f \ ,$$ (eq:calculus-variation:switch-d-delta)
+
+with the definition $\delta q^i f = \delta q^i \partial_{q^i} f$, wtihout summing on the pair of repeated.
 
 ```
