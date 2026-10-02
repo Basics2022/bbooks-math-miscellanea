@@ -1,6 +1,17 @@
 (calculus-variations:examples)=
 # Examples
 
+```{dropdown} Contents
+:open:
+
+**Geometry.** [Shortest path](calculus-variations:examples:line-length)
+
+**Physics.** [Fermat principle](calculus-variations:examples:fermat) in optics; [Lagrange equations in classical mechanics](calculus-variations:examples:lagrange-equations:classical-mechanics); [Lagrange equations in special relativity](calculus-variations:examples:lagrange-equations:special-relativity); [Lagrange equations in quantum mechanics](calculus-variations:examples:lagrange-equations:quantum-mechanics)
+
+
+```
+
+
 (calculus-variations:examples:line-length)=
 ## Shortest path
 
@@ -252,3 +263,174 @@ $$\begin{aligned}
 With $\mathbf{X}\left( q^{\mu}(\lambda) \right)$,...
 
 
+(calculus-variations:examples:lagrange-equations:quantum-mechanics)=
+## Quantum Mechanics
+
+(calculus-variations:examples:lagrange-equations:quantum-mechanics:schrodinger-eq)=
+### Schrodinger equation
+
+$$i \hbar \dfrac{d}{dt} | \Psi(t) \rangle = \hat{H} | \Psi \rangle \ , $$
+
+Schrodinger equation for a particle with mass $m$ in a conservative force field with potential energy $V(\mathbf{r})$,in position representation, becomes
+
+$$i \hbar \partial_t \Psi = - \dfrac{\hbar^2}{2 m} \nabla^2 \Psi + V(\mathbf{r}) \Psi \ ,$$
+
+with $\Psi(\mathbf{r},t): \Omega \times T \rightarrow \mathbb{C}$.
+
+```{dropdown} Derivative w.r.t. a complex number and its complex conjugate
+:open:
+
+Let a complex variable be $z = x + i y$. Any complex function can be written as a linear combination of its real and imaginary part, $f(z) = u(z) + i v(z)$, $u(z): \mathbb{C} \rightarrow \mathbb{R}$, $u(z): \mathbb{C} \rightarrow \mathbb{R}$, and reacast as a 2-dimensional function of the real and imaginary part of the independent variable, i.e. $F(x,y) = U(x,y) + i V(x,y)$.
+
+**Holomorphic functions.** ...
+
+$$f'(z_0) = \lim_{z \rightarrow z_0} \frac{f(z) - f(z_0)}{z-z_0}$$
+
+[Cauchy-Riemann conditions](complex:analysis:holo-fun:cauchy-riemann) for holomorphic functions immediately follow from the way $z$ approaches $z_0$ in the complex plane.
+
+$$\begin{aligned}
+  \frac{d f}{d z} 
+  & = \frac{\partial F}{\partial x} = \frac{\partial U}{\partial x} + i \frac{\partial V}{\partial x} \\
+  & = \frac{\partial F}{i \, \partial y} = \frac{1}{i} \frac{\partial U}{\partial y} + \frac{\partial V}{\partial y} \\
+\end{aligned}$$
+
+```
+
+```{dropdown} Derivative w.r.t. the conjugate conjugate variable
+:open:
+
+Let a function $f(z) = u(z) + i v(z) = U(x,y) + i V(x,y)$, with $x$, $y$ indepdendent variables. With a change of coordinates,
+
+$$
+\left\{
+\begin{aligned}
+ z   & = x + i y \\ 
+ z^* & = z - i y
+\end{aligned}\right.
+\qquad , \qquad
+\left\{
+\begin{aligned}
+ x & = \frac{1}{2} \left( z + z^* \right) \\
+ y & = \frac{1}{2i} \left( z - z^* \right)
+\end{aligned}\right.
+$$
+
+and thus, with the definition
+
+$$\begin{aligned}
+  \mathscr{u}(z, z^*) & = U(x(z,z^*), y(z,z^*))  \\
+  \mathscr{v}(z, z^*) & = V(x(z,z^*), y(z,z^*))
+\end{aligned}$$
+
+...
+
+```
+
+
+
+```{dropdown} Free-style approach
+:open:
+
+Multiplying Schrodinger equation by the c.c. of a test function $f(z)$, and integrating in both time and space domain,
+
+$$\begin{aligned}
+  0 
+  & = \int_{T} \int_{\Omega} f^* \left\{ - i \hbar \partial_t \Psi - \frac{\hbar^2}{2m} \partial_{kk} \Psi + V \Psi \right\} d \mathbf{r} \, dt = \\
+  & = \int_{T} \int_{\Omega} \left\{ - i \hbar \, f^* \partial_t \Psi + \frac{\hbar^2}{2m} \partial_k f^* \, \partial_{k} \Psi + f^* V \Psi \right\} d \mathbf{r} \, dt - \int_{T} \oint_{\partial \Omega} \dfrac{\hbar^2}{2m} f^* n_k \partial_k \Psi \, d \mathbf{r} \, dt \ .
+\end{aligned}$$
+
+Now, let's
+
+* add the complex conjugate
+* define $f = \partial \Psi$
+* set the test function equal to zero on $\partial \Omega$
+
+$$\begin{aligned}
+  0 
+  & = \int_{T} \int_{\Omega} \left\{ - i \hbar \, \delta \Psi^* \partial_t \Psi + \frac{\hbar^2}{2m} \partial_k \delta \Psi^* \, \partial_{k} \Psi + \delta \Psi^* V \Psi \right\} d \mathbf{r} \, dt + \\
+  & + \int_{T} \int_{\Omega} \left\{ i \hbar \, \delta \Psi \partial_t \Psi^* + \frac{\hbar^2}{2m} \partial_k \delta \Psi \, \partial_{k} \Psi^* + \delta \Psi V \Psi^* \right\} d \mathbf{r} \, dt = \\
+\end{aligned}$$
+
+Last two pairs of terms can be written as... while the first pair
+
+$$\begin{aligned}
+  \delta \left( \Psi^* \partial_t \Psi - \Psi \partial_t \Psi^* \right)
+  & = \delta \Psi^* \partial_t \Psi + \Psi^* \delta \partial_t \Psi - \delta \Psi \partial_t \Psi^* - \Psi \partial_t \delta \Psi^* = \\
+  & = \delta \Psi^* \partial_t \Psi + \partial_t \left( \Psi^* \delta \Psi \right) - \delta \Psi^* \partial_t \Psi - \delta \Psi \partial_t \Psi^* - \partial_t \left( \Psi \delta \Psi^* \right) + \partial_t \Psi \delta \Psi^* = \\
+  & = 2 \left( \delta \Psi^* \partial_t \Psi - \delta \Psi \partial_t \Psi^* \right) + \partial_t \left( \dots \right) \ .
+\end{aligned}$$
+
+having used integration by parts and switched the variation and the partial derivative w.r.t. time (**but**, is that legal? See below {eq}`eq:calculus-variation:switch-d-delta`). Thus the variational principle - with prescribed $\delta \Psi$ at boundary of space and time domain - reads
+
+$$0 = - \delta \int_{T} \int_{\Omega} \left\{ i \frac{\hbar}{2} \left( \Psi^* \partial_t \Psi - \Psi \partial_t \Psi^* \right) - \dfrac{\hbar^2}{2 m } \nabla \Psi^* \cdot \nabla \Psi - \Psi^* V(\mathbf{r}) \Psi \right\} d \mathbf{r} \, d t \ .$$
+
+The function inside the integral is defined as the Lagrangian function
+
+$$\mathcal{L}\left( \Psi, \partial_t \Psi, \partial_k \Psi \right) = i \frac{\hbar}{2} \left( \Psi^* \partial_t \Psi - \Psi \partial_t \Psi^* \right) - \dfrac{\hbar^2}{2 m } \nabla \Psi^* \cdot \nabla \Psi - \Psi^* V(\mathbf{r}) \Psi \ .$$ (eq:calculus-variation:lagrangian:schrodinger)
+
+```
+
+````{dropdown} Lagrange equations
+:open:
+
+Schrodinger equation can be retrieved from Lagrange equation
+
+$$0 = \partial_t \left( \dfrac{\partial \mathcal{L}}{\partial \left( \partial_t \Psi \right)} \right) + \partial_k \left( \dfrac{\partial \mathcal{L}}{\partial \left( \partial_k \Psi \right)} \right) - \dfrac{\partial \mathcal{L}}{\partial \Psi} \ ,$$
+
+taking the derivatives of the Lagrangian function $\mathcal{L}\left( \Psi, \partial_t \Psi, \partial_k \Psi \right)$ in formula {eq}`eq:calculus-variation:lagrangian:schrodinger`.
+
+
+```{dropdown} Proof.
+:open:
+
+**todo**
+
+```
+
+````
+
+```{dropdown} A more rigorous approach
+:open:
+
+Let $\Psi(q^j(\mathbf{r},t), \mathbf{r},t)$ be a function of generalized coordinates $q^j(\mathbf{r},t)$, function of the independent variables $\mathbf{r}$, t. Its partial time and space derivatives read
+
+$$\begin{aligned}
+  \partial_{t} \Psi & = \partial_t q^j \, \partial_{q^j} \Psi + \partial_t q^j \\
+  \partial_{k} \Psi & = \partial_k q^j \, \partial_{q^j} \Psi + \partial_k q^j \\
+\end{aligned}$$
+
+and thus, the variation reads
+
+$$\delta \Psi = \delta q^j \partial_{q^j} \Psi \ .$$
+
+...
+
+```
+
+```{dropdown} Exchanging derivatives and variation
+:open:
+
+Let $f(q^i(x,t), x,t)$, and 
+
+$$\begin{aligned}
+  \partial_x f & = \partial_x q^i \partial_{q^i} f + \partial_x f \\
+  \delta f     & = \delta q^i \partial_{q^i} f
+\end{aligned}$$
+
+Thus
+
+<!--
+
+$$
+\delta \partial_x f = \delta q^i \partial_{q^i} \partial_x f = \delta q^i \partial_{q^i} \left( \partial_x q^k \partial_{q^k} f + \partial_x f \right)
+$$
+
+$$\begin{aligned}
+\partial_x \delta f =
+\partial_x \left( \delta q^i \partial_{q^i} f \right) =
+\partial_x \delta q^i \partial_{q^i} f + \delta q^i \partial_{q^k} \partial_{q^i} f \partial_x q^k 
+\end{aligned}$$(eq:calculus-variation:switch-d-delta)
+
+-->
+
+```

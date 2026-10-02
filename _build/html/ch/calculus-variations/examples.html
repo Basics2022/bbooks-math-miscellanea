@@ -72,10 +72,19 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="26.3. Extra" href="extra.html" />
-    <link rel="prev" title="26. Introduction to Calculus of Variations" href="intro.html" />
+    <link rel="prev" title="26.1. Basics of calculus of variations" href="basics.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPXX63Z3XR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-JPXX63Z3XR');
+</script>
+
   
   
   <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
@@ -243,6 +252,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Calculus of Variations</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">26. Introduction to Calculus of Variations</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="basics.html">26.1. Basics of calculus of variations</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">26.2. Examples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="extra.html">26.3. Extra</a></li>
 </ul>
@@ -608,6 +618,10 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-coordinates">26.2.4.2. Using coordinates</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantum-mechanics">26.2.5. Quantum Mechanics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#schrodinger-equation">26.2.5.1. Schrodinger equation</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -621,7 +635,17 @@ document.write(`
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="examples">
 <span id="calculus-variations-examples"></span><h1><span class="section-number">26.2. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">#</a></h1>
-<div class="section" id="shortest-path">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Contents<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><strong>Geometry.</strong> <a class="reference internal" href="#calculus-variations-examples-line-length"><span class="std std-ref">Shortest path</span></a></p>
+<p class="sd-card-text"><strong>Physics.</strong> <a class="reference internal" href="#calculus-variations-examples-fermat"><span class="std std-ref">Fermat principle</span></a> in optics; <a class="reference internal" href="#calculus-variations-examples-lagrange-equations-classical-mechanics"><span class="std std-ref">Lagrange equations in classical mechanics</span></a>; <a class="reference internal" href="#calculus-variations-examples-lagrange-equations-special-relativity"><span class="std std-ref">Lagrange equations in special relativity</span></a>; <a class="reference internal" href="#calculus-variations-examples-lagrange-equations-quantum-mechanics"><span class="std std-ref">Lagrange equations in quantum mechanics</span></a></p>
+</div>
+</details><div class="section" id="shortest-path">
 <span id="calculus-variations-examples-line-length"></span><h2><span class="section-number">26.2.1. </span>Shortest path<a class="headerlink" href="#shortest-path" title="Permalink to this heading">#</a></h2>
 <p>Shortest path between two given points <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span>. The length of a curve <span class="math notranslate nohighlight">\(\gamma_{AB}\)</span> connecting the two points reads</p>
 <div class="math notranslate nohighlight">
@@ -842,6 +866,175 @@ From the variational principle to the equations of motion<div class="sd-summary-
 <p>With <span class="math notranslate nohighlight">\(\mathbf{X}\left( q^{\mu}(\lambda) \right)\)</span>,…</p>
 </div>
 </div>
+<div class="section" id="quantum-mechanics">
+<span id="calculus-variations-examples-lagrange-equations-quantum-mechanics"></span><h2><span class="section-number">26.2.5. </span>Quantum Mechanics<a class="headerlink" href="#quantum-mechanics" title="Permalink to this heading">#</a></h2>
+<div class="section" id="schrodinger-equation">
+<span id="calculus-variations-examples-lagrange-equations-quantum-mechanics-schrodinger-eq"></span><h3><span class="section-number">26.2.5.1. </span>Schrodinger equation<a class="headerlink" href="#schrodinger-equation" title="Permalink to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[i \hbar \dfrac{d}{dt} | \Psi(t) \rangle = \hat{H} | \Psi \rangle \ , \]</div>
+<p>Schrodinger equation for a particle with mass <span class="math notranslate nohighlight">\(m\)</span> in a conservative force field with potential energy <span class="math notranslate nohighlight">\(V(\mathbf{r})\)</span>,in position representation, becomes</p>
+<div class="math notranslate nohighlight">
+\[i \hbar \partial_t \Psi = - \dfrac{\hbar^2}{2 m} \nabla^2 \Psi + V(\mathbf{r}) \Psi \ ,\]</div>
+<p>with <span class="math notranslate nohighlight">\(\Psi(\mathbf{r},t): \Omega \times T \rightarrow \mathbb{C}\)</span>.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Derivative w.r.t. a complex number and its complex conjugate<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Let a complex variable be <span class="math notranslate nohighlight">\(z = x + i y\)</span>. Any complex function can be written as a linear combination of its real and imaginary part, <span class="math notranslate nohighlight">\(f(z) = u(z) + i v(z)\)</span>, <span class="math notranslate nohighlight">\(u(z): \mathbb{C} \rightarrow \mathbb{R}\)</span>, <span class="math notranslate nohighlight">\(u(z): \mathbb{C} \rightarrow \mathbb{R}\)</span>, and reacast as a 2-dimensional function of the real and imaginary part of the independent variable, i.e. <span class="math notranslate nohighlight">\(F(x,y) = U(x,y) + i V(x,y)\)</span>.</p>
+<p class="sd-card-text"><strong>Holomorphic functions.</strong> …</p>
+<div class="math notranslate nohighlight">
+\[f'(z_0) = \lim_{z \rightarrow z_0} \frac{f(z) - f(z_0)}{z-z_0}\]</div>
+<p class="sd-card-text"><a class="reference internal" href="../complex/analysis.html#complex-analysis-holo-fun-cauchy-riemann"><span class="std std-ref">Cauchy-Riemann conditions</span></a> for holomorphic functions immediately follow from the way <span class="math notranslate nohighlight">\(z\)</span> approaches <span class="math notranslate nohighlight">\(z_0\)</span> in the complex plane.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \frac{d f}{d z} 
+  &amp; = \frac{\partial F}{\partial x} = \frac{\partial U}{\partial x} + i \frac{\partial V}{\partial x} \\
+  &amp; = \frac{\partial F}{i \, \partial y} = \frac{1}{i} \frac{\partial U}{\partial y} + \frac{\partial V}{\partial y} \\
+\end{aligned}\end{split}\]</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Derivative w.r.t. the conjugate conjugate variable<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Let a function <span class="math notranslate nohighlight">\(f(z) = u(z) + i v(z) = U(x,y) + i V(x,y)\)</span>, with <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span> indepdendent variables. With a change of coordinates,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\left\{
+\begin{aligned}
+ z   &amp; = x + i y \\ 
+ z^* &amp; = z - i y
+\end{aligned}\right.
+\qquad , \qquad
+\left\{
+\begin{aligned}
+ x &amp; = \frac{1}{2} \left( z + z^* \right) \\
+ y &amp; = \frac{1}{2i} \left( z - z^* \right)
+\end{aligned}\right.
+\end{split}\]</div>
+<p class="sd-card-text">and thus, with the definition</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathscr{u}(z, z^*) &amp; = U(x(z,z^*), y(z,z^*))  \\
+  \mathscr{v}(z, z^*) &amp; = V(x(z,z^*), y(z,z^*))
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">…</p>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Free-style approach<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Multiplying Schrodinger equation by the c.c. of a test function <span class="math notranslate nohighlight">\(f(z)\)</span>, and integrating in both time and space domain,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  0 
+  &amp; = \int_{T} \int_{\Omega} f^* \left\{ - i \hbar \partial_t \Psi - \frac{\hbar^2}{2m} \partial_{kk} \Psi + V \Psi \right\} d \mathbf{r} \, dt = \\
+  &amp; = \int_{T} \int_{\Omega} \left\{ - i \hbar \, f^* \partial_t \Psi + \frac{\hbar^2}{2m} \partial_k f^* \, \partial_{k} \Psi + f^* V \Psi \right\} d \mathbf{r} \, dt - \int_{T} \oint_{\partial \Omega} \dfrac{\hbar^2}{2m} f^* n_k \partial_k \Psi \, d \mathbf{r} \, dt \ .
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">Now, let’s</p>
+<ul class="simple">
+<li><p class="sd-card-text">add the complex conjugate</p></li>
+<li><p class="sd-card-text">define <span class="math notranslate nohighlight">\(f = \partial \Psi\)</span></p></li>
+<li><p class="sd-card-text">set the test function equal to zero on <span class="math notranslate nohighlight">\(\partial \Omega\)</span></p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  0 
+  &amp; = \int_{T} \int_{\Omega} \left\{ - i \hbar \, \delta \Psi^* \partial_t \Psi + \frac{\hbar^2}{2m} \partial_k \delta \Psi^* \, \partial_{k} \Psi + \delta \Psi^* V \Psi \right\} d \mathbf{r} \, dt + \\
+  &amp; + \int_{T} \int_{\Omega} \left\{ i \hbar \, \delta \Psi \partial_t \Psi^* + \frac{\hbar^2}{2m} \partial_k \delta \Psi \, \partial_{k} \Psi^* + \delta \Psi V \Psi^* \right\} d \mathbf{r} \, dt = \\
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">Last two pairs of terms can be written as… while the first pair</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \delta \left( \Psi^* \partial_t \Psi - \Psi \partial_t \Psi^* \right)
+  &amp; = \delta \Psi^* \partial_t \Psi + \Psi^* \delta \partial_t \Psi - \delta \Psi \partial_t \Psi^* - \Psi \partial_t \delta \Psi^* = \\
+  &amp; = \delta \Psi^* \partial_t \Psi + \partial_t \left( \Psi^* \delta \Psi \right) - \delta \Psi^* \partial_t \Psi - \delta \Psi \partial_t \Psi^* - \partial_t \left( \Psi \delta \Psi^* \right) + \partial_t \Psi \delta \Psi^* = \\
+  &amp; = 2 \left( \delta \Psi^* \partial_t \Psi - \delta \Psi \partial_t \Psi^* \right) + \partial_t \left( \dots \right) \ .
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">having used integration by parts and switched the variation and the partial derivative w.r.t. time (<strong>but</strong>, is that legal? See below <code class="xref eq docutils literal notranslate"><span class="pre">eq:calculus-variation:switch-d-delta</span></code>). Thus the variational principle - with prescribed <span class="math notranslate nohighlight">\(\delta \Psi\)</span> at boundary of space and time domain - reads</p>
+<div class="math notranslate nohighlight">
+\[0 = - \delta \int_{T} \int_{\Omega} \left\{ i \frac{\hbar}{2} \left( \Psi^* \partial_t \Psi - \Psi \partial_t \Psi^* \right) - \dfrac{\hbar^2}{2 m } \nabla \Psi^* \cdot \nabla \Psi - \Psi^* V(\mathbf{r}) \Psi \right\} d \mathbf{r} \, d t \ .\]</div>
+<p class="sd-card-text">The function inside the integral is defined as the Lagrangian function</p>
+<div class="math notranslate nohighlight" id="equation-eq-calculus-variation-lagrangian-schrodinger">
+<span class="eqno">(26.2)<a class="headerlink" href="#equation-eq-calculus-variation-lagrangian-schrodinger" title="Permalink to this equation">#</a></span>\[\mathcal{L}\left( \Psi, \partial_t \Psi, \partial_k \Psi \right) = i \frac{\hbar}{2} \left( \Psi^* \partial_t \Psi - \Psi \partial_t \Psi^* \right) - \dfrac{\hbar^2}{2 m } \nabla \Psi^* \cdot \nabla \Psi - \Psi^* V(\mathbf{r}) \Psi \ .\]</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Lagrange equations<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Schrodinger equation can be retrieved from Lagrange equation</p>
+<div class="math notranslate nohighlight">
+\[0 = \partial_t \left( \dfrac{\partial \mathcal{L}}{\partial \left( \partial_t \Psi \right)} \right) + \partial_k \left( \dfrac{\partial \mathcal{L}}{\partial \left( \partial_k \Psi \right)} \right) - \dfrac{\partial \mathcal{L}}{\partial \Psi} \ ,\]</div>
+<p class="sd-card-text">taking the derivatives of the Lagrangian function <span class="math notranslate nohighlight">\(\mathcal{L}\left( \Psi, \partial_t \Psi, \partial_k \Psi \right)\)</span> in formula <a class="reference internal" href="#equation-eq-calculus-variation-lagrangian-schrodinger">(26.2)</a>.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Proof.<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><strong>todo</strong></p>
+</div>
+</details></div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+A more rigorous approach<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Let <span class="math notranslate nohighlight">\(\Psi(q^j(\mathbf{r},t), \mathbf{r},t)\)</span> be a function of generalized coordinates <span class="math notranslate nohighlight">\(q^j(\mathbf{r},t)\)</span>, function of the independent variables <span class="math notranslate nohighlight">\(\mathbf{r}\)</span>, t. Its partial time and space derivatives read</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \partial_{t} \Psi &amp; = \partial_t q^j \, \partial_{q^j} \Psi + \partial_t q^j \\
+  \partial_{k} \Psi &amp; = \partial_k q^j \, \partial_{q^j} \Psi + \partial_k q^j \\
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">and thus, the variation reads</p>
+<div class="math notranslate nohighlight">
+\[\delta \Psi = \delta q^j \partial_{q^j} \Psi \ .\]</div>
+<p class="sd-card-text">…</p>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Exchanging derivatives and variation<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Let <span class="math notranslate nohighlight">\(f(q^i(x,t), x,t)\)</span>, and</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \partial_x f &amp; = \partial_x q^i \partial_{q^i} f + \partial_x f \\
+  \delta f     &amp; = \delta q^i \partial_{q^i} f
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">Thus</p>
+<!--
+
+$$
+\delta \partial_x f = \delta q^i \partial_{q^i} \partial_x f = \delta q^i \partial_{q^i} \left( \partial_x q^k \partial_{q^k} f + \partial_x f \right)
+$$
+
+$$\begin{aligned}
+\partial_x \delta f =
+\partial_x \left( \delta q^i \partial_{q^i} f \right) =
+\partial_x \delta q^i \partial_{q^i} f + \delta q^i \partial_{q^k} \partial_{q^i} f \partial_x q^k 
+\end{aligned}$$(eq:calculus-variation:switch-d-delta)
+
+-->
+</div>
+</details></div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -875,12 +1068,12 @@ From the variational principle to the equations of motion<div class="sd-summary-
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="intro.html"
+       href="basics.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">26. </span>Introduction to Calculus of Variations</p>
+        <p class="prev-next-title"><span class="section-number">26.1. </span>Basics of calculus of variations</p>
       </div>
     </a>
     <a class="right-next"
@@ -913,6 +1106,10 @@ From the variational principle to the equations of motion<div class="sd-summary-
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lagrange-equations-in-special-relativity">26.2.4. Lagrange equations in special relativity</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-tensor-formalism">26.2.4.1. Using tensor formalism</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-coordinates">26.2.4.2. Using coordinates</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quantum-mechanics">26.2.5. Quantum Mechanics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#schrodinger-equation">26.2.5.1. Schrodinger equation</a></li>
 </ul>
 </li>
 </ul>
