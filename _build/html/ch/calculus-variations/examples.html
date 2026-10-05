@@ -1075,45 +1075,95 @@ A more rigorous approach<div class="sd-summary-down docutils">
 <p class="sd-card-text">Let <span class="math notranslate nohighlight">\(\psi(\mathbf{r},t) = \Psi(q^j(\mathbf{r},t), \mathbf{r},t)\)</span> be a function of generalized coordinates <span class="math notranslate nohighlight">\(q^j(\mathbf{r},t)\)</span>, function of the independent variables <span class="math notranslate nohighlight">\(\mathbf{r}\)</span>, t. Its partial time and space derivatives read</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
-  \left.\partial_{t} \Psi\right|_{\mathbf{r}} &amp; = \partial_t q^j \, \partial_{q^j} \Psi|_{\mathbf{r}, t} + \partial_t \Psi|_{\mathbf{q}, \mathbf{r}} \\
-  \left.\partial_{k} \Psi\right|_{t} &amp; = \partial_k q^j \, \partial_{q^j} \Psi|_{\mathbf{r}, t} + \partial_k \Psi|_{\mathbf{q}, \mathbf{r}} \\
+  \left.\partial_{t} \psi\right|_{\mathbf{r}} &amp; = \left.\partial_{t} \Psi\right|_{\mathbf{r}} = \partial_t q^j \, \partial_{q^j} \Psi|_{\mathbf{r}, t} + \partial_t \Psi|_{\mathbf{q}, \mathbf{r}} \\
+  \left.\partial_{k} \psi\right|_{t}          &amp; = \left.\partial_{k} \Psi\right|_{t}          = \partial_k q^j \, \partial_{q^j} \Psi|_{\mathbf{r}, t} + \partial_k \Psi|_{\mathbf{q}, \mathbf{r}} \\
 \end{aligned}\end{split}\]</div>
-<p class="sd-card-text">Thus, the derivatives of the wave function <span class="math notranslate nohighlight">\(\partial_t \Psi\)</span>, and <span class="math notranslate nohighlight">\(\partial_k \Psi\)</span> are functions of the independent variables <span class="math notranslate nohighlight">\(\mathbf{r}\)</span>, <span class="math notranslate nohighlight">\(t\)</span>, the generalized functions <span class="math notranslate nohighlight">\(q^j\)</span> and their derivatives <span class="math notranslate nohighlight">\(\partial_t q^j\)</span>, <span class="math notranslate nohighlight">\(\partial_k q^j\)</span> respectively</p>
+<p class="sd-card-text">Thus, the derivatives of the wave function <span class="math notranslate nohighlight">\(\partial_t \Psi\)</span>, and <span class="math notranslate nohighlight">\(\partial_k \Psi\)</span> are functions of the independent variables <span class="math notranslate nohighlight">\(\mathbf{r}\)</span>, <span class="math notranslate nohighlight">\(t\)</span>, the generalized functions <span class="math notranslate nohighlight">\(q^j\)</span> and their derivatives <span class="math notranslate nohighlight">\(\partial_t q^j\)</span>, <span class="math notranslate nohighlight">\(\partial_k q^j\)</span> respectively.
+The following relations follow</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
-  \partial_{t} \Psi( q^j, \partial_t q^j, \mathbf{r}, t) &amp; = \partial_t q^j \, \partial_{q^j} \Psi + \partial_t q^j \\
-  \partial_{k} \Psi( q^j, \partial_k q^j, \mathbf{r}, t) &amp; = \partial_k q^j \, \partial_{q^j} \Psi + \partial_k q^j \\
+  \partial_{q^j} \Psi &amp; = \dfrac{\partial \, ( \partial_t \psi )}{\partial \, ( \partial_t q^j )} \\
+  \partial_{q^j} \Psi &amp; = \dfrac{\partial \, ( \partial_k \psi )}{\partial \, ( \partial_k q^j )} \ .
 \end{aligned}\end{split}\]</div>
-<p class="sd-card-text">Thus, the following relations follow</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
-  \partial_{q^j} \Psi &amp; = \dfrac{\partial \, ( \partial_t \Psi )}{\partial \, ( \partial_t q^j )} \\
-  \partial_{q^j} \Psi &amp; = \dfrac{\partial \, ( \partial_k \Psi )}{\partial \, ( \partial_k q^j )} \\
-\end{aligned}\end{split}\]</div>
-<p class="sd-card-text">and</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
- \partial_k \psi &amp; = \partial_{k} q^j \partial_{q^j} \Psi + \partial_k \Psi \\
- \partial_t \psi &amp; = \partial_{t} q^j \partial_{q^j} \Psi + \partial_t \Psi \\
-\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">Multiplying Schrodinger equation</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
  0
  &amp; = \partial_{q^j} \Psi^* \left\{ - i \hbar \partial_t \psi   - \frac{\hbar^2}{2m} \nabla^2 \psi   + V(\mathbf{r}) \psi   \right\}
    + \partial_{q^j} \Psi   \left\{   i \hbar \partial_t \psi^* - \frac{\hbar^2}{2m} \nabla^2 \psi^* + V(\mathbf{r}) \psi^* \right\} = \\
- &amp; = - i \hbar \partial_{q^j} \Psi^* \partial_t \psi - \frac{\hbar^2}{2m} \partial_{q^j} \Psi^* \partial_{kk} \psi + \partial_{q^j} \Psi^* V(\mathbf{r}) \psi + \\
- &amp; \quad  \ + i \hbar \partial_{q^j} \Psi \partial_t \psi^* - \frac{\hbar^2}{2m} \partial_{q^j} \Psi \partial_{kk} \psi^* + \partial_{q^j} \Psi V(\mathbf{r}) \psi^* = \\
- &amp; = 
+ &amp; = - i \hbar \partial_{q^j} \Psi^* \partial_t \psi - \frac{\hbar^2}{2m} \partial_{q^j} \Psi^* \partial_{kk} \psi + \partial_{q^j} \Psi^* V(\mathbf{r}) \psi 
+     + i \hbar \partial_{q^j} \Psi \partial_t \psi^* - \frac{\hbar^2}{2m} \partial_{q^j} \Psi \partial_{kk} \psi^* + \partial_{q^j} \Psi V(\mathbf{r}) \psi^* = \\
+ &amp; = - i \hbar \left( \partial_{q^j} \Psi^* \partial_t \psi - \partial_{q^j} \Psi \partial_t \psi^* \right) - \dfrac{\hbar^2}{2m} \left( \partial_{q^j} \Psi^* \partial_{kk} \psi + \partial_{q^j} \Psi \partial_{kk} \psi^*  \right) + \partial_{q^j} \Psi^* V \Psi + \Psi^* V \partial_{q^j} \Psi = \\
+ &amp; = \partial_{q^j} \left\{ - \frac{i \hbar}{2} \left( \Psi^* \partial_t \Psi - \Psi \partial_t \Psi^* \right) + \dfrac{\hbar^2}{2m} \left( \nabla \Psi \cdot \nabla \Psi^* \right) + \Psi^* V(\mathbf{r}) \Psi \right\} + \\
+ &amp; \quad \ - \partial_t \left\{ \dfrac{\partial}{\partial (\partial_t q^i)} \left\{ - \frac{i \hbar}{2} \left( \Psi^* \partial_t \Psi - \Psi \partial_t \Psi^* \right) \right\} \right\} + \\
+ &amp; \quad \ - \partial_k \left\{ \dfrac{\partial}{\partial (\partial_k q^i)} \left\{ \dfrac{\hbar^2}{2m} \nabla \Psi \cdot \nabla \Psi^* \right\} \right\} = \\
+ &amp; = - \partial_{q^j} \mathcal{L} + \partial_{t} \dfrac{\partial \mathcal{L}}{\partial (\partial_t q^i)} + \partial_{k} \dfrac{\partial \mathcal{L}}{\partial (\partial_k q^i)} \ ,
 \end{aligned}\end{split}\]</div>
-<p class="sd-card-text">as</p>
+<p class="sd-card-text">where the Lagrangian function <span class="math notranslate nohighlight">\(\mathcal{L}\)</span> defined as</p>
 <div class="math notranslate nohighlight">
-\[\begin{aligned}
-- \partial_{q^j} \Psi^* \partial_{kk} \psi - \partial_{q^j} \Psi \partial_{kk} \psi^*  
-&amp; = 
-\end{aligned}\]</div>
+\[\mathcal{L}(q^j(\mathbf{r},t), \partial_t q^j(\mathbf{r},t), \partial_k q^j(\mathbf{r},t), \mathbf{r}, t) = i \frac{\hbar}{2} \left( \Psi^* \partial_t \Psi - \Psi \partial_t \Psi^* \right) - \dfrac{\hbar^2}{2 m } \nabla \Psi^* \cdot \nabla \Psi - \Psi^* V(\mathbf{r}) \Psi \ .\]</div>
+<p class="sd-card-text">Details are given in the following box. The second and the third term in the Lagrangian function don’t depend on <span class="math notranslate nohighlight">\(\partial_t q^i\)</span>, the first and the third term don’t depend on <span class="math notranslate nohighlight">\(\partial_k q^i\)</span>.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Details<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<ul>
+<li><p class="sd-card-text">First pair of terms</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+   \partial_{q^j} \Psi^* \partial_{t} \psi - \partial_{q^j} \Psi \partial_{t} \psi^*  
+   &amp; = \dfrac{1}{2} 2 \left(  \partial_{q^j} \Psi^* \partial_{t} \psi - \partial_{q^j} \Psi \partial_{t} \psi^*   \right) = \\
+   &amp; = \dfrac{1}{2} \left(  \partial_{q^j} \left( \Psi^* \partial_{t} \psi \right) - \Psi^* \partial_{q^j} \partial_t \Psi - \partial_{t} \left( \Psi^* \partial_{q^j} \Psi \right) + \partial_t \partial_{q^j} \Psi^* \psi - \text{c.c.} \right) = \\
+   &amp; = \dfrac{1}{2} \left(  \partial_{q^j} \left( \Psi^* \partial_{t} \psi \right) - \Psi^* \partial_{q^j} \partial_t \Psi - \partial_{t} \left( \Psi^* \partial_{q^j} \Psi \right) + \partial_t \partial_{q^j} \Psi^* \psi - \text{c.c.} \right) = \\
+   &amp; = \dfrac{1}{2} \left(  \partial_{q^j} \left( \Psi^* \partial_{t} \psi - \Psi \partial_t \psi^* \right) - \partial_{t} \left( \Psi^* \partial_{q^j} \Psi - \Psi \partial_{q^j} \Psi^* \right) \right) = \\
+   &amp; = \dfrac{1}{2} \left(  \partial_{q^j} \left( \Psi^* \partial_{t} \psi - \Psi \partial_t \psi^* \right) - \partial_{t} \left( \Psi^* \dfrac{ \partial (\partial_t \Psi)}{\partial (\partial_{t} q^j)} - \Psi \dfrac{\partial(\partial_{t} \Psi^*)}{\partial(\partial_t q^j)} \right) \right) = \\
+   &amp; = \dfrac{1}{2} \partial_{q^j} \left( \Psi^* \partial_{t} \psi - \Psi \partial_t \psi^* \right) - \dfrac{1}{2} \partial_{t} \dfrac{\partial}{\partial(\partial_t q^j)} \left( \Psi^* \partial_t \Psi - \Psi \partial_t\Psi^* \right) = \\
+   \end{aligned}\end{split}\]</div>
+</li>
+<li><p class="sd-card-text">Second pair of terms</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+   - \partial_{q^j} \Psi^* \partial_{kk} \psi - \partial_{q^j} \Psi \partial_{kk} \psi^*  
+   &amp; = - \partial_k \left( \partial_{q^j} \Psi^* \partial_k \psi   \right) + \partial_k \partial_{q^j} \Psi^* \partial_k \psi 
+       - \partial_k \left( \partial_{q^j} \Psi   \partial_k \psi^* \right) + \partial_k \partial_{q^j} \Psi   \partial_k \psi^* = \\
+   &amp; = - \partial_k \left( \partial_{q^j} \Psi^* \partial_k \psi + \partial_{q^j} \Psi \partial_k \psi^* \right) + \partial_k \partial_{q^j} \Psi^* \partial_k \psi + \partial_k \partial_{q^j} \Psi   \partial_k \psi^* = \\
+   &amp; = - \partial_k \left( \dfrac{\partial (\partial_k \psi^*)}{\partial (\partial_k q^j)} \partial_k \psi + \dfrac{\partial (\partial_k \psi)}{\partial(\partial_k q^j)} \partial_k \psi^* \right) + \partial_k \partial_{q^j} \Psi^* \partial_k \psi + \partial_k \partial_{q^j} \Psi   \partial_k \psi^* = \\
+   &amp; = - \partial_k \dfrac{\partial}{\partial (\partial_k q^j)} \left( \partial_k \psi^* \partial_k \psi \right) + \partial_{q^j} \partial_k \psi^* \partial_k \psi + \partial_{q^j} \partial_k \psi   \partial_k \psi^* = \\
+   &amp; = - \partial_k \dfrac{\partial}{\partial (\partial_k q^j)} \left( \partial_k \psi^* \partial_k \psi \right) + \partial_{q^j} \left( \partial_k \psi^* \partial_k \psi \right) \ .
+   \end{aligned}\end{split}\]</div>
+</li>
+<li><p class="sd-card-text">Third pair of terms</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+     \partial_{q^j} \Psi^* V \psi + \partial_{q^j} \Psi V \psi^* 
+     &amp; = \partial_{q^j} \Psi^* V \Psi + \partial_{q^j} \Psi V \Psi^* = \\ 
+     &amp; = \partial_{q^j} \left\{ \Psi^* V \Psi \right\} \ .
+   \end{aligned}\end{split}\]</div>
+</li>
+</ul>
+</div>
+</details><hr class="docutils" />
 <p class="sd-card-text">The variation of function <span class="math notranslate nohighlight">\(\Psi\)</span></p>
 <div class="math notranslate nohighlight">
 \[\delta \Psi = \delta q^j \partial_{q^j} \Psi \ .\]</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Mixed derivatives<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \left. \partial_k \left( \left.\partial_{q^j} \Psi \right|_{\mathbf{r}, t} \right) \right|_{t}
+  &amp; = \partial_k q^m \partial_{q^m} \partial_{q^j} \Psi + \partial_k \partial_{q^j} \Psi = \\
+  &amp; = \partial_{q^j} \left( \partial_k q^m \partial_{q^m} \Psi + \partial_k \Psi \right) = \\
+  &amp; = \left.\partial_{q^j} \left( \left. \partial_k \psi \right|_{t} \right)\right|_{\mathbf{r},t} \ .
+\end{aligned}\end{split}\]</div>
 </div>
 </details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
 <summary class="sd-summary-title sd-card-header">
