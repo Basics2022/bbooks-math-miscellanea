@@ -478,60 +478,99 @@ $$\begin{aligned}
 
 ````
 
-```{dropdown} A more rigorous approach
+````{dropdown} A more rigorous approach
 :open:
 
 Let $\psi(\mathbf{r},t) = \Psi(q^j(\mathbf{r},t), \mathbf{r},t)$ be a function of generalized coordinates $q^j(\mathbf{r},t)$, function of the independent variables $\mathbf{r}$, t. Its partial time and space derivatives read
 
 $$\begin{aligned}
-  \left.\partial_{t} \Psi\right|_{\mathbf{r}} & = \partial_t q^j \, \partial_{q^j} \Psi|_{\mathbf{r}, t} + \partial_t \Psi|_{\mathbf{q}, \mathbf{r}} \\
-  \left.\partial_{k} \Psi\right|_{t} & = \partial_k q^j \, \partial_{q^j} \Psi|_{\mathbf{r}, t} + \partial_k \Psi|_{\mathbf{q}, \mathbf{r}} \\
+  \left.\partial_{t} \psi\right|_{\mathbf{r}} & = \left.\partial_{t} \Psi\right|_{\mathbf{r}} = \partial_t q^j \, \partial_{q^j} \Psi|_{\mathbf{r}, t} + \partial_t \Psi|_{\mathbf{q}, \mathbf{r}} \\
+  \left.\partial_{k} \psi\right|_{t}          & = \left.\partial_{k} \Psi\right|_{t}          = \partial_k q^j \, \partial_{q^j} \Psi|_{\mathbf{r}, t} + \partial_k \Psi|_{\mathbf{q}, \mathbf{r}} \\
 \end{aligned}$$
 
-Thus, the derivatives of the wave function $\partial_t \Psi$, and $\partial_k \Psi$ are functions of the independent variables $\mathbf{r}$, $t$, the generalized functions $q^j$ and their derivatives $\partial_t q^j$, $\partial_k q^j$ respectively
+Thus, the derivatives of the wave function $\partial_t \Psi$, and $\partial_k \Psi$ are functions of the independent variables $\mathbf{r}$, $t$, the generalized functions $q^j$ and their derivatives $\partial_t q^j$, $\partial_k q^j$ respectively.
+The following relations follow
 
 $$\begin{aligned}
-  \partial_{t} \Psi( q^j, \partial_t q^j, \mathbf{r}, t) & = \partial_t q^j \, \partial_{q^j} \Psi + \partial_t q^j \\
-  \partial_{k} \Psi( q^j, \partial_k q^j, \mathbf{r}, t) & = \partial_k q^j \, \partial_{q^j} \Psi + \partial_k q^j \\
+  \partial_{q^j} \Psi & = \dfrac{\partial \, ( \partial_t \psi )}{\partial \, ( \partial_t q^j )} \\
+  \partial_{q^j} \Psi & = \dfrac{\partial \, ( \partial_k \psi )}{\partial \, ( \partial_k q^j )} \ .
 \end{aligned}$$
 
-Thus, the following relations follow
-
-$$\begin{aligned}
-  \partial_{q^j} \Psi & = \dfrac{\partial \, ( \partial_t \Psi )}{\partial \, ( \partial_t q^j )} \\
-  \partial_{q^j} \Psi & = \dfrac{\partial \, ( \partial_k \Psi )}{\partial \, ( \partial_k q^j )} \\
-\end{aligned}$$
-
-and
-
-$$\begin{aligned}
- \partial_k \psi & = \partial_{k} q^j \partial_{q^j} \Psi + \partial_k \Psi \\
- \partial_t \psi & = \partial_{t} q^j \partial_{q^j} \Psi + \partial_t \Psi \\
-\end{aligned}$$
-
+Multiplying Schrodinger equation 
 
 $$\begin{aligned}
  0
  & = \partial_{q^j} \Psi^* \left\{ - i \hbar \partial_t \psi   - \frac{\hbar^2}{2m} \nabla^2 \psi   + V(\mathbf{r}) \psi   \right\}
    + \partial_{q^j} \Psi   \left\{   i \hbar \partial_t \psi^* - \frac{\hbar^2}{2m} \nabla^2 \psi^* + V(\mathbf{r}) \psi^* \right\} = \\
- & = - i \hbar \partial_{q^j} \Psi^* \partial_t \psi - \frac{\hbar^2}{2m} \partial_{q^j} \Psi^* \partial_{kk} \psi + \partial_{q^j} \Psi^* V(\mathbf{r}) \psi + \\
- & \quad  \ + i \hbar \partial_{q^j} \Psi \partial_t \psi^* - \frac{\hbar^2}{2m} \partial_{q^j} \Psi \partial_{kk} \psi^* + \partial_{q^j} \Psi V(\mathbf{r}) \psi^* = \\
- & = 
+ & = - i \hbar \partial_{q^j} \Psi^* \partial_t \psi - \frac{\hbar^2}{2m} \partial_{q^j} \Psi^* \partial_{kk} \psi + \partial_{q^j} \Psi^* V(\mathbf{r}) \psi 
+     + i \hbar \partial_{q^j} \Psi \partial_t \psi^* - \frac{\hbar^2}{2m} \partial_{q^j} \Psi \partial_{kk} \psi^* + \partial_{q^j} \Psi V(\mathbf{r}) \psi^* = \\
+ & = - i \hbar \left( \partial_{q^j} \Psi^* \partial_t \psi - \partial_{q^j} \Psi \partial_t \psi^* \right) - \dfrac{\hbar^2}{2m} \left( \partial_{q^j} \Psi^* \partial_{kk} \psi + \partial_{q^j} \Psi \partial_{kk} \psi^*  \right) + \partial_{q^j} \Psi^* V \Psi + \Psi^* V \partial_{q^j} \Psi = \\
+ & = \partial_{q^j} \left\{ - \frac{i \hbar}{2} \left( \Psi^* \partial_t \Psi - \Psi \partial_t \Psi^* \right) + \dfrac{\hbar^2}{2m} \left( \nabla \Psi \cdot \nabla \Psi^* \right) + \Psi^* V(\mathbf{r}) \Psi \right\} + \\
+ & \quad \ - \partial_t \left\{ \dfrac{\partial}{\partial (\partial_t q^i)} \left\{ - \frac{i \hbar}{2} \left( \Psi^* \partial_t \Psi - \Psi \partial_t \Psi^* \right) \right\} \right\} + \\
+ & \quad \ - \partial_k \left\{ \dfrac{\partial}{\partial (\partial_k q^i)} \left\{ \dfrac{\hbar^2}{2m} \nabla \Psi \cdot \nabla \Psi^* \right\} \right\} = \\
+ & = - \partial_{q^j} \mathcal{L} + \partial_{t} \dfrac{\partial \mathcal{L}}{\partial (\partial_t q^i)} + \partial_{k} \dfrac{\partial \mathcal{L}}{\partial (\partial_k q^i)} \ ,
 \end{aligned}$$
 
+where the Lagrangian function $\mathcal{L}$ defined as 
 
-as
+$$\mathcal{L}(q^j(\mathbf{r},t), \partial_t q^j(\mathbf{r},t), \partial_k q^j(\mathbf{r},t), \mathbf{r}, t) = i \frac{\hbar}{2} \left( \Psi^* \partial_t \Psi - \Psi \partial_t \Psi^* \right) - \dfrac{\hbar^2}{2 m } \nabla \Psi^* \cdot \nabla \Psi - \Psi^* V(\mathbf{r}) \Psi \ .$$
 
-$$\begin{aligned}
-- \partial_{q^j} \Psi^* \partial_{kk} \psi - \partial_{q^j} \Psi \partial_{kk} \psi^*  
-& = 
-\end{aligned}$$
+Details are given in the following box. The second and the third term in the Lagrangian function don't depend on $\partial_t q^i$, the first and the third term don't depend on $\partial_k q^i$.
+
+```{dropdown} Details
+:open:
+
+* First pair of terms 
+
+   $$\begin{aligned}
+   \partial_{q^j} \Psi^* \partial_{t} \psi - \partial_{q^j} \Psi \partial_{t} \psi^*  
+   & = \dfrac{1}{2} 2 \left(  \partial_{q^j} \Psi^* \partial_{t} \psi - \partial_{q^j} \Psi \partial_{t} \psi^*   \right) = \\
+   & = \dfrac{1}{2} \left(  \partial_{q^j} \left( \Psi^* \partial_{t} \psi \right) - \Psi^* \partial_{q^j} \partial_t \Psi - \partial_{t} \left( \Psi^* \partial_{q^j} \Psi \right) + \partial_t \partial_{q^j} \Psi^* \psi - \text{c.c.} \right) = \\
+   & = \dfrac{1}{2} \left(  \partial_{q^j} \left( \Psi^* \partial_{t} \psi \right) - \Psi^* \partial_{q^j} \partial_t \Psi - \partial_{t} \left( \Psi^* \partial_{q^j} \Psi \right) + \partial_t \partial_{q^j} \Psi^* \psi - \text{c.c.} \right) = \\
+   & = \dfrac{1}{2} \left(  \partial_{q^j} \left( \Psi^* \partial_{t} \psi - \Psi \partial_t \psi^* \right) - \partial_{t} \left( \Psi^* \partial_{q^j} \Psi - \Psi \partial_{q^j} \Psi^* \right) \right) = \\
+   & = \dfrac{1}{2} \left(  \partial_{q^j} \left( \Psi^* \partial_{t} \psi - \Psi \partial_t \psi^* \right) - \partial_{t} \left( \Psi^* \dfrac{ \partial (\partial_t \Psi)}{\partial (\partial_{t} q^j)} - \Psi \dfrac{\partial(\partial_{t} \Psi^*)}{\partial(\partial_t q^j)} \right) \right) = \\
+   & = \dfrac{1}{2} \partial_{q^j} \left( \Psi^* \partial_{t} \psi - \Psi \partial_t \psi^* \right) - \dfrac{1}{2} \partial_{t} \dfrac{\partial}{\partial(\partial_t q^j)} \left( \Psi^* \partial_t \Psi - \Psi \partial_t\Psi^* \right) = \\
+   \end{aligned}$$
+
+
+* Second pair of terms
+
+   $$\begin{aligned}
+   - \partial_{q^j} \Psi^* \partial_{kk} \psi - \partial_{q^j} \Psi \partial_{kk} \psi^*  
+   & = - \partial_k \left( \partial_{q^j} \Psi^* \partial_k \psi   \right) + \partial_k \partial_{q^j} \Psi^* \partial_k \psi 
+       - \partial_k \left( \partial_{q^j} \Psi   \partial_k \psi^* \right) + \partial_k \partial_{q^j} \Psi   \partial_k \psi^* = \\
+   & = - \partial_k \left( \partial_{q^j} \Psi^* \partial_k \psi + \partial_{q^j} \Psi \partial_k \psi^* \right) + \partial_k \partial_{q^j} \Psi^* \partial_k \psi + \partial_k \partial_{q^j} \Psi   \partial_k \psi^* = \\
+   & = - \partial_k \left( \dfrac{\partial (\partial_k \psi^*)}{\partial (\partial_k q^j)} \partial_k \psi + \dfrac{\partial (\partial_k \psi)}{\partial(\partial_k q^j)} \partial_k \psi^* \right) + \partial_k \partial_{q^j} \Psi^* \partial_k \psi + \partial_k \partial_{q^j} \Psi   \partial_k \psi^* = \\
+   & = - \partial_k \dfrac{\partial}{\partial (\partial_k q^j)} \left( \partial_k \psi^* \partial_k \psi \right) + \partial_{q^j} \partial_k \psi^* \partial_k \psi + \partial_{q^j} \partial_k \psi   \partial_k \psi^* = \\
+   & = - \partial_k \dfrac{\partial}{\partial (\partial_k q^j)} \left( \partial_k \psi^* \partial_k \psi \right) + \partial_{q^j} \left( \partial_k \psi^* \partial_k \psi \right) \ .
+   \end{aligned}$$
+
+* Third pair of terms
+
+   $$\begin{aligned}
+     \partial_{q^j} \Psi^* V \psi + \partial_{q^j} \Psi V \psi^* 
+     & = \partial_{q^j} \Psi^* V \Psi + \partial_{q^j} \Psi V \Psi^* = \\ 
+     & = \partial_{q^j} \left\{ \Psi^* V \Psi \right\} \ .
+   \end{aligned}$$
+
+```
+---
 
 The variation of function $\Psi$
 
 $$\delta \Psi = \delta q^j \partial_{q^j} \Psi \ .$$
 
+````
 
+```{dropdown} Mixed derivatives
+:open:
+
+$$\begin{aligned}
+  \left. \partial_k \left( \left.\partial_{q^j} \Psi \right|_{\mathbf{r}, t} \right) \right|_{t}
+  & = \partial_k q^m \partial_{q^m} \partial_{q^j} \Psi + \partial_k \partial_{q^j} \Psi = \\
+  & = \partial_{q^j} \left( \partial_k q^m \partial_{q^m} \Psi + \partial_k \Psi \right) = \\
+  & = \left.\partial_{q^j} \left( \left. \partial_k \psi \right|_{t} \right)\right|_{\mathbf{r},t} \ .
+\end{aligned}$$
 
 ```
 
