@@ -107,6 +107,46 @@ $$\left\{ \begin{aligned}
 (calculus-variations:examples:lagrange-equations:classical-mechanics)=
 ## Lagrange equations in classical mechanics
 
+For a detailed treatment of system of point masses and rigid bodies in classical mechanics, see [Basics: Classical Mechanics], in particular [Classical Mechanics: Analytical Mechanics: Lagrange Equations of the Second Kind](https://basics2022.github.io/bbooks-physics-mechanics/ch/lagrange-ii-type.html), and its subsection. Here, only the Lagrangian approach to the a point mass system is shown.
+
+Let $\mathbf{r}(q^k(t), t)$ the position of the mass point, as a function of a set of generalized coordinates $q^k(t)$ and time $t$. The velocity of the mass can be written as
+
+$$\mathbf{v} = \dot{\mathbf{r}}(t) = \dot{q}^k \partial_{q^k} \mathbf{r} + \partial_t \mathbf{r} \ .$$
+
+The velocity field can be interpreted as a function $\mathbf{v}\left( q^k, \dot{q}^k, t\right)$. From the latter relation, as $\partial_{q^k} \mathbf{r}$ is independent from the $\dot{q}^k$, it follows
+
+$$\partial_{q^k} \mathbf{r} = \partial_{\dot{q}^k} \dot{\mathbf{r}} \ .$$
+
+Following Newton's mechanics, the equation of motion of a point mass with mass $m$ in a force field with potential $V(\mathbf{r})$ reads
+
+$$m \ddot{\mathbf{r}} = - \nabla_{\mathbf{r}} V(\mathbf{r}) \ .$$
+
+Multiplyig the equation of motion by $\partial_{q^k} \mathbf{r}$,
+
+$$\begin{aligned}
+  0 
+  & = \partial_{q^k} \mathbf{r} \cdot \left\{ m \ddot{\mathbf{r}} + \nabla_{\mathbf{r}} V \right\} = \\
+  & = \dfrac{d}{dt} \left( \partial_{q^k} \mathbf{r} \cdot  m \dot{\mathbf{r}} \right) - \dfrac{d}{dt} \partial_{q^k} \mathbf{r} \cdot m \dot{\mathbf{r}} + \partial_{q^k} V = && \text{(1)} \\ 
+  & = \dfrac{d}{dt} \left( \partial_{\dot{q}^k} \dot{\mathbf{r}} \cdot  m \dot{\mathbf{r}} \right) - \partial_{q^k} \dot{\mathbf{r}} \cdot m \dot{\mathbf{r}} + \partial_{q^k} V = \\
+  & = \dfrac{d}{dt} \dfrac{\partial}{\partial \dot{q}^k} \left( \frac{1}{2} m \dot{\mathbf{r}} \cdot \dot{\mathbf{r}} \right)
+    - \dfrac{\partial}{\partial q^k} \left( \frac{1}{2} m \dot{\mathbf{r}} \cdot \dot{\mathbf{r}} - V \right) = \\
+  & = \dfrac{d}{dt} \dfrac{\partial \mathscr{L}}{\partial \dot{q}^k} - \dfrac{\partial \mathscr{L}}{\partial q^k} \ ,
+\end{aligned}$$
+
+with the Lagrangian function $\mathscr{L}(\mathbf{r}; \dot{\mathbf{r}}, t) = \frac{1}{2} m |\dot{\mathbf{r}}|^2 - V(\mathbf{r})$. Here, in $\text{(1)}$ the details about mixed derivatives are used to write $\frac{d}{dt} \partial_{q^k} \mathbf{r} = \partial_{q^k} \mathbf{v}$.
+
+```{dropdown} Details about mixed derivatives
+:open:
+
+$$\begin{aligned}
+  \dfrac{d}{dt} \partial_{q^k} \mathbf{r}\left( q^l\left(\mathbf{r}, t\right), t\right) 
+  & = \dot{q}^l \partial_{q^l} \partial_{q^k} \mathbf{r} + \partial_t \partial_{q^k} \mathbf{r} = \\
+  & = \partial_{q^k} \left\{ \dot{q}^l \partial_{q^l} \mathbf{r} + \partial_t \mathbf{r} \right\} = \\
+  & = \partial_{q^k} \mathbf{v} \ .
+\end{aligned}$$
+
+
+```
 
 (calculus-variations:examples:lagrange-equations:special-relativity)=
 ## Lagrange equations in special relativity
@@ -441,7 +481,7 @@ $$\begin{aligned}
 ```{dropdown} A more rigorous approach
 :open:
 
-Let $\Psi(q^j(\mathbf{r},t), \mathbf{r},t)$ be a function of generalized coordinates $q^j(\mathbf{r},t)$, function of the independent variables $\mathbf{r}$, t. Its partial time and space derivatives read
+Let $\psi(\mathbf{r},t) = \Psi(q^j(\mathbf{r},t), \mathbf{r},t)$ be a function of generalized coordinates $q^j(\mathbf{r},t)$, function of the independent variables $\mathbf{r}$, t. Its partial time and space derivatives read
 
 $$\begin{aligned}
   \left.\partial_{t} \Psi\right|_{\mathbf{r}} & = \partial_t q^j \, \partial_{q^j} \Psi|_{\mathbf{r}, t} + \partial_t \Psi|_{\mathbf{q}, \mathbf{r}} \\
@@ -462,17 +502,30 @@ $$\begin{aligned}
   \partial_{q^j} \Psi & = \dfrac{\partial \, ( \partial_k \Psi )}{\partial \, ( \partial_k q^j )} \\
 \end{aligned}$$
 
+and
+
+$$\begin{aligned}
+ \partial_k \psi & = \partial_{k} q^j \partial_{q^j} \Psi + \partial_k \Psi \\
+ \partial_t \psi & = \partial_{t} q^j \partial_{q^j} \Psi + \partial_t \Psi \\
+\end{aligned}$$
 
 
 $$\begin{aligned}
  0
- & = \partial_{q^j} \Psi^* \left\{ - i \hbar \partial_t \Psi   - \frac{\hbar^2}{2m} \nabla^2 \Psi   + V(\mathbf{r}) \Psi   \right\} + \\
- & + \partial_{q^j} \Psi   \left\{   i \hbar \partial_t \Psi^* - \frac{\hbar^2}{2m} \nabla^2 \Psi^* + V(\mathbf{r}) \Psi^* \right\} = \\
- & = - i \hbar \partial_{q^j} \Psi^* \partial_t \Psi
- - \frac{\hbar^2}{2m} \partial_k \left( \partial_{q^j} \Psi^* \partial_k \Psi \right) + \frac{\hbar^2}{2m} \partial_k \partial_{q^j} \Psi^* \, \partial_k \Psi + \partial_{q^j} \Psi^* V(\mathbf{r}) \Psi + \dots \\
+ & = \partial_{q^j} \Psi^* \left\{ - i \hbar \partial_t \psi   - \frac{\hbar^2}{2m} \nabla^2 \psi   + V(\mathbf{r}) \psi   \right\}
+   + \partial_{q^j} \Psi   \left\{   i \hbar \partial_t \psi^* - \frac{\hbar^2}{2m} \nabla^2 \psi^* + V(\mathbf{r}) \psi^* \right\} = \\
+ & = - i \hbar \partial_{q^j} \Psi^* \partial_t \psi - \frac{\hbar^2}{2m} \partial_{q^j} \Psi^* \partial_{kk} \psi + \partial_{q^j} \Psi^* V(\mathbf{r}) \psi + \\
+ & \quad  \ + i \hbar \partial_{q^j} \Psi \partial_t \psi^* - \frac{\hbar^2}{2m} \partial_{q^j} \Psi \partial_{kk} \psi^* + \partial_{q^j} \Psi V(\mathbf{r}) \psi^* = \\
  & = 
 \end{aligned}$$
 
+
+as
+
+$$\begin{aligned}
+- \partial_{q^j} \Psi^* \partial_{kk} \psi - \partial_{q^j} \Psi \partial_{kk} \psi^*  
+& = 
+\end{aligned}$$
 
 The variation of function $\Psi$
 
