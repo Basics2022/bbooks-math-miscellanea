@@ -280,6 +280,9 @@ with $\Psi(\mathbf{r},t): \Omega \times T \rightarrow \mathbb{C}$.
 ```{dropdown} Derivative w.r.t. a complex number and its complex conjugate
 :open:
 
+See [Holomorphic functions](complex:analysis:holo-fun).
+
+<!--
 Let a complex variable be $z = x + i y$. Any complex function can be written as a linear combination of its real and imaginary part, $f(z) = u(z) + i v(z)$, $u(z): \mathbb{C} \rightarrow \mathbb{R}$, $u(z): \mathbb{C} \rightarrow \mathbb{R}$, and reacast as a 2-dimensional function of the real and imaginary part of the independent variable, i.e. $F(x,y) = U(x,y) + i V(x,y)$.
 
 **Holomorphic functions.** ...
@@ -293,19 +296,23 @@ $$\begin{aligned}
   & = \frac{\partial F}{\partial x} = \frac{\partial U}{\partial x} + i \frac{\partial V}{\partial x} \\
   & = \frac{\partial F}{i \, \partial y} = \frac{1}{i} \frac{\partial U}{\partial y} + \frac{\partial V}{\partial y} \\
 \end{aligned}$$
+-->
+
 
 ```
 
 ```{dropdown} Derivative w.r.t. the conjugate conjugate variable
 :open:
 
-Let a function $f(z) = u(z) + i v(z) = U(x,y) + i V(x,y)$, with $x$, $y$ independent variables. With a change of coordinates,
+Let a function $f(z) = u(z) + i v(z) = U(x,y) + i V(x,y)$, with $x$, $y$ independent variables. With a change of variables, and treating $z$ and $w := z^*$ as independent variables[^wirtinger-change-of-variables]
+
+[^wirtinger-change-of-variables]: This is the process leading to Wirtinger's derivative, see [Wikipedia: Wirtinger derivative](https://en.wikipedia.org/wiki/Wirtinger_derivatives) and [Stack Exchange: What is the intuition behind the Wirtinger derivatives?](https://math.stackexchange.com/questions/314863/what-is-the-intuition-behind-the-wirtinger-derivatives). Does this assumption have any consequence? $x,y \in \mathbb{R}$, while $z, z^* \in \mathbb{C}$, and $z$, $w := z^*$ treated as independent.
 
 $$
 \left\{
 \begin{aligned}
  z   & = x + i y \\ 
- z^* & = z - i y
+ z^* & = x - i y
 \end{aligned}\right.
 \qquad , \qquad
 \left\{
@@ -315,14 +322,38 @@ $$
 \end{aligned}\right.
 $$
 
-and thus, with the definition
+a function of $z$, and thus $x$, $y$ is written as a function of $z$, $z^*$
 
 $$\begin{aligned}
   \mathscr{u}(z, z^*) & = U(x(z,z^*), y(z,z^*))  \\
   \mathscr{v}(z, z^*) & = V(x(z,z^*), y(z,z^*))
 \end{aligned}$$
 
-...
+The partial derivatives of a function $f = u + i v = F(x,y) = \mathscr{f}(z,z^*)$ read
+
+$$\begin{aligned}
+  \partial_{z  } f |_{z^*} 
+  & = \partial_{z  } x |_{z^*} \partial_x f |_{y} + \partial_{z  } y |_{z^*} \partial_y f |_{x} = \\
+  & = \frac{1}{2} \partial_x f |_{y} - i \frac{1}{2} \partial_y f |_{x} = \\
+  & = \frac{1}{2} \left( \partial_x u + \partial_y v \right) + i \frac{1}{2} \left( \partial_x v - \partial_y u \right) \\
+  \partial_{z^*} f |_{z  } 
+  & = \partial_{z^*} x |_{z  } \partial_x f |_{y} + \partial_{z^*} y |_{z  } \partial_y f |_{x} = \\
+  & = \frac{1}{2} \partial_x f |_{y} + i \frac{1}{2} \partial_y f |_{x} = \\
+  & = \frac{1}{2} \left( \partial_x u - \partial_y v \right) + i \frac{1}{2} \left( \partial_x v + \partial_y u \right) = \\
+  & = \frac{1}{2} \left( \partial_x u - \partial_y v \right) - i \frac{1}{2} \left( - \partial_x v - \partial_y u \right) \ .
+\end{aligned}$$
+
+**Remark 1.** If $f^{holo}(z)$ is **holomorphic**, then [Cauchy-Riemann conditions](complex:analysis:holo-fun:cauchy-riemann) hold, $u_{/x} = v_{/y}$, $u_{/y} = - v_{/x}$ and thus
+
+$$\partial_z \mathscr{f}^{holo} |_{z^*} = \partial_x u + i \partial_x v = \partial_y v - i \partial_y u \qquad , \qquad \partial_{z^*} \mathscr{f}^{holo} |_{z} = 0 \ .$$
+
+**Remark 2.** Comparing the expressions of $\partial_z f|_{z^*}$, and $\partial_{z^*} f|_z$, then
+
+$$\left.\left( \frac{\partial f}{\partial z^*} \right)\right|_{z} = \left.\left( \frac{\partial f^*}{\partial z} \right)^*\right|_{z} \ .$$
+
+Thus, if $f^{real}$ is real-valued, then $f^{real} = f^{real \, *}$,
+
+$$\left.\left( \frac{\partial f^{real}}{\partial z^*} \right)\right|_{z} = \left.\left( \frac{\partial f^{real}}{\partial z} \right)^*\right|_{z} \ .$$
 
 ```
 
@@ -364,26 +395,44 @@ having used integration by parts and switched the variation and the partial deri
 
 $$0 = - \delta \int_{T} \int_{\Omega} \left\{ i \frac{\hbar}{2} \left( \Psi^* \partial_t \Psi - \Psi \partial_t \Psi^* \right) - \dfrac{\hbar^2}{2 m } \nabla \Psi^* \cdot \nabla \Psi - \Psi^* V(\mathbf{r}) \Psi \right\} d \mathbf{r} \, d t \ .$$
 
-The function inside the integral is defined as the Lagrangian function
-
-$$\mathcal{L}\left( \Psi, \partial_t \Psi, \partial_k \Psi \right) = i \frac{\hbar}{2} \left( \Psi^* \partial_t \Psi - \Psi \partial_t \Psi^* \right) - \dfrac{\hbar^2}{2 m } \nabla \Psi^* \cdot \nabla \Psi - \Psi^* V(\mathbf{r}) \Psi \ .$$ (eq:calculus-variation:lagrangian:schrodinger)
-
 ```
+
 
 ````{dropdown} Lagrange equations
 :open:
 
+The function inside the integral is defined as the **Lagrangian function**
+
+$$\mathcal{L}\left( \Psi, \partial_t \Psi, \partial_k \Psi; \Psi^*, \partial_t \Psi^*, \partial_k \Psi^* \right) = i \frac{\hbar}{2} \left( \Psi^* \partial_t \Psi - \Psi \partial_t \Psi^* \right) - \dfrac{\hbar^2}{2 m } \nabla \Psi^* \cdot \nabla \Psi - \Psi^* V(\mathbf{r}) \Psi \ ,$$ (eq:calculus-variation:lagrangian:schrodinger) 
+
+**treating** the wave function, its derivatives and the complex conjugate functions as **independent variables**, as done for Wirtinger derivatives.
 Schrodinger equation can be retrieved from Lagrange equation
 
-$$0 = \partial_t \left( \dfrac{\partial \mathcal{L}}{\partial \left( \partial_t \Psi \right)} \right) + \partial_k \left( \dfrac{\partial \mathcal{L}}{\partial \left( \partial_k \Psi \right)} \right) - \dfrac{\partial \mathcal{L}}{\partial \Psi} \ ,$$
+$$0 = \partial_t \left( \dfrac{\partial \mathcal{L}}{\partial \left( \partial_t \Psi^* \right)} \right) + \partial_k \left( \dfrac{\partial \mathcal{L}}{\partial \left( \partial_k \Psi^* \right)} \right) - \dfrac{\partial \mathcal{L}}{\partial \Psi^*} \ ,$$
 
 taking the derivatives of the Lagrangian function $\mathcal{L}\left( \Psi, \partial_t \Psi, \partial_k \Psi \right)$ in formula {eq}`eq:calculus-variation:lagrangian:schrodinger`.
 
 
-```{dropdown} Proof.
+```{dropdown} Proof. 
 :open:
 
-**todo**
+The partial derivatives w.r.t. the complex conjugate functions,
+
+$$\begin{aligned}
+  \partial_t \left( \dfrac{\partial \mathcal{L}}{\partial \left( \partial_t \Psi^* \right)} \right) & = \partial_t \left( - i \frac{\hbar}{2} \Psi \right) = - i\frac{\hbar}{2} \partial_t \Psi \\
+  \partial_t \left( \dfrac{\partial \mathcal{L}}{\partial \left( \partial_k \Psi^* \right)} \right) & = \partial_t \left( -\frac{\hbar^2}{2 m} \Psi_k \right) = - \frac{\hbar^2}{2 m} \partial_{kk} \Psi \\
+  \dfrac{\partial \mathcal{L}}{\partial \Psi^*} & = i \frac{\hbar}{2} \partial_t \Psi - V(\mathbf{r}) \Psi \ ,
+\end{aligned}$$
+
+it immediately follows
+
+$$\begin{aligned}
+  0
+  & = \partial_t \left( \dfrac{\partial \mathcal{L}}{\partial \left( \partial_t \Psi^* \right)} \right) + \partial_k \left( \dfrac{\partial \mathcal{L}}{\partial \left( \partial_k \Psi^* \right)} \right) - \dfrac{\partial \mathcal{L}}{\partial \Psi^*} = \\
+  & = - i\frac{\hbar}{2} \partial_t \Psi - \frac{\hbar^2}{2 m} \partial_{kk} \Psi - \left( i \frac{\hbar}{2} \partial_t \Psi - V(\mathbf{r}) \Psi \right) = \\
+  & = - i \hbar \partial_t \Psi - \frac{\hbar^2}{2 m} \partial_{kk} \Psi + V(\mathbf{r}) \Psi \ .
+\end{aligned}$$
+
 
 ```
 
@@ -395,15 +444,41 @@ taking the derivatives of the Lagrangian function $\mathcal{L}\left( \Psi, \part
 Let $\Psi(q^j(\mathbf{r},t), \mathbf{r},t)$ be a function of generalized coordinates $q^j(\mathbf{r},t)$, function of the independent variables $\mathbf{r}$, t. Its partial time and space derivatives read
 
 $$\begin{aligned}
-  \partial_{t} \Psi & = \partial_t q^j \, \partial_{q^j} \Psi + \partial_t q^j \\
-  \partial_{k} \Psi & = \partial_k q^j \, \partial_{q^j} \Psi + \partial_k q^j \\
+  \left.\partial_{t} \Psi\right|_{\mathbf{r}} & = \partial_t q^j \, \partial_{q^j} \Psi|_{\mathbf{r}, t} + \partial_t \Psi|_{\mathbf{q}, \mathbf{r}} \\
+  \left.\partial_{k} \Psi\right|_{t} & = \partial_k q^j \, \partial_{q^j} \Psi|_{\mathbf{r}, t} + \partial_k \Psi|_{\mathbf{q}, \mathbf{r}} \\
 \end{aligned}$$
 
-and thus, the variation reads
+Thus, the derivatives of the wave function $\partial_t \Psi$, and $\partial_k \Psi$ are functions of the independent variables $\mathbf{r}$, $t$, the generalized functions $q^j$ and their derivatives $\partial_t q^j$, $\partial_k q^j$ respectively
+
+$$\begin{aligned}
+  \partial_{t} \Psi( q^j, \partial_t q^j, \mathbf{r}, t) & = \partial_t q^j \, \partial_{q^j} \Psi + \partial_t q^j \\
+  \partial_{k} \Psi( q^j, \partial_k q^j, \mathbf{r}, t) & = \partial_k q^j \, \partial_{q^j} \Psi + \partial_k q^j \\
+\end{aligned}$$
+
+Thus, the following relations follow
+
+$$\begin{aligned}
+  \partial_{q^j} \Psi & = \dfrac{\partial \, ( \partial_t \Psi )}{\partial \, ( \partial_t q^j )} \\
+  \partial_{q^j} \Psi & = \dfrac{\partial \, ( \partial_k \Psi )}{\partial \, ( \partial_k q^j )} \\
+\end{aligned}$$
+
+
+
+$$\begin{aligned}
+ 0
+ & = \partial_{q^j} \Psi^* \left\{ - i \hbar \partial_t \Psi   - \frac{\hbar^2}{2m} \nabla^2 \Psi   + V(\mathbf{r}) \Psi   \right\} + \\
+ & + \partial_{q^j} \Psi   \left\{   i \hbar \partial_t \Psi^* - \frac{\hbar^2}{2m} \nabla^2 \Psi^* + V(\mathbf{r}) \Psi^* \right\} = \\
+ & = - i \hbar \partial_{q^j} \Psi^* \partial_t \Psi
+ - \frac{\hbar^2}{2m} \partial_k \left( \partial_{q^j} \Psi^* \partial_k \Psi \right) + \frac{\hbar^2}{2m} \partial_k \partial_{q^j} \Psi^* \, \partial_k \Psi + \partial_{q^j} \Psi^* V(\mathbf{r}) \Psi + \dots \\
+ & = 
+\end{aligned}$$
+
+
+The variation of function $\Psi$
 
 $$\delta \Psi = \delta q^j \partial_{q^j} \Psi \ .$$
 
-...
+
 
 ```
 

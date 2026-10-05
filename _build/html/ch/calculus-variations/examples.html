@@ -883,17 +883,22 @@ Derivative w.r.t. a complex number and its complex conjugate<div class="sd-summa
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Let a complex variable be <span class="math notranslate nohighlight">\(z = x + i y\)</span>. Any complex function can be written as a linear combination of its real and imaginary part, <span class="math notranslate nohighlight">\(f(z) = u(z) + i v(z)\)</span>, <span class="math notranslate nohighlight">\(u(z): \mathbb{C} \rightarrow \mathbb{R}\)</span>, <span class="math notranslate nohighlight">\(u(z): \mathbb{C} \rightarrow \mathbb{R}\)</span>, and reacast as a 2-dimensional function of the real and imaginary part of the independent variable, i.e. <span class="math notranslate nohighlight">\(F(x,y) = U(x,y) + i V(x,y)\)</span>.</p>
-<p class="sd-card-text"><strong>Holomorphic functions.</strong> …</p>
-<div class="math notranslate nohighlight">
-\[f'(z_0) = \lim_{z \rightarrow z_0} \frac{f(z) - f(z_0)}{z-z_0}\]</div>
-<p class="sd-card-text"><a class="reference internal" href="../complex/analysis.html#complex-analysis-holo-fun-cauchy-riemann"><span class="std std-ref">Cauchy-Riemann conditions</span></a> for holomorphic functions immediately follow from the way <span class="math notranslate nohighlight">\(z\)</span> approaches <span class="math notranslate nohighlight">\(z_0\)</span> in the complex plane.</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{aligned}
+<p class="sd-card-text">See <a class="reference internal" href="../complex/analysis.html#complex-analysis-holo-fun"><span class="std std-ref">Holomorphic functions</span></a>.</p>
+<!--
+Let a complex variable be $z = x + i y$. Any complex function can be written as a linear combination of its real and imaginary part, $f(z) = u(z) + i v(z)$, $u(z): \mathbb{C} \rightarrow \mathbb{R}$, $u(z): \mathbb{C} \rightarrow \mathbb{R}$, and reacast as a 2-dimensional function of the real and imaginary part of the independent variable, i.e. $F(x,y) = U(x,y) + i V(x,y)$.
+
+**Holomorphic functions.** ...
+
+$$f'(z_0) = \lim_{z \rightarrow z_0} \frac{f(z) - f(z_0)}{z-z_0}$$
+
+[Cauchy-Riemann conditions](complex:analysis:holo-fun:cauchy-riemann) for holomorphic functions immediately follow from the way $z$ approaches $z_0$ in the complex plane.
+
+$$\begin{aligned}
   \frac{d f}{d z} 
-  &amp; = \frac{\partial F}{\partial x} = \frac{\partial U}{\partial x} + i \frac{\partial V}{\partial x} \\
-  &amp; = \frac{\partial F}{i \, \partial y} = \frac{1}{i} \frac{\partial U}{\partial y} + \frac{\partial V}{\partial y} \\
-\end{aligned}\end{split}\]</div>
+  & = \frac{\partial F}{\partial x} = \frac{\partial U}{\partial x} + i \frac{\partial V}{\partial x} \\
+  & = \frac{\partial F}{i \, \partial y} = \frac{1}{i} \frac{\partial U}{\partial y} + \frac{\partial V}{\partial y} \\
+\end{aligned}$$
+-->
 </div>
 </details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
 <summary class="sd-summary-title sd-card-header">
@@ -902,13 +907,13 @@ Derivative w.r.t. the conjugate conjugate variable<div class="sd-summary-down do
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Let a function <span class="math notranslate nohighlight">\(f(z) = u(z) + i v(z) = U(x,y) + i V(x,y)\)</span>, with <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span> independent variables. With a change of coordinates,</p>
+<p class="sd-card-text">Let a function <span class="math notranslate nohighlight">\(f(z) = u(z) + i v(z) = U(x,y) + i V(x,y)\)</span>, with <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span> independent variables. With a change of variables, and treating <span class="math notranslate nohighlight">\(z\)</span> and <span class="math notranslate nohighlight">\(w := z^*\)</span> as independent variables<a class="footnote-reference brackets" href="#wirtinger-change-of-variables" id="id1">1</a></p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \left\{
 \begin{aligned}
  z   &amp; = x + i y \\ 
- z^* &amp; = z - i y
+ z^* &amp; = x - i y
 \end{aligned}\right.
 \qquad , \qquad
 \left\{
@@ -917,13 +922,34 @@ Derivative w.r.t. the conjugate conjugate variable<div class="sd-summary-down do
  y &amp; = \frac{1}{2i} \left( z - z^* \right)
 \end{aligned}\right.
 \end{split}\]</div>
-<p class="sd-card-text">and thus, with the definition</p>
+<p class="sd-card-text">a function of <span class="math notranslate nohighlight">\(z\)</span>, and thus <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span> is written as a function of <span class="math notranslate nohighlight">\(z\)</span>, <span class="math notranslate nohighlight">\(z^*\)</span></p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
   \mathscr{u}(z, z^*) &amp; = U(x(z,z^*), y(z,z^*))  \\
   \mathscr{v}(z, z^*) &amp; = V(x(z,z^*), y(z,z^*))
 \end{aligned}\end{split}\]</div>
-<p class="sd-card-text">…</p>
+<p class="sd-card-text">The partial derivatives of a function <span class="math notranslate nohighlight">\(f = u + i v = F(x,y) = \mathscr{f}(z,z^*)\)</span> read</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \partial_{z  } f |_{z^*} 
+  &amp; = \partial_{z  } x |_{z^*} \partial_x f |_{y} + \partial_{z  } y |_{z^*} \partial_y f |_{x} = \\
+  &amp; = \frac{1}{2} \partial_x f |_{y} - i \frac{1}{2} \partial_y f |_{x} = \\
+  &amp; = \frac{1}{2} \left( \partial_x u + \partial_y v \right) + i \frac{1}{2} \left( \partial_x v - \partial_y u \right) \\
+  \partial_{z^*} f |_{z  } 
+  &amp; = \partial_{z^*} x |_{z  } \partial_x f |_{y} + \partial_{z^*} y |_{z  } \partial_y f |_{x} = \\
+  &amp; = \frac{1}{2} \partial_x f |_{y} + i \frac{1}{2} \partial_y f |_{x} = \\
+  &amp; = \frac{1}{2} \left( \partial_x u - \partial_y v \right) + i \frac{1}{2} \left( \partial_x v + \partial_y u \right) = \\
+  &amp; = \frac{1}{2} \left( \partial_x u - \partial_y v \right) - i \frac{1}{2} \left( - \partial_x v - \partial_y u \right) \ .
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text"><strong>Remark 1.</strong> If <span class="math notranslate nohighlight">\(f^{holo}(z)\)</span> is <strong>holomorphic</strong>, then <a class="reference internal" href="../complex/analysis.html#complex-analysis-holo-fun-cauchy-riemann"><span class="std std-ref">Cauchy-Riemann conditions</span></a> hold, <span class="math notranslate nohighlight">\(u_{/x} = v_{/y}\)</span>, <span class="math notranslate nohighlight">\(u_{/y} = - v_{/x}\)</span> and thus</p>
+<div class="math notranslate nohighlight">
+\[\partial_z \mathscr{f}^{holo} |_{z^*} = \partial_x u + i \partial_x v = \partial_y v - i \partial_y u \qquad , \qquad \partial_{z^*} \mathscr{f}^{holo} |_{z} = 0 \ .\]</div>
+<p class="sd-card-text"><strong>Remark 2.</strong> Comparing the expressions of <span class="math notranslate nohighlight">\(\partial_z f|_{z^*}\)</span>, and <span class="math notranslate nohighlight">\(\partial_{z^*} f|_z\)</span>, then</p>
+<div class="math notranslate nohighlight">
+\[\left.\left( \frac{\partial f}{\partial z^*} \right)\right|_{z} = \left.\left( \frac{\partial f^*}{\partial z} \right)^*\right|_{z} \ .\]</div>
+<p class="sd-card-text">Thus, if <span class="math notranslate nohighlight">\(f^{real}\)</span> is real-valued, then <span class="math notranslate nohighlight">\(f^{real} = f^{real \, *}\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\left.\left( \frac{\partial f^{real}}{\partial z^*} \right)\right|_{z} = \left.\left( \frac{\partial f^{real}}{\partial z} \right)^*\right|_{z} \ .\]</div>
 </div>
 </details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
 <summary class="sd-summary-title sd-card-header">
@@ -962,9 +988,6 @@ Free-style approach<div class="sd-summary-down docutils">
 <p class="sd-card-text">having used integration by parts and switched the variation and the partial derivative w.r.t. time (<strong>but</strong>, is that legal? See below <a class="reference internal" href="#equation-eq-calculus-variation-switch-d-delta">(26.6)</a>). Thus the variational principle - with prescribed <span class="math notranslate nohighlight">\(\delta \Psi\)</span> at boundary of space and time domain - reads</p>
 <div class="math notranslate nohighlight">
 \[0 = - \delta \int_{T} \int_{\Omega} \left\{ i \frac{\hbar}{2} \left( \Psi^* \partial_t \Psi - \Psi \partial_t \Psi^* \right) - \dfrac{\hbar^2}{2 m } \nabla \Psi^* \cdot \nabla \Psi - \Psi^* V(\mathbf{r}) \Psi \right\} d \mathbf{r} \, d t \ .\]</div>
-<p class="sd-card-text">The function inside the integral is defined as the Lagrangian function</p>
-<div class="math notranslate nohighlight" id="equation-eq-calculus-variation-lagrangian-schrodinger">
-<span class="eqno">(26.2)<a class="headerlink" href="#equation-eq-calculus-variation-lagrangian-schrodinger" title="Permalink to this equation">#</a></span>\[\mathcal{L}\left( \Psi, \partial_t \Psi, \partial_k \Psi \right) = i \frac{\hbar}{2} \left( \Psi^* \partial_t \Psi - \Psi \partial_t \Psi^* \right) - \dfrac{\hbar^2}{2 m } \nabla \Psi^* \cdot \nabla \Psi - \Psi^* V(\mathbf{r}) \Psi \ .\]</div>
 </div>
 </details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
 <summary class="sd-summary-title sd-card-header">
@@ -973,9 +996,13 @@ Lagrange equations<div class="sd-summary-down docutils">
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Schrodinger equation can be retrieved from Lagrange equation</p>
+<p class="sd-card-text">The function inside the integral is defined as the <strong>Lagrangian function</strong></p>
+<div class="math notranslate nohighlight" id="equation-eq-calculus-variation-lagrangian-schrodinger">
+<span class="eqno">(26.2)<a class="headerlink" href="#equation-eq-calculus-variation-lagrangian-schrodinger" title="Permalink to this equation">#</a></span>\[\mathcal{L}\left( \Psi, \partial_t \Psi, \partial_k \Psi; \Psi^*, \partial_t \Psi^*, \partial_k \Psi^* \right) = i \frac{\hbar}{2} \left( \Psi^* \partial_t \Psi - \Psi \partial_t \Psi^* \right) - \dfrac{\hbar^2}{2 m } \nabla \Psi^* \cdot \nabla \Psi - \Psi^* V(\mathbf{r}) \Psi \ ,\]</div>
+<p class="sd-card-text"><strong>treating</strong> the wave function, its derivatives and the complex conjugate functions as <strong>independent variables</strong>, as done for Wirtinger derivatives.
+Schrodinger equation can be retrieved from Lagrange equation</p>
 <div class="math notranslate nohighlight">
-\[0 = \partial_t \left( \dfrac{\partial \mathcal{L}}{\partial \left( \partial_t \Psi \right)} \right) + \partial_k \left( \dfrac{\partial \mathcal{L}}{\partial \left( \partial_k \Psi \right)} \right) - \dfrac{\partial \mathcal{L}}{\partial \Psi} \ ,\]</div>
+\[0 = \partial_t \left( \dfrac{\partial \mathcal{L}}{\partial \left( \partial_t \Psi^* \right)} \right) + \partial_k \left( \dfrac{\partial \mathcal{L}}{\partial \left( \partial_k \Psi^* \right)} \right) - \dfrac{\partial \mathcal{L}}{\partial \Psi^*} \ ,\]</div>
 <p class="sd-card-text">taking the derivatives of the Lagrangian function <span class="math notranslate nohighlight">\(\mathcal{L}\left( \Psi, \partial_t \Psi, \partial_k \Psi \right)\)</span> in formula <a class="reference internal" href="#equation-eq-calculus-variation-lagrangian-schrodinger">(26.2)</a>.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
 <summary class="sd-summary-title sd-card-header">
@@ -984,7 +1011,21 @@ Proof.<div class="sd-summary-down docutils">
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text"><strong>todo</strong></p>
+<p class="sd-card-text">The partial derivatives w.r.t. the complex conjugate functions,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \partial_t \left( \dfrac{\partial \mathcal{L}}{\partial \left( \partial_t \Psi^* \right)} \right) &amp; = \partial_t \left( - i \frac{\hbar}{2} \Psi \right) = - i\frac{\hbar}{2} \partial_t \Psi \\
+  \partial_t \left( \dfrac{\partial \mathcal{L}}{\partial \left( \partial_k \Psi^* \right)} \right) &amp; = \partial_t \left( -\frac{\hbar^2}{2 m} \Psi_k \right) = - \frac{\hbar^2}{2 m} \partial_{kk} \Psi \\
+  \dfrac{\partial \mathcal{L}}{\partial \Psi^*} &amp; = i \frac{\hbar}{2} \partial_t \Psi - V(\mathbf{r}) \Psi \ ,
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">it immediately follows</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  0
+  &amp; = \partial_t \left( \dfrac{\partial \mathcal{L}}{\partial \left( \partial_t \Psi^* \right)} \right) + \partial_k \left( \dfrac{\partial \mathcal{L}}{\partial \left( \partial_k \Psi^* \right)} \right) - \dfrac{\partial \mathcal{L}}{\partial \Psi^*} = \\
+  &amp; = - i\frac{\hbar}{2} \partial_t \Psi - \frac{\hbar^2}{2 m} \partial_{kk} \Psi - \left( i \frac{\hbar}{2} \partial_t \Psi - V(\mathbf{r}) \Psi \right) = \\
+  &amp; = - i \hbar \partial_t \Psi - \frac{\hbar^2}{2 m} \partial_{kk} \Psi + V(\mathbf{r}) \Psi \ .
+\end{aligned}\end{split}\]</div>
 </div>
 </details></div>
 </details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
@@ -997,13 +1038,33 @@ A more rigorous approach<div class="sd-summary-down docutils">
 <p class="sd-card-text">Let <span class="math notranslate nohighlight">\(\Psi(q^j(\mathbf{r},t), \mathbf{r},t)\)</span> be a function of generalized coordinates <span class="math notranslate nohighlight">\(q^j(\mathbf{r},t)\)</span>, function of the independent variables <span class="math notranslate nohighlight">\(\mathbf{r}\)</span>, t. Its partial time and space derivatives read</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
-  \partial_{t} \Psi &amp; = \partial_t q^j \, \partial_{q^j} \Psi + \partial_t q^j \\
-  \partial_{k} \Psi &amp; = \partial_k q^j \, \partial_{q^j} \Psi + \partial_k q^j \\
+  \left.\partial_{t} \Psi\right|_{\mathbf{r}} &amp; = \partial_t q^j \, \partial_{q^j} \Psi|_{\mathbf{r}, t} + \partial_t \Psi|_{\mathbf{q}, \mathbf{r}} \\
+  \left.\partial_{k} \Psi\right|_{t} &amp; = \partial_k q^j \, \partial_{q^j} \Psi|_{\mathbf{r}, t} + \partial_k \Psi|_{\mathbf{q}, \mathbf{r}} \\
 \end{aligned}\end{split}\]</div>
-<p class="sd-card-text">and thus, the variation reads</p>
+<p class="sd-card-text">Thus, the derivatives of the wave function <span class="math notranslate nohighlight">\(\partial_t \Psi\)</span>, and <span class="math notranslate nohighlight">\(\partial_k \Psi\)</span> are functions of the independent variables <span class="math notranslate nohighlight">\(\mathbf{r}\)</span>, <span class="math notranslate nohighlight">\(t\)</span>, the generalized functions <span class="math notranslate nohighlight">\(q^j\)</span> and their derivatives <span class="math notranslate nohighlight">\(\partial_t q^j\)</span>, <span class="math notranslate nohighlight">\(\partial_k q^j\)</span> respectively</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \partial_{t} \Psi( q^j, \partial_t q^j, \mathbf{r}, t) &amp; = \partial_t q^j \, \partial_{q^j} \Psi + \partial_t q^j \\
+  \partial_{k} \Psi( q^j, \partial_k q^j, \mathbf{r}, t) &amp; = \partial_k q^j \, \partial_{q^j} \Psi + \partial_k q^j \\
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">Thus, the following relations follow</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \partial_{q^j} \Psi &amp; = \dfrac{\partial \, ( \partial_t \Psi )}{\partial \, ( \partial_t q^j )} \\
+  \partial_{q^j} \Psi &amp; = \dfrac{\partial \, ( \partial_k \Psi )}{\partial \, ( \partial_k q^j )} \\
+\end{aligned}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+ 0
+ &amp; = \partial_{q^j} \Psi^* \left\{ - i \hbar \partial_t \Psi   - \frac{\hbar^2}{2m} \nabla^2 \Psi   + V(\mathbf{r}) \Psi   \right\} + \\
+ &amp; + \partial_{q^j} \Psi   \left\{   i \hbar \partial_t \Psi^* - \frac{\hbar^2}{2m} \nabla^2 \Psi^* + V(\mathbf{r}) \Psi^* \right\} = \\
+ &amp; = - i \hbar \partial_{q^j} \Psi^* \partial_t \Psi
+ - \frac{\hbar^2}{2m} \partial_k \left( \partial_{q^j} \Psi^* \partial_k \Psi \right) + \frac{\hbar^2}{2m} \partial_k \partial_{q^j} \Psi^* \, \partial_k \Psi + \partial_{q^j} \Psi^* V(\mathbf{r}) \Psi + \dots \\
+ &amp; = 
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">The variation of function <span class="math notranslate nohighlight">\(\Psi\)</span></p>
 <div class="math notranslate nohighlight">
 \[\delta \Psi = \delta q^j \partial_{q^j} \Psi \ .\]</div>
-<p class="sd-card-text">…</p>
 </div>
 </details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
 <summary class="sd-summary-title sd-card-header">
@@ -1056,7 +1117,13 @@ Exchanging derivatives and variation of the function <span class="math notransla
 <span class="eqno">(26.6)<a class="headerlink" href="#equation-eq-calculus-variation-switch-d-delta" title="Permalink to this equation">#</a></span>\[\delta_{q^i} \partial_{x^k} f = \partial_{x^k} \delta_{q^i} f \ ,\]</div>
 <p class="sd-card-text">with the definition <span class="math notranslate nohighlight">\(\delta q^i f = \delta q^i \partial_{q^i} f\)</span>, wtihout summing on the pair of repeated.</p>
 </div>
-</details></div>
+</details><hr class="footnotes docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="wirtinger-change-of-variables"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>This is the process leading to Wirtinger’s derivative, see <a class="reference external" href="https://en.wikipedia.org/wiki/Wirtinger_derivatives">Wikipedia: Wirtinger derivative</a> and <a class="reference external" href="https://math.stackexchange.com/questions/314863/what-is-the-intuition-behind-the-wirtinger-derivatives">Stack Exchange: What is the intuition behind the Wirtinger derivatives?</a>. Does this assumption have any consequence? <span class="math notranslate nohighlight">\(x,y \in \mathbb{R}\)</span>, while <span class="math notranslate nohighlight">\(z, z^* \in \mathbb{C}\)</span>, and <span class="math notranslate nohighlight">\(z\)</span>, <span class="math notranslate nohighlight">\(w := z^*\)</span> treated as independent.</p>
+</dd>
+</dl>
+</div>
 </div>
 </div>
 
