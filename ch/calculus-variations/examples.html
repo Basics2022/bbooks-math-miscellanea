@@ -726,7 +726,44 @@ Using the results of <a class="reference internal" href="../differential-geometr
 </div>
 <div class="section" id="lagrange-equations-in-classical-mechanics">
 <span id="calculus-variations-examples-lagrange-equations-classical-mechanics"></span><h2><span class="section-number">26.2.3. </span>Lagrange equations in classical mechanics<a class="headerlink" href="#lagrange-equations-in-classical-mechanics" title="Permalink to this heading">#</a></h2>
+<p>For a detailed treatment of system of point masses and rigid bodies in classical mechanics, see [Basics: Classical Mechanics], in particular <a class="reference external" href="https://basics2022.github.io/bbooks-physics-mechanics/ch/lagrange-ii-type.html">Classical Mechanics: Analytical Mechanics: Lagrange Equations of the Second Kind</a>, and its subsection. Here, only the Lagrangian approach to the a point mass system is shown.</p>
+<p>Let <span class="math notranslate nohighlight">\(\mathbf{r}(q^k(t), t)\)</span> the position of the mass point, as a function of a set of generalized coordinates <span class="math notranslate nohighlight">\(q^k(t)\)</span> and time <span class="math notranslate nohighlight">\(t\)</span>. The velocity of the mass can be written as</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{v} = \dot{\mathbf{r}}(t) = \dot{q}^k \partial_{q^k} \mathbf{r} + \partial_t \mathbf{r} \ .\]</div>
+<p>The velocity field can be interpreted as a function <span class="math notranslate nohighlight">\(\mathbf{v}\left( q^k, \dot{q}^k, t\right)\)</span>. From the latter relation, as <span class="math notranslate nohighlight">\(\partial_{q^k} \mathbf{r}\)</span> is independent from the <span class="math notranslate nohighlight">\(\dot{q}^k\)</span>, it follows</p>
+<div class="math notranslate nohighlight">
+\[\partial_{q^k} \mathbf{r} = \partial_{\dot{q}^k} \dot{\mathbf{r}} \ .\]</div>
+<p>Following Newton’s mechanics, the equation of motion of a point mass with mass <span class="math notranslate nohighlight">\(m\)</span> in a force field with potential <span class="math notranslate nohighlight">\(V(\mathbf{r})\)</span> reads</p>
+<div class="math notranslate nohighlight">
+\[m \ddot{\mathbf{r}} = - \nabla_{\mathbf{r}} V(\mathbf{r}) \ .\]</div>
+<p>Multiplyig the equation of motion by <span class="math notranslate nohighlight">\(\partial_{q^k} \mathbf{r}\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  0 
+  &amp; = \partial_{q^k} \mathbf{r} \cdot \left\{ m \ddot{\mathbf{r}} + \nabla_{\mathbf{r}} V \right\} = \\
+  &amp; = \dfrac{d}{dt} \left( \partial_{q^k} \mathbf{r} \cdot  m \dot{\mathbf{r}} \right) - \dfrac{d}{dt} \partial_{q^k} \mathbf{r} \cdot m \dot{\mathbf{r}} + \partial_{q^k} V = &amp;&amp; \text{(1)} \\ 
+  &amp; = \dfrac{d}{dt} \left( \partial_{\dot{q}^k} \dot{\mathbf{r}} \cdot  m \dot{\mathbf{r}} \right) - \partial_{q^k} \dot{\mathbf{r}} \cdot m \dot{\mathbf{r}} + \partial_{q^k} V = \\
+  &amp; = \dfrac{d}{dt} \dfrac{\partial}{\partial \dot{q}^k} \left( \frac{1}{2} m \dot{\mathbf{r}} \cdot \dot{\mathbf{r}} \right)
+    - \dfrac{\partial}{\partial q^k} \left( \frac{1}{2} m \dot{\mathbf{r}} \cdot \dot{\mathbf{r}} - V \right) = \\
+  &amp; = \dfrac{d}{dt} \dfrac{\partial \mathscr{L}}{\partial \dot{q}^k} - \dfrac{\partial \mathscr{L}}{\partial q^k} \ ,
+\end{aligned}\end{split}\]</div>
+<p>with the Lagrangian function <span class="math notranslate nohighlight">\(\mathscr{L}(\mathbf{r}; \dot{\mathbf{r}}, t) = \frac{1}{2} m |\dot{\mathbf{r}}|^2 - V(\mathbf{r})\)</span>. Here, in <span class="math notranslate nohighlight">\(\text{(1)}\)</span> the details about mixed derivatives are used to write <span class="math notranslate nohighlight">\(\frac{d}{dt} \partial_{q^k} \mathbf{r} = \partial_{q^k} \mathbf{v}\)</span>.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Details about mixed derivatives<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \dfrac{d}{dt} \partial_{q^k} \mathbf{r}\left( q^l\left(\mathbf{r}, t\right), t\right) 
+  &amp; = \dot{q}^l \partial_{q^l} \partial_{q^k} \mathbf{r} + \partial_t \partial_{q^k} \mathbf{r} = \\
+  &amp; = \partial_{q^k} \left\{ \dot{q}^l \partial_{q^l} \mathbf{r} + \partial_t \mathbf{r} \right\} = \\
+  &amp; = \partial_{q^k} \mathbf{v} \ .
+\end{aligned}\end{split}\]</div>
 </div>
+</details></div>
 <div class="section" id="lagrange-equations-in-special-relativity">
 <span id="calculus-variations-examples-lagrange-equations-special-relativity"></span><h2><span class="section-number">26.2.4. </span>Lagrange equations in special relativity<a class="headerlink" href="#lagrange-equations-in-special-relativity" title="Permalink to this heading">#</a></h2>
 <div class="section" id="using-tensor-formalism">
@@ -1035,7 +1072,7 @@ A more rigorous approach<div class="sd-summary-down docutils">
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Let <span class="math notranslate nohighlight">\(\Psi(q^j(\mathbf{r},t), \mathbf{r},t)\)</span> be a function of generalized coordinates <span class="math notranslate nohighlight">\(q^j(\mathbf{r},t)\)</span>, function of the independent variables <span class="math notranslate nohighlight">\(\mathbf{r}\)</span>, t. Its partial time and space derivatives read</p>
+<p class="sd-card-text">Let <span class="math notranslate nohighlight">\(\psi(\mathbf{r},t) = \Psi(q^j(\mathbf{r},t), \mathbf{r},t)\)</span> be a function of generalized coordinates <span class="math notranslate nohighlight">\(q^j(\mathbf{r},t)\)</span>, function of the independent variables <span class="math notranslate nohighlight">\(\mathbf{r}\)</span>, t. Its partial time and space derivatives read</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
   \left.\partial_{t} \Psi\right|_{\mathbf{r}} &amp; = \partial_t q^j \, \partial_{q^j} \Psi|_{\mathbf{r}, t} + \partial_t \Psi|_{\mathbf{q}, \mathbf{r}} \\
@@ -1053,15 +1090,27 @@ A more rigorous approach<div class="sd-summary-down docutils">
   \partial_{q^j} \Psi &amp; = \dfrac{\partial \, ( \partial_t \Psi )}{\partial \, ( \partial_t q^j )} \\
   \partial_{q^j} \Psi &amp; = \dfrac{\partial \, ( \partial_k \Psi )}{\partial \, ( \partial_k q^j )} \\
 \end{aligned}\end{split}\]</div>
+<p class="sd-card-text">and</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+ \partial_k \psi &amp; = \partial_{k} q^j \partial_{q^j} \Psi + \partial_k \Psi \\
+ \partial_t \psi &amp; = \partial_{t} q^j \partial_{q^j} \Psi + \partial_t \Psi \\
+\end{aligned}\end{split}\]</div>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
  0
- &amp; = \partial_{q^j} \Psi^* \left\{ - i \hbar \partial_t \Psi   - \frac{\hbar^2}{2m} \nabla^2 \Psi   + V(\mathbf{r}) \Psi   \right\} + \\
- &amp; + \partial_{q^j} \Psi   \left\{   i \hbar \partial_t \Psi^* - \frac{\hbar^2}{2m} \nabla^2 \Psi^* + V(\mathbf{r}) \Psi^* \right\} = \\
- &amp; = - i \hbar \partial_{q^j} \Psi^* \partial_t \Psi
- - \frac{\hbar^2}{2m} \partial_k \left( \partial_{q^j} \Psi^* \partial_k \Psi \right) + \frac{\hbar^2}{2m} \partial_k \partial_{q^j} \Psi^* \, \partial_k \Psi + \partial_{q^j} \Psi^* V(\mathbf{r}) \Psi + \dots \\
+ &amp; = \partial_{q^j} \Psi^* \left\{ - i \hbar \partial_t \psi   - \frac{\hbar^2}{2m} \nabla^2 \psi   + V(\mathbf{r}) \psi   \right\}
+   + \partial_{q^j} \Psi   \left\{   i \hbar \partial_t \psi^* - \frac{\hbar^2}{2m} \nabla^2 \psi^* + V(\mathbf{r}) \psi^* \right\} = \\
+ &amp; = - i \hbar \partial_{q^j} \Psi^* \partial_t \psi - \frac{\hbar^2}{2m} \partial_{q^j} \Psi^* \partial_{kk} \psi + \partial_{q^j} \Psi^* V(\mathbf{r}) \psi + \\
+ &amp; \quad  \ + i \hbar \partial_{q^j} \Psi \partial_t \psi^* - \frac{\hbar^2}{2m} \partial_{q^j} \Psi \partial_{kk} \psi^* + \partial_{q^j} \Psi V(\mathbf{r}) \psi^* = \\
  &amp; = 
 \end{aligned}\end{split}\]</div>
+<p class="sd-card-text">as</p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+- \partial_{q^j} \Psi^* \partial_{kk} \psi - \partial_{q^j} \Psi \partial_{kk} \psi^*  
+&amp; = 
+\end{aligned}\]</div>
 <p class="sd-card-text">The variation of function <span class="math notranslate nohighlight">\(\Psi\)</span></p>
 <div class="math notranslate nohighlight">
 \[\delta \Psi = \delta q^j \partial_{q^j} \Psi \ .\]</div>
