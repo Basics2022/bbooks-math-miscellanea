@@ -6,8 +6,12 @@
 
 **Geometry.** [Shortest path](calculus-variations:examples:line-length)
 
-**Physics.** [Fermat principle](calculus-variations:examples:fermat) in optics; [Lagrange equations in classical mechanics](calculus-variations:examples:lagrange-equations:classical-mechanics); [Lagrange equations in special relativity](calculus-variations:examples:lagrange-equations:special-relativity); [Lagrange equations in quantum mechanics](calculus-variations:examples:lagrange-equations:quantum-mechanics)
-
+**Physics.**
+* [Fermat principle](calculus-variations:examples:fermat) in optics; 
+* [Lagrange equations in classical mechanics](calculus-variations:examples:lagrange-equations:classical-mechanics); 
+* [Lagrange equations in special relativity](calculus-variations:examples:lagrange-equations:special-relativity); 
+* [Lagrange equations in quantum mechanics](calculus-variations:examples:lagrange-equations:quantum-mechanics)
+* [Lagrange approach to classical electromagnetism](https://basics2022.github.io/bbooks-physics-electromagnetism/ch/variational-principles.html) [**external reference, [basics: classical electromagnetism](https://basics2022.github.io/bbooks-physics-electromagnetism/intro.html)**]
 
 ```
 
