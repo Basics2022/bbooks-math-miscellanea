@@ -20,6 +20,8 @@ for $\forall f(x)$ "regular" **todo** *what does regular mean?*
 (functional-analysis:dirac-delta:approximations:box)=
 ### Piece-wise constant
 
+For $\varepsilon \rightarrow 0$,
+
 $$\delta(x) \sim r_{\varepsilon}(x) = \begin{cases} \frac{1}{\varepsilon} & x \in \left[-\frac{\varepsilon}{2}, \frac{\varepsilon}{2} \right] \\ 0 & \text{otherwise} \end{cases}$$
 
 ```{dropdown} Properties - proof.
@@ -42,6 +44,8 @@ $$\delta(x) \sim r_{\varepsilon}(x) = \begin{cases} \frac{1}{\varepsilon} & x \i
 
 (functional-analysis:dirac-delta:approximations:hat)=
 ### Piecewise-linear
+
+For $\varepsilon \rightarrow 0$,
 
 $$\delta(x) \sim t_{\varepsilon}(x) = \begin{cases} \frac{2}{\varepsilon} \left( 1 - \frac{2 |x|}{\varepsilon} \right) & x \in \left[-\frac{\varepsilon}{2}, \frac{\varepsilon}{2} \right] \\ 0 & \text{otherwise} \end{cases}$$
 
@@ -118,19 +122,73 @@ $$\begin{aligned}
 
 ```
 
-(functional-analysis:dirac-delta:approximations:fourier-transform)=
+(functional-analysis:dirac-delta:approximations:sinc)=
 ### $\text{sinc}(x)$ approximation
 For $a \rightarrow +\infty$ 
 
 $$\delta(x) \sim \frac{\sin(2 \pi x a)}{\pi x}$$
 
 ```{dropdown} Proof
+:open:
 
 Directly follows from integral of the approximation {eq}`eq:dirac:fourier-transform` 
 
 $$\int_{y=-a}^{+a} e^{i 2 \pi y x} \, dy = \frac{1}{i 2 \pi x} \left. e^{i 2 \pi y x}\right|_{y=-a}^{+a} = \frac{1}{\pi x} \frac{e^{i 2 \pi a x} - e^{-i 2 \pi a x}}{2 i} = \frac{\sin(2 \pi x a)}{\pi x}$$
 
 ```
+
+(functional-analysis:dirac-delta:approximations:sinc-2)=
+### $\{ \text{sinc}(c) \}^2$ approximation
+
+For $t \to +\infty$,
+
+$$\left\{ \frac{\sin(\omega t/2)}{\omega} \right\}^2 \sim \frac{\pi}{2} t \, \delta(\omega)$$
+
+This approximation is used in **Fermi's golden rule in QM**, see the [Modern Physics notes](https://basics2022.github.io/bbooks-physics-modern/ch/relativity-special/intro.html).
+
+```{dropdown} Proof
+:open:
+
+**todo** *Check and uncomment*
+
+<!--
+
+Using Euler's formula to rewrite the sine function:
+
+$$\left\{ \frac{\sin(\omega t/2)}{\omega} \right\}^2 = \left( \frac{e^{i\omega t/2} - e^{-i\omega t/2}}{2i\omega} \right)^2 = -\frac{e^{i\omega t} + e^{-i\omega t} - 2}{4\omega^2} = \frac{1 - \cos(\omega t)}{2\omega^2}$$
+
+Integrating over all space using the substitution $u = \frac{\omega t}{2}$ ($d\omega = \frac{2}{t} du$):
+
+$$\int_{-\infty}^{+\infty} \left\{ \frac{\sin(\omega t/2)}{\omega} \right\}^2 d\omega = \frac{t}{2} \int_{-\infty}^{+\infty} \frac{\sin^2 u}{u^2} du = \frac{\pi}{2} t$$
+
+Since the function is heavily peaked around $\omega = 0$ with an effective width $\Delta\omega \sim \frac{2\pi}{t} \to 0$ as $t \to +\infty$, in the sense of distributions:
+
+$$\lim_{t \to +\infty} \frac{2}{\pi t} \left\{ \frac{\sin(\omega t/2)}{\omega} \right\}^2 = \delta(\omega)$$
+
+-->
+
+```
+
+<!--
+```{dropdown} In Fermi golden rule
+:open:
+
+$$\int_{\omega=-\infty}^{+\infty} \left\{ \frac{\sin(\omega t/2)}{\omega} \right\}^2 \, d \omega = \frac{\pi}{2} t$$
+
+For $t \rightarrow +\infty$, 
+
+$$\left\{ \frac{\sin(\omega t/2)}{\omega} \right\}^2 \rightarrow \frac{\pi}{2} t \, \delta(\omega) \ .$$
+
+Proof
+
+$$\begin{aligned}
+  \left\{ \frac{\sin(\omega t/2)}{\omega} \right\}^2 
+  & = \left\{ \frac{e^{i \omega t/2} - e^{-i \omega t/2}}{2 i \omega} \right\}^2 = \\
+  & = - \frac{e^{i \omega t} + e^{-i\omega t} - 2}{4 \omega^2} \\
+\end{aligned}$$
+
+```
+-->
 
 (functional-analysis:dirac-delta:approximations:fourier-series)=
 ### Fourier series
