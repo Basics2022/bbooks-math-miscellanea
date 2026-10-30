@@ -1,7 +1,7 @@
 (differential-geometry:lines)=
 # Lines
 
-A line $\gamma$ is a geometric entity that has a 1-parameter parametric representation of curve in 3-dimensional (Euclidean) space $E^3$,
+A line $\gamma$ is a geometric entity that has a 1-parameter parametric representation. Its points in 3-dimensional (Euclidean) space $E^3$ can be represented with the function
 
 $$\gamma: \ \mathbf{r}(q) \ , \quad q \in [q_0, q_1] \ .$$
 
