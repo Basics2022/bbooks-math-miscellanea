@@ -591,7 +591,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -607,6 +609,15 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differential">9.1.1. Differential</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#frenet-basis">9.1.2. Frenet basis</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -618,42 +629,70 @@ document.write(`
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="lines">
 <span id="differential-geometry-lines"></span><h1><span class="section-number">9.1. </span>Lines<a class="headerlink" href="#lines" title="Permalink to this heading">#</a></h1>
-<p>Parametric representation of curve in 3-dimensional (Euclidean) space <span class="math notranslate nohighlight">\(E^3\)</span></p>
+<p>A line <span class="math notranslate nohighlight">\(\gamma\)</span> is a geometric entity that has a 1-parameter parametric representation of curve in 3-dimensional (Euclidean) space <span class="math notranslate nohighlight">\(E^3\)</span>,</p>
 <div class="math notranslate nohighlight">
-\[\vec{r}(q)\]</div>
-<p><strong>Differential, <span class="math notranslate nohighlight">\(d \vec{r}\)</span>.</strong></p>
+\[\gamma: \ \mathbf{r}(q) \ , \quad q \in [q_0, q_1] \ .\]</div>
+<p>A parametrization is regular if the parameter <span class="math notranslate nohighlight">\(q\)</span> is monotonic along the curve.</p>
+<div class="section" id="differential">
+<span id="differential-geometry-lines-differential"></span><h2><span class="section-number">9.1.1. </span>Differential<a class="headerlink" href="#differential" title="Permalink to this heading">#</a></h2>
+<p>The differential <span class="math notranslate nohighlight">\(d \mathbf{r}\)</span> represents the elementary vector on the line. From the very definition of the differential of a function, it follows</p>
 <div class="math notranslate nohighlight">
-\[d \vec{r}(q) = \vec{r}'(q) \, d q \ .\]</div>
-<p><strong>Arc-length parameter, <span class="math notranslate nohighlight">\(s\)</span>.</strong> So that <span class="math notranslate nohighlight">\(d s = |d \vec{r}(s)|\)</span> and thus</p>
+\[d \mathbf{r}(q) = \mathbf{r}'(q) \, d q \ .\]</div>
+<div class="proof definition admonition" id="def-arc-length">
+<p class="admonition-title"><span class="caption-number">Definition 9.2 </span> (Arc-length parameter)</p>
+<div class="definition-content section" id="proof-content">
+<p>The arc-length parameter <span class="math notranslate nohighlight">\(s\)</span> is defined by the condition <span class="math notranslate nohighlight">\(d s = |d \mathbf{r}(s)|\)</span>, or by the equivalent conditions</p>
 <div class="math notranslate nohighlight">
-\[|d \vec{r}(s)| = |\vec{r}'(s)| \, |d s| \qquad \rightarrow \qquad |\vec{r}'(s)| = 1 \qquad \rightarrow \qquad \vec{r}'(s) = \hat{t}(s) \ .\]</div>
-<p><strong>Frenet basis.</strong> Using arc-length parameter, Frenet basis is naturally defined as the set <span class="math notranslate nohighlight">\(\{ \hat{t}, \hat{n}, \hat{b} \}\)</span>:</p>
+\[|d \mathbf{r}(s)| = |\mathbf{r}'(s)| \, |d s| \qquad \rightarrow \qquad |\mathbf{r}'(s)| = 1 \qquad \rightarrow \qquad \mathbf{r}'(s) = \hat{\mathbf{t}}(s) \ .\]</div>
+</div>
+</div></div>
+<div class="section" id="frenet-basis">
+<span id="differential-geometry-lines-frenet-basis"></span><h2><span class="section-number">9.1.2. </span>Frenet basis<a class="headerlink" href="#frenet-basis" title="Permalink to this heading">#</a></h2>
+<p>Using <strong>arc-length parameter</strong> <a class="reference internal" href="#def-arc-length">Definition 9.2</a>, Frenet basis is naturally defined as the set <span class="math notranslate nohighlight">\(\{ \hat{\mathbf{t}}, \hat{\mathbf{n}}, \hat{\mathbf{b}} \}\)</span>:</p>
 <ul class="simple">
-<li><p>tangent unit vector, <span class="math notranslate nohighlight">\(\hat{t}(s) = \vec{r}'(s)\)</span>,</p></li>
-<li><p>normal unit vector, <span class="math notranslate nohighlight">\(\hat{r}''(s) = \hat{t}'(s) =: \kappa(s) \, \hat{n}(s) \)</span>, with <span class="math notranslate nohighlight">\(\kappa(s)\)</span> local curvature</p></li>
-<li><p>binormal unit vector, <span class="math notranslate nohighlight">\(\hat{b}(s) = \hat{t}(s) \times \hat{n}(s)\)</span></p></li>
+<li><p>tangent unit vector, <span class="math notranslate nohighlight">\(\hat{\mathbf{t}}(s) = \mathbf{r}'(s)\)</span>,</p></li>
+<li><p>normal unit vector, <span class="math notranslate nohighlight">\(\hat{\mathbf{n}}\)</span>, so that <span class="math notranslate nohighlight">\(\hat{\mathbf{r}}''(s) = \hat{\mathbf{t}}'(s) =: \kappa(s) \, \hat{\mathbf{n}}(s) \)</span>, with <span class="math notranslate nohighlight">\(\kappa(s)\)</span> local curvature</p></li>
+<li><p>binormal unit vector, <span class="math notranslate nohighlight">\(\hat{\mathbf{b}}(s) = \hat{\mathbf{t}}(s) \times \hat{\mathbf{n}}(s)\)</span></p></li>
 </ul>
-<p>Using a general parameter, <span class="math notranslate nohighlight">\(t\)</span>, with some abuse of notation <span class="math notranslate nohighlight">\(\vec{r}(t) = \vec{r}(s(t))\)</span> and indicating <span class="math notranslate nohighlight">\(\dot{()} = \frac{d}{dt}\)</span>,</p>
+<p>Using a general parameter, <span class="math notranslate nohighlight">\(t\)</span>, with some abuse of notation <span class="math notranslate nohighlight">\(\mathbf{r}(t) = \mathbf{r}(s(t))\)</span> and indicating <span class="math notranslate nohighlight">\(\dot{( \_ )} = \frac{d \_}{dt}\)</span>,</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\dot{\vec{r}} = \frac{d s}{d t} \frac{d \vec{r}}{d s} = \dot{s} \hat{t}\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(\ddot{\vec{r}} = \dfrac{d}{dt} \dot{\vec{r}} = \dfrac{d}{dt} \left( \dot{s} \hat{t} \right) = \ddot{s} \hat{t} + \dfrac{ds}{dt} \dfrac{d}{ds} \hat{t} = \ddot{s} \hat{t} + \dot{s}^2 \kappa \, \hat{n}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\dot{\mathbf{r}} = \frac{d s}{d t} \frac{d \mathbf{r}}{d s} = \dot{s} \hat{\mathbf{t}}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\ddot{\mathbf{r}} = \dfrac{d}{dt} \dot{\mathbf{r}} = \dfrac{d}{dt} \left( \dot{s} \hat{\mathbf{t}} \right) = \ddot{s} \hat{\mathbf{t}} + \dfrac{ds}{dt} \dfrac{d}{ds} \hat{\mathbf{t}} = \ddot{s} \hat{\mathbf{t}} + \dot{s}^2 \kappa \, \hat{\mathbf{n}}\)</span></p></li>
 </ul>
-<p><strong>Osculator circle.</strong> Circle with <span class="math notranslate nohighlight">\(R(s) = \frac{1}{\kappa(s)}\)</span>, in plane orthogonal to <span class="math notranslate nohighlight">\(\hat{b}(s)\)</span>, passing through <span class="math notranslate nohighlight">\(\vec{r}(s)\)</span>, and thus center in <span class="math notranslate nohighlight">\(\vec{r}_C(s) = \vec{r}(s) + \hat{n} R(s)\)</span>. Its parametric representation using its arc-length parameter <span class="math notranslate nohighlight">\(p\)</span>, with <span class="math notranslate nohighlight">\(\vec{r}(p=0) = \vec{r}(s)\)</span> reads</p>
+<div class="proof definition admonition" id="def-osculator-circle">
+<p class="admonition-title"><span class="caption-number">Definition 9.3 </span> (Osculator circle)</p>
+<div class="definition-content section" id="proof-content">
+<p>The osculator circle relative to a point <span class="math notranslate nohighlight">\(P\)</span> of a curve <span class="math notranslate nohighlight">\(\gamma\)</span>, its the circle that:</p>
+<ul class="simple">
+<li><p>is tangent to the curve <span class="math notranslate nohighlight">\(\gamma\)</span> in <span class="math notranslate nohighlight">\(P\)</span></p></li>
+<li><p>has the same curvature of the curve <span class="math notranslate nohighlight">\(\gamma\)</span> in <span class="math notranslate nohighlight">\(P\)</span></p></li>
+</ul>
+</div>
+</div><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Osculator circle - Details<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Circle with <span class="math notranslate nohighlight">\(R(s) = \frac{1}{\kappa(s)}\)</span>, in plane orthogonal to <span class="math notranslate nohighlight">\(\hat{\mathbf{b}}(s)\)</span>, passing through <span class="math notranslate nohighlight">\(\mathbf{r}(s)\)</span>, and thus center in <span class="math notranslate nohighlight">\(\mathbf{r}_C(s) = \mathbf{r}(s) + \hat{\mathbf{n}} R(s)\)</span>. Its parametric representation using its arc-length parameter <span class="math notranslate nohighlight">\(p\)</span>, with <span class="math notranslate nohighlight">\(\mathbf{r}(p=0) = \mathbf{r}(s)\)</span> reads</p>
 <div class="math notranslate nohighlight">
-\[\vec{r}(p) = \vec{r}_C(s) + R(s) \left[ - \cos \left(\frac{p}{R(s)} \right) \hat{n}(s) + \sin \left(\frac{p}{R(s)}  \right)\hat{t}(s) \right] \ .\]</div>
-<p>Its first and second order derivatives w.r.t. the arc-length <span class="math notranslate nohighlight">\(p\)</span> evaluated in <span class="math notranslate nohighlight">\(p=0\)</span>, i.e. <span class="math notranslate nohighlight">\(\vec{r} = \vec{r}(s)\)</span> read:</p>
+\[\mathbf{r}(p) = \mathbf{r}_C(s) + R(s) \left[ - \cos \left(\frac{p}{R(s)} \right) \hat{\mathbf{n}}(s) + \sin \left(\frac{p}{R(s)}  \right)\hat{\mathbf{t}}(s) \right] \ .\]</div>
+<p class="sd-card-text">Its first and second order derivatives w.r.t. the arc-length <span class="math notranslate nohighlight">\(p\)</span> evaluated in <span class="math notranslate nohighlight">\(p=0\)</span>, i.e. <span class="math notranslate nohighlight">\(\mathbf{r} = \mathbf{r}(s)\)</span> read:</p>
 <ul>
-<li><p>first derivative in <span class="math notranslate nohighlight">\(p=0\)</span>,</p>
+<li><p class="sd-card-text">first derivative in <span class="math notranslate nohighlight">\(p=0\)</span>,</p>
 <div class="math notranslate nohighlight">
-\[\left.\hat{t}(p)\right|_{p=0} = \left.\vec{r}'(p)\right|_{p=0} = \left.  \left[ \sin \left(\frac{p}{R(s)} \right) \hat{n}(s) + \cos \left(\frac{p}{R(s)}  \right)\hat{t}(s) \right] \right|_{p=0} = \hat{t}(s) \ ,\]</div>
-<p>i.e. the osculator circle has the same tangent as the curve in the point.</p>
+\[\left.\hat{\mathbf{t}}(p)\right|_{p=0} = \left.\mathbf{r}'(p)\right|_{p=0} = \left.  \left[ \sin \left(\frac{p}{R(s)} \right) \hat{\mathbf{n}}(s) + \cos \left(\frac{p}{R(s)}  \right)\hat{\mathbf{t}}(s) \right] \right|_{p=0} = \hat{\mathbf{t}}(s) \ ,\]</div>
+<p class="sd-card-text">i.e. the osculator circle has the same tangent as the curve in the point.</p>
 </li>
-<li><p>second derivative in <span class="math notranslate nohighlight">\(p=0\)</span>,</p>
+<li><p class="sd-card-text">second derivative in <span class="math notranslate nohighlight">\(p=0\)</span>,</p>
 <div class="math notranslate nohighlight">
-\[\left. \kappa(p) \hat{n}(p)\right|_{p=0} = \left.\vec{r}''(p)\right|_{p=0} = \frac{1}{R(s)} \left.  \left[ \cos \left(\frac{p}{R(s)} \right) \hat{n}(s) - \sin \left(\frac{p}{R(s)}  \right)\hat{t}(s) \right] \right|_{p=0} = \frac{1}{R(s)}\hat{n}(s) = \kappa(s) \hat{n}(s) \ ,\]</div>
-<p>i.e. the osculator circle has the same normal vector and curvature as the curve in the point.</p>
+\[\left. \kappa(p) \hat{\mathbf{n}}(p)\right|_{p=0} = \left.\mathbf{r}''(p)\right|_{p=0} = \frac{1}{R(s)} \left.  \left[ \cos \left(\frac{p}{R(s)} \right) \hat{\mathbf{n}}(s) - \sin \left(\frac{p}{R(s)}  \right)\hat{\mathbf{t}}(s) \right] \right|_{p=0} = \frac{1}{R(s)}\hat{\mathbf{n}}(s) = \kappa(s) \hat{\mathbf{n}}(s) \ ,\]</div>
+<p class="sd-card-text">i.e. the osculator circle has the same normal vector and curvature as the curve in the point.</p>
 </li>
 </ul>
+</div>
+</details></div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -710,6 +749,21 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differential">9.1.1. Differential</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#frenet-basis">9.1.2. Frenet basis</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
