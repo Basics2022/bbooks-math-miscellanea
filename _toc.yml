@@ -30,6 +30,9 @@ parts:
   numbered: True
   chapters:
   - file: ch/differential-geometry/intro
+    sections:
+    - file: ch/differential-geometry/lines
+    - file: ch/differential-geometry/surfaces
 - caption: Vector and Tensor Algebra and Calculus
   numbered: True
   chapters:
