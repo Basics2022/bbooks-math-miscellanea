@@ -591,7 +591,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -607,6 +609,23 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differential">9.2.1. Differential</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normal-vector">9.2.2. Normal vector</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#derivatives-of-the-natural-basis">9.2.3. Derivatives of the natural basis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geometric-entities">9.2.4. Geometric entities</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#curvature-tensor">9.2.4.1. Curvature tensor</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#principal-curvatures-and-directions">9.2.4.1.1. Principal Curvatures and Directions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -618,51 +637,110 @@ document.write(`
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="surfaces">
 <span id="differential-geometry-surfaces"></span><h1><span class="section-number">9.2. </span>Surfaces<a class="headerlink" href="#surfaces" title="Permalink to this heading">#</a></h1>
+<p>A surface <span class="math notranslate nohighlight">\(S\)</span> is a geometric entity that has a 2-parameter parametric representation. Its points in 3-dimensional (Euclidean) space <span class="math notranslate nohighlight">\(E^3\)</span> can be represented with the function</p>
 <div class="math notranslate nohighlight">
-\[\vec{r}(q^1, q^2)\]</div>
+\[S: \, \mathbf{r}(q^1, q^2) \ .\]</div>
+<div class="section" id="differential">
+<span id="differential-geometry-surfaces-differential"></span><h2><span class="section-number">9.2.1. </span>Differential<a class="headerlink" href="#differential" title="Permalink to this heading">#</a></h2>
+<p>The differential <span class="math notranslate nohighlight">\(d \mathbf{r}\)</span> represents an elementary vector on - tangent to - the surface. From the very definition of the differential of a function, it follows</p>
 <div class="math notranslate nohighlight">
-\[d \vec{r} =
-  \frac{\partial \vec{r}}{\partial q^1} \, d q^1 + \frac{\partial \vec{r}}{\partial q^2} \, d q^2 =
-  \vec{b}_1 \, d q^1 + \vec{b}_2 \, d q^2
+\[d \mathbf{r} =
+  \frac{\partial \mathbf{r}}{\partial q^1} \, d q^1 + \frac{\partial \mathbf{r}}{\partial q^2} \, d q^2 =
+  \mathbf{b}_1 \, d q^1 + \mathbf{b}_2 \, d q^2
 \]</div>
-<p>A third vector <span class="math notranslate nohighlight">\(\vec{b}_3 := \hat{n}\)</span> can be defined so that <span class="math notranslate nohighlight">\(|\hat{n}| = 1\)</span> and <span class="math notranslate nohighlight">\(\hat{n} \cdot \vec{b}_{i} = 0\)</span>, <span class="math notranslate nohighlight">\(i=1:2\)</span>. For <span class="math notranslate nohighlight">\(i=1:2\)</span>, <span class="math notranslate nohighlight">\(k=1:2\)</span></p>
+</div>
+<div class="section" id="normal-vector">
+<span id="differential-geometry-surfaces-normal-vector"></span><h2><span class="section-number">9.2.2. </span>Normal vector<a class="headerlink" href="#normal-vector" title="Permalink to this heading">#</a></h2>
+<p>The vectors <span class="math notranslate nohighlight">\(\mathbf{b}_1\)</span>, <span class="math notranslate nohighlight">\(\mathbf{b}_2\)</span> are tangent to the surface <span class="math notranslate nohighlight">\(S\)</span>. A <strong>regular parametrization</strong> has <span class="math notranslate nohighlight">\(\mathbf{b}_1 \times \mathbf{b}_2 \ne \mathbf{0}\)</span> everywhere. A third vector <span class="math notranslate nohighlight">\(\mathbf{b}_3 := \hat{\mathbf{n}}\)</span> can be defined so that <span class="math notranslate nohighlight">\(|\hat{\mathbf{n}}| = 1\)</span> and <span class="math notranslate nohighlight">\(\hat{\mathbf{n}} \cdot \mathbf{b}_{i} = 0\)</span>, <span class="math notranslate nohighlight">\(i=1:2\)</span>. This is a <strong>unit normal vector</strong> to the surface. If the parametrization is regular, then the set of vectors <span class="math notranslate nohighlight">\(\{ \mathbf{b}_1, \mathbf{b}_2, \hat{\mathbf{n}} \}\)</span> forms a local(natural)  basis of 3-dimensional vectors space.</p>
+<p>The components of the metric tensor are</p>
 <div class="math notranslate nohighlight">
-\[\frac{\partial \vec{b}_i}{\partial q^j} = \Gamma_{ij}^k \vec{b}_k = \Gamma_{ij}^1 \vec{b}_1 + \Gamma_{ij}^2 \vec{b}_2 + \Gamma_{ij}^3 \vec{b}_3\]</div>
+\[\begin{split}\left[ g_{ab} \right] = \begin{bmatrix} g_{11} &amp; g_{12} &amp; \cdot \\ g_{21} &amp; g_{22} &amp; \cdot \\ \cdot &amp; \cdot &amp; 1 \end{bmatrix} \ ,\end{split}\]</div>
+<p>so that the vectors of the reciprocal basis, <span class="math notranslate nohighlight">\(\mathbf{b}^a = g^{ab} \mathbf{b}_b\)</span>, read</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left\{\begin{aligned}
+  \mathbf{b}^1 &amp; = g^{11} \mathbf{b}_1 + g^{12}  \mathbf{b}_2 \\
+  \mathbf{b}^2 &amp; = g^{21} \mathbf{b}_1 + g^{22}  \mathbf{b}_2 \\
+  \mathbf{b}^3 &amp; = \hat{\mathbf{n}} \ .
+\end{aligned} \right.\end{split}\]</div>
+</div>
+<div class="section" id="derivatives-of-the-natural-basis">
+<span id="differential-geometry-surfaces-derivative-of-the-natural-basis"></span><h2><span class="section-number">9.2.3. </span>Derivatives of the natural basis<a class="headerlink" href="#derivatives-of-the-natural-basis" title="Permalink to this heading">#</a></h2>
+<p>For <span class="math notranslate nohighlight">\(i=1:2\)</span>, <span class="math notranslate nohighlight">\(j=1:2\)</span></p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial^2 \mathbf{r}}{\partial q^i \partial q^j} = \frac{\partial \mathbf{b}_i}{\partial q^j} = \Gamma_{ij}^k \mathbf{b}_k = \Gamma_{ij}^1 \mathbf{b}_1 + \Gamma_{ij}^2 \mathbf{b}_2 + \Gamma_{ij}^3 \mathbf{b}_3 \ ,\]</div>
 <p>so that</p>
 <div class="math notranslate nohighlight">
-\[\Gamma_{ij}^{k} = \vec{b}^k \cdot \frac{\partial \vec{b}_i}{\partial q^j}\]</div>
+\[\Gamma_{ij}^{k} = \mathbf{b}^k \cdot \frac{\partial \mathbf{b}_i}{\partial q^j} \ .\]</div>
+<p><strong>Remark.</strong> Comparing two different choices of the orthogonal coordinate <span class="math notranslate nohighlight">\(q^3\)</span>, (1) unit normal vector <span class="math notranslate nohighlight">\(\hat{\mathbf{b}}_3 = \hat{\mathbf{n}}\)</span>, (2) non-unitary normal vector <span class="math notranslate nohighlight">\(\hat{\mathbf{b}}_3 = \mathbf{n}\)</span>, <span class="math notranslate nohighlight">\(\hat{\mathbf{b}}^3 = \tfrac{\mathbf{n}}{|\mathbf{n}|^2}\)</span>, it’s easy to prove that the Christoffel coefficients with upper index <span class="math notranslate nohighlight">\(k = 3\)</span>, <span class="math notranslate nohighlight">\(\Gamma^{3}_{ij}\)</span>, are independent from this choice.</p>
+</div>
+<div class="section" id="geometric-entities">
+<span id="differential-geometry-surfaces-geometric-entities"></span><h2><span class="section-number">9.2.4. </span>Geometric entities<a class="headerlink" href="#geometric-entities" title="Permalink to this heading">#</a></h2>
 <p><strong>Normal vector.</strong></p>
 <div class="math notranslate nohighlight">
-\[\vec{n}(q^1, q^2) = \frac{\partial \vec{r}}{\partial q^1}(q^1, q^2) \times \frac{\partial \vec{r}}{\partial q^2}(q^1, q^2) = \vec{b}_1(q^1, q^2) \times \vec{b}_2(q^1, q^2)\]</div>
-<p><strong>Tangent plane.</strong></p>
+\[\mathbf{n}(q^1, q^2) = \frac{\partial \mathbf{r}}{\partial q^1}(q^1, q^2) \times \frac{\partial \mathbf{r}}{\partial q^2}(q^1, q^2) = \mathbf{b}_1(q^1, q^2) \times \mathbf{b}_2(q^1, q^2)\]</div>
+<p><strong>First-order approximation and the tangent plane.</strong>  The equation of the points of the tangent plane <span class="math notranslate nohighlight">\(\pi\)</span> in point <span class="math notranslate nohighlight">\(\mathbf{r}\left(q^1, q^2 \right)\)</span> follows the orthogonality condition</p>
 <div class="math notranslate nohighlight">
-\[(\vec{r} - \vec{r}(q^1, q^2)) \cdot \vec{n}(q^1, q^2) = 0\]</div>
-<p><strong>Length of elementary segment.</strong></p>
+\[\pi: \, (\mathbf{r} - \mathbf{r}(q^1, q^2)) \cdot \mathbf{n}(q^1, q^2) = 0 \ .\]</div>
+<p><strong>Length of elementary segment on the plane.</strong></p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
-|d \vec{r}|^2 
-  &amp; = d \vec{r} \cdot d \vec{r} = \\
-  &amp; = \left( \vec{b}_1 \, d q^1 + \vec{b}_2 \, d q^2 \right) \cdot \left( \vec{b}_1 \, d q^1 + \vec{b}_2 \, d q^2 \right) = \\
-  &amp; = g_{11} \, dq^1 \, dq^1 + g_{12} \, dq^1 \, dq^2 + g_{21} \, dq^2 \, dq^1 + g_{22} \, dq^2 \, d q^2 = g_{ij} \, dq^i \, dq^j 
+|d \mathbf{r}|^2 
+  &amp; = d \mathbf{r} \cdot d \mathbf{r} = \\
+  &amp; = \left( \mathbf{b}_1 \, d q^1 + \mathbf{b}_2 \, d q^2 \right) \cdot \left( \mathbf{b}_1 \, d q^1 + \mathbf{b}_2 \, d q^2 \right) = \\
+  &amp; = g_{11} \, dq^1 \, dq^1 + g_{12} \, dq^1 \, dq^2 + g_{21} \, dq^2 \, dq^1 + g_{22} \, dq^2 \, d q^2 = g_{ij} \, dq^i \, dq^j  
 \end{aligned}\end{split}\]</div>
-<p><strong>Second order approximation.</strong></p>
+<p><strong>Second order approximation and the curvature tensor.</strong></p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
-  \vec{r}(q^1 + d q^1, q^2 + d q^2) 
-  &amp; = \vec{r}(q_1, q_2) + \frac{\partial \vec{r}}{\partial q^i} \, dq^i + \frac{\partial^2 \vec{r}}{\partial q^i \partial q^j} \, dq^i \, dq^j = \\
-  &amp; = \vec{r}(q_1, q_2) + \vec{b}_{i} \, dq^i + \vec{b}_k \Gamma^{k}_{ij} \, dq^i \, dq^j +  \hat{n} \, \Gamma^{3}_{ij} \, dq^i \, dq^j 
+  \mathbf{r}(q^1 + d q^1, q^2 + d q^2) 
+  &amp; = \mathbf{r}(q_1, q_2) + \frac{\partial \mathbf{r}}{\partial q^i} \, dq^i + \frac{\partial^2 \mathbf{r}}{\partial q^i \partial q^j} \, dq^i dq^j + o\left(|d q^i|^2\right) = \\
+  &amp; = \mathbf{r}(q_1, q_2) + \mathbf{b}_{i} \, dq^i + \mathbf{b}_k \Gamma^{k}_{ij} \, dq^i \, dq^j +  \hat{\mathbf{n}} \, \Gamma^{3}_{ij} \, dq^i dq^j  + o\left(|d q^i|^2\right) \ , 
 \end{aligned}\end{split}\]</div>
 <p>so that</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
-\left[ \vec{r}(q^1 + d q^1, q^2 + d q^2) - \vec{r}(q^1, q^2) \right] \cdot \hat{n} 
+\left[ \mathbf{r}(q^1 + d q^1, q^2 + d q^2) - \mathbf{r}(q^1, q^2) \right] \cdot \hat{\mathbf{n}}
  &amp; = \Gamma^3_{ij} \, d q^i \, dq^j = \\
- &amp; = \hat{n} \cdot \frac{\partial^2 \vec{r}}{\partial q^i \partial q^j} \, d q^i \, dq^j = \\
- &amp; = \hat{n} \cdot \frac{\partial^2 \vec{r}}{\partial q^i \partial q^j} \, \vec{b}^i \cdot \vec{b}_k d q^k \, \vec{b}^j \cdot \vec{b}_l dq^l = \\
- &amp; = \underbrace{d q^k \vec{b}_k}_{d \vec{r}} \cdot \left[ \hat{n} \cdot \frac{\partial^2 \vec{r}}{\partial q^i \partial q^j}  \vec{b}^i \otimes \vec{b}^j \right] \cdot \underbrace{d q^l \vec{b}_l}_{d\vec{r}}
+ &amp; = \hat{\mathbf{n}} \cdot \frac{\partial^2 \mathbf{r}}{\partial q^i \partial q^j} \, d q^i \, dq^j = \\
+ &amp; = \hat{\mathbf{n}} \cdot \frac{\partial^2 \mathbf{r}}{\partial q^i \partial q^j} \, \mathbf{b}^i \cdot \mathbf{b}_k d q^k \, \mathbf{b}^j \cdot \mathbf{b}_l dq^l = \\
+ &amp; = \underbrace{d q^k \mathbf{b}_k}_{d \mathbf{r}} \cdot \left[ \left( \hat{\mathbf{n}} \cdot \frac{\partial^2 \mathbf{r}}{\partial q^i \partial q^j} \right) \mathbf{b}^i \otimes \mathbf{b}^j \right] \cdot \underbrace{d q^l \mathbf{b}_l}_{d\mathbf{r}} = \\
+ &amp; = d \mathbf{r} \cdot \mathbb{b} \cdot d \mathbf{r} \ ,
 \end{aligned}\end{split}\]</div>
-<p><strong>Curvature tensor.</strong></p>
+<p>having defined the <strong>curvature tensor</strong> <span class="math notranslate nohighlight">\(\mathbb{b}\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{b} = b_{ij} \mathbf{b}^i \otimes \mathbf{b}^j = \left( \hat{\mathbf{n}} \cdot \frac{\partial^2 \mathbf{r}}{\partial q^i \partial q^j} \right) \mathbf{b}^i \otimes \mathbf{b}^j \ .\]</div>
+<div class="section" id="curvature-tensor">
+<span id="differential-geometry-surfaces-geometric-entities-curvature-tensor"></span><h3><span class="section-number">9.2.4.1. </span>Curvature tensor<a class="headerlink" href="#curvature-tensor" title="Permalink to this heading">#</a></h3>
+<p>From the second-order Taylor expansion around a point <span class="math notranslate nohighlight">\(\mathbf{r}(q^1, q^2)\)</span>, the projection of the displacement onto the unit normal vector <span class="math notranslate nohighlight">\(\hat{\mathbf{n}}\)</span> measures the distance from the surface to its tangent plane <span class="math notranslate nohighlight">\(\pi\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[[\mathbf{r}(q^1 + dq^1, q^2 + dq^2) - \mathbf{r}(q^1, q^2)] \cdot \hat{\mathbf{n}} = \Gamma_{ij}^3 dq^i dq^j = b_{ij} dq^i dq^j .\]</div>
+<p>The symmetric covariant tensor of rank 2, defined by its components</p>
+<div class="math notranslate nohighlight">
+\[b_{ij} := \Gamma_{ij}^3 = \hat{\mathbf{n}} \cdot \frac{\partial^2 \mathbf{r}}{\partial q^i \partial q^j} = -\frac{\partial \hat{\mathbf{n}}}{\partial q^i} \cdot \mathbf{b}_j ,\]</div>
+<p>is the <strong>second fundamental form</strong> (or curvature tensor) of the surface embedded in <span class="math notranslate nohighlight">\(E^3\)</span>.</p>
+<p>The quadratic form <span class="math notranslate nohighlight">\(b_{ij} dq^i dq^j\)</span> characterizes the local deviation of the surface from the tangent plane <span class="math notranslate nohighlight">\(\pi\)</span>. Using the metric tensor <span class="math notranslate nohighlight">\(g_{ij}\)</span> (the <em>first fundamental form</em>), we can define the mixed curvature tensor <span class="math notranslate nohighlight">\(b^i_j = g^{ik} b_{kj}\)</span> and compute the fundamental intrinsic scalar measures of curvature:</p>
+<ul class="simple">
+<li><p><strong>Mean Curvature (<span class="math notranslate nohighlight">\(H\)</span>):</strong>
+$<span class="math notranslate nohighlight">\(H = \frac{1}{2} b^i_i = \frac{1}{2} g^{ij} b_{ij} = \frac{g_{22}b_{11} - 2g_{12}b_{12} + g_{11}b_{22}}{2(g_{11}g_{22} - g_{12}^2)}\)</span>$</p></li>
+<li><p><strong>Gaussian Curvature (<span class="math notranslate nohighlight">\(K\)</span>):</strong>
+$<span class="math notranslate nohighlight">\(K = \det(b^i_j) = \frac{\det(b_{ij})}{\det(g_{ij})} = \frac{b_{11}b_{22} - b_{12}^2}{g_{11}g_{22} - g_{12}^2}\)</span>$</p></li>
+</ul>
+<div class="section" id="principal-curvatures-and-directions">
+<span id="differential-geometry-surfaces-geometric-entities-curvature-tensor-principal"></span><h4><span class="section-number">9.2.4.1.1. </span>Principal Curvatures and Directions<a class="headerlink" href="#principal-curvatures-and-directions" title="Permalink to this heading">#</a></h4>
+<p>The extreme values of the normal curvature <span class="math notranslate nohighlight">\(\kappa_n = \frac{b_{ij}dq^i dq^j}{g_{ij}dq^i dq^j}\)</span> are the <strong>principal curvatures</strong> <span class="math notranslate nohighlight">\(\kappa_1\)</span> and <span class="math notranslate nohighlight">\(\kappa_2\)</span>, which are the eigenvalues of the tensor <span class="math notranslate nohighlight">\(b^i_j\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\det(b^i_j - \kappa \delta^i_j) = 0 \quad \implies \quad \kappa^2 - 2H\kappa + K = 0 .\]</div>
+<p>Thus, the principal curvatures satisfy:</p>
+<div class="math notranslate nohighlight">
+\[\kappa_{1,2} = H \pm \sqrt{H^2 - K} .\]</div>
+<ul class="simple">
+<li><p>The Gaussian curvature is the product of the principal curvatures: <span class="math notranslate nohighlight">\(K = \kappa_1 \kappa_2\)</span>.</p></li>
+<li><p>The Mean curvature is the average of the principal curvatures: <span class="math notranslate nohighlight">\(H = \frac{1}{2}(\kappa_1 + \kappa_2)\)</span>.</p></li>
+</ul>
 <p>…</p>
+</div>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -719,6 +797,29 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differential">9.2.1. Differential</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normal-vector">9.2.2. Normal vector</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#derivatives-of-the-natural-basis">9.2.3. Derivatives of the natural basis</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geometric-entities">9.2.4. Geometric entities</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#curvature-tensor">9.2.4.1. Curvature tensor</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#principal-curvatures-and-directions">9.2.4.1.1. Principal Curvatures and Directions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
