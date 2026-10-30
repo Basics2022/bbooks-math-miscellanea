@@ -29,9 +29,10 @@ If $\frac{\partial \vec{r}}{\partial q^a} \ne 0$.
 (tensor:calculus:coordinates:natural-basis)=
 ### Natural basis
 ```{prf:definition} Natural basis
-Vectors of natural basis
 
-$$\vec{b}_a := \frac{\partial \vec{r}}{\partial q^a}$$
+The vectors of the natural basis induced by the set of coordinates $\{ q^a \}$ are defined as the first derivative of the position $\vec{r}$ w.r.t. the coordinates
+
+$$\vec{b}_a := \frac{\partial \vec{r}}{\partial q^a} \ .$$
 
 ```
 

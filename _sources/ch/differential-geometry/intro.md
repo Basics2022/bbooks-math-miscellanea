@@ -1,99 +1,35 @@
 (differential-geometry:intro)=
 # Introduction to Differential Geometry
 
-## Differential geometry in $E^3$
+Geometric entities embedded in 3-dimensional Euclidean space
+* [Lines](differential-geometry:lines)
+* [Surfaces](differential-geometry:surfaces)
 
-### Curves
+**Euclidean space, $E^3$.** Points in space can be represented with Cartesian coordinates $\{ x^i \}_{i=1:3}$, i.e. $\mathbf{r}(x^i)$. As shown in the introduction to [tensor calculus](tensor:calculus), the [natural basis](tensor:calculus:coordinates:natural-basis) induced by a set of coordinates $\{ q^a \}_a$ is
 
-Parametric representation of curve in 3-dimensional (Euclidean) space $E^3$
+$$\mathbf{b}_{a} := \frac{\partial \mathbf{r}}{\partial q^a} (q^b) \ .$$
 
-$$\vec{r}(q)$$
+For a set of Cartesian coordinates, the induced natural basis - whose vectors are often denoted with the letters $\hat{\mathbf{e}}_i$, or $\hat{\mathbf{x}}_i$ - is **orthonormal**, and uniform (constant, independent from the coordinates) in space, i.e.
 
-**Differential, $d \vec{r}$.**
+$$\mathbf{b}_a = \hat{\mathbf{x}}_a = \frac{\partial \mathbf{r}}{\partial x^a} \ .$$
 
-$$d \vec{r}(q) = \vec{r}'(q) \, d q \ .$$
+Thus, 
 
-**Arc-length parameter, $s$.** So that $d s = |d \vec{r}(s)|$ and thus
+* the **position vector** $\mathbf{r}$ can be written as 
 
-$$|d \vec{r}(s)| = |\vec{r}'(s)| \, |d s| \qquad \rightarrow \qquad |\vec{r}'(s)| = 1 \qquad \rightarrow \qquad \vec{r}'(s) = \hat{t}(s) \ .$$
+   $$\mathbf{r} = x^a \hat{\mathbf{x}}_a \ ,$$
 
-**Frenet basis.** Using arc-length parameter, Frenet basis is naturally defined as the set $\{ \hat{t}, \hat{n}, \hat{b} \}$:
-- tangent unit vector, $\hat{t}(s) = \vec{r}'(s)$,
-- normal unit vector, $\hat{r}''(s) = \hat{t}'(s) =: \kappa(s) \, \hat{n}(s) $, with $\kappa(s)$ local curvature
-- binormal unit vector, $\hat{b}(s) = \hat{t}(s) \times \hat{n}(s)$
+* as the vectors of the natural basis are not functions of the coordinates- as they're uniform in space -, then their space derivatives - and the Christoffell symbols - are identically zero,
 
-Using a general parameter, $t$, with some abuse of notation $\vec{r}(t) = \vec{r}(s(t))$ and indicating $\dot{()} = \frac{d}{dt}$,
-- $\dot{\vec{r}} = \frac{d s}{d t} \frac{d \vec{r}}{d s} = \dot{s} \hat{t}$
-- $\ddot{\vec{r}} = \dfrac{d}{dt} \dot{\vec{r}} = \dfrac{d}{dt} \left( \dot{s} \hat{t} \right) = \ddot{s} \hat{t} + \dfrac{ds}{dt} \dfrac{d}{ds} \hat{t} = \ddot{s} \hat{t} + \dot{s}^2 \kappa \, \hat{n}$
+   $$0 = \dfrac{\partial \hat{\mathbf{x}}_a}{\partial x^b} =  \dfrac{\partial^2 \mathbf{r}}{\partial x^a \partial x^b} \quad , \quad \Gamma_{ab}^c \equiv 0 \ ,$$
 
-**Osculator circle.** Circle with $R(s) = \frac{1}{\kappa(s)}$, in plane orthogonal to $\hat{b}(s)$, passing through $\vec{r}(s)$, and thus center in $\vec{r}_C(s) = \vec{r}(s) + \hat{n} R(s)$. Its parametric representation using its arc-length parameter $p$, with $\vec{r}(p=0) = \vec{r}(s)$ reads 
+* as the basis is orthonormal, $\hat{\mathbf{x}}_i \cdot \hat{\mathbf{x}}_j = \delta_{ij}$, then the components of the metric tensor are
+  
+   $$\left[ g_{ab} \right] = \left[ g^{ab} \right] = \mathbf{I}_3 \ ,$$
 
-$$\vec{r}(p) = \vec{r}_C(s) + R(s) \left[ - \cos \left(\frac{p}{R(s)} \right) \hat{n}(s) + \sin \left(\frac{p}{R(s)}  \right)\hat{t}(s) \right] \ .$$
+* from the definition of the reciprocal basis, $\mathbf{b}^a = g^{ab} \mathbf{b}_b$, it follows that the reciprocal basis of a Cartesian basiscoincides the basis itself.
 
-Its first and second order derivatives w.r.t. the arc-length $p$ evaluated in $p=0$, i.e. $\vec{r} = \vec{r}(s)$ read:
 
-- first derivative in $p=0$,
 
-  $$\left.\hat{t}(p)\right|_{p=0} = \left.\vec{r}'(p)\right|_{p=0} = \left.  \left[ \sin \left(\frac{p}{R(s)} \right) \hat{n}(s) + \cos \left(\frac{p}{R(s)}  \right)\hat{t}(s) \right] \right|_{p=0} = \hat{t}(s) \ ,$$
 
-  i.e. the osculator circle has the same tangent as the curve in the point.
 
-- second derivative in $p=0$,
-
-  $$\left. \kappa(p) \hat{n}(p)\right|_{p=0} = \left.\vec{r}''(p)\right|_{p=0} = \frac{1}{R(s)} \left.  \left[ \cos \left(\frac{p}{R(s)} \right) \hat{n}(s) - \sin \left(\frac{p}{R(s)}  \right)\hat{t}(s) \right] \right|_{p=0} = \frac{1}{R(s)}\hat{n}(s) = \kappa(s) \hat{n}(s) \ ,$$
-
-  i.e. the osculator circle has the same normal vector and curvature as the curve in the point.
-
-### Surfaces
-
-$$\vec{r}(q^1, q^2)$$
-
-$$d \vec{r} =
-  \frac{\partial \vec{r}}{\partial q^1} \, d q^1 + \frac{\partial \vec{r}}{\partial q^2} \, d q^2 =
-  \vec{b}_1 \, d q^1 + \vec{b}_2 \, d q^2
-$$
-
-A third vector $\vec{b}_3 := \hat{n}$ can be defined so that $|\hat{n}| = 1$ and $\hat{n} \cdot \vec{b}_{i} = 0$, $i=1:2$. For $i=1:2$, $k=1:2$
-
-$$\frac{\partial \vec{b}_i}{\partial q^j} = \Gamma_{ij}^k \vec{b}_k = \Gamma_{ij}^1 \vec{b}_1 + \Gamma_{ij}^2 \vec{b}_2 + \Gamma_{ij}^3 \vec{b}_3$$
-
-so that
-
-$$\Gamma_{ij}^{k} = \vec{b}^k \cdot \frac{\partial \vec{b}_i}{\partial q^j}$$
-
-**Normal vector.** 
-
-$$\vec{n}(q^1, q^2) = \frac{\partial \vec{r}}{\partial q^1}(q^1, q^2) \times \frac{\partial \vec{r}}{\partial q^2}(q^1, q^2) = \vec{b}_1(q^1, q^2) \times \vec{b}_2(q^1, q^2)$$
-
-**Tangent plane.** 
-
-$$(\vec{r} - \vec{r}(q^1, q^2)) \cdot \vec{n}(q^1, q^2) = 0$$
-
-**Length of elementary segment.**
-
-$$\begin{aligned}
-|d \vec{r}|^2 
-  & = d \vec{r} \cdot d \vec{r} = \\
-  & = \left( \vec{b}_1 \, d q^1 + \vec{b}_2 \, d q^2 \right) \cdot \left( \vec{b}_1 \, d q^1 + \vec{b}_2 \, d q^2 \right) = \\
-  & = g_{11} \, dq^1 \, dq^1 + g_{12} \, dq^1 \, dq^2 + g_{21} \, dq^2 \, dq^1 + g_{22} \, dq^2 \, d q^2 = g_{ij} \, dq^i \, dq^j 
-\end{aligned}$$
-
-**Second order approximation.**
-
-$$\begin{aligned}
-  \vec{r}(q^1 + d q^1, q^2 + d q^2) 
-  & = \vec{r}(q_1, q_2) + \frac{\partial \vec{r}}{\partial q^i} \, dq^i + \frac{\partial^2 \vec{r}}{\partial q^i \partial q^j} \, dq^i \, dq^j = \\
-  & = \vec{r}(q_1, q_2) + \vec{b}_{i} \, dq^i + \vec{b}_k \Gamma^{k}_{ij} \, dq^i \, dq^j +  \hat{n} \, \Gamma^{3}_{ij} \, dq^i \, dq^j 
-\end{aligned}$$
-
-so that
-
-$$\begin{aligned}
-\left[ \vec{r}(q^1 + d q^1, q^2 + d q^2) - \vec{r}(q^1, q^2) \right] \cdot \hat{n} 
- & = \Gamma^3_{ij} \, d q^i \, dq^j = \\
- & = \hat{n} \cdot \frac{\partial^2 \vec{r}}{\partial q^i \partial q^j} \, d q^i \, dq^j = \\
- & = \hat{n} \cdot \frac{\partial^2 \vec{r}}{\partial q^i \partial q^j} \, \vec{b}^i \cdot \vec{b}_k d q^k \, \vec{b}^j \cdot \vec{b}_l dq^l = \\
- & = \underbrace{d q^k \vec{b}_k}_{d \vec{r}} \cdot \left[ \hat{n} \cdot \frac{\partial^2 \vec{r}}{\partial q^i \partial q^j}  \vec{b}^i \otimes \vec{b}^j \right] \cdot \underbrace{d q^l \vec{b}_l}_{d\vec{r}}
-\end{aligned}$$
-
-**Curvature tensor.**
