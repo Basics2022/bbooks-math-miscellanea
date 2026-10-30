@@ -623,29 +623,43 @@ document.write(`
 <li><p><a class="reference internal" href="lines.html#differential-geometry-lines"><span class="std std-ref">Lines</span></a></p></li>
 <li><p><a class="reference internal" href="surfaces.html#differential-geometry-surfaces"><span class="std std-ref">Surfaces</span></a></p></li>
 </ul>
-<p><strong>Euclidean space, <span class="math notranslate nohighlight">\(E^3\)</span>.</strong> Points in space can be represented with Cartesian coordinates <span class="math notranslate nohighlight">\(\{ x^i \}_{i=1:3}\)</span>, i.e. <span class="math notranslate nohighlight">\(\mathbf{r}(x^i)\)</span>. As shown in the introduction to <a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean.html#tensor-calculus"><span class="std std-ref">tensor calculus</span></a>, the <a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean.html#tensor-calculus-coordinates-natural-basis"><span class="std std-ref">natural basis</span></a> induced by a set of coordinates <span class="math notranslate nohighlight">\(\{ q^a \}_a\)</span> is</p>
+<hr class="docutils" />
+<div class="proof definition admonition" id="definition-0">
+<p class="admonition-title"><span class="caption-number">Definition 9.1 </span> (<strong>Euclidean space, <span class="math notranslate nohighlight">\(E^3\)</span>.</strong>)</p>
+<div class="definition-content section" id="proof-content">
+<p>A Euclidean space is a space whose points can be globally represented with a set of <strong>Cartesian coordinates</strong> <span class="math notranslate nohighlight">\(\{ x^i \}_{i=1:3}\)</span>, i.e. <span class="math notranslate nohighlight">\(\mathbf{r}(x^i)\)</span>.</p>
+</div>
+</div><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Some details about Cartesian coordinates<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">As shown in the introduction to <a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean.html#tensor-calculus"><span class="std std-ref">tensor calculus</span></a>, the <a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean.html#tensor-calculus-coordinates-natural-basis"><span class="std std-ref">natural basis</span></a> induced by a set of coordinates <span class="math notranslate nohighlight">\(\{ q^a \}_a\)</span> is</p>
 <div class="math notranslate nohighlight">
 \[\mathbf{b}_{a} := \frac{\partial \mathbf{r}}{\partial q^a} (q^b) \ .\]</div>
-<p>For a set of Cartesian coordinates, the induced natural basis - whose vectors are often denoted with the letters <span class="math notranslate nohighlight">\(\hat{\mathbf{e}}_i\)</span>, or <span class="math notranslate nohighlight">\(\hat{\mathbf{x}}_i\)</span> - is <strong>orthonormal</strong>, and uniform (constant, independent from the coordinates) in space, i.e.</p>
+<p class="sd-card-text">For a set of Cartesian coordinates, the induced natural basis - whose vectors are often denoted with the letters <span class="math notranslate nohighlight">\(\hat{\mathbf{e}}_i\)</span>, or <span class="math notranslate nohighlight">\(\hat{\mathbf{x}}_i\)</span> - is <strong>orthonormal</strong>, and uniform (constant, independent from the coordinates) in space, i.e.</p>
 <div class="math notranslate nohighlight">
 \[\mathbf{b}_a = \hat{\mathbf{x}}_a = \frac{\partial \mathbf{r}}{\partial x^a} \ .\]</div>
-<p>Thus,</p>
+<p class="sd-card-text">Thus,</p>
 <ul>
-<li><p>the <strong>position vector</strong> <span class="math notranslate nohighlight">\(\mathbf{r}\)</span> can be written as</p>
+<li><p class="sd-card-text">the <strong>position vector</strong> <span class="math notranslate nohighlight">\(\mathbf{r}\)</span> can be written as</p>
 <div class="math notranslate nohighlight">
 \[\mathbf{r} = x^a \hat{\mathbf{x}}_a \ ,\]</div>
 </li>
-<li><p>as the vectors of the natural basis are not functions of the coordinates- as they’re uniform in space -, then their space derivatives - and the Christoffell symbols - are identically zero,</p>
+<li><p class="sd-card-text">since the vectors of the natural basis are not functions of the coordinates, then their space derivatives, i.e. the <strong>second-order derivatives</strong> of the position w.r.t. the coordinates - and the <strong>Christoffell symbols</strong> - are identically zero,</p>
 <div class="math notranslate nohighlight">
 \[0 = \dfrac{\partial \hat{\mathbf{x}}_a}{\partial x^b} =  \dfrac{\partial^2 \mathbf{r}}{\partial x^a \partial x^b} \quad , \quad \Gamma_{ab}^c \equiv 0 \ ,\]</div>
 </li>
-<li><p>as the basis is orthonormal, <span class="math notranslate nohighlight">\(\hat{\mathbf{x}}_i \cdot \hat{\mathbf{x}}_j = \delta_{ij}\)</span>, then the components of the metric tensor are</p>
+<li><p class="sd-card-text">as the basis is orthonormal, <span class="math notranslate nohighlight">\(\hat{\mathbf{x}}_i \cdot \hat{\mathbf{x}}_j = \delta_{ij}\)</span>, then the components of the <strong>metric tensor</strong> are</p>
 <div class="math notranslate nohighlight">
 \[\left[ g_{ab} \right] = \left[ g^{ab} \right] = \mathbf{I}_3 \ ,\]</div>
 </li>
-<li><p>from the definition of the reciprocal basis, <span class="math notranslate nohighlight">\(\mathbf{b}^a = g^{ab} \mathbf{b}_b\)</span>, it follows that the reciprocal basis of a Cartesian basiscoincides the basis itself.</p></li>
+<li><p class="sd-card-text">from the definition of the reciprocal basis, <span class="math notranslate nohighlight">\(\mathbf{b}^a = g^{ab} \mathbf{b}_b\)</span>, it follows that the <strong>reciprocal basis</strong> of a Cartesian basis coincides the basis itself.</p></li>
 </ul>
-<div class="toctree-wrapper compound">
+</div>
+</details><div class="toctree-wrapper compound">
 </div>
 </div>
 
