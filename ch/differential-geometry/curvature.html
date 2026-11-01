@@ -622,7 +622,7 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#parallel-transport">9.3.2.1.2. Parallel transport</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lie-bracket">9.3.2.1.3. Lie bracket</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#parallel-transport-around-a-closed-loop-and-the-riemann-tensor">9.3.2.1.4. Parallel transport around a closed loop and the Riemann tensor</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#parallelogram-construction">9.3.2.1.4.1. Parallelogram Construction</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#elementary-loop">9.3.2.1.4.1. Elementary loop</a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#riemann-curvature-tensor-definition">9.3.2.1.4.2. Riemann Curvature Tensor Definition</a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#component-expression">9.3.2.1.4.3. Component Expression</a></li>
 </ul>
@@ -759,13 +759,22 @@ $$0 = \partial_i | \hat{\mathbf{n}} |^2 = 2 \hat{\mathbf{n}} \cdot \partial_i \h
 </div>
 <div class="section" id="parallel-transport-around-a-closed-loop-and-the-riemann-tensor">
 <span id="differential-geometry-curvature-intrinsic-riemann-curvature-tensor-riemann-tensor"></span><h4><span class="section-number">9.3.2.1.4. </span>Parallel transport around a closed loop and the Riemann tensor<a class="headerlink" href="#parallel-transport-around-a-closed-loop-and-the-riemann-tensor" title="Permalink to this heading">#</a></h4>
-<div class="section" id="parallelogram-construction">
-<h5><span class="section-number">9.3.2.1.4.1. </span>Parallelogram Construction<a class="headerlink" href="#parallelogram-construction" title="Permalink to this heading">#</a></h5>
-<p>Consider transport along an infinitesimal quadrilateral formed by displacements along vector fields <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>:</p>
+<div class="section" id="elementary-loop">
+<h5><span class="section-number">9.3.2.1.4.1. </span>Elementary loop<a class="headerlink" href="#elementary-loop" title="Permalink to this heading">#</a></h5>
+<p>The elementary loop is build with 2 vector fields <span class="math notranslate nohighlight">\(X\)</span>, <span class="math notranslate nohighlight">\(Y\)</span>. In general, the elementary loops need <span class="math notranslate nohighlight">\(5\)</span> sides if the vector fields <span class="math notranslate nohighlight">\(X\)</span>, <span class="math notranslate nohighlight">\(Y\)</span> don’t commute. Let (<strong>todo</strong> <em>Add some details, and pay attention to notation, as it can be non-trivial for curved spaces</em>)</p>
 <ul class="simple">
-<li><p><strong>Path A <span class="math notranslate nohighlight">\(\rightarrow\)</span> B <span class="math notranslate nohighlight">\(\rightarrow\)</span> C:</strong> Parallel transport first along <span class="math notranslate nohighlight">\(X\)</span>, then along <span class="math notranslate nohighlight">\(Y\)</span>.</p></li>
-<li><p><strong>Path A <span class="math notranslate nohighlight">\(\rightarrow\)</span> D <span class="math notranslate nohighlight">\(\rightarrow\)</span> C:</strong> Parallel transport first along <span class="math notranslate nohighlight">\(Y\)</span>, then along <span class="math notranslate nohighlight">\(X\)</span>.</p></li>
+<li><p>point <strong>A</strong> be in <span class="math notranslate nohighlight">\(\mathbf{r}_A\)</span></p></li>
+<li><p>point <strong>B</strong> be in <span class="math notranslate nohighlight">\(\mathbf{r}_B = \mathbf{r}_A + \mathbf{X}(\mathbf{r}_A)\)</span></p></li>
+<li><p>point <strong>C</strong> be in <span class="math notranslate nohighlight">\(\mathbf{r}_C = \mathbf{r}_B + \mathbf{Y}(\mathbf{r}_B) = \mathbf{r}_A + \mathbf{X}(\mathbf{r}_A) + \mathbf{Y}(\mathbf{r}_A + \mathbf{X}(\mathbf{r}_A))\)</span></p></li>
+<li><p>point <strong>D</strong> be in <span class="math notranslate nohighlight">\(\mathbf{r}_D = \mathbf{r}_A + \mathbf{Y}(\mathbf{r}_A)\)</span></p></li>
+<li><p>point <strong>E</strong> be in <span class="math notranslate nohighlight">\(\mathbf{r}_E = \mathbf{r}_D + \mathbf{X}(\mathbf{r}_D) = \mathbf{r}_A + \mathbf{Y}(\mathbf{r}_A) + \mathbf{X}(\mathbf{r}_A + \mathbf{Y}(\mathbf{r}_A))\)</span></p></li>
 </ul>
+<!--
+Consider transport along an infinitesimal quadrilateral formed by displacements along vector fields $X$ and $Y$:
+
+* **Path A $\rightarrow$ B $\rightarrow$ C:** Parallel transport first along $X$, then along $Y$.
+* **Path A $\rightarrow$ D $\rightarrow$ C:** Parallel transport first along $Y$, then along $X$.
+-->
 <p>The discrepancy (holonomy) after completing the loop gives rise to curvature.</p>
 </div>
 <div class="section" id="riemann-curvature-tensor-definition">
@@ -797,7 +806,7 @@ $$0 = \partial_i | \hat{\mathbf{n}} |^2 = 2 \hat{\mathbf{n}} \cdot \partial_i \h
   &amp; = \partial_j \Gamma^{l}_{ik} \mathbf{b}_{l} + \Gamma_{ik}^{l} \left( \Gamma_{l j}^{m} \mathbf{b}_{m} + \Gamma_{l j}^{n+1} \mathbf{n} \right) + \partial_j \Gamma_{ik}^{n+1} \mathbf{n} + \Gamma_{ik}^{n+1} \partial_j \mathbf{n} = \\
   &amp; = \left( \partial_j \Gamma_{ik}^l + \Gamma_{ik}^m \Gamma_{mj}^l - \Gamma_{ik}^{n+1} b^l_j \right) \mathbf{b}_l + \left( \partial_j \Gamma_{ik}^{n+1} + \Gamma_{ik}^{l} \Gamma_{lj}^{n+1} \right) \mathbf{n} \ ,
 \end{aligned}\end{split}\]</div>
-<p>having used the <strong>Weingarten equation</strong> <a class="reference internal" href="#equation-eq-differential-geometry-curvature-weingarten">(9.1)</a>, <span class="math notranslate nohighlight">\(\partial_j \mathbf{n} = b^{l}_j \mathbf{b}_l\)</span>. Equating every tangential components of <span class="math notranslate nohighlight">\(\partial_{jk} \mathbf{b}_i\)</span> and <span class="math notranslate nohighlight">\(\partial_{kj} \mathbf{b}_i\)</span>, it follows for the component <span class="math notranslate nohighlight">\(l\)</span>,</p>
+<p>having used the <strong>Weingarten equation</strong> <a class="reference internal" href="#equation-eq-differential-geometry-curvature-weingarten">(9.1)</a>, <span class="math notranslate nohighlight">\(\partial_j \mathbf{n} = - b^{\ \ l}_j \mathbf{b}_l\)</span>. Equating every tangential components of <span class="math notranslate nohighlight">\(\partial_{jk} \mathbf{b}_i\)</span> and <span class="math notranslate nohighlight">\(\partial_{kj} \mathbf{b}_i\)</span>, it follows for the component <span class="math notranslate nohighlight">\(l\)</span>,</p>
 <div class="math notranslate nohighlight">
 \[
 \partial_j \Gamma_{ik}^l + \Gamma_{ik}^m \Gamma_{mj}^l - \Gamma_{ik}^{n+1} b^l_j = 
@@ -958,7 +967,7 @@ Exploiting symmetries of the Riemann tensor,  <span class="math notranslate nohi
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#parallel-transport">9.3.2.1.2. Parallel transport</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lie-bracket">9.3.2.1.3. Lie bracket</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#parallel-transport-around-a-closed-loop-and-the-riemann-tensor">9.3.2.1.4. Parallel transport around a closed loop and the Riemann tensor</a><ul class="nav section-nav flex-column">
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#parallelogram-construction">9.3.2.1.4.1. Parallelogram Construction</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#elementary-loop">9.3.2.1.4.1. Elementary loop</a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#riemann-curvature-tensor-definition">9.3.2.1.4.2. Riemann Curvature Tensor Definition</a></li>
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#component-expression">9.3.2.1.4.3. Component Expression</a></li>
 </ul>
