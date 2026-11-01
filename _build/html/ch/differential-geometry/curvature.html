@@ -623,8 +623,7 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lie-bracket">9.3.2.1.3. Lie bracket</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#parallel-transport-around-a-closed-loop-and-the-riemann-tensor">9.3.2.1.4. Parallel transport around a closed loop and the Riemann tensor</a><ul class="nav section-nav flex-column">
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#elementary-loop">9.3.2.1.4.1. Elementary loop</a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#riemann-curvature-tensor-definition">9.3.2.1.4.2. Riemann Curvature Tensor Definition</a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#component-expression">9.3.2.1.4.3. Component Expression</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#parallel-transport-along-a-closed-path">9.3.2.1.4.2. Parallel transport along a closed path</a></li>
 </ul>
 </li>
 </ul>
@@ -737,8 +736,8 @@ $$0 = \partial_i | \hat{\mathbf{n}} |^2 = 2 \hat{\mathbf{n}} \cdot \partial_i \h
 <div class="section" id="parallel-transport">
 <span id="differential-geometry-curvature-intrinsic-riemann-curvature-tensor-parallel-transport"></span><h4><span class="section-number">9.3.2.1.2. </span>Parallel transport<a class="headerlink" href="#parallel-transport" title="Permalink to this heading">#</a></h4>
 <p>A vector field <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> is parallel transported along a curve <span class="math notranslate nohighlight">\(\gamma\)</span> with element <span class="math notranslate nohighlight">\(d\mathbf{r}\)</span> if <span class="math notranslate nohighlight">\(d \mathbf{r} \cdot \nabla f = \mathbf{0}\)</span>. Thus, using the relation <a class="reference internal" href="#equation-eq-differential-geometry-curvature-directional-derivative-vector">(9.3)</a>, parallel transport implies</p>
-<div class="math notranslate nohighlight">
-\[\begin{aligned}
+<div class="math notranslate nohighlight" id="equation-eq-differential-geometry-curvature-parallel-transport-component-increment">
+<span class="eqno">(9.4)<a class="headerlink" href="#equation-eq-differential-geometry-curvature-parallel-transport-component-increment" title="Permalink to this equation">#</a></span>\[\begin{aligned}
 \partial_{\mu} v^{\nu} = - \Gamma_{\xi \mu}^{\nu} v^{\xi} \ .
 \end{aligned}\]</div>
 <p>To first order, the transported vector <span class="math notranslate nohighlight">\(v^\mu\)</span> from <span class="math notranslate nohighlight">\(q^\eta\)</span> to <span class="math notranslate nohighlight">\(q^\eta + dq^\eta\)</span> satisfies:</p>
@@ -752,8 +751,13 @@ $$0 = \partial_i | \hat{\mathbf{n}} |^2 = 2 \hat{\mathbf{n}} \cdot \partial_i \h
 \[[X, Y]f = X(Y(f)) - Y(X(f)) \ .\]</div>
 <p>In component notation, applying the definition <a class="reference internal" href="#equation-eq-curvature-vector-field-operator">(9.2)</a> of a vector field as differential operator twice,</p>
 <div class="math notranslate nohighlight">
-\[X^\mu \partial_\mu (Y^\nu \partial_\nu f) - Y^\nu \partial_\nu (X^\mu \partial_\mu f) = (X^\nu \partial_\nu Y^\mu - Y^\nu \partial_\nu X^\mu) \partial_\mu f \ ,\]</div>
-<p>so that the components of <span class="math notranslate nohighlight">\([X, Y]\)</span> in the natural basis are</p>
+\[\begin{split}\begin{aligned}
+ \left[ X, Y \right] f
+ &amp; = X^\mu \partial_\mu (Y^\nu \partial_\nu f) - Y^\nu \partial_\nu (X^\mu \partial_\mu f) = \\
+ &amp; = X^\mu \partial_\mu Y^\nu \partial_\nu f + X^{\mu} Y^{\nu} \partial_{\mu \nu}f - Y^\nu \partial_\nu (X^\mu \partial_\mu f) - X^{\mu} Y^{\nu} \partial_{\mu \nu}f= \\
+ &amp; = (X^\nu \partial_\nu Y^\mu - Y^\nu \partial_\nu X^\mu) \partial_\mu f \ ,
+\end{aligned}\end{split}\]</div>
+<p>so that the components of the vector field <span class="math notranslate nohighlight">\([X, Y]\)</span> in the natural basis are</p>
 <div class="math notranslate nohighlight">
 \[[X, Y]^\mu = X^\nu \partial_\nu Y^\mu - Y^\nu \partial_\nu X^\mu \ .\]</div>
 </div>
@@ -769,7 +773,33 @@ $$0 = \partial_i | \hat{\mathbf{n}} |^2 = 2 \hat{\mathbf{n}} \cdot \partial_i \h
 <li><p>point <strong>D</strong> be in <span class="math notranslate nohighlight">\(\mathbf{r}_D = \mathbf{r}_A + \mathbf{Y}(\mathbf{r}_A)\)</span></p></li>
 <li><p>point <strong>E</strong> be in <span class="math notranslate nohighlight">\(\mathbf{r}_E = \mathbf{r}_D + \mathbf{X}(\mathbf{r}_D) = \mathbf{r}_A + \mathbf{Y}(\mathbf{r}_A) + \mathbf{X}(\mathbf{r}_A + \mathbf{Y}(\mathbf{r}_A))\)</span></p></li>
 </ul>
-<!--
+<p>The - maybe unexpected fifth side - is required when <span class="math notranslate nohighlight">\(\mathbf{r}_E \ne \mathbf{r}_C\)</span>, i.e. when</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathbf{0} \ne \mathbf{r}_E - \mathbf{r}_C
+  &amp; = \left\{ \mathbf{r}_A + \mathbf{Y}(\mathbf{r}_A) + \mathbf{X}(\mathbf{r}_A) + \mathbf{Y}(\mathbf{r}_A) \cdot \nabla \mathbf{X}(\mathbf{r}_A) \right\} + \\
+  &amp; \quad - \left\{ \mathbf{r}_A + \mathbf{X}(\mathbf{r}_A) + \mathbf{Y}(\mathbf{r}_A) + \mathbf{X}(\mathbf{r}_A) \cdot \nabla \mathbf{Y}(\mathbf{r}_A ) \right\} + o(|\mathbf{X}||\mathbf{Y}|) = \\
+  &amp; = \mathbf{Y}(\mathbf{r}_A) \cdot \nabla \mathbf{X}(\mathbf{r}_A) - \mathbf{X}(\mathbf{r}_A) \cdot \nabla \mathbf{Y}(\mathbf{r}_A) \ .
+\end{aligned}\end{split}\]</div>
+<p>or, in components</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathbf{0} \ne \mathbf{r}_E - \mathbf{r}_C
+  &amp; = Y^{\nu} \partial_{\nu} \left( X^{\mu} \mathbf{b}_{\mu} \right) - X^{\nu} \partial_{\nu} \left( Y^{\mu} \mathbf{b}_{\mu} \right) = \\
+  &amp; = \left[ Y^{\nu} \left( \partial_{\nu} X^{\mu} + \Gamma_{\nu \xi}^{\mu} X^{\xi} \right) - X^{\nu} \left( \partial_{\nu} Y^{\mu} + \Gamma_{\nu \xi}^{\mu} Y^{\xi} \right) \right] \mathbf{b}_{\mu} = \\
+  &amp; = - (X^\nu \partial_\nu Y^\mu - Y^\nu \partial_\nu X^\mu) \mathbf{b}_{\mu} = \\
+  &amp; = - [ X, Y ]^{\mu} \mathbf{b}_{\mu} = - [ X, Y] \ ,
+\end{aligned}\end{split}\]</div>
+<p>i.e. when <span class="math notranslate nohighlight">\(X\)</span>, <span class="math notranslate nohighlight">\(Y\)</span> don’t commute, as stated above.</p>
+<div class="proof example admonition" id="example-0">
+<p class="admonition-title"><span class="caption-number">Example 9.1 </span> (Coordinates vector fields commute, and thus only 4 sides are required to build the loop)</p>
+<div class="example-content section" id="proof-content">
+<p>…</p>
+<div class="math notranslate nohighlight">
+\[[ X, Y ] = 0\]</div>
+<p>…</p>
+</div>
+</div><!--
 Consider transport along an infinitesimal quadrilateral formed by displacements along vector fields $X$ and $Y$:
 
 * **Path A $\rightarrow$ B $\rightarrow$ C:** Parallel transport first along $X$, then along $Y$.
@@ -777,21 +807,126 @@ Consider transport along an infinitesimal quadrilateral formed by displacements 
 -->
 <p>The discrepancy (holonomy) after completing the loop gives rise to curvature.</p>
 </div>
-<div class="section" id="riemann-curvature-tensor-definition">
-<h5><span class="section-number">9.3.2.1.4.2. </span>Riemann Curvature Tensor Definition<a class="headerlink" href="#riemann-curvature-tensor-definition" title="Permalink to this heading">#</a></h5>
-<p>For arbitrary vector fields <span class="math notranslate nohighlight">\(X, Y, Z\)</span>:</p>
+<div class="section" id="parallel-transport-along-a-closed-path">
+<h5><span class="section-number">9.3.2.1.4.2. </span>Parallel transport along a closed path<a class="headerlink" href="#parallel-transport-along-a-closed-path" title="Permalink to this heading">#</a></h5>
+<p><strong>Path A to C: first along <span class="math notranslate nohighlight">\(\mathbf{X}(\mathbf{r})\)</span> then along to <span class="math notranslate nohighlight">\(\mathbf{Y}(\mathbf{r}+\mathbf{X}(\mathbf{r}))\)</span>.</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \left( \mathbf{v}_{||\mathbf{X}} \right)_{||\mathbf{Y}} 
+  &amp; = \mathbf{b}_\nu \Big[ v^\nu - X^\mu \Gamma^\nu_{\mu\xi} v^\xi - Y^\mu \Gamma^\nu_{\mu\xi} v^\xi - X^\alpha \left( \partial_\alpha Y^\mu + \Gamma^\mu_{\alpha\phi} Y^\phi \right) \Gamma^\nu_{\mu\xi} v^\xi + \\
+  &amp; \qquad - Y^\mu X^\alpha \partial_\alpha \Gamma^\nu_{\mu\xi} v^\xi + Y^\mu X^\alpha \Gamma^\nu_{\mu\xi} \Gamma^\xi_{\alpha\eta} v^\eta + X^\alpha X^\mu (\partial_\alpha Y^\mu + \Gamma^\mu_{\alpha\phi} Y^\phi) \Gamma^\nu_{\mu\xi} \Gamma^\xi_{\alpha\eta} v^\eta \Big] = \\
+  &amp; \sim \mathbf{b}_\nu \Big[ v^\nu - X^\mu \Gamma^\nu_{\mu\xi} v^\xi - Y^\mu \Gamma^\nu_{\mu\xi} v^\xi - X^\alpha \left( \partial_\alpha Y^\mu + \Gamma^\mu_{\alpha\phi} Y^\phi \right) \Gamma^\nu_{\mu\xi} v^\xi + \\
+  &amp; \qquad - Y^\mu X^\alpha \partial_\alpha \Gamma^\nu_{\mu\xi} v^\xi + Y^\mu X^\alpha \Gamma^\nu_{\mu\xi} \Gamma^\xi_{\alpha\eta} v^\eta \Big]
+\end{aligned}\end{split}\]</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Details<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">First transport along <span class="math notranslate nohighlight">\(\mathbf{X}\)</span>, using <a class="reference internal" href="#equation-eq-differential-geometry-curvature-parallel-transport-component-increment">(9.4)</a>,</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{v}_{||\mathbf{X}} = \mathbf{b}_{\nu} \left( v^{\nu} + X^{\mu} \left\{ \partial_{\mu} v^{\nu} \right\}_{\parallel} \right) = \mathbf{b}_{\nu} \left( v^{\nu} - X^{\mu} \Gamma_{\mu \xi}^{\nu} v^{\xi} \right) \ .\]</div>
+<p class="sd-card-text">and then along <span class="math notranslate nohighlight">\(\mathbf{Y}(\mathbf{r} + \mathbf{X})\)</span>. Expanding <span class="math notranslate nohighlight">\(\left( \mathbf{v}_{||\mathbf{X}} \right)_{||\mathbf{Y}}\)</span> to second order in components:</p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+  \left( \mathbf{v}_{||\mathbf{X}} \right)_{||\mathbf{Y}} 
+  &amp; = \mathbf{b}_\nu \left[ v^\nu - X^\mu \Gamma^\nu_{\mu\xi} v^\xi - \left( Y^\mu + X^\alpha (\partial_\alpha Y^\mu + \Gamma^\mu_{\alpha\phi} Y^\phi) \right) \left( \Gamma^\nu_{\mu\xi} + X^\alpha \partial_\alpha \Gamma^\nu_{\mu\xi} \right) \left( v^\xi - X^\mu \Gamma^\xi_{\mu\eta} v^\eta \right) \right]
+\end{aligned}\]</div>
+<p class="sd-card-text">Expanding terms explicitly:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \left( \mathbf{v}_{||\mathbf{X}} \right)_{||\mathbf{Y}} 
+  &amp; = \mathbf{b}_\nu \Big[ v^\nu - X^\mu \Gamma^\nu_{\mu\xi} v^\xi - Y^\mu \Gamma^\nu_{\mu\xi} v^\xi - X^\alpha \left( \partial_\alpha Y^\mu + \Gamma^\mu_{\alpha\phi} Y^\phi \right) \Gamma^\nu_{\mu\xi} v^\xi + \\
+  &amp; \qquad - Y^\mu X^\alpha \partial_\alpha \Gamma^\nu_{\mu\xi} v^\xi + Y^\mu X^\alpha \Gamma^\nu_{\mu\xi} \Gamma^\xi_{\alpha\eta} v^\eta + X^\alpha X^\mu (\partial_\alpha Y^\mu + \Gamma^\mu_{\alpha\phi} Y^\phi) \Gamma^\nu_{\mu\xi} \Gamma^\xi_{\alpha\eta} v^\eta \Big]
+\end{aligned}\end{split}\]</div>
+</div>
+</details><p><strong>A to C to E, to second order.</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \left( \left( \mathbf{v}_{||\mathbf{X}} \right)_{||\mathbf{Y}} \right)_{|| [Y,X]}
+  &amp; = \mathbf{b}_\nu \Big[  \left\{ \left( \mathbf{v}_{||\mathbf{X}} \right)_{||\mathbf{Y}} \right\}^{\nu} + [ X, Y ]^{\mu} \Gamma^{\nu}_{\mu \xi} \left\{ \left( \mathbf{v}_{||\mathbf{X}} \right)_{||\mathbf{Y}} \right\}^{\xi} \Big] = \\
+  &amp; \sim \mathbf{b}_\nu \Big[ v^\nu - X^\mu \Gamma^\nu_{\mu\xi} v^\xi - Y^\mu \Gamma^\nu_{\mu\xi} v^\xi - X^\alpha \left( \partial_\alpha Y^\mu + \Gamma^\mu_{\alpha\eta} Y^\eta \right) \Gamma^\nu_{\mu\xi} v^\xi + \\
+  &amp; \qquad - Y^\mu X^\alpha \partial_\alpha \Gamma^\nu_{\mu\xi} v^\xi + Y^\mu X^\alpha \Gamma^\nu_{\mu\xi} \Gamma^\xi_{\alpha\eta} v^\eta + \left(  X^\alpha \partial_\alpha Y^{\mu} - Y^\alpha \partial_\alpha X^{\mu} \right) \Gamma^{\nu}_{\mu \xi} v^\xi \Big]
+\end{aligned}\end{split}\]</div>
+<p><strong>Path A to E: first along <span class="math notranslate nohighlight">\(\mathbf{Y}(\mathbf{r})\)</span> then along to <span class="math notranslate nohighlight">\(\mathbf{X}(\mathbf{r}+\mathbf{Y}(\mathbf{r}))\)</span>.</strong> Just swapping the <span class="math notranslate nohighlight">\(X\)</span>, <span class="math notranslate nohighlight">\(Y\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \left( \mathbf{v}_{||\mathbf{Y}} \right)_{||\mathbf{X}} 
+  &amp; = \mathbf{b}_\nu \Big[ v^\nu - Y^\mu \Gamma^\nu_{\mu\xi} v^\xi - X^\mu \Gamma^\nu_{\mu\xi} v^\xi - Y^\alpha \left( \partial_\alpha X^\mu + \Gamma^\mu_{\alpha\eta} X^\eta \right) \Gamma^\nu_{\mu\xi} v^\xi + \\
+  &amp; \qquad - X^\mu Y^\alpha \partial_\alpha \Gamma^\nu_{\mu\xi} v^\xi + X^\mu Y^\alpha \Gamma^\nu_{\mu\xi} \Gamma^\xi_{\alpha\eta} v^\eta + Y^\alpha Y^\mu (\partial_\alpha X^\mu + \Gamma^\mu_{\alpha\eta} X^\eta) \Gamma^\nu_{\mu\xi} \Gamma^\xi_{\alpha\eta} v^\eta \Big] = \\
+  &amp; \sim \mathbf{b}_\nu \Big[ v^\nu - Y^\mu \Gamma^\nu_{\mu\xi} v^\xi - X^\mu \Gamma^\nu_{\mu\xi} v^\xi - Y^\alpha \left( \partial_\alpha X^\mu + \Gamma^\mu_{\alpha\eta} X^\eta \right) \Gamma^\nu_{\mu\xi} v^\xi + \\
+  &amp; \qquad - X^\mu Y^\alpha \partial_\alpha \Gamma^\nu_{\mu\xi} v^\xi + X^\mu Y^\alpha \Gamma^\nu_{\mu\xi} \Gamma^\xi_{\alpha\eta} v^\eta \Big]
+\end{aligned}\end{split}\]</div>
+<p><strong>Difference path <span class="math notranslate nohighlight">\(\text{A} \rightarrow \text{B} \rightarrow \text{C} \rightarrow \text{E}\)</span> - path <span class="math notranslate nohighlight">\(\text{A} \rightarrow \text{D} \rightarrow \text{E}\)</span> to second order.</strong></p>
+<p>Subtracting Path B from Path A yields, as the travelling direction during the closed path is the opposite,:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  (A - B)^\nu
+  &amp; = \underbrace{ - X^\alpha \partial_\alpha Y^\mu \Gamma^\nu_{\mu\xi} v^\xi }_{ i_{[X,Y],2} }  - \underbrace{X^\alpha Y^\beta \Gamma^\mu_{\alpha\beta}  \Gamma^\nu_{\mu\xi} v^\xi }_{ 1 } + \underbrace{ Y^\alpha \partial_\alpha X^\mu \Gamma^\nu_{\mu\xi} v^\xi }_{ i_{[X,Y],1} } + \underbrace{ X^\alpha Y^\beta  \Gamma^\mu_{\beta\alpha} \Gamma^\nu_{\mu\xi} v^\xi }_{ 1 } + \\
+  &amp; + \underbrace{ \left(  X^\alpha \partial_\alpha Y^{\mu} - Y^\alpha \partial_\alpha X^{\mu} \right) \Gamma^{\nu}_{\mu \xi} v^\xi }_{ i_{[X,Y]} } + \\ 
+  &amp; + X^\alpha Y^\beta \Gamma^\nu_{\beta\eta} \Gamma^\eta_{\alpha\xi} v^\xi - X^\alpha Y^\beta \Gamma^\nu_{\alpha\eta} \Gamma^\eta_{\beta\xi} v^\xi - X^\alpha Y^\beta \partial_\alpha \Gamma^\nu_{\beta \xi} v^\xi + X^\alpha Y^\beta \partial_\beta \Gamma^\nu_{\alpha\xi} v^\xi + \text{higher order terms} = \\ 
+  &amp; \sim - \left[ \partial_{\alpha} \Gamma^{\nu}_{\beta \xi} - \partial_{\beta} \Gamma^{\nu}_{\alpha \xi} + \Gamma_{\alpha \eta}^{\nu} \Gamma_{\beta \xi}^{\eta} - \Gamma_{\beta \eta}^{\nu} \Gamma_{\alpha \xi}^{\eta} \right] X^{\alpha} Y^{\beta} v^{\xi} = \\
+  &amp; = - R^{\nu}_{\ \ \alpha \beta \xi} X^\alpha Y^\beta v^\xi \ ,
+\end{aligned}\end{split}\]</div>
+<p>having introduced the definition of the <strong>Riemann tensor</strong>,</p>
+<div class="math notranslate nohighlight">
+\[R^{\nu}_{\ \ \alpha \beta \xi} := \partial_{\alpha} \Gamma^{\nu}_{\beta \xi} - \partial_{\beta} \Gamma^{\nu}_{\alpha \xi} + \Gamma_{\alpha \eta}^{\nu} \Gamma_{\beta \xi}^{\eta} - \Gamma_{\beta \eta}^{\nu} \Gamma_{\alpha \xi}^{\eta} \]</div>
+<p><strong>Remark.</strong> The contribution of the Lie bracket, required to close the loop, annihilates with other two terms.</p>
+<p><strong>Remark.</strong> Exploiting the anti-symmetry of the Riemann tensor, <span class="math notranslate nohighlight">\(R^{\nu}_{\ \ \alpha \beta \xi} = - R^{\nu}_{\ \ \beta \alpha \xi}\)</span>, it’s possible to recast the expression of the parallel transport of the vector field <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> along the elementary closed path built with the vector fields <span class="math notranslate nohighlight">\(X\)</span>, <span class="math notranslate nohighlight">\(Y\)</span> as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  H^\nu 
+  &amp; := - \frac{1}{2} R^{\nu}_{\ \ \alpha \beta \xi} \left( X^{\alpha} Y^{\beta} - X^{\beta} Y^{\alpha} \right) v^\xi = \\
+  &amp;  = - \frac{1}{2} R^{\nu}_{\ \ \alpha \beta \xi} \, A^{\alpha \beta} \, v^\xi \ ,
+\end{aligned}\end{split}\]</div>
+<p>having introduced the <strong>signed areas</strong> <span class="math notranslate nohighlight">\(A^{\alpha \beta}\)</span> of the projection of the area enclosed in the elementary loop onto the plane defined by the coordinates <span class="math notranslate nohighlight">\(q^{\alpha}\)</span> and <span class="math notranslate nohighlight">\(q^{\beta}\)</span>.</p>
+<p><strong>todo</strong></p>
+<ul class="simple">
+<li><p>discuss the projected areas</p></li>
+<li><p>discuss the higher-order correction to the area from Lie-bracket cut at the corner</p></li>
+</ul>
+<!--
+**Re-grouping into Curvature and Lie Bracket Contributions**
+
+The second-order difference head components simplify to two distinct physical terms:
+
+$$\begin{aligned}
+  ( A - B )^{\nu} 
+  & = - X^\alpha Y^\beta v^\xi \left( -\partial_\beta \Gamma^\nu_{\alpha\xi} + \partial_\alpha \Gamma^\nu_{\beta\xi} - \Gamma^\nu_{\alpha\eta} \Gamma^\eta_{\beta\xi} + \Gamma^\nu_{\beta\eta} \Gamma^\eta_{\alpha\xi} \right) + \\
+  & \quad - \left( X^\alpha \partial_\alpha Y^\mu - Y^\alpha \partial_\alpha X^\mu \right) \Gamma^\nu_{\mu\xi} v^\xi
+\end{aligned}$$
+
+1. **Riemann Curvature Tensor** contribution, $- X^\alpha Y^\beta v^\xi R^\nu_{\,\,\xi\alpha\beta} \mathbf{b}_\nu$
+
+2. **Lie Bracket** $[X,Y]^\mu$ contribution, required to close the loop, $- [X, Y]^\mu \Gamma^\nu_{\mu\xi} v^\xi \mathbf{b}_\nu$
+
+-->
+<!--
+   *(Note in page: "contribution w/o parallel transport along the Lie bracket")*
+-->
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+…<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><strong>todo</strong> <em>Link the following sections to what’s done so far.</em></p>
+<p class="rubric">Riemann Curvature Tensor Definition</p>
+<p class="sd-card-text">For arbitrary vector fields <span class="math notranslate nohighlight">\(X, Y, Z\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[R(X, Y)Z = \nabla_X \nabla_Y Z - \nabla_Y \nabla_X Z - \nabla_{[X, Y]} Z\]</div>
-<p>If <span class="math notranslate nohighlight">\(X, Y\)</span> are coordinate vector fields (<span class="math notranslate nohighlight">\([X, Y] = 0\)</span>), this simplifies to:</p>
+<p class="sd-card-text">If <span class="math notranslate nohighlight">\(X, Y\)</span> are coordinate vector fields (<span class="math notranslate nohighlight">\([X, Y] = 0\)</span>), this simplifies to:</p>
 <div class="math notranslate nohighlight">
 \[R(X, Y)Z = \nabla_X \nabla_Y Z - \nabla_Y \nabla_X Z\]</div>
-</div>
-<div class="section" id="component-expression">
-<h5><span class="section-number">9.3.2.1.4.3. </span>Component Expression<a class="headerlink" href="#component-expression" title="Permalink to this heading">#</a></h5>
-<p>Computing <span class="math notranslate nohighlight">\(\nabla_i \nabla_j Z - \nabla_j \nabla_i Z\)</span> for <span class="math notranslate nohighlight">\(Z = Z^m \vec{b}_m\)</span>:</p>
+<p class="rubric">Component Expression</p>
+<p class="sd-card-text">Computing <span class="math notranslate nohighlight">\(\nabla_i \nabla_j Z - \nabla_j \nabla_i Z\)</span> for <span class="math notranslate nohighlight">\(Z = Z^m \mathbf{b}_m\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[R^k_{\,m i j} = \partial_i \Gamma^k_{j m} - \partial_j \Gamma^k_{i m} + \Gamma^l_{j m} \Gamma^k_{i l} - \Gamma^l_{i m} \Gamma^k_{j l}\]</div>
 </div>
+</details></div>
 </div>
 </div>
 <div class="section" id="relation-between-riemann-curvature-tensor-and-extrinsic-curvature">
@@ -824,8 +959,8 @@ Consider transport along an infinitesimal quadrilateral formed by displacements 
 </div>
 <div class="section" id="examples">
 <span id="differential-geometry-curvature-intrinsic-examples"></span><h3><span class="section-number">9.3.2.3. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">#</a></h3>
-<div class="proof example admonition" id="example-0">
-<p class="admonition-title"><span class="caption-number">Example 9.1 </span> (2-d Euclidean space is flat, independently from the set of coordinates used for the description)</p>
+<div class="proof example admonition" id="example-1">
+<p class="admonition-title"><span class="caption-number">Example 9.2 </span> (2-d Euclidean space is flat, independently from the set of coordinates used for the description)</p>
 <div class="example-content section" id="proof-content">
 <p>While it’s trivial to prove that the 2-dimensional Euclidean space is flat using Cartesian coordinates, in this result is also proved using polar coordinates. This should be an expected result, as an intrinsic/tensor relation holds independently from an arbitrary choice of coordinates or vector basis.</p>
 <p><strong>Cartesian coordinates.</strong> Cartesian coordinates have uniform (constant in space) vectors of the natural basis, and thus all the Christoffel symbols equal to zero - being the components of their space derivatives - and the partial derivatives of the Christoffell symbols equal to zero as well. Thus,</p>
@@ -968,8 +1103,7 @@ Exploiting symmetries of the Riemann tensor,  <span class="math notranslate nohi
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lie-bracket">9.3.2.1.3. Lie bracket</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#parallel-transport-around-a-closed-loop-and-the-riemann-tensor">9.3.2.1.4. Parallel transport around a closed loop and the Riemann tensor</a><ul class="nav section-nav flex-column">
 <li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#elementary-loop">9.3.2.1.4.1. Elementary loop</a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#riemann-curvature-tensor-definition">9.3.2.1.4.2. Riemann Curvature Tensor Definition</a></li>
-<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#component-expression">9.3.2.1.4.3. Component Expression</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#parallel-transport-along-a-closed-path">9.3.2.1.4.2. Parallel transport along a closed path</a></li>
 </ul>
 </li>
 </ul>

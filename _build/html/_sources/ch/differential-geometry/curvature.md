@@ -107,7 +107,7 @@ A vector field $\mathbf{v}$ is parallel transported along a curve $\gamma$ with 
 
 $$\begin{aligned}
 \partial_{\mu} v^{\nu} = - \Gamma_{\xi \mu}^{\nu} v^{\xi} \ .
-\end{aligned}$$
+\end{aligned}$$ (eq:differential-geometry:curvature:parallel-transport:component-increment)
 
 To first order, the transported vector $v^\mu$ from $q^\eta$ to $q^\eta + dq^\eta$ satisfies:
 
@@ -123,9 +123,14 @@ $$[X, Y]f = X(Y(f)) - Y(X(f)) \ .$$
 
 In component notation, applying the definition {eq}`eq:curvature:vector-field-operator` of a vector field as differential operator twice,
 
-$$X^\mu \partial_\mu (Y^\nu \partial_\nu f) - Y^\nu \partial_\nu (X^\mu \partial_\mu f) = (X^\nu \partial_\nu Y^\mu - Y^\nu \partial_\nu X^\mu) \partial_\mu f \ ,$$
+$$\begin{aligned}
+ \left[ X, Y \right] f
+ & = X^\mu \partial_\mu (Y^\nu \partial_\nu f) - Y^\nu \partial_\nu (X^\mu \partial_\mu f) = \\
+ & = X^\mu \partial_\mu Y^\nu \partial_\nu f + X^{\mu} Y^{\nu} \partial_{\mu \nu}f - Y^\nu \partial_\nu (X^\mu \partial_\mu f) - X^{\mu} Y^{\nu} \partial_{\mu \nu}f= \\
+ & = (X^\nu \partial_\nu Y^\mu - Y^\nu \partial_\nu X^\mu) \partial_\mu f \ ,
+\end{aligned}$$
 
-so that the components of $[X, Y]$ in the natural basis are
+so that the components of the vector field $[X, Y]$ in the natural basis are
 
 $$[X, Y]^\mu = X^\nu \partial_\nu Y^\mu - Y^\nu \partial_\nu X^\mu \ .$$
 
@@ -142,6 +147,36 @@ The elementary loop is build with 2 vector fields $X$, $Y$. In general, the elem
 * point **D** be in $\mathbf{r}_D = \mathbf{r}_A + \mathbf{Y}(\mathbf{r}_A)$
 * point **E** be in $\mathbf{r}_E = \mathbf{r}_D + \mathbf{X}(\mathbf{r}_D) = \mathbf{r}_A + \mathbf{Y}(\mathbf{r}_A) + \mathbf{X}(\mathbf{r}_A + \mathbf{Y}(\mathbf{r}_A))$
 
+The - maybe unexpected fifth side - is required when $\mathbf{r}_E \ne \mathbf{r}_C$, i.e. when
+
+$$\begin{aligned}
+  \mathbf{0} \ne \mathbf{r}_E - \mathbf{r}_C
+  & = \left\{ \mathbf{r}_A + \mathbf{Y}(\mathbf{r}_A) + \mathbf{X}(\mathbf{r}_A) + \mathbf{Y}(\mathbf{r}_A) \cdot \nabla \mathbf{X}(\mathbf{r}_A) \right\} + \\
+  & \quad - \left\{ \mathbf{r}_A + \mathbf{X}(\mathbf{r}_A) + \mathbf{Y}(\mathbf{r}_A) + \mathbf{X}(\mathbf{r}_A) \cdot \nabla \mathbf{Y}(\mathbf{r}_A ) \right\} + o(|\mathbf{X}||\mathbf{Y}|) = \\
+  & = \mathbf{Y}(\mathbf{r}_A) \cdot \nabla \mathbf{X}(\mathbf{r}_A) - \mathbf{X}(\mathbf{r}_A) \cdot \nabla \mathbf{Y}(\mathbf{r}_A) \ .
+\end{aligned}$$
+
+or, in components
+
+$$\begin{aligned}
+  \mathbf{0} \ne \mathbf{r}_E - \mathbf{r}_C
+  & = Y^{\nu} \partial_{\nu} \left( X^{\mu} \mathbf{b}_{\mu} \right) - X^{\nu} \partial_{\nu} \left( Y^{\mu} \mathbf{b}_{\mu} \right) = \\
+  & = \left[ Y^{\nu} \left( \partial_{\nu} X^{\mu} + \Gamma_{\nu \xi}^{\mu} X^{\xi} \right) - X^{\nu} \left( \partial_{\nu} Y^{\mu} + \Gamma_{\nu \xi}^{\mu} Y^{\xi} \right) \right] \mathbf{b}_{\mu} = \\
+  & = - (X^\nu \partial_\nu Y^\mu - Y^\nu \partial_\nu X^\mu) \mathbf{b}_{\mu} = \\
+  & = - [ X, Y ]^{\mu} \mathbf{b}_{\mu} = - [ X, Y] \ ,
+\end{aligned}$$
+
+i.e. when $X$, $Y$ don't commute, as stated above.
+
+```{prf:example} Coordinates vector fields commute, and thus only 4 sides are required to build the loop
+
+...
+
+$$[ X, Y ] = 0$$
+
+...
+
+```
 
 <!--
 Consider transport along an infinitesimal quadrilateral formed by displacements along vector fields $X$ and $Y$:
@@ -152,13 +187,123 @@ Consider transport along an infinitesimal quadrilateral formed by displacements 
 
 The discrepancy (holonomy) after completing the loop gives rise to curvature.
 
-```{prf:examples} Coordinates vector fields commute
+##### Parallel transport along a closed path
 
-...
+**Path A to C: first along $\mathbf{X}(\mathbf{r})$ then along to $\mathbf{Y}(\mathbf{r}+\mathbf{X}(\mathbf{r}))$.**
 
-$$[ X, Y ] = 0$$
+$$\begin{aligned}
+  \left( \mathbf{v}_{||\mathbf{X}} \right)_{||\mathbf{Y}} 
+  & = \mathbf{b}_\nu \Big[ v^\nu - X^\mu \Gamma^\nu_{\mu\xi} v^\xi - Y^\mu \Gamma^\nu_{\mu\xi} v^\xi - X^\alpha \left( \partial_\alpha Y^\mu + \Gamma^\mu_{\alpha\phi} Y^\phi \right) \Gamma^\nu_{\mu\xi} v^\xi + \\
+  & \qquad - Y^\mu X^\alpha \partial_\alpha \Gamma^\nu_{\mu\xi} v^\xi + Y^\mu X^\alpha \Gamma^\nu_{\mu\xi} \Gamma^\xi_{\alpha\eta} v^\eta + X^\alpha X^\mu (\partial_\alpha Y^\mu + \Gamma^\mu_{\alpha\phi} Y^\phi) \Gamma^\nu_{\mu\xi} \Gamma^\xi_{\alpha\eta} v^\eta \Big] = \\
+  & \sim \mathbf{b}_\nu \Big[ v^\nu - X^\mu \Gamma^\nu_{\mu\xi} v^\xi - Y^\mu \Gamma^\nu_{\mu\xi} v^\xi - X^\alpha \left( \partial_\alpha Y^\mu + \Gamma^\mu_{\alpha\phi} Y^\phi \right) \Gamma^\nu_{\mu\xi} v^\xi + \\
+  & \qquad - Y^\mu X^\alpha \partial_\alpha \Gamma^\nu_{\mu\xi} v^\xi + Y^\mu X^\alpha \Gamma^\nu_{\mu\xi} \Gamma^\xi_{\alpha\eta} v^\eta \Big]
+\end{aligned}$$
+
+```{dropdown} Details
+
+First transport along $\mathbf{X}$, using {eq}`eq:differential-geometry:curvature:parallel-transport:component-increment`,
+
+$$\mathbf{v}_{||\mathbf{X}} = \mathbf{b}_{\nu} \left( v^{\nu} + X^{\mu} \left\{ \partial_{\mu} v^{\nu} \right\}_{\parallel} \right) = \mathbf{b}_{\nu} \left( v^{\nu} - X^{\mu} \Gamma_{\mu \xi}^{\nu} v^{\xi} \right) \ .$$
+
+and then along $\mathbf{Y}(\mathbf{r} + \mathbf{X})$. Expanding $\left( \mathbf{v}_{||\mathbf{X}} \right)_{||\mathbf{Y}}$ to second order in components:
+
+$$\begin{aligned}
+  \left( \mathbf{v}_{||\mathbf{X}} \right)_{||\mathbf{Y}} 
+  & = \mathbf{b}_\nu \left[ v^\nu - X^\mu \Gamma^\nu_{\mu\xi} v^\xi - \left( Y^\mu + X^\alpha (\partial_\alpha Y^\mu + \Gamma^\mu_{\alpha\phi} Y^\phi) \right) \left( \Gamma^\nu_{\mu\xi} + X^\alpha \partial_\alpha \Gamma^\nu_{\mu\xi} \right) \left( v^\xi - X^\mu \Gamma^\xi_{\mu\eta} v^\eta \right) \right]
+\end{aligned}$$
+
+Expanding terms explicitly:
+
+$$\begin{aligned}
+  \left( \mathbf{v}_{||\mathbf{X}} \right)_{||\mathbf{Y}} 
+  & = \mathbf{b}_\nu \Big[ v^\nu - X^\mu \Gamma^\nu_{\mu\xi} v^\xi - Y^\mu \Gamma^\nu_{\mu\xi} v^\xi - X^\alpha \left( \partial_\alpha Y^\mu + \Gamma^\mu_{\alpha\phi} Y^\phi \right) \Gamma^\nu_{\mu\xi} v^\xi + \\
+  & \qquad - Y^\mu X^\alpha \partial_\alpha \Gamma^\nu_{\mu\xi} v^\xi + Y^\mu X^\alpha \Gamma^\nu_{\mu\xi} \Gamma^\xi_{\alpha\eta} v^\eta + X^\alpha X^\mu (\partial_\alpha Y^\mu + \Gamma^\mu_{\alpha\phi} Y^\phi) \Gamma^\nu_{\mu\xi} \Gamma^\xi_{\alpha\eta} v^\eta \Big]
+\end{aligned}$$
 
 ```
+
+**A to C to E, to second order.**
+
+$$\begin{aligned}
+  \left( \left( \mathbf{v}_{||\mathbf{X}} \right)_{||\mathbf{Y}} \right)_{|| [Y,X]}
+  & = \mathbf{b}_\nu \Big[  \left\{ \left( \mathbf{v}_{||\mathbf{X}} \right)_{||\mathbf{Y}} \right\}^{\nu} + [ X, Y ]^{\mu} \Gamma^{\nu}_{\mu \xi} \left\{ \left( \mathbf{v}_{||\mathbf{X}} \right)_{||\mathbf{Y}} \right\}^{\xi} \Big] = \\
+  & \sim \mathbf{b}_\nu \Big[ v^\nu - X^\mu \Gamma^\nu_{\mu\xi} v^\xi - Y^\mu \Gamma^\nu_{\mu\xi} v^\xi - X^\alpha \left( \partial_\alpha Y^\mu + \Gamma^\mu_{\alpha\eta} Y^\eta \right) \Gamma^\nu_{\mu\xi} v^\xi + \\
+  & \qquad - Y^\mu X^\alpha \partial_\alpha \Gamma^\nu_{\mu\xi} v^\xi + Y^\mu X^\alpha \Gamma^\nu_{\mu\xi} \Gamma^\xi_{\alpha\eta} v^\eta + \left(  X^\alpha \partial_\alpha Y^{\mu} - Y^\alpha \partial_\alpha X^{\mu} \right) \Gamma^{\nu}_{\mu \xi} v^\xi \Big]
+\end{aligned}$$
+
+
+**Path A to E: first along $\mathbf{Y}(\mathbf{r})$ then along to $\mathbf{X}(\mathbf{r}+\mathbf{Y}(\mathbf{r}))$.** Just swapping the $X$, $Y$
+
+$$\begin{aligned}
+  \left( \mathbf{v}_{||\mathbf{Y}} \right)_{||\mathbf{X}} 
+  & = \mathbf{b}_\nu \Big[ v^\nu - Y^\mu \Gamma^\nu_{\mu\xi} v^\xi - X^\mu \Gamma^\nu_{\mu\xi} v^\xi - Y^\alpha \left( \partial_\alpha X^\mu + \Gamma^\mu_{\alpha\eta} X^\eta \right) \Gamma^\nu_{\mu\xi} v^\xi + \\
+  & \qquad - X^\mu Y^\alpha \partial_\alpha \Gamma^\nu_{\mu\xi} v^\xi + X^\mu Y^\alpha \Gamma^\nu_{\mu\xi} \Gamma^\xi_{\alpha\eta} v^\eta + Y^\alpha Y^\mu (\partial_\alpha X^\mu + \Gamma^\mu_{\alpha\eta} X^\eta) \Gamma^\nu_{\mu\xi} \Gamma^\xi_{\alpha\eta} v^\eta \Big] = \\
+  & \sim \mathbf{b}_\nu \Big[ v^\nu - Y^\mu \Gamma^\nu_{\mu\xi} v^\xi - X^\mu \Gamma^\nu_{\mu\xi} v^\xi - Y^\alpha \left( \partial_\alpha X^\mu + \Gamma^\mu_{\alpha\eta} X^\eta \right) \Gamma^\nu_{\mu\xi} v^\xi + \\
+  & \qquad - X^\mu Y^\alpha \partial_\alpha \Gamma^\nu_{\mu\xi} v^\xi + X^\mu Y^\alpha \Gamma^\nu_{\mu\xi} \Gamma^\xi_{\alpha\eta} v^\eta \Big]
+\end{aligned}$$
+
+
+**Difference path $\text{A} \rightarrow \text{B} \rightarrow \text{C} \rightarrow \text{E}$ - path $\text{A} \rightarrow \text{D} \rightarrow \text{E}$ to second order.**
+
+Subtracting Path B from Path A yields, as the travelling direction during the closed path is the opposite,:
+
+$$\begin{aligned}
+  (A - B)^\nu
+  & = \underbrace{ - X^\alpha \partial_\alpha Y^\mu \Gamma^\nu_{\mu\xi} v^\xi }_{ i_{[X,Y],2} }  - \underbrace{X^\alpha Y^\beta \Gamma^\mu_{\alpha\beta}  \Gamma^\nu_{\mu\xi} v^\xi }_{ 1 } + \underbrace{ Y^\alpha \partial_\alpha X^\mu \Gamma^\nu_{\mu\xi} v^\xi }_{ i_{[X,Y],1} } + \underbrace{ X^\alpha Y^\beta  \Gamma^\mu_{\beta\alpha} \Gamma^\nu_{\mu\xi} v^\xi }_{ 1 } + \\
+  & + \underbrace{ \left(  X^\alpha \partial_\alpha Y^{\mu} - Y^\alpha \partial_\alpha X^{\mu} \right) \Gamma^{\nu}_{\mu \xi} v^\xi }_{ i_{[X,Y]} } + \\ 
+  & + X^\alpha Y^\beta \Gamma^\nu_{\beta\eta} \Gamma^\eta_{\alpha\xi} v^\xi - X^\alpha Y^\beta \Gamma^\nu_{\alpha\eta} \Gamma^\eta_{\beta\xi} v^\xi - X^\alpha Y^\beta \partial_\alpha \Gamma^\nu_{\beta \xi} v^\xi + X^\alpha Y^\beta \partial_\beta \Gamma^\nu_{\alpha\xi} v^\xi + \text{higher order terms} = \\ 
+  & \sim - \left[ \partial_{\alpha} \Gamma^{\nu}_{\beta \xi} - \partial_{\beta} \Gamma^{\nu}_{\alpha \xi} + \Gamma_{\alpha \eta}^{\nu} \Gamma_{\beta \xi}^{\eta} - \Gamma_{\beta \eta}^{\nu} \Gamma_{\alpha \xi}^{\eta} \right] X^{\alpha} Y^{\beta} v^{\xi} = \\
+  & = - R^{\nu}_{\ \ \alpha \beta \xi} X^\alpha Y^\beta v^\xi \ ,
+\end{aligned}$$
+
+having introduced the definition of the **Riemann tensor**,
+
+$$R^{\nu}_{\ \ \alpha \beta \xi} := \partial_{\alpha} \Gamma^{\nu}_{\beta \xi} - \partial_{\beta} \Gamma^{\nu}_{\alpha \xi} + \Gamma_{\alpha \eta}^{\nu} \Gamma_{\beta \xi}^{\eta} - \Gamma_{\beta \eta}^{\nu} \Gamma_{\alpha \xi}^{\eta} $$
+
+**Remark.** The contribution of the Lie bracket, required to close the loop, annihilates with other two terms.
+
+**Remark.** Exploiting the anti-symmetry of the Riemann tensor, $R^{\nu}_{\ \ \alpha \beta \xi} = - R^{\nu}_{\ \ \beta \alpha \xi}$, it's possible to recast the expression of the parallel transport of the vector field $\mathbf{v}$ along the elementary closed path built with the vector fields $X$, $Y$ as
+
+$$\begin{aligned}
+  H^\nu 
+  & := - \frac{1}{2} R^{\nu}_{\ \ \alpha \beta \xi} \left( X^{\alpha} Y^{\beta} - X^{\beta} Y^{\alpha} \right) v^\xi = \\
+  &  = - \frac{1}{2} R^{\nu}_{\ \ \alpha \beta \xi} \, A^{\alpha \beta} \, v^\xi \ ,
+\end{aligned}$$
+
+having introduced the **signed areas** $A^{\alpha \beta}$ of the projection of the area enclosed in the elementary loop onto the plane defined by the coordinates $q^{\alpha}$ and $q^{\beta}$.
+
+**todo**
+
+* discuss the projected areas
+* discuss the higher-order correction to the area from Lie-bracket cut at the corner
+
+
+
+<!--
+**Re-grouping into Curvature and Lie Bracket Contributions**
+
+The second-order difference head components simplify to two distinct physical terms:
+
+$$\begin{aligned}
+  ( A - B )^{\nu} 
+  & = - X^\alpha Y^\beta v^\xi \left( -\partial_\beta \Gamma^\nu_{\alpha\xi} + \partial_\alpha \Gamma^\nu_{\beta\xi} - \Gamma^\nu_{\alpha\eta} \Gamma^\eta_{\beta\xi} + \Gamma^\nu_{\beta\eta} \Gamma^\eta_{\alpha\xi} \right) + \\
+  & \quad - \left( X^\alpha \partial_\alpha Y^\mu - Y^\alpha \partial_\alpha X^\mu \right) \Gamma^\nu_{\mu\xi} v^\xi
+\end{aligned}$$
+
+1. **Riemann Curvature Tensor** contribution, $- X^\alpha Y^\beta v^\xi R^\nu_{\,\,\xi\alpha\beta} \mathbf{b}_\nu$
+
+2. **Lie Bracket** $[X,Y]^\mu$ contribution, required to close the loop, $- [X, Y]^\mu \Gamma^\nu_{\mu\xi} v^\xi \mathbf{b}_\nu$
+
+-->
+
+<!--
+   *(Note in page: "contribution w/o parallel transport along the Lie bracket")*
+-->
+
+```{dropdown} ...
+:open:
+
+**todo** *Link the following sections to what's done so far.*
 
 ##### Riemann Curvature Tensor Definition
 
@@ -172,9 +317,11 @@ $$R(X, Y)Z = \nabla_X \nabla_Y Z - \nabla_Y \nabla_X Z$$
 
 ##### Component Expression
 
-Computing $\nabla_i \nabla_j Z - \nabla_j \nabla_i Z$ for $Z = Z^m \vec{b}_m$:
+Computing $\nabla_i \nabla_j Z - \nabla_j \nabla_i Z$ for $Z = Z^m \mathbf{b}_m$:
 
 $$R^k_{\,m i j} = \partial_i \Gamma^k_{j m} - \partial_j \Gamma^k_{i m} + \Gamma^l_{j m} \Gamma^k_{i l} - \Gamma^l_{i m} \Gamma^k_{j l}$$
+
+```
 
 (differential-geometry:curvature:intrinsic:relation-with-extrinsic-curvature)=
 ### Relation between Riemann curvature tensor and extrinsic curvature
