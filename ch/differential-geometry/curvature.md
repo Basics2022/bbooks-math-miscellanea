@@ -132,14 +132,39 @@ $$[X, Y]^\mu = X^\nu \partial_\nu Y^\mu - Y^\nu \partial_\nu X^\mu \ .$$
 (differential-geometry:curvature:intrinsic:riemann-curvature-tensor:riemann-tensor)=
 #### Parallel transport around a closed loop and the Riemann tensor
 
-##### Parallelogram Construction
+##### Elementary loop
 
+The elementary loop is build with 2 vector fields $X$, $Y$. In general, the elementary loops need $5$ sides if the vector fields $X$, $Y$ don't commute. Let (**todo** *Add some details, and pay attention to notation, as it can be non-trivial for curved spaces*) 
+
+* point **A** be in $\mathbf{r}_A$
+* point **B** be in $\mathbf{r}_B = \mathbf{r}_A + \mathbf{X}(\mathbf{r}_A)$
+* point **C** be in $\mathbf{r}_C = \mathbf{r}_B + \mathbf{Y}(\mathbf{r}_B) = \mathbf{r}_A + \mathbf{X}(\mathbf{r}_A) + \mathbf{Y}(\mathbf{r}_A + \mathbf{X}(\mathbf{r}_A))$
+* point **D** be in $\mathbf{r}_D = \mathbf{r}_A + \mathbf{Y}(\mathbf{r}_A)$
+* point **E** be in $\mathbf{r}_E = \mathbf{r}_D + \mathbf{X}(\mathbf{r}_D) = \mathbf{r}_A + \mathbf{Y}(\mathbf{r}_A) + \mathbf{X}(\mathbf{r}_A + \mathbf{Y}(\mathbf{r}_A))$
+
+The - maybe unexpected fifth side - is required when $\mathbf{r}_E \ne \mathbf{r}_C$, i.e. when
+
+$$ \ ,$$
+
+i.e. when $X$, $Y$ don't commute, as state above.
+
+
+<!--
 Consider transport along an infinitesimal quadrilateral formed by displacements along vector fields $X$ and $Y$:
 
 * **Path A $\rightarrow$ B $\rightarrow$ C:** Parallel transport first along $X$, then along $Y$.
 * **Path A $\rightarrow$ D $\rightarrow$ C:** Parallel transport first along $Y$, then along $X$.
+-->
 
 The discrepancy (holonomy) after completing the loop gives rise to curvature.
+
+```{prf:examples} Coordinates vector fields commute
+
+...
+
+$$[ X, Y ] = 0$$
+
+```
 
 ##### Riemann Curvature Tensor Definition
 
@@ -171,7 +196,7 @@ $$\begin{aligned}
   & = \left( \partial_j \Gamma_{ik}^l + \Gamma_{ik}^m \Gamma_{mj}^l - \Gamma_{ik}^{n+1} b^l_j \right) \mathbf{b}_l + \left( \partial_j \Gamma_{ik}^{n+1} + \Gamma_{ik}^{l} \Gamma_{lj}^{n+1} \right) \mathbf{n} \ ,
 \end{aligned}$$
 
-having used the **Weingarten equation** {eq}`eq:differential-geometry:curvature:weingarten`, $\partial_j \mathbf{n} = b^{l}_j \mathbf{b}_l$. Equating every tangential components of $\partial_{jk} \mathbf{b}_i$ and $\partial_{kj} \mathbf{b}_i$, it follows for the component $l$,
+having used the **Weingarten equation** {eq}`eq:differential-geometry:curvature:weingarten`, $\partial_j \mathbf{n} = - b^{\ \ l}_j \mathbf{b}_l$. Equating every tangential components of $\partial_{jk} \mathbf{b}_i$ and $\partial_{kj} \mathbf{b}_i$, it follows for the component $l$,
 
 $$
 \partial_j \Gamma_{ik}^l + \Gamma_{ik}^m \Gamma_{mj}^l - \Gamma_{ik}^{n+1} b^l_j = 
