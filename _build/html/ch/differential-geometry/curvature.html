@@ -1,0 +1,1026 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>9.3. Curvature &#8212; basics - math</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/style.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="https://cdn.plot.ly/plotly-lates.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/differential-geometry/curvature';</script>
+    <link rel="shortcut icon" href="../../_static/favicon.svg"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="10. Tensor Algebra" href="../tensor-algebra-calculus/algebra.html" />
+    <link rel="prev" title="9.2. Surfaces" href="surfaces.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JPXX63Z3XR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-JPXX63Z3XR');
+</script>
+
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.svg" class="logo__image only-light" alt="basics - math - Home"/>
+    <script>document.write(`<img src="../../_static/logo-dark.svg" class="logo__image only-dark" alt="basics - math - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Linear Algebra</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../linear-algebra/intro.html">1. Introduction to Linear Algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../linear-algebra/matrices.html">2. Matrices</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../linear-algebra/matrix-factorization.html">3. Matrix factorizations</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../linear-algebra/schur.html">3.3. Schur decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linear-algebra/cholesky.html">3.4. Cholesky decomposition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linear-algebra/jordan.html">3.5. Jordan normal form</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linear-algebra/svd.html">3.6. Singular Value Decomposition</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../linear-algebra/linear-systems.html">4. Linear Systems</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../linear-algebra/spectral.html">5. Spectral decomposition</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../linear-algebra/spectral-symmetric.html">5.1. Spectral decomposition of symmetric matrices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../linear-algebra/spectral-sensitivity.html">5.2. Sensitivity of spectral decomposition</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../linear-algebra/cayley-hamilton.html">6. Cayley-Hamilton theorem</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Multivariable Calculus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../multivariable/intro.html">7. Introduction to multi-variable calculus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../multivariable/interchange-operators.html">8. Interchanging operators</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Differential Geometry</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">9. Introduction to Differential Geometry</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="lines.html">9.1. Lines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="surfaces.html">9.2. Surfaces</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">9.3. Curvature</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Vector and Tensor Algebra and Calculus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/algebra.html">10. Tensor Algebra</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean.html">11. Tensor Calculus in Euclidean Spaces</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean-cartesian.html">11.5. Tensor Calculus in Euclidean Spaces - Cartesian coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean-cylindrical.html">11.6. Tensor Calculus in Euclidean Spaces - cylindrical coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tensor-algebra-calculus/calculus-euclidean-spherical.html">11.7. Tensor Calculus in Euclidean Spaces - Spehrical coordinates in <span class="math notranslate nohighlight">\(E^3\)</span></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/tensor-invariants.html">12. Tensor Invariants</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/algebra-rotation-tensors.html">13. Unitary and rotation tensors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/algebra-isotropic-tensors.html">14. Isotropic Tensors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/time-derivative-of-integrals.html">15. Time derivative of integrals over moving domains</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tensor-algebra-calculus/calculus-identities.html">16. Calculus identities</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Functional Analysis</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../functional-analysis/intro.html">17. Introduction to Functional Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../functional-analysis/dirac-delta.html">18. Dirac’s delta</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Complex Calculus</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../complex/algebra.html">19. Complex Algebra</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../complex/analysis.html">20. Complex Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../complex/series.html">20.5. Sequences and Series in the Complex Field</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../complex/laplace.html">21. Laplace Transform</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../complex/laplace-def-thm.html">21.1. Definition and Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../complex/laplace-applications.html">21.2. Applications of Laplace Transform</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../complex/fourier.html">22. Fourier Transforms</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../complex/fourier-series.html">22.1. Fourier Series</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../complex/fourier-transform.html">22.2. Fourier Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../complex/fourier-transforms.html">22.3. Relations between Fourier transforms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../complex/fourier-practice.html">22.4. Practice on Fourier analysis on finite-time discrete-time signal</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../complex/z-transform.html">23. Z-transform</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Approximation of Functions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../function-approx/intro.html">24. Introduction to function approximation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../function-approx/lagrange-interp.html">25. Lagrange interpolation</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Calculus of Variations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../calculus-variations/intro.html">26. Introduction to Calculus of Variations</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../calculus-variations/basics.html">26.1. Basics of calculus of variations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../calculus-variations/examples.html">26.2. Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../calculus-variations/extra.html">26.3. Extra</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Ordinary Differential Equations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../ode/intro.html">27. Introduction to Ordinary Differential Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ode/linear-equations.html">28. Linear equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ode/ode-linear-systems.html">29. Linear systems</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ode/integration-schemes.html">30. Integration schemes for Cauchy problems</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ode/integration-schemes-foundations.html">30.1. Foundations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ode/integration-schemes-common.html">30.2. Families of integration methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ode/integration-schemes-stability.html">30.3. Stability of integration schemes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ode/integration-schemes-simplectic.html">30.4. Simplectic integrators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ode/integration-schemes-energy-conservation.html">30.5. Energy conservation of integration schemes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ode/time-integration-mechanical-systems.html">30.6. Time-integration of a mechanical system</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">System Theory</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../system-theory/intro.html">31. Introduction to System Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system-theory/lti.html">32. Linear Time-Invariant Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system-theory/coordinate-transformation.html">33. Coordinate transformation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system-theory/lti-response.html">34. LTI system response</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system-theory/lti-stability-and-feedback.html">35. LTI: stability and feedback</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system-theory/observability-detectability.html">36. Observability and Detectability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system-theory/controllability-reachability.html">37. Reachability and Controllability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system-theory/realizations.html">38. State-space realizations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system-theory/kalman-decomposition.html">39. Kalman decomposition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system-theory/lyapunov-equation.html">40. Lyapunov equation</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../system-theory/order-reduction.html">41. Order reduction of dynamical systems</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../system-theory/order-reduction-balanced-truncation.html">41.1. Balanced truncation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../system-theory/shape-filter.html">42. Shape filter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../system-theory/time-delay-pade.html">43. Padé approximation of time delay</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Control Theory</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../control/intro.html">44. Introduction to control methods</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../control/closed-loop-requirements-performance.html">45. Closed-loop control: requirements and performance</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../control/closed-loop-requirements-performance-siso-stability.html">45.1. Stability (SISO)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control/closed-loop-requirements-performance-siso-ref-tracking.html">45.2. Reference tracking (SISO)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../control/frequency-domain.html">46. Frequency domain control</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../control/optimal-control.html">47. Optimal control</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../control/optimal-control-full-state.html">47.1. Full-state feedback</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../control/optimal-control-full-state-general-ode.html">47.1.1. Generic ODE without exogenous inputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../control/optimal-control-full-state-linear.html">47.1.2. Linear system without exogenous inputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../control/optimal-control-full-state-linear-infinite-time.html">47.1.3. Linear system without exogenous inputs - infinite time horizon</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-full-state-old.html">47.2. Full-state feedback (OLD)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-margins.html">47.3. Phase and gain margin of optimal control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-observer-stochastic.html">47.4. Optimal observer for stochastic disturbance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-observer-deterministic.html">47.5. Optimal observer for deterministic disturbances</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-output.html">47.6. Sub-optimal control for output feedback</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-regulator-observer.html">47.7. Combination of controller and observer</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../control/optimal-control-ref-tracking.html">47.8. Optimal control for reference tracking</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../control/optimal-control-ref-tracking-example.html">47.8.3. Example of optimal control for tracking reference input</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../control/kalman.html">47.9. Kalman filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control/hjb.html">47.10. Hamilton Bellman Jacobi equation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../control/pole-placement.html">48. Pole placement</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../control/examples.html">49. Examples</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-first-order-ref-tracking.html">49.1. First order system - Reference tracking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-first-order-with-time-delay-ref-tracking.html">49.2. First order system w/ time delay - Reference tracking</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-inverted-pendulum.html">49.3. Inverted pendulum</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-inverted-pendulum-cart.html">49.4. Inverted pendulum on a cart</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../control/optimal-control-inverted-pendulum-cart-only-force.html">49.5. Inverted pendulum on a cart - only force actuation</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Partial Differential Equations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../pde/intro.html">50. Introduction to Partial Differential Equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/elliptic.html">51. Elliptic equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/parabolic.html">52. Parabolic equations</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/hyperbolic.html">53. Hyperbolic equations</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-intro.html">53.1. Hyperbolic problems and conservation laws</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-dimensions.html">53.2. Hyperbolic problems - dimensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-1d-scalar-linear.html">53.3. Scalar linear equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-1d-vector-linear.html">53.4. Linear vector equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-1d-scalar-nonlinear.html">53.5. Scalar non-linear equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/characteristics.html">53.6. Method of characteristics</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../pde/hyperbolic-nd.html">53.7. Hyperbolic problems in multi-dimensional domains</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-draft.html">53.7.1. General hyperbolic problem</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-psys.html">53.7.2. P-system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-euler.html">53.7.3. Euler equations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/hyperbolic-nd-shallow-water.html">53.7.4. Shallow water</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-riemann-pb.html">53.8. Riemann problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-entropy.html">53.9. Physical solution in hyperbolic problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-convexity.html">53.10. Convexity in hyperbolic problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/hyperbolic-non-convex.html">53.11. Non-convex hyperbolic problems</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/nc.html">54. Navier-Cauchy equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/ns.html">55. Navier-Stokes equations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/ale.html">56. Arbitrary Lagrangian-Eulerian description</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Numerical Methods for PDEs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../pde/numerics.html">57. Introduction to numerical methods for PDEs</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/fem.html">58. Finite Element Method</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pde/fem-poisson-1d.html">58.1. 1-dimensional Poisson equation</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../pde/fvm.html">59. Finite Volume Method</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pde/fvm-poisson-1d.html">59.1. 1-dimensional Poisson equation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/fvm-hyperbolic-pde.html">59.2. FVM for hyperbolic problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pde/fvm-hyperbolic-bc.html">59.3. Boundary conditions in hyperbolic problems</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../pde/fvm-hyperbolic-examples.html">59.4. Examples of FVM for hyperbolic problems</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../pde/psys-1d.html">59.4.1. 1-dimensional P-system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/euler-1d.html">59.4.2. 1-dimensional Euler equations for Perfect Ideal Gas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/euler-quasi-1d.html">59.4.3. Quasi 1-dimensional Euler equations for Perfect Ideal Gas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../pde/euler-1d-ale-piston.html">59.4.4. 1-dimensional Euler equations for Perfect Ideal Gas on moving mesh (ALE)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../pde/bem.html">60. Boundary Element Method</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Boundary Methods for PDEs</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../pde/bem-poisson-helmholtz-waves.html">61. Green’s function method</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Optimization</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../optimization/intro.html">62. Optimization</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reinforcement Learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../rl/intro.html">63. Introduction to Reinforcement Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp.html">64. Markov Processes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_sol_dp_lp.html">65. Methods of solution of MPD: DP and LP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_sol_rl.html">66. Methods of solution of MPD: RL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rl/mdp_large_continuous.html">67. Large or Continuous MDPs</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/edit/main/ch/differential-geometry/curvature.md" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Basics2022/bbooks-math-miscellanea/issues/new?title=Issue%20on%20page%20%2Fch/differential-geometry/curvature.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/ch/differential-geometry/curvature.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Curvature</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extrinsic-curvature">9.3.1. Extrinsic curvature</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intrinsic-curvature">9.3.2. Intrinsic curvature</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#riemann-curvature-tensor">9.3.2.1. Riemann curvature tensor</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-fields-as-differential-operators-and-directional-or-covariant-derivatives">9.3.2.1.1. Vector fields as differential operators, and directional or covariant derivatives</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#parallel-transport">9.3.2.1.2. Parallel transport</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lie-bracket">9.3.2.1.3. Lie bracket</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#parallel-transport-around-a-closed-loop-and-the-riemann-tensor">9.3.2.1.4. Parallel transport around a closed loop and the Riemann tensor</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#parallelogram-construction">9.3.2.1.4.1. Parallelogram Construction</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#riemann-curvature-tensor-definition">9.3.2.1.4.2. Riemann Curvature Tensor Definition</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#component-expression">9.3.2.1.4.3. Component Expression</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relation-between-riemann-curvature-tensor-and-extrinsic-curvature">9.3.2.2. Relation between Riemann curvature tensor and extrinsic curvature</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">9.3.2.3. Examples</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="tex2jax_ignore mathjax_ignore section" id="curvature">
+<span id="differential-geometry-curvature"></span><h1><span class="section-number">9.3. </span>Curvature<a class="headerlink" href="#curvature" title="Permalink to this heading">#</a></h1>
+<div class="section" id="extrinsic-curvature">
+<span id="differential-geometry-curvature-extrinsic"></span><h2><span class="section-number">9.3.1. </span>Extrinsic curvature<a class="headerlink" href="#extrinsic-curvature" title="Permalink to this heading">#</a></h2>
+<p>Extrinsic curvature of a <span class="math notranslate nohighlight">\(n\)</span>-dimensional manifold needs the manifold to be embedded in a <span class="math notranslate nohighlight">\(n+1\)</span>-dimensional space.</p>
+<p>From the second order approximation of the <span class="math notranslate nohighlight">\(n\)</span>-dimensional manifold <span class="math notranslate nohighlight">\(\mathbf{r}\left( q^i \right)\)</span> in a <span class="math notranslate nohighlight">\(n+1\)</span>-dimensional space</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+\mathbf{r}\left( q^i + d q^i \right) - \mathbf{r}\left( q^i \right) 
+&amp; = \frac{\partial \mathbf{r}}{\partial q^i} d q^i + 
+\frac{1}{2} \frac{\partial^2 \mathbf{r}}{\partial q^i \partial q^k} d q^i d q^k + o(|d \mathbf{q}|^2) = \\
+&amp; = \mathbf{b}_i \, d q^i + \frac{1}{2} \Gamma_{ik}^{\alpha} \mathbf{b}_{\alpha} \, dq^i dq^k = \\
+&amp; = \mathbf{b}_i \, d q^i + \frac{1}{2} \left( \Gamma_{ik}^{l} \mathbf{b}_{l} + \Gamma_{ik}^{n+1} \mathbf{n} \right) \, dq^i dq^k \ ,
+\end{aligned}\end{split}\]</div>
+<p>with the Greek indices for sum over the <span class="math notranslate nohighlight">\(n+1\)</span> dimensions, and latin indices for the indices in <span class="math notranslate nohighlight">\(\{ 1, \dots, n \}\)</span>. Here <span class="math notranslate nohighlight">\(\mathbf{n} := \mathbf{b}_{n+1}\)</span> s.t. <span class="math notranslate nohighlight">\(\mathbf{n} \cdot \mathbf{b}_i = 0\)</span>, for <span class="math notranslate nohighlight">\(n \in \{ 1, \dots, n \}\)</span>.</p>
+<p>The extrinsic curvature tensor, already used for <a class="reference internal" href="surfaces.html#differential-geometry-surfaces"><span class="std std-ref">differential geometry of surfaces</span></a>, is defined as <span class="math notranslate nohighlight">\(\mathbb{b} := \Gamma^{n+1}_{ik} \mathbf{b}^i \otimes \mathbf{b}^k\)</span>.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Derivatives of the normal vector - Weingarten formula<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The spatial derivatives of the unit normal vector <span class="math notranslate nohighlight">\(\hat{\mathbf{n}}(q^i)\)</span> reads</p>
+<div class="math notranslate nohighlight" id="equation-eq-differential-geometry-curvature-weingarten">
+<span class="eqno">(9.1)<a class="headerlink" href="#equation-eq-differential-geometry-curvature-weingarten" title="Permalink to this equation">#</a></span>\[\frac{\partial \hat{\mathbf{n}}}{\partial q^i} = -b_{i}^{\,\,l} \mathbf{b}_l \ .\]</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Proof<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Consider an <span class="math notranslate nohighlight">\(n\)</span>-dimensional hypersurface embedded in an <span class="math notranslate nohighlight">\((n+1)\)</span>-dimensional space with normal vector <span class="math notranslate nohighlight">\(\hat{\mathbf{n}}\)</span> satisfying <span class="math notranslate nohighlight">\(\hat{\mathbf{n}} \cdot \mathbf{b}_i = 0\)</span>. The derivative of basis vectors decomposes into tangential and normal components:</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial \mathbf{b}_i}{\partial q^k} = \Gamma^{\alpha}_{ik} \mathbf{b}_{\alpha} = \Gamma^l_{ik} \mathbf{b}_l + \Gamma^{n+1}_{ik} \hat{\mathbf{n}}\]</div>
+<p class="sd-card-text">Differentiating the normality condition <span class="math notranslate nohighlight">\(\hat{\mathbf{n}} \cdot \mathbf{b}_k = 0\)</span> with respect to <span class="math notranslate nohighlight">\(q^i\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  0
+  &amp; = \frac{\partial \hat{\mathbf{n}}}{\partial q^i} \cdot \mathbf{b}_k + \hat{\mathbf{n}} \cdot \frac{\partial \mathbf{b}_k}{\partial q^i} = \\
+  &amp; = \frac{\partial \hat{\mathbf{n}}}{\partial q^i} \cdot \mathbf{b}_k + \hat{\mathbf{n}} \cdot \left( \Gamma^l_{ik} \mathbf{b}_l + \Gamma^{n+1}_{ik} \hat{\mathbf{n}} \right) \ ,
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">or</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial \hat{\mathbf{n}}}{\partial q^i} \cdot \mathbf{b}_k = -\hat{\mathbf{n}} \cdot \left( \Gamma^l_{ik} \mathbf{b}_l + \Gamma^{n+1}_{ik} \hat{\mathbf{n}} \right) = -\Gamma^{n+1}_{ik}\]</div>
+<p class="sd-card-text">From the latter expression, it immediately follows</p>
+<div class="math notranslate nohighlight">
+\[\frac{\partial \hat{\mathbf{n}}}{\partial q^i} = -\Gamma^{n+1}_{ik} \mathbf{b}^k = -g^{kl} \Gamma^{n+1}_{ik} \mathbf{b}_l = -b_{i}^{\,\,l} \mathbf{b}_l \ ,\]</div>
+<p class="sd-card-text">where <span class="math notranslate nohighlight">\(b_{ik} = \Gamma^{n+1}_{ik}\)</span> is the <strong>second fundamental form</strong>.</p>
+<!--
+
+If the normal coordinate is choosen so that the normal vector is unitary, $\mathbf{b}_{n+1} = \hat{\mathbf{n}}$, then
+
+$$0 = \partial_i | \hat{\mathbf{n}} |^2 = 2 \hat{\mathbf{n}} \cdot \partial_i \hat{\mathbf{n}} \ .$$
+
+-->
+</div>
+</details></div>
+</details></div>
+<div class="section" id="intrinsic-curvature">
+<span id="differential-geometry-curvature-intrinsic"></span><h2><span class="section-number">9.3.2. </span>Intrinsic curvature<a class="headerlink" href="#intrinsic-curvature" title="Permalink to this heading">#</a></h2>
+<p>Intrinsic curvature of a <span class="math notranslate nohighlight">\(n\)</span>-dimensional manifold doesn’t need any embedding in a higher dimensional space, but it’s built from the metric <span class="math notranslate nohighlight">\(g_{\mu \nu}\)</span> and its derivatives. It measures…</p>
+<div style="color:red"> <b>todo</b> Relation with parallel transport and geodesic convergence/divergence. Add some illutrative examples/visualizations,...</div>
+<div class="section" id="riemann-curvature-tensor">
+<span id="differential-geometry-curvature-intrinsic-riemann-curvature-tensor"></span><h3><span class="section-number">9.3.2.1. </span>Riemann curvature tensor<a class="headerlink" href="#riemann-curvature-tensor" title="Permalink to this heading">#</a></h3>
+<div class="section" id="vector-fields-as-differential-operators-and-directional-or-covariant-derivatives">
+<span id="differential-geometry-curvature-intrinsic-riemann-curvature-tensor-vector-fields"></span><h4><span class="section-number">9.3.2.1.1. </span>Vector fields as differential operators, and directional or covariant derivatives<a class="headerlink" href="#vector-fields-as-differential-operators-and-directional-or-covariant-derivatives" title="Permalink to this heading">#</a></h4>
+<p>A vector field <span class="math notranslate nohighlight">\(X(f)\)</span> acting on a scalar function <span class="math notranslate nohighlight">\(f\)</span> defines a directional derivative:</p>
+<div class="math notranslate nohighlight" id="equation-eq-curvature-vector-field-operator">
+<span class="eqno">(9.2)<a class="headerlink" href="#equation-eq-curvature-vector-field-operator" title="Permalink to this equation">#</a></span>\[X(f) = X^\mu \partial_\mu f \ .\]</div>
+<p>The definition of the vector field <span class="math notranslate nohighlight">\(X\)</span> as a differential operator can be recast as the scalar product of the vector field <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> and the gradient of the function <span class="math notranslate nohighlight">\(f\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\nabla_{X} f = \mathbf{X} \cdot \nabla f \ .\]</div>
+<p>The directional derivative of the function <span class="math notranslate nohighlight">\(f\)</span> along a curve <span class="math notranslate nohighlight">\(\gamma\)</span> with element <span class="math notranslate nohighlight">\(d \mathbf{r}\)</span> is <span class="math notranslate nohighlight">\(d \mathbf{r} \cdot \nabla f\)</span>. So, for a scalar field <span class="math notranslate nohighlight">\(f\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+      d\mathbf{r} \cdot \nabla f
+  &amp; = \left( d q^\nu \mathbf{b}_\nu \right) \cdot \mathbf{b}^\mu \partial_{\mu} f 
+    =        d q^\mu \partial_{\mu} f \ . 
+\end{aligned}\]</div>
+<p>For a vector field <span class="math notranslate nohighlight">\(\mathbf{v}\)</span>,</p>
+<div class="math notranslate nohighlight" id="equation-eq-differential-geometry-curvature-directional-derivative-vector">
+<span class="eqno">(9.3)<a class="headerlink" href="#equation-eq-differential-geometry-curvature-directional-derivative-vector" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+      d\mathbf{r} \cdot \nabla \mathbf{v} 
+  &amp; = \left( d q^\nu \mathbf{b}_\nu \right) \cdot \mathbf{b}^\mu \partial_{\mu} \mathbf{v} = \\ 
+  &amp; = d q^\mu \partial_{\mu} \mathbf{v} = \\
+  &amp; =  d q^{\mu} \left( \partial_{\mu} v^{\nu} + \Gamma_{\xi \mu}^{\nu} v^{\xi} \right) \mathbf{b}_{\nu} \ .
+\end{aligned}\end{split}\]</div>
+</div>
+<div class="section" id="parallel-transport">
+<span id="differential-geometry-curvature-intrinsic-riemann-curvature-tensor-parallel-transport"></span><h4><span class="section-number">9.3.2.1.2. </span>Parallel transport<a class="headerlink" href="#parallel-transport" title="Permalink to this heading">#</a></h4>
+<p>A vector field <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> is parallel transported along a curve <span class="math notranslate nohighlight">\(\gamma\)</span> with element <span class="math notranslate nohighlight">\(d\mathbf{r}\)</span> if <span class="math notranslate nohighlight">\(d \mathbf{r} \cdot \nabla f = \mathbf{0}\)</span>. Thus, using the relation <a class="reference internal" href="#equation-eq-differential-geometry-curvature-directional-derivative-vector">(9.3)</a>, parallel transport implies</p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+\partial_{\mu} v^{\nu} = - \Gamma_{\xi \mu}^{\nu} v^{\xi} \ .
+\end{aligned}\]</div>
+<p>To first order, the transported vector <span class="math notranslate nohighlight">\(v^\mu\)</span> from <span class="math notranslate nohighlight">\(q^\eta\)</span> to <span class="math notranslate nohighlight">\(q^\eta + dq^\eta\)</span> satisfies:</p>
+<div class="math notranslate nohighlight">
+\[v^\nu(q^\eta + d q^\eta) \sim v^\nu(q^\eta) + dq^\mu \partial_{\mu} v^\nu(q^\eta) = v^\nu(q^\eta) - dq^\mu \Gamma_{\mu \chi}^{\nu}(q^\eta) v^\chi(q^\eta)\ .\]</div>
+</div>
+<div class="section" id="lie-bracket">
+<span id="differential-geometry-curvature-intrinsic-riemann-curvature-tensor-lie-bracket"></span><h4><span class="section-number">9.3.2.1.3. </span>Lie bracket<a class="headerlink" href="#lie-bracket" title="Permalink to this heading">#</a></h4>
+<p>The Lie bracket of two vector fields <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> measures their non-commutativity, i.e.</p>
+<div class="math notranslate nohighlight">
+\[[X, Y]f = X(Y(f)) - Y(X(f)) \ .\]</div>
+<p>In component notation, applying the definition <a class="reference internal" href="#equation-eq-curvature-vector-field-operator">(9.2)</a> of a vector field as differential operator twice,</p>
+<div class="math notranslate nohighlight">
+\[X^\mu \partial_\mu (Y^\nu \partial_\nu f) - Y^\nu \partial_\nu (X^\mu \partial_\mu f) = (X^\nu \partial_\nu Y^\mu - Y^\nu \partial_\nu X^\mu) \partial_\mu f \ ,\]</div>
+<p>so that the components of <span class="math notranslate nohighlight">\([X, Y]\)</span> in the natural basis are</p>
+<div class="math notranslate nohighlight">
+\[[X, Y]^\mu = X^\nu \partial_\nu Y^\mu - Y^\nu \partial_\nu X^\mu \ .\]</div>
+</div>
+<div class="section" id="parallel-transport-around-a-closed-loop-and-the-riemann-tensor">
+<span id="differential-geometry-curvature-intrinsic-riemann-curvature-tensor-riemann-tensor"></span><h4><span class="section-number">9.3.2.1.4. </span>Parallel transport around a closed loop and the Riemann tensor<a class="headerlink" href="#parallel-transport-around-a-closed-loop-and-the-riemann-tensor" title="Permalink to this heading">#</a></h4>
+<div class="section" id="parallelogram-construction">
+<h5><span class="section-number">9.3.2.1.4.1. </span>Parallelogram Construction<a class="headerlink" href="#parallelogram-construction" title="Permalink to this heading">#</a></h5>
+<p>Consider transport along an infinitesimal quadrilateral formed by displacements along vector fields <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span>:</p>
+<ul class="simple">
+<li><p><strong>Path A <span class="math notranslate nohighlight">\(\rightarrow\)</span> B <span class="math notranslate nohighlight">\(\rightarrow\)</span> C:</strong> Parallel transport first along <span class="math notranslate nohighlight">\(X\)</span>, then along <span class="math notranslate nohighlight">\(Y\)</span>.</p></li>
+<li><p><strong>Path A <span class="math notranslate nohighlight">\(\rightarrow\)</span> D <span class="math notranslate nohighlight">\(\rightarrow\)</span> C:</strong> Parallel transport first along <span class="math notranslate nohighlight">\(Y\)</span>, then along <span class="math notranslate nohighlight">\(X\)</span>.</p></li>
+</ul>
+<p>The discrepancy (holonomy) after completing the loop gives rise to curvature.</p>
+</div>
+<div class="section" id="riemann-curvature-tensor-definition">
+<h5><span class="section-number">9.3.2.1.4.2. </span>Riemann Curvature Tensor Definition<a class="headerlink" href="#riemann-curvature-tensor-definition" title="Permalink to this heading">#</a></h5>
+<p>For arbitrary vector fields <span class="math notranslate nohighlight">\(X, Y, Z\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[R(X, Y)Z = \nabla_X \nabla_Y Z - \nabla_Y \nabla_X Z - \nabla_{[X, Y]} Z\]</div>
+<p>If <span class="math notranslate nohighlight">\(X, Y\)</span> are coordinate vector fields (<span class="math notranslate nohighlight">\([X, Y] = 0\)</span>), this simplifies to:</p>
+<div class="math notranslate nohighlight">
+\[R(X, Y)Z = \nabla_X \nabla_Y Z - \nabla_Y \nabla_X Z\]</div>
+</div>
+<div class="section" id="component-expression">
+<h5><span class="section-number">9.3.2.1.4.3. </span>Component Expression<a class="headerlink" href="#component-expression" title="Permalink to this heading">#</a></h5>
+<p>Computing <span class="math notranslate nohighlight">\(\nabla_i \nabla_j Z - \nabla_j \nabla_i Z\)</span> for <span class="math notranslate nohighlight">\(Z = Z^m \vec{b}_m\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[R^k_{\,m i j} = \partial_i \Gamma^k_{j m} - \partial_j \Gamma^k_{i m} + \Gamma^l_{j m} \Gamma^k_{i l} - \Gamma^l_{i m} \Gamma^k_{j l}\]</div>
+</div>
+</div>
+</div>
+<div class="section" id="relation-between-riemann-curvature-tensor-and-extrinsic-curvature">
+<span id="differential-geometry-curvature-intrinsic-relation-with-extrinsic-curvature"></span><h3><span class="section-number">9.3.2.2. </span>Relation between Riemann curvature tensor and extrinsic curvature<a class="headerlink" href="#relation-between-riemann-curvature-tensor-and-extrinsic-curvature" title="Permalink to this heading">#</a></h3>
+<p>If the parametrization of the space is regular enough, second-order mixed derivatives have the same value, i.e. <span class="math notranslate nohighlight">\(\tfrac{\partial^2 \mathbf{r}}{\partial q^i \partial q^k} = \tfrac{\partial^2 \mathbf{r}}{\partial q^k \partial q^i}\)</span> that implies <span class="math notranslate nohighlight">\(\Gamma_{ik}^{\alpha} = \Gamma_{ki}^{\alpha}\)</span>. Similar relation holds for the mixed derivatives of vector <span class="math notranslate nohighlight">\(\mathbf{b}_i\)</span> of the natural basis, <span class="math notranslate nohighlight">\(\tfrac{\partial^2 \mathbf{b}_i}{\partial q^j \partial q^k} = \tfrac{\partial^2 \mathbf{b}_i}{\partial q^k \partial q^j}\)</span>. As</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \dfrac{\partial^2 \mathbf{b}_i}{\partial q^j \partial q^k} 
+  &amp; = \dfrac{\partial}{\partial q^j} \dfrac{\partial \mathbf{b}_i}{\partial q^k} = \\
+  &amp; = \dfrac{\partial}{\partial q^j} \left( \Gamma_{ik}^{\alpha} \mathbf{b}_{\alpha} \right) = \\
+  &amp; = \dfrac{\partial}{\partial q^j} \left( \Gamma_{ik}^{l} \mathbf{b}_{l} + \Gamma_{ik}^{n+1} \mathbf{n} \right) = \\
+  &amp; = \partial_j \Gamma^{l}_{ik} \mathbf{b}_{l} + \Gamma_{ik}^{l} \left( \Gamma_{l j}^{m} \mathbf{b}_{m} + \Gamma_{l j}^{n+1} \mathbf{n} \right) + \partial_j \Gamma_{ik}^{n+1} \mathbf{n} + \Gamma_{ik}^{n+1} \partial_j \mathbf{n} = \\
+  &amp; = \left( \partial_j \Gamma_{ik}^l + \Gamma_{ik}^m \Gamma_{mj}^l - \Gamma_{ik}^{n+1} b^l_j \right) \mathbf{b}_l + \left( \partial_j \Gamma_{ik}^{n+1} + \Gamma_{ik}^{l} \Gamma_{lj}^{n+1} \right) \mathbf{n} \ ,
+\end{aligned}\end{split}\]</div>
+<p>having used the <strong>Weingarten equation</strong> <a class="reference internal" href="#equation-eq-differential-geometry-curvature-weingarten">(9.1)</a>, <span class="math notranslate nohighlight">\(\partial_j \mathbf{n} = b^{l}_j \mathbf{b}_l\)</span>. Equating every tangential components of <span class="math notranslate nohighlight">\(\partial_{jk} \mathbf{b}_i\)</span> and <span class="math notranslate nohighlight">\(\partial_{kj} \mathbf{b}_i\)</span>, it follows for the component <span class="math notranslate nohighlight">\(l\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+\partial_j \Gamma_{ik}^l + \Gamma_{ik}^m \Gamma_{mj}^l - \Gamma_{ik}^{n+1} b^l_j = 
+\partial_k \Gamma_{ij}^l + \Gamma_{ij}^m \Gamma_{mk}^l - \Gamma_{ij}^{n+1} b^l_k \ ,
+\]</div>
+<p>or, rearranging</p>
+<div class="math notranslate nohighlight">
+\[
+\underbrace{\partial_j \Gamma_{ik}^l - \partial_k \Gamma_{ij}^l + \Gamma_{ik}^m \Gamma_{mj}^l - \Gamma_{ij}^m \Gamma_{mk}^l}_{ = R^{l}_{\ \ ijk} } = \Gamma_{ik}^{n+1} b^l_j - \Gamma_{ij}^{n+1} b^l_k \ ,
+\]</div>
+<p>having introduced the definition of <strong>Riemann curvature tensor</strong> <span class="math notranslate nohighlight">\(R^{l}_{\ \ ijk}\)</span>. Writing <span class="math notranslate nohighlight">\(\Gamma^{n+1}_{ij} = b_{ij}\)</span>, it follows</p>
+<div class="math notranslate nohighlight">
+\[R^{l}_{\ \ ijk} = b_{ij} b^l_j - b_{ij} b^l_k \ .\]</div>
+<p>See also <a class="reference external" href="https://basics2022.github.io/bbooks-physics-modern/ch/relativity-general/differential-geometry.html#curvature-tensor">General Relativity: Differential Geometry: Curvature Tensor</a></p>
+</div>
+<div class="section" id="examples">
+<span id="differential-geometry-curvature-intrinsic-examples"></span><h3><span class="section-number">9.3.2.3. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">#</a></h3>
+<div class="proof example admonition" id="example-0">
+<p class="admonition-title"><span class="caption-number">Example 9.1 </span> (2-d Euclidean space is flat, independently from the set of coordinates used for the description)</p>
+<div class="example-content section" id="proof-content">
+<p>While it’s trivial to prove that the 2-dimensional Euclidean space is flat using Cartesian coordinates, in this result is also proved using polar coordinates. This should be an expected result, as an intrinsic/tensor relation holds independently from an arbitrary choice of coordinates or vector basis.</p>
+<p><strong>Cartesian coordinates.</strong> Cartesian coordinates have uniform (constant in space) vectors of the natural basis, and thus all the Christoffel symbols equal to zero - being the components of their space derivatives - and the partial derivatives of the Christoffell symbols equal to zero as well. Thus,</p>
+<div class="math notranslate nohighlight">
+\[R^{k}_{\ m i j} = 0 \ .\]</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Polar coordinates<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">**Polar Coordinates <span class="math notranslate nohighlight">\((r, \theta)\)</span>. Let <span class="math notranslate nohighlight">\(q^1 = r\)</span>, <span class="math notranslate nohighlight">\(q^2 = \theta\)</span>. Thus, the natural basis and its reciprocal - using the common unit-length orhogonal polar basis - are</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\left\{ \begin{aligned} \mathbf{b}_1 &amp; = \partial_1 \mathbf{r} = \hat{r} \\ \mathbf{b}_2 &amp; = \partial_2 \mathbf{r} = r \hat{\boldsymbol\theta} \end{aligned}\right.
+\quad , \quad 
+\left\{ \begin{aligned} \mathbf{b}^1 &amp; = \hat{r} \\ \mathbf{b}^2 &amp; = \frac{1}{r} \hat{\boldsymbol\theta} \end{aligned}\right.
+\ .\end{split}\]</div>
+<p class="sd-card-text"><strong>Metric tensor, <span class="math notranslate nohighlight">\(g_{ij} = \mathbf{b}_i \cdot \mathbf{b}_j\)</span>.</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}g_{ij} = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; r^2 \end{pmatrix}, \quad g^{ij} = \begin{pmatrix} 1 &amp; 0 \\ 0 &amp; \frac{1}{r^2} \end{pmatrix}\end{split}\]</div>
+<p class="sd-card-text"><strong>Non-vanishing Christoffel Symbols.</strong>
+Using <span class="math notranslate nohighlight">\(\Gamma^l_{ik} = \frac{1}{2} g^{lj} \left( \partial_i g_{jk} + \partial_k g_{ji} - \partial_j g_{ik} \right)\)</span>:</p>
+<ol class="arabic simple">
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(\Gamma^1_{22} = \frac{1}{2} g^{11} (-\partial_1 g_{22}) = \frac{1}{2}(1)(-2r) = -r\)</span></p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(\Gamma^2_{12} = \Gamma^2_{21} = \frac{1}{2} g^{22} (\partial_1 g_{22}) = \frac{1}{2}\left(\frac{1}{r^2}\right)(2r) = \frac{1}{r}\)</span></p></li>
+</ol>
+<p class="sd-card-text">All other <span class="math notranslate nohighlight">\(\Gamma^k_{ij} = 0\)</span>.</p>
+<p class="sd-card-text"><strong>Non-vanishing derivatives of Christoffel Symbols.</strong></p>
+<ul class="simple">
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(\partial_1 \Gamma^2_{12} = \partial_r \left(\frac{1}{r}\right) = -\frac{1}{r^2}\)</span></p></li>
+<li><p class="sd-card-text"><span class="math notranslate nohighlight">\(\partial_1 \Gamma^1_{22} = \partial_r (-r) = -1\)</span></p></li>
+</ul>
+<p class="sd-card-text"><strong>Calculation of Riemann Tensor Components.</strong>
+Riemann tensor of a 2-dimensional manifold has 16 components. Not all the components are independent
+Exploiting symmetries of the Riemann tensor,  <span class="math notranslate nohighlight">\(R^k_{\,m i j} = \partial_i \Gamma^k_{j m} - \partial_j \Gamma^k_{i m} + \Gamma^l_{j m} \Gamma^k_{i l} - \Gamma^l_{i m} \Gamma^k_{j l}\)</span>, it’s easy to realized that</p>
+<div class="math notranslate nohighlight">
+\[R^{k}_{\ m i j} = - R^{k}_{\ m j i} \ .\]</div>
+<p class="sd-card-text">Thus, all the components with <span class="math notranslate nohighlight">\(i = j\)</span> are identically zero. So, only 4 components can be independent, setting as an example <span class="math notranslate nohighlight">\(i = 1\)</span>, <span class="math notranslate nohighlight">\(j = 2\)</span>, and evaluating the 4 terms with <span class="math notranslate nohighlight">\((k,m) \in \{ 1 , 2 \}^2\)</span>.</p>
+<ul>
+<li><p class="sd-card-text"><strong>Component <span class="math notranslate nohighlight">\(R^1_{\,212}\)</span>:</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+    R^1_{\,212} 
+    &amp; = \partial_1 \Gamma^1_{22} - \partial_2 \Gamma^1_{12} + \Gamma^l_{22} \Gamma^1_{1l} - \Gamma^l_{12} \Gamma^1_{2l} = \\
+    &amp; = (-1) - 0 + (\Gamma^1_{22} \Gamma^1_{11} + \Gamma^2_{22} \Gamma^1_{12}) - (\Gamma^1_{12} \Gamma^1_{21} + \Gamma^2_{12} \Gamma^1_{22}) = \\
+    &amp; = -1 - (0) - \left(\frac{1}{r} \cdot (-r)\right) = -1 - (-1) = 0
+  \end{aligned}\end{split}\]</div>
+</li>
+<li><p class="sd-card-text"><strong>Component <span class="math notranslate nohighlight">\(R^2_{\,112}\)</span>:</strong></p>
+<div class="math notranslate nohighlight">
+\[R^2_{\,112} = \partial_1 \Gamma^2_{21} - \partial_2 \Gamma^2_{11} + \Gamma^l_{21} \Gamma^2_{1l} - \Gamma^l_{11} \Gamma^2_{2l}\]</div>
+<div class="math notranslate nohighlight">
+\[R^2_{\,112} = \left(-\frac{1}{r^2}\right) - 0 + (\Gamma^2_{21} \Gamma^2_{12}) - 0 = -\frac{1}{r^2} + \left(\frac{1}{r} \cdot \frac{1}{r}\right) = 0\]</div>
+</li>
+<li><p class="sd-card-text"><strong>Component <span class="math notranslate nohighlight">\(R^1_{\,112}\)</span>:</strong></p>
+<div class="math notranslate nohighlight">
+\[\dots\]</div>
+</li>
+<li><p class="sd-card-text"><strong>Component <span class="math notranslate nohighlight">\(R^2_{\,212}\)</span>:</strong></p>
+<div class="math notranslate nohighlight">
+\[\dots\]</div>
+</li>
+</ul>
+</div>
+</details></div>
+</div></div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./ch/differential-geometry"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="surfaces.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">9.2. </span>Surfaces</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../tensor-algebra-calculus/algebra.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>Tensor Algebra</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extrinsic-curvature">9.3.1. Extrinsic curvature</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intrinsic-curvature">9.3.2. Intrinsic curvature</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#riemann-curvature-tensor">9.3.2.1. Riemann curvature tensor</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-fields-as-differential-operators-and-directional-or-covariant-derivatives">9.3.2.1.1. Vector fields as differential operators, and directional or covariant derivatives</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#parallel-transport">9.3.2.1.2. Parallel transport</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#lie-bracket">9.3.2.1.3. Lie bracket</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#parallel-transport-around-a-closed-loop-and-the-riemann-tensor">9.3.2.1.4. Parallel transport around a closed loop and the Riemann tensor</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#parallelogram-construction">9.3.2.1.4.1. Parallelogram Construction</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#riemann-curvature-tensor-definition">9.3.2.1.4.2. Riemann Curvature Tensor Definition</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#component-expression">9.3.2.1.4.3. Component Expression</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relation-between-riemann-curvature-tensor-and-extrinsic-curvature">9.3.2.2. Relation between Riemann curvature tensor and extrinsic curvature</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">9.3.2.3. Examples</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By basics
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -71,7 +71,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="10. Tensor Algebra" href="../tensor-algebra-calculus/algebra.html" />
+    <link rel="next" title="9.3. Manifold curvature" href="curvature.html" />
     <link rel="prev" title="9.1. Lines" href="lines.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -204,6 +204,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="intro.html">9. Introduction to Differential Geometry</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="lines.html">9.1. Lines</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">9.2. Surfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="curvature.html">9.3. Manifold curvature</a></li>
 </ul>
 </li>
 </ul>
@@ -693,18 +694,18 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
   \mathbf{r}(q^1 + d q^1, q^2 + d q^2) 
-  &amp; = \mathbf{r}(q_1, q_2) + \frac{\partial \mathbf{r}}{\partial q^i} \, dq^i + \frac{\partial^2 \mathbf{r}}{\partial q^i \partial q^j} \, dq^i dq^j + o\left(|d q^i|^2\right) = \\
-  &amp; = \mathbf{r}(q_1, q_2) + \mathbf{b}_{i} \, dq^i + \mathbf{b}_k \Gamma^{k}_{ij} \, dq^i \, dq^j +  \hat{\mathbf{n}} \, \Gamma^{3}_{ij} \, dq^i dq^j  + o\left(|d q^i|^2\right) \ , 
+  &amp; = \mathbf{r}(q_1, q_2) + \frac{\partial \mathbf{r}}{\partial q^i} \, dq^i + \frac{1}{2} \frac{\partial^2 \mathbf{r}}{\partial q^i \partial q^j} \, dq^i dq^j + o\left(|d q^i|^2\right) = \\
+  &amp; = \mathbf{r}(q_1, q_2) + \mathbf{b}_{i} \, dq^i + \frac{1}{2} \mathbf{b}_k \Gamma^{k}_{ij} \, dq^i \, dq^j + \frac{1}{2} \hat{\mathbf{n}} \, \Gamma^{3}_{ij} \, dq^i dq^j  + o\left(|d q^i|^2\right) \ , 
 \end{aligned}\end{split}\]</div>
 <p>so that</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
 \left[ \mathbf{r}(q^1 + d q^1, q^2 + d q^2) - \mathbf{r}(q^1, q^2) \right] \cdot \hat{\mathbf{n}}
- &amp; = \Gamma^3_{ij} \, d q^i \, dq^j = \\
- &amp; = \hat{\mathbf{n}} \cdot \frac{\partial^2 \mathbf{r}}{\partial q^i \partial q^j} \, d q^i \, dq^j = \\
- &amp; = \hat{\mathbf{n}} \cdot \frac{\partial^2 \mathbf{r}}{\partial q^i \partial q^j} \, \mathbf{b}^i \cdot \mathbf{b}_k d q^k \, \mathbf{b}^j \cdot \mathbf{b}_l dq^l = \\
- &amp; = \underbrace{d q^k \mathbf{b}_k}_{d \mathbf{r}} \cdot \left[ \left( \hat{\mathbf{n}} \cdot \frac{\partial^2 \mathbf{r}}{\partial q^i \partial q^j} \right) \mathbf{b}^i \otimes \mathbf{b}^j \right] \cdot \underbrace{d q^l \mathbf{b}_l}_{d\mathbf{r}} = \\
- &amp; = d \mathbf{r} \cdot \mathbb{b} \cdot d \mathbf{r} \ ,
+ &amp; = \frac{1}{2} \Gamma^3_{ij} \, d q^i \, dq^j = \\
+ &amp; = \frac{1}{2} \hat{\mathbf{n}} \cdot \frac{\partial^2 \mathbf{r}}{\partial q^i \partial q^j} \, d q^i \, dq^j = \\
+ &amp; = \frac{1}{2} \hat{\mathbf{n}} \cdot \frac{\partial^2 \mathbf{r}}{\partial q^i \partial q^j} \, \mathbf{b}^i \cdot \mathbf{b}_k d q^k \, \mathbf{b}^j \cdot \mathbf{b}_l dq^l = \\
+ &amp; = \frac{1}{2} \underbrace{d q^k \mathbf{b}_k}_{d \mathbf{r}} \cdot \left[ \left( \hat{\mathbf{n}} \cdot \frac{\partial^2 \mathbf{r}}{\partial q^i \partial q^j} \right) \mathbf{b}^i \otimes \mathbf{b}^j \right] \cdot \underbrace{d q^l \mathbf{b}_l}_{d\mathbf{r}} = \\
+ &amp; = \frac{1}{2} d \mathbf{r} \cdot \mathbb{b} \cdot d \mathbf{r} \ ,
 \end{aligned}\end{split}\]</div>
 <p>having defined the <strong>curvature tensor</strong> <span class="math notranslate nohighlight">\(\mathbb{b}\)</span>,</p>
 <div class="math notranslate nohighlight">
@@ -713,18 +714,111 @@ document.write(`
 <span id="differential-geometry-surfaces-geometric-entities-curvature-tensor"></span><h3><span class="section-number">9.2.4.1. </span>Curvature tensor<a class="headerlink" href="#curvature-tensor" title="Permalink to this heading">#</a></h3>
 <p>From the second-order Taylor expansion around a point <span class="math notranslate nohighlight">\(\mathbf{r}(q^1, q^2)\)</span>, the projection of the displacement onto the unit normal vector <span class="math notranslate nohighlight">\(\hat{\mathbf{n}}\)</span> measures the distance from the surface to its tangent plane <span class="math notranslate nohighlight">\(\pi\)</span>:</p>
 <div class="math notranslate nohighlight">
-\[[\mathbf{r}(q^1 + dq^1, q^2 + dq^2) - \mathbf{r}(q^1, q^2)] \cdot \hat{\mathbf{n}} = \Gamma_{ij}^3 dq^i dq^j = b_{ij} dq^i dq^j .\]</div>
+\[[\mathbf{r}(q^1 + dq^1, q^2 + dq^2) - \mathbf{r}(q^1, q^2)] \cdot \hat{\mathbf{n}} = \frac{1}{2} \Gamma_{ij}^3 dq^i dq^j = \frac{1}{2} b_{ij} dq^i dq^j .\]</div>
 <p>The symmetric covariant tensor of rank 2, defined by its components</p>
 <div class="math notranslate nohighlight">
 \[b_{ij} := \Gamma_{ij}^3 = \hat{\mathbf{n}} \cdot \frac{\partial^2 \mathbf{r}}{\partial q^i \partial q^j} = -\frac{\partial \hat{\mathbf{n}}}{\partial q^i} \cdot \mathbf{b}_j ,\]</div>
 <p>is the <strong>second fundamental form</strong> (or curvature tensor) of the surface embedded in <span class="math notranslate nohighlight">\(E^3\)</span>.</p>
-<p>The quadratic form <span class="math notranslate nohighlight">\(b_{ij} dq^i dq^j\)</span> characterizes the local deviation of the surface from the tangent plane <span class="math notranslate nohighlight">\(\pi\)</span>. Using the metric tensor <span class="math notranslate nohighlight">\(g_{ij}\)</span> (the <em>first fundamental form</em>), we can define the mixed curvature tensor <span class="math notranslate nohighlight">\(b^i_j = g^{ik} b_{kj}\)</span> and compute the fundamental intrinsic scalar measures of curvature:</p>
-<ul class="simple">
-<li><p><strong>Mean Curvature (<span class="math notranslate nohighlight">\(H\)</span>):</strong>
-$<span class="math notranslate nohighlight">\(H = \frac{1}{2} b^i_i = \frac{1}{2} g^{ij} b_{ij} = \frac{g_{22}b_{11} - 2g_{12}b_{12} + g_{11}b_{22}}{2(g_{11}g_{22} - g_{12}^2)}\)</span>$</p></li>
-<li><p><strong>Gaussian Curvature (<span class="math notranslate nohighlight">\(K\)</span>):</strong>
-$<span class="math notranslate nohighlight">\(K = \det(b^i_j) = \frac{\det(b_{ij})}{\det(g_{ij})} = \frac{b_{11}b_{22} - b_{12}^2}{g_{11}g_{22} - g_{12}^2}\)</span>$</p></li>
-</ul>
+<p>The quadratic form <span class="math notranslate nohighlight">\(b_{ij} dq^i dq^j\)</span> characterizes the local deviation of the surface from the tangent plane <span class="math notranslate nohighlight">\(\pi\)</span>. Let <span class="math notranslate nohighlight">\(w_n(q^1,q^2) = d \mathbf{r} \cdot \mathbb{b} \cdot d \mathbf{r}\)</span> the normal deviation of the surface w.r.t. the tangent plane, then</p>
+<div class="math notranslate nohighlight">
+\[w_n(q^1,q^2) = b_{ij} dq^{i} dq^{j} \ .\]</div>
+<p>The curvature tensor <span class="math notranslate nohighlight">\(\mathbb{b}\)</span> is a <strong>symmetric</strong> order-2 tensor, locally built on a 2-dimensional vector space. Its <strong>spectral decomposition</strong></p>
+<div class="math notranslate nohighlight">
+\[\mathbb{b} = \kappa_1 \mathbf{v}_1 \otimes \mathbf{v}_1 + \kappa_2 \mathbf{v}_2 \otimes \mathbf{v}_2 \ ,\]</div>
+<p>being <span class="math notranslate nohighlight">\(\kappa_1\)</span>, <span class="math notranslate nohighlight">\(\kappa_2 \in \mathbb{R}\)</span> the real egivenvalues, and <span class="math notranslate nohighlight">\(\mathbf{v}_1\)</span>, <span class="math notranslate nohighlight">\(\mathbf{v}_2\)</span> the unit orthogonal basis defined by the eigenvectors of the eigenvalue problem</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{b} \cdot \mathbf{v}_i = \kappa_i \mathbf{v}_i \ , \qquad i \in \{ 1, 2 \} \ .\]</div>
+<p>The eigenvectors <span class="math notranslate nohighlight">\(\mathbf{v}_{1,2}\)</span> defines the <strong>principal directions</strong>, while the eigenvalues <span class="math notranslate nohighlight">\(\kappa_{1,2}\)</span> are defined as the <strong>principal curvatures</strong>.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Eigenvalue problem<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathbb{b} \cdot \mathbf{v}_{(\alpha)} &amp; = \kappa_{(\alpha)} \mathbf{v}_{(\alpha)} \\
+  \left( b_{ij} \mathbf{b}^i \otimes \mathbf{b}^j \right) \cdot \left( v^l_{(\alpha)} \mathbf{b}_l \right) &amp; = \kappa_{(\alpha)} v^m_{(\alpha)} \mathbf{b}_m \\
+  b_{ij} v^j_{(\alpha)} \mathbf{b}^i &amp; = \kappa_{(\alpha)} v^m_{(\alpha)} \mathbf{b}_m \\
+  g^{im} b_{ij} v^j_{(\alpha)} \mathbf{b}_m &amp; = \kappa_{(\alpha)} v^m_{(\alpha)} \mathbf{b}_m \\
+  b^{m}_{\ \ j} v^j_{(\alpha)} \mathbf{b}_m &amp; = \kappa_{(\alpha)} v^m_{(\alpha)} \mathbf{b}_m \\
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">i.e. in components <span class="math notranslate nohighlight">\(b^{m}_{\ \ j} v^{j}_{(\alpha)} = \kappa_{(\alpha)} v^m_{(\alpha)}\)</span>, or</p>
+<div class="math notranslate nohighlight">
+\[\left( b^{m}_{\ \ j} - \kappa_{(\alpha)} \delta^{m}_{\ \ j}  \right) v^{j}_{(\alpha)} = 0 \ .\]</div>
+<p class="sd-card-text">Even more explicitly, the condition <span class="math notranslate nohighlight">\(\text{det}\left( b^{m}_{\ \ j} - \kappa_{(\alpha)} \delta^{m}_{\ \ j} \right) = 0\)</span> becomes</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}0 = \left| \begin{bmatrix} b^{1}_{\ \ 1} - \kappa_{(\alpha)} &amp; b^{1}_{\ \ 2} \\ b^{2}_{\ \ 1} &amp; b^{2}_{\ \ 2} - \kappa_{(\alpha)} \end{bmatrix} \right| = \kappa_{(\alpha)}^2 - \left( b^{1}_{\ \ 1} + b^{2}_{\ \ 2} \right) \kappa_{(\alpha)} + b^1_{\ \ 1} b^{2}_{\ \ 2} - b^{1}_{\ \ 2} b^{2}_{\ \ 1} = \kappa^2_{(\alpha)} - \text{tr}\{ \mathbf{B} \} \kappa_{(\alpha)} + \text{det}\{ \mathbf{B} \}\  .\end{split}\]</div>
+<p class="sd-card-text">The eigenvalues are</p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+  \kappa_{(\alpha)} 
+  &amp; = \frac{ \text{tr}\left\{ \mathbf{B} \right\} }{2} \mp \sqrt{ \left( \frac{ \text{tr}\left\{ \mathbf{B} \right\} }{2} \right)^2 - \text{det}\{ \mathbf{B} \} } \ .
+\end{aligned}\]</div>
+<p class="sd-card-text">with <span class="math notranslate nohighlight">\(\mathbf{B}\)</span> the matrix collecting the mixed components of the curvature tensor, <span class="math notranslate nohighlight">\([\mathbf{B}]_{ij} = \left[ b^{i}_{\ \ j} \right]\)</span>. It’s easy to prove that</p>
+<div class="math notranslate nohighlight">
+\[\text{tr}\{ \mathbf{B} \} = \kappa_{1} + \kappa_2 \ ,\]</div>
+<p class="sd-card-text">and</p>
+<div class="math notranslate nohighlight">
+\[\text{det}\{ \mathbf{B} \} = \kappa_{1} \cdot \kappa_2 \ .\]</div>
+<p class="sd-card-text"><strong>Remark.</strong> Eigenvalues are real, as</p>
+<p class="sd-card-text">… <strong>todo</strong> <em>check and uncomment</em></p>
+<!--
+$$\begin{aligned}
+  \left( \frac{\text{tr}\{ \mathbf{B} \}}{2} \right)^2 - \text{det}\{ \mathbf{B} \} 
+  & = \frac{\left( b^{1}_{\ \ 1} \right)^2 + 2 b^{1}_{\ \ 1} b^{2}_{\ \ 2} + \left( b^{2}_{\ \ 2} \right)^2 }{4} - \left( b^{1}_{\ \ 1} b^{2}_{\ \ 2} - b^{1}_{\ \ 2} b^{2}_{\ \ 1} \right) = \\
+  & = \frac{\left( b^{1}_{\ \ 1} \right)^2 - 2 b^{1}_{\ \ 1} b^{2}_{\ \ 2} + \left( b^{2}_{\ \ 2} \right)^2 }{4} + b^{1}_{\ \ 2} b^{2}_{\ \ 1} = \\
+  & = \frac{\left( b^{1}_{\ \ 1} - b^{2}_{\ \ 2} \right)^2 }{4} + g^{1 k} b_{k 2} g^{l 2} b_{l 1} = \\
+\end{aligned}$$
+
+with
+
+$$b^{1}_{\ \ 2} = g^{1k} b_{k2} = g^{k1} b_{2k} = b$$
+-->
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Mean curvature<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The mean curvature is defined as the arithmetic average of the principal curvatures, <span class="math notranslate nohighlight">\(H := \frac{1}{2} \left( \kappa_1 + \kappa_2 \right)\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  H 
+  &amp; = \frac{1}{2} \left( \kappa_1 + \kappa_2 \right) = \\
+  &amp; =\frac{ \text{tr} \{ [ b^{i}_{\ \ j} ] \} }{2} = \frac{1}{2} b^{i}_{\ \ i} = \\
+  &amp; = \frac{1}{2} g^{ij} b_{ij} = \frac{1}{2} \left( g^{11} b_{11} + g^{12} b_{12} + g^{21} b_{21} + g^{22} b_{22} \right) = \\
+  &amp; = \frac{1}{2} [ g_{ij} ]^{-1} b_{ij} = \frac{1}{2 \left( g_{11} g_{22} - g_{12}^2 \right)} \left( g_{22} b_{11} - g_{12} b_{12} - g_{21} b_{21} + g_{11} b_{22} \right)
+\end{aligned}\end{split}\]</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Gaussian curvature<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Gaussian curvature is defined as the determinant of <span class="math notranslate nohighlight">\(b^{i}_{\ \ j}\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[K = \text{det} \{ b^{i}_{\ \ j} \} = \dfrac{\text{tr}\{ b_{ij} \}}{\text{tr}\{ g_{ij} \}} \ ,\]</div>
+<p class="sd-card-text">as <span class="math notranslate nohighlight">\(b_{ij} = g_{il} b^{l}_{\ \ j}\)</span>.</p>
+</div>
+</details><!--
+
+Using the metric tensor $g_{ij}$ (the *first fundamental form*), we can define the mixed curvature tensor $b^i_j = g^{ik} b_{kj}$ and compute the fundamental intrinsic scalar measures of curvature:
+
+* **Mean Curvature ($H$):**
+
+  $$H = \frac{1}{2} b^i_i = \frac{1}{2} g^{ij} b_{ij} = \frac{g_{22}b_{11} - 2g_{12}b_{12} + g_{11}b_{22}}{2(g_{11}g_{22} - g_{12}^2)}$$
+
+* **Gaussian Curvature ($K$):**
+
+  $$K = \det(b^i_j) = \frac{\det(b_{ij})}{\det(g_{ij})} = \frac{b_{11}b_{22} - b_{12}^2}{g_{11}g_{22} - g_{12}^2}$$
+
+-->
 <div class="section" id="principal-curvatures-and-directions">
 <span id="differential-geometry-surfaces-geometric-entities-curvature-tensor-principal"></span><h4><span class="section-number">9.2.4.1.1. </span>Principal Curvatures and Directions<a class="headerlink" href="#principal-curvatures-and-directions" title="Permalink to this heading">#</a></h4>
 <p>The extreme values of the normal curvature <span class="math notranslate nohighlight">\(\kappa_n = \frac{b_{ij}dq^i dq^j}{g_{ij}dq^i dq^j}\)</span> are the <strong>principal curvatures</strong> <span class="math notranslate nohighlight">\(\kappa_1\)</span> and <span class="math notranslate nohighlight">\(\kappa_2\)</span>, which are the eigenvalues of the tensor <span class="math notranslate nohighlight">\(b^i_j\)</span>:</p>
@@ -783,11 +877,11 @@ $<span class="math notranslate nohighlight">\(K = \det(b^i_j) = \frac{\det(b_{ij
       </div>
     </a>
     <a class="right-next"
-       href="../tensor-algebra-calculus/algebra.html"
+       href="curvature.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">10. </span>Tensor Algebra</p>
+        <p class="prev-next-title"><span class="section-number">9.3. </span>Manifold curvature</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
