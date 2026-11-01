@@ -69,19 +69,19 @@ $$\begin{aligned}
 
 $$\begin{aligned}
   \mathbf{r}(q^1 + d q^1, q^2 + d q^2) 
-  & = \mathbf{r}(q_1, q_2) + \frac{\partial \mathbf{r}}{\partial q^i} \, dq^i + \frac{\partial^2 \mathbf{r}}{\partial q^i \partial q^j} \, dq^i dq^j + o\left(|d q^i|^2\right) = \\
-  & = \mathbf{r}(q_1, q_2) + \mathbf{b}_{i} \, dq^i + \mathbf{b}_k \Gamma^{k}_{ij} \, dq^i \, dq^j +  \hat{\mathbf{n}} \, \Gamma^{3}_{ij} \, dq^i dq^j  + o\left(|d q^i|^2\right) \ , 
+  & = \mathbf{r}(q_1, q_2) + \frac{\partial \mathbf{r}}{\partial q^i} \, dq^i + \frac{1}{2} \frac{\partial^2 \mathbf{r}}{\partial q^i \partial q^j} \, dq^i dq^j + o\left(|d q^i|^2\right) = \\
+  & = \mathbf{r}(q_1, q_2) + \mathbf{b}_{i} \, dq^i + \frac{1}{2} \mathbf{b}_k \Gamma^{k}_{ij} \, dq^i \, dq^j + \frac{1}{2} \hat{\mathbf{n}} \, \Gamma^{3}_{ij} \, dq^i dq^j  + o\left(|d q^i|^2\right) \ , 
 \end{aligned}$$
 
 so that
 
 $$\begin{aligned}
 \left[ \mathbf{r}(q^1 + d q^1, q^2 + d q^2) - \mathbf{r}(q^1, q^2) \right] \cdot \hat{\mathbf{n}}
- & = \Gamma^3_{ij} \, d q^i \, dq^j = \\
- & = \hat{\mathbf{n}} \cdot \frac{\partial^2 \mathbf{r}}{\partial q^i \partial q^j} \, d q^i \, dq^j = \\
- & = \hat{\mathbf{n}} \cdot \frac{\partial^2 \mathbf{r}}{\partial q^i \partial q^j} \, \mathbf{b}^i \cdot \mathbf{b}_k d q^k \, \mathbf{b}^j \cdot \mathbf{b}_l dq^l = \\
- & = \underbrace{d q^k \mathbf{b}_k}_{d \mathbf{r}} \cdot \left[ \left( \hat{\mathbf{n}} \cdot \frac{\partial^2 \mathbf{r}}{\partial q^i \partial q^j} \right) \mathbf{b}^i \otimes \mathbf{b}^j \right] \cdot \underbrace{d q^l \mathbf{b}_l}_{d\mathbf{r}} = \\
- & = d \mathbf{r} \cdot \mathbb{b} \cdot d \mathbf{r} \ ,
+ & = \frac{1}{2} \Gamma^3_{ij} \, d q^i \, dq^j = \\
+ & = \frac{1}{2} \hat{\mathbf{n}} \cdot \frac{\partial^2 \mathbf{r}}{\partial q^i \partial q^j} \, d q^i \, dq^j = \\
+ & = \frac{1}{2} \hat{\mathbf{n}} \cdot \frac{\partial^2 \mathbf{r}}{\partial q^i \partial q^j} \, \mathbf{b}^i \cdot \mathbf{b}_k d q^k \, \mathbf{b}^j \cdot \mathbf{b}_l dq^l = \\
+ & = \frac{1}{2} \underbrace{d q^k \mathbf{b}_k}_{d \mathbf{r}} \cdot \left[ \left( \hat{\mathbf{n}} \cdot \frac{\partial^2 \mathbf{r}}{\partial q^i \partial q^j} \right) \mathbf{b}^i \otimes \mathbf{b}^j \right] \cdot \underbrace{d q^l \mathbf{b}_l}_{d\mathbf{r}} = \\
+ & = \frac{1}{2} d \mathbf{r} \cdot \mathbb{b} \cdot d \mathbf{r} \ ,
 \end{aligned}$$
 
 having defined the **curvature tensor** $\mathbb{b}$,
@@ -93,7 +93,7 @@ $$\mathbb{b} = b_{ij} \mathbf{b}^i \otimes \mathbf{b}^j = \left( \hat{\mathbf{n}
 
 From the second-order Taylor expansion around a point $\mathbf{r}(q^1, q^2)$, the projection of the displacement onto the unit normal vector $\hat{\mathbf{n}}$ measures the distance from the surface to its tangent plane $\pi$:
 
-$$[\mathbf{r}(q^1 + dq^1, q^2 + dq^2) - \mathbf{r}(q^1, q^2)] \cdot \hat{\mathbf{n}} = \Gamma_{ij}^3 dq^i dq^j = b_{ij} dq^i dq^j .$$
+$$[\mathbf{r}(q^1 + dq^1, q^2 + dq^2) - \mathbf{r}(q^1, q^2)] \cdot \hat{\mathbf{n}} = \frac{1}{2} \Gamma_{ij}^3 dq^i dq^j = \frac{1}{2} b_{ij} dq^i dq^j .$$
 
 The symmetric covariant tensor of rank 2, defined by its components
 
@@ -101,13 +101,114 @@ $$b_{ij} := \Gamma_{ij}^3 = \hat{\mathbf{n}} \cdot \frac{\partial^2 \mathbf{r}}{
 
 is the **second fundamental form** (or curvature tensor) of the surface embedded in $E^3$.
 
-The quadratic form $b_{ij} dq^i dq^j$ characterizes the local deviation of the surface from the tangent plane $\pi$. Using the metric tensor $g_{ij}$ (the *first fundamental form*), we can define the mixed curvature tensor $b^i_j = g^{ik} b_{kj}$ and compute the fundamental intrinsic scalar measures of curvature:
+The quadratic form $b_{ij} dq^i dq^j$ characterizes the local deviation of the surface from the tangent plane $\pi$. Let $w_n(q^1,q^2) = d \mathbf{r} \cdot \mathbb{b} \cdot d \mathbf{r}$ the normal deviation of the surface w.r.t. the tangent plane, then
+
+$$w_n(q^1,q^2) = b_{ij} dq^{i} dq^{j} \ .$$
+
+The curvature tensor $\mathbb{b}$ is a **symmetric** order-2 tensor, locally built on a 2-dimensional vector space. Its **spectral decomposition** 
+
+$$\mathbb{b} = \kappa_1 \mathbf{v}_1 \otimes \mathbf{v}_1 + \kappa_2 \mathbf{v}_2 \otimes \mathbf{v}_2 \ ,$$
+
+being $\kappa_1$, $\kappa_2 \in \mathbb{R}$ the real egivenvalues, and $\mathbf{v}_1$, $\mathbf{v}_2$ the unit orthogonal basis defined by the eigenvectors of the eigenvalue problem
+
+$$\mathbb{b} \cdot \mathbf{v}_i = \kappa_i \mathbf{v}_i \ , \qquad i \in \{ 1, 2 \} \ .$$
+
+The eigenvectors $\mathbf{v}_{1,2}$ defines the **principal directions**, while the eigenvalues $\kappa_{1,2}$ are defined as the **principal curvatures**.
+
+```{dropdown} Eigenvalue problem
+:open:
+
+$$\begin{aligned}
+  \mathbb{b} \cdot \mathbf{v}_{(\alpha)} & = \kappa_{(\alpha)} \mathbf{v}_{(\alpha)} \\
+  \left( b_{ij} \mathbf{b}^i \otimes \mathbf{b}^j \right) \cdot \left( v^l_{(\alpha)} \mathbf{b}_l \right) & = \kappa_{(\alpha)} v^m_{(\alpha)} \mathbf{b}_m \\
+  b_{ij} v^j_{(\alpha)} \mathbf{b}^i & = \kappa_{(\alpha)} v^m_{(\alpha)} \mathbf{b}_m \\
+  g^{im} b_{ij} v^j_{(\alpha)} \mathbf{b}_m & = \kappa_{(\alpha)} v^m_{(\alpha)} \mathbf{b}_m \\
+  b^{m}_{\ \ j} v^j_{(\alpha)} \mathbf{b}_m & = \kappa_{(\alpha)} v^m_{(\alpha)} \mathbf{b}_m \\
+\end{aligned}$$
+
+i.e. in components $b^{m}_{\ \ j} v^{j}_{(\alpha)} = \kappa_{(\alpha)} v^m_{(\alpha)}$, or
+
+$$\left( b^{m}_{\ \ j} - \kappa_{(\alpha)} \delta^{m}_{\ \ j}  \right) v^{j}_{(\alpha)} = 0 \ .$$
+
+Even more explicitly, the condition $\text{det}\left( b^{m}_{\ \ j} - \kappa_{(\alpha)} \delta^{m}_{\ \ j} \right) = 0$ becomes
+
+$$0 = \left| \begin{bmatrix} b^{1}_{\ \ 1} - \kappa_{(\alpha)} & b^{1}_{\ \ 2} \\ b^{2}_{\ \ 1} & b^{2}_{\ \ 2} - \kappa_{(\alpha)} \end{bmatrix} \right| = \kappa_{(\alpha)}^2 - \left( b^{1}_{\ \ 1} + b^{2}_{\ \ 2} \right) \kappa_{(\alpha)} + b^1_{\ \ 1} b^{2}_{\ \ 2} - b^{1}_{\ \ 2} b^{2}_{\ \ 1} = \kappa^2_{(\alpha)} - \text{tr}\{ \mathbf{B} \} \kappa_{(\alpha)} + \text{det}\{ \mathbf{B} \}\  .$$
+
+The eigenvalues are
+
+$$\begin{aligned}
+  \kappa_{(\alpha)} 
+  & = \frac{ \text{tr}\left\{ \mathbf{B} \right\} }{2} \mp \sqrt{ \left( \frac{ \text{tr}\left\{ \mathbf{B} \right\} }{2} \right)^2 - \text{det}\{ \mathbf{B} \} } \ .
+\end{aligned}$$
+
+with $\mathbf{B}$ the matrix collecting the mixed components of the curvature tensor, $[\mathbf{B}]_{ij} = \left[ b^{i}_{\ \ j} \right]$. It's easy to prove that
+
+$$\text{tr}\{ \mathbf{B} \} = \kappa_{1} + \kappa_2 \ ,$$
+
+and 
+
+$$\text{det}\{ \mathbf{B} \} = \kappa_{1} \cdot \kappa_2 \ .$$
+
+**Remark.** Eigenvalues are real, as
+
+... **todo** *check and uncomment*
+
+<!--
+$$\begin{aligned}
+  \left( \frac{\text{tr}\{ \mathbf{B} \}}{2} \right)^2 - \text{det}\{ \mathbf{B} \} 
+  & = \frac{\left( b^{1}_{\ \ 1} \right)^2 + 2 b^{1}_{\ \ 1} b^{2}_{\ \ 2} + \left( b^{2}_{\ \ 2} \right)^2 }{4} - \left( b^{1}_{\ \ 1} b^{2}_{\ \ 2} - b^{1}_{\ \ 2} b^{2}_{\ \ 1} \right) = \\
+  & = \frac{\left( b^{1}_{\ \ 1} \right)^2 - 2 b^{1}_{\ \ 1} b^{2}_{\ \ 2} + \left( b^{2}_{\ \ 2} \right)^2 }{4} + b^{1}_{\ \ 2} b^{2}_{\ \ 1} = \\
+  & = \frac{\left( b^{1}_{\ \ 1} - b^{2}_{\ \ 2} \right)^2 }{4} + g^{1 k} b_{k 2} g^{l 2} b_{l 1} = \\
+\end{aligned}$$
+
+with
+
+$$b^{1}_{\ \ 2} = g^{1k} b_{k2} = g^{k1} b_{2k} = b$$
+-->
+
+```
+
+```{dropdown} Mean curvature
+:open:
+
+The mean curvature is defined as the arithmetic average of the principal curvatures, $H := \frac{1}{2} \left( \kappa_1 + \kappa_2 \right)$.
+
+$$\begin{aligned}
+  H 
+  & = \frac{1}{2} \left( \kappa_1 + \kappa_2 \right) = \\
+  & =\frac{ \text{tr} \{ [ b^{i}_{\ \ j} ] \} }{2} = \frac{1}{2} b^{i}_{\ \ i} = \\
+  & = \frac{1}{2} g^{ij} b_{ij} = \frac{1}{2} \left( g^{11} b_{11} + g^{12} b_{12} + g^{21} b_{21} + g^{22} b_{22} \right) = \\
+  & = \frac{1}{2} [ g_{ij} ]^{-1} b_{ij} = \frac{1}{2 \left( g_{11} g_{22} - g_{12}^2 \right)} \left( g_{22} b_{11} - g_{12} b_{12} - g_{21} b_{21} + g_{11} b_{22} \right)
+\end{aligned}$$
+
+```
+
+```{dropdown} Gaussian curvature
+:open:
+
+Gaussian curvature is defined as the determinant of $b^{i}_{\ \ j}$,
+
+$$K = \text{det} \{ b^{i}_{\ \ j} \} = \dfrac{\text{tr}\{ b_{ij} \}}{\text{tr}\{ g_{ij} \}} \ ,$$
+
+as $b_{ij} = g_{il} b^{l}_{\ \ j}$.
+
+
+```
+
+<!--
+
+Using the metric tensor $g_{ij}$ (the *first fundamental form*), we can define the mixed curvature tensor $b^i_j = g^{ik} b_{kj}$ and compute the fundamental intrinsic scalar measures of curvature:
 
 * **Mean Curvature ($H$):**
+
   $$H = \frac{1}{2} b^i_i = \frac{1}{2} g^{ij} b_{ij} = \frac{g_{22}b_{11} - 2g_{12}b_{12} + g_{11}b_{22}}{2(g_{11}g_{22} - g_{12}^2)}$$
 
 * **Gaussian Curvature ($K$):**
+
   $$K = \det(b^i_j) = \frac{\det(b_{ij})}{\det(g_{ij})} = \frac{b_{11}b_{22} - b_{12}^2}{g_{11}g_{22} - g_{12}^2}$$
+
+-->
+
 
 (differential-geometry:surfaces:geometric-entities:curvature-tensor:principal)=
 #### Principal Curvatures and Directions
