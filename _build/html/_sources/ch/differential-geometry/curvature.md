@@ -3,7 +3,7 @@
 
 This section is devoted to curvature, and its different descriptions:
 * [**Extrinsic curvature**](differential-geometry:curvature:extrinsic), i.e. the description of the curvature of a $n$-manifold embedded in a $n+1$-space, as it's usually done in the description of [2-dimensional surfaces in the 3-dimensional Euclidean space](differential-geometry:surfaces).
-* [**Intrinsic curvature**](differential-geometry:curvature:intrinsic), i.e. the description of a curvature of a $n$-manifold without the need for an embedding in a higher-dimensional space. This approach exploits the concepts of parallel transport, that - when applied to a vector field on a closed loop, see [Parallel transport around a closed loop and the Riemann tensor](differential-geometry:curvature:intrinsic:riemann-curvature-tensor:riemann-tensor) - provides the definition of Riemann tensor, {prf:ref}`def-differential-geometry-riemann-tensor`.
+* [**Intrinsic curvature**](differential-geometry:curvature:intrinsic), i.e. the description of a curvature of a $n$-manifold without the need for an embedding in a higher-dimensional space. This approach exploits the concepts of parallel transport, that - when applied to a vector field on a closed loop, see [Parallel transport around a closed loop and the Riemann tensor](differential-geometry:curvature:intrinsic:riemann-curvature-tensor:riemann-tensor) - provides the definition of Riemann tensor, {prf:ref}`def-differential-geometry-riemann-tensor`. This is the common approach to [Einstein General Relativity](https://basics2022.github.io/bbooks-physics-modern/ch/relativity-general/intro.html): spacetime is a 4-dimensional manifold, and it's not embedded in a 5-dimensional space in the original formulation of GR theory.
 
 (differential-geometry:curvature:extrinsic)=
 ## Extrinsic curvature
@@ -533,6 +533,166 @@ $$\partial_2 \Gamma_{11}^2 = \sin^2 q^2 - \cos^2 q^2 \ .$$
 
 ```
 
+```{dropdown} Parallel transport along a meridian, $\ \theta = \text{const.}$, i.e. $\ q^1 = \text{const.}$
+:open:
+
+A meridian can be parametrized with $q^2 = \phi$ as a parameter, as the coordinate $q^1 = \theta$ is constant, and thus $dq^1 = 0$. The parallel transport of the vector field thus becomes a system of 2 equations in 2 unknowns $v^1(q^2)$, $v^2(q^2)$, namely
+
+$$\left\{\begin{aligned}
+ d_2 v^1 & = - \Gamma_{12}^1 v^1 - \Gamma_{22}^1 v^2 = - \text{cot}\left( q^2 \right) v^1( q^2 ) \\
+ d_2 v^2 & = - \Gamma_{12}^2 v^1 - \Gamma_{22}^2 v^2 = 0 \\
+\end{aligned}\right.$$
+
+Thus the solution reads
+
+$$\left\{ \begin{aligned}
+  v^1( \phi ) & = v^1_0 \frac{\sin \phi_0}{\sin \phi} \\
+  v^2( \phi ) & = v^2_0 \\
+\end{aligned} \right.$$
+
+**Details.** Thus $v_2\left( q^2 \right) = \overline{v^2}$, and $v^1$ can be evaluated with **separation of variables**,
+
+$$\begin{aligned}
+  \int_{v_1}^{v_2} \frac{d v}{v} & = - \int_{x_1}^{x_2} \text{cot}(x) \, dx \\
+  \left.\ln \left( v \right)\right|_{v_1}^{v_2} & = - \left.\ln \left( \sin \phi \right)\right|_{\phi_1}^{\phi_2} \\
+  \frac{v_2}{v_1} & = \frac{ \sin \phi_1 }{ \sin \phi_2 } \\
+  v_2 \sin \phi_2 & = v_1 \sin \phi_1 \ .
+\end{aligned}$$
+
+being 
+
+$$\int \text{cot}(x) dx = \int \frac{\cos x}{\sin x} dx = \int \frac{d \sin x}{\sin x} = \ln \left( \sin x \right) \ .$$
+
+**Remark.** The first equation of the system can be written as $v'(x) = - \frac{\cos(x)}{\sin(x)} v(x)$, or
+
+$$0 = v'(x) \sin(x) + v(x) \cos(x) = \tfrac{d}{dx} \left( v(x) \sin(x) \right)\ .$$
+
+<!--
+A meridian can be parametrized with $q^2 = \phi$ as a parameter, as the coordinate $q^1 = \theta$ is constant, and thus $dq^1 = 0$. The integral of the parallel transport of the vector $\mathbf{v}$ on a meridian is
+
+$$\begin{aligned}
+  \Delta v^\nu = \int_{q^2 = \phi_1}^{\phi_2} d q^2 \left\{ \partial_2 v^\nu \right\}_{||} 
+  & = - \int_{q^2 = \phi_1}^{\phi_2} \Gamma_{\xi 2}^{\nu} v^{\xi} d q^2 \ ,
+\end{aligned}$$
+
+having used {eq}`eq:differential-geometry:curvature:parallel-transport:component-increment` to write $\left\{ \partial_\mu v^\nu \right\}_{||} = - \Gamma_{\xi \mu}^{\nu} v^{\xi} $.
+
+Thus the two components of the parallel transport are
+
+$$\begin{aligned}
+  \Delta v^1 
+  & = - \int_{q^2 = \phi_1}^{\phi_2} \Gamma_{\xi 2}^{1} v^{\xi} d q^2 = \\
+  & = - \int_{q^2 = \phi_1}^{\phi_2} \Gamma_{1 2}^{1} v^{1} d q^2 \\
+  \Delta v^2 & = - \int_{q^2 = \phi_1}^{\phi_2} \Gamma_{\xi 2}^{2} v^{\xi} d q^2 = 0 \\
+\end{aligned}$$
+-->
+
+
+```
+
+```{dropdown} Parallel transport along a parallel, $\ \phi = \text{const.}$, i.e. $\ q^2 = \text{const.}$
+:open:
+
+A parallel can be parametrized with $q^1 = \theta$ as a parameter, as the coordinate $q^2 = \overline{\phi}$ is constant, and thus $dq^2 = 0$. The parallel transport of the vector field thus becomes a system of 2 equations in 2 unknowns $v^1(q^1)$, $v^2(q^1)$, namely
+
+$$\left\{\begin{aligned}
+ d_1 v^1 (q^1) & = - \Gamma_{11}^1 v^1 - \Gamma_{21}^1 v^2 = - \text{cot}\left( q^2 \right) v^2 (q^1) \\
+ d_1 v^2 (q^1) & = - \Gamma_{11}^2 v^1 - \Gamma_{21}^2 v^2 =   \sin\left( q^2 \right) \cos\left( q^2 \right) \, v^1  (q^1) \\
+\end{aligned}\right.$$
+
+As $q^2 = \overline{\phi}$ is constant, 
+
+$$\left\{ \begin{aligned}
+  v^1( \theta ) & = v_1 \frac{\sin \phi_1}{\sin \phi} \\
+  v^2( \theta ) & = 0 \\
+\end{aligned} \right.$$
+
+**Details.**
+
+$$\left\{ \begin{aligned}
+  \frac{d v^{1}}{d \theta} (\theta) & = - \frac{\cos(\phi)}{\sin(\phi)} \, v^2(\theta) \\
+  \frac{d v^{2}}{d \theta} (\theta) & =   \sin(\phi) \cos(\phi) \, v^1(\theta) \\
+\end{aligned} \right.$$
+
+Taking the derivative $\frac{d}{d\theta}$ of the first equation, and replacing $\frac{d v^2}{d \theta}$ with the second equation, 
+
+$$\begin{aligned}
+ 0
+ & = \left( v^1 \right)'' + \frac{\cos(\phi)}{\sin(\phi)} \sin(\phi) \cos(\phi) \, v^1(\theta) = \\
+ & = \left( v^1 \right)''(\theta) + \cos^2(\phi) \, v^1(\theta) \ ,
+\end{aligned}$$
+
+and thus 
+
+* if $\cos(\phi) \ne 0$
+
+   $$\left\{ \begin{aligned}
+     v^1(\theta) & = A \cos\left( \cos(\phi) \theta\right) + B \sin\left( \cos(\phi) \theta\right) \\
+     v^2(\theta) & = - \frac{\sin(\phi)}{\cos(\phi)} \left[ - A \cos(\phi) \sin\left( \cos(\phi) \theta\right) + B \cos(\phi) \cos\left( \cos(\phi) \theta\right) \right] \\
+                 & = A \sin(\phi) \sin\left( \cos(\phi) \theta\right) - B \sin(\phi) \cos\left( \cos(\phi) \theta\right) \\
+   \end{aligned} \right.$$
+
+   Choosing the reference of $\theta$, to be $\theta = 0$ at the beginning of the path, then the initial conditions simplify to
+
+   $$\left\{ \begin{aligned}
+     v^1_0 & = A \\
+     v^2_0 & = - \sin(\phi) B \ ,
+   \end{aligned} \right.
+   \quad \rightarrow \quad
+   \left\{ \begin{aligned} A & = v^1_0 \\ B & = - \frac{v^2_0}{\sin \phi} \end{aligned} \right.$$
+
+* if $\cos(\phi) = 0$, then $v^1(\theta) = v^1_0$, $v^2(\theta) = v^2_0$ constant. 
+
+```
+
+```{dropdown} Parallel transport from the equator to the pole and back
+:open:
+
+Let a vector $\mathbf{v}$ on the equator and parallel to the local meridian, i.e. $\mathbf{v} = v^\phi \mathbf{b}_2$ in $(\theta, \phi) = \left( 0, \frac{\pi}{2} \right)$.
+
+**1. Parallel transport along the equator, $\phi = \frac{\pi}{2}$, $\theta$ from $0$ to $\overline{\theta}$.** The equator is described by the coordinate $\phi = \frac{\pi}{2}$, and thus $\cos \phi = 0$. The solution of the parallel transport equation on the equator gives constant $v^1(\theta)$ and $v^2(\theta)$. Thus,
+
+   $$v^1\left(\overline{\theta}\right) = 0 \quad , \quad v^2\left(\overline{\theta}\right) = v^\phi \ .$$
+
+**2. Parallel transport along the meridian, $\theta = \overline{\theta}$, $\phi$ from $\frac{\pi}{2}$ to $\delta \phi$.**
+   
+   $$v^1\left( 0 \right) = 0 \quad , \quad v^2\left(\overline{\theta}\right) = v^\phi \ .$$
+
+**3.** *Parallel transport along a small circle around the pole to avoid singularity.*
+
+   $$\left\{ \begin{aligned}
+     v^1(\theta)
+     & = v^1_0 \cos\left( \cos(\phi) \theta\right) - \frac{v^2_0}{\sin \phi} \sin\left( \cos(\phi) \theta\right) = \\
+     & = - \frac{v^\phi}{\sin \delta \phi} \sin\left( \cos(\delta \phi) \theta\right) \\
+     v^2(\theta)
+     & = v^1_0 \sin(\phi) \sin\left( \cos(\phi) \theta\right) + v^2_0 \cos\left( \cos(\phi) \theta\right) = \\
+     & = v^\phi \cos\left( \cos(\delta \phi) \theta\right) 
+   \end{aligned} \right.$$
+
+   *The final values are* $v^1 = \frac{v^\phi}{\sin \delta \phi} \sin( \cos(\delta \phi) \theta )$, $v^2 = v^\phi \cos( \cos(\delta \phi) \theta )$. *Exchanging the reference value for $\theta$ should be enough.* **todo** *check!*
+
+**4. Parallel transport along the meridian, $\theta = 0$, $\phi$ from $\delta \phi$ to $\frac{\pi}{2}$.**
+   
+   $$\begin{aligned}
+     v^1\left( 0 \right) 
+     & = \frac{\sin(\delta \phi)}{\sin( \pi / 2)} \frac{v^\phi}{\sin \delta \phi} \sin( \cos(\delta \phi) \theta ) = \\
+     & = v^\phi \sin( \cos(\delta \phi) \theta ) \\
+     & \rightarrow v^\phi \sin( \theta ) \quad \text{for $\delta \phi \rightarrow 0$} \\
+     v^2\left( 0 \right)
+     & = v^\phi \cos( \cos(\delta \phi) \theta ) \\
+     & \rightarrow v^{\phi} \cos( \theta ) \quad \text{for $\delta \phi \rightarrow 0$} \ .
+   \end{aligned}$$
+
+**Result.** The final vector after the parallel transport over the closed path is the initial vector rotated by the angle $\theta$.
+
+<!--
+
+$$\left\{ \begin{aligned}
+  v^1( \phi ) & = v^1_0 \frac{\sin \phi_0}{\sin \phi} \\
+  v^2( \phi ) & = v^2_0 \\
+\end{aligned} \right.$$
+
+-->
 
 
 ````
