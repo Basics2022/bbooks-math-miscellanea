@@ -645,6 +645,11 @@ document.write(`
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="curvature">
 <span id="differential-geometry-curvature"></span><h1><span class="section-number">9.3. </span>Curvature<a class="headerlink" href="#curvature" title="Permalink to this heading">#</a></h1>
+<p>This section is devoted to curvature, and its different descriptions:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#differential-geometry-curvature-extrinsic"><span class="std std-ref"><strong>Extrinsic curvature</strong></span></a>, i.e. the description of the curvature of a <span class="math notranslate nohighlight">\(n\)</span>-manifold embedded in a <span class="math notranslate nohighlight">\(n+1\)</span>-space, as it’s usually done in the description of <a class="reference internal" href="surfaces.html#differential-geometry-surfaces"><span class="std std-ref">2-dimensional surfaces in the 3-dimensional Euclidean space</span></a>.</p></li>
+<li><p><a class="reference internal" href="#differential-geometry-curvature-intrinsic"><span class="std std-ref"><strong>Intrinsic curvature</strong></span></a>, i.e. the description of a curvature of a <span class="math notranslate nohighlight">\(n\)</span>-manifold without the need for an embedding in a higher-dimensional space. This approach exploits the concepts of parallel transport, that - when applied to a vector field on a closed loop, see <a class="reference internal" href="#differential-geometry-curvature-intrinsic-riemann-curvature-tensor-riemann-tensor"><span class="std std-ref">Parallel transport around a closed loop and the Riemann tensor</span></a> - provides the definition of Riemann tensor, <a class="reference internal" href="#def-differential-geometry-riemann-tensor">Definition 9.4</a>.</p></li>
+</ul>
 <div class="section" id="extrinsic-curvature">
 <span id="differential-geometry-curvature-extrinsic"></span><h2><span class="section-number">9.3.1. </span>Extrinsic curvature<a class="headerlink" href="#extrinsic-curvature" title="Permalink to this heading">#</a></h2>
 <p>Extrinsic curvature of a <span class="math notranslate nohighlight">\(n\)</span>-dimensional manifold needs the manifold to be embedded in a <span class="math notranslate nohighlight">\(n+1\)</span>-dimensional space.</p>
@@ -717,7 +722,7 @@ $$0 = \partial_i | \hat{\mathbf{n}} |^2 = 2 \hat{\mathbf{n}} \cdot \partial_i \h
 <p>The definition of the vector field <span class="math notranslate nohighlight">\(X\)</span> as a differential operator can be recast as the scalar product of the vector field <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> and the gradient of the function <span class="math notranslate nohighlight">\(f\)</span>,</p>
 <div class="math notranslate nohighlight">
 \[\nabla_{X} f = \mathbf{X} \cdot \nabla f \ .\]</div>
-<p>The directional derivative of the function <span class="math notranslate nohighlight">\(f\)</span> along a curve <span class="math notranslate nohighlight">\(\gamma\)</span> with element <span class="math notranslate nohighlight">\(d \mathbf{r}\)</span> is <span class="math notranslate nohighlight">\(d \mathbf{r} \cdot \nabla f\)</span>. So, for a scalar field <span class="math notranslate nohighlight">\(f\)</span>,</p>
+<p>The <strong>directional derivative</strong> of the function <span class="math notranslate nohighlight">\(f\)</span> along a curve <span class="math notranslate nohighlight">\(\gamma\)</span> with element <span class="math notranslate nohighlight">\(d \mathbf{r}\)</span> is <span class="math notranslate nohighlight">\(d \mathbf{r} \cdot \nabla f\)</span>. So, for a scalar field <span class="math notranslate nohighlight">\(f\)</span>,</p>
 <div class="math notranslate nohighlight">
 \[\begin{aligned}
       d\mathbf{r} \cdot \nabla f
@@ -865,27 +870,34 @@ Details<div class="sd-summary-down docutils">
 \[\begin{split}\begin{aligned}
   (A - B)^\nu
   &amp; = \underbrace{ - X^\alpha \partial_\alpha Y^\mu \Gamma^\nu_{\mu\xi} v^\xi }_{ i_{[X,Y],2} }  - \underbrace{X^\alpha Y^\beta \Gamma^\mu_{\alpha\beta}  \Gamma^\nu_{\mu\xi} v^\xi }_{ 1 } + \underbrace{ Y^\alpha \partial_\alpha X^\mu \Gamma^\nu_{\mu\xi} v^\xi }_{ i_{[X,Y],1} } + \underbrace{ X^\alpha Y^\beta  \Gamma^\mu_{\beta\alpha} \Gamma^\nu_{\mu\xi} v^\xi }_{ 1 } + \\
-  &amp; + \underbrace{ \left(  X^\alpha \partial_\alpha Y^{\mu} - Y^\alpha \partial_\alpha X^{\mu} \right) \Gamma^{\nu}_{\mu \xi} v^\xi }_{ i_{[X,Y]} } + \\ 
-  &amp; + X^\alpha Y^\beta \Gamma^\nu_{\beta\eta} \Gamma^\eta_{\alpha\xi} v^\xi - X^\alpha Y^\beta \Gamma^\nu_{\alpha\eta} \Gamma^\eta_{\beta\xi} v^\xi - X^\alpha Y^\beta \partial_\alpha \Gamma^\nu_{\beta \xi} v^\xi + X^\alpha Y^\beta \partial_\beta \Gamma^\nu_{\alpha\xi} v^\xi + \text{higher order terms} = \\ 
+  &amp; \quad \ + \underbrace{ \left(  X^\alpha \partial_\alpha Y^{\mu} - Y^\alpha \partial_\alpha X^{\mu} \right) \Gamma^{\nu}_{\mu \xi} v^\xi }_{ i_{[X,Y]} } + \\ 
+  &amp; \quad \ + X^\alpha Y^\beta \Gamma^\nu_{\beta\eta} \Gamma^\eta_{\alpha\xi} v^\xi - X^\alpha Y^\beta \Gamma^\nu_{\alpha\eta} \Gamma^\eta_{\beta\xi} v^\xi - X^\alpha Y^\beta \partial_\alpha \Gamma^\nu_{\beta \xi} v^\xi + X^\alpha Y^\beta \partial_\beta \Gamma^\nu_{\alpha\xi} v^\xi + \text{higher order terms} = \\ 
   &amp; \sim - \left[ \partial_{\alpha} \Gamma^{\nu}_{\beta \xi} - \partial_{\beta} \Gamma^{\nu}_{\alpha \xi} + \Gamma_{\alpha \eta}^{\nu} \Gamma_{\beta \xi}^{\eta} - \Gamma_{\beta \eta}^{\nu} \Gamma_{\alpha \xi}^{\eta} \right] X^{\alpha} Y^{\beta} v^{\xi} = \\
   &amp; = - R^{\nu}_{\ \ \alpha \beta \xi} X^\alpha Y^\beta v^\xi \ ,
 \end{aligned}\end{split}\]</div>
-<p>having introduced the definition of the <strong>Riemann tensor</strong>,</p>
+<p>having introduced the definition of the <strong>Riemann tensor</strong>, <span class="math notranslate nohighlight">\(R^{\nu}_{\ \ \alpha \beta \xi}\)</span>.</p>
+<div class="proof definition admonition" id="def-differential-geometry-riemann-tensor">
+<p class="admonition-title"><span class="caption-number">Definition 9.4 </span> (Riemann tensor)</p>
+<div class="definition-content section" id="proof-content">
 <div class="math notranslate nohighlight">
-\[R^{\nu}_{\ \ \alpha \beta \xi} := \partial_{\alpha} \Gamma^{\nu}_{\beta \xi} - \partial_{\beta} \Gamma^{\nu}_{\alpha \xi} + \Gamma_{\alpha \eta}^{\nu} \Gamma_{\beta \xi}^{\eta} - \Gamma_{\beta \eta}^{\nu} \Gamma_{\alpha \xi}^{\eta} \]</div>
-<p><strong>Remark.</strong> The contribution of the Lie bracket, required to close the loop, annihilates with other two terms.</p>
-<p><strong>Remark.</strong> Exploiting the anti-symmetry of the Riemann tensor, <span class="math notranslate nohighlight">\(R^{\nu}_{\ \ \alpha \beta \xi} = - R^{\nu}_{\ \ \beta \alpha \xi}\)</span>, it’s possible to recast the expression of the parallel transport of the vector field <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> along the elementary closed path built with the vector fields <span class="math notranslate nohighlight">\(X\)</span>, <span class="math notranslate nohighlight">\(Y\)</span> as</p>
+\[R^{\nu}_{\ \ \alpha \beta \xi} := \partial_{\alpha} \Gamma^{\nu}_{\beta \xi} - \partial_{\beta} \Gamma^{\nu}_{\alpha \xi} + \Gamma_{\alpha \eta}^{\nu} \Gamma_{\beta \xi}^{\eta} - \Gamma_{\beta \eta}^{\nu} \Gamma_{\alpha \xi}^{\eta} \ . \]</div>
+</div>
+</div><p><strong>Remark.</strong> The contribution of the Lie bracket, required to close the loop, annihilates with other two terms.</p>
+<p><strong>Remark.</strong> Exploiting the anti-symmetry of the Riemann tensor, <span class="math notranslate nohighlight">\(R^{\nu}_{\ \ \alpha \beta \xi} = - R^{\nu}_{\ \ \beta \alpha \xi}\)</span>, it’s possible to recast the expression of the parallel transport of the vector field <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> along the elementary closed path <span class="math notranslate nohighlight">\(\gamma_{X,Y}\)</span> built with the vector fields <span class="math notranslate nohighlight">\(X\)</span>, <span class="math notranslate nohighlight">\(Y\)</span> as</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
-  H^\nu 
-  &amp; := - \frac{1}{2} R^{\nu}_{\ \ \alpha \beta \xi} \left( X^{\alpha} Y^{\beta} - X^{\beta} Y^{\alpha} \right) v^\xi = \\
-  &amp;  = - \frac{1}{2} R^{\nu}_{\ \ \alpha \beta \xi} \, A^{\alpha \beta} \, v^\xi \ ,
+  H^\nu = \Delta v^{nu} 
+  &amp; := \oint_{\gamma_{X,Y}}d q^{\mu} \left\{  \partial_{\mu} v^{\nu}  \right\}_{||} =  \\
+  &amp; := - \oint_{\gamma_{X,Y}} d q^{\mu} \Gamma_{\mu \xi}^{\nu} v^{\xi} =  \\
+  &amp;  = - \frac{1}{2} R^{\nu}_{\ \ \alpha \beta \xi} \left( X^{\alpha} Y^{\beta} - X^{\beta} Y^{\alpha} \right) v^\xi + \text{higher order terms} = \\
+  &amp;  = - \frac{1}{2} R^{\nu}_{\ \ \alpha \beta \xi} \, A^{\alpha \beta} \, v^\xi + \text{higher order terms} \ ,
 \end{aligned}\end{split}\]</div>
 <p>having introduced the <strong>signed areas</strong> <span class="math notranslate nohighlight">\(A^{\alpha \beta}\)</span> of the projection of the area enclosed in the elementary loop onto the plane defined by the coordinates <span class="math notranslate nohighlight">\(q^{\alpha}\)</span> and <span class="math notranslate nohighlight">\(q^{\beta}\)</span>.</p>
 <p><strong>todo</strong></p>
 <ul class="simple">
 <li><p>discuss the projected areas</p></li>
 <li><p>discuss the higher-order correction to the area from Lie-bracket cut at the corner</p></li>
+<li><p>check the common standard for the order of the indices of the Riemann tensor</p></li>
 </ul>
 <!--
 **Re-grouping into Curvature and Lie Bracket Contributions**
@@ -959,7 +971,7 @@ $$\begin{aligned}
 </div>
 <div class="section" id="examples">
 <span id="differential-geometry-curvature-intrinsic-examples"></span><h3><span class="section-number">9.3.2.3. </span>Examples<a class="headerlink" href="#examples" title="Permalink to this heading">#</a></h3>
-<div class="proof example admonition" id="example-1">
+<div class="proof example admonition" id="example-2">
 <p class="admonition-title"><span class="caption-number">Example 9.2 </span> (2-d Euclidean space is flat, independently from the set of coordinates used for the description)</p>
 <div class="example-content section" id="proof-content">
 <p>While it’s trivial to prove that the 2-dimensional Euclidean space is flat using Cartesian coordinates, in this result is also proved using polar coordinates. This should be an expected result, as an intrinsic/tensor relation holds independently from an arbitrary choice of coordinates or vector basis.</p>
@@ -1028,7 +1040,103 @@ Exploiting symmetries of the Riemann tensor,  <span class="math notranslate nohi
 </ul>
 </div>
 </details></div>
-</div></div>
+</div><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Derivatives of the components of the metric tensor<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Let <span class="math notranslate nohighlight">\(g_{ij} = \mathbf{b}_i \cdot \mathbf{b}_j\)</span>, <span class="math notranslate nohighlight">\(\mathbf{b}_i \cdot \mathbf{b}^j = \delta_{i}^{j}\)</span> and <span class="math notranslate nohighlight">\(\partial_{k} \mathbf{b}_i = \Gamma_{ik}^{l} \mathbf{b}_l\)</span>, then</p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+  \partial_{k} g_{ij} 
+  &amp; = \partial_k \mathbf{b}_i \cdot \mathbf{b}_j + \mathbf{b}_i \cdot \partial_k \mathbf{b}_j 
+    = \Gamma_{ik}^{l} g_{lj} + \Gamma_{ik}^{l} g_{il} \ . 
+\end{aligned}\]</div>
+<p class="sd-card-text">Thus, swapping indices</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \partial_{k} g_{ij} &amp; = \Gamma_{ik}^{l} g_{lj} + \Gamma_{jk}^{l} g_{il} \\
+  \partial_{i} g_{jk} &amp; = \Gamma_{ji}^{l} g_{lk} + \Gamma_{ki}^{l} g_{jl} \\
+  \partial_{j} g_{ki} &amp; = \Gamma_{kj}^{l} g_{li} + \Gamma_{ij}^{l} g_{kl} \\
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">From the latter three relations, it’s possible to retrieve the expression of Christoffel coefficients as a function of the components of the metric tensor and their derivatives. As an example, coefficient <span class="math notranslate nohighlight">\(\Gamma_{ik}^{l}\)</span> is found summing the first and the second relation, and subtracting the third one,</p>
+<div class="math notranslate nohighlight">
+\[\Gamma_{ik}^l g_{jl} = \frac{1}{2} \left( \partial_{k} g_{ij} + \partial_{i} g_{jk} - \partial_{j} g_{ki} \right) \ ,\]</div>
+<p class="sd-card-text">or</p>
+<div class="math notranslate nohighlight">
+\[\Gamma_{ik}^l = \frac{1}{2} g^{lj} \left( \partial_{k} g_{ij} + \partial_{i} g_{jk} - \partial_{j} g_{ki} \right) \ .\]</div>
+</div>
+</details><div class="proof example admonition" id="example-3">
+<p class="admonition-title"><span class="caption-number">Example 9.3 </span> (Parallel transport of a vector on a sphere)</p>
+<div class="example-content section" id="proof-content">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Coordinates and metric tensor<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Using spherical coordinates <span class="math notranslate nohighlight">\(\left(q^1, q^2 \right) = (\theta, \phi)\)</span>,<a class="footnote-reference brackets" href="#spherical-extrinsic" id="id1">1</a> the <strong>metric tensor</strong> reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\left[ g_{ij} \right] = \begin{bmatrix} R^2 \sin^2 q^2 &amp; \cdot \\ \cdot &amp; R^2 \end{bmatrix}
+\quad , \quad 
+\left[ g^{ij} \right] = \begin{bmatrix} \frac{1}{R^2 \sin^2 q^2} &amp; \cdot \\ \cdot &amp; \frac{1}{R^2} \end{bmatrix} \ ,\end{split}\]</div>
+<p class="sd-card-text">with constant <span class="math notranslate nohighlight">\(R\)</span>, i.e. the radius of the sphere.</p>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Christoffel symbols<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The only non-zero derivative of the components of the metric tensor is</p>
+<div class="math notranslate nohighlight">
+\[\partial_{2} g_{11} = 2 R^2 \sin q^2 \cos q^2 \ .\]</div>
+<p class="sd-card-text">Non-zero Christoffel symbols are</p>
+<ul>
+<li><p class="sd-card-text">with upper index = 1:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+     \Gamma_{ik}^1 
+     &amp; = \frac{1}{2} g^{1 j} \left( \partial_k g_{ij} + \partial_{i} g_{jk} - \partial_j g_{ki} \right) = &amp;&amp;   \left( j = 1, \ g^{11} = \frac{1}{R^2 \sin^2 q^2} \right) \\
+     &amp; = \frac{1}{2} g^{1 1} \left( \partial_k g_{i1} + \partial_{i} g_{1k} - \partial_1 g_{ki} \right) = &amp;&amp; \left( \partial_1 g_{ik} = 0 \right) \\
+     &amp; = \frac{1}{2} g^{1 1} \left( \partial_k g_{i1} + \partial_i g_{1k} \right)  \ ,
+   \end{aligned}\end{split}\]</div>
+<p class="sd-card-text">then</p>
+<div class="math notranslate nohighlight">
+\[\Gamma_{12}^{1} = \Gamma_{21}^{1} = \frac{1}{2} \frac{1}{R^2 \sin^2 q^2} 2 R^2 \sin q^2 \cos q^2 = \frac{\cos q^2}{\sin q^2} \ .\]</div>
+</li>
+<li><p class="sd-card-text">with upper index = 2:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+     \Gamma_{ik}^2 
+     &amp; = \frac{1}{2} g^{2 j} \left( \partial_k g_{ij} + \partial_{i} g_{jk} - \partial_j g_{ki} \right) = &amp;&amp;   \left( j = 2, \ g^{22} = \frac{1}{R^2} \right) \\
+     &amp; = \frac{1}{2} g^{22} \left( \partial_k g_{i2} + \partial_{i} g_{2k} - \partial_2 g_{ki} \right) = &amp;&amp; \left( \partial g_{2 \cdot} = 0 , \ \partial_{2} g_{11} = 2 R^2 \sin q^2 \cos q^2 \right) \\
+     &amp; = - \frac{1}{2} g^{22} \partial_{2} g_{ik} \ ,
+   \end{aligned}\end{split}\]</div>
+<p class="sd-card-text">then</p>
+<div class="math notranslate nohighlight">
+\[\Gamma_{11}^{2} = - \sin q^2 \cos q^2 \ .\]</div>
+</li>
+</ul>
+<p class="sd-card-text">Non-zero derivatives of the Christoffel symbols</p>
+<div class="math notranslate nohighlight">
+\[\partial_2 \Gamma_{12}^1 = \partial_2 \Gamma_{21}^1 = - \frac{1}{\sin^2 q^2} \ ,\]</div>
+<div class="math notranslate nohighlight">
+\[\partial_2 \Gamma_{11}^2 = \sin^2 q^2 - \cos^2 q^2 \ .\]</div>
+</div>
+</details></div>
+</div><hr class="footnotes docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="spherical-extrinsic"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>Extrinsic approach. Recalling that <span class="math notranslate nohighlight">\(\mathbf{r} = r \hat{\mathbf{r}} = \hat{\mathbf{x}} \left( r \sin \phi \cos \theta \right) + \hat{\mathbf{y}} \left( r \sin \phi \sin \theta \right) + \hat{\mathbf{z}} r \cos \phi\)</span>, thus <span class="math notranslate nohighlight">\(\mathbf{b}_{1} = \partial_{\theta} \mathbf{r} = -r \sin \phi \sin \theta \, \hat{\mathbf{x}} + r \sin \phi \cos \theta \, \hat{\mathbf{y}}\)</span>, and <span class="math notranslate nohighlight">\(\mathbf{b}_2 = \partial_{\phi} \mathbf{r} = r \cos \phi \cos \theta \, \hat{\mathbf{x}} + r \cos \phi \sin \theta \, \hat{\mathbf{y}} - r \sin \theta \, \hat{\mathbf{z}}\)</span>. The covariant components of the metric tensor are <span class="math notranslate nohighlight">\(g_{11} =  r^2 \sin^2 \phi\)</span>, <span class="math notranslate nohighlight">\(g_{12} = 0\)</span>, <span class="math notranslate nohighlight">\(g_{22} = r^2\)</span>.</p>
+</dd>
+</dl>
+</div>
 </div>
 </div>
 
