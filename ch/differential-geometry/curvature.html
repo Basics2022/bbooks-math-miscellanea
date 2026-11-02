@@ -648,7 +648,7 @@ document.write(`
 <p>This section is devoted to curvature, and its different descriptions:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="#differential-geometry-curvature-extrinsic"><span class="std std-ref"><strong>Extrinsic curvature</strong></span></a>, i.e. the description of the curvature of a <span class="math notranslate nohighlight">\(n\)</span>-manifold embedded in a <span class="math notranslate nohighlight">\(n+1\)</span>-space, as it’s usually done in the description of <a class="reference internal" href="surfaces.html#differential-geometry-surfaces"><span class="std std-ref">2-dimensional surfaces in the 3-dimensional Euclidean space</span></a>.</p></li>
-<li><p><a class="reference internal" href="#differential-geometry-curvature-intrinsic"><span class="std std-ref"><strong>Intrinsic curvature</strong></span></a>, i.e. the description of a curvature of a <span class="math notranslate nohighlight">\(n\)</span>-manifold without the need for an embedding in a higher-dimensional space. This approach exploits the concepts of parallel transport, that - when applied to a vector field on a closed loop, see <a class="reference internal" href="#differential-geometry-curvature-intrinsic-riemann-curvature-tensor-riemann-tensor"><span class="std std-ref">Parallel transport around a closed loop and the Riemann tensor</span></a> - provides the definition of Riemann tensor, <a class="reference internal" href="#def-differential-geometry-riemann-tensor">Definition 9.4</a>.</p></li>
+<li><p><a class="reference internal" href="#differential-geometry-curvature-intrinsic"><span class="std std-ref"><strong>Intrinsic curvature</strong></span></a>, i.e. the description of a curvature of a <span class="math notranslate nohighlight">\(n\)</span>-manifold without the need for an embedding in a higher-dimensional space. This approach exploits the concepts of parallel transport, that - when applied to a vector field on a closed loop, see <a class="reference internal" href="#differential-geometry-curvature-intrinsic-riemann-curvature-tensor-riemann-tensor"><span class="std std-ref">Parallel transport around a closed loop and the Riemann tensor</span></a> - provides the definition of Riemann tensor, <a class="reference internal" href="#def-differential-geometry-riemann-tensor">Definition 9.4</a>. This is the common approach to <a class="reference external" href="https://basics2022.github.io/bbooks-physics-modern/ch/relativity-general/intro.html">Einstein General Relativity</a>: spacetime is a 4-dimensional manifold, and it’s not embedded in a 5-dimensional space in the original formulation of GR theory.</p></li>
 </ul>
 <div class="section" id="extrinsic-curvature">
 <span id="differential-geometry-curvature-extrinsic"></span><h2><span class="section-number">9.3.1. </span>Extrinsic curvature<a class="headerlink" href="#extrinsic-curvature" title="Permalink to this heading">#</a></h2>
@@ -1128,6 +1128,158 @@ Christoffel symbols<div class="sd-summary-down docutils">
 \[\partial_2 \Gamma_{12}^1 = \partial_2 \Gamma_{21}^1 = - \frac{1}{\sin^2 q^2} \ ,\]</div>
 <div class="math notranslate nohighlight">
 \[\partial_2 \Gamma_{11}^2 = \sin^2 q^2 - \cos^2 q^2 \ .\]</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Parallel transport along a meridian, <span class="math notranslate nohighlight">\(\ \theta = \text{const.}\)</span>, i.e. <span class="math notranslate nohighlight">\(\ q^1 = \text{const.}\)</span><div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">A meridian can be parametrized with <span class="math notranslate nohighlight">\(q^2 = \phi\)</span> as a parameter, as the coordinate <span class="math notranslate nohighlight">\(q^1 = \theta\)</span> is constant, and thus <span class="math notranslate nohighlight">\(dq^1 = 0\)</span>. The parallel transport of the vector field thus becomes a system of 2 equations in 2 unknowns <span class="math notranslate nohighlight">\(v^1(q^2)\)</span>, <span class="math notranslate nohighlight">\(v^2(q^2)\)</span>, namely</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left\{\begin{aligned}
+ d_2 v^1 &amp; = - \Gamma_{12}^1 v^1 - \Gamma_{22}^1 v^2 = - \text{cot}\left( q^2 \right) v^1( q^2 ) \\
+ d_2 v^2 &amp; = - \Gamma_{12}^2 v^1 - \Gamma_{22}^2 v^2 = 0 \\
+\end{aligned}\right.\end{split}\]</div>
+<p class="sd-card-text">Thus the solution reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left\{ \begin{aligned}
+  v^1( \phi ) &amp; = v^1_0 \frac{\sin \phi_0}{\sin \phi} \\
+  v^2( \phi ) &amp; = v^2_0 \\
+\end{aligned} \right.\end{split}\]</div>
+<p class="sd-card-text"><strong>Details.</strong> Thus <span class="math notranslate nohighlight">\(v_2\left( q^2 \right) = \overline{v^2}\)</span>, and <span class="math notranslate nohighlight">\(v^1\)</span> can be evaluated with <strong>separation of variables</strong>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \int_{v_1}^{v_2} \frac{d v}{v} &amp; = - \int_{x_1}^{x_2} \text{cot}(x) \, dx \\
+  \left.\ln \left( v \right)\right|_{v_1}^{v_2} &amp; = - \left.\ln \left( \sin \phi \right)\right|_{\phi_1}^{\phi_2} \\
+  \frac{v_2}{v_1} &amp; = \frac{ \sin \phi_1 }{ \sin \phi_2 } \\
+  v_2 \sin \phi_2 &amp; = v_1 \sin \phi_1 \ .
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">being</p>
+<div class="math notranslate nohighlight">
+\[\int \text{cot}(x) dx = \int \frac{\cos x}{\sin x} dx = \int \frac{d \sin x}{\sin x} = \ln \left( \sin x \right) \ .\]</div>
+<p class="sd-card-text"><strong>Remark.</strong> The first equation of the system can be written as <span class="math notranslate nohighlight">\(v'(x) = - \frac{\cos(x)}{\sin(x)} v(x)\)</span>, or</p>
+<div class="math notranslate nohighlight">
+\[0 = v'(x) \sin(x) + v(x) \cos(x) = \tfrac{d}{dx} \left( v(x) \sin(x) \right)\ .\]</div>
+<!--
+A meridian can be parametrized with $q^2 = \phi$ as a parameter, as the coordinate $q^1 = \theta$ is constant, and thus $dq^1 = 0$. The integral of the parallel transport of the vector $\mathbf{v}$ on a meridian is
+
+$$\begin{aligned}
+  \Delta v^\nu = \int_{q^2 = \phi_1}^{\phi_2} d q^2 \left\{ \partial_2 v^\nu \right\}_{||} 
+  & = - \int_{q^2 = \phi_1}^{\phi_2} \Gamma_{\xi 2}^{\nu} v^{\xi} d q^2 \ ,
+\end{aligned}$$
+
+having used {eq}`eq:differential-geometry:curvature:parallel-transport:component-increment` to write $\left\{ \partial_\mu v^\nu \right\}_{||} = - \Gamma_{\xi \mu}^{\nu} v^{\xi} $.
+
+Thus the two components of the parallel transport are
+
+$$\begin{aligned}
+  \Delta v^1 
+  & = - \int_{q^2 = \phi_1}^{\phi_2} \Gamma_{\xi 2}^{1} v^{\xi} d q^2 = \\
+  & = - \int_{q^2 = \phi_1}^{\phi_2} \Gamma_{1 2}^{1} v^{1} d q^2 \\
+  \Delta v^2 & = - \int_{q^2 = \phi_1}^{\phi_2} \Gamma_{\xi 2}^{2} v^{\xi} d q^2 = 0 \\
+\end{aligned}$$
+-->
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Parallel transport along a parallel, <span class="math notranslate nohighlight">\(\ \phi = \text{const.}\)</span>, i.e. <span class="math notranslate nohighlight">\(\ q^2 = \text{const.}\)</span><div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">A parallel can be parametrized with <span class="math notranslate nohighlight">\(q^1 = \theta\)</span> as a parameter, as the coordinate <span class="math notranslate nohighlight">\(q^2 = \overline{\phi}\)</span> is constant, and thus <span class="math notranslate nohighlight">\(dq^2 = 0\)</span>. The parallel transport of the vector field thus becomes a system of 2 equations in 2 unknowns <span class="math notranslate nohighlight">\(v^1(q^1)\)</span>, <span class="math notranslate nohighlight">\(v^2(q^1)\)</span>, namely</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left\{\begin{aligned}
+ d_1 v^1 (q^1) &amp; = - \Gamma_{11}^1 v^1 - \Gamma_{21}^1 v^2 = - \text{cot}\left( q^2 \right) v^2 (q^1) \\
+ d_1 v^2 (q^1) &amp; = - \Gamma_{11}^2 v^1 - \Gamma_{21}^2 v^2 =   \sin\left( q^2 \right) \cos\left( q^2 \right) \, v^1  (q^1) \\
+\end{aligned}\right.\end{split}\]</div>
+<p class="sd-card-text">As <span class="math notranslate nohighlight">\(q^2 = \overline{\phi}\)</span> is constant,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left\{ \begin{aligned}
+  v^1( \theta ) &amp; = v_1 \frac{\sin \phi_1}{\sin \phi} \\
+  v^2( \theta ) &amp; = 0 \\
+\end{aligned} \right.\end{split}\]</div>
+<p class="sd-card-text"><strong>Details.</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left\{ \begin{aligned}
+  \frac{d v^{1}}{d \theta} (\theta) &amp; = - \frac{\cos(\phi)}{\sin(\phi)} \, v^2(\theta) \\
+  \frac{d v^{2}}{d \theta} (\theta) &amp; =   \sin(\phi) \cos(\phi) \, v^1(\theta) \\
+\end{aligned} \right.\end{split}\]</div>
+<p class="sd-card-text">Taking the derivative <span class="math notranslate nohighlight">\(\frac{d}{d\theta}\)</span> of the first equation, and replacing <span class="math notranslate nohighlight">\(\frac{d v^2}{d \theta}\)</span> with the second equation,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+ 0
+ &amp; = \left( v^1 \right)'' + \frac{\cos(\phi)}{\sin(\phi)} \sin(\phi) \cos(\phi) \, v^1(\theta) = \\
+ &amp; = \left( v^1 \right)''(\theta) + \cos^2(\phi) \, v^1(\theta) \ ,
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">and thus</p>
+<ul>
+<li><p class="sd-card-text">if <span class="math notranslate nohighlight">\(\cos(\phi) \ne 0\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left\{ \begin{aligned}
+     v^1(\theta) &amp; = A \cos\left( \cos(\phi) \theta\right) + B \sin\left( \cos(\phi) \theta\right) \\
+     v^2(\theta) &amp; = - \frac{\sin(\phi)}{\cos(\phi)} \left[ - A \cos(\phi) \sin\left( \cos(\phi) \theta\right) + B \cos(\phi) \cos\left( \cos(\phi) \theta\right) \right] \\
+                 &amp; = A \sin(\phi) \sin\left( \cos(\phi) \theta\right) - B \sin(\phi) \cos\left( \cos(\phi) \theta\right) \\
+   \end{aligned} \right.\end{split}\]</div>
+<p class="sd-card-text">Choosing the reference of <span class="math notranslate nohighlight">\(\theta\)</span>, to be <span class="math notranslate nohighlight">\(\theta = 0\)</span> at the beginning of the path, then the initial conditions simplify to</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left\{ \begin{aligned}
+     v^1_0 &amp; = A \\
+     v^2_0 &amp; = - \sin(\phi) B \ ,
+   \end{aligned} \right.
+   \quad \rightarrow \quad
+   \left\{ \begin{aligned} A &amp; = v^1_0 \\ B &amp; = - \frac{v^2_0}{\sin \phi} \end{aligned} \right.\end{split}\]</div>
+</li>
+<li><p class="sd-card-text">if <span class="math notranslate nohighlight">\(\cos(\phi) = 0\)</span>, then <span class="math notranslate nohighlight">\(v^1(\theta) = v^1_0\)</span>, <span class="math notranslate nohighlight">\(v^2(\theta) = v^2_0\)</span> constant.</p></li>
+</ul>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Parallel transport from the equator to the pole and back<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Let a vector <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> on the equator and parallel to the local meridian, i.e. <span class="math notranslate nohighlight">\(\mathbf{v} = v^\phi \mathbf{b}_2\)</span> in <span class="math notranslate nohighlight">\((\theta, \phi) = \left( 0, \frac{\pi}{2} \right)\)</span>.</p>
+<p class="sd-card-text"><strong>1. Parallel transport along the equator, <span class="math notranslate nohighlight">\(\phi = \frac{\pi}{2}\)</span>, <span class="math notranslate nohighlight">\(\theta\)</span> from <span class="math notranslate nohighlight">\(0\)</span> to <span class="math notranslate nohighlight">\(\overline{\theta}\)</span>.</strong> The equator is described by the coordinate <span class="math notranslate nohighlight">\(\phi = \frac{\pi}{2}\)</span>, and thus <span class="math notranslate nohighlight">\(\cos \phi = 0\)</span>. The solution of the parallel transport equation on the equator gives constant <span class="math notranslate nohighlight">\(v^1(\theta)\)</span> and <span class="math notranslate nohighlight">\(v^2(\theta)\)</span>. Thus,</p>
+<div class="math notranslate nohighlight">
+\[v^1\left(\overline{\theta}\right) = 0 \quad , \quad v^2\left(\overline{\theta}\right) = v^\phi \ .\]</div>
+<p class="sd-card-text"><strong>2. Parallel transport along the meridian, <span class="math notranslate nohighlight">\(\theta = \overline{\theta}\)</span>, <span class="math notranslate nohighlight">\(\phi\)</span> from <span class="math notranslate nohighlight">\(\frac{\pi}{2}\)</span> to <span class="math notranslate nohighlight">\(\delta \phi\)</span>.</strong></p>
+<div class="math notranslate nohighlight">
+\[v^1\left( 0 \right) = 0 \quad , \quad v^2\left(\overline{\theta}\right) = v^\phi \ .\]</div>
+<p class="sd-card-text"><strong>3.</strong> <em>Parallel transport along a small circle around the pole to avoid singularity.</em></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\left\{ \begin{aligned}
+     v^1(\theta)
+     &amp; = v^1_0 \cos\left( \cos(\phi) \theta\right) - \frac{v^2_0}{\sin \phi} \sin\left( \cos(\phi) \theta\right) = \\
+     &amp; = - \frac{v^\phi}{\sin \delta \phi} \sin\left( \cos(\delta \phi) \theta\right) \\
+     v^2(\theta)
+     &amp; = v^1_0 \sin(\phi) \sin\left( \cos(\phi) \theta\right) + v^2_0 \cos\left( \cos(\phi) \theta\right) = \\
+     &amp; = v^\phi \cos\left( \cos(\delta \phi) \theta\right) 
+   \end{aligned} \right.\end{split}\]</div>
+<p class="sd-card-text"><em>The final values are</em> <span class="math notranslate nohighlight">\(v^1 = \frac{v^\phi}{\sin \delta \phi} \sin( \cos(\delta \phi) \theta )\)</span>, <span class="math notranslate nohighlight">\(v^2 = v^\phi \cos( \cos(\delta \phi) \theta )\)</span>. <em>Exchanging the reference value for <span class="math notranslate nohighlight">\(\theta\)</span> should be enough.</em> <strong>todo</strong> <em>check!</em></p>
+<p class="sd-card-text"><strong>4. Parallel transport along the meridian, <span class="math notranslate nohighlight">\(\theta = 0\)</span>, <span class="math notranslate nohighlight">\(\phi\)</span> from <span class="math notranslate nohighlight">\(\delta \phi\)</span> to <span class="math notranslate nohighlight">\(\frac{\pi}{2}\)</span>.</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+     v^1\left( 0 \right) 
+     &amp; = \frac{\sin(\delta \phi)}{\sin( \pi / 2)} \frac{v^\phi}{\sin \delta \phi} \sin( \cos(\delta \phi) \theta ) = \\
+     &amp; = v^\phi \sin( \cos(\delta \phi) \theta ) \\
+     &amp; \rightarrow v^\phi \sin( \theta ) \quad \text{for $\delta \phi \rightarrow 0$} \\
+     v^2\left( 0 \right)
+     &amp; = v^\phi \cos( \cos(\delta \phi) \theta ) \\
+     &amp; \rightarrow v^{\phi} \cos( \theta ) \quad \text{for $\delta \phi \rightarrow 0$} \ .
+   \end{aligned}\end{split}\]</div>
+<p class="sd-card-text"><strong>Result.</strong> The final vector after the parallel transport over the closed path is the initial vector rotated by the angle <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
+<!--
+
+$$\left\{ \begin{aligned}
+  v^1( \phi ) & = v^1_0 \frac{\sin \phi_0}{\sin \phi} \\
+  v^2( \phi ) & = v^2_0 \\
+\end{aligned} \right.$$
+
+-->
 </div>
 </details></div>
 </div><hr class="footnotes docutils" />
