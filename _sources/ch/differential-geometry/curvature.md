@@ -1,6 +1,10 @@
 (differential-geometry:curvature)=
 # Curvature
 
+This section is devoted to curvature, and its different descriptions:
+* [**Extrinsic curvature**](differential-geometry:curvature:extrinsic), i.e. the description of the curvature of a $n$-manifold embedded in a $n+1$-space, as it's usually done in the description of [2-dimensional surfaces in the 3-dimensional Euclidean space](differential-geometry:surfaces).
+* [**Intrinsic curvature**](differential-geometry:curvature:intrinsic), i.e. the description of a curvature of a $n$-manifold without the need for an embedding in a higher-dimensional space. This approach exploits the concepts of parallel transport, that - when applied to a vector field on a closed loop, see [Parallel transport around a closed loop and the Riemann tensor](differential-geometry:curvature:intrinsic:riemann-curvature-tensor:riemann-tensor) - provides the definition of Riemann tensor, {prf:ref}`def-differential-geometry-riemann-tensor`.
+
 (differential-geometry:curvature:extrinsic)=
 ## Extrinsic curvature
 
@@ -83,7 +87,7 @@ The definition of the vector field $X$ as a differential operator can be recast 
 
 $$\nabla_{X} f = \mathbf{X} \cdot \nabla f \ .$$
 
-The directional derivative of the function $f$ along a curve $\gamma$ with element $d \mathbf{r}$ is $d \mathbf{r} \cdot \nabla f$. So, for a scalar field $f$,
+The **directional derivative** of the function $f$ along a curve $\gamma$ with element $d \mathbf{r}$ is $d \mathbf{r} \cdot \nabla f$. So, for a scalar field $f$,
 
 $$\begin{aligned}
       d\mathbf{r} \cdot \nabla f
@@ -250,24 +254,31 @@ Subtracting Path B from Path A yields, as the travelling direction during the cl
 $$\begin{aligned}
   (A - B)^\nu
   & = \underbrace{ - X^\alpha \partial_\alpha Y^\mu \Gamma^\nu_{\mu\xi} v^\xi }_{ i_{[X,Y],2} }  - \underbrace{X^\alpha Y^\beta \Gamma^\mu_{\alpha\beta}  \Gamma^\nu_{\mu\xi} v^\xi }_{ 1 } + \underbrace{ Y^\alpha \partial_\alpha X^\mu \Gamma^\nu_{\mu\xi} v^\xi }_{ i_{[X,Y],1} } + \underbrace{ X^\alpha Y^\beta  \Gamma^\mu_{\beta\alpha} \Gamma^\nu_{\mu\xi} v^\xi }_{ 1 } + \\
-  & + \underbrace{ \left(  X^\alpha \partial_\alpha Y^{\mu} - Y^\alpha \partial_\alpha X^{\mu} \right) \Gamma^{\nu}_{\mu \xi} v^\xi }_{ i_{[X,Y]} } + \\ 
-  & + X^\alpha Y^\beta \Gamma^\nu_{\beta\eta} \Gamma^\eta_{\alpha\xi} v^\xi - X^\alpha Y^\beta \Gamma^\nu_{\alpha\eta} \Gamma^\eta_{\beta\xi} v^\xi - X^\alpha Y^\beta \partial_\alpha \Gamma^\nu_{\beta \xi} v^\xi + X^\alpha Y^\beta \partial_\beta \Gamma^\nu_{\alpha\xi} v^\xi + \text{higher order terms} = \\ 
+  & \quad \ + \underbrace{ \left(  X^\alpha \partial_\alpha Y^{\mu} - Y^\alpha \partial_\alpha X^{\mu} \right) \Gamma^{\nu}_{\mu \xi} v^\xi }_{ i_{[X,Y]} } + \\ 
+  & \quad \ + X^\alpha Y^\beta \Gamma^\nu_{\beta\eta} \Gamma^\eta_{\alpha\xi} v^\xi - X^\alpha Y^\beta \Gamma^\nu_{\alpha\eta} \Gamma^\eta_{\beta\xi} v^\xi - X^\alpha Y^\beta \partial_\alpha \Gamma^\nu_{\beta \xi} v^\xi + X^\alpha Y^\beta \partial_\beta \Gamma^\nu_{\alpha\xi} v^\xi + \text{higher order terms} = \\ 
   & \sim - \left[ \partial_{\alpha} \Gamma^{\nu}_{\beta \xi} - \partial_{\beta} \Gamma^{\nu}_{\alpha \xi} + \Gamma_{\alpha \eta}^{\nu} \Gamma_{\beta \xi}^{\eta} - \Gamma_{\beta \eta}^{\nu} \Gamma_{\alpha \xi}^{\eta} \right] X^{\alpha} Y^{\beta} v^{\xi} = \\
   & = - R^{\nu}_{\ \ \alpha \beta \xi} X^\alpha Y^\beta v^\xi \ ,
 \end{aligned}$$
 
-having introduced the definition of the **Riemann tensor**,
+having introduced the definition of the **Riemann tensor**, $R^{\nu}_{\ \ \alpha \beta \xi}$.
 
-$$R^{\nu}_{\ \ \alpha \beta \xi} := \partial_{\alpha} \Gamma^{\nu}_{\beta \xi} - \partial_{\beta} \Gamma^{\nu}_{\alpha \xi} + \Gamma_{\alpha \eta}^{\nu} \Gamma_{\beta \xi}^{\eta} - \Gamma_{\beta \eta}^{\nu} \Gamma_{\alpha \xi}^{\eta} $$
+```{prf:definition} Riemann tensor
+:label: def-differential-geometry-riemann-tensor
+
+$$R^{\nu}_{\ \ \alpha \beta \xi} := \partial_{\alpha} \Gamma^{\nu}_{\beta \xi} - \partial_{\beta} \Gamma^{\nu}_{\alpha \xi} + \Gamma_{\alpha \eta}^{\nu} \Gamma_{\beta \xi}^{\eta} - \Gamma_{\beta \eta}^{\nu} \Gamma_{\alpha \xi}^{\eta} \ . $$
+
+```
 
 **Remark.** The contribution of the Lie bracket, required to close the loop, annihilates with other two terms.
 
-**Remark.** Exploiting the anti-symmetry of the Riemann tensor, $R^{\nu}_{\ \ \alpha \beta \xi} = - R^{\nu}_{\ \ \beta \alpha \xi}$, it's possible to recast the expression of the parallel transport of the vector field $\mathbf{v}$ along the elementary closed path built with the vector fields $X$, $Y$ as
+**Remark.** Exploiting the anti-symmetry of the Riemann tensor, $R^{\nu}_{\ \ \alpha \beta \xi} = - R^{\nu}_{\ \ \beta \alpha \xi}$, it's possible to recast the expression of the parallel transport of the vector field $\mathbf{v}$ along the elementary closed path $\gamma_{X,Y}$ built with the vector fields $X$, $Y$ as
 
 $$\begin{aligned}
-  H^\nu 
-  & := - \frac{1}{2} R^{\nu}_{\ \ \alpha \beta \xi} \left( X^{\alpha} Y^{\beta} - X^{\beta} Y^{\alpha} \right) v^\xi = \\
-  &  = - \frac{1}{2} R^{\nu}_{\ \ \alpha \beta \xi} \, A^{\alpha \beta} \, v^\xi \ ,
+  H^\nu = \Delta v^{nu} 
+  & := \oint_{\gamma_{X,Y}}d q^{\mu} \left\{  \partial_{\mu} v^{\nu}  \right\}_{||} =  \\
+  & := - \oint_{\gamma_{X,Y}} d q^{\mu} \Gamma_{\mu \xi}^{\nu} v^{\xi} =  \\
+  &  = - \frac{1}{2} R^{\nu}_{\ \ \alpha \beta \xi} \left( X^{\alpha} Y^{\beta} - X^{\beta} Y^{\alpha} \right) v^\xi + \text{higher order terms} = \\
+  &  = - \frac{1}{2} R^{\nu}_{\ \ \alpha \beta \xi} \, A^{\alpha \beta} \, v^\xi + \text{higher order terms} \ ,
 \end{aligned}$$
 
 having introduced the **signed areas** $A^{\alpha \beta}$ of the projection of the area enclosed in the elementary loop onto the plane defined by the coordinates $q^{\alpha}$ and $q^{\beta}$.
@@ -276,7 +287,7 @@ having introduced the **signed areas** $A^{\alpha \beta}$ of the projection of t
 
 * discuss the projected areas
 * discuss the higher-order correction to the area from Lie-bracket cut at the corner
-
+* check the common standard for the order of the indices of the Riemann tensor
 
 
 <!--
@@ -426,6 +437,72 @@ Thus, all the components with $i = j$ are identically zero. So, only 4 component
 * **Component $R^2_{\,212}$:**
 
   $$\dots$$
+
+
+```
+
+````
+
+```{dropdown} Derivatives of the components of the metric tensor
+:open:
+
+Let $g_{ij} = \mathbf{b}_i \cdot \mathbf{b}_j$, $\mathbf{b}_i \cdot \mathbf{b}^j = \delta_{i}^{j}$ and $\partial_{k} \mathbf{b}_i = \Gamma_{ik}^{l} \mathbf{b}_l$, then
+
+$$\begin{aligned}
+  \partial_{k} g_{ij} 
+  & = \partial_k \mathbf{b}_i \cdot \mathbf{b}_j + \mathbf{b}_i \cdot \partial_k \mathbf{b}_j 
+    = \Gamma_{ik}^{l} g_{lj} + \Gamma_{ik}^{l} g_{il} \ . 
+\end{aligned}$$
+
+Thus, swapping indices
+
+$$\begin{aligned}
+  \partial_{k} g_{ij} & = \Gamma_{ik}^{l} g_{lj} + \Gamma_{jk}^{l} g_{il} \\
+  \partial_{i} g_{jk} & = \Gamma_{ji}^{l} g_{lk} + \Gamma_{ki}^{l} g_{jl} \\
+  \partial_{j} g_{ki} & = \Gamma_{kj}^{l} g_{li} + \Gamma_{ij}^{l} g_{kl} \\
+\end{aligned}$$
+
+From the latter three relations, it's possible to retrieve the expression of Christoffel coefficients as a function of the components of the metric tensor and their derivatives. As an example, coefficient $\Gamma_{ik}^{l}$ is found summing the first and the second relation, and subtracting the third one,
+
+$$\Gamma_{ik}^l g_{jl} = \frac{1}{2} \left( \partial_{k} g_{ij} + \partial_{i} g_{jk} - \partial_{j} g_{ki} \right) \ ,$$
+
+or
+
+$$\Gamma_{ik}^l = \frac{1}{2} g^{lj} \left( \partial_{k} g_{ij} + \partial_{i} g_{jk} - \partial_{j} g_{ki} \right) \ .$$
+
+```
+
+
+````{prf:example} Parallel transport of a vector on a sphere
+
+```{dropdown} Details
+:open:
+
+Using spherical coordinates $\left(q^1, q^2 \right) = (\theta, \phi)$,[^spherical-extrinsic] the **metric tensor** reads
+
+$$
+\left[ g_{ij} \right] = \begin{bmatrix} R^2 \sin^2 q^2 & \cdot \\ \cdot & 1 \end{bmatrix}
+\quad , \quad 
+\left[ g^{ij} \right] = \begin{bmatrix} \frac{1}{R^2 \sin^2 q^2} & \cdot \\ \cdot & 1 \end{bmatrix}$$
+
+The only non-zero derivative of the components of the metric tensor is 
+
+$$\partial_{2} g_{11} = 2 R^2 \sin q^2 \cos q^2 \ .$$
+
+Non-zero Christoffel symbols are
+
+$$\begin{aligned}
+  \Gamma_{ik}^1 
+  & = \frac{1}{2} g^{1 j} \left( \partial_k g_{ij} + \partial_{i} g_{jk} - \partial_j g_{ki} \right) = &&   \left( j = 1, \ g^{11} = \frac{1}{R^2 \sin^2 q^2} \right) \\
+  & = \frac{1}{2} g^{1 1} \left( \partial_k g_{i1} + \partial_{i} g_{1k} - \partial_1 g_{ki} \right) = && \left( \partial_1 g_{ik} = 0 \right) \\
+  & = \frac{1}{2} g^{1 1} \left( \partial_k g_{i1} + \partial_i g_{1k} \right)  \ ,
+\end{aligned}$$
+
+then 
+
+$$\Gamma_{12}^{1} = \Gamma_{21}^{1} = \frac{1}{2} \frac{1}{R^2 \sin^2 q^2} 2 R^2 \sin q^2 \cos q^2 \ .$$
+
+[^spherical-extrinsic]: Extrinsic approach. Recalling that $\mathbf{r} = r \hat{\mathbf{r}} = \hat{\mathbf{x}} \left( r \sin \phi \cos \theta \right) + \hat{\mathbf{y}} \left( r \sin \phi \sin \theta \right) + \hat{\mathbf{z}} r \cos \phi$, thus $\mathbf{b}_{1} = \partial_{\theta} \mathbf{r} = -r \sin \phi \sin \theta \, \hat{\mathbf{x}} + r \sin \phi \cos \theta \, \hat{\mathbf{y}}$, and $\mathbf{b}_2 = \partial_{\phi} \mathbf{r} = r \cos \phi \cos \theta \, \hat{\mathbf{x}} + r \cos \phi \sin \theta \, \hat{\mathbf{y}} - r \sin \theta \, \hat{\mathbf{z}}$. The covariant components of the metric tensor are $g_{11} =  r^2 \sin^2 \phi$, $g_{12} = 0$, $g_{22} = r^2$.
 
 
 ```
