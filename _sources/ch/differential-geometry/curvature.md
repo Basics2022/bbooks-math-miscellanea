@@ -475,15 +475,24 @@ $$\Gamma_{ik}^l = \frac{1}{2} g^{lj} \left( \partial_{k} g_{ij} + \partial_{i} g
 
 ````{prf:example} Parallel transport of a vector on a sphere
 
-```{dropdown} Details
+```{dropdown} Coordinates and metric tensor
 :open:
 
 Using spherical coordinates $\left(q^1, q^2 \right) = (\theta, \phi)$,[^spherical-extrinsic] the **metric tensor** reads
 
 $$
-\left[ g_{ij} \right] = \begin{bmatrix} R^2 \sin^2 q^2 & \cdot \\ \cdot & 1 \end{bmatrix}
+\left[ g_{ij} \right] = \begin{bmatrix} R^2 \sin^2 q^2 & \cdot \\ \cdot & R^2 \end{bmatrix}
 \quad , \quad 
-\left[ g^{ij} \right] = \begin{bmatrix} \frac{1}{R^2 \sin^2 q^2} & \cdot \\ \cdot & 1 \end{bmatrix}$$
+\left[ g^{ij} \right] = \begin{bmatrix} \frac{1}{R^2 \sin^2 q^2} & \cdot \\ \cdot & \frac{1}{R^2} \end{bmatrix} \ ,$$
+
+with constant $R$, i.e. the radius of the sphere.
+
+[^spherical-extrinsic]: Extrinsic approach. Recalling that $\mathbf{r} = r \hat{\mathbf{r}} = \hat{\mathbf{x}} \left( r \sin \phi \cos \theta \right) + \hat{\mathbf{y}} \left( r \sin \phi \sin \theta \right) + \hat{\mathbf{z}} r \cos \phi$, thus $\mathbf{b}_{1} = \partial_{\theta} \mathbf{r} = -r \sin \phi \sin \theta \, \hat{\mathbf{x}} + r \sin \phi \cos \theta \, \hat{\mathbf{y}}$, and $\mathbf{b}_2 = \partial_{\phi} \mathbf{r} = r \cos \phi \cos \theta \, \hat{\mathbf{x}} + r \cos \phi \sin \theta \, \hat{\mathbf{y}} - r \sin \theta \, \hat{\mathbf{z}}$. The covariant components of the metric tensor are $g_{11} =  r^2 \sin^2 \phi$, $g_{12} = 0$, $g_{22} = r^2$.
+
+```
+
+```{dropdown} Christoffel symbols
+:open:
 
 The only non-zero derivative of the components of the metric tensor is 
 
@@ -491,21 +500,40 @@ $$\partial_{2} g_{11} = 2 R^2 \sin q^2 \cos q^2 \ .$$
 
 Non-zero Christoffel symbols are
 
-$$\begin{aligned}
-  \Gamma_{ik}^1 
-  & = \frac{1}{2} g^{1 j} \left( \partial_k g_{ij} + \partial_{i} g_{jk} - \partial_j g_{ki} \right) = &&   \left( j = 1, \ g^{11} = \frac{1}{R^2 \sin^2 q^2} \right) \\
-  & = \frac{1}{2} g^{1 1} \left( \partial_k g_{i1} + \partial_{i} g_{1k} - \partial_1 g_{ki} \right) = && \left( \partial_1 g_{ik} = 0 \right) \\
-  & = \frac{1}{2} g^{1 1} \left( \partial_k g_{i1} + \partial_i g_{1k} \right)  \ ,
-\end{aligned}$$
+* with upper index = 1:
 
-then 
+   $$\begin{aligned}
+     \Gamma_{ik}^1 
+     & = \frac{1}{2} g^{1 j} \left( \partial_k g_{ij} + \partial_{i} g_{jk} - \partial_j g_{ki} \right) = &&   \left( j = 1, \ g^{11} = \frac{1}{R^2 \sin^2 q^2} \right) \\
+     & = \frac{1}{2} g^{1 1} \left( \partial_k g_{i1} + \partial_{i} g_{1k} - \partial_1 g_{ki} \right) = && \left( \partial_1 g_{ik} = 0 \right) \\
+     & = \frac{1}{2} g^{1 1} \left( \partial_k g_{i1} + \partial_i g_{1k} \right)  \ ,
+   \end{aligned}$$
+   
+   then 
+   
+   $$\Gamma_{12}^{1} = \Gamma_{21}^{1} = \frac{1}{2} \frac{1}{R^2 \sin^2 q^2} 2 R^2 \sin q^2 \cos q^2 = \frac{\cos q^2}{\sin q^2} \ .$$
 
-$$\Gamma_{12}^{1} = \Gamma_{21}^{1} = \frac{1}{2} \frac{1}{R^2 \sin^2 q^2} 2 R^2 \sin q^2 \cos q^2 \ .$$
+* with upper index = 2:
 
-[^spherical-extrinsic]: Extrinsic approach. Recalling that $\mathbf{r} = r \hat{\mathbf{r}} = \hat{\mathbf{x}} \left( r \sin \phi \cos \theta \right) + \hat{\mathbf{y}} \left( r \sin \phi \sin \theta \right) + \hat{\mathbf{z}} r \cos \phi$, thus $\mathbf{b}_{1} = \partial_{\theta} \mathbf{r} = -r \sin \phi \sin \theta \, \hat{\mathbf{x}} + r \sin \phi \cos \theta \, \hat{\mathbf{y}}$, and $\mathbf{b}_2 = \partial_{\phi} \mathbf{r} = r \cos \phi \cos \theta \, \hat{\mathbf{x}} + r \cos \phi \sin \theta \, \hat{\mathbf{y}} - r \sin \theta \, \hat{\mathbf{z}}$. The covariant components of the metric tensor are $g_{11} =  r^2 \sin^2 \phi$, $g_{12} = 0$, $g_{22} = r^2$.
+   $$\begin{aligned}
+     \Gamma_{ik}^2 
+     & = \frac{1}{2} g^{2 j} \left( \partial_k g_{ij} + \partial_{i} g_{jk} - \partial_j g_{ki} \right) = &&   \left( j = 2, \ g^{22} = \frac{1}{R^2} \right) \\
+     & = \frac{1}{2} g^{22} \left( \partial_k g_{i2} + \partial_{i} g_{2k} - \partial_2 g_{ki} \right) = && \left( \partial g_{2 \cdot} = 0 , \ \partial_{2} g_{11} = 2 R^2 \sin q^2 \cos q^2 \right) \\
+     & = - \frac{1}{2} g^{22} \partial_{2} g_{ik} \ ,
+   \end{aligned}$$
+   
+   then 
+   
+   $$\Gamma_{11}^{2} = - \sin q^2 \cos q^2 \ .$$
 
+Non-zero derivatives of the Christoffel symbols
+
+$$\partial_2 \Gamma_{12}^1 = \partial_2 \Gamma_{21}^1 = - \frac{1}{\sin^2 q^2} \ ,$$
+$$\partial_2 \Gamma_{11}^2 = \sin^2 q^2 - \cos^2 q^2 \ .$$
 
 ```
+
+
 
 ````
 
