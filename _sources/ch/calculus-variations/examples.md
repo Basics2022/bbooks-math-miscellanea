@@ -298,14 +298,65 @@ $$\begin{aligned}
 
 
    ```
-
  
 
 (calculus-variations:examples:lagrange-equations:special-relativity:coordinates)=
 ### Using coordinates
 
-With $\mathbf{X}\left( q^{\mu}(\lambda) \right)$,...
+Let $\mathbf{X}(q^\mu(\tau))$, then $\mathbf{U} = \dot{q}^{\mu} \mathbf{b}_{\mu}$, and $\ddot{\mathbf{U}} = \left[ \ddot{q}^{mu} + \dot{q}^{\xi} \dot{q}^{\eta} \Gamma_{\xi \eta}^{\mu} \right] \mathbf{b}_{\mu}$. The component $\mu$ of the equation of motion thus reads
 
+$$\dfrac{d^2 q^{\mu}}{d \tau^2} + \Gamma_{\mu}^{\xi \eta} \dfrac{d q^{\xi}}{d \tau} \dfrac{d q^{eta}}{d \tau} = q \left( \dots \right) \dots $$
+
+````{dropdown} TODO. Fix the calculuation with coordinates
+
+With $\mathbf{X}\left( q^{\mu}(\lambda) \right)$, $\mathbf{X}'(\lambda) = q^{\mu '} \partial_\mu \mathbf{X} = q^{\mu '} \mathbf{b}_\mu$, the Laplacian becomes
+
+$$\begin{aligned} 
+  \mathcal{L}(q^{\xi}(\lambda), q^{\xi '}(\lambda), \lambda) 
+  & = - m c \sqrt{\mathbf{X}'(\lambda) \cdot \mathbf{X}'(\lambda)} - q \mathbf{A}(\mathbf{X}(\lambda)) \cdot \mathbf{X}'(\lambda) = \\
+  & = - m c \sqrt{g_{\mu \nu}( q^{\xi} ) \, q^{\mu '} q^{\nu '}} - q A_{\mu}( q^{\xi} ) q^{\mu '} \ ,
+\end{aligned}$$
+
+Lagrange equations give
+
+$$\begin{aligned}
+  0
+  & = \frac{d}{d\lambda} \frac{\partial \mathcal{L}}{\partial q^{\xi '}} - \frac{\partial \mathcal{L}}{\partial q^{\xi}} = \\
+  & = - mc \frac{1}{2 ( \dots )^{3/2}} \left( g_{\eta \nu} q^{\nu '} \right) - mc \frac{1}{2(\dots)^{1/2}} g_{\eta \nu} q^{\nu ''} - q \, q^{\nu '} \left( \partial_{\nu} A_{\eta} - \partial_{\eta} A_{\nu} \right) = \\
+\end{aligned}$$
+
+
+```{dropdown} $\frac{d}{d \lambda} \frac{\partial \mathcal{L}}{\partial q^{\eta '}}$
+:open:
+
+$$\begin{aligned}
+  \dfrac{d}{d \lambda} \partial_{q^{\eta '}} \mathcal{L}
+  & = \dfrac{d}{d \lambda} \left[ - \frac{mc}{2 \sqrt{\dots}} \left( g_{\mu \nu} \left( \delta_{\eta}^{\mu} q^{\nu '} + q^{\mu '} \delta_{\eta}^{\nu} \right) \right) - q  A_\mu \delta_{\eta}^{\mu} \right] = \\
+  & = \dfrac{d}{d \lambda} \left[ - \frac{mc}{\sqrt{\dots}} \left( g_{\eta \nu} q^{\nu '} \right) - q \, A_\mu \delta_{\eta}^{\mu} \right] = \\
+  & = -mc \left[ - \frac{1}{2 ( \dots )^{3/2}} \left( g_{\eta \nu} q^{\nu '} \right) + \frac{1}{2 ( \dots )^{1/2}} \left( \left( \Gamma_{\eta \xi}^{\chi} g_{\chi \nu} + \Gamma_{\nu \xi}^{\chi} g_{\eta \chi} \right) q^{\xi '} q^{\nu '} + g_{\eta \nu} q^{\nu ''} \right)  \right] - q \, q^{\nu '} \partial_{q^{\nu}} A_{\eta} = \\
+\end{aligned}$$
+
+with
+
+$$\dfrac{d g_{\eta \nu}}{d \lambda} = \dfrac{d}{d \lambda} \left( \mathbf{b}_\eta \cdot \mathbf{b}_\nu \right) = q^{\xi '} \partial_{\xi} g_{\eta \chi} = q^{\xi '} \left( \Gamma_{\eta \xi}^{\chi} g_{\chi \nu} + \Gamma_{\nu \xi}^{\chi} g_{\eta \chi} \right)$$
+
+```
+
+```{dropdown} $\frac{\partial \mathcal{L}}{\partial q^{\eta}}$
+:open:
+
+$$\begin{aligned}
+  \partial_{q^\xi} \mathcal{L}
+  & = - \frac{mc}{2 \sqrt{\dots}}\left( \partial_{q^\xi} g_{\mu \nu} q^{\mu '} q^{\nu '} \right) - q \partial_\eta A_\mu q^{\mu '} = \\
+\end{aligned}$$
+
+with
+
+$$\partial_{\xi} g_{\mu \nu} = \partial_{\xi} \left( \mathbf{b}_{\mu} \cdot \mathbf{b}_{\nu} \right) = \Gamma_{\xi \mu}^{\chi} g_{\chi \nu} + \Gamma_{\xi \nu}^{\chi} g_{\chi \mu}$$
+
+```
+
+````
 
 (calculus-variations:examples:lagrange-equations:quantum-mechanics)=
 ## Quantum Mechanics
