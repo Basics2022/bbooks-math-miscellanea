@@ -796,7 +796,7 @@ $$0 = \partial_i | \hat{\mathbf{n}} |^2 = 2 \hat{\mathbf{n}} \cdot \partial_i \h
   &amp; = - [ X, Y ]^{\mu} \mathbf{b}_{\mu} = - [ X, Y] \ ,
 \end{aligned}\end{split}\]</div>
 <p>i.e. when <span class="math notranslate nohighlight">\(X\)</span>, <span class="math notranslate nohighlight">\(Y\)</span> don’t commute, as stated above.</p>
-<div class="proof example admonition" id="example-0">
+<div class="proof example admonition" id="coordinate-field-commutation">
 <p class="admonition-title"><span class="caption-number">Example 9.1 </span> (Coordinates vector fields commute, and thus only 4 sides are required to build the loop)</p>
 <div class="example-content section" id="proof-content">
 <p>…</p>
@@ -1068,7 +1068,7 @@ Derivatives of the components of the metric tensor<div class="sd-summary-down do
 <div class="math notranslate nohighlight">
 \[\Gamma_{ik}^l = \frac{1}{2} g^{lj} \left( \partial_{k} g_{ij} + \partial_{i} g_{jk} - \partial_{j} g_{ki} \right) \ .\]</div>
 </div>
-</details><div class="proof example admonition" id="example-3">
+</details><div class="proof example admonition" id="parallel-transport-sphere">
 <p class="admonition-title"><span class="caption-number">Example 9.3 </span> (Parallel transport of a vector on a sphere)</p>
 <div class="example-content section" id="proof-content">
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
@@ -1282,6 +1282,38 @@ $$\left\{ \begin{aligned}
 -->
 </div>
 </details></div>
+</div><div class="proof example admonition" id="riemann-tensor-sphere">
+<p class="admonition-title"><span class="caption-number">Example 9.4 </span> (Riemann tensor on the 2-dimensional sphere)</p>
+<div class="example-content section" id="proof-content">
+<p>With <span class="math notranslate nohighlight">\(\left( q^1, q^2 \right) = \left( \theta, \phi \right)\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[
+\Gamma_{12}^{1} = \Gamma_{21}^{1} = \frac{\cos \phi}{\sin \phi} \quad , \quad
+\Gamma_{11}^{2} = - \sin \phi \cos \phi
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\partial_2 \Gamma_{12}^{1} = \partial_2 \Gamma_{21}^{1} = - \frac{1}{\sin^2 \phi} \quad , \quad
+\partial_2 \Gamma_{11}^{2} = \sin^2 \phi - \cos^2 \phi
+\]</div>
+<p>Riemann tensor,</p>
+<div class="math notranslate nohighlight">
+\[R^{\nu}_{\ \ \alpha \beta \xi} := \partial_{\alpha} \Gamma^{\nu}_{\beta \xi} - \partial_{\beta} \Gamma^{\nu}_{\alpha \xi} + \Gamma_{\alpha \eta}^{\nu} \Gamma_{\beta \xi}^{\eta} - \Gamma_{\beta \eta}^{\nu} \Gamma_{\alpha \xi}^{\eta} \ . \]</div>
+<p>with the symmetry <span class="math notranslate nohighlight">\(R^{\nu}_{\ \ \alpha \beta \xi} = - R^{\nu}_{\ \ \beta \alpha \xi}\)</span>, for a 2-dimensional manifold there’s need to evaluate only 4 components (are all these 4 components independent?)</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  R^{\mathbf{1}}_{\ \ 12 \mathbf{1}} &amp; = 0 \\
+  R^{\mathbf{1}}_{\ \ 12 \mathbf{2}} &amp; = -\partial_2 \Gamma_{12}^{1} + \Gamma^{1}_{21} \Gamma^{1}_{12} = \frac{1}{\sin^2 \phi} - \frac{\cos^2 \phi}{\sin^2 \phi} = \frac{1}{\sin^2 \phi} \\
+  R^{\mathbf{2}}_{\ \ 12 \mathbf{1}} &amp; = - \partial_{2} \Gamma_{11}^{2} + \Gamma^2_{11} \Gamma_{21}^{1} = - \sin^2 \phi + \cos^2 \phi - \cos^2\phi = - \sin^2 \phi \\
+  R^{\mathbf{2}}_{\ \ 12 \mathbf{2}} &amp; = 0 \\
+\end{aligned}\end{split}\]</div>
+<p>Lowering the first index of the non-zero components - <strong>todo</strong> <em>Fix the order of the indices to match common definition</em></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  R_{1122} &amp; = g_{11} R^{1}_{\ \ 122} = \frac{R^2 \sin^2 \phi}{\sin^2 \phi} = R^2 \\
+  R_{2122} &amp; = g_{22} R^{2}_{\ \ 121} = - R^2 \sin^2 \phi \ .
+\end{aligned}\end{split}\]</div>
+</div>
 </div><hr class="footnotes docutils" />
 <dl class="footnote brackets">
 <dt class="label" id="spherical-extrinsic"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>

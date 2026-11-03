@@ -173,6 +173,7 @@ $$\begin{aligned}
 i.e. when $X$, $Y$ don't commute, as stated above.
 
 ```{prf:example} Coordinates vector fields commute, and thus only 4 sides are required to build the loop
+:label: coordinate-field-commutation
 
 ...
 
@@ -474,6 +475,7 @@ $$\Gamma_{ik}^l = \frac{1}{2} g^{lj} \left( \partial_{k} g_{ij} + \partial_{i} g
 
 
 ````{prf:example} Parallel transport of a vector on a sphere
+:label: parallel-transport-sphere
 
 ```{dropdown} Coordinates and metric tensor
 :open:
@@ -694,6 +696,47 @@ $$\left\{ \begin{aligned}
 
 -->
 
+````
+
+````{prf:example} Riemann tensor on the 2-dimensional sphere
+:label: riemann-tensor-sphere
+
+With $\left( q^1, q^2 \right) = \left( \theta, \phi \right)$,
+
+$$
+\Gamma_{12}^{1} = \Gamma_{21}^{1} = \frac{\cos \phi}{\sin \phi} \quad , \quad
+\Gamma_{11}^{2} = - \sin \phi \cos \phi
+$$
+
+$$
+\partial_2 \Gamma_{12}^{1} = \partial_2 \Gamma_{21}^{1} = - \frac{1}{\sin^2 \phi} \quad , \quad
+\partial_2 \Gamma_{11}^{2} = \sin^2 \phi - \cos^2 \phi
+$$
+
+Riemann tensor,
+
+$$R^{\nu}_{\ \ \alpha \beta \xi} := \partial_{\alpha} \Gamma^{\nu}_{\beta \xi} - \partial_{\beta} \Gamma^{\nu}_{\alpha \xi} + \Gamma_{\alpha \eta}^{\nu} \Gamma_{\beta \xi}^{\eta} - \Gamma_{\beta \eta}^{\nu} \Gamma_{\alpha \xi}^{\eta} \ . $$
+
+with the symmetry $R^{\nu}_{\ \ \alpha \beta \xi} = - R^{\nu}_{\ \ \beta \alpha \xi}$, for a 2-dimensional manifold there's need to evaluate only 4 components (are all these 4 components independent?)
+
+$$\begin{aligned}
+  R^{\mathbf{1}}_{\ \ 12 \mathbf{1}} & = 0 \\
+  R^{\mathbf{1}}_{\ \ 12 \mathbf{2}} & = -\partial_2 \Gamma_{12}^{1} + \Gamma^{1}_{21} \Gamma^{1}_{12} = \frac{1}{\sin^2 \phi} - \frac{\cos^2 \phi}{\sin^2 \phi} = \frac{1}{\sin^2 \phi} \\
+  R^{\mathbf{2}}_{\ \ 12 \mathbf{1}} & = - \partial_{2} \Gamma_{11}^{2} + \Gamma^2_{11} \Gamma_{21}^{1} = - \sin^2 \phi + \cos^2 \phi - \cos^2\phi = - \sin^2 \phi \\
+  R^{\mathbf{2}}_{\ \ 12 \mathbf{2}} & = 0 \\
+\end{aligned}$$
+
+Lowering the first index of the non-zero components - **todo** *Fix the order of the indices to match common definition*
+
+$$\begin{aligned}
+  R_{1122} & = g_{11} R^{1}_{\ \ 122} = \frac{R^2 \sin^2 \phi}{\sin^2 \phi} = R^2 \\
+  R_{2122} & = g_{22} R^{2}_{\ \ 121} = - R^2 \sin^2 \phi \ .
+\end{aligned}$$
+
+
+
+
 
 ````
+
 

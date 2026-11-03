@@ -225,3 +225,70 @@ $$\kappa_{1,2} = H \pm \sqrt{H^2 - K} .$$
 * The Mean curvature is the average of the principal curvatures: $H = \frac{1}{2}(\kappa_1 + \kappa_2)$.
 
 ...
+
+(differential-geometry:surfaces:geometric-entities:fundamental-forms-and-egregium-thm)=
+## Fundamental forms and Gauss egregium theorem
+
+First and second fundamental forms arieses when dealing with vector quantities of a surface. Let $\mathbf{r}(u,v)$  be a parametrization of the surface, here $(q^1, q^2), (u, v)$. 
+
+* The differential, i.e. an elementary vectors on the surface, contains the first derivative of the parametrization and reads $d \mathbf{r} = \mathbf{b}_i d q^i = \mathbf{r}_i d q^i = \mathbf{r}_u du + \mathbf{r}_v dv$, 
+
+* the covariant components of the metric tensor reads $g_{ij} = \mathbf{b}_i \cdot \mathbf{b}_j$
+
+* the **first fundamental form** appears in the legnth of an elementary vector on the surface,
+
+  $$|d \mathbf{r}|^2 = d \mathbf{r} \cdot d \mathbf{r} = g_{uu} du^2 + 2 g_{uv} du dv + g_{vv} dv^2 = E du^2 + 2 F du dv + G dv^2 \ ,$$
+
+  having introduced the common symbols $E$, $F$, $G$.
+
+* the derivitves of the vectors of the natural basis induced by the parametrization, i.e. the second derivative of the manifold, are 
+
+   $$\partial_{k} \mathbf{b}_i = \partial_{ki} \mathbf{r} =: \Gamma_{ik}^\alpha \mathbf{b}_\alpha \ ,$$
+
+   with $i$, $k \in \{ 1 , 2 \}$, $\alpha \in \{ 1, 2, 3 \}$, and $\mathbf{b}_3 = \hat{\mathbf{n}}$.
+
+* The derivatives of the elements of the first form w.r.t. the coordinates are - as $\hat{\mathbf{n}} \cdot \mathbf{r}_u = \hat{\mathbf{n}} \cdot \mathbf{r}_v = 0$,
+
+   $$\begin{aligned}
+     E_u & = 2 \mathbf{r}_{uu} \cdot \mathbf{r}_{u}                                        && = 2 \Gamma_{11}^{1} g_{11} + 2 \Gamma_{11}^2 g_{12} \\
+     E_v & = 2 \mathbf{r}_{uv} \cdot \mathbf{r}_{u}                                        && = 2 \Gamma_{12}^{1} g_{11} + 2 \Gamma_{12}^2 g_{12} \\
+     F_u & =   \mathbf{r}_{uu} \cdot \mathbf{r}_{v} + \mathbf{r}_{u} \cdot \mathbf{r}_{vu} && =   \Gamma_{11}^{1} g_{12} +   \Gamma_{11}^2 g_{22} +  \Gamma_{12}^{1} g_{11} +   \Gamma_{12}^2 g_{12} \\
+     F_v & =   \mathbf{r}_{uv} \cdot \mathbf{r}_{v} + \mathbf{r}_{u} \cdot \mathbf{r}_{vv} && =   \Gamma_{12}^{1} g_{12} +   \Gamma_{12}^2 g_{22} +  \Gamma_{22}^{1} g_{11} +   \Gamma_{22}^2 g_{12} \\
+     G_u & = 2 \mathbf{r}_{vu} \cdot \mathbf{r}_{v}                                        && = 2 \Gamma_{21}^{1} g_{12} + 2 \Gamma_{21}^2 g_{22} \\
+     G_v & = 2 \mathbf{r}_{vv} \cdot \mathbf{r}_{v}                                        && = 2 \Gamma_{22}^{1} g_{12} + 2 \Gamma_{22}^2 g_{22} \\
+   \end{aligned}$$
+
+   and thus
+   
+   $$\begin{aligned}
+     \mathbf{r}_{uu} \cdot \mathbf{r}_{u}  & = \Gamma_{11}^{1} g_{11} + \Gamma_{11}^2 g_{12} && = \frac{1}{2} E_u \\
+     \mathbf{r}_{uu} \cdot \mathbf{r}_{v}  & = \Gamma_{11}^{1} g_{12} + \Gamma_{11}^2 g_{22} && = F_u - \frac{1}{2} E_v \\
+     \mathbf{r}_{uv} \cdot \mathbf{r}_{u}  & = \Gamma_{12}^{1} g_{11} + \Gamma_{12}^2 g_{12} && = \frac{1}{2} E_v \\
+     \mathbf{r}_{uv} \cdot \mathbf{r}_{v}  & = \Gamma_{21}^{1} g_{12} + \Gamma_{21}^2 g_{22} && = \frac{1}{2} G_u \\
+     \mathbf{r}_{vv} \cdot \mathbf{r}_{u}  & = \Gamma_{22}^{1} g_{11} + \Gamma_{22}^2 g_{12}&& = F_v - \frac{1}{2} G_u \\
+     \mathbf{r}_{vv} \cdot \mathbf{r}_{v}  & = \Gamma_{22}^{1} g_{12} + \Gamma_{22}^2 g_{22} && = \frac{1}{2} G_v \\
+   \end{aligned}$$
+
+   Each pair of equations can be written as
+
+   $$\begin{bmatrix} E & F \\ F & G \end{bmatrix} \begin{bmatrix} \Gamma_{a b}^{1} \\ \Gamma_{a b}^{2} \end{bmatrix} = \begin{bmatrix} \dots \\ \dots \end{bmatrix} \ ,$$
+
+   i.e., if the matrix is non-singular, i.e. if $\mathbf{r}_u \times \mathbf{r}_v \ne \mathbf{0}$, then Christoffel symbols can be written in terms of the coefficients of the first form and their derivatives.
+
+* the **second fundamental form** appears in the second-order derivative of the manifold. With an extrinsic approach, with the 2-dimensional surface embedded in a 3-dimensional space,
+
+   $$\partial_{k} \mathbf{b}_i = \partial_{ki} \mathbf{r} =: \Gamma_{ik}^\alpha \mathbf{b}_\alpha \ ,$$
+
+   with $i$, $k$ running on $\{ 1, 2\}$, while $\alpha$ running on $\{ 1, 2, 3 \}$ with the third component identifying the normal direction. The second-order local approximation of the surface reads
+
+   $$\begin{aligned}
+     \mathbf{r}(q^k+d q^k) 
+     & \sim \mathbf{r}(q^k) + d q^i \, \mathbf{r}_i(q^k) + \frac{1}{2} dq^i dq^j \mathbf{r}_{ij}(q^k) = \\
+     & \sim \mathbf{r}(q^k) + d q^i \, \mathbf{b}_i + \frac{1}{2} dq^i dq^j \Gamma_{ij}^{\alpha} \mathbf{b}_{\alpha}  \ ,
+   \end{aligned}$$
+
+   so that the projection normal to the plane is
+
+   $$\mathbf{\hat{n}} \cdot \left( \mathbf{r}(q^k+dq^k) - \mathbf{r}(q^k) \right) = \frac{1}{2} dq^i dq^j \Gamma^3_{ij} \ .$$
+
+
