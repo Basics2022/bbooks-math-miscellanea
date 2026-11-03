@@ -258,7 +258,7 @@ $$\begin{aligned}
   & \quad \ + \underbrace{ \left(  X^\alpha \partial_\alpha Y^{\mu} - Y^\alpha \partial_\alpha X^{\mu} \right) \Gamma^{\nu}_{\mu \xi} v^\xi }_{ i_{[X,Y]} } + \\ 
   & \quad \ + X^\alpha Y^\beta \Gamma^\nu_{\beta\eta} \Gamma^\eta_{\alpha\xi} v^\xi - X^\alpha Y^\beta \Gamma^\nu_{\alpha\eta} \Gamma^\eta_{\beta\xi} v^\xi - X^\alpha Y^\beta \partial_\alpha \Gamma^\nu_{\beta \xi} v^\xi + X^\alpha Y^\beta \partial_\beta \Gamma^\nu_{\alpha\xi} v^\xi + \text{higher order terms} = \\ 
   & \sim - \left[ \partial_{\alpha} \Gamma^{\nu}_{\beta \xi} - \partial_{\beta} \Gamma^{\nu}_{\alpha \xi} + \Gamma_{\alpha \eta}^{\nu} \Gamma_{\beta \xi}^{\eta} - \Gamma_{\beta \eta}^{\nu} \Gamma_{\alpha \xi}^{\eta} \right] X^{\alpha} Y^{\beta} v^{\xi} = \\
-  & = - R^{\nu}_{\ \ \alpha \beta \xi} X^\alpha Y^\beta v^\xi \ ,
+  & = - v^\xi R^{\nu}_{\ \ \xi \alpha \beta \xi} X^\alpha Y^\beta \ ,
 \end{aligned}$$
 
 having introduced the definition of the **Riemann tensor**, $R^{\nu}_{\ \ \alpha \beta \xi}$.
@@ -266,7 +266,7 @@ having introduced the definition of the **Riemann tensor**, $R^{\nu}_{\ \ \alpha
 ```{prf:definition} Riemann tensor
 :label: def-differential-geometry-riemann-tensor
 
-$$R^{\nu}_{\ \ \alpha \beta \xi} := \partial_{\alpha} \Gamma^{\nu}_{\beta \xi} - \partial_{\beta} \Gamma^{\nu}_{\alpha \xi} + \Gamma_{\alpha \eta}^{\nu} \Gamma_{\beta \xi}^{\eta} - \Gamma_{\beta \eta}^{\nu} \Gamma_{\alpha \xi}^{\eta} \ . $$
+$$R^{\nu}_{\ \ \xi \alpha \beta} := \partial_{\alpha} \Gamma^{\nu}_{\beta \xi} - \partial_{\beta} \Gamma^{\nu}_{\alpha \xi} + \Gamma_{\alpha \eta}^{\nu} \Gamma_{\beta \xi}^{\eta} - \Gamma_{\beta \eta}^{\nu} \Gamma_{\alpha \xi}^{\eta} \ . $$
 
 ```
 
@@ -277,9 +277,9 @@ $$R^{\nu}_{\ \ \alpha \beta \xi} := \partial_{\alpha} \Gamma^{\nu}_{\beta \xi} -
 $$\begin{aligned}
   H^\nu = \Delta v^{nu} 
   & := \oint_{\gamma_{X,Y}}d q^{\mu} \left\{  \partial_{\mu} v^{\nu}  \right\}_{||} =  \\
-  & := - \oint_{\gamma_{X,Y}} d q^{\mu} \Gamma_{\mu \xi}^{\nu} v^{\xi} =  \\
-  &  = - \frac{1}{2} R^{\nu}_{\ \ \alpha \beta \xi} \left( X^{\alpha} Y^{\beta} - X^{\beta} Y^{\alpha} \right) v^\xi + \text{higher order terms} = \\
-  &  = - \frac{1}{2} R^{\nu}_{\ \ \alpha \beta \xi} \, A^{\alpha \beta} \, v^\xi + \text{higher order terms} \ ,
+  & := - \oint_{\gamma_{X,Y}}  v^{\xi} \, \Gamma_{\mu \xi}^{\nu} \, d q^{\mu} =  \\
+  &  = - \frac{1}{2} v^{\xi} \, R^{\nu}_{\ \ \xi \alpha \beta} \left( X^{\alpha} Y^{\beta} - X^{\beta} Y^{\alpha} \right) + \text{higher order terms} = \\
+  &  = - \frac{1}{2} v^{\xi} \, R^{\nu}_{\ \ \xi \alpha \beta} \, A^{\alpha \beta} + \text{higher order terms} \ ,
 \end{aligned}$$
 
 having introduced the **signed areas** $A^{\alpha \beta}$ of the projection of the area enclosed in the elementary loop onto the plane defined by the coordinates $q^{\alpha}$ and $q^{\beta}$.
@@ -335,6 +335,39 @@ $$R^k_{\,m i j} = \partial_i \Gamma^k_{j m} - \partial_j \Gamma^k_{i m} + \Gamma
 
 ```
 
+(differential-geometry:curvature:intrinsic:riemann-curvature-tensor:properties)=
+#### Properties
+
+$$R_{ab\mathbf{cd}} = - R_{ab\mathbf{dc}}$$ (eq:riemann-tensor:prop-1)
+
+```{dropdown} Proof
+
+```
+
+$$R_{\mathbf{ab}cd} = - R_{\mathbf{ba}cd}$$ (eq:riemann-tensor:prop-2)
+
+```{dropdown} Proof
+
+```
+
+$$0 = R_{\mathbf{ab} cd} = R_{cd\mathbf{ab}}$$ (eq:riemann-tensor:prop-3)
+
+```{dropdown} Proof
+
+```
+
+$$0 = R_{\mathbf{a} bcd} + R_{\mathbf{a} cdb} + R_{\mathbf{a} dbc}$$ (eq:riemann-tensor:prop-4)
+
+```{dropdown} Proof
+
+```
+
+$$0 = R_{\mathbf{ab} cd;e} + R_{\mathbf{ab} de;c} + R_{\mathbf{ab} ec;d}$$ (eq:riemann-tensor:prop-5)
+
+```{dropdown} Proof
+
+```
+
 (differential-geometry:curvature:intrinsic:relation-with-extrinsic-curvature)=
 ### Relation between Riemann curvature tensor and extrinsic curvature
 
@@ -349,7 +382,18 @@ $$\begin{aligned}
   & = \left( \partial_j \Gamma_{ik}^l + \Gamma_{ik}^m \Gamma_{mj}^l - \Gamma_{ik}^{n+1} b^l_j \right) \mathbf{b}_l + \left( \partial_j \Gamma_{ik}^{n+1} + \Gamma_{ik}^{l} \Gamma_{lj}^{n+1} \right) \mathbf{n} \ ,
 \end{aligned}$$
 
-having used the **Weingarten equation** {eq}`eq:differential-geometry:curvature:weingarten`, $\partial_j \mathbf{n} = - b^{\ \ l}_j \mathbf{b}_l$. Equating every tangential components of $\partial_{jk} \mathbf{b}_i$ and $\partial_{kj} \mathbf{b}_i$, it follows for the component $l$,
+having used the **Weingarten equation** {eq}`eq:differential-geometry:curvature:weingarten`, $\partial_j \mathbf{n} = - g^{kl} b_{jk} \mathbf{b}_l = - b^{\ \ l}_j \mathbf{b}_l$. 
+
+```{admonition} Symmetries of $\ \mathbb{b}$
+
+Since $b_{ij} := \Gamma^{n+1}_{ij}$, then these symbols are symmetric $b_{ij} = b_{ji}$. Since $b_{i}^{\ \ l} = b_{ij} g^{jl}$, exploiting the symmetries of the symbols $b_{ij}$ and $g^{kl}$, it follows 
+
+$$b_{i}^{\ \ l} = b_{ij} g^{jl} = b_{ji} g^{jl} = b^{l}_{\ \ i} \ .$$
+
+
+```
+
+Equating every tangential components of $\partial_{jk} \mathbf{b}_i$ and $\partial_{kj} \mathbf{b}_i$, it follows for the component $l$,
 
 $$
 \partial_j \Gamma_{ik}^l + \Gamma_{ik}^m \Gamma_{mj}^l - \Gamma_{ik}^{n+1} b^l_j = 
@@ -362,12 +406,50 @@ $$
 \underbrace{\partial_j \Gamma_{ik}^l - \partial_k \Gamma_{ij}^l + \Gamma_{ik}^m \Gamma_{mj}^l - \Gamma_{ij}^m \Gamma_{mk}^l}_{ = R^{l}_{\ \ ijk} } = \Gamma_{ik}^{n+1} b^l_j - \Gamma_{ij}^{n+1} b^l_k \ ,
 $$
 
-having introduced the definition of **Riemann curvature tensor** $R^{l}_{\ \ ijk}$. Writing $\Gamma^{n+1}_{ij} = b_{ij}$, it follows
+having introduced the definition of **Riemann curvature tensor** $R^{l}_{\ \ ijk}$. Writing $\Gamma^{n+1}_{ij} = b_{ij}$, as done in {eq}`eq:second-fundamental-form:normal-projection` dealing with curvature and second fundamental form, it follows
 
-$$R^{l}_{\ \ ijk} = b_{ij} b^l_j - b_{ij} b^l_k \ .$$
+$$R^{l}_{\ \ ijk} = b_{ik} b^l_j - b_{ij} b^l_k $$ (eq:riemann:second-fundamental-form)
+
+<!-- = b_{ik} b_{jm} g^{lm} - b_{ij} b_{km} g^{lm} \ .$$ -->
 
 
 See also [General Relativity: Differential Geometry: Curvature Tensor](https://basics2022.github.io/bbooks-physics-modern/ch/relativity-general/differential-geometry.html#curvature-tensor)
+
+(differential-geometry:curvature:intrinsic:relation-with-extrinsic-curvature:2d-surface)=
+#### Riemann tensor for 2-dimensional surfaces
+
+$$R_{mijk} = g_{ml} R^{l}_{\ \ ijk} = g_{ml} \left( b_{ik} b^l_j - b_{ij} b^l_k \right) = b_{ik} b_{jm} - b_{ij} b_{mk} \ . $$
+
+For a 2-dimensional surface, indices belong to the set $\{ 1, 2 \}$. In general, it has 16 components. Exploiting symmetries of the Riemann tensor, it's possible to find a smaller set of independent components. Property {eq}`eq:riemann-tensor:prop-1`, $R_{mijk} = -R_{mikj}$, sets all the elements with $k = j$ to zero, i.e. 8 components are set to zero. Only 4 of the remaining components could be independent. Let's say we choose the - possibly - independent components to be the one with $j = 1$, $k = 2$, i.e. 
+
+$$\left\{ R_{1112}, R_{1212}, R_{2112}, R_{2212} \right\}$$
+
+Property {eq}`eq:riemann-tensor:prop-2`, $R_{mijk} = -R_{imjk}$, sets the elements $R_{mijk}$ with $m = i$ to zero, and thus the number of possibly independent components becomes 2, since $R_{1112} = R_{2212} = 0$. The same property implies that $R_{2112} = - R_{1212}$, so the number of possibly independent components becomes 1, usually chosen as $R_{1212}$.
+
+Thus, non-zero components are
+
+$$R_{1212} = - R_{2112} = - R_{1221} = R_{2121} \ .$$
+
+Using {eq}`eq:riemann:second-fundamental-form`, it can be proved that the component $R_{1212}$ is equal to the determinant of the second fundamental form $\mathbb{b}$, 
+
+$$R_{1212} = b_{22} b_{11} - b_{12}^2 =  L N - M^2 = K g \ .$$
+
+having introduced the **Gaussian curvature**, using its expression as the ratio of the determinant of the second and first fundamental form {eq}`eq:differential-geometry:gaussian-curvature`, $K = \frac{\text{det}\left\{ b_{ij} \right\} }{\text{det}\left\{ g_{ij} \right\} } = \frac{LN - M^2}{g}$.
+
+**Ricci tensor.** The components of Ricci tensor, $R_{ik} := g^{mj} R_{mijk}$, are
+
+$$\begin{aligned}
+  R_{11} & = g^{mj} R_{m1j1} = g^{22} R_{2121} = \ \ g^{22} K g = g_{11} K  \\
+  R_{12} & = g^{mj} R_{m1j2} = g^{21} R_{2112} = -   g^{21} K g = g_{12} K  \\
+  R_{21} & = g^{mj} R_{m2j1} = g^{12} R_{1221} = -   g^{12} K g = g_{21} K  \\
+  R_{22} & = g^{mj} R_{m2j2} = g^{11} R_{1212} = \ \ g^{11} K g = g_{22} K  \ ,\
+\end{aligned}$$
+
+i.e. Ricci tensor of a 2-dimensional surface is proportional to the metric tensor, and the proportionality constant is the Gaussian curvature,
+
+$$R_{ij} = K g_{ij} \ .$$
+
+**Scalar curvature.** The scalar curvature, $R := g^{ij} R_{ij}$, is simply $R = 2 K$.
 
 (differential-geometry:curvature:intrinsic:examples)=
 ### Examples
@@ -379,6 +461,8 @@ While it's trivial to prove that the 2-dimensional Euclidean space is flat using
 **Cartesian coordinates.** Cartesian coordinates have uniform (constant in space) vectors of the natural basis, and thus all the Christoffel symbols equal to zero - being the components of their space derivatives - and the partial derivatives of the Christoffell symbols equal to zero as well. Thus,
 
 $$R^{k}_{\ m i j} = 0 \ .$$
+
+
 
 
 ```{dropdown} Polar coordinates
