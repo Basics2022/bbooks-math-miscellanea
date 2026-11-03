@@ -625,6 +625,7 @@ document.write(`
 </li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamental-forms-and-gauss-egregium-theorem">9.2.5. Fundamental forms and Gauss egregium theorem</a></li>
 </ul>
             </nav>
         </div>
@@ -835,6 +836,63 @@ Using the metric tensor $g_{ij}$ (the *first fundamental form*), we can define t
 </div>
 </div>
 </div>
+<div class="section" id="fundamental-forms-and-gauss-egregium-theorem">
+<span id="differential-geometry-surfaces-geometric-entities-fundamental-forms-and-egregium-thm"></span><h2><span class="section-number">9.2.5. </span>Fundamental forms and Gauss egregium theorem<a class="headerlink" href="#fundamental-forms-and-gauss-egregium-theorem" title="Permalink to this heading">#</a></h2>
+<p>First and second fundamental forms arieses when dealing with vector quantities of a surface. Let <span class="math notranslate nohighlight">\(\mathbf{r}(u,v)\)</span>  be a parametrization of the surface, here <span class="math notranslate nohighlight">\((q^1, q^2), (u, v)\)</span>.</p>
+<ul>
+<li><p>The differential, i.e. an elementary vectors on the surface, contains the first derivative of the parametrization and reads <span class="math notranslate nohighlight">\(d \mathbf{r} = \mathbf{b}_i d q^i = \mathbf{r}_i d q^i = \mathbf{r}_u du + \mathbf{r}_v dv\)</span>,</p></li>
+<li><p>the covariant components of the metric tensor reads <span class="math notranslate nohighlight">\(g_{ij} = \mathbf{b}_i \cdot \mathbf{b}_j\)</span></p></li>
+<li><p>the <strong>first fundamental form</strong> appears in the legnth of an elementary vector on the surface,</p>
+<div class="math notranslate nohighlight">
+\[|d \mathbf{r}|^2 = d \mathbf{r} \cdot d \mathbf{r} = g_{uu} du^2 + 2 g_{uv} du dv + g_{vv} dv^2 = E du^2 + 2 F du dv + G dv^2 \ ,\]</div>
+<p>having introduced the common symbols <span class="math notranslate nohighlight">\(E\)</span>, <span class="math notranslate nohighlight">\(F\)</span>, <span class="math notranslate nohighlight">\(G\)</span>.</p>
+</li>
+<li><p>the derivitves of the vectors of the natural basis induced by the parametrization, i.e. the second derivative of the manifold, are</p>
+<div class="math notranslate nohighlight">
+\[\partial_{k} \mathbf{b}_i = \partial_{ki} \mathbf{r} =: \Gamma_{ik}^\alpha \mathbf{b}_\alpha \ ,\]</div>
+<p>with <span class="math notranslate nohighlight">\(i\)</span>, <span class="math notranslate nohighlight">\(k \in \{ 1 , 2 \}\)</span>, <span class="math notranslate nohighlight">\(\alpha \in \{ 1, 2, 3 \}\)</span>, and <span class="math notranslate nohighlight">\(\mathbf{b}_3 = \hat{\mathbf{n}}\)</span>.</p>
+</li>
+<li><p>The derivatives of the elements of the first form w.r.t. the coordinates are - as <span class="math notranslate nohighlight">\(\hat{\mathbf{n}} \cdot \mathbf{r}_u = \hat{\mathbf{n}} \cdot \mathbf{r}_v = 0\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+     E_u &amp; = 2 \mathbf{r}_{uu} \cdot \mathbf{r}_{u}                                        &amp;&amp; = 2 \Gamma_{11}^{1} g_{11} + 2 \Gamma_{11}^2 g_{12} \\
+     E_v &amp; = 2 \mathbf{r}_{uv} \cdot \mathbf{r}_{u}                                        &amp;&amp; = 2 \Gamma_{12}^{1} g_{11} + 2 \Gamma_{12}^2 g_{12} \\
+     F_u &amp; =   \mathbf{r}_{uu} \cdot \mathbf{r}_{v} + \mathbf{r}_{u} \cdot \mathbf{r}_{vu} &amp;&amp; =   \Gamma_{11}^{1} g_{12} +   \Gamma_{11}^2 g_{22} +  \Gamma_{12}^{1} g_{11} +   \Gamma_{12}^2 g_{12} \\
+     F_v &amp; =   \mathbf{r}_{uv} \cdot \mathbf{r}_{v} + \mathbf{r}_{u} \cdot \mathbf{r}_{vv} &amp;&amp; =   \Gamma_{12}^{1} g_{12} +   \Gamma_{12}^2 g_{22} +  \Gamma_{22}^{1} g_{11} +   \Gamma_{22}^2 g_{12} \\
+     G_u &amp; = 2 \mathbf{r}_{vu} \cdot \mathbf{r}_{v}                                        &amp;&amp; = 2 \Gamma_{21}^{1} g_{12} + 2 \Gamma_{21}^2 g_{22} \\
+     G_v &amp; = 2 \mathbf{r}_{vv} \cdot \mathbf{r}_{v}                                        &amp;&amp; = 2 \Gamma_{22}^{1} g_{12} + 2 \Gamma_{22}^2 g_{22} \\
+   \end{aligned}\end{split}\]</div>
+<p>and thus</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+     \mathbf{r}_{uu} \cdot \mathbf{r}_{u}  &amp; = \Gamma_{11}^{1} g_{11} + \Gamma_{11}^2 g_{12} &amp;&amp; = \frac{1}{2} E_u \\
+     \mathbf{r}_{uu} \cdot \mathbf{r}_{v}  &amp; = \Gamma_{11}^{1} g_{12} + \Gamma_{11}^2 g_{22} &amp;&amp; = F_u - \frac{1}{2} E_v \\
+     \mathbf{r}_{uv} \cdot \mathbf{r}_{u}  &amp; = \Gamma_{12}^{1} g_{11} + \Gamma_{12}^2 g_{12} &amp;&amp; = \frac{1}{2} E_v \\
+     \mathbf{r}_{uv} \cdot \mathbf{r}_{v}  &amp; = \Gamma_{21}^{1} g_{12} + \Gamma_{21}^2 g_{22} &amp;&amp; = \frac{1}{2} G_u \\
+     \mathbf{r}_{vv} \cdot \mathbf{r}_{u}  &amp; = \Gamma_{22}^{1} g_{11} + \Gamma_{22}^2 g_{12}&amp;&amp; = F_v - \frac{1}{2} G_u \\
+     \mathbf{r}_{vv} \cdot \mathbf{r}_{v}  &amp; = \Gamma_{22}^{1} g_{12} + \Gamma_{22}^2 g_{22} &amp;&amp; = \frac{1}{2} G_v \\
+   \end{aligned}\end{split}\]</div>
+<p>Each pair of equations can be written as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{bmatrix} E &amp; F \\ F &amp; G \end{bmatrix} \begin{bmatrix} \Gamma_{a b}^{1} \\ \Gamma_{a b}^{2} \end{bmatrix} = \begin{bmatrix} \dots \\ \dots \end{bmatrix} \ ,\end{split}\]</div>
+<p>i.e., if the matrix is non-singular, i.e. if <span class="math notranslate nohighlight">\(\mathbf{r}_u \times \mathbf{r}_v \ne \mathbf{0}\)</span>, then Christoffel symbols can be written in terms of the coefficients of the first form and their derivatives.</p>
+</li>
+<li><p>the <strong>second fundamental form</strong> appears in the second-order derivative of the manifold. With an extrinsic approach, with the 2-dimensional surface embedded in a 3-dimensional space,</p>
+<div class="math notranslate nohighlight">
+\[\partial_{k} \mathbf{b}_i = \partial_{ki} \mathbf{r} =: \Gamma_{ik}^\alpha \mathbf{b}_\alpha \ ,\]</div>
+<p>with <span class="math notranslate nohighlight">\(i\)</span>, <span class="math notranslate nohighlight">\(k\)</span> running on <span class="math notranslate nohighlight">\(\{ 1, 2\}\)</span>, while <span class="math notranslate nohighlight">\(\alpha\)</span> running on <span class="math notranslate nohighlight">\(\{ 1, 2, 3 \}\)</span> with the third component identifying the normal direction. The second-order local approximation of the surface reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+     \mathbf{r}(q^k+d q^k) 
+     &amp; \sim \mathbf{r}(q^k) + d q^i \, \mathbf{r}_i(q^k) + \frac{1}{2} dq^i dq^j \mathbf{r}_{ij}(q^k) = \\
+     &amp; \sim \mathbf{r}(q^k) + d q^i \, \mathbf{b}_i + \frac{1}{2} dq^i dq^j \Gamma_{ij}^{\alpha} \mathbf{b}_{\alpha}  \ ,
+   \end{aligned}\end{split}\]</div>
+<p>so that the projection normal to the plane is</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{\hat{n}} \cdot \left( \mathbf{r}(q^k+dq^k) - \mathbf{r}(q^k) \right) = \frac{1}{2} dq^i dq^j \Gamma^3_{ij} \ .\]</div>
+</li>
+</ul>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -910,6 +968,7 @@ Using the metric tensor $g_{ij}$ (the *first fundamental form*), we can define t
 </li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamental-forms-and-gauss-egregium-theorem">9.2.5. Fundamental forms and Gauss egregium theorem</a></li>
 </ul>
   </nav></div>
 
