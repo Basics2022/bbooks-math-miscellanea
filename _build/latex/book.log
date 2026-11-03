@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/Debian) (preloaded format=xelatex 2024.9.16)  3 NOV 2026 15:22
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/Debian) (preloaded format=xelatex 2024.9.16)  3 NOV 2026 16:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1877,14 +1877,10 @@ LaTeX Info: Redefining \rmfamily on input line 1963.
 LaTeX Info: Redefining \sffamily on input line 1963.
 LaTeX Info: Redefining \ttfamily on input line 1963.
  [47]
-
-LaTeX Warning: Reference `equation:ch/differential-geometry/surfaces:eq:second-
-fundamental-form-derivative-n' on page 48 undefined on input line 1984.
-
 LaTeX Info: Redefining \rmfamily on input line 2036.
 LaTeX Info: Redefining \sffamily on input line 2036.
 LaTeX Info: Redefining \ttfamily on input line 2036.
-[48]
+ [48]
 LaTeX Info: Redefining \rmfamily on input line 2104.
 LaTeX Info: Redefining \sffamily on input line 2104.
 LaTeX Info: Redefining \ttfamily on input line 2104.
@@ -1909,33 +1905,14 @@ LaTeX Info: Redefining \rmfamily on input line 2438.
 LaTeX Info: Redefining \sffamily on input line 2438.
 LaTeX Info: Redefining \ttfamily on input line 2438.
  [54]
-
-LaTeX Warning: Reference `equation:ch/differential-geometry/surfaces:eq:second-
-fundamental-form:normal-projection' on page 55 undefined on input line 2466.
-
-
-LaTeX Warning: Reference `equation:ch/differential-geometry/curvature:eq:rieman
-n-tensor:prop-1' on page 55 undefined on input line 2481.
-
-
-LaTeX Warning: Reference `equation:ch/differential-geometry/curvature:eq:rieman
-n-tensor:prop-2' on page 55 undefined on input line 2486.
-
-
-LaTeX Warning: Reference `equation:ch/differential-geometry/curvature:eq:rieman
-n:second-fundamental-form' on page 55 undefined on input line 2494.
-
 LaTeX Info: Redefining \rmfamily on input line 2497.
 LaTeX Info: Redefining \sffamily on input line 2497.
 LaTeX Info: Redefining \ttfamily on input line 2497.
-[55]
-
-LaTeX Warning: Reference `equation:ch/differential-geometry/surfaces:eq:differe
-ntial-geometry:gaussian-curvature' on page 56 undefined on input line 2499.
-
+ [55]
 LaTeX Info: Redefining \rmfamily on input line 2567.
 LaTeX Info: Redefining \sffamily on input line 2567.
 LaTeX Info: Redefining \ttfamily on input line 2567.
+
 [56]
 LaTeX Info: Redefining \rmfamily on input line 2647.
 LaTeX Info: Redefining \sffamily on input line 2647.
@@ -4091,10 +4068,6 @@ reeSerif(0)/m/it/10 ch/control/optimal-
  []
 
 
-LaTeX Warning: Reference `ch/differential-geometry/curvature:coordinate-field-c
-ommutation' on page 505 undefined on input line 25765.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 25765--25766
 []\TU/FreeMono(0)/m/n/10 coordinate-field-commutation
  []
@@ -4185,6 +4158,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 25825--25826
  []
 
 
+Underfull \hbox (badness 10000) in paragraph at lines 25828--25829
+[]\TU/FreeMono(0)/m/n/10 example-2 \TU/FreeSerif(0)/m/n/10 (\TU/FreeSerif(0)/m/
+it/10 ch/tensor-algebra-calculus/calculus-
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 25831--25832
 []\TU/FreeMono(0)/m/n/10 example-3 \TU/FreeSerif(0)/m/n/10 (\TU/FreeSerif(0)/m/
 it/10 ch/tensor-algebra-calculus/calculus-
@@ -4238,18 +4217,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 25864--25865
  []
 
 
-LaTeX Warning: Reference `ch/differential-geometry/curvature:parallel-transport
--sphere' on page 506 undefined on input line 25867.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 25867--25868
 []\TU/FreeMono(0)/m/n/10 parallel-transport-sphere \TU/FreeSerif(0)/m/n/10 (\TU
 /FreeSerif(0)/m/it/10 ch/differential-
  []
-
-
-LaTeX Warning: Reference `ch/differential-geometry/curvature:riemann-tensor-sph
-ere' on page 506 undefined on input line 25900.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 25900--25901
@@ -4263,9 +4234,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 25903--25904
 eSerif(0)/m/it/10 ch/linear-algebra/svd\TU/FreeSerif(0)/m/n/10 ),
  []
 
-LaTeX Info: Redefining \rmfamily on input line 25914.
-LaTeX Info: Redefining \sffamily on input line 25914.
-LaTeX Info: Redefining \ttfamily on input line 25914.
+LaTeX Info: Redefining \rmfamily on input line 25908.
+LaTeX Info: Redefining \sffamily on input line 25908.
+LaTeX Info: Redefining \ttfamily on input line 25908.
 [506]
 Underfull \hbox (badness 10000) in paragraph at lines 25921--25922
 []\TU/FreeMono(0)/m/n/10 thm-shannon-nyquist \TU/FreeSerif(0)/m/n/10 (\TU/FreeS
@@ -4327,27 +4298,14 @@ LaTeX Info: Redefining \ttfamily on input line 19.
 Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 25932.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 25932
 .
-
-
-Package rerunfilecheck Warning: File `book.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `book.out':
-(rerunfilecheck)             Before: 28FAC67F51D0F044E0226A5614F5230A;63091
-(rerunfilecheck)             After:  63BEAD4A41EFC116EE7B6E34F10CD61B;63389.
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
+Package rerunfilecheck Info: File `book.out' has not changed.
+(rerunfilecheck)             Checksum: 63BEAD4A41EFC116EE7B6E34F10CD61B;63389.
  ) 
 Here is how much of TeX's memory you used:
- 44259 strings out of 481789
- 1064973 string characters out of 5937152
- 1901961 words of memory out of 5000000
- 60359 multiletter control sequences out of 15000+600000
+ 44257 strings out of 481789
+ 1064855 string characters out of 5937152
+ 1900961 words of memory out of 5000000
+ 60357 multiletter control sequences out of 15000+600000
  542811 words of font info for 153 fonts, out of 8000000 for 9000
  15 hyphenation exceptions out of 8191
  71i,33n,109p,1352b,2275s stack positions out of 5000i,500n,10000p,200000b,80000s

@@ -912,8 +912,66 @@ From the variational principle to the equations of motion<div class="sd-summary-
 </div>
 <div class="section" id="using-coordinates">
 <span id="calculus-variations-examples-lagrange-equations-special-relativity-coordinates"></span><h3><span class="section-number">26.2.4.2. </span>Using coordinates<a class="headerlink" href="#using-coordinates" title="Permalink to this heading">#</a></h3>
-<p>With <span class="math notranslate nohighlight">\(\mathbf{X}\left( q^{\mu}(\lambda) \right)\)</span>,…</p>
+<p>Let <span class="math notranslate nohighlight">\(\mathbf{X}(q^\mu(\tau))\)</span>, then <span class="math notranslate nohighlight">\(\mathbf{U} = \dot{q}^{\mu} \mathbf{b}_{\mu}\)</span>, and <span class="math notranslate nohighlight">\(\ddot{\mathbf{U}} = \left[ \ddot{q}^{mu} + \dot{q}^{\xi} \dot{q}^{\eta} \Gamma_{\xi \eta}^{\mu} \right] \mathbf{b}_{\mu}\)</span>. The component <span class="math notranslate nohighlight">\(\mu\)</span> of the equation of motion thus reads</p>
+<div class="math notranslate nohighlight">
+\[\dfrac{d^2 q^{\mu}}{d \tau^2} + \Gamma_{\mu}^{\xi \eta} \dfrac{d q^{\xi}}{d \tau} \dfrac{d q^{eta}}{d \tau} = q \left( \dots \right) \dots \]</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+TODO. Fix the calculuation with coordinates<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">With <span class="math notranslate nohighlight">\(\mathbf{X}\left( q^{\mu}(\lambda) \right)\)</span>, <span class="math notranslate nohighlight">\(\mathbf{X}'(\lambda) = q^{\mu '} \partial_\mu \mathbf{X} = q^{\mu '} \mathbf{b}_\mu\)</span>, the Laplacian becomes</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned} 
+  \mathcal{L}(q^{\xi}(\lambda), q^{\xi '}(\lambda), \lambda) 
+  &amp; = - m c \sqrt{\mathbf{X}'(\lambda) \cdot \mathbf{X}'(\lambda)} - q \mathbf{A}(\mathbf{X}(\lambda)) \cdot \mathbf{X}'(\lambda) = \\
+  &amp; = - m c \sqrt{g_{\mu \nu}( q^{\xi} ) \, q^{\mu '} q^{\nu '}} - q A_{\mu}( q^{\xi} ) q^{\mu '} \ ,
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">Lagrange equations give</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  0
+  &amp; = \frac{d}{d\lambda} \frac{\partial \mathcal{L}}{\partial q^{\xi '}} - \frac{\partial \mathcal{L}}{\partial q^{\xi}} = \\
+  &amp; = - mc \frac{1}{2 ( \dots )^{3/2}} \left( g_{\eta \nu} q^{\nu '} \right) - mc \frac{1}{2(\dots)^{1/2}} g_{\eta \nu} q^{\nu ''} - q \, q^{\nu '} \left( \partial_{\nu} A_{\eta} - \partial_{\eta} A_{\nu} \right) = \\
+\end{aligned}\end{split}\]</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+<span class="math notranslate nohighlight">\(\frac{d}{d \lambda} \frac{\partial \mathcal{L}}{\partial q^{\eta '}}\)</span><div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \dfrac{d}{d \lambda} \partial_{q^{\eta '}} \mathcal{L}
+  &amp; = \dfrac{d}{d \lambda} \left[ - \frac{mc}{2 \sqrt{\dots}} \left( g_{\mu \nu} \left( \delta_{\eta}^{\mu} q^{\nu '} + q^{\mu '} \delta_{\eta}^{\nu} \right) \right) - q  A_\mu \delta_{\eta}^{\mu} \right] = \\
+  &amp; = \dfrac{d}{d \lambda} \left[ - \frac{mc}{\sqrt{\dots}} \left( g_{\eta \nu} q^{\nu '} \right) - q \, A_\mu \delta_{\eta}^{\mu} \right] = \\
+  &amp; = -mc \left[ - \frac{1}{2 ( \dots )^{3/2}} \left( g_{\eta \nu} q^{\nu '} \right) + \frac{1}{2 ( \dots )^{1/2}} \left( \left( \Gamma_{\eta \xi}^{\chi} g_{\chi \nu} + \Gamma_{\nu \xi}^{\chi} g_{\eta \chi} \right) q^{\xi '} q^{\nu '} + g_{\eta \nu} q^{\nu ''} \right)  \right] - q \, q^{\nu '} \partial_{q^{\nu}} A_{\eta} = \\
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">with</p>
+<div class="math notranslate nohighlight">
+\[\dfrac{d g_{\eta \nu}}{d \lambda} = \dfrac{d}{d \lambda} \left( \mathbf{b}_\eta \cdot \mathbf{b}_\nu \right) = q^{\xi '} \partial_{\xi} g_{\eta \chi} = q^{\xi '} \left( \Gamma_{\eta \xi}^{\chi} g_{\chi \nu} + \Gamma_{\nu \xi}^{\chi} g_{\eta \chi} \right)\]</div>
 </div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+<span class="math notranslate nohighlight">\(\frac{\partial \mathcal{L}}{\partial q^{\eta}}\)</span><div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \partial_{q^\xi} \mathcal{L}
+  &amp; = - \frac{mc}{2 \sqrt{\dots}}\left( \partial_{q^\xi} g_{\mu \nu} q^{\mu '} q^{\nu '} \right) - q \partial_\eta A_\mu q^{\mu '} = \\
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">with</p>
+<div class="math notranslate nohighlight">
+\[\partial_{\xi} g_{\mu \nu} = \partial_{\xi} \left( \mathbf{b}_{\mu} \cdot \mathbf{b}_{\nu} \right) = \Gamma_{\xi \mu}^{\chi} g_{\chi \nu} + \Gamma_{\xi \nu}^{\chi} g_{\chi \mu}\]</div>
+</div>
+</details></div>
+</details></div>
 </div>
 <div class="section" id="quantum-mechanics">
 <span id="calculus-variations-examples-lagrange-equations-quantum-mechanics"></span><h2><span class="section-number">26.2.5. </span>Quantum Mechanics<a class="headerlink" href="#quantum-mechanics" title="Permalink to this heading">#</a></h2>
