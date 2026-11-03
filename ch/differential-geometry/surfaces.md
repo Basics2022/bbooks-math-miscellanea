@@ -35,11 +35,11 @@ $$\left\{\begin{aligned}
 (differential-geometry:surfaces:derivative-of-the-natural-basis)=
 ## Derivatives of the natural basis
 
-For $i=1:2$, $j=1:2$
+For $i, \, j \in \{ 1, 2 \}$, using the vector $\mathbf{b}_3 = \hat{\mathbf{n}}$, the second-order derivatives of the position on the manifold w.r.t. the coordinates read
 
-$$\frac{\partial^2 \mathbf{r}}{\partial q^i \partial q^j} = \frac{\partial \mathbf{b}_i}{\partial q^j} = \Gamma_{ij}^k \mathbf{b}_k = \Gamma_{ij}^1 \mathbf{b}_1 + \Gamma_{ij}^2 \mathbf{b}_2 + \Gamma_{ij}^3 \mathbf{b}_3 \ ,$$
+$$\frac{\partial^2 \mathbf{r}}{\partial q^i \partial q^j} = \frac{\partial \mathbf{b}_i}{\partial q^j} = \Gamma_{ij}^{\alpha} \mathbf{b}_{\alpha} = \Gamma_{ij}^1 \mathbf{b}_1 + \Gamma_{ij}^2 \mathbf{b}_2 + \Gamma_{ij}^3 \mathbf{b}_3 \ .$$
 
-so that
+Exploiting the orthogonality of the natural basis and its reciprocal, it follows
 
 $$\Gamma_{ij}^{k} = \mathbf{b}^k \cdot \frac{\partial \mathbf{b}_i}{\partial q^j} \ .$$
 
@@ -93,13 +93,13 @@ $$\mathbb{b} = b_{ij} \mathbf{b}^i \otimes \mathbf{b}^j = \left( \hat{\mathbf{n}
 
 From the second-order Taylor expansion around a point $\mathbf{r}(q^1, q^2)$, the projection of the displacement onto the unit normal vector $\hat{\mathbf{n}}$ measures the distance from the surface to its tangent plane $\pi$:
 
-$$[\mathbf{r}(q^1 + dq^1, q^2 + dq^2) - \mathbf{r}(q^1, q^2)] \cdot \hat{\mathbf{n}} = \frac{1}{2} \Gamma_{ij}^3 dq^i dq^j = \frac{1}{2} b_{ij} dq^i dq^j .$$
+$$[\mathbf{r}(q^1 + dq^1, q^2 + dq^2) - \mathbf{r}(q^1, q^2)] \cdot \hat{\mathbf{n}} = \frac{1}{2} \Gamma_{ij}^3 dq^i dq^j ,$$
 
 The symmetric covariant tensor of rank 2, defined by its components
 
-$$b_{ij} := \Gamma_{ij}^3 = \hat{\mathbf{n}} \cdot \frac{\partial^2 \mathbf{r}}{\partial q^i \partial q^j} = -\frac{\partial \hat{\mathbf{n}}}{\partial q^i} \cdot \mathbf{b}_j ,$$
+$$b_{ij} := \Gamma_{ij}^3 = \hat{\mathbf{n}} \cdot \mathbf{b}_{\alpha} \Gamma_{ij}^{\alpha} = \hat{\mathbf{n}} \cdot \frac{\partial^2 \mathbf{r}}{\partial q^i \partial q^j} = \hat{\mathbf{n}} \cdot \frac{\partial \mathbf{b}_i}{\partial q^j} = -\frac{\partial \hat{\mathbf{n}}}{\partial q^j} \cdot \mathbf{b}_i ,$$ (eq:second-fundamental-form:normal-projection)
 
-is the **second fundamental form** (or curvature tensor) of the surface embedded in $E^3$.
+is the **second fundamental form** (or curvature tensor) of the surface embedded in $E^3$. The last equality holds from the derivatives w.r.t. $q^j$ of the relation $\hat{\mathbf{n}} \cdot \mathbf{b}_i = 0$.
 
 The quadratic form $b_{ij} dq^i dq^j$ characterizes the local deviation of the surface from the tangent plane $\pi$. Let $w_n(q^1,q^2) = d \mathbf{r} \cdot \mathbb{b} \cdot d \mathbf{r}$ the normal deviation of the surface w.r.t. the tangent plane, then
 
@@ -188,7 +188,7 @@ $$\begin{aligned}
 
 Gaussian curvature is defined as the determinant of $b^{i}_{\ \ j}$,
 
-$$K = \text{det} \{ b^{i}_{\ \ j} \} = \dfrac{\text{tr}\{ b_{ij} \}}{\text{tr}\{ g_{ij} \}} \ ,$$
+$$K = \text{det} \{ b^{i}_{\ \ j} \} = \dfrac{\text{det}\{ b_{ij} \}}{\text{det}\{ g_{ij} \}} \ ,$$ (eq:differential-geometry:gaussian-curvature)
 
 as $b_{ij} = g_{il} b^{l}_{\ \ j}$.
 
@@ -287,8 +287,64 @@ First and second fundamental forms arieses when dealing with vector quantities o
      & \sim \mathbf{r}(q^k) + d q^i \, \mathbf{b}_i + \frac{1}{2} dq^i dq^j \Gamma_{ij}^{\alpha} \mathbf{b}_{\alpha}  \ ,
    \end{aligned}$$
 
-   so that the projection normal to the plane is
+   so that the projection normal to the tangent plane defined by $\mathbf{b}_1$, $\mathbf{b}_2$ is
 
-   $$\mathbf{\hat{n}} \cdot \left( \mathbf{r}(q^k+dq^k) - \mathbf{r}(q^k) \right) = \frac{1}{2} dq^i dq^j \Gamma^3_{ij} \ .$$
+   $$\mathbf{\hat{n}} \cdot \left( \mathbf{r}(q^k+dq^k) - \mathbf{r}(q^k) \right) = \frac{1}{2} dq^i dq^j \Gamma^3_{ij} \ ,$$
 
+   i.e. a quadratic form of the coordinates $(q^1, q^2)$, whose coefficients define the second fundamental form, i.e.
+
+   $$\mathbf{\hat{n}} \cdot \left( \mathbf{r}(q^k+dq^k) - \mathbf{r}(q^k) \right) = \frac{1}{2} \left( L dq^1 dq^1 + 2 M dq^1 dq^2 + N dq^2 dq^2 \right) \ ,$$
+
+   with
+
+   $$\begin{aligned}
+     L & = \Gamma^{3}_{11} = \mathbf{r}_u \cdot \partial_u \hat{\mathbf{n}} \\
+     M & = \Gamma^{3}_{12} = \mathbf{r}_u \cdot \partial_v \hat{\mathbf{n}} = \mathbf{r}_v \cdot \partial_u \hat{\mathbf{n}} \\
+     N & = \Gamma^{3}_{22} = \mathbf{r}_v \cdot \partial_v \hat{\mathbf{n}} \\
+   \end{aligned}$$
+
+   having exploited the relation {eq}`eq:second-fundamental-form-derivative-n`.
+
+```{dropdown} Weingarten formula, derivatives of the normal vector and fundamental forms
+:open:
+
+**Weingarten formula.** *See also {eq}`eq:differential-geometry:curvature:weingarten`*. Differentiating $\hat{\mathbf{n}} \cdot \mathbf{b}_i = 0$,
+
+$$\partial_k \hat{\mathbf{n}} \cdot \mathbf{b}_i = - \hat{\mathbf{n}} \cdot \partial_k \mathbf{b}_i = - \hat{\mathbf{n}} \cdot \mathbf{b}_\alpha \Gamma^{\alpha}_{ik} = - \Gamma^3_{ik} \ ,$$
+
+so that it immediately follows that the derivatives of the unit normal vector w.r.t. the coordinates $q^k$ are
+
+$$\partial_k \hat{\mathbf{n}} = - \Gamma_{ik}^{3} \mathbf{b}^i = - g^{il} \Gamma_{ik}^{3} \mathbf{b}_l \ ,$$
+
+or, explicitly
+
+$$\left\{ \begin{aligned}
+  \partial_1 \hat{\mathbf{n}} & = - \Gamma_{i1}^{3} \mathbf{b}^i = - g^{il} \Gamma_{i1}^{3} \mathbf{b}_l \\
+  \partial_2 \hat{\mathbf{n}} & = - \Gamma_{i2}^{3} \mathbf{b}^i = - g^{il} \Gamma_{i2}^{3} \mathbf{b}_l \\
+\end{aligned}\right.$$
+
+Exploiting the orhogonality with the reciprocal basis,  $\mathbf{b}^i \cdot \mathbf{b}_j = \delta^i_j$, it follows
+
+$$\Gamma_{ik}^3 = \partial_{i} \hat{\mathbf{n}} \cdot \mathbf{b}_k \ .$$ (eq:second-fundamental-form-derivative-n)
+
+Since the reciprocal basis is $\mathbf{b}^i = g^{ik} \mathbf{b}_k = [ g_{ik} ]^{-1} \mathbf{b}_k$, or - with matrix formalism with vectors as elements -
+
+$$
+  \begin{bmatrix} \mathbf{b}^1 \\ \mathbf{b}^2 \end{bmatrix} 
+  = \begin{bmatrix} E & F \\ F & G \end{bmatrix}^{-1} \begin{bmatrix} \mathbf{b}_1 \\ \mathbf{b}_2 \end{bmatrix}
+  = \frac{1}{EG-F^2} \begin{bmatrix} G & -F \\ -F & E \end{bmatrix} \begin{bmatrix} \mathbf{b}_1 \\ \mathbf{b}_2 \end{bmatrix}
+$$
+
+then, the derivatives of the unit normal vector are
+
+$$\left\{ \begin{aligned}
+  \hat{\mathbf{n}}_u & = \hat{\mathbf{n}}_1 = - \Gamma_{11}^3 \mathbf{b}^1 - \Gamma_{21}^3 \mathbf{b}^2 = \\
+  & = - \frac{1}{EG-F^2} \left\{ \left(   \Gamma_{11}^3 G - \Gamma_{21}^{3} F \right) \mathbf{b}_1 + \left( - \Gamma_{11}^3 F + \Gamma_{12}^{3} E  \right) \mathbf{b}_2 \right\} =\\ 
+  & = \frac{MF-LG}{EG-F^2} \mathbf{r}_u + \frac{LF-ME}{EG-F^2} \mathbf{r}_v \\
+  \hat{\mathbf{n}}_v & = \hat{\mathbf{n}}_2 = - \Gamma_{12}^3 \mathbf{b}^1 - \Gamma_{22}^3 \mathbf{b}^2 = \\
+  & = - \frac{1}{EG-F^2} \left\{ \left(   \Gamma_{12}^3 G - \Gamma_{22}^{3} F \right) \mathbf{b}_1 + \left( - \Gamma_{12}^3 F + \Gamma_{22}^{3} E  \right) \mathbf{b}_2 \right\} = \\
+  & = \frac{NF-MG}{EG-F^2} \mathbf{r}_u + \frac{MF-NE}{EG-F^2} \mathbf{r}_v \\
+\end{aligned} \right.$$
+
+```
 

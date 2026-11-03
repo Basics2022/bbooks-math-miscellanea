@@ -1692,12 +1692,12 @@ so that the vectors of the reciprocal basis, \(\mathbf{b}^a = g^{ab} \mathbf{b}_
 \subsection{Derivatives of the natural basis}
 \label{\detokenize{ch/differential-geometry/surfaces:derivatives-of-the-natural-basis}}\label{\detokenize{ch/differential-geometry/surfaces:differential-geometry-surfaces-derivative-of-the-natural-basis}}
 \sphinxAtStartPar
-For \(i=1:2\), \(j=1:2\)
+For \(i, \, j \in \{ 1, 2 \}\), using the vector \(\mathbf{b}_3 = \hat{\mathbf{n}}\), the second\sphinxhyphen{}order derivatives of the position on the manifold w.r.t. the coordinates read
 \begin{equation*}
-\begin{split}\frac{\partial^2 \mathbf{r}}{\partial q^i \partial q^j} = \frac{\partial \mathbf{b}_i}{\partial q^j} = \Gamma_{ij}^k \mathbf{b}_k = \Gamma_{ij}^1 \mathbf{b}_1 + \Gamma_{ij}^2 \mathbf{b}_2 + \Gamma_{ij}^3 \mathbf{b}_3 \ ,\end{split}
+\begin{split}\frac{\partial^2 \mathbf{r}}{\partial q^i \partial q^j} = \frac{\partial \mathbf{b}_i}{\partial q^j} = \Gamma_{ij}^{\alpha} \mathbf{b}_{\alpha} = \Gamma_{ij}^1 \mathbf{b}_1 + \Gamma_{ij}^2 \mathbf{b}_2 + \Gamma_{ij}^3 \mathbf{b}_3 \ .\end{split}
 \end{equation*}
 \sphinxAtStartPar
-so that
+Exploiting the orthogonality of the natural basis and its reciprocal, it follows
 \begin{equation*}
 \begin{split}\Gamma_{ij}^{k} = \mathbf{b}^k \cdot \frac{\partial \mathbf{b}_i}{\partial q^j} \ .\end{split}
 \end{equation*}
@@ -1759,15 +1759,15 @@ having defined the \sphinxstylestrong{curvature tensor} \(\mathbb{b}\),
 \sphinxAtStartPar
 From the second\sphinxhyphen{}order Taylor expansion around a point \(\mathbf{r}(q^1, q^2)\), the projection of the displacement onto the unit normal vector \(\hat{\mathbf{n}}\) measures the distance from the surface to its tangent plane \(\pi\):
 \begin{equation*}
-\begin{split}[\mathbf{r}(q^1 + dq^1, q^2 + dq^2) - \mathbf{r}(q^1, q^2)] \cdot \hat{\mathbf{n}} = \frac{1}{2} \Gamma_{ij}^3 dq^i dq^j = \frac{1}{2} b_{ij} dq^i dq^j .\end{split}
+\begin{split}[\mathbf{r}(q^1 + dq^1, q^2 + dq^2) - \mathbf{r}(q^1, q^2)] \cdot \hat{\mathbf{n}} = \frac{1}{2} \Gamma_{ij}^3 dq^i dq^j ,\end{split}
 \end{equation*}
 \sphinxAtStartPar
 The symmetric covariant tensor of rank 2, defined by its components
-\begin{equation*}
-\begin{split}b_{ij} := \Gamma_{ij}^3 = \hat{\mathbf{n}} \cdot \frac{\partial^2 \mathbf{r}}{\partial q^i \partial q^j} = -\frac{\partial \hat{\mathbf{n}}}{\partial q^i} \cdot \mathbf{b}_j ,\end{split}
-\end{equation*}
+\begin{equation}\label{equation:ch/differential-geometry/surfaces:eq:second-fundamental-form:normal-projection}
+\begin{split}b_{ij} := \Gamma_{ij}^3 = \hat{\mathbf{n}} \cdot \mathbf{b}_{\alpha} \Gamma_{ij}^{\alpha} = \hat{\mathbf{n}} \cdot \frac{\partial^2 \mathbf{r}}{\partial q^i \partial q^j} = \hat{\mathbf{n}} \cdot \frac{\partial \mathbf{b}_i}{\partial q^j} = -\frac{\partial \hat{\mathbf{n}}}{\partial q^j} \cdot \mathbf{b}_i ,\end{split}
+\end{equation}
 \sphinxAtStartPar
-is the \sphinxstylestrong{second fundamental form} (or curvature tensor) of the surface embedded in \(E^3\).
+is the \sphinxstylestrong{second fundamental form} (or curvature tensor) of the surface embedded in \(E^3\). The last equality holds from the derivatives w.r.t. \(q^j\) of the relation \(\hat{\mathbf{n}} \cdot \mathbf{b}_i = 0\).
 
 \sphinxAtStartPar
 The quadratic form \(b_{ij} dq^i dq^j\) characterizes the local deviation of the surface from the tangent plane \(\pi\). Let \(w_n(q^1,q^2) = d \mathbf{r} \cdot \mathbb{b} \cdot d \mathbf{r}\) the normal deviation of the surface w.r.t. the tangent plane, then
@@ -1847,9 +1847,9 @@ The mean curvature is defined as the arithmetic average of the principal curvatu
 
 \sphinxAtStartPar
 Gaussian curvature is defined as the determinant of \(b^{i}_{\ \ j}\),
-\begin{equation*}
-\begin{split}K = \text{det} \{ b^{i}_{\ \ j} \} = \dfrac{\text{tr}\{ b_{ij} \}}{\text{tr}\{ g_{ij} \}} \ ,\end{split}
-\end{equation*}
+\begin{equation}\label{equation:ch/differential-geometry/surfaces:eq:differential-geometry:gaussian-curvature}
+\begin{split}K = \text{det} \{ b^{i}_{\ \ j} \} = \dfrac{\text{det}\{ b_{ij} \}}{\text{det}\{ g_{ij} \}} \ ,\end{split}
+\end{equation}
 \sphinxAtStartPar
 as \(b_{ij} = g_{il} b^{l}_{\ \ j}\).
 
@@ -1881,6 +1881,155 @@ The Mean curvature is the average of the principal curvatures: \(H = \frac{1}{2}
 \sphinxAtStartPar
 …
 
+
+\subsection{Fundamental forms and Gauss egregium theorem}
+\label{\detokenize{ch/differential-geometry/surfaces:fundamental-forms-and-gauss-egregium-theorem}}\label{\detokenize{ch/differential-geometry/surfaces:differential-geometry-surfaces-geometric-entities-fundamental-forms-and-egregium-thm}}
+\sphinxAtStartPar
+First and second fundamental forms arieses when dealing with vector quantities of a surface. Let \(\mathbf{r}(u,v)\)  be a parametrization of the surface, here \((q^1, q^2), (u, v)\).
+\begin{itemize}
+\item {} 
+\sphinxAtStartPar
+The differential, i.e. an elementary vectors on the surface, contains the first derivative of the parametrization and reads \(d \mathbf{r} = \mathbf{b}_i d q^i = \mathbf{r}_i d q^i = \mathbf{r}_u du + \mathbf{r}_v dv\),
+
+\item {} 
+\sphinxAtStartPar
+the covariant components of the metric tensor reads \(g_{ij} = \mathbf{b}_i \cdot \mathbf{b}_j\)
+
+\item {} 
+\sphinxAtStartPar
+the \sphinxstylestrong{first fundamental form} appears in the legnth of an elementary vector on the surface,
+\begin{equation*}
+\begin{split}|d \mathbf{r}|^2 = d \mathbf{r} \cdot d \mathbf{r} = g_{uu} du^2 + 2 g_{uv} du dv + g_{vv} dv^2 = E du^2 + 2 F du dv + G dv^2 \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+having introduced the common symbols \(E\), \(F\), \(G\).
+
+\item {} 
+\sphinxAtStartPar
+the derivitves of the vectors of the natural basis induced by the parametrization, i.e. the second derivative of the manifold, are
+\begin{equation*}
+\begin{split}\partial_{k} \mathbf{b}_i = \partial_{ki} \mathbf{r} =: \Gamma_{ik}^\alpha \mathbf{b}_\alpha \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+with \(i\), \(k \in \{ 1 , 2 \}\), \(\alpha \in \{ 1, 2, 3 \}\), and \(\mathbf{b}_3 = \hat{\mathbf{n}}\).
+
+\item {} 
+\sphinxAtStartPar
+The derivatives of the elements of the first form w.r.t. the coordinates are \sphinxhyphen{} as \(\hat{\mathbf{n}} \cdot \mathbf{r}_u = \hat{\mathbf{n}} \cdot \mathbf{r}_v = 0\),
+\begin{equation*}
+\begin{split}\begin{aligned}
+     E_u & = 2 \mathbf{r}_{uu} \cdot \mathbf{r}_{u}                                        && = 2 \Gamma_{11}^{1} g_{11} + 2 \Gamma_{11}^2 g_{12} \\
+     E_v & = 2 \mathbf{r}_{uv} \cdot \mathbf{r}_{u}                                        && = 2 \Gamma_{12}^{1} g_{11} + 2 \Gamma_{12}^2 g_{12} \\
+     F_u & =   \mathbf{r}_{uu} \cdot \mathbf{r}_{v} + \mathbf{r}_{u} \cdot \mathbf{r}_{vu} && =   \Gamma_{11}^{1} g_{12} +   \Gamma_{11}^2 g_{22} +  \Gamma_{12}^{1} g_{11} +   \Gamma_{12}^2 g_{12} \\
+     F_v & =   \mathbf{r}_{uv} \cdot \mathbf{r}_{v} + \mathbf{r}_{u} \cdot \mathbf{r}_{vv} && =   \Gamma_{12}^{1} g_{12} +   \Gamma_{12}^2 g_{22} +  \Gamma_{22}^{1} g_{11} +   \Gamma_{22}^2 g_{12} \\
+     G_u & = 2 \mathbf{r}_{vu} \cdot \mathbf{r}_{v}                                        && = 2 \Gamma_{21}^{1} g_{12} + 2 \Gamma_{21}^2 g_{22} \\
+     G_v & = 2 \mathbf{r}_{vv} \cdot \mathbf{r}_{v}                                        && = 2 \Gamma_{22}^{1} g_{12} + 2 \Gamma_{22}^2 g_{22} \\
+   \end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and thus
+\begin{equation*}
+\begin{split}\begin{aligned}
+     \mathbf{r}_{uu} \cdot \mathbf{r}_{u}  & = \Gamma_{11}^{1} g_{11} + \Gamma_{11}^2 g_{12} && = \frac{1}{2} E_u \\
+     \mathbf{r}_{uu} \cdot \mathbf{r}_{v}  & = \Gamma_{11}^{1} g_{12} + \Gamma_{11}^2 g_{22} && = F_u - \frac{1}{2} E_v \\
+     \mathbf{r}_{uv} \cdot \mathbf{r}_{u}  & = \Gamma_{12}^{1} g_{11} + \Gamma_{12}^2 g_{12} && = \frac{1}{2} E_v \\
+     \mathbf{r}_{uv} \cdot \mathbf{r}_{v}  & = \Gamma_{21}^{1} g_{12} + \Gamma_{21}^2 g_{22} && = \frac{1}{2} G_u \\
+     \mathbf{r}_{vv} \cdot \mathbf{r}_{u}  & = \Gamma_{22}^{1} g_{11} + \Gamma_{22}^2 g_{12}&& = F_v - \frac{1}{2} G_u \\
+     \mathbf{r}_{vv} \cdot \mathbf{r}_{v}  & = \Gamma_{22}^{1} g_{12} + \Gamma_{22}^2 g_{22} && = \frac{1}{2} G_v \\
+   \end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Each pair of equations can be written as
+\begin{equation*}
+\begin{split}\begin{bmatrix} E & F \\ F & G \end{bmatrix} \begin{bmatrix} \Gamma_{a b}^{1} \\ \Gamma_{a b}^{2} \end{bmatrix} = \begin{bmatrix} \dots \\ \dots \end{bmatrix} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+i.e., if the matrix is non\sphinxhyphen{}singular, i.e. if \(\mathbf{r}_u \times \mathbf{r}_v \ne \mathbf{0}\), then Christoffel symbols can be written in terms of the coefficients of the first form and their derivatives.
+
+\item {} 
+\sphinxAtStartPar
+the \sphinxstylestrong{second fundamental form} appears in the second\sphinxhyphen{}order derivative of the manifold. With an extrinsic approach, with the 2\sphinxhyphen{}dimensional surface embedded in a 3\sphinxhyphen{}dimensional space,
+\begin{equation*}
+\begin{split}\partial_{k} \mathbf{b}_i = \partial_{ki} \mathbf{r} =: \Gamma_{ik}^\alpha \mathbf{b}_\alpha \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+with \(i\), \(k\) running on \(\{ 1, 2\}\), while \(\alpha\) running on \(\{ 1, 2, 3 \}\) with the third component identifying the normal direction. The second\sphinxhyphen{}order local approximation of the surface reads
+\begin{equation*}
+\begin{split}\begin{aligned}
+     \mathbf{r}(q^k+d q^k) 
+     & \sim \mathbf{r}(q^k) + d q^i \, \mathbf{r}_i(q^k) + \frac{1}{2} dq^i dq^j \mathbf{r}_{ij}(q^k) = \\
+     & \sim \mathbf{r}(q^k) + d q^i \, \mathbf{b}_i + \frac{1}{2} dq^i dq^j \Gamma_{ij}^{\alpha} \mathbf{b}_{\alpha}  \ ,
+   \end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+so that the projection normal to the tangent plane defined by \(\mathbf{b}_1\), \(\mathbf{b}_2\) is
+\begin{equation*}
+\begin{split}\mathbf{\hat{n}} \cdot \left( \mathbf{r}(q^k+dq^k) - \mathbf{r}(q^k) \right) = \frac{1}{2} dq^i dq^j \Gamma^3_{ij} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+i.e. a quadratic form of the coordinates \((q^1, q^2)\), whose coefficients define the second fundamental form, i.e.
+\begin{equation*}
+\begin{split}\mathbf{\hat{n}} \cdot \left( \mathbf{r}(q^k+dq^k) - \mathbf{r}(q^k) \right) = \frac{1}{2} \left( L dq^1 dq^1 + 2 M dq^1 dq^2 + N dq^2 dq^2 \right) \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+with
+\begin{equation*}
+\begin{split}\begin{aligned}
+     L & = \Gamma^{3}_{11} = \mathbf{r}_u \cdot \partial_u \hat{\mathbf{n}} \\
+     M & = \Gamma^{3}_{12} = \mathbf{r}_u \cdot \partial_v \hat{\mathbf{n}} = \mathbf{r}_v \cdot \partial_u \hat{\mathbf{n}} \\
+     N & = \Gamma^{3}_{22} = \mathbf{r}_v \cdot \partial_v \hat{\mathbf{n}} \\
+   \end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+having exploited the relation \eqref{equation:ch/differential-geometry/surfaces:eq:second-fundamental-form-derivative-n}.
+
+\end{itemize}
+\subsubsection*{Weingarten formula, derivatives of the normal vector and fundamental forms}
+
+\sphinxAtStartPar
+\sphinxstylestrong{Weingarten formula.} \sphinxstyleemphasis{See also \eqref{equation:ch/differential-geometry/curvature:eq:differential-geometry:curvature:weingarten}}. Differentiating \(\hat{\mathbf{n}} \cdot \mathbf{b}_i = 0\),
+\begin{equation*}
+\begin{split}\partial_k \hat{\mathbf{n}} \cdot \mathbf{b}_i = - \hat{\mathbf{n}} \cdot \partial_k \mathbf{b}_i = - \hat{\mathbf{n}} \cdot \mathbf{b}_\alpha \Gamma^{\alpha}_{ik} = - \Gamma^3_{ik} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+so that it immediately follows that the derivatives of the unit normal vector w.r.t. the coordinates \(q^k\) are
+\begin{equation*}
+\begin{split}\partial_k \hat{\mathbf{n}} = - \Gamma_{ik}^{3} \mathbf{b}^i = - g^{il} \Gamma_{ik}^{3} \mathbf{b}_l \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+or, explicitly
+\begin{equation*}
+\begin{split}\left\{ \begin{aligned}
+  \partial_1 \hat{\mathbf{n}} & = - \Gamma_{i1}^{3} \mathbf{b}^i = - g^{il} \Gamma_{i1}^{3} \mathbf{b}_l \\
+  \partial_2 \hat{\mathbf{n}} & = - \Gamma_{i2}^{3} \mathbf{b}^i = - g^{il} \Gamma_{i2}^{3} \mathbf{b}_l \\
+\end{aligned}\right.\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Exploiting the orhogonality with the reciprocal basis,  \(\mathbf{b}^i \cdot \mathbf{b}_j = \delta^i_j\), it follows
+\begin{equation}\label{equation:ch/differential-geometry/surfaces:eq:second-fundamental-form-derivative-n}
+\begin{split}\Gamma_{ik}^3 = \partial_{i} \hat{\mathbf{n}} \cdot \mathbf{b}_k \ .\end{split}
+\end{equation}
+\sphinxAtStartPar
+Since the reciprocal basis is \(\mathbf{b}^i = g^{ik} \mathbf{b}_k = [ g_{ik} ]^{-1} \mathbf{b}_k\), or \sphinxhyphen{} with matrix formalism with vectors as elements \sphinxhyphen{}
+\begin{equation*}
+\begin{split}
+  \begin{bmatrix} \mathbf{b}^1 \\ \mathbf{b}^2 \end{bmatrix} 
+  = \begin{bmatrix} E & F \\ F & G \end{bmatrix}^{-1} \begin{bmatrix} \mathbf{b}_1 \\ \mathbf{b}_2 \end{bmatrix}
+  = \frac{1}{EG-F^2} \begin{bmatrix} G & -F \\ -F & E \end{bmatrix} \begin{bmatrix} \mathbf{b}_1 \\ \mathbf{b}_2 \end{bmatrix}
+\end{split}
+\end{equation*}
+\sphinxAtStartPar
+then, the derivatives of the unit normal vector are
+\begin{equation*}
+\begin{split}\left\{ \begin{aligned}
+  \hat{\mathbf{n}}_u & = \hat{\mathbf{n}}_1 = - \Gamma_{11}^3 \mathbf{b}^1 - \Gamma_{21}^3 \mathbf{b}^2 = \\
+  & = - \frac{1}{EG-F^2} \left\{ \left(   \Gamma_{11}^3 G - \Gamma_{21}^{3} F \right) \mathbf{b}_1 + \left( - \Gamma_{11}^3 F + \Gamma_{12}^{3} E  \right) \mathbf{b}_2 \right\} =\\ 
+  & = \frac{MF-LG}{EG-F^2} \mathbf{r}_u + \frac{LF-ME}{EG-F^2} \mathbf{r}_v \\
+  \hat{\mathbf{n}}_v & = \hat{\mathbf{n}}_2 = - \Gamma_{12}^3 \mathbf{b}^1 - \Gamma_{22}^3 \mathbf{b}^2 = \\
+  & = - \frac{1}{EG-F^2} \left\{ \left(   \Gamma_{12}^3 G - \Gamma_{22}^{3} F \right) \mathbf{b}_1 + \left( - \Gamma_{12}^3 F + \Gamma_{22}^{3} E  \right) \mathbf{b}_2 \right\} = \\
+  & = \frac{NF-MG}{EG-F^2} \mathbf{r}_u + \frac{MF-NE}{EG-F^2} \mathbf{r}_v \\
+\end{aligned} \right.\end{split}
+\end{equation*}
 \sphinxstepscope
 
 
@@ -2093,7 +2242,7 @@ or, in components
 \end{equation*}
 \sphinxAtStartPar
 i.e. when \(X\), \(Y\) don’t commute, as stated above.
-\label{ch/differential-geometry/curvature:example-0}
+\label{ch/differential-geometry/curvature:coordinate-field-commutation}
 \begin{sphinxadmonition}{note}{Example 9.3.1 (Coordinates vector fields commute, and thus only 4 sides are required to build the loop)}
 
 
@@ -2182,7 +2331,7 @@ Subtracting Path B from Path A yields, as the travelling direction during the cl
   & \quad \ + \underbrace{ \left(  X^\alpha \partial_\alpha Y^{\mu} - Y^\alpha \partial_\alpha X^{\mu} \right) \Gamma^{\nu}_{\mu \xi} v^\xi }_{ i_{[X,Y]} } + \\ 
   & \quad \ + X^\alpha Y^\beta \Gamma^\nu_{\beta\eta} \Gamma^\eta_{\alpha\xi} v^\xi - X^\alpha Y^\beta \Gamma^\nu_{\alpha\eta} \Gamma^\eta_{\beta\xi} v^\xi - X^\alpha Y^\beta \partial_\alpha \Gamma^\nu_{\beta \xi} v^\xi + X^\alpha Y^\beta \partial_\beta \Gamma^\nu_{\alpha\xi} v^\xi + \text{higher order terms} = \\ 
   & \sim - \left[ \partial_{\alpha} \Gamma^{\nu}_{\beta \xi} - \partial_{\beta} \Gamma^{\nu}_{\alpha \xi} + \Gamma_{\alpha \eta}^{\nu} \Gamma_{\beta \xi}^{\eta} - \Gamma_{\beta \eta}^{\nu} \Gamma_{\alpha \xi}^{\eta} \right] X^{\alpha} Y^{\beta} v^{\xi} = \\
-  & = - R^{\nu}_{\ \ \alpha \beta \xi} X^\alpha Y^\beta v^\xi \ ,
+  & = - v^\xi R^{\nu}_{\ \ \xi \alpha \beta \xi} X^\alpha Y^\beta \ ,
 \end{aligned}\end{split}
 \end{equation*}
 \sphinxAtStartPar
@@ -2192,7 +2341,7 @@ having introduced the definition of the \sphinxstylestrong{Riemann tensor}, \(R^
 
 
 \begin{equation*}
-\begin{split}R^{\nu}_{\ \ \alpha \beta \xi} := \partial_{\alpha} \Gamma^{\nu}_{\beta \xi} - \partial_{\beta} \Gamma^{\nu}_{\alpha \xi} + \Gamma_{\alpha \eta}^{\nu} \Gamma_{\beta \xi}^{\eta} - \Gamma_{\beta \eta}^{\nu} \Gamma_{\alpha \xi}^{\eta} \ . \end{split}
+\begin{split}R^{\nu}_{\ \ \xi \alpha \beta} := \partial_{\alpha} \Gamma^{\nu}_{\beta \xi} - \partial_{\beta} \Gamma^{\nu}_{\alpha \xi} + \Gamma_{\alpha \eta}^{\nu} \Gamma_{\beta \xi}^{\eta} - \Gamma_{\beta \eta}^{\nu} \Gamma_{\alpha \xi}^{\eta} \ . \end{split}
 \end{equation*}\end{sphinxadmonition}
 
 \sphinxAtStartPar
@@ -2204,9 +2353,9 @@ having introduced the definition of the \sphinxstylestrong{Riemann tensor}, \(R^
 \begin{split}\begin{aligned}
   H^\nu = \Delta v^{nu} 
   & := \oint_{\gamma_{X,Y}}d q^{\mu} \left\{  \partial_{\mu} v^{\nu}  \right\}_{||} =  \\
-  & := - \oint_{\gamma_{X,Y}} d q^{\mu} \Gamma_{\mu \xi}^{\nu} v^{\xi} =  \\
-  &  = - \frac{1}{2} R^{\nu}_{\ \ \alpha \beta \xi} \left( X^{\alpha} Y^{\beta} - X^{\beta} Y^{\alpha} \right) v^\xi + \text{higher order terms} = \\
-  &  = - \frac{1}{2} R^{\nu}_{\ \ \alpha \beta \xi} \, A^{\alpha \beta} \, v^\xi + \text{higher order terms} \ ,
+  & := - \oint_{\gamma_{X,Y}}  v^{\xi} \, \Gamma_{\mu \xi}^{\nu} \, d q^{\mu} =  \\
+  &  = - \frac{1}{2} v^{\xi} \, R^{\nu}_{\ \ \xi \alpha \beta} \left( X^{\alpha} Y^{\beta} - X^{\beta} Y^{\alpha} \right) + \text{higher order terms} = \\
+  &  = - \frac{1}{2} v^{\xi} \, R^{\nu}_{\ \ \xi \alpha \beta} \, A^{\alpha \beta} + \text{higher order terms} \ ,
 \end{aligned}\end{split}
 \end{equation*}
 \sphinxAtStartPar
@@ -2255,6 +2404,24 @@ Computing \(\nabla_i \nabla_j Z - \nabla_j \nabla_i Z\) for \(Z = Z^m \mathbf{b}
 \begin{split}R^k_{\,m i j} = \partial_i \Gamma^k_{j m} - \partial_j \Gamma^k_{i m} + \Gamma^l_{j m} \Gamma^k_{i l} - \Gamma^l_{i m} \Gamma^k_{j l}\end{split}
 \end{equation*}
 
+\paragraph{Properties}
+\label{\detokenize{ch/differential-geometry/curvature:properties}}\label{\detokenize{ch/differential-geometry/curvature:differential-geometry-curvature-intrinsic-riemann-curvature-tensor-properties}}\begin{equation}\label{equation:ch/differential-geometry/curvature:eq:riemann-tensor:prop-1}
+\begin{split}R_{ab\mathbf{cd}} = - R_{ab\mathbf{dc}}\end{split}
+\end{equation}\subsubsection*{Proof}
+\begin{equation}\label{equation:ch/differential-geometry/curvature:eq:riemann-tensor:prop-2}
+\begin{split}R_{\mathbf{ab}cd} = - R_{\mathbf{ba}cd}\end{split}
+\end{equation}\subsubsection*{Proof}
+\begin{equation}\label{equation:ch/differential-geometry/curvature:eq:riemann-tensor:prop-3}
+\begin{split}0 = R_{\mathbf{ab} cd} = R_{cd\mathbf{ab}}\end{split}
+\end{equation}\subsubsection*{Proof}
+\begin{equation}\label{equation:ch/differential-geometry/curvature:eq:riemann-tensor:prop-4}
+\begin{split}0 = R_{\mathbf{a} bcd} + R_{\mathbf{a} cdb} + R_{\mathbf{a} dbc}\end{split}
+\end{equation}\subsubsection*{Proof}
+\begin{equation}\label{equation:ch/differential-geometry/curvature:eq:riemann-tensor:prop-5}
+\begin{split}0 = R_{\mathbf{ab} cd;e} + R_{\mathbf{ab} de;c} + R_{\mathbf{ab} ec;d}\end{split}
+\end{equation}\subsubsection*{Proof}
+
+
 \subsubsection{Relation between Riemann curvature tensor and extrinsic curvature}
 \label{\detokenize{ch/differential-geometry/curvature:relation-between-riemann-curvature-tensor-and-extrinsic-curvature}}\label{\detokenize{ch/differential-geometry/curvature:differential-geometry-curvature-intrinsic-relation-with-extrinsic-curvature}}
 \sphinxAtStartPar
@@ -2270,7 +2437,18 @@ If the parametrization of the space is regular enough, second\sphinxhyphen{}orde
 \end{aligned}\end{split}
 \end{equation*}
 \sphinxAtStartPar
-having used the \sphinxstylestrong{Weingarten equation} \eqref{equation:ch/differential-geometry/curvature:eq:differential-geometry:curvature:weingarten}, \(\partial_j \mathbf{n} = - b^{\ \ l}_j \mathbf{b}_l\). Equating every tangential components of \(\partial_{jk} \mathbf{b}_i\) and \(\partial_{kj} \mathbf{b}_i\), it follows for the component \(l\),
+having used the \sphinxstylestrong{Weingarten equation} \eqref{equation:ch/differential-geometry/curvature:eq:differential-geometry:curvature:weingarten}, \(\partial_j \mathbf{n} = - g^{kl} b_{jk} \mathbf{b}_l = - b^{\ \ l}_j \mathbf{b}_l\).
+
+\begin{sphinxadmonition}{note}{Symmetries of \protect\(\ \mathbb{b}\protect\)}
+
+\sphinxAtStartPar
+Since \(b_{ij} := \Gamma^{n+1}_{ij}\), then these symbols are symmetric \(b_{ij} = b_{ji}\). Since \(b_{i}^{\ \ l} = b_{ij} g^{jl}\), exploiting the symmetries of the symbols \(b_{ij}\) and \(g^{kl}\), it follows
+\begin{equation*}
+\begin{split}b_{i}^{\ \ l} = b_{ij} g^{jl} = b_{ji} g^{jl} = b^{l}_{\ \ i} \ .\end{split}
+\end{equation*}\end{sphinxadmonition}
+
+\sphinxAtStartPar
+Equating every tangential components of \(\partial_{jk} \mathbf{b}_i\) and \(\partial_{kj} \mathbf{b}_i\), it follows for the component \(l\),
 \begin{equation*}
 \begin{split}
 \partial_j \Gamma_{ik}^l + \Gamma_{ik}^m \Gamma_{mj}^l - \Gamma_{ik}^{n+1} b^l_j = 
@@ -2285,12 +2463,58 @@ or, rearranging
 \end{split}
 \end{equation*}
 \sphinxAtStartPar
-having introduced the definition of \sphinxstylestrong{Riemann curvature tensor} \(R^{l}_{\ \ ijk}\). Writing \(\Gamma^{n+1}_{ij} = b_{ij}\), it follows
-\begin{equation*}
-\begin{split}R^{l}_{\ \ ijk} = b_{ij} b^l_j - b_{ij} b^l_k \ .\end{split}
-\end{equation*}
+having introduced the definition of \sphinxstylestrong{Riemann curvature tensor} \(R^{l}_{\ \ ijk}\). Writing \(\Gamma^{n+1}_{ij} = b_{ij}\), as done in \eqref{equation:ch/differential-geometry/surfaces:eq:second-fundamental-form:normal-projection} dealing with curvature and second fundamental form, it follows
+\begin{equation}\label{equation:ch/differential-geometry/curvature:eq:riemann:second-fundamental-form}
+\begin{split}R^{l}_{\ \ ijk} = b_{ik} b^l_j - b_{ij} b^l_k \end{split}
+\end{equation}
+
+
 \sphinxAtStartPar
 See also \sphinxhref{https://basics2022.github.io/bbooks-physics-modern/ch/relativity-general/differential-geometry.html\#curvature-tensor}{General Relativity: Differential Geometry: Curvature Tensor}
+
+
+\paragraph{Riemann tensor for 2\sphinxhyphen{}dimensional surfaces}
+\label{\detokenize{ch/differential-geometry/curvature:riemann-tensor-for-2-dimensional-surfaces}}\label{\detokenize{ch/differential-geometry/curvature:differential-geometry-curvature-intrinsic-relation-with-extrinsic-curvature-2d-surface}}\begin{equation*}
+\begin{split}R_{mijk} = g_{ml} R^{l}_{\ \ ijk} = g_{ml} \left( b_{ik} b^l_j - b_{ij} b^l_k \right) = b_{ik} b_{jm} - b_{ij} b_{mk} \ . \end{split}
+\end{equation*}
+\sphinxAtStartPar
+For a 2\sphinxhyphen{}dimensional surface, indices belong to the set \(\{ 1, 2 \}\). In general, it has 16 components. Exploiting symmetries of the Riemann tensor, it’s possible to find a smaller set of independent components. Property \eqref{equation:ch/differential-geometry/curvature:eq:riemann-tensor:prop-1}, \(R_{mijk} = -R_{mikj}\), sets all the elements with \(k = j\) to zero, i.e. 8 components are set to zero. Only 4 of the remaining components could be independent. Let’s say we choose the \sphinxhyphen{} possibly \sphinxhyphen{} independent components to be the one with \(j = 1\), \(k = 2\), i.e.
+\begin{equation*}
+\begin{split}\left\{ R_{1112}, R_{1212}, R_{2112}, R_{2212} \right\}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Property \eqref{equation:ch/differential-geometry/curvature:eq:riemann-tensor:prop-2}, \(R_{mijk} = -R_{imjk}\), sets the elements \(R_{mijk}\) with \(m = i\) to zero, and thus the number of possibly independent components becomes 2, since \(R_{1112} = R_{2212} = 0\). The same property implies that \(R_{2112} = - R_{1212}\), so the number of possibly independent components becomes 1, usually chosen as \(R_{1212}\).
+
+\sphinxAtStartPar
+Thus, non\sphinxhyphen{}zero components are
+\begin{equation*}
+\begin{split}R_{1212} = - R_{2112} = - R_{1221} = R_{2121} \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Using \eqref{equation:ch/differential-geometry/curvature:eq:riemann:second-fundamental-form}, it can be proved that the component \(R_{1212}\) is equal to the determinant of the second fundamental form \(\mathbb{b}\),
+\begin{equation*}
+\begin{split}R_{1212} = b_{22} b_{11} - b_{12}^2 =  L N - M^2 = K g \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+having introduced the \sphinxstylestrong{Gaussian curvature}, using its expression as the ratio of the determinant of the second and first fundamental form \eqref{equation:ch/differential-geometry/surfaces:eq:differential-geometry:gaussian-curvature}, \(K = \frac{\text{det}\left\{ b_{ij} \right\} }{\text{det}\left\{ g_{ij} \right\} } = \frac{LN - M^2}{g}\).
+
+\sphinxAtStartPar
+\sphinxstylestrong{Ricci tensor.} The components of Ricci tensor, \(R_{ik} := g^{mj} R_{mijk}\), are
+\begin{equation*}
+\begin{split}\begin{aligned}
+  R_{11} & = g^{mj} R_{m1j1} = g^{22} R_{2121} = \ \ g^{22} K g = g_{11} K  \\
+  R_{12} & = g^{mj} R_{m1j2} = g^{21} R_{2112} = -   g^{21} K g = g_{12} K  \\
+  R_{21} & = g^{mj} R_{m2j1} = g^{12} R_{1221} = -   g^{12} K g = g_{21} K  \\
+  R_{22} & = g^{mj} R_{m2j2} = g^{11} R_{1212} = \ \ g^{11} K g = g_{22} K  \ ,\
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+i.e. Ricci tensor of a 2\sphinxhyphen{}dimensional surface is proportional to the metric tensor, and the proportionality constant is the Gaussian curvature,
+\begin{equation*}
+\begin{split}R_{ij} = K g_{ij} \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+\sphinxstylestrong{Scalar curvature.} The scalar curvature, \(R := g^{ij} R_{ij}\), is simply \(R = 2 K\).
 
 
 \subsubsection{Examples}
@@ -2425,7 +2649,7 @@ From the latter three relations, it’s possible to retrieve the expression of C
 or
 \begin{equation*}
 \begin{split}\Gamma_{ik}^l = \frac{1}{2} g^{lj} \left( \partial_{k} g_{ij} + \partial_{i} g_{jk} - \partial_{j} g_{ki} \right) \ .\end{split}
-\end{equation*}\label{ch/differential-geometry/curvature:example-3}
+\end{equation*}\label{ch/differential-geometry/curvature:parallel-transport-sphere}
 \begin{sphinxadmonition}{note}{Example 9.3.3 (Parallel transport of a vector on a sphere)}
 
 
@@ -2645,7 +2869,7 @@ Let a vector \(\mathbf{v}\) on the equator and parallel to the local meridian, i
 
 
 \end{sphinxadmonition}
-\label{ch/differential-geometry/curvature:example-4}
+\label{ch/differential-geometry/curvature:riemann-tensor-sphere}
 \begin{sphinxadmonition}{note}{Example 9.3.4 (Riemann tensor on the 2\sphinxhyphen{}dimensional sphere)}
 
 
@@ -2654,7 +2878,7 @@ Let a vector \(\mathbf{v}\) on the equator and parallel to the local meridian, i
 With \(\left( q^1, q^2 \right) = \left( \theta, \phi \right)\),
 \begin{equation*}
 \begin{split}
-\Gamma_{12}^{1} = \Gamma_{21}^{1} = - \sin \phi \cos \phi \quad , \quad
+\Gamma_{12}^{1} = \Gamma_{21}^{1} = \frac{\cos \phi}{\sin \phi} \quad , \quad
 \Gamma_{11}^{2} = - \sin \phi \cos \phi
 \end{split}
 \end{equation*}\begin{equation*}
@@ -2662,6 +2886,29 @@ With \(\left( q^1, q^2 \right) = \left( \theta, \phi \right)\),
 \partial_2 \Gamma_{12}^{1} = \partial_2 \Gamma_{21}^{1} = - \frac{1}{\sin^2 \phi} \quad , \quad
 \partial_2 \Gamma_{11}^{2} = \sin^2 \phi - \cos^2 \phi
 \end{split}
+\end{equation*}
+\sphinxAtStartPar
+Riemann tensor,
+\begin{equation*}
+\begin{split}R^{\nu}_{\ \ \alpha \beta \xi} := \partial_{\alpha} \Gamma^{\nu}_{\beta \xi} - \partial_{\beta} \Gamma^{\nu}_{\alpha \xi} + \Gamma_{\alpha \eta}^{\nu} \Gamma_{\beta \xi}^{\eta} - \Gamma_{\beta \eta}^{\nu} \Gamma_{\alpha \xi}^{\eta} \ . \end{split}
+\end{equation*}
+\sphinxAtStartPar
+with the symmetry \(R^{\nu}_{\ \ \alpha \beta \xi} = - R^{\nu}_{\ \ \beta \alpha \xi}\), for a 2\sphinxhyphen{}dimensional manifold there’s need to evaluate only 4 components (are all these 4 components independent?)
+\begin{equation*}
+\begin{split}\begin{aligned}
+  R^{\mathbf{1}}_{\ \ 12 \mathbf{1}} & = 0 \\
+  R^{\mathbf{1}}_{\ \ 12 \mathbf{2}} & = -\partial_2 \Gamma_{12}^{1} + \Gamma^{1}_{21} \Gamma^{1}_{12} = \frac{1}{\sin^2 \phi} - \frac{\cos^2 \phi}{\sin^2 \phi} = \frac{1}{\sin^2 \phi} \\
+  R^{\mathbf{2}}_{\ \ 12 \mathbf{1}} & = - \partial_{2} \Gamma_{11}^{2} + \Gamma^2_{11} \Gamma_{21}^{1} = - \sin^2 \phi + \cos^2 \phi - \cos^2\phi = - \sin^2 \phi \\
+  R^{\mathbf{2}}_{\ \ 12 \mathbf{2}} & = 0 \\
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Lowering the first index of the non\sphinxhyphen{}zero components \sphinxhyphen{} \sphinxstylestrong{todo} \sphinxstyleemphasis{Fix the order of the indices to match common definition}
+\begin{equation*}
+\begin{split}\begin{aligned}
+  R_{1122} & = g_{11} R^{1}_{\ \ 122} = \frac{R^2 \sin^2 \phi}{\sin^2 \phi} = R^2 \\
+  R_{2122} & = g_{22} R^{2}_{\ \ 121} = - R^2 \sin^2 \phi \ .
+\end{aligned}\end{split}
 \end{equation*}\end{sphinxadmonition}
 
 
@@ -25514,6 +25761,9 @@ actor\sphinxhyphen{}critic
 \bigletter{control\sphinxhyphen{}optimal\sphinxhyphen{}riccati}
 \item\relax\sphinxstyleindexentry{control\sphinxhyphen{}optimal\sphinxhyphen{}riccati}\sphinxstyleindexextra{ch/control/optimal\sphinxhyphen{}control\sphinxhyphen{}full\sphinxhyphen{}state\sphinxhyphen{}old}\sphinxstyleindexpageref{ch/control/optimal-control-full-state-old:\detokenize{control-optimal-riccati}}
 \indexspace
+\bigletter{coordinate\sphinxhyphen{}field\sphinxhyphen{}commutation}
+\item\relax\sphinxstyleindexentry{coordinate\sphinxhyphen{}field\sphinxhyphen{}commutation}\sphinxstyleindexextra{ch/differential\sphinxhyphen{}geometry/curvature}\sphinxstyleindexpageref{ch/differential-geometry/curvature:\detokenize{coordinate-field-commutation}}
+\indexspace
 \bigletter{def\sphinxhyphen{}arc\sphinxhyphen{}length}
 \item\relax\sphinxstyleindexentry{def\sphinxhyphen{}arc\sphinxhyphen{}length}\sphinxstyleindexextra{ch/differential\sphinxhyphen{}geometry/lines}\sphinxstyleindexpageref{ch/differential-geometry/lines:\detokenize{def-arc-length}}
 \indexspace
@@ -25575,7 +25825,7 @@ actor\sphinxhyphen{}critic
 \item\relax\sphinxstyleindexentry{example\sphinxhyphen{}10}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/calculus\sphinxhyphen{}euclidean}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/calculus-euclidean:\detokenize{example-10}}
 \indexspace
 \bigletter{example\sphinxhyphen{}2}
-\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}2}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/calculus\sphinxhyphen{}euclidean\sphinxhyphen{}spherical}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/calculus-euclidean-spherical:\detokenize{example-2}}
+\item\relax\sphinxstyleindexentry{example\sphinxhyphen{}2}\sphinxstyleindexextra{ch/differential\sphinxhyphen{}geometry/curvature}\sphinxstyleindexpageref{ch/differential-geometry/curvature:\detokenize{example-2}}
 \indexspace
 \bigletter{example\sphinxhyphen{}3}
 \item\relax\sphinxstyleindexentry{example\sphinxhyphen{}3}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/calculus\sphinxhyphen{}euclidean\sphinxhyphen{}spherical}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/calculus-euclidean-spherical:\detokenize{example-3}}
@@ -25613,6 +25863,9 @@ actor\sphinxhyphen{}critic
 \bigletter{optimization:hessian:extreme}
 \item\relax\sphinxstyleindexentry{optimization:hessian:extreme}\sphinxstyleindexextra{ch/optimization/intro}\sphinxstyleindexpageref{ch/optimization/intro:\detokenize{optimization:hessian:extreme}}
 \indexspace
+\bigletter{parallel\sphinxhyphen{}transport\sphinxhyphen{}sphere}
+\item\relax\sphinxstyleindexentry{parallel\sphinxhyphen{}transport\sphinxhyphen{}sphere}\sphinxstyleindexextra{ch/differential\sphinxhyphen{}geometry/curvature}\sphinxstyleindexpageref{ch/differential-geometry/curvature:\detokenize{parallel-transport-sphere}}
+\indexspace
 \bigletter{pde:ex:fdm}
 \item\relax\sphinxstyleindexentry{pde:ex:fdm}\sphinxstyleindexextra{ch/pde/numerics}\sphinxstyleindexpageref{ch/pde/numerics:\detokenize{pde:ex:fdm}}
 \indexspace
@@ -25642,6 +25895,9 @@ actor\sphinxhyphen{}critic
 \indexspace
 \bigletter{property\sphinxhyphen{}5}
 \item\relax\sphinxstyleindexentry{property\sphinxhyphen{}5}\sphinxstyleindexextra{ch/linear\sphinxhyphen{}algebra/spectral\sphinxhyphen{}sensitivity}\sphinxstyleindexpageref{ch/linear-algebra/spectral-sensitivity:\detokenize{property-5}}
+\indexspace
+\bigletter{riemann\sphinxhyphen{}tensor\sphinxhyphen{}sphere}
+\item\relax\sphinxstyleindexentry{riemann\sphinxhyphen{}tensor\sphinxhyphen{}sphere}\sphinxstyleindexextra{ch/differential\sphinxhyphen{}geometry/curvature}\sphinxstyleindexpageref{ch/differential-geometry/curvature:\detokenize{riemann-tensor-sphere}}
 \indexspace
 \bigletter{svd\sphinxhyphen{}optimization\sphinxhyphen{}norm}
 \item\relax\sphinxstyleindexentry{svd\sphinxhyphen{}optimization\sphinxhyphen{}norm}\sphinxstyleindexextra{ch/linear\sphinxhyphen{}algebra/svd}\sphinxstyleindexpageref{ch/linear-algebra/svd:\detokenize{svd-optimization-norm}}
