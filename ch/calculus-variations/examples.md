@@ -293,16 +293,70 @@ $$\begin{aligned}
 
    and thus
 
-   $$m \dfrac{d \mathbf{U}}{d \tau} = q \left[ \nabla \mathbf{A} - \nabla^T \mathbf{A} \right] \cdot \mathbf{U} \ .$$
+   $$m \dfrac{d \mathbf{U}}{d \tau} = q \left[ \nabla \mathbf{A} - \nabla^T \mathbf{A} \right] \cdot \mathbf{U} \ ,$$
+
+   or with the definition of the anti-symmetric tensor $\mathbf{F} = \nabla \mathbf{A} - \nabla^T \mathbf{A}$,
+
+   $$m \dfrac{d \mathbf{U}}{d \tau} = q \, \mathbf{F} \cdot \mathbf{U} \ .$$
+
 
 
 
    ```
- 
+
+Using coordinates $\{ q^\mu(\tau) \}$ to parametrize the position $\mathbf{X}(q^\mu(\tau))$, the **velocity** reads 
+
+$$\mathbf{U} = \frac{d \mathbf{X}}{d \tau} = \dfrac{d q^{\mu}}{d \tau} \dfrac{\partial \mathbf{X}}{\partial q^{\mu}} = \dot{q}^{\mu} \mathbf{b}_{\mu} \ .$$
+
+and the **acceleration** becomes
+
+$$\dfrac{d \mathbf{U}}{d \tau} = \frac{d}{d \tau} \left( \dot{q}^{\mu} \mathbf{b}_{\mu} \right) = \left\{ \ddot{q}^{\mu} + \Gamma_{\nu \xi}^{\mu} \dot{q}^{\nu} \dot{q}^{\xi}\right\} \mathbf{b}_{\mu} \ .$$
+
+The **electromagnetic force** per unit charge reads
+
+$$\mathbf{F} \cdot \mathbf{U} = \left( F^{\mu}_{\ \ \nu} \mathbf{b}_{\mu} \otimes \mathbf{b}^{\nu} \right) \cdot \left( \dot{q}^{\xi} \mathbf{b}_{\xi} \right) = F^{\mu}_{\ \ \nu} \dot{q}^{\nu} \mathbf{b}_{\mu} \ .$$
+
+Thus, the equation of motion in coordinates and parametrized with the proper time $\tau$ is
+
+$$m \left( \ddot{q}^{\mu} + \Gamma_{\nu \xi}^{\mu} \dot{q}^{\nu} \dot{q}^{\xi} \right) = q F^{\mu}_{\ \ \nu} \dot{q}^{\nu} \ .$$
+
+```{dropdown} Components of the tensor $\ \mathbf{F}$
+:open:
+
+The components of the tensor $\mathbf{F}$ are immediately found considering its action on a vector $\mathbf{V}$
+
+$$\mathbf{F} \cdot \mathbf{V} = \nabla \mathbf{A} \cdot \mathbf{V} - \nabla^T \mathbf{A} \cdot \mathbf{V} =  \nabla \mathbf{A} \cdot \mathbf{V} - \mathbf{V} \cdot \nabla \mathbf{A} \ ,$$
+
+Recalling that the gradient of a vector field can be written as
+
+$$\nabla \mathbf{A} = \mathbf{b}^{\nu} \partial_{\nu} \mathbf{A} = \mathbf{b}^{\nu} \partial_{\nu} \left( A^{\mu} \mathbf{b}_{\mu} \right) = \mathbf{b}^{\nu} \otimes \mathbf{b}_{\mu} \left( \partial_{\nu} A^{\mu} + \Gamma_{\nu \xi}^{\mu} A^{\xi} \right) \ ,$$
+
+it follows
+
+$$\begin{aligned}
+  \mathbf{F} \cdot \mathbf{V}
+  & = \nabla \mathbf{A} \cdot \mathbf{V} - \mathbf{V} \cdot \nabla \mathbf{A} = \\
+  & = \left( \partial_{\nu} A^{\mu} + \Gamma_{\nu \xi}^{\mu} A^{\xi} \right) \mathbf{b}^{\nu} \otimes \underbrace{\mathbf{b}_{\mu} \cdot \mathbf{b}_{\eta}}_{ g_{\mu \eta} } V^{\eta}
+    - V^{\eta} \underbrace{\mathbf{b}_{\eta} \cdot \mathbf{b}^{\nu}}_{\delta_{\eta}^{\nu}} \otimes \mathbf{b}_{\mu} \left( \partial_{\nu} A^{\mu} + \Gamma_{\nu \xi}^{\mu} A^{\xi} \right) = \\
+  & = g_{\mu \eta} \left( \partial_{\nu} A^{\mu} + \Gamma_{\nu \xi}^{\mu} A^{\xi} \right) V^{\eta} \mathbf{b}^{\nu} 
+    - V^{\nu}\left( \partial_{\nu} A^{\mu} + \Gamma_{\nu \xi}^{\mu} A^{\xi} \right) \mathbf{b}_{\mu}  = \\
+  & = g_{\mu \eta} \left( \partial_{\nu} A^{\mu} + \Gamma_{\nu \xi}^{\mu} A^{\xi} \right) V^{\eta} g^{\nu \chi} \mathbf{b}_{\chi} 
+    - V^{\nu}\left( \partial_{\nu} A^{\mu} + \Gamma_{\nu \xi}^{\mu} A^{\xi} \right) \mathbf{b}_{\mu}  = \\
+  & = \mathbf{b}_{\mu} \left\{ g_{\chi \eta} \left( \partial_{\nu} A^{\chi} + \Gamma_{\nu \xi}^{\chi} A^{\xi} \right) V^{\eta} g^{\nu \mu} - V^{\nu}\left( \partial_{\nu} A^{\mu} + \Gamma_{\nu \xi}^{\mu} A^{\xi} \right) \right\} = \\
+  & = \mathbf{b}_{\mu} \left\{ g_{\chi \nu} \left( \partial_{\eta} A^{\chi} + \Gamma_{\eta \xi}^{\chi} A^{\xi} \right) g^{\eta \mu} - \left( \partial_{\nu} A^{\mu} + \Gamma_{\nu \xi}^{\mu} A^{\xi} \right) \right\} V^{\nu} = \\
+  & = \mathbf{b}_{\mu} \left\{ g^{\eta \mu} g_{\chi \nu} \partial_{\eta} A^{\chi} - \partial_{\nu} A^{\mu} + g_{\chi \nu} g^{\eta \mu}  \Gamma_{\eta \xi}^{\chi} A^{\xi} + \Gamma_{\nu \xi}^{\mu} A^{\xi} \right\} V^{\nu} \ .
+\end{aligned}$$
+
+
+```
+
 
 (calculus-variations:examples:lagrange-equations:special-relativity:coordinates)=
 ### Using coordinates
 
+**todo** *Uncomment and fix*
+
+<!--
 Let $\mathbf{X}(q^\mu(\tau))$, then $\mathbf{U} = \dot{q}^{\mu} \mathbf{b}_{\mu}$, and $\ddot{\mathbf{U}} = \left[ \ddot{q}^{mu} + \dot{q}^{\xi} \dot{q}^{\eta} \Gamma_{\xi \eta}^{\mu} \right] \mathbf{b}_{\mu}$. The component $\mu$ of the equation of motion thus reads
 
 $$\dfrac{d^2 q^{\mu}}{d \tau^2} + \Gamma_{\mu}^{\xi \eta} \dfrac{d q^{\xi}}{d \tau} \dfrac{d q^{eta}}{d \tau} = q \left( \dots \right) \dots $$
@@ -357,6 +411,7 @@ $$\partial_{\xi} g_{\mu \nu} = \partial_{\xi} \left( \mathbf{b}_{\mu} \cdot \mat
 ```
 
 ````
+-->
 
 (calculus-variations:examples:lagrange-equations:quantum-mechanics)=
 ## Quantum Mechanics
