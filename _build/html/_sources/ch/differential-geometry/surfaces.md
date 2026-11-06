@@ -285,7 +285,7 @@ Let the spectral decomposition of the symmetric tensor $\mathbb{b}$ be
 
 $$\mathbb{b} = \kappa_1 \mathbf{v}_1 \otimes \mathbf{v}_1 + \kappa_2 \mathbf{v}_2 \otimes \mathbf{v}_2 \ ,$$
 
-with $\mathbf{v}_i \cdot \mathbf{v}_j = \delta_{ij}$, and $\kappa_1 \ge \kappa_2$. Let $\hat{\mathbf{t}} = \cos \theta \mathbf{v}_1 + \sin \theta \mathbf{v}_2$ a unit-length vector a function of $\theta$, to investigate the local curvature of the surface as a function of $\theta$. Then
+with $\mathbf{v}_i \cdot \mathbf{v}_j = \delta_{ij}$, and $\kappa_1 \ge \kappa_2$. Let $\hat{\mathbf{t}} = \cos \theta \mathbf{v}_1 + \sin \theta \mathbf{v}_2$ a unit-length vector a function of $\theta$, to investigate the local curvature of the surface as a function of $\theta$. Then the curvature of the surface in $\hat{\mathbf{t}}$-direction - see curvature of a line on a surface {eq}`eq:surface:line-on-surface:curvature` - is
 
 $$\kappa(\theta) = \hat{\mathbf{t}} \cdot \mathbb{b} \cdot \hat{\mathbf{t}} = \kappa_1 \cos^2 \theta + \kappa_2 \sin^2 \theta \ .$$
 
@@ -295,6 +295,31 @@ $$\begin{aligned}
   & \max_{\theta} \kappa(\theta) = \kappa\left(\theta=           0 \right) = \kappa\left(\theta=           \pi \right) = \kappa_1 \\
   & \min_{\theta} \kappa(\theta) = \kappa\left(\theta=\frac{\pi}{2}\right) = \kappa\left(\theta=\frac{3}{2}\pi \right) = \kappa_2 \\
 \end{aligned}$$
+
+```
+
+```{dropdown} Curves on a surface
+:open:
+
+Let $\gamma$ be a curved defined on a surface $S: \mathbf{r}(q^1,q^2)$. Then the curve $\gamma$ can be represented in parametric form as $\mathbf{r}(q^1(s), q^2(s))$, using the arc-length parameter $s$.
+
+The tangent vector to the curve $\gamma$ is
+
+$$\hat{\mathbf{t}}(s) := \mathbf{r}'(s) = \dfrac{d q^i}{d s} \partial_{q^i} \mathbf{r} = \dfrac{d q^i}{d s} \mathbf{b}_i \ ,$$
+
+summing over $i \in \{ 1, 2 \}$. The derivative of the  tangent vector is proportional to the normal vector, through the curvature, i.e. $\hat{\mathbf{t}}'(s) = \kappa(s) \hat{\mathbf{n}}(s)$,
+
+$$\hat{\mathbf{t}}'(s) = \left[ \frac{d^2 q^i}{ds^2} + \Gamma_{jk}^{i} \frac{d q^{j}}{d s} \frac{d q^{k}}{d s} \right] \mathbf{b}_i + \Gamma^{3}_{jk} \dfrac{d q^j}{ds} \dfrac{d q^k}{ds} \hat{\mathbf{n}} \ .$$
+
+The curvature of this curve thus reads
+
+$$\begin{aligned}
+  \kappa(s) 
+  & = \hat{\mathbf{t}}'(s) \cdot \hat{\mathbf{n}} = \\
+  & = \Gamma_{jk}^{3} \dfrac{dq^j}{ds} \dfrac{dq^k}{ds} = \\
+  & = \left( \dfrac{dq^j}{ds} \mathbf{b}_j \right) \cdot \left( \Gamma_{ab}^{3} \mathbf{b}^{a} \mathbf{b}^b \right) \cdot \left( \dfrac{dq^k}{ds} \mathbf{b}_k \right) = \\
+  & = \hat{\mathbf{t}}(s) \cdot \mathbb{b}(s) \cdot \hat{\mathbf{t}}(s) \ .
+\end{aligned}$$ (eq:surface:line-on-surface:curvature)
 
 ```
 
