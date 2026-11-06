@@ -347,8 +347,8 @@ $$\begin{aligned}
   & = \mathbf{b}_{\mu} \left\{ g^{\eta \mu} g_{\chi \nu} \partial_{\eta} A^{\chi} - \partial_{\nu} A^{\mu} + g_{\chi \nu} g^{\eta \mu}  \Gamma_{\eta \xi}^{\chi} A^{\xi} + \Gamma_{\nu \xi}^{\mu} A^{\xi} \right\} V^{\nu} \ .
 \end{aligned}$$
 
-
 ```
+
 
 
 (calculus-variations:examples:lagrange-equations:special-relativity:coordinates)=
