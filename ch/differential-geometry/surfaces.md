@@ -15,6 +15,22 @@ $$d \mathbf{r} =
   \mathbf{b}_1 \, d q^1 + \mathbf{b}_2 \, d q^2
 $$
 
+(differential-geometry:surfaces:differential:first-fundamental-form)=
+### Length of the elementary vector on the surface, and the first fundamental form $\mathbf{I}$
+
+$$\begin{aligned}
+  \left| d \mathbf{r} \right|^2 = d \mathbf{r} \cdot d \mathbf{r} & = g_{ij} dq^{i} dq^{j} = \\
+  & = E \left( dq^1 \right)^2 + 2 F dq^1 dq^2 + G \left( dq^2 \right)^2 = \\
+  & = \begin{bmatrix} dq^1 & dq^2 \end{bmatrix} \begin{bmatrix} E & F \\ F & G \end{bmatrix} \begin{bmatrix} dq^1 \\ dq^2 \end{bmatrix} = \\
+  & = d \mathbf{q}^T \, \mathbf{I} \, \mathbf{q}
+\end{aligned}$$
+
+Here with slight abuse of notation, both geometrical vectors $d \mathbf{r}$ and mathematical vectors - whose components are not transforming as vectors under change of coordinates - collecting the coordinates $d \mathbf{q}$ have been represented with bold symbols.
+
+The elements of the **first fundamental form** are the covariant components $g_{ij}$ of the **metric tensor**,
+
+$$\left[ \mathbf{I} \right]_{ij} = g_{ij} \ .$$ (eq:surface:first-fundamental-form)
+
 (differential-geometry:surfaces:normal-vector)=
 ## Normal vector
 
@@ -44,6 +60,14 @@ Exploiting the orthogonality of the natural basis and its reciprocal, it follows
 $$\Gamma_{ij}^{k} = \mathbf{b}^k \cdot \frac{\partial \mathbf{b}_i}{\partial q^j} \ .$$
 
 **Remark.** Comparing two different choices of the orthogonal coordinate $q^3$, (1) unit normal vector $\hat{\mathbf{b}}_3 = \hat{\mathbf{n}}$, (2) non-unitary normal vector $\hat{\mathbf{b}}_3 = \mathbf{n}$, $\hat{\mathbf{b}}^3 = \tfrac{\mathbf{n}}{|\mathbf{n}|^2}$, it's easy to prove that the Christoffel coefficients with upper index $k = 3$, $\Gamma^{3}_{ij}$, are independent from this choice.
+
+
+(differential-geometry:surfaces:normal-vector-derivatives)=
+## Derivatives of the unit normal vector
+
+See {eq}`eq:surface:weingarten`.
+
+$$\partial_k \hat{\mathbf{n}} = - \Gamma_{ik}^{3} \mathbf{b}^i = - g^{il} \Gamma_{ik}^{3} \mathbf{b}_l \ .$$
 
 (differential-geometry:surfaces:geometric-entities)=
 ## Geometric entities
@@ -86,37 +110,47 @@ $$\begin{aligned}
 
 having defined the **curvature tensor** $\mathbb{b}$,
 
-$$\mathbb{b} = b_{ij} \mathbf{b}^i \otimes \mathbf{b}^j = \left( \hat{\mathbf{n}} \cdot \frac{\partial^2 \mathbf{r}}{\partial q^i \partial q^j} \right) \mathbf{b}^i \otimes \mathbf{b}^j \ .$$
+$$\mathbb{b} = b_{ij} \mathbf{b}^i \otimes \mathbf{b}^j = \left( \hat{\mathbf{n}} \cdot \frac{\partial^2 \mathbf{r}}{\partial q^i \partial q^j} \right) \mathbf{b}^i \otimes \mathbf{b}^j = \Gamma^{3}_{ij} dq^i dq^j \ .$$ (eq:surface:curvature-tensor)
 
 (differential-geometry:surfaces:geometric-entities:curvature-tensor)=
-### Curvature tensor
+### Curvature tensor, quadratic approximation and second fundamental form
 
 From the second-order Taylor expansion around a point $\mathbf{r}(q^1, q^2)$, the projection of the displacement onto the unit normal vector $\hat{\mathbf{n}}$ measures the distance from the surface to its tangent plane $\pi$:
 
-$$[\mathbf{r}(q^1 + dq^1, q^2 + dq^2) - \mathbf{r}(q^1, q^2)] \cdot \hat{\mathbf{n}} = \frac{1}{2} \Gamma_{ij}^3 dq^i dq^j ,$$
+$$[\mathbf{r}(q^1 + dq^1, q^2 + dq^2) - \mathbf{r}(q^1, q^2)] \cdot \hat{\mathbf{n}} = \Gamma_{ij}^3 dq^i dq^j ,$$
 
 The symmetric covariant tensor of rank 2, defined by its components
 
-$$b_{ij} := \Gamma_{ij}^3 = \hat{\mathbf{n}} \cdot \mathbf{b}_{\alpha} \Gamma_{ij}^{\alpha} = \hat{\mathbf{n}} \cdot \frac{\partial^2 \mathbf{r}}{\partial q^i \partial q^j} = \hat{\mathbf{n}} \cdot \frac{\partial \mathbf{b}_i}{\partial q^j} = -\frac{\partial \hat{\mathbf{n}}}{\partial q^j} \cdot \mathbf{b}_i ,$$ (eq:second-fundamental-form:normal-projection)
+$$\left[ \mathbf{II} \right]_{ij} = b_{ij} := \Gamma_{ij}^3 = \hat{\mathbf{n}} \cdot \mathbf{b}_{\alpha} \Gamma_{ij}^{\alpha} = \hat{\mathbf{n}} \cdot \frac{\partial^2 \mathbf{r}}{\partial q^i \partial q^j} = \hat{\mathbf{n}} \cdot \frac{\partial \mathbf{b}_i}{\partial q^j} = -\frac{\partial \hat{\mathbf{n}}}{\partial q^j} \cdot \mathbf{b}_i ,$$ (eq:second-fundamental-form:normal-projection)
 
 is the **second fundamental form** (or curvature tensor) of the surface embedded in $E^3$. The last equality holds from the derivatives w.r.t. $q^j$ of the relation $\hat{\mathbf{n}} \cdot \mathbf{b}_i = 0$.
 
 The quadratic form $b_{ij} dq^i dq^j$ characterizes the local deviation of the surface from the tangent plane $\pi$. Let $w_n(q^1,q^2) = d \mathbf{r} \cdot \mathbb{b} \cdot d \mathbf{r}$ the normal deviation of the surface w.r.t. the tangent plane, then
 
-$$w_n(q^1,q^2) = b_{ij} dq^{i} dq^{j} \ .$$
+$$w_n(q^1,q^2) = \frac{1}{2} b_{ij} dq^{i} dq^{j} \ .$$
 
-The curvature tensor $\mathbb{b}$ is a **symmetric** order-2 tensor, locally built on a 2-dimensional vector space. Its **spectral decomposition** 
+The curvature tensor $\mathbb{b}$ is a **symmetric** order-2 tensor, locally built on a 2-dimensional vector space. In analogy - anyway pay attention that tensors are not matrices - with [spectral decomposition of symmetric matrices](math:spectral:symmetric), its **spectral decomposition** is 
 
 $$\mathbb{b} = \kappa_1 \mathbf{v}_1 \otimes \mathbf{v}_1 + \kappa_2 \mathbf{v}_2 \otimes \mathbf{v}_2 \ ,$$
 
-being $\kappa_1$, $\kappa_2 \in \mathbb{R}$ the real egivenvalues, and $\mathbf{v}_1$, $\mathbf{v}_2$ the unit orthogonal basis defined by the eigenvectors of the eigenvalue problem
+being $\kappa_1$, $\kappa_2 \in \mathbb{R}$ the **real eigenvalues**, and $\mathbf{v}_1$, $\mathbf{v}_2$ the unit **orthogonal** basis defined by the **eigenvectors** of the eigenvalue problem
 
 $$\mathbb{b} \cdot \mathbf{v}_i = \kappa_i \mathbf{v}_i \ , \qquad i \in \{ 1, 2 \} \ .$$
 
 The eigenvectors $\mathbf{v}_{1,2}$ defines the **principal directions**, while the eigenvalues $\kappa_{1,2}$ are defined as the **principal curvatures**.
 
-```{dropdown} Eigenvalue problem
+````{dropdown} Eigenvalue problem
 :open:
+
+The eigenvalues of the tensor $\mathbb{b}$ are the same eigenvalues as the matrix containing its mixed components $[b^{i}_{\ \ j}]$. This immediately follows as the $m^{\rm th}$ contravariant component of the eigenvalue problem
+
+$$\mathbb{b} \cdot \mathbf{v}_{(\alpha)} = \kappa_{(\alpha)} \mathbf{v}_{(\alpha)} \ ,$$
+
+is
+
+$$b^{m}_{\ \ j} v^{j}_{(\alpha)} = \kappa_{(\alpha)} v^{m}_{(\alpha)} \ .$$
+
+```{dropdown} Proof
 
 $$\begin{aligned}
   \mathbb{b} \cdot \mathbf{v}_{(\alpha)} & = \kappa_{(\alpha)} \mathbf{v}_{(\alpha)} \\
@@ -130,6 +164,8 @@ i.e. in components $b^{m}_{\ \ j} v^{j}_{(\alpha)} = \kappa_{(\alpha)} v^m_{(\al
 
 $$\left( b^{m}_{\ \ j} - \kappa_{(\alpha)} \delta^{m}_{\ \ j}  \right) v^{j}_{(\alpha)} = 0 \ .$$
 
+```
+
 Even more explicitly, the condition $\text{det}\left( b^{m}_{\ \ j} - \kappa_{(\alpha)} \delta^{m}_{\ \ j} \right) = 0$ becomes
 
 $$0 = \left| \begin{bmatrix} b^{1}_{\ \ 1} - \kappa_{(\alpha)} & b^{1}_{\ \ 2} \\ b^{2}_{\ \ 1} & b^{2}_{\ \ 2} - \kappa_{(\alpha)} \end{bmatrix} \right| = \kappa_{(\alpha)}^2 - \left( b^{1}_{\ \ 1} + b^{2}_{\ \ 2} \right) \kappa_{(\alpha)} + b^1_{\ \ 1} b^{2}_{\ \ 2} - b^{1}_{\ \ 2} b^{2}_{\ \ 1} = \kappa^2_{(\alpha)} - \text{tr}\{ \mathbf{B} \} \kappa_{(\alpha)} + \text{det}\{ \mathbf{B} \}\  .$$
@@ -141,19 +177,18 @@ $$\begin{aligned}
   & = \frac{ \text{tr}\left\{ \mathbf{B} \right\} }{2} \mp \sqrt{ \left( \frac{ \text{tr}\left\{ \mathbf{B} \right\} }{2} \right)^2 - \text{det}\{ \mathbf{B} \} } \ .
 \end{aligned}$$
 
-with $\mathbf{B}$ the matrix collecting the mixed components of the curvature tensor, $[\mathbf{B}]_{ij} = \left[ b^{i}_{\ \ j} \right]$. It's easy to prove that
+with $\mathbf{B}$ the matrix collecting the mixed components of the curvature tensor, $[\mathbf{B}]_{ij} = \left[ b^{i}_{\ \ j} \right]$. For a 2-dimensional matrix, it's easy to prove the general relations between its trace, determinant and eigenvalues,
 
-$$\text{tr}\{ \mathbf{B} \} = \kappa_{1} + \kappa_2 \ ,$$
+$$\begin{aligned}
+  \text{tr }\{ \mathbf{B} \} & = \kappa_{1} + \kappa_2 \\
+  \text{det}\{ \mathbf{B} \} & = \kappa_{1} \cdot \kappa_2 \ .
+\end{aligned}$$
 
-and 
-
-$$\text{det}\{ \mathbf{B} \} = \kappa_{1} \cdot \kappa_2 \ .$$
-
-**Remark.** Eigenvalues are real, as
-
-... **todo** *check and uncomment*
 
 <!--
+**Remark.** Eigenvalues are real, as
+... **todo** *check and uncomment*
+
 $$\begin{aligned}
   \left( \frac{\text{tr}\{ \mathbf{B} \}}{2} \right)^2 - \text{det}\{ \mathbf{B} \} 
   & = \frac{\left( b^{1}_{\ \ 1} \right)^2 + 2 b^{1}_{\ \ 1} b^{2}_{\ \ 2} + \left( b^{2}_{\ \ 2} \right)^2 }{4} - \left( b^{1}_{\ \ 1} b^{2}_{\ \ 2} - b^{1}_{\ \ 2} b^{2}_{\ \ 1} \right) = \\
@@ -166,7 +201,50 @@ with
 $$b^{1}_{\ \ 2} = g^{1k} b_{k2} = g^{k1} b_{2k} = b$$
 -->
 
+````
+
+```{dropdown} Spectral decomposition of symmetric matrices
+
+Let $\mathbf{A}$ be real-valued symmetric, i.e. $\mathbf{A} = \mathbf{A}^T$, $A_{ij} \in \mathbb{R}$. Let $\{ \lambda_i \}_i$, $\{ \mathbf{v}_i \}_i$ the sets of eigenvalues and corresponding eigenvectors. Taking two different eigenvalues
+
+$$\begin{aligned}
+  \mathbf{A} \mathbf{v}_i & = \lambda_i \mathbf{v}_i \\
+  \mathbf{A} \mathbf{v}_k & = \lambda_k \mathbf{v}_k \ .
+\end{aligned}$$
+
+Taking the product on the left of the first equation with $\mathbf{v}_k^T$, and of the second equation with $\mathbf{v}_i^T$, and taking the difference of these two equations
+
+$$0 = \left( \lambda_i - \lambda_k \right) \mathbf{v}_k^T \mathbf{v}_i \ .$$
+
+This equation has solutions either if $\lambda_i = \lambda_k$, or - if $\lambda_i \ne \lambda_k$ - if $\mathbf{v}_k^T \mathbf{v}_i = 0$, i.e. if the eigenvectors with two different eigenvalues are orthogonal. Thus, the matrix $\mathbf{A}$ can be written as a linear combination
+
+$$\mathbf{A} = \lambda_1 \mathbf{v}_1 \mathbf{v}_1^T + \lambda_2 \mathbf{v}_2 \mathbf{v}_2^T \ ,$$
+
+with $\mathbf{v}_1$, and $\mathbf{v}_2$ orthogonal (even if the two eigenvalues of $\mathbf{A}$ have the same value, using $\mathbf{v}_1^T \mathbf{v}_2 = 0$ as an orthogonality condition of the vectors associated with the same eigenvalue with algebraic multiplicity greater than $1$). As a double-proof, the action of $\mathbf{A}$ on a generic vector $\mathbf{w} = w_1 \mathbf{v}_1 + w_2 \mathbf{w}_2$ is
+
+$$\mathbf{A} \mathbf{w} = \mathbf{A} \left( w_1 \mathbf{v}_1 + w_2 \mathbf{v}_2 \right) = w_1 \lambda_1 \mathbf{v}_1 + w_2 \lambda_2 \mathbf{v}_2$$
+
+or
+
+$$\left( \lambda_1 \mathbf{v}_1 \mathbf{v}_1^T + \lambda_2 \mathbf{v}_2 \mathbf{v}_2^T \right) \mathbf{w} = \left(  \lambda_1 \mathbf{v}_1 \mathbf{v}_1^T + \lambda_2 \mathbf{v}_2 \mathbf{v}_2^T \right) \left( w_1 \mathbf{v}_1 + w_2 \mathbf{v}_2 \right) = w_1 \lambda_1 \mathbf{v}_1 + w_2 \lambda_2 \mathbf{v}_2 \ .$$
+
+The **eigenvalues of a symmetric matrix** are **real**, since
+
+$$\mathbf{v}_i^* \left( \mathbf{A} \mathbf{v}_i \right) = \mathbf{v}_i^* ( \lambda_i \mathbf{v}_i )$$
+
+while the product of the adjoint and $\mathbf{v}_i$ - with $\mathbf{A}$
+
+$$\mathbf{v}_i^* \mathbf{A} \mathbf{v}_i = \lambda_i^* \mathbf{v}_i^* \mathbf{v}_i \ .$$
+
+The difference of the latter two equations gives
+
+$$0 = ( \lambda_i - \lambda_i^* ) \mathbf{v}_i^* \mathbf{v}_i \quad \rightarrow \quad \lambda_i^* = \lambda_i \ ,$$
+
+i.e. $\lambda_i \in \mathbb{R}$.
+
 ```
+
+#### Mean curvature
 
 ```{dropdown} Mean curvature
 :open:
@@ -183,17 +261,51 @@ $$\begin{aligned}
 
 ```
 
+#### Gaussian curvature
+
 ```{dropdown} Gaussian curvature
 :open:
 
 Gaussian curvature is defined as the determinant of $b^{i}_{\ \ j}$,
 
-$$K = \text{det} \{ b^{i}_{\ \ j} \} = \dfrac{\text{det}\{ b_{ij} \}}{\text{det}\{ g_{ij} \}} \ ,$$ (eq:differential-geometry:gaussian-curvature)
+$$K = \text{det} \{ b^{i}_{\ \ j} \} = \dfrac{\text{det}\{ b_{ij} \}}{\text{det}\{ g_{ij} \}} = \frac{\text{det}\{ \mathbf{II} \}}{\text{det}\{ \mathbf{I} \}} \ ,$$ (eq:differential-geometry:gaussian-curvature)
 
 as $b_{ij} = g_{il} b^{l}_{\ \ j}$.
 
 
 ```
+
+
+#### Principal curvatures
+
+```{dropdown} Principal curvatures, as extreme values
+:open:
+
+Let the spectral decomposition of the symmetric tensor $\mathbb{b}$ be
+
+$$\mathbb{b} = \kappa_1 \mathbf{v}_1 \otimes \mathbf{v}_1 + \kappa_2 \mathbf{v}_2 \otimes \mathbf{v}_2 \ ,$$
+
+with $\mathbf{v}_i \cdot \mathbf{v}_j = \delta_{ij}$, and $\kappa_1 \ge \kappa_2$. Let $\hat{\mathbf{t}} = \cos \theta \mathbf{v}_1 + \sin \theta \mathbf{v}_2$ a unit-length vector a function of $\theta$, to investigate the local curvature of the surface as a function of $\theta$. Then
+
+$$\kappa(\theta) = \hat{\mathbf{t}} \cdot \mathbb{b} \cdot \hat{\mathbf{t}} = \kappa_1 \cos^2 \theta + \kappa_2 \sin^2 \theta \ .$$
+
+Thus, it immediately follows that 
+
+$$\begin{aligned}
+  & \max_{\theta} \kappa(\theta) = \kappa\left(\theta=           0 \right) = \kappa\left(\theta=           \pi \right) = \kappa_1 \\
+  & \min_{\theta} \kappa(\theta) = \kappa\left(\theta=\frac{\pi}{2}\right) = \kappa\left(\theta=\frac{3}{2}\pi \right) = \kappa_2 \\
+\end{aligned}$$
+
+```
+
+<!--
+```{dropdown} Principal curvatures and diagonalization
+:open:
+
+$$\mathbb{b} = b_{ij} \mathbf{b}^i \otimes \mathbf{b}^j = b_{i}^{\ \ j} \mathbf{b}^i \otimes \mathbf{b}_j = \kappa_{(i)} \delta_{ij} \mathbf{v}_i \otimes \mathbf{v}_j $$
+
+```
+-->
 
 <!--
 
@@ -210,6 +322,7 @@ Using the metric tensor $g_{ij}$ (the *first fundamental form*), we can define t
 -->
 
 
+<!--
 (differential-geometry:surfaces:geometric-entities:curvature-tensor:principal)=
 #### Principal Curvatures and Directions
 
@@ -225,6 +338,7 @@ $$\kappa_{1,2} = H \pm \sqrt{H^2 - K} .$$
 * The Mean curvature is the average of the principal curvatures: $H = \frac{1}{2}(\kappa_1 + \kappa_2)$.
 
 ...
+-->
 
 (differential-geometry:surfaces:geometric-entities:fundamental-forms-and-egregium-thm)=
 ## Fundamental forms and Gauss egregium theorem
@@ -314,7 +428,7 @@ $$\partial_k \hat{\mathbf{n}} \cdot \mathbf{b}_i = - \hat{\mathbf{n}} \cdot \par
 
 so that it immediately follows that the derivatives of the unit normal vector w.r.t. the coordinates $q^k$ are
 
-$$\partial_k \hat{\mathbf{n}} = - \Gamma_{ik}^{3} \mathbf{b}^i = - g^{il} \Gamma_{ik}^{3} \mathbf{b}_l \ ,$$
+$$\partial_k \hat{\mathbf{n}} = - \Gamma_{ik}^{3} \mathbf{b}^i = - g^{il} \Gamma_{ik}^{3} \mathbf{b}_l \ ,$$ (eq:surface:weingarten)
 
 or, explicitly
 

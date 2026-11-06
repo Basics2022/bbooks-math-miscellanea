@@ -615,17 +615,23 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differential">9.2.1. Differential</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differential">9.2.1. Differential</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#length-of-the-elementary-vector-on-the-surface-and-the-first-fundamental-form-mathbf-i">9.2.1.1. Length of the elementary vector on the surface, and the first fundamental form <span class="math notranslate nohighlight">\(\mathbf{I}\)</span></a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normal-vector">9.2.2. Normal vector</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#derivatives-of-the-natural-basis">9.2.3. Derivatives of the natural basis</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geometric-entities">9.2.4. Geometric entities</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#curvature-tensor">9.2.4.1. Curvature tensor</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#principal-curvatures-and-directions">9.2.4.1.1. Principal Curvatures and Directions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#derivatives-of-the-unit-normal-vector">9.2.4. Derivatives of the unit normal vector</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geometric-entities">9.2.5. Geometric entities</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#curvature-tensor-quadratic-approximation-and-second-fundamental-form">9.2.5.1. Curvature tensor, quadratic approximation and second fundamental form</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-curvature">9.2.5.1.1. Mean curvature</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-curvature">9.2.5.1.2. Gaussian curvature</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#principal-curvatures">9.2.5.1.3. Principal curvatures</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamental-forms-and-gauss-egregium-theorem">9.2.5. Fundamental forms and Gauss egregium theorem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamental-forms-and-gauss-egregium-theorem">9.2.6. Fundamental forms and Gauss egregium theorem</a></li>
 </ul>
             </nav>
         </div>
@@ -650,6 +656,20 @@ document.write(`
   \frac{\partial \mathbf{r}}{\partial q^1} \, d q^1 + \frac{\partial \mathbf{r}}{\partial q^2} \, d q^2 =
   \mathbf{b}_1 \, d q^1 + \mathbf{b}_2 \, d q^2
 \]</div>
+<div class="section" id="length-of-the-elementary-vector-on-the-surface-and-the-first-fundamental-form-mathbf-i">
+<span id="differential-geometry-surfaces-differential-first-fundamental-form"></span><h3><span class="section-number">9.2.1.1. </span>Length of the elementary vector on the surface, and the first fundamental form <span class="math notranslate nohighlight">\(\mathbf{I}\)</span><a class="headerlink" href="#length-of-the-elementary-vector-on-the-surface-and-the-first-fundamental-form-mathbf-i" title="Permalink to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \left| d \mathbf{r} \right|^2 = d \mathbf{r} \cdot d \mathbf{r} &amp; = g_{ij} dq^{i} dq^{j} = \\
+  &amp; = E \left( dq^1 \right)^2 + 2 F dq^1 dq^2 + G \left( dq^2 \right)^2 = \\
+  &amp; = \begin{bmatrix} dq^1 &amp; dq^2 \end{bmatrix} \begin{bmatrix} E &amp; F \\ F &amp; G \end{bmatrix} \begin{bmatrix} dq^1 \\ dq^2 \end{bmatrix} = \\
+  &amp; = d \mathbf{q}^T \, \mathbf{I} \, \mathbf{q}
+\end{aligned}\end{split}\]</div>
+<p>Here with slight abuse of notation, both geometrical vectors <span class="math notranslate nohighlight">\(d \mathbf{r}\)</span> and mathematical vectors - whose components are not transforming as vectors under change of coordinates - collecting the coordinates <span class="math notranslate nohighlight">\(d \mathbf{q}\)</span> have been represented with bold symbols.</p>
+<p>The elements of the <strong>first fundamental form</strong> are the covariant components <span class="math notranslate nohighlight">\(g_{ij}\)</span> of the <strong>metric tensor</strong>,</p>
+<div class="math notranslate nohighlight" id="equation-eq-surface-first-fundamental-form">
+<span class="eqno">(9.1)<a class="headerlink" href="#equation-eq-surface-first-fundamental-form" title="Permalink to this equation">#</a></span>\[\left[ \mathbf{I} \right]_{ij} = g_{ij} \ .\]</div>
+</div>
 </div>
 <div class="section" id="normal-vector">
 <span id="differential-geometry-surfaces-normal-vector"></span><h2><span class="section-number">9.2.2. </span>Normal vector<a class="headerlink" href="#normal-vector" title="Permalink to this heading">#</a></h2>
@@ -675,8 +695,14 @@ document.write(`
 \[\Gamma_{ij}^{k} = \mathbf{b}^k \cdot \frac{\partial \mathbf{b}_i}{\partial q^j} \ .\]</div>
 <p><strong>Remark.</strong> Comparing two different choices of the orthogonal coordinate <span class="math notranslate nohighlight">\(q^3\)</span>, (1) unit normal vector <span class="math notranslate nohighlight">\(\hat{\mathbf{b}}_3 = \hat{\mathbf{n}}\)</span>, (2) non-unitary normal vector <span class="math notranslate nohighlight">\(\hat{\mathbf{b}}_3 = \mathbf{n}\)</span>, <span class="math notranslate nohighlight">\(\hat{\mathbf{b}}^3 = \tfrac{\mathbf{n}}{|\mathbf{n}|^2}\)</span>, it’s easy to prove that the Christoffel coefficients with upper index <span class="math notranslate nohighlight">\(k = 3\)</span>, <span class="math notranslate nohighlight">\(\Gamma^{3}_{ij}\)</span>, are independent from this choice.</p>
 </div>
+<div class="section" id="derivatives-of-the-unit-normal-vector">
+<span id="differential-geometry-surfaces-normal-vector-derivatives"></span><h2><span class="section-number">9.2.4. </span>Derivatives of the unit normal vector<a class="headerlink" href="#derivatives-of-the-unit-normal-vector" title="Permalink to this heading">#</a></h2>
+<p>See <a class="reference internal" href="#equation-eq-surface-weingarten">(9.5)</a>.</p>
+<div class="math notranslate nohighlight">
+\[\partial_k \hat{\mathbf{n}} = - \Gamma_{ik}^{3} \mathbf{b}^i = - g^{il} \Gamma_{ik}^{3} \mathbf{b}_l \ .\]</div>
+</div>
 <div class="section" id="geometric-entities">
-<span id="differential-geometry-surfaces-geometric-entities"></span><h2><span class="section-number">9.2.4. </span>Geometric entities<a class="headerlink" href="#geometric-entities" title="Permalink to this heading">#</a></h2>
+<span id="differential-geometry-surfaces-geometric-entities"></span><h2><span class="section-number">9.2.5. </span>Geometric entities<a class="headerlink" href="#geometric-entities" title="Permalink to this heading">#</a></h2>
 <p><strong>Normal vector.</strong></p>
 <div class="math notranslate nohighlight">
 \[\mathbf{n}(q^1, q^2) = \frac{\partial \mathbf{r}}{\partial q^1}(q^1, q^2) \times \frac{\partial \mathbf{r}}{\partial q^2}(q^1, q^2) = \mathbf{b}_1(q^1, q^2) \times \mathbf{b}_2(q^1, q^2)\]</div>
@@ -709,30 +735,43 @@ document.write(`
  &amp; = \frac{1}{2} d \mathbf{r} \cdot \mathbb{b} \cdot d \mathbf{r} \ ,
 \end{aligned}\end{split}\]</div>
 <p>having defined the <strong>curvature tensor</strong> <span class="math notranslate nohighlight">\(\mathbb{b}\)</span>,</p>
-<div class="math notranslate nohighlight">
-\[\mathbb{b} = b_{ij} \mathbf{b}^i \otimes \mathbf{b}^j = \left( \hat{\mathbf{n}} \cdot \frac{\partial^2 \mathbf{r}}{\partial q^i \partial q^j} \right) \mathbf{b}^i \otimes \mathbf{b}^j \ .\]</div>
-<div class="section" id="curvature-tensor">
-<span id="differential-geometry-surfaces-geometric-entities-curvature-tensor"></span><h3><span class="section-number">9.2.4.1. </span>Curvature tensor<a class="headerlink" href="#curvature-tensor" title="Permalink to this heading">#</a></h3>
+<div class="math notranslate nohighlight" id="equation-eq-surface-curvature-tensor">
+<span class="eqno">(9.2)<a class="headerlink" href="#equation-eq-surface-curvature-tensor" title="Permalink to this equation">#</a></span>\[\mathbb{b} = b_{ij} \mathbf{b}^i \otimes \mathbf{b}^j = \left( \hat{\mathbf{n}} \cdot \frac{\partial^2 \mathbf{r}}{\partial q^i \partial q^j} \right) \mathbf{b}^i \otimes \mathbf{b}^j = \Gamma^{3}_{ij} dq^i dq^j \ .\]</div>
+<div class="section" id="curvature-tensor-quadratic-approximation-and-second-fundamental-form">
+<span id="differential-geometry-surfaces-geometric-entities-curvature-tensor"></span><h3><span class="section-number">9.2.5.1. </span>Curvature tensor, quadratic approximation and second fundamental form<a class="headerlink" href="#curvature-tensor-quadratic-approximation-and-second-fundamental-form" title="Permalink to this heading">#</a></h3>
 <p>From the second-order Taylor expansion around a point <span class="math notranslate nohighlight">\(\mathbf{r}(q^1, q^2)\)</span>, the projection of the displacement onto the unit normal vector <span class="math notranslate nohighlight">\(\hat{\mathbf{n}}\)</span> measures the distance from the surface to its tangent plane <span class="math notranslate nohighlight">\(\pi\)</span>:</p>
 <div class="math notranslate nohighlight">
-\[[\mathbf{r}(q^1 + dq^1, q^2 + dq^2) - \mathbf{r}(q^1, q^2)] \cdot \hat{\mathbf{n}} = \frac{1}{2} \Gamma_{ij}^3 dq^i dq^j ,\]</div>
+\[[\mathbf{r}(q^1 + dq^1, q^2 + dq^2) - \mathbf{r}(q^1, q^2)] \cdot \hat{\mathbf{n}} = \Gamma_{ij}^3 dq^i dq^j ,\]</div>
 <p>The symmetric covariant tensor of rank 2, defined by its components</p>
 <div class="math notranslate nohighlight" id="equation-eq-second-fundamental-form-normal-projection">
-<span class="eqno">(9.1)<a class="headerlink" href="#equation-eq-second-fundamental-form-normal-projection" title="Permalink to this equation">#</a></span>\[b_{ij} := \Gamma_{ij}^3 = \hat{\mathbf{n}} \cdot \mathbf{b}_{\alpha} \Gamma_{ij}^{\alpha} = \hat{\mathbf{n}} \cdot \frac{\partial^2 \mathbf{r}}{\partial q^i \partial q^j} = \hat{\mathbf{n}} \cdot \frac{\partial \mathbf{b}_i}{\partial q^j} = -\frac{\partial \hat{\mathbf{n}}}{\partial q^j} \cdot \mathbf{b}_i ,\]</div>
+<span class="eqno">(9.3)<a class="headerlink" href="#equation-eq-second-fundamental-form-normal-projection" title="Permalink to this equation">#</a></span>\[\left[ \mathbf{II} \right]_{ij} = b_{ij} := \Gamma_{ij}^3 = \hat{\mathbf{n}} \cdot \mathbf{b}_{\alpha} \Gamma_{ij}^{\alpha} = \hat{\mathbf{n}} \cdot \frac{\partial^2 \mathbf{r}}{\partial q^i \partial q^j} = \hat{\mathbf{n}} \cdot \frac{\partial \mathbf{b}_i}{\partial q^j} = -\frac{\partial \hat{\mathbf{n}}}{\partial q^j} \cdot \mathbf{b}_i ,\]</div>
 <p>is the <strong>second fundamental form</strong> (or curvature tensor) of the surface embedded in <span class="math notranslate nohighlight">\(E^3\)</span>. The last equality holds from the derivatives w.r.t. <span class="math notranslate nohighlight">\(q^j\)</span> of the relation <span class="math notranslate nohighlight">\(\hat{\mathbf{n}} \cdot \mathbf{b}_i = 0\)</span>.</p>
 <p>The quadratic form <span class="math notranslate nohighlight">\(b_{ij} dq^i dq^j\)</span> characterizes the local deviation of the surface from the tangent plane <span class="math notranslate nohighlight">\(\pi\)</span>. Let <span class="math notranslate nohighlight">\(w_n(q^1,q^2) = d \mathbf{r} \cdot \mathbb{b} \cdot d \mathbf{r}\)</span> the normal deviation of the surface w.r.t. the tangent plane, then</p>
 <div class="math notranslate nohighlight">
-\[w_n(q^1,q^2) = b_{ij} dq^{i} dq^{j} \ .\]</div>
-<p>The curvature tensor <span class="math notranslate nohighlight">\(\mathbb{b}\)</span> is a <strong>symmetric</strong> order-2 tensor, locally built on a 2-dimensional vector space. Its <strong>spectral decomposition</strong></p>
+\[w_n(q^1,q^2) = \frac{1}{2} b_{ij} dq^{i} dq^{j} \ .\]</div>
+<p>The curvature tensor <span class="math notranslate nohighlight">\(\mathbb{b}\)</span> is a <strong>symmetric</strong> order-2 tensor, locally built on a 2-dimensional vector space. In analogy - anyway pay attention that tensors are not matrices - with <a class="reference internal" href="../linear-algebra/spectral-symmetric.html#math-spectral-symmetric"><span class="std std-ref">spectral decomposition of symmetric matrices</span></a>, its <strong>spectral decomposition</strong> is</p>
 <div class="math notranslate nohighlight">
 \[\mathbb{b} = \kappa_1 \mathbf{v}_1 \otimes \mathbf{v}_1 + \kappa_2 \mathbf{v}_2 \otimes \mathbf{v}_2 \ ,\]</div>
-<p>being <span class="math notranslate nohighlight">\(\kappa_1\)</span>, <span class="math notranslate nohighlight">\(\kappa_2 \in \mathbb{R}\)</span> the real egivenvalues, and <span class="math notranslate nohighlight">\(\mathbf{v}_1\)</span>, <span class="math notranslate nohighlight">\(\mathbf{v}_2\)</span> the unit orthogonal basis defined by the eigenvectors of the eigenvalue problem</p>
+<p>being <span class="math notranslate nohighlight">\(\kappa_1\)</span>, <span class="math notranslate nohighlight">\(\kappa_2 \in \mathbb{R}\)</span> the <strong>real eigenvalues</strong>, and <span class="math notranslate nohighlight">\(\mathbf{v}_1\)</span>, <span class="math notranslate nohighlight">\(\mathbf{v}_2\)</span> the unit <strong>orthogonal</strong> basis defined by the <strong>eigenvectors</strong> of the eigenvalue problem</p>
 <div class="math notranslate nohighlight">
 \[\mathbb{b} \cdot \mathbf{v}_i = \kappa_i \mathbf{v}_i \ , \qquad i \in \{ 1, 2 \} \ .\]</div>
 <p>The eigenvectors <span class="math notranslate nohighlight">\(\mathbf{v}_{1,2}\)</span> defines the <strong>principal directions</strong>, while the eigenvalues <span class="math notranslate nohighlight">\(\kappa_{1,2}\)</span> are defined as the <strong>principal curvatures</strong>.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
 <summary class="sd-summary-title sd-card-header">
 Eigenvalue problem<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">The eigenvalues of the tensor <span class="math notranslate nohighlight">\(\mathbb{b}\)</span> are the same eigenvalues as the matrix containing its mixed components <span class="math notranslate nohighlight">\([b^{i}_{\ \ j}]\)</span>. This immediately follows as the <span class="math notranslate nohighlight">\(m^{\rm th}\)</span> contravariant component of the eigenvalue problem</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{b} \cdot \mathbf{v}_{(\alpha)} = \kappa_{(\alpha)} \mathbf{v}_{(\alpha)} \ ,\]</div>
+<p class="sd-card-text">is</p>
+<div class="math notranslate nohighlight">
+\[b^{m}_{\ \ j} v^{j}_{(\alpha)} = \kappa_{(\alpha)} v^{m}_{(\alpha)} \ .\]</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Proof<div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
@@ -748,7 +787,8 @@ Eigenvalue problem<div class="sd-summary-down docutils">
 <p class="sd-card-text">i.e. in components <span class="math notranslate nohighlight">\(b^{m}_{\ \ j} v^{j}_{(\alpha)} = \kappa_{(\alpha)} v^m_{(\alpha)}\)</span>, or</p>
 <div class="math notranslate nohighlight">
 \[\left( b^{m}_{\ \ j} - \kappa_{(\alpha)} \delta^{m}_{\ \ j}  \right) v^{j}_{(\alpha)} = 0 \ .\]</div>
-<p class="sd-card-text">Even more explicitly, the condition <span class="math notranslate nohighlight">\(\text{det}\left( b^{m}_{\ \ j} - \kappa_{(\alpha)} \delta^{m}_{\ \ j} \right) = 0\)</span> becomes</p>
+</div>
+</details><p class="sd-card-text">Even more explicitly, the condition <span class="math notranslate nohighlight">\(\text{det}\left( b^{m}_{\ \ j} - \kappa_{(\alpha)} \delta^{m}_{\ \ j} \right) = 0\)</span> becomes</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}0 = \left| \begin{bmatrix} b^{1}_{\ \ 1} - \kappa_{(\alpha)} &amp; b^{1}_{\ \ 2} \\ b^{2}_{\ \ 1} &amp; b^{2}_{\ \ 2} - \kappa_{(\alpha)} \end{bmatrix} \right| = \kappa_{(\alpha)}^2 - \left( b^{1}_{\ \ 1} + b^{2}_{\ \ 2} \right) \kappa_{(\alpha)} + b^1_{\ \ 1} b^{2}_{\ \ 2} - b^{1}_{\ \ 2} b^{2}_{\ \ 1} = \kappa^2_{(\alpha)} - \text{tr}\{ \mathbf{B} \} \kappa_{(\alpha)} + \text{det}\{ \mathbf{B} \}\  .\end{split}\]</div>
 <p class="sd-card-text">The eigenvalues are</p>
@@ -757,15 +797,16 @@ Eigenvalue problem<div class="sd-summary-down docutils">
   \kappa_{(\alpha)} 
   &amp; = \frac{ \text{tr}\left\{ \mathbf{B} \right\} }{2} \mp \sqrt{ \left( \frac{ \text{tr}\left\{ \mathbf{B} \right\} }{2} \right)^2 - \text{det}\{ \mathbf{B} \} } \ .
 \end{aligned}\]</div>
-<p class="sd-card-text">with <span class="math notranslate nohighlight">\(\mathbf{B}\)</span> the matrix collecting the mixed components of the curvature tensor, <span class="math notranslate nohighlight">\([\mathbf{B}]_{ij} = \left[ b^{i}_{\ \ j} \right]\)</span>. It’s easy to prove that</p>
+<p class="sd-card-text">with <span class="math notranslate nohighlight">\(\mathbf{B}\)</span> the matrix collecting the mixed components of the curvature tensor, <span class="math notranslate nohighlight">\([\mathbf{B}]_{ij} = \left[ b^{i}_{\ \ j} \right]\)</span>. For a 2-dimensional matrix, it’s easy to prove the general relations between its trace, determinant and eigenvalues,</p>
 <div class="math notranslate nohighlight">
-\[\text{tr}\{ \mathbf{B} \} = \kappa_{1} + \kappa_2 \ ,\]</div>
-<p class="sd-card-text">and</p>
-<div class="math notranslate nohighlight">
-\[\text{det}\{ \mathbf{B} \} = \kappa_{1} \cdot \kappa_2 \ .\]</div>
-<p class="sd-card-text"><strong>Remark.</strong> Eigenvalues are real, as</p>
-<p class="sd-card-text">… <strong>todo</strong> <em>check and uncomment</em></p>
+\[\begin{split}\begin{aligned}
+  \text{tr }\{ \mathbf{B} \} &amp; = \kappa_{1} + \kappa_2 \\
+  \text{det}\{ \mathbf{B} \} &amp; = \kappa_{1} \cdot \kappa_2 \ .
+\end{aligned}\end{split}\]</div>
 <!--
+**Remark.** Eigenvalues are real, as
+... **todo** *check and uncomment*
+
 $$\begin{aligned}
   \left( \frac{\text{tr}\{ \mathbf{B} \}}{2} \right)^2 - \text{det}\{ \mathbf{B} \} 
   & = \frac{\left( b^{1}_{\ \ 1} \right)^2 + 2 b^{1}_{\ \ 1} b^{2}_{\ \ 2} + \left( b^{2}_{\ \ 2} \right)^2 }{4} - \left( b^{1}_{\ \ 1} b^{2}_{\ \ 2} - b^{1}_{\ \ 2} b^{2}_{\ \ 1} \right) = \\
@@ -778,7 +819,45 @@ with
 $$b^{1}_{\ \ 2} = g^{1k} b_{k2} = g^{k1} b_{2k} = b$$
 -->
 </div>
-</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Spectral decomposition of symmetric matrices<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Let <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> be real-valued symmetric, i.e. <span class="math notranslate nohighlight">\(\mathbf{A} = \mathbf{A}^T\)</span>, <span class="math notranslate nohighlight">\(A_{ij} \in \mathbb{R}\)</span>. Let <span class="math notranslate nohighlight">\(\{ \lambda_i \}_i\)</span>, <span class="math notranslate nohighlight">\(\{ \mathbf{v}_i \}_i\)</span> the sets of eigenvalues and corresponding eigenvectors. Taking two different eigenvalues</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathbf{A} \mathbf{v}_i &amp; = \lambda_i \mathbf{v}_i \\
+  \mathbf{A} \mathbf{v}_k &amp; = \lambda_k \mathbf{v}_k \ .
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">Taking the product on the left of the first equation with <span class="math notranslate nohighlight">\(\mathbf{v}_k^T\)</span>, and of the second equation with <span class="math notranslate nohighlight">\(\mathbf{v}_i^T\)</span>, and taking the difference of these two equations</p>
+<div class="math notranslate nohighlight">
+\[0 = \left( \lambda_i - \lambda_k \right) \mathbf{v}_k^T \mathbf{v}_i \ .\]</div>
+<p class="sd-card-text">This equation has solutions either if <span class="math notranslate nohighlight">\(\lambda_i = \lambda_k\)</span>, or - if <span class="math notranslate nohighlight">\(\lambda_i \ne \lambda_k\)</span> - if <span class="math notranslate nohighlight">\(\mathbf{v}_k^T \mathbf{v}_i = 0\)</span>, i.e. if the eigenvectors with two different eigenvalues are orthogonal. Thus, the matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> can be written as a linear combination</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{A} = \lambda_1 \mathbf{v}_1 \mathbf{v}_1^T + \lambda_2 \mathbf{v}_2 \mathbf{v}_2^T \ ,\]</div>
+<p class="sd-card-text">with <span class="math notranslate nohighlight">\(\mathbf{v}_1\)</span>, and <span class="math notranslate nohighlight">\(\mathbf{v}_2\)</span> orthogonal (even if the two eigenvalues of <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> have the same value, using <span class="math notranslate nohighlight">\(\mathbf{v}_1^T \mathbf{v}_2 = 0\)</span> as an orthogonality condition of the vectors associated with the same eigenvalue with algebraic multiplicity greater than <span class="math notranslate nohighlight">\(1\)</span>). As a double-proof, the action of <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> on a generic vector <span class="math notranslate nohighlight">\(\mathbf{w} = w_1 \mathbf{v}_1 + w_2 \mathbf{w}_2\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{A} \mathbf{w} = \mathbf{A} \left( w_1 \mathbf{v}_1 + w_2 \mathbf{v}_2 \right) = w_1 \lambda_1 \mathbf{v}_1 + w_2 \lambda_2 \mathbf{v}_2\]</div>
+<p class="sd-card-text">or</p>
+<div class="math notranslate nohighlight">
+\[\left( \lambda_1 \mathbf{v}_1 \mathbf{v}_1^T + \lambda_2 \mathbf{v}_2 \mathbf{v}_2^T \right) \mathbf{w} = \left(  \lambda_1 \mathbf{v}_1 \mathbf{v}_1^T + \lambda_2 \mathbf{v}_2 \mathbf{v}_2^T \right) \left( w_1 \mathbf{v}_1 + w_2 \mathbf{v}_2 \right) = w_1 \lambda_1 \mathbf{v}_1 + w_2 \lambda_2 \mathbf{v}_2 \ .\]</div>
+<p class="sd-card-text">The <strong>eigenvalues of a symmetric matrix</strong> are <strong>real</strong>, since</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{v}_i^* \left( \mathbf{A} \mathbf{v}_i \right) = \mathbf{v}_i^* ( \lambda_i \mathbf{v}_i )\]</div>
+<p class="sd-card-text">while the product of the adjoint and <span class="math notranslate nohighlight">\(\mathbf{v}_i\)</span> - with <span class="math notranslate nohighlight">\(\mathbf{A}\)</span></p>
+<div class="math notranslate nohighlight">
+\[\mathbf{v}_i^* \mathbf{A} \mathbf{v}_i = \lambda_i^* \mathbf{v}_i^* \mathbf{v}_i \ .\]</div>
+<p class="sd-card-text">The difference of the latter two equations gives</p>
+<div class="math notranslate nohighlight">
+\[0 = ( \lambda_i - \lambda_i^* ) \mathbf{v}_i^* \mathbf{v}_i \quad \rightarrow \quad \lambda_i^* = \lambda_i \ ,\]</div>
+<p class="sd-card-text">i.e. <span class="math notranslate nohighlight">\(\lambda_i \in \mathbb{R}\)</span>.</p>
+</div>
+</details><div class="section" id="mean-curvature">
+<h4><span class="section-number">9.2.5.1.1. </span>Mean curvature<a class="headerlink" href="#mean-curvature" title="Permalink to this heading">#</a></h4>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
 <summary class="sd-summary-title sd-card-header">
 Mean curvature<div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
@@ -795,7 +874,10 @@ Mean curvature<div class="sd-summary-down docutils">
   &amp; = \frac{1}{2} [ g_{ij} ]^{-1} b_{ij} = \frac{1}{2 \left( g_{11} g_{22} - g_{12}^2 \right)} \left( g_{22} b_{11} - g_{12} b_{12} - g_{21} b_{21} + g_{11} b_{22} \right)
 \end{aligned}\end{split}\]</div>
 </div>
-</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+</details></div>
+<div class="section" id="gaussian-curvature">
+<h4><span class="section-number">9.2.5.1.2. </span>Gaussian curvature<a class="headerlink" href="#gaussian-curvature" title="Permalink to this heading">#</a></h4>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
 <summary class="sd-summary-title sd-card-header">
 Gaussian curvature<div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
@@ -804,10 +886,41 @@ Gaussian curvature<div class="sd-summary-down docutils">
 </summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text">Gaussian curvature is defined as the determinant of <span class="math notranslate nohighlight">\(b^{i}_{\ \ j}\)</span>,</p>
 <div class="math notranslate nohighlight" id="equation-eq-differential-geometry-gaussian-curvature">
-<span class="eqno">(9.2)<a class="headerlink" href="#equation-eq-differential-geometry-gaussian-curvature" title="Permalink to this equation">#</a></span>\[K = \text{det} \{ b^{i}_{\ \ j} \} = \dfrac{\text{det}\{ b_{ij} \}}{\text{det}\{ g_{ij} \}} \ ,\]</div>
+<span class="eqno">(9.4)<a class="headerlink" href="#equation-eq-differential-geometry-gaussian-curvature" title="Permalink to this equation">#</a></span>\[K = \text{det} \{ b^{i}_{\ \ j} \} = \dfrac{\text{det}\{ b_{ij} \}}{\text{det}\{ g_{ij} \}} = \frac{\text{det}\{ \mathbf{II} \}}{\text{det}\{ \mathbf{I} \}} \ ,\]</div>
 <p class="sd-card-text">as <span class="math notranslate nohighlight">\(b_{ij} = g_{il} b^{l}_{\ \ j}\)</span>.</p>
 </div>
+</details></div>
+<div class="section" id="principal-curvatures">
+<h4><span class="section-number">9.2.5.1.3. </span>Principal curvatures<a class="headerlink" href="#principal-curvatures" title="Permalink to this heading">#</a></h4>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Principal curvatures, as extreme values<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Let the spectral decomposition of the symmetric tensor <span class="math notranslate nohighlight">\(\mathbb{b}\)</span> be</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{b} = \kappa_1 \mathbf{v}_1 \otimes \mathbf{v}_1 + \kappa_2 \mathbf{v}_2 \otimes \mathbf{v}_2 \ ,\]</div>
+<p class="sd-card-text">with <span class="math notranslate nohighlight">\(\mathbf{v}_i \cdot \mathbf{v}_j = \delta_{ij}\)</span>, and <span class="math notranslate nohighlight">\(\kappa_1 \ge \kappa_2\)</span>. Let <span class="math notranslate nohighlight">\(\hat{\mathbf{t}} = \cos \theta \mathbf{v}_1 + \sin \theta \mathbf{v}_2\)</span> a unit-length vector a function of <span class="math notranslate nohighlight">\(\theta\)</span>, to investigate the local curvature of the surface as a function of <span class="math notranslate nohighlight">\(\theta\)</span>. Then</p>
+<div class="math notranslate nohighlight">
+\[\kappa(\theta) = \hat{\mathbf{t}} \cdot \mathbb{b} \cdot \hat{\mathbf{t}} = \kappa_1 \cos^2 \theta + \kappa_2 \sin^2 \theta \ .\]</div>
+<p class="sd-card-text">Thus, it immediately follows that</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  &amp; \max_{\theta} \kappa(\theta) = \kappa\left(\theta=           0 \right) = \kappa\left(\theta=           \pi \right) = \kappa_1 \\
+  &amp; \min_{\theta} \kappa(\theta) = \kappa\left(\theta=\frac{\pi}{2}\right) = \kappa\left(\theta=\frac{3}{2}\pi \right) = \kappa_2 \\
+\end{aligned}\end{split}\]</div>
+</div>
 </details><!--
+```{dropdown} Principal curvatures and diagonalization
+:open:
+
+$$\mathbb{b} = b_{ij} \mathbf{b}^i \otimes \mathbf{b}^j = b_{i}^{\ \ j} \mathbf{b}^i \otimes \mathbf{b}_j = \kappa_{(i)} \delta_{ij} \mathbf{v}_i \otimes \mathbf{v}_j $$
+
+```
+-->
+<!--
 
 Using the metric tensor $g_{ij}$ (the *first fundamental form*), we can define the mixed curvature tensor $b^i_j = g^{ik} b_{kj}$ and compute the fundamental intrinsic scalar measures of curvature:
 
@@ -820,24 +933,28 @@ Using the metric tensor $g_{ij}$ (the *first fundamental form*), we can define t
   $$K = \det(b^i_j) = \frac{\det(b_{ij})}{\det(g_{ij})} = \frac{b_{11}b_{22} - b_{12}^2}{g_{11}g_{22} - g_{12}^2}$$
 
 -->
-<div class="section" id="principal-curvatures-and-directions">
-<span id="differential-geometry-surfaces-geometric-entities-curvature-tensor-principal"></span><h4><span class="section-number">9.2.4.1.1. </span>Principal Curvatures and Directions<a class="headerlink" href="#principal-curvatures-and-directions" title="Permalink to this heading">#</a></h4>
-<p>The extreme values of the normal curvature <span class="math notranslate nohighlight">\(\kappa_n = \frac{b_{ij}dq^i dq^j}{g_{ij}dq^i dq^j}\)</span> are the <strong>principal curvatures</strong> <span class="math notranslate nohighlight">\(\kappa_1\)</span> and <span class="math notranslate nohighlight">\(\kappa_2\)</span>, which are the eigenvalues of the tensor <span class="math notranslate nohighlight">\(b^i_j\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[\det(b^i_j - \kappa \delta^i_j) = 0 \quad \implies \quad \kappa^2 - 2H\kappa + K = 0 .\]</div>
-<p>Thus, the principal curvatures satisfy:</p>
-<div class="math notranslate nohighlight">
-\[\kappa_{1,2} = H \pm \sqrt{H^2 - K} .\]</div>
-<ul class="simple">
-<li><p>The Gaussian curvature is the product of the principal curvatures: <span class="math notranslate nohighlight">\(K = \kappa_1 \kappa_2\)</span>.</p></li>
-<li><p>The Mean curvature is the average of the principal curvatures: <span class="math notranslate nohighlight">\(H = \frac{1}{2}(\kappa_1 + \kappa_2)\)</span>.</p></li>
-</ul>
-<p>…</p>
+<!--
+(differential-geometry:surfaces:geometric-entities:curvature-tensor:principal)=
+#### Principal Curvatures and Directions
+
+The extreme values of the normal curvature $\kappa_n = \frac{b_{ij}dq^i dq^j}{g_{ij}dq^i dq^j}$ are the **principal curvatures** $\kappa_1$ and $\kappa_2$, which are the eigenvalues of the tensor $b^i_j$:
+
+$$\det(b^i_j - \kappa \delta^i_j) = 0 \quad \implies \quad \kappa^2 - 2H\kappa + K = 0 .$$
+
+Thus, the principal curvatures satisfy:
+
+$$\kappa_{1,2} = H \pm \sqrt{H^2 - K} .$$
+
+* The Gaussian curvature is the product of the principal curvatures: $K = \kappa_1 \kappa_2$.
+* The Mean curvature is the average of the principal curvatures: $H = \frac{1}{2}(\kappa_1 + \kappa_2)$.
+
+...
+-->
 </div>
 </div>
 </div>
 <div class="section" id="fundamental-forms-and-gauss-egregium-theorem">
-<span id="differential-geometry-surfaces-geometric-entities-fundamental-forms-and-egregium-thm"></span><h2><span class="section-number">9.2.5. </span>Fundamental forms and Gauss egregium theorem<a class="headerlink" href="#fundamental-forms-and-gauss-egregium-theorem" title="Permalink to this heading">#</a></h2>
+<span id="differential-geometry-surfaces-geometric-entities-fundamental-forms-and-egregium-thm"></span><h2><span class="section-number">9.2.6. </span>Fundamental forms and Gauss egregium theorem<a class="headerlink" href="#fundamental-forms-and-gauss-egregium-theorem" title="Permalink to this heading">#</a></h2>
 <p>First and second fundamental forms arieses when dealing with vector quantities of a surface. Let <span class="math notranslate nohighlight">\(\mathbf{r}(u,v)\)</span>  be a parametrization of the surface, here <span class="math notranslate nohighlight">\((q^1, q^2), (u, v)\)</span>.</p>
 <ul>
 <li><p>The differential, i.e. an elementary vectors on the surface, contains the first derivative of the parametrization and reads <span class="math notranslate nohighlight">\(d \mathbf{r} = \mathbf{b}_i d q^i = \mathbf{r}_i d q^i = \mathbf{r}_u du + \mathbf{r}_v dv\)</span>,</p></li>
@@ -900,7 +1017,7 @@ Using the metric tensor $g_{ij}$ (the *first fundamental form*), we can define t
      M &amp; = \Gamma^{3}_{12} = \mathbf{r}_u \cdot \partial_v \hat{\mathbf{n}} = \mathbf{r}_v \cdot \partial_u \hat{\mathbf{n}} \\
      N &amp; = \Gamma^{3}_{22} = \mathbf{r}_v \cdot \partial_v \hat{\mathbf{n}} \\
    \end{aligned}\end{split}\]</div>
-<p>having exploited the relation <a class="reference internal" href="#equation-eq-second-fundamental-form-derivative-n">(9.3)</a>.</p>
+<p>having exploited the relation <a class="reference internal" href="#equation-eq-second-fundamental-form-derivative-n">(9.6)</a>.</p>
 </li>
 </ul>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
@@ -910,12 +1027,12 @@ Weingarten formula, derivatives of the normal vector and fundamental forms<div c
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text"><strong>Weingarten formula.</strong> <em>See also <a class="reference internal" href="curvature.html#equation-eq-differential-geometry-curvature-weingarten">(9.4)</a></em>. Differentiating <span class="math notranslate nohighlight">\(\hat{\mathbf{n}} \cdot \mathbf{b}_i = 0\)</span>,</p>
+<p class="sd-card-text"><strong>Weingarten formula.</strong> <em>See also <a class="reference internal" href="curvature.html#equation-eq-differential-geometry-curvature-weingarten">(9.7)</a></em>. Differentiating <span class="math notranslate nohighlight">\(\hat{\mathbf{n}} \cdot \mathbf{b}_i = 0\)</span>,</p>
 <div class="math notranslate nohighlight">
 \[\partial_k \hat{\mathbf{n}} \cdot \mathbf{b}_i = - \hat{\mathbf{n}} \cdot \partial_k \mathbf{b}_i = - \hat{\mathbf{n}} \cdot \mathbf{b}_\alpha \Gamma^{\alpha}_{ik} = - \Gamma^3_{ik} \ ,\]</div>
 <p class="sd-card-text">so that it immediately follows that the derivatives of the unit normal vector w.r.t. the coordinates <span class="math notranslate nohighlight">\(q^k\)</span> are</p>
-<div class="math notranslate nohighlight">
-\[\partial_k \hat{\mathbf{n}} = - \Gamma_{ik}^{3} \mathbf{b}^i = - g^{il} \Gamma_{ik}^{3} \mathbf{b}_l \ ,\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-surface-weingarten">
+<span class="eqno">(9.5)<a class="headerlink" href="#equation-eq-surface-weingarten" title="Permalink to this equation">#</a></span>\[\partial_k \hat{\mathbf{n}} = - \Gamma_{ik}^{3} \mathbf{b}^i = - g^{il} \Gamma_{ik}^{3} \mathbf{b}_l \ ,\]</div>
 <p class="sd-card-text">or, explicitly</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\left\{ \begin{aligned}
@@ -924,7 +1041,7 @@ Weingarten formula, derivatives of the normal vector and fundamental forms<div c
 \end{aligned}\right.\end{split}\]</div>
 <p class="sd-card-text">Exploiting the orhogonality with the reciprocal basis,  <span class="math notranslate nohighlight">\(\mathbf{b}^i \cdot \mathbf{b}_j = \delta^i_j\)</span>, it follows</p>
 <div class="math notranslate nohighlight" id="equation-eq-second-fundamental-form-derivative-n">
-<span class="eqno">(9.3)<a class="headerlink" href="#equation-eq-second-fundamental-form-derivative-n" title="Permalink to this equation">#</a></span>\[\Gamma_{ik}^3 = \partial_{i} \hat{\mathbf{n}} \cdot \mathbf{b}_k \ .\]</div>
+<span class="eqno">(9.6)<a class="headerlink" href="#equation-eq-second-fundamental-form-derivative-n" title="Permalink to this equation">#</a></span>\[\Gamma_{ik}^3 = \partial_{i} \hat{\mathbf{n}} \cdot \mathbf{b}_k \ .\]</div>
 <p class="sd-card-text">Since the reciprocal basis is <span class="math notranslate nohighlight">\(\mathbf{b}^i = g^{ik} \mathbf{b}_k = [ g_{ik} ]^{-1} \mathbf{b}_k\)</span>, or - with matrix formalism with vectors as elements -</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -1009,17 +1126,23 @@ Weingarten formula, derivatives of the normal vector and fundamental forms<div c
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differential">9.2.1. Differential</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#differential">9.2.1. Differential</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#length-of-the-elementary-vector-on-the-surface-and-the-first-fundamental-form-mathbf-i">9.2.1.1. Length of the elementary vector on the surface, and the first fundamental form <span class="math notranslate nohighlight">\(\mathbf{I}\)</span></a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#normal-vector">9.2.2. Normal vector</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#derivatives-of-the-natural-basis">9.2.3. Derivatives of the natural basis</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geometric-entities">9.2.4. Geometric entities</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#curvature-tensor">9.2.4.1. Curvature tensor</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#principal-curvatures-and-directions">9.2.4.1.1. Principal Curvatures and Directions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#derivatives-of-the-unit-normal-vector">9.2.4. Derivatives of the unit normal vector</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geometric-entities">9.2.5. Geometric entities</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#curvature-tensor-quadratic-approximation-and-second-fundamental-form">9.2.5.1. Curvature tensor, quadratic approximation and second fundamental form</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#mean-curvature">9.2.5.1.1. Mean curvature</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-curvature">9.2.5.1.2. Gaussian curvature</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#principal-curvatures">9.2.5.1.3. Principal curvatures</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamental-forms-and-gauss-egregium-theorem">9.2.5. Fundamental forms and Gauss egregium theorem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fundamental-forms-and-gauss-egregium-theorem">9.2.6. Fundamental forms and Gauss egregium theorem</a></li>
 </ul>
   </nav></div>
 

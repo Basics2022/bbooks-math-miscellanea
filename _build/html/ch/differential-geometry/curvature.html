@@ -677,7 +677,7 @@ Derivatives of the normal vector - Weingarten formula<div class="sd-summary-down
 </summary><div class="sd-summary-content sd-card-body docutils">
 <p class="sd-card-text">The spatial derivatives of the unit normal vector <span class="math notranslate nohighlight">\(\hat{\mathbf{n}}(q^i)\)</span> reads</p>
 <div class="math notranslate nohighlight" id="equation-eq-differential-geometry-curvature-weingarten">
-<span class="eqno">(9.4)<a class="headerlink" href="#equation-eq-differential-geometry-curvature-weingarten" title="Permalink to this equation">#</a></span>\[\frac{\partial \hat{\mathbf{n}}}{\partial q^i} = -b_{i}^{\,\,l} \mathbf{b}_l \ .\]</div>
+<span class="eqno">(9.7)<a class="headerlink" href="#equation-eq-differential-geometry-curvature-weingarten" title="Permalink to this equation">#</a></span>\[\frac{\partial \hat{\mathbf{n}}}{\partial q^i} = -b_{i}^{\,\,l} \mathbf{b}_l \ .\]</div>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Proof<div class="sd-summary-down docutils">
@@ -722,7 +722,7 @@ $$0 = \partial_i | \hat{\mathbf{n}} |^2 = 2 \hat{\mathbf{n}} \cdot \partial_i \h
 <span id="differential-geometry-curvature-intrinsic-riemann-curvature-tensor-vector-fields"></span><h4><span class="section-number">9.3.2.1.1. </span>Vector fields as differential operators, and directional or covariant derivatives<a class="headerlink" href="#vector-fields-as-differential-operators-and-directional-or-covariant-derivatives" title="Permalink to this heading">#</a></h4>
 <p>A vector field <span class="math notranslate nohighlight">\(X(f)\)</span> acting on a scalar function <span class="math notranslate nohighlight">\(f\)</span> defines a directional derivative:</p>
 <div class="math notranslate nohighlight" id="equation-eq-curvature-vector-field-operator">
-<span class="eqno">(9.5)<a class="headerlink" href="#equation-eq-curvature-vector-field-operator" title="Permalink to this equation">#</a></span>\[X(f) = X^\mu \partial_\mu f \ .\]</div>
+<span class="eqno">(9.8)<a class="headerlink" href="#equation-eq-curvature-vector-field-operator" title="Permalink to this equation">#</a></span>\[X(f) = X^\mu \partial_\mu f \ .\]</div>
 <p>The definition of the vector field <span class="math notranslate nohighlight">\(X\)</span> as a differential operator can be recast as the scalar product of the vector field <span class="math notranslate nohighlight">\(\mathbf{X}\)</span> and the gradient of the function <span class="math notranslate nohighlight">\(f\)</span>,</p>
 <div class="math notranslate nohighlight">
 \[\nabla_{X} f = \mathbf{X} \cdot \nabla f \ .\]</div>
@@ -735,7 +735,7 @@ $$0 = \partial_i | \hat{\mathbf{n}} |^2 = 2 \hat{\mathbf{n}} \cdot \partial_i \h
 \end{aligned}\]</div>
 <p>For a vector field <span class="math notranslate nohighlight">\(\mathbf{v}\)</span>,</p>
 <div class="math notranslate nohighlight" id="equation-eq-differential-geometry-curvature-directional-derivative-vector">
-<span class="eqno">(9.6)<a class="headerlink" href="#equation-eq-differential-geometry-curvature-directional-derivative-vector" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
+<span class="eqno">(9.9)<a class="headerlink" href="#equation-eq-differential-geometry-curvature-directional-derivative-vector" title="Permalink to this equation">#</a></span>\[\begin{split}\begin{aligned}
       d\mathbf{r} \cdot \nabla \mathbf{v} 
   &amp; = \left( d q^\nu \mathbf{b}_\nu \right) \cdot \mathbf{b}^\mu \partial_{\mu} \mathbf{v} = \\ 
   &amp; = d q^\mu \partial_{\mu} \mathbf{v} = \\
@@ -744,9 +744,9 @@ $$0 = \partial_i | \hat{\mathbf{n}} |^2 = 2 \hat{\mathbf{n}} \cdot \partial_i \h
 </div>
 <div class="section" id="parallel-transport">
 <span id="differential-geometry-curvature-intrinsic-riemann-curvature-tensor-parallel-transport"></span><h4><span class="section-number">9.3.2.1.2. </span>Parallel transport<a class="headerlink" href="#parallel-transport" title="Permalink to this heading">#</a></h4>
-<p>A vector field <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> is parallel transported along a curve <span class="math notranslate nohighlight">\(\gamma\)</span> with element <span class="math notranslate nohighlight">\(d\mathbf{r}\)</span> if <span class="math notranslate nohighlight">\(d \mathbf{r} \cdot \nabla f = \mathbf{0}\)</span>. Thus, using the relation <a class="reference internal" href="#equation-eq-differential-geometry-curvature-directional-derivative-vector">(9.6)</a>, parallel transport implies</p>
+<p>A vector field <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> is parallel transported along a curve <span class="math notranslate nohighlight">\(\gamma\)</span> with element <span class="math notranslate nohighlight">\(d\mathbf{r}\)</span> if <span class="math notranslate nohighlight">\(d \mathbf{r} \cdot \nabla f = \mathbf{0}\)</span>. Thus, using the relation <a class="reference internal" href="#equation-eq-differential-geometry-curvature-directional-derivative-vector">(9.9)</a>, parallel transport implies</p>
 <div class="math notranslate nohighlight" id="equation-eq-differential-geometry-curvature-parallel-transport-component-increment">
-<span class="eqno">(9.7)<a class="headerlink" href="#equation-eq-differential-geometry-curvature-parallel-transport-component-increment" title="Permalink to this equation">#</a></span>\[\begin{aligned}
+<span class="eqno">(9.10)<a class="headerlink" href="#equation-eq-differential-geometry-curvature-parallel-transport-component-increment" title="Permalink to this equation">#</a></span>\[\begin{aligned}
 \partial_{\mu} v^{\nu} = - \Gamma_{\xi \mu}^{\nu} v^{\xi} \ .
 \end{aligned}\]</div>
 <p>To first order, the transported vector <span class="math notranslate nohighlight">\(v^\mu\)</span> from <span class="math notranslate nohighlight">\(q^\eta\)</span> to <span class="math notranslate nohighlight">\(q^\eta + dq^\eta\)</span> satisfies:</p>
@@ -758,7 +758,7 @@ $$0 = \partial_i | \hat{\mathbf{n}} |^2 = 2 \hat{\mathbf{n}} \cdot \partial_i \h
 <p>The Lie bracket of two vector fields <span class="math notranslate nohighlight">\(X\)</span> and <span class="math notranslate nohighlight">\(Y\)</span> measures their non-commutativity, i.e.</p>
 <div class="math notranslate nohighlight">
 \[[X, Y]f = X(Y(f)) - Y(X(f)) \ .\]</div>
-<p>In component notation, applying the definition <a class="reference internal" href="#equation-eq-curvature-vector-field-operator">(9.5)</a> of a vector field as differential operator twice,</p>
+<p>In component notation, applying the definition <a class="reference internal" href="#equation-eq-curvature-vector-field-operator">(9.8)</a> of a vector field as differential operator twice,</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
  \left[ X, Y \right] f
@@ -834,7 +834,7 @@ Details<div class="sd-summary-down docutils">
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">First transport along <span class="math notranslate nohighlight">\(\mathbf{X}\)</span>, using <a class="reference internal" href="#equation-eq-differential-geometry-curvature-parallel-transport-component-increment">(9.7)</a>,</p>
+<p class="sd-card-text">First transport along <span class="math notranslate nohighlight">\(\mathbf{X}\)</span>, using <a class="reference internal" href="#equation-eq-differential-geometry-curvature-parallel-transport-component-increment">(9.10)</a>,</p>
 <div class="math notranslate nohighlight">
 \[\mathbf{v}_{||\mathbf{X}} = \mathbf{b}_{\nu} \left( v^{\nu} + X^{\mu} \left\{ \partial_{\mu} v^{\nu} \right\}_{\parallel} \right) = \mathbf{b}_{\nu} \left( v^{\nu} - X^{\mu} \Gamma_{\mu \xi}^{\nu} v^{\xi} \right) \ .\]</div>
 <p class="sd-card-text">and then along <span class="math notranslate nohighlight">\(\mathbf{Y}(\mathbf{r} + \mathbf{X})\)</span>. Expanding <span class="math notranslate nohighlight">\(\left( \mathbf{v}_{||\mathbf{X}} \right)_{||\mathbf{Y}}\)</span> to second order in components:</p>
@@ -947,7 +947,7 @@ $$\begin{aligned}
 <div class="section" id="properties">
 <span id="differential-geometry-curvature-intrinsic-riemann-curvature-tensor-properties"></span><h4><span class="section-number">9.3.2.1.5. </span>Properties<a class="headerlink" href="#properties" title="Permalink to this heading">#</a></h4>
 <div class="math notranslate nohighlight" id="equation-eq-riemann-tensor-prop-1">
-<span class="eqno">(9.8)<a class="headerlink" href="#equation-eq-riemann-tensor-prop-1" title="Permalink to this equation">#</a></span>\[R_{ab\mathbf{cd}} = - R_{ab\mathbf{dc}}\]</div>
+<span class="eqno">(9.11)<a class="headerlink" href="#equation-eq-riemann-tensor-prop-1" title="Permalink to this equation">#</a></span>\[R_{ab\mathbf{cd}} = - R_{ab\mathbf{dc}}\]</div>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Proof<div class="sd-summary-down docutils">
@@ -957,7 +957,7 @@ Proof<div class="sd-summary-down docutils">
 </summary><div class="sd-summary-content sd-card-body docutils">
 </div>
 </details><div class="math notranslate nohighlight" id="equation-eq-riemann-tensor-prop-2">
-<span class="eqno">(9.9)<a class="headerlink" href="#equation-eq-riemann-tensor-prop-2" title="Permalink to this equation">#</a></span>\[R_{\mathbf{ab}cd} = - R_{\mathbf{ba}cd}\]</div>
+<span class="eqno">(9.12)<a class="headerlink" href="#equation-eq-riemann-tensor-prop-2" title="Permalink to this equation">#</a></span>\[R_{\mathbf{ab}cd} = - R_{\mathbf{ba}cd}\]</div>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Proof<div class="sd-summary-down docutils">
@@ -967,7 +967,7 @@ Proof<div class="sd-summary-down docutils">
 </summary><div class="sd-summary-content sd-card-body docutils">
 </div>
 </details><div class="math notranslate nohighlight" id="equation-eq-riemann-tensor-prop-3">
-<span class="eqno">(9.10)<a class="headerlink" href="#equation-eq-riemann-tensor-prop-3" title="Permalink to this equation">#</a></span>\[0 = R_{\mathbf{ab} cd} = R_{cd\mathbf{ab}}\]</div>
+<span class="eqno">(9.13)<a class="headerlink" href="#equation-eq-riemann-tensor-prop-3" title="Permalink to this equation">#</a></span>\[0 = R_{\mathbf{ab} cd} = R_{cd\mathbf{ab}}\]</div>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Proof<div class="sd-summary-down docutils">
@@ -977,7 +977,7 @@ Proof<div class="sd-summary-down docutils">
 </summary><div class="sd-summary-content sd-card-body docutils">
 </div>
 </details><div class="math notranslate nohighlight" id="equation-eq-riemann-tensor-prop-4">
-<span class="eqno">(9.11)<a class="headerlink" href="#equation-eq-riemann-tensor-prop-4" title="Permalink to this equation">#</a></span>\[0 = R_{\mathbf{a} bcd} + R_{\mathbf{a} cdb} + R_{\mathbf{a} dbc}\]</div>
+<span class="eqno">(9.14)<a class="headerlink" href="#equation-eq-riemann-tensor-prop-4" title="Permalink to this equation">#</a></span>\[0 = R_{\mathbf{a} bcd} + R_{\mathbf{a} cdb} + R_{\mathbf{a} dbc}\]</div>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Proof<div class="sd-summary-down docutils">
@@ -987,7 +987,7 @@ Proof<div class="sd-summary-down docutils">
 </summary><div class="sd-summary-content sd-card-body docutils">
 </div>
 </details><div class="math notranslate nohighlight" id="equation-eq-riemann-tensor-prop-5">
-<span class="eqno">(9.12)<a class="headerlink" href="#equation-eq-riemann-tensor-prop-5" title="Permalink to this equation">#</a></span>\[0 = R_{\mathbf{ab} cd;e} + R_{\mathbf{ab} de;c} + R_{\mathbf{ab} ec;d}\]</div>
+<span class="eqno">(9.15)<a class="headerlink" href="#equation-eq-riemann-tensor-prop-5" title="Permalink to this equation">#</a></span>\[0 = R_{\mathbf{ab} cd;e} + R_{\mathbf{ab} de;c} + R_{\mathbf{ab} ec;d}\]</div>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Proof<div class="sd-summary-down docutils">
@@ -1010,7 +1010,7 @@ Proof<div class="sd-summary-down docutils">
   &amp; = \partial_j \Gamma^{l}_{ik} \mathbf{b}_{l} + \Gamma_{ik}^{l} \left( \Gamma_{l j}^{m} \mathbf{b}_{m} + \Gamma_{l j}^{n+1} \mathbf{n} \right) + \partial_j \Gamma_{ik}^{n+1} \mathbf{n} + \Gamma_{ik}^{n+1} \partial_j \mathbf{n} = \\
   &amp; = \left( \partial_j \Gamma_{ik}^l + \Gamma_{ik}^m \Gamma_{mj}^l - \Gamma_{ik}^{n+1} b^l_j \right) \mathbf{b}_l + \left( \partial_j \Gamma_{ik}^{n+1} + \Gamma_{ik}^{l} \Gamma_{lj}^{n+1} \right) \mathbf{n} \ ,
 \end{aligned}\end{split}\]</div>
-<p>having used the <strong>Weingarten equation</strong> <a class="reference internal" href="#equation-eq-differential-geometry-curvature-weingarten">(9.4)</a>, <span class="math notranslate nohighlight">\(\partial_j \mathbf{n} = - g^{kl} b_{jk} \mathbf{b}_l = - b^{\ \ l}_j \mathbf{b}_l\)</span>.</p>
+<p>having used the <strong>Weingarten equation</strong> <a class="reference internal" href="#equation-eq-differential-geometry-curvature-weingarten">(9.7)</a>, <span class="math notranslate nohighlight">\(\partial_j \mathbf{n} = - g^{kl} b_{jk} \mathbf{b}_l = - b^{\ \ l}_j \mathbf{b}_l\)</span>.</p>
 <div class="admonition-symmetries-of-mathbb-b admonition">
 <p class="admonition-title">Symmetries of <span class="math notranslate nohighlight">\(\ \mathbb{b}\)</span></p>
 <p>Since <span class="math notranslate nohighlight">\(b_{ij} := \Gamma^{n+1}_{ij}\)</span>, then these symbols are symmetric <span class="math notranslate nohighlight">\(b_{ij} = b_{ji}\)</span>. Since <span class="math notranslate nohighlight">\(b_{i}^{\ \ l} = b_{ij} g^{jl}\)</span>, exploiting the symmetries of the symbols <span class="math notranslate nohighlight">\(b_{ij}\)</span> and <span class="math notranslate nohighlight">\(g^{kl}\)</span>, it follows</p>
@@ -1028,26 +1028,26 @@ Proof<div class="sd-summary-down docutils">
 \[
 \underbrace{\partial_j \Gamma_{ik}^l - \partial_k \Gamma_{ij}^l + \Gamma_{ik}^m \Gamma_{mj}^l - \Gamma_{ij}^m \Gamma_{mk}^l}_{ = R^{l}_{\ \ ijk} } = \Gamma_{ik}^{n+1} b^l_j - \Gamma_{ij}^{n+1} b^l_k \ ,
 \]</div>
-<p>having introduced the definition of <strong>Riemann curvature tensor</strong> <span class="math notranslate nohighlight">\(R^{l}_{\ \ ijk}\)</span>. Writing <span class="math notranslate nohighlight">\(\Gamma^{n+1}_{ij} = b_{ij}\)</span>, as done in <a class="reference internal" href="surfaces.html#equation-eq-second-fundamental-form-normal-projection">(9.1)</a> dealing with curvature and second fundamental form, it follows</p>
+<p>having introduced the definition of <strong>Riemann curvature tensor</strong> <span class="math notranslate nohighlight">\(R^{l}_{\ \ ijk}\)</span>. Writing <span class="math notranslate nohighlight">\(\Gamma^{n+1}_{ij} = b_{ij}\)</span>, as done in <a class="reference internal" href="surfaces.html#equation-eq-second-fundamental-form-normal-projection">(9.3)</a> dealing with curvature and second fundamental form, it follows</p>
 <div class="math notranslate nohighlight" id="equation-eq-riemann-second-fundamental-form">
-<span class="eqno">(9.13)<a class="headerlink" href="#equation-eq-riemann-second-fundamental-form" title="Permalink to this equation">#</a></span>\[R^{l}_{\ \ ijk} = b_{ik} b^l_j - b_{ij} b^l_k \]</div>
+<span class="eqno">(9.16)<a class="headerlink" href="#equation-eq-riemann-second-fundamental-form" title="Permalink to this equation">#</a></span>\[R^{l}_{\ \ ijk} = b_{ik} b^l_j - b_{ij} b^l_k \]</div>
 <!-- = b_{ik} b_{jm} g^{lm} - b_{ij} b_{km} g^{lm} \ .$$ -->
 <p>See also <a class="reference external" href="https://basics2022.github.io/bbooks-physics-modern/ch/relativity-general/differential-geometry.html#curvature-tensor">General Relativity: Differential Geometry: Curvature Tensor</a></p>
 <div class="section" id="riemann-tensor-for-2-dimensional-surfaces">
 <span id="differential-geometry-curvature-intrinsic-relation-with-extrinsic-curvature-2d-surface"></span><h4><span class="section-number">9.3.2.2.1. </span>Riemann tensor for 2-dimensional surfaces<a class="headerlink" href="#riemann-tensor-for-2-dimensional-surfaces" title="Permalink to this heading">#</a></h4>
 <div class="math notranslate nohighlight">
 \[R_{mijk} = g_{ml} R^{l}_{\ \ ijk} = g_{ml} \left( b_{ik} b^l_j - b_{ij} b^l_k \right) = b_{ik} b_{jm} - b_{ij} b_{mk} \ . \]</div>
-<p>For a 2-dimensional surface, indices belong to the set <span class="math notranslate nohighlight">\(\{ 1, 2 \}\)</span>. In general, it has 16 components. Exploiting symmetries of the Riemann tensor, it’s possible to find a smaller set of independent components. Property <a class="reference internal" href="#equation-eq-riemann-tensor-prop-1">(9.8)</a>, <span class="math notranslate nohighlight">\(R_{mijk} = -R_{mikj}\)</span>, sets all the elements with <span class="math notranslate nohighlight">\(k = j\)</span> to zero, i.e. 8 components are set to zero. Only 4 of the remaining components could be independent. Let’s say we choose the - possibly - independent components to be the one with <span class="math notranslate nohighlight">\(j = 1\)</span>, <span class="math notranslate nohighlight">\(k = 2\)</span>, i.e.</p>
+<p>For a 2-dimensional surface, indices belong to the set <span class="math notranslate nohighlight">\(\{ 1, 2 \}\)</span>. In general, it has 16 components. Exploiting symmetries of the Riemann tensor, it’s possible to find a smaller set of independent components. Property <a class="reference internal" href="#equation-eq-riemann-tensor-prop-1">(9.11)</a>, <span class="math notranslate nohighlight">\(R_{mijk} = -R_{mikj}\)</span>, sets all the elements with <span class="math notranslate nohighlight">\(k = j\)</span> to zero, i.e. 8 components are set to zero. Only 4 of the remaining components could be independent. Let’s say we choose the - possibly - independent components to be the one with <span class="math notranslate nohighlight">\(j = 1\)</span>, <span class="math notranslate nohighlight">\(k = 2\)</span>, i.e.</p>
 <div class="math notranslate nohighlight">
 \[\left\{ R_{1112}, R_{1212}, R_{2112}, R_{2212} \right\}\]</div>
-<p>Property <a class="reference internal" href="#equation-eq-riemann-tensor-prop-2">(9.9)</a>, <span class="math notranslate nohighlight">\(R_{mijk} = -R_{imjk}\)</span>, sets the elements <span class="math notranslate nohighlight">\(R_{mijk}\)</span> with <span class="math notranslate nohighlight">\(m = i\)</span> to zero, and thus the number of possibly independent components becomes 2, since <span class="math notranslate nohighlight">\(R_{1112} = R_{2212} = 0\)</span>. The same property implies that <span class="math notranslate nohighlight">\(R_{2112} = - R_{1212}\)</span>, so the number of possibly independent components becomes 1, usually chosen as <span class="math notranslate nohighlight">\(R_{1212}\)</span>.</p>
+<p>Property <a class="reference internal" href="#equation-eq-riemann-tensor-prop-2">(9.12)</a>, <span class="math notranslate nohighlight">\(R_{mijk} = -R_{imjk}\)</span>, sets the elements <span class="math notranslate nohighlight">\(R_{mijk}\)</span> with <span class="math notranslate nohighlight">\(m = i\)</span> to zero, and thus the number of possibly independent components becomes 2, since <span class="math notranslate nohighlight">\(R_{1112} = R_{2212} = 0\)</span>. The same property implies that <span class="math notranslate nohighlight">\(R_{2112} = - R_{1212}\)</span>, so the number of possibly independent components becomes 1, usually chosen as <span class="math notranslate nohighlight">\(R_{1212}\)</span>.</p>
 <p>Thus, non-zero components are</p>
 <div class="math notranslate nohighlight">
 \[R_{1212} = - R_{2112} = - R_{1221} = R_{2121} \ .\]</div>
-<p>Using <a class="reference internal" href="#equation-eq-riemann-second-fundamental-form">(9.13)</a>, it can be proved that the component <span class="math notranslate nohighlight">\(R_{1212}\)</span> is equal to the determinant of the second fundamental form <span class="math notranslate nohighlight">\(\mathbb{b}\)</span>,</p>
+<p>Using <a class="reference internal" href="#equation-eq-riemann-second-fundamental-form">(9.16)</a>, it can be proved that the component <span class="math notranslate nohighlight">\(R_{1212}\)</span> is equal to the determinant of the second fundamental form <span class="math notranslate nohighlight">\(\mathbb{b}\)</span>,</p>
 <div class="math notranslate nohighlight">
 \[R_{1212} = b_{22} b_{11} - b_{12}^2 =  L N - M^2 = K g \ .\]</div>
-<p>having introduced the <strong>Gaussian curvature</strong>, using its expression as the ratio of the determinant of the second and first fundamental form <a class="reference internal" href="surfaces.html#equation-eq-differential-geometry-gaussian-curvature">(9.2)</a>, <span class="math notranslate nohighlight">\(K = \frac{\text{det}\left\{ b_{ij} \right\} }{\text{det}\left\{ g_{ij} \right\} } = \frac{LN - M^2}{g}\)</span>.</p>
+<p>having introduced the <strong>Gaussian curvature</strong>, using its expression as the ratio of the determinant of the second and first fundamental form <a class="reference internal" href="surfaces.html#equation-eq-differential-geometry-gaussian-curvature">(9.4)</a>, <span class="math notranslate nohighlight">\(K = \frac{\text{det}\left\{ b_{ij} \right\} }{\text{det}\left\{ g_{ij} \right\} } = \frac{LN - M^2}{g}\)</span>.</p>
 <p><strong>Ricci tensor.</strong> The components of Ricci tensor, <span class="math notranslate nohighlight">\(R_{ik} := g^{mj} R_{mijk}\)</span>, are</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
