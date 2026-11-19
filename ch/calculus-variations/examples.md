@@ -354,6 +354,8 @@ $$\begin{aligned}
 (calculus-variations:examples:lagrange-equations:special-relativity:coordinates)=
 ### Using coordinates
 
+See [Physics: General Relativity: Geodesics](https://basics2022.github.io/bbooks-physics-modern/ch/relativity-general/geodesics.html#geodesics-equation)
+
 **todo** *Uncomment and fix*
 
 <!--
