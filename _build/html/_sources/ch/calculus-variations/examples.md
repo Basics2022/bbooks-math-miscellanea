@@ -356,8 +356,6 @@ $$\begin{aligned}
 
 See [Physics: General Relativity: Geodesics](https://basics2022.github.io/bbooks-physics-modern/ch/relativity-general/geodesics.html#geodesics-equation)
 
-**todo** *Uncomment and fix*
-
 <!--
 Let $\mathbf{X}(q^\mu(\tau))$, then $\mathbf{U} = \dot{q}^{\mu} \mathbf{b}_{\mu}$, and $\ddot{\mathbf{U}} = \left[ \ddot{q}^{mu} + \dot{q}^{\xi} \dot{q}^{\eta} \Gamma_{\xi \eta}^{\mu} \right] \mathbf{b}_{\mu}$. The component $\mu$ of the equation of motion thus reads
 
