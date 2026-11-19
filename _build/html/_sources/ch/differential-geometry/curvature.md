@@ -562,8 +562,17 @@ $$\Gamma_{ik}^l = \frac{1}{2} g^{lj} \left( \partial_{k} g_{ij} + \partial_{i} g
 name: fig-parallel-transport-sphere
 align: center
 ---
-Parallel transport on a sphere of vector $\mathbf{v} = v^{\phi} \mathbf{b}_2$ initially in $X\left(q^1=0, q^2=\frac{\pi}{2}\right)$, moving: 1) along the equator up to $\left(q^1, q^2\right) = \left( \frac{\pi}{2}, \frac{\pi}{2} \right)$, 2) along a meridian up to $\left( \frac{\pi}{2}, \delta \phi \right)$, 3) along a parallel up to $\left( 0, \delta \phi \right)$, and 4) along to the meridian back to $\left( 0, \frac{\pi}{2} \right)$.
+**Extrinsic description of parallel transport**. Parallel transport on a sphere of vector $\mathbf{v} = v^{\phi} \mathbf{b}_2$ initially in $X\left(q^1=0, q^2=\frac{\pi}{2}\right)$, moving: 1) along the equator up to $\left(q^1, q^2\right) = \left( \frac{\pi}{2}, \frac{\pi}{2} \right)$, 2) along a meridian up to $\left( \frac{\pi}{2}, \delta \phi \right)$, 3) along a parallel up to $\left( 0, \delta \phi \right)$, and 4) along to the meridian back to $\left( 0, \frac{\pi}{2} \right)$.
 ```
+
+```{figure} ../../media/differential_geometry/parallel_transport_sphere_intrinsic.svg
+---
+name: fig-parallel-transport-sphere-intrinsic
+align: center
+---
+**Intrinsic description of parallel transport**. Parallel transport is shown in the chart $\left( q^1, q^2 \right)$.
+```
+
 
 <!--
 ![Parallel transport of a vector.](../../media/differential_geometry/parallel_transport_sphere.svg){ #fig-parallel-transport-sphere fig-align="center" }
