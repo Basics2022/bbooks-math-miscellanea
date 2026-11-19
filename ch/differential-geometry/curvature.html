@@ -744,7 +744,7 @@ $$0 = \partial_i | \hat{\mathbf{n}} |^2 = 2 \hat{\mathbf{n}} \cdot \partial_i \h
 </div>
 <div class="section" id="parallel-transport">
 <span id="differential-geometry-curvature-intrinsic-riemann-curvature-tensor-parallel-transport"></span><h4><span class="section-number">9.3.2.1.2. </span>Parallel transport<a class="headerlink" href="#parallel-transport" title="Permalink to this heading">#</a></h4>
-<p>A vector field <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> is parallel transported along a curve <span class="math notranslate nohighlight">\(\gamma\)</span> with element <span class="math notranslate nohighlight">\(d\mathbf{r}\)</span> if <span class="math notranslate nohighlight">\(d \mathbf{r} \cdot \nabla f = \mathbf{0}\)</span>. Thus, using the relation <a class="reference internal" href="#equation-eq-differential-geometry-curvature-directional-derivative-vector">(9.10)</a>, parallel transport implies</p>
+<p>A vector field <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> is parallel transported along a curve <span class="math notranslate nohighlight">\(\gamma\)</span> with element <span class="math notranslate nohighlight">\(d\mathbf{r}\)</span> if <span class="math notranslate nohighlight">\(d \mathbf{r} \cdot \nabla \mathbf{v} = \mathbf{0}\)</span>. Thus, using the relation <a class="reference internal" href="#equation-eq-differential-geometry-curvature-directional-derivative-vector">(9.10)</a>, parallel transport implies</p>
 <div class="math notranslate nohighlight" id="equation-eq-differential-geometry-curvature-parallel-transport-component-increment">
 <span class="eqno">(9.11)<a class="headerlink" href="#equation-eq-differential-geometry-curvature-parallel-transport-component-increment" title="Permalink to this equation">#</a></span>\[\begin{aligned}
 \partial_{\mu} v^{\nu} = - \Gamma_{\xi \mu}^{\nu} v^{\xi} \ .
@@ -967,7 +967,7 @@ Proof<div class="sd-summary-down docutils">
 </summary><div class="sd-summary-content sd-card-body docutils">
 </div>
 </details><div class="math notranslate nohighlight" id="equation-eq-riemann-tensor-prop-3">
-<span class="eqno">(9.14)<a class="headerlink" href="#equation-eq-riemann-tensor-prop-3" title="Permalink to this equation">#</a></span>\[0 = R_{\mathbf{ab} cd} = R_{cd\mathbf{ab}}\]</div>
+<span class="eqno">(9.14)<a class="headerlink" href="#equation-eq-riemann-tensor-prop-3" title="Permalink to this equation">#</a></span>\[R_{\mathbf{ab} cd} = R_{cd\mathbf{ab}}\]</div>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
 Proof<div class="sd-summary-down docutils">
@@ -1161,7 +1161,13 @@ Derivatives of the components of the metric tensor<div class="sd-summary-down do
 <div class="math notranslate nohighlight">
 \[\Gamma_{ik}^l = \frac{1}{2} g^{lj} \left( \partial_{k} g_{ij} + \partial_{i} g_{jk} - \partial_{j} g_{ki} \right) \ .\]</div>
 </div>
-</details><div class="proof example admonition" id="parallel-transport-sphere">
+</details><div class="figure align-center" id="fig-parallel-transport-sphere">
+<img alt="../../_images/parallel_transport_sphere.svg" src="../../_images/parallel_transport_sphere.svg" /><p class="caption"><span class="caption-number">Fig. 9.1 </span><span class="caption-text">Parallel transport on a sphere of vector <span class="math notranslate nohighlight">\(\mathbf{v} = v^{\phi} \mathbf{b}_2\)</span> initially in <span class="math notranslate nohighlight">\(X\left(q^1=0, q^2=\frac{\pi}{2}\right)\)</span>, moving: 1) along the equator up to <span class="math notranslate nohighlight">\(\left(q^1, q^2\right) = \left( \frac{\pi}{2}, \frac{\pi}{2} \right)\)</span>, 2) along a meridian up to <span class="math notranslate nohighlight">\(\left( \frac{\pi}{2}, \delta \phi \right)\)</span>, 3) along a parallel up to <span class="math notranslate nohighlight">\(\left( 0, \delta \phi \right)\)</span>, and 4) along to the meridian back to <span class="math notranslate nohighlight">\(\left( 0, \frac{\pi}{2} \right)\)</span>.</span><a class="headerlink" href="#fig-parallel-transport-sphere" title="Permalink to this image">#</a></p>
+</div>
+<!--
+![Parallel transport of a vector.](../../media/differential_geometry/parallel_transport_sphere.svg){ #fig-parallel-transport-sphere fig-align="center" }
+-->
+<div class="proof example admonition" id="parallel-transport-sphere">
 <p class="admonition-title"><span class="caption-number">Example 9.3 </span> (Parallel transport of a vector on a sphere)</p>
 <div class="example-content section" id="proof-content">
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
@@ -1338,10 +1344,10 @@ Parallel transport from the equator to the pole and back<div class="sd-summary-d
 <p class="sd-card-text">Let a vector <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> on the equator and parallel to the local meridian, i.e. <span class="math notranslate nohighlight">\(\mathbf{v} = v^\phi \mathbf{b}_2\)</span> in <span class="math notranslate nohighlight">\((\theta, \phi) = \left( 0, \frac{\pi}{2} \right)\)</span>.</p>
 <p class="sd-card-text"><strong>1. Parallel transport along the equator, <span class="math notranslate nohighlight">\(\phi = \frac{\pi}{2}\)</span>, <span class="math notranslate nohighlight">\(\theta\)</span> from <span class="math notranslate nohighlight">\(0\)</span> to <span class="math notranslate nohighlight">\(\overline{\theta}\)</span>.</strong> The equator is described by the coordinate <span class="math notranslate nohighlight">\(\phi = \frac{\pi}{2}\)</span>, and thus <span class="math notranslate nohighlight">\(\cos \phi = 0\)</span>. The solution of the parallel transport equation on the equator gives constant <span class="math notranslate nohighlight">\(v^1(\theta)\)</span> and <span class="math notranslate nohighlight">\(v^2(\theta)\)</span>. Thus,</p>
 <div class="math notranslate nohighlight">
-\[v^1\left(\overline{\theta}\right) = 0 \quad , \quad v^2\left(\overline{\theta}\right) = v^\phi \ .\]</div>
+\[v^1\left( \theta \right) = 0 \quad , \quad v^2\left( \theta \right) = v^\phi \ .\]</div>
 <p class="sd-card-text"><strong>2. Parallel transport along the meridian, <span class="math notranslate nohighlight">\(\theta = \overline{\theta}\)</span>, <span class="math notranslate nohighlight">\(\phi\)</span> from <span class="math notranslate nohighlight">\(\frac{\pi}{2}\)</span> to <span class="math notranslate nohighlight">\(\delta \phi\)</span>.</strong></p>
 <div class="math notranslate nohighlight">
-\[v^1\left( 0 \right) = 0 \quad , \quad v^2\left(\overline{\theta}\right) = v^\phi \ .\]</div>
+\[v^1\left( \phi \right) = 0 \quad , \quad v^2\left( \phi \right) = v^\phi \ .\]</div>
 <p class="sd-card-text"><strong>3.</strong> <em>Parallel transport along a small circle around the pole to avoid singularity.</em></p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\left\{ \begin{aligned}
@@ -1352,7 +1358,7 @@ Parallel transport from the equator to the pole and back<div class="sd-summary-d
      &amp; = v^1_0 \sin(\phi) \sin\left( \cos(\phi) \theta\right) + v^2_0 \cos\left( \cos(\phi) \theta\right) = \\
      &amp; = v^\phi \cos\left( \cos(\delta \phi) \theta\right) 
    \end{aligned} \right.\end{split}\]</div>
-<p class="sd-card-text"><em>The final values are</em> <span class="math notranslate nohighlight">\(v^1 = \frac{v^\phi}{\sin \delta \phi} \sin( \cos(\delta \phi) \theta )\)</span>, <span class="math notranslate nohighlight">\(v^2 = v^\phi \cos( \cos(\delta \phi) \theta )\)</span>. <em>Exchanging the reference value for <span class="math notranslate nohighlight">\(\theta\)</span> should be enough.</em> <strong>todo</strong> <em>check!</em></p>
+<p class="sd-card-text"><em>The final values are</em> <span class="math notranslate nohighlight">\(v^1 = -\frac{v^\phi}{\sin \delta \phi} \sin( \cos(\delta \phi) \theta )\)</span>, <span class="math notranslate nohighlight">\(v^2 = v^\phi \cos( \cos(\delta \phi) \theta )\)</span>. <em>Exchanging the reference value for <span class="math notranslate nohighlight">\(\theta\)</span> should be enough.</em> <strong>todo</strong> <em>check!</em></p>
 <p class="sd-card-text"><strong>4. Parallel transport along the meridian, <span class="math notranslate nohighlight">\(\theta = 0\)</span>, <span class="math notranslate nohighlight">\(\phi\)</span> from <span class="math notranslate nohighlight">\(\delta \phi\)</span> to <span class="math notranslate nohighlight">\(\frac{\pi}{2}\)</span>.</strong></p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}

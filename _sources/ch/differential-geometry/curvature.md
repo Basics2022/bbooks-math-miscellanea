@@ -107,7 +107,7 @@ $$\begin{aligned}
 (differential-geometry:curvature:intrinsic:riemann-curvature-tensor:parallel-transport)=
 #### Parallel transport
 
-A vector field $\mathbf{v}$ is parallel transported along a curve $\gamma$ with element $d\mathbf{r}$ if $d \mathbf{r} \cdot \nabla f = \mathbf{0}$. Thus, using the relation {eq}`eq:differential-geometry:curvature:directional-derivative:vector`, parallel transport implies
+A vector field $\mathbf{v}$ is parallel transported along a curve $\gamma$ with element $d\mathbf{r}$ if $d \mathbf{r} \cdot \nabla \mathbf{v} = \mathbf{0}$. Thus, using the relation {eq}`eq:differential-geometry:curvature:directional-derivative:vector`, parallel transport implies
 
 $$\begin{aligned}
 \partial_{\mu} v^{\nu} = - \Gamma_{\xi \mu}^{\nu} v^{\xi} \ .
@@ -350,7 +350,7 @@ $$R_{\mathbf{ab}cd} = - R_{\mathbf{ba}cd}$$ (eq:riemann-tensor:prop-2)
 
 ```
 
-$$0 = R_{\mathbf{ab} cd} = R_{cd\mathbf{ab}}$$ (eq:riemann-tensor:prop-3)
+$$R_{\mathbf{ab} cd} = R_{cd\mathbf{ab}}$$ (eq:riemann-tensor:prop-3)
 
 ```{dropdown} Proof
 
@@ -557,6 +557,17 @@ $$\Gamma_{ik}^l = \frac{1}{2} g^{lj} \left( \partial_{k} g_{ij} + \partial_{i} g
 
 ```
 
+```{figure} ../../media/differential_geometry/parallel_transport_sphere.svg
+---
+name: fig-parallel-transport-sphere
+align: center
+---
+Parallel transport on a sphere of vector $\mathbf{v} = v^{\phi} \mathbf{b}_2$ initially in $X\left(q^1=0, q^2=\frac{\pi}{2}\right)$, moving: 1) along the equator up to $\left(q^1, q^2\right) = \left( \frac{\pi}{2}, \frac{\pi}{2} \right)$, 2) along a meridian up to $\left( \frac{\pi}{2}, \delta \phi \right)$, 3) along a parallel up to $\left( 0, \delta \phi \right)$, and 4) along to the meridian back to $\left( 0, \frac{\pi}{2} \right)$.
+```
+
+<!--
+![Parallel transport of a vector.](../../media/differential_geometry/parallel_transport_sphere.svg){ #fig-parallel-transport-sphere fig-align="center" }
+-->
 
 ````{prf:example} Parallel transport of a vector on a sphere
 :label: parallel-transport-sphere
@@ -738,11 +749,11 @@ Let a vector $\mathbf{v}$ on the equator and parallel to the local meridian, i.e
 
 **1. Parallel transport along the equator, $\phi = \frac{\pi}{2}$, $\theta$ from $0$ to $\overline{\theta}$.** The equator is described by the coordinate $\phi = \frac{\pi}{2}$, and thus $\cos \phi = 0$. The solution of the parallel transport equation on the equator gives constant $v^1(\theta)$ and $v^2(\theta)$. Thus,
 
-   $$v^1\left(\overline{\theta}\right) = 0 \quad , \quad v^2\left(\overline{\theta}\right) = v^\phi \ .$$
+   $$v^1\left( \theta \right) = 0 \quad , \quad v^2\left( \theta \right) = v^\phi \ .$$
 
 **2. Parallel transport along the meridian, $\theta = \overline{\theta}$, $\phi$ from $\frac{\pi}{2}$ to $\delta \phi$.**
    
-   $$v^1\left( 0 \right) = 0 \quad , \quad v^2\left(\overline{\theta}\right) = v^\phi \ .$$
+   $$v^1\left( \phi \right) = 0 \quad , \quad v^2\left( \phi \right) = v^\phi \ .$$
 
 **3.** *Parallel transport along a small circle around the pole to avoid singularity.*
 
@@ -755,7 +766,7 @@ Let a vector $\mathbf{v}$ on the equator and parallel to the local meridian, i.e
      & = v^\phi \cos\left( \cos(\delta \phi) \theta\right) 
    \end{aligned} \right.$$
 
-   *The final values are* $v^1 = \frac{v^\phi}{\sin \delta \phi} \sin( \cos(\delta \phi) \theta )$, $v^2 = v^\phi \cos( \cos(\delta \phi) \theta )$. *Exchanging the reference value for $\theta$ should be enough.* **todo** *check!*
+   *The final values are* $v^1 = -\frac{v^\phi}{\sin \delta \phi} \sin( \cos(\delta \phi) \theta )$, $v^2 = v^\phi \cos( \cos(\delta \phi) \theta )$. *Exchanging the reference value for $\theta$ should be enough.* **todo** *check!*
 
 **4. Parallel transport along the meridian, $\theta = 0$, $\phi$ from $\delta \phi$ to $\frac{\pi}{2}$.**
    
