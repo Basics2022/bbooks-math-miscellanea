@@ -93,7 +93,7 @@ Its first and second order derivatives w.r.t. the arc-length $p$ evaluated in $p
 :align: center
 :figclass: html-figure
 
-Frenet-Serret basis, osculating plane, and osculating circle at point $P$ along a circular helix $\gamma$.
+Frenet-Serret basis, osculating plane, and osculating circle at point $P$ along a circular helix $\gamma$: $\mathbf{r}(t)=$ $ a \cos(t) \hat{\mathbf{x}} + $ $ a \sin(t) \hat{\mathbf{y}} +$ $b t \hat{\mathbf{z}}$, with $a = 2.0$, $b=0.5$, for $t \in [0, 4 \pi]$. Point $P$ on the line for $t = 1.6 \, \pi$. 
 
 ```
 
