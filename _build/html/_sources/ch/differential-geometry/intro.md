@@ -2,7 +2,7 @@
 # Introduction to Differential Geometry
 
 Geometric entities embedded in 3-dimensional Euclidean space
-* [Lines](differential-geometry:lines)
+* [Curves](differential-geometry:curves)
 * [Surfaces](differential-geometry:surfaces)
 
 ---

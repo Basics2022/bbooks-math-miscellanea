@@ -1,7 +1,7 @@
-(differential-geometry:lines)=
-# Lines
+(differential-geometry:curves)=
+# Curves
 
-A line $\gamma$ is a geometric entity that has a 1-parameter parametric representation. Its points in 3-dimensional (Euclidean) space $E^3$ can be represented with the function
+A curve $\gamma$ is a geometric entity that has a 1-parameter parametric representation. Its points in 3-dimensional (Euclidean) space $E^3$ can be represented with the function
 
 $$\gamma: \ \mathbf{r}(q) \ , \quad q \in [q_0, q_1] \ .$$
 
@@ -35,16 +35,18 @@ Using a general parameter, $t$, with some abuse of notation $\mathbf{r}(t) = \ma
 - $\dot{\mathbf{r}} = \frac{d s}{d t} \frac{d \mathbf{r}}{d s} = \dot{s} \hat{\mathbf{t}}$
 - $\ddot{\mathbf{r}} = \dfrac{d}{dt} \dot{\mathbf{r}} = \dfrac{d}{dt} \left( \dot{s} \hat{\mathbf{t}} \right) = \ddot{s} \hat{\mathbf{t}} + \dfrac{ds}{dt} \dfrac{d}{ds} \hat{\mathbf{t}} = \ddot{s} \hat{\mathbf{t}} + \dot{s}^2 \kappa \, \hat{\mathbf{n}}$
 
-```{prf:definition} Osculator circle
+```{prf:definition} Osculating circle
 :label: def-osculator-circle
 
-The osculator circle relative to a point $P$ of a curve $\gamma$, its the circle that:
+The osculator circle relative to a point $P$ of a curve $\gamma$, it is the circle that:
 * is tangent to the curve $\gamma$ in $P$
-* has the same curvature of the curve $\gamma$ in $P$ 
+* has the same curvature as the curve $\gamma$ in $P$ 
+
+It's well-defined for any point $P(s)$ of the curve where curvature is different from zero, $\kappa(s) \ne 0$.
 
 ```
 
-```{dropdown} Osculator circle - Details
+```{dropdown} Osculating circle - Details
 :open:
 
 Circle with $R(s) = \frac{1}{\kappa(s)}$, in plane orthogonal to $\hat{\mathbf{b}}(s)$, passing through $\mathbf{r}(s)$, and thus center in $\mathbf{r}_C(s) = \mathbf{r}(s) + \hat{\mathbf{n}} R(s)$. Its parametric representation using its arc-length parameter $p$, with $\mathbf{r}(p=0) = \mathbf{r}(s)$ reads 
@@ -66,4 +68,36 @@ Its first and second order derivatives w.r.t. the arc-length $p$ evaluated in $p
   i.e. the osculator circle has the same normal vector and curvature as the curve in the point.
 
 ```
+
+```{raw} html
+<figure style="text-align: center; margin: 1.5em 0;">
+  <iframe
+    src="../../_static/osculating_circle.html"
+    width="120%"
+    max-width="120%"
+    height="720px"
+    overflow="hidden"
+    style="border: none;">
+  </iframe>
+  <!--
+  <figcaption style="margin-top: 0.5em; font-size: 0.9em;">
+    Frenet-Serret basis, osculating plane, and osculating circle at point $P$ along a circular helix $\gamma$.
+  </figcaption>
+  -->
+</figure>
+
+```
+
+```{figure} blank.svg
+:name: fig-osculating-circle
+:align: center
+:figclass: html-figure
+
+Frenet-Serret basis, osculating plane, and osculating circle at point $P$ along a circular helix $\gamma$.
+
+```
+
+
+
+
 
