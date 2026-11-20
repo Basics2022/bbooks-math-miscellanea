@@ -139,6 +139,54 @@ $$\mathbb{b} \cdot \mathbf{v}_i = \kappa_i \mathbf{v}_i \ , \qquad i \in \{ 1, 2
 
 The eigenvectors $\mathbf{v}_{1,2}$ defines the **principal directions**, while the eigenvalues $\kappa_{1,2}$ are defined as the **principal curvatures**.
 
+
+```{raw} html
+<figure style="text-align: center; margin: 1.5em 0;">
+  <iframe
+    src="../../_static/fig1_tangent_normal_deviation.html"
+    width="120%"
+    max-width="120%"
+    height="720px"
+    overflow="hidden"
+    style="border: none;">
+  </iframe>
+</figure>
+
+```
+
+```{figure} blank.svg
+:name: fig-tangent-normal-deviation
+:align: center
+:figclass: html-figure
+
+Caption...
+
+```
+
+```{raw} html
+<figure style="text-align: center; margin: 1.5em 0;">
+  <iframe
+    src="../../_static/fig1_curvilinear_natural_basis.html"
+    width="120%"
+    max-width="120%"
+    height="720px"
+    overflow="hidden"
+    style="border: none;">
+  </iframe>
+</figure>
+
+```
+
+```{figure} blank.svg
+:name: fig-curvilinear-natural-basis
+:align: center
+:figclass: html-figure
+
+Caption...
+
+```
+
+
 ````{dropdown} Eigenvalue problem
 :open:
 
@@ -364,6 +412,52 @@ $$\kappa_{1,2} = H \pm \sqrt{H^2 - K} .$$
 
 ...
 -->
+
+```{raw} html
+<figure style="text-align: center; margin: 1.5em 0;">
+  <iframe
+    src="../../_static/fig2_principal_directional_curvature.html"
+    width="120%"
+    max-width="120%"
+    height="720px"
+    overflow="hidden"
+    style="border: none;">
+  </iframe>
+</figure>
+
+```
+
+```{figure} blank.svg
+:name: fig-principal-directional-curvature
+:align: center
+:figclass: html-figure
+
+Caption...
+
+```
+
+```{raw} html
+<figure style="text-align: center; margin: 1.5em 0;">
+  <iframe
+    src="../../_static/fig3_curvature_regimes.html"
+    width="120%"
+    max-width="120%"
+    height="720px"
+    overflow="hidden"
+    style="border: none;">
+  </iframe>
+</figure>
+
+```
+
+```{figure} blank.svg
+:name: fig-curvature-regimes
+:align: center
+:figclass: html-figure
+
+Caption...
+
+```
 
 (differential-geometry:surfaces:geometric-entities:fundamental-forms-and-egregium-thm)=
 ## Fundamental forms and Gauss egregium theorem
