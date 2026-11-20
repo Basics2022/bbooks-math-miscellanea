@@ -172,6 +172,29 @@ $$\begin{aligned}
 
 i.e. when $X$, $Y$ don't commute, as stated above.
 
+```{raw} html
+<figure style="text-align: center; margin: 1.5em 0;">
+  <iframe
+    src="../../_static/lie_bracket_linearized_loop.html"
+    width="120%"
+    max-width="120%"
+    height="720px"
+    overflow="hidden"
+    style="border: none;">
+  </iframe>
+</figure>
+
+```
+
+```{figure} blank.svg
+:name: fig-lie-bracket-linearized-loop
+:align: center
+:figclass: html-figure
+
+Elementary linearized loop. Lie bracket is required to close the loop built with two non-commutative vector fields $X$, $Y$.
+
+```
+
 ```{prf:example} Coordinates vector fields commute, and thus only 4 sides are required to build the loop
 :label: coordinate-field-commutation
 
