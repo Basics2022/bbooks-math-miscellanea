@@ -88,7 +88,7 @@ Its first and second order derivatives w.r.t. the arc-length $p$ evaluated in $p
 
 ```
 
-```{figure} blank.svg
+```{figure} ../../_static/blank.svg
 :name: fig-osculating-circle
 :align: center
 :figclass: html-figure

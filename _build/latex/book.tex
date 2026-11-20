@@ -85,7 +85,7 @@
         
 
 \title{basics - math}
-\date{Nov 03, 2026}
+\date{Nov 20, 2026}
 \release{}
 \author{basics}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -1478,7 +1478,7 @@ Geometric entities embedded in 3\sphinxhyphen{}dimensional Euclidean space
 \begin{itemize}
 \item {} 
 \sphinxAtStartPar
-{\hyperref[\detokenize{ch/differential-geometry/lines:differential-geometry-lines}]{\sphinxcrossref{\DUrole{std,std-ref}{Lines}}}}
+{\hyperref[\detokenize{ch/differential-geometry/curves:differential-geometry-curves}]{\sphinxcrossref{\DUrole{std,std-ref}{Curves}}}}
 
 \item {} 
 \sphinxAtStartPar
@@ -1539,10 +1539,10 @@ from the definition of the reciprocal basis, \(\mathbf{b}^a = g^{ab} \mathbf{b}_
 \sphinxstepscope
 
 
-\section{Lines}
-\label{\detokenize{ch/differential-geometry/lines:lines}}\label{\detokenize{ch/differential-geometry/lines:differential-geometry-lines}}\label{\detokenize{ch/differential-geometry/lines::doc}}
+\section{Curves}
+\label{\detokenize{ch/differential-geometry/curves:curves}}\label{\detokenize{ch/differential-geometry/curves:differential-geometry-curves}}\label{\detokenize{ch/differential-geometry/curves::doc}}
 \sphinxAtStartPar
-A line \(\gamma\) is a geometric entity that has a 1\sphinxhyphen{}parameter parametric representation. Its points in 3\sphinxhyphen{}dimensional (Euclidean) space \(E^3\) can be represented with the function
+A curve \(\gamma\) is a geometric entity that has a 1\sphinxhyphen{}parameter parametric representation. Its points in 3\sphinxhyphen{}dimensional (Euclidean) space \(E^3\) can be represented with the function
 \begin{equation*}
 \begin{split}\gamma: \ \mathbf{r}(q) \ , \quad q \in [q_0, q_1] \ .\end{split}
 \end{equation*}
@@ -1551,12 +1551,12 @@ A parametrization is regular if the parameter \(q\) is monotonic along the curve
 
 
 \subsection{Differential}
-\label{\detokenize{ch/differential-geometry/lines:differential}}\label{\detokenize{ch/differential-geometry/lines:differential-geometry-lines-differential}}
+\label{\detokenize{ch/differential-geometry/curves:differential}}\label{\detokenize{ch/differential-geometry/curves:differential-geometry-lines-differential}}
 \sphinxAtStartPar
 The differential \(d \mathbf{r}\) represents the elementary vector on the line. From the very definition of the differential of a function, it follows
 \begin{equation*}
 \begin{split}d \mathbf{r}(q) = \mathbf{r}'(q) \, d q \ .\end{split}
-\end{equation*}\label{ch/differential-geometry/lines:def-arc-length}
+\end{equation*}\label{ch/differential-geometry/curves:def-arc-length}
 \begin{sphinxadmonition}{note}{Definition 9.1.1 (Arc\sphinxhyphen{}length parameter)}
 
 
@@ -1569,9 +1569,9 @@ The arc\sphinxhyphen{}length parameter \(s\) is defined by the condition \(d s =
 
 
 \subsection{Frenet basis}
-\label{\detokenize{ch/differential-geometry/lines:frenet-basis}}\label{\detokenize{ch/differential-geometry/lines:differential-geometry-lines-frenet-basis}}
+\label{\detokenize{ch/differential-geometry/curves:frenet-basis}}\label{\detokenize{ch/differential-geometry/curves:differential-geometry-lines-frenet-basis}}
 \sphinxAtStartPar
-Using \sphinxstylestrong{arc\sphinxhyphen{}length parameter} {\hyperref[\detokenize{ch/differential-geometry/lines:def-arc-length}]{\sphinxcrossref{Definition 9.1.1}}}, Frenet basis is naturally defined as the set \(\{ \hat{\mathbf{t}}, \hat{\mathbf{n}}, \hat{\mathbf{b}} \}\):
+Using \sphinxstylestrong{arc\sphinxhyphen{}length parameter} {\hyperref[\detokenize{ch/differential-geometry/curves:def-arc-length}]{\sphinxcrossref{Definition 9.1.1}}}, Frenet basis is naturally defined as the set \(\{ \hat{\mathbf{t}}, \hat{\mathbf{n}}, \hat{\mathbf{b}} \}\):
 \begin{itemize}
 \item {} 
 \sphinxAtStartPar
@@ -1599,13 +1599,13 @@ Using a general parameter, \(t\), with some abuse of notation \(\mathbf{r}(t) = 
 \(\ddot{\mathbf{r}} = \dfrac{d}{dt} \dot{\mathbf{r}} = \dfrac{d}{dt} \left( \dot{s} \hat{\mathbf{t}} \right) = \ddot{s} \hat{\mathbf{t}} + \dfrac{ds}{dt} \dfrac{d}{ds} \hat{\mathbf{t}} = \ddot{s} \hat{\mathbf{t}} + \dot{s}^2 \kappa \, \hat{\mathbf{n}}\)
 
 \end{itemize}
-\label{ch/differential-geometry/lines:def-osculator-circle}
-\begin{sphinxadmonition}{note}{Definition 9.1.2 (Osculator circle)}
+\label{ch/differential-geometry/curves:def-osculator-circle}
+\begin{sphinxadmonition}{note}{Definition 9.1.2 (Osculating circle)}
 
 
 
 \sphinxAtStartPar
-The osculator circle relative to a point \(P\) of a curve \(\gamma\), its the circle that:
+The osculator circle relative to a point \(P\) of a curve \(\gamma\), it is the circle that:
 \begin{itemize}
 \item {} 
 \sphinxAtStartPar
@@ -1613,11 +1613,14 @@ is tangent to the curve \(\gamma\) in \(P\)
 
 \item {} 
 \sphinxAtStartPar
-has the same curvature of the curve \(\gamma\) in \(P\)
+has the same curvature as the curve \(\gamma\) in \(P\)
 
 \end{itemize}
+
+\sphinxAtStartPar
+It’s well\sphinxhyphen{}defined for any point \(P(s)\) of the curve where curvature is different from zero, \(\kappa(s) \ne 0\).
 \end{sphinxadmonition}
-\subsubsection*{Osculator circle \sphinxhyphen{} Details}
+\subsubsection*{Osculating circle \sphinxhyphen{} Details}
 
 \sphinxAtStartPar
 Circle with \(R(s) = \frac{1}{\kappa(s)}\), in plane orthogonal to \(\hat{\mathbf{b}}(s)\), passing through \(\mathbf{r}(s)\), and thus center in \(\mathbf{r}_C(s) = \mathbf{r}(s) + \hat{\mathbf{n}} R(s)\). Its parametric representation using its arc\sphinxhyphen{}length parameter \(p\), with \(\mathbf{r}(p=0) = \mathbf{r}(s)\) reads
@@ -1647,6 +1650,15 @@ i.e. the osculator circle has the same normal vector and curvature as the curve 
 
 \end{itemize}
 
+
+
+\begin{figure}[htbp]
+\centering
+\capstart
+
+\noindent\sphinxincludegraphics{{blank}.png}
+\caption{Frenet\sphinxhyphen{}Serret basis, osculating plane, and osculating circle at point \(P\) along a circular helix \(\gamma\): \(\mathbf{r}(t)=\) \( a \cos(t) \hat{\mathbf{x}} + \) \( a \sin(t) \hat{\mathbf{y}} +\) \(b t \hat{\mathbf{z}}\), with \(a = 2.0\), \(b=0.5\), for \(t \in [0, 4 \pi]\). Point \(P\) on the line for \(t = 1.6 \, \pi\).}\label{\detokenize{ch/differential-geometry/curves:fig-osculating-circle}}\end{figure}
+
 \sphinxstepscope
 
 
@@ -1668,6 +1680,24 @@ The differential \(d \mathbf{r}\) represents an elementary vector on \sphinxhyph
   \mathbf{b}_1 \, d q^1 + \mathbf{b}_2 \, d q^2
 \end{split}
 \end{equation*}
+
+\subsubsection{Length of the elementary vector on the surface, and the first fundamental form \protect\(\mathbf{I}\protect\)}
+\label{\detokenize{ch/differential-geometry/surfaces:length-of-the-elementary-vector-on-the-surface-and-the-first-fundamental-form-mathbf-i}}\label{\detokenize{ch/differential-geometry/surfaces:differential-geometry-surfaces-differential-first-fundamental-form}}\begin{equation*}
+\begin{split}\begin{aligned}
+  \left| d \mathbf{r} \right|^2 = d \mathbf{r} \cdot d \mathbf{r} & = g_{ij} dq^{i} dq^{j} = \\
+  & = E \left( dq^1 \right)^2 + 2 F dq^1 dq^2 + G \left( dq^2 \right)^2 = \\
+  & = \begin{bmatrix} dq^1 & dq^2 \end{bmatrix} \begin{bmatrix} E & F \\ F & G \end{bmatrix} \begin{bmatrix} dq^1 \\ dq^2 \end{bmatrix} = \\
+  & = d \mathbf{q}^T \, \mathbf{I} \, \mathbf{q}
+\end{aligned}\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Here with slight abuse of notation, both geometrical vectors \(d \mathbf{r}\) and mathematical vectors \sphinxhyphen{} whose components are not transforming as vectors under change of coordinates \sphinxhyphen{} collecting the coordinates \(d \mathbf{q}\) have been represented with bold symbols.
+
+\sphinxAtStartPar
+The elements of the \sphinxstylestrong{first fundamental form} are the covariant components \(g_{ij}\) of the \sphinxstylestrong{metric tensor},
+\begin{equation}\label{equation:ch/differential-geometry/surfaces:eq:surface:first-fundamental-form}
+\begin{split}\left[ \mathbf{I} \right]_{ij} = g_{ij} \ .\end{split}
+\end{equation}
 
 \subsection{Normal vector}
 \label{\detokenize{ch/differential-geometry/surfaces:normal-vector}}\label{\detokenize{ch/differential-geometry/surfaces:differential-geometry-surfaces-normal-vector}}
@@ -1704,6 +1734,14 @@ Exploiting the orthogonality of the natural basis and its reciprocal, it follows
 \sphinxAtStartPar
 \sphinxstylestrong{Remark.} Comparing two different choices of the orthogonal coordinate \(q^3\), (1) unit normal vector \(\hat{\mathbf{b}}_3 = \hat{\mathbf{n}}\), (2) non\sphinxhyphen{}unitary normal vector \(\hat{\mathbf{b}}_3 = \mathbf{n}\), \(\hat{\mathbf{b}}^3 = \tfrac{\mathbf{n}}{|\mathbf{n}|^2}\), it’s easy to prove that the Christoffel coefficients with upper index \(k = 3\), \(\Gamma^{3}_{ij}\), are independent from this choice.
 
+
+\subsection{Derivatives of the unit normal vector}
+\label{\detokenize{ch/differential-geometry/surfaces:derivatives-of-the-unit-normal-vector}}\label{\detokenize{ch/differential-geometry/surfaces:differential-geometry-surfaces-normal-vector-derivatives}}
+\sphinxAtStartPar
+See \eqref{equation:ch/differential-geometry/surfaces:eq:surface:weingarten}.
+\begin{equation*}
+\begin{split}\partial_k \hat{\mathbf{n}} = - \Gamma_{ik}^{3} \mathbf{b}^i = - g^{il} \Gamma_{ik}^{3} \mathbf{b}_l \ .\end{split}
+\end{equation*}
 
 \subsection{Geometric entities}
 \label{\detokenize{ch/differential-geometry/surfaces:geometric-entities}}\label{\detokenize{ch/differential-geometry/surfaces:differential-geometry-surfaces-geometric-entities}}
@@ -1750,21 +1788,21 @@ so that
 \end{equation*}
 \sphinxAtStartPar
 having defined the \sphinxstylestrong{curvature tensor} \(\mathbb{b}\),
-\begin{equation*}
-\begin{split}\mathbb{b} = b_{ij} \mathbf{b}^i \otimes \mathbf{b}^j = \left( \hat{\mathbf{n}} \cdot \frac{\partial^2 \mathbf{r}}{\partial q^i \partial q^j} \right) \mathbf{b}^i \otimes \mathbf{b}^j \ .\end{split}
-\end{equation*}
+\begin{equation}\label{equation:ch/differential-geometry/surfaces:eq:surface:curvature-tensor}
+\begin{split}\mathbb{b} = b_{ij} \mathbf{b}^i \otimes \mathbf{b}^j = \left( \hat{\mathbf{n}} \cdot \frac{\partial^2 \mathbf{r}}{\partial q^i \partial q^j} \right) \mathbf{b}^i \otimes \mathbf{b}^j = \Gamma^{3}_{ij} dq^i dq^j \ .\end{split}
+\end{equation}
 
-\subsubsection{Curvature tensor}
-\label{\detokenize{ch/differential-geometry/surfaces:curvature-tensor}}\label{\detokenize{ch/differential-geometry/surfaces:differential-geometry-surfaces-geometric-entities-curvature-tensor}}
+\subsubsection{Curvature tensor, quadratic approximation and second fundamental form}
+\label{\detokenize{ch/differential-geometry/surfaces:curvature-tensor-quadratic-approximation-and-second-fundamental-form}}\label{\detokenize{ch/differential-geometry/surfaces:differential-geometry-surfaces-geometric-entities-curvature-tensor}}
 \sphinxAtStartPar
 From the second\sphinxhyphen{}order Taylor expansion around a point \(\mathbf{r}(q^1, q^2)\), the projection of the displacement onto the unit normal vector \(\hat{\mathbf{n}}\) measures the distance from the surface to its tangent plane \(\pi\):
 \begin{equation*}
-\begin{split}[\mathbf{r}(q^1 + dq^1, q^2 + dq^2) - \mathbf{r}(q^1, q^2)] \cdot \hat{\mathbf{n}} = \frac{1}{2} \Gamma_{ij}^3 dq^i dq^j ,\end{split}
+\begin{split}[\mathbf{r}(q^1 + dq^1, q^2 + dq^2) - \mathbf{r}(q^1, q^2)] \cdot \hat{\mathbf{n}} = \Gamma_{ij}^3 dq^i dq^j ,\end{split}
 \end{equation*}
 \sphinxAtStartPar
 The symmetric covariant tensor of rank 2, defined by its components
 \begin{equation}\label{equation:ch/differential-geometry/surfaces:eq:second-fundamental-form:normal-projection}
-\begin{split}b_{ij} := \Gamma_{ij}^3 = \hat{\mathbf{n}} \cdot \mathbf{b}_{\alpha} \Gamma_{ij}^{\alpha} = \hat{\mathbf{n}} \cdot \frac{\partial^2 \mathbf{r}}{\partial q^i \partial q^j} = \hat{\mathbf{n}} \cdot \frac{\partial \mathbf{b}_i}{\partial q^j} = -\frac{\partial \hat{\mathbf{n}}}{\partial q^j} \cdot \mathbf{b}_i ,\end{split}
+\begin{split}\left[ \mathbf{II} \right]_{ij} = b_{ij} := \Gamma_{ij}^3 = \hat{\mathbf{n}} \cdot \mathbf{b}_{\alpha} \Gamma_{ij}^{\alpha} = \hat{\mathbf{n}} \cdot \frac{\partial^2 \mathbf{r}}{\partial q^i \partial q^j} = \hat{\mathbf{n}} \cdot \frac{\partial \mathbf{b}_i}{\partial q^j} = -\frac{\partial \hat{\mathbf{n}}}{\partial q^j} \cdot \mathbf{b}_i ,\end{split}
 \end{equation}
 \sphinxAtStartPar
 is the \sphinxstylestrong{second fundamental form} (or curvature tensor) of the surface embedded in \(E^3\). The last equality holds from the derivatives w.r.t. \(q^j\) of the relation \(\hat{\mathbf{n}} \cdot \mathbf{b}_i = 0\).
@@ -1772,21 +1810,50 @@ is the \sphinxstylestrong{second fundamental form} (or curvature tensor) of the 
 \sphinxAtStartPar
 The quadratic form \(b_{ij} dq^i dq^j\) characterizes the local deviation of the surface from the tangent plane \(\pi\). Let \(w_n(q^1,q^2) = d \mathbf{r} \cdot \mathbb{b} \cdot d \mathbf{r}\) the normal deviation of the surface w.r.t. the tangent plane, then
 \begin{equation*}
-\begin{split}w_n(q^1,q^2) = b_{ij} dq^{i} dq^{j} \ .\end{split}
+\begin{split}w_n(q^1,q^2) = \frac{1}{2} b_{ij} dq^{i} dq^{j} \ .\end{split}
 \end{equation*}
 \sphinxAtStartPar
-The curvature tensor \(\mathbb{b}\) is a \sphinxstylestrong{symmetric} order\sphinxhyphen{}2 tensor, locally built on a 2\sphinxhyphen{}dimensional vector space. Its \sphinxstylestrong{spectral decomposition}
+The curvature tensor \(\mathbb{b}\) is a \sphinxstylestrong{symmetric} order\sphinxhyphen{}2 tensor, locally built on a 2\sphinxhyphen{}dimensional vector space. In analogy \sphinxhyphen{} anyway pay attention that tensors are not matrices \sphinxhyphen{} with {\hyperref[\detokenize{ch/linear-algebra/spectral-symmetric:math-spectral-symmetric}]{\sphinxcrossref{\DUrole{std,std-ref}{spectral decomposition of symmetric matrices}}}}, its \sphinxstylestrong{spectral decomposition} is
 \begin{equation*}
 \begin{split}\mathbb{b} = \kappa_1 \mathbf{v}_1 \otimes \mathbf{v}_1 + \kappa_2 \mathbf{v}_2 \otimes \mathbf{v}_2 \ ,\end{split}
 \end{equation*}
 \sphinxAtStartPar
-being \(\kappa_1\), \(\kappa_2 \in \mathbb{R}\) the real egivenvalues, and \(\mathbf{v}_1\), \(\mathbf{v}_2\) the unit orthogonal basis defined by the eigenvectors of the eigenvalue problem
+being \(\kappa_1\), \(\kappa_2 \in \mathbb{R}\) the \sphinxstylestrong{real eigenvalues}, and \(\mathbf{v}_1\), \(\mathbf{v}_2\) the unit \sphinxstylestrong{orthogonal} basis defined by the \sphinxstylestrong{eigenvectors} of the eigenvalue problem
 \begin{equation*}
 \begin{split}\mathbb{b} \cdot \mathbf{v}_i = \kappa_i \mathbf{v}_i \ , \qquad i \in \{ 1, 2 \} \ .\end{split}
 \end{equation*}
 \sphinxAtStartPar
 The eigenvectors \(\mathbf{v}_{1,2}\) defines the \sphinxstylestrong{principal directions}, while the eigenvalues \(\kappa_{1,2}\) are defined as the \sphinxstylestrong{principal curvatures}.
+
+
+
+\begin{figure}[htbp]
+\centering
+\capstart
+
+\noindent\sphinxincludegraphics{{blank}.png}
+\caption{Caption…}\label{\detokenize{ch/differential-geometry/surfaces:fig-tangent-normal-deviation}}\end{figure}
+
+
+
+\begin{figure}[htbp]
+\centering
+\capstart
+
+\noindent\sphinxincludegraphics{{blank}.png}
+\caption{Caption…}\label{\detokenize{ch/differential-geometry/surfaces:fig-curvilinear-natural-basis}}\end{figure}
 \subsubsection*{Eigenvalue problem}
+
+\sphinxAtStartPar
+The eigenvalues of the tensor \(\mathbb{b}\) are the same eigenvalues as the matrix containing its mixed components \([b^{i}_{\ \ j}]\). This immediately follows as the \(m^{\rm th}\) contravariant component of the eigenvalue problem
+\begin{equation*}
+\begin{split}\mathbb{b} \cdot \mathbf{v}_{(\alpha)} = \kappa_{(\alpha)} \mathbf{v}_{(\alpha)} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+is
+\begin{equation*}
+\begin{split}b^{m}_{\ \ j} v^{j}_{(\alpha)} = \kappa_{(\alpha)} v^{m}_{(\alpha)} \ .\end{split}
+\end{equation*}\subsubsection*{Proof}
 \begin{equation*}
 \begin{split}\begin{aligned}
   \mathbb{b} \cdot \mathbf{v}_{(\alpha)} & = \kappa_{(\alpha)} \mathbf{v}_{(\alpha)} \\
@@ -1815,23 +1882,65 @@ The eigenvalues are
 \end{aligned}\end{split}
 \end{equation*}
 \sphinxAtStartPar
-with \(\mathbf{B}\) the matrix collecting the mixed components of the curvature tensor, \([\mathbf{B}]_{ij} = \left[ b^{i}_{\ \ j} \right]\). It’s easy to prove that
+with \(\mathbf{B}\) the matrix collecting the mixed components of the curvature tensor, \([\mathbf{B}]_{ij} = \left[ b^{i}_{\ \ j} \right]\). For a 2\sphinxhyphen{}dimensional matrix, it’s easy to prove the general relations between its trace, determinant and eigenvalues,
 \begin{equation*}
-\begin{split}\text{tr}\{ \mathbf{B} \} = \kappa_{1} + \kappa_2 \ ,\end{split}
+\begin{split}\begin{aligned}
+  \text{tr }\{ \mathbf{B} \} & = \kappa_{1} + \kappa_2 \\
+  \text{det}\{ \mathbf{B} \} & = \kappa_{1} \cdot \kappa_2 \ .
+\end{aligned}\end{split}
+\end{equation*}
+
+\subsubsection*{Spectral decomposition of symmetric matrices}
+
+\sphinxAtStartPar
+Let \(\mathbf{A}\) be real\sphinxhyphen{}valued symmetric, i.e. \(\mathbf{A} = \mathbf{A}^T\), \(A_{ij} \in \mathbb{R}\). Let \(\{ \lambda_i \}_i\), \(\{ \mathbf{v}_i \}_i\) the sets of eigenvalues and corresponding eigenvectors. Taking two different eigenvalues
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{A} \mathbf{v}_i & = \lambda_i \mathbf{v}_i \\
+  \mathbf{A} \mathbf{v}_k & = \lambda_k \mathbf{v}_k \ .
+\end{aligned}\end{split}
 \end{equation*}
 \sphinxAtStartPar
-and
+Taking the product on the left of the first equation with \(\mathbf{v}_k^T\), and of the second equation with \(\mathbf{v}_i^T\), and taking the difference of these two equations
 \begin{equation*}
-\begin{split}\text{det}\{ \mathbf{B} \} = \kappa_{1} \cdot \kappa_2 \ .\end{split}
+\begin{split}0 = \left( \lambda_i - \lambda_k \right) \mathbf{v}_k^T \mathbf{v}_i \ .\end{split}
 \end{equation*}
 \sphinxAtStartPar
-\sphinxstylestrong{Remark.} Eigenvalues are real, as
-
+This equation has solutions either if \(\lambda_i = \lambda_k\), or \sphinxhyphen{} if \(\lambda_i \ne \lambda_k\) \sphinxhyphen{} if \(\mathbf{v}_k^T \mathbf{v}_i = 0\), i.e. if the eigenvectors with two different eigenvalues are orthogonal. Thus, the matrix \(\mathbf{A}\) can be written as a linear combination
+\begin{equation*}
+\begin{split}\mathbf{A} = \lambda_1 \mathbf{v}_1 \mathbf{v}_1^T + \lambda_2 \mathbf{v}_2 \mathbf{v}_2^T \ ,\end{split}
+\end{equation*}
 \sphinxAtStartPar
-… \sphinxstylestrong{todo} \sphinxstyleemphasis{check and uncomment}
+with \(\mathbf{v}_1\), and \(\mathbf{v}_2\) orthogonal (even if the two eigenvalues of \(\mathbf{A}\) have the same value, using \(\mathbf{v}_1^T \mathbf{v}_2 = 0\) as an orthogonality condition of the vectors associated with the same eigenvalue with algebraic multiplicity greater than \(1\)). As a double\sphinxhyphen{}proof, the action of \(\mathbf{A}\) on a generic vector \(\mathbf{w} = w_1 \mathbf{v}_1 + w_2 \mathbf{w}_2\) is
+\begin{equation*}
+\begin{split}\mathbf{A} \mathbf{w} = \mathbf{A} \left( w_1 \mathbf{v}_1 + w_2 \mathbf{v}_2 \right) = w_1 \lambda_1 \mathbf{v}_1 + w_2 \lambda_2 \mathbf{v}_2\end{split}
+\end{equation*}
+\sphinxAtStartPar
+or
+\begin{equation*}
+\begin{split}\left( \lambda_1 \mathbf{v}_1 \mathbf{v}_1^T + \lambda_2 \mathbf{v}_2 \mathbf{v}_2^T \right) \mathbf{w} = \left(  \lambda_1 \mathbf{v}_1 \mathbf{v}_1^T + \lambda_2 \mathbf{v}_2 \mathbf{v}_2^T \right) \left( w_1 \mathbf{v}_1 + w_2 \mathbf{v}_2 \right) = w_1 \lambda_1 \mathbf{v}_1 + w_2 \lambda_2 \mathbf{v}_2 \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+The \sphinxstylestrong{eigenvalues of a symmetric matrix} are \sphinxstylestrong{real}, since
+\begin{equation*}
+\begin{split}\mathbf{v}_i^* \left( \mathbf{A} \mathbf{v}_i \right) = \mathbf{v}_i^* ( \lambda_i \mathbf{v}_i )\end{split}
+\end{equation*}
+\sphinxAtStartPar
+while the product of the adjoint and \(\mathbf{v}_i\) \sphinxhyphen{} with \(\mathbf{A}\)
+\begin{equation*}
+\begin{split}\mathbf{v}_i^* \mathbf{A} \mathbf{v}_i = \lambda_i^* \mathbf{v}_i^* \mathbf{v}_i \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+The difference of the latter two equations gives
+\begin{equation*}
+\begin{split}0 = ( \lambda_i - \lambda_i^* ) \mathbf{v}_i^* \mathbf{v}_i \quad \rightarrow \quad \lambda_i^* = \lambda_i \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+i.e. \(\lambda_i \in \mathbb{R}\).
 
 
-\subsubsection*{Mean curvature}
+\paragraph{Mean curvature}
+\label{\detokenize{ch/differential-geometry/surfaces:mean-curvature}}\subsubsection*{Mean curvature}
 
 \sphinxAtStartPar
 The mean curvature is defined as the arithmetic average of the principal curvatures, \(H := \frac{1}{2} \left( \kappa_1 + \kappa_2 \right)\).
@@ -1843,43 +1952,89 @@ The mean curvature is defined as the arithmetic average of the principal curvatu
   & = \frac{1}{2} g^{ij} b_{ij} = \frac{1}{2} \left( g^{11} b_{11} + g^{12} b_{12} + g^{21} b_{21} + g^{22} b_{22} \right) = \\
   & = \frac{1}{2} [ g_{ij} ]^{-1} b_{ij} = \frac{1}{2 \left( g_{11} g_{22} - g_{12}^2 \right)} \left( g_{22} b_{11} - g_{12} b_{12} - g_{21} b_{21} + g_{11} b_{22} \right)
 \end{aligned}\end{split}
-\end{equation*}\subsubsection*{Gaussian curvature}
+\end{equation*}
+
+\paragraph{Gaussian curvature}
+\label{\detokenize{ch/differential-geometry/surfaces:gaussian-curvature}}\subsubsection*{Gaussian curvature}
 
 \sphinxAtStartPar
 Gaussian curvature is defined as the determinant of \(b^{i}_{\ \ j}\),
 \begin{equation}\label{equation:ch/differential-geometry/surfaces:eq:differential-geometry:gaussian-curvature}
-\begin{split}K = \text{det} \{ b^{i}_{\ \ j} \} = \dfrac{\text{det}\{ b_{ij} \}}{\text{det}\{ g_{ij} \}} \ ,\end{split}
+\begin{split}K = \text{det} \{ b^{i}_{\ \ j} \} = \dfrac{\text{det}\{ b_{ij} \}}{\text{det}\{ g_{ij} \}} = \frac{\text{det}\{ \mathbf{II} \}}{\text{det}\{ \mathbf{I} \}} \ ,\end{split}
 \end{equation}
 \sphinxAtStartPar
 as \(b_{ij} = g_{il} b^{l}_{\ \ j}\).
 
 
+\paragraph{Principal curvatures}
+\label{\detokenize{ch/differential-geometry/surfaces:principal-curvatures}}\subsubsection*{Principal curvatures, as extreme values}
 
-
-\paragraph{Principal Curvatures and Directions}
-\label{\detokenize{ch/differential-geometry/surfaces:principal-curvatures-and-directions}}\label{\detokenize{ch/differential-geometry/surfaces:differential-geometry-surfaces-geometric-entities-curvature-tensor-principal}}
 \sphinxAtStartPar
-The extreme values of the normal curvature \(\kappa_n = \frac{b_{ij}dq^i dq^j}{g_{ij}dq^i dq^j}\) are the \sphinxstylestrong{principal curvatures} \(\kappa_1\) and \(\kappa_2\), which are the eigenvalues of the tensor \(b^i_j\):
+Let the spectral decomposition of the symmetric tensor \(\mathbb{b}\) be
 \begin{equation*}
-\begin{split}\det(b^i_j - \kappa \delta^i_j) = 0 \quad \implies \quad \kappa^2 - 2H\kappa + K = 0 .\end{split}
+\begin{split}\mathbb{b} = \kappa_1 \mathbf{v}_1 \otimes \mathbf{v}_1 + \kappa_2 \mathbf{v}_2 \otimes \mathbf{v}_2 \ ,\end{split}
 \end{equation*}
 \sphinxAtStartPar
-Thus, the principal curvatures satisfy:
+with \(\mathbf{v}_i \cdot \mathbf{v}_j = \delta_{ij}\), and \(\kappa_1 \ge \kappa_2\). Let \(\hat{\mathbf{t}} = \cos \theta \mathbf{v}_1 + \sin \theta \mathbf{v}_2\) a unit\sphinxhyphen{}length vector a function of \(\theta\), to investigate the local curvature of the surface as a function of \(\theta\). Then the curvature of the surface in \(\hat{\mathbf{t}}\)\sphinxhyphen{}direction \sphinxhyphen{} see curvature of a line on a surface \eqref{equation:ch/differential-geometry/surfaces:eq:surface:line-on-surface:curvature} \sphinxhyphen{} is
 \begin{equation*}
-\begin{split}\kappa_{1,2} = H \pm \sqrt{H^2 - K} .\end{split}
-\end{equation*}\begin{itemize}
-\item {} 
+\begin{split}\kappa(\theta) = \hat{\mathbf{t}} \cdot \mathbb{b} \cdot \hat{\mathbf{t}} = \kappa_1 \cos^2 \theta + \kappa_2 \sin^2 \theta \ .\end{split}
+\end{equation*}
 \sphinxAtStartPar
-The Gaussian curvature is the product of the principal curvatures: \(K = \kappa_1 \kappa_2\).
+Thus, it immediately follows that
+\begin{equation*}
+\begin{split}\begin{aligned}
+  & \max_{\theta} \kappa(\theta) = \kappa\left(\theta=           0 \right) = \kappa\left(\theta=           \pi \right) = \kappa_1 \\
+  & \min_{\theta} \kappa(\theta) = \kappa\left(\theta=\frac{\pi}{2}\right) = \kappa\left(\theta=\frac{3}{2}\pi \right) = \kappa_2 \\
+\end{aligned}\end{split}
+\end{equation*}\subsubsection*{Curves on a surface}
 
-\item {} 
 \sphinxAtStartPar
-The Mean curvature is the average of the principal curvatures: \(H = \frac{1}{2}(\kappa_1 + \kappa_2)\).
-
-\end{itemize}
+Let \(\gamma\) be a curved defined on a surface \(S: \mathbf{r}(q^1,q^2)\). Then the curve \(\gamma\) can be represented in parametric form as \(\mathbf{r}(q^1(s), q^2(s))\), using the arc\sphinxhyphen{}length parameter \(s\).
 
 \sphinxAtStartPar
-…
+The tangent vector to the curve \(\gamma\) is
+\begin{equation*}
+\begin{split}\hat{\mathbf{t}}(s) := \mathbf{r}'(s) = \dfrac{d q^i}{d s} \partial_{q^i} \mathbf{r} = \dfrac{d q^i}{d s} \mathbf{b}_i \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+summing over \(i \in \{ 1, 2 \}\). The derivative of the  tangent vector is proportional to the normal vector, through the curvature, i.e. \(\hat{\mathbf{t}}'(s) = \kappa(s) \hat{\mathbf{n}}(s)\),
+\begin{equation*}
+\begin{split}\hat{\mathbf{t}}'(s) = \left[ \frac{d^2 q^i}{ds^2} + \Gamma_{jk}^{i} \frac{d q^{j}}{d s} \frac{d q^{k}}{d s} \right] \mathbf{b}_i + \Gamma^{3}_{jk} \dfrac{d q^j}{ds} \dfrac{d q^k}{ds} \hat{\mathbf{n}} \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+The curvature of this curve thus reads
+\begin{equation}\label{equation:ch/differential-geometry/surfaces:eq:surface:line-on-surface:curvature}
+\begin{split}\begin{aligned}
+  \kappa(s) 
+  & = \hat{\mathbf{t}}'(s) \cdot \hat{\mathbf{n}} = \\
+  & = \Gamma_{jk}^{3} \dfrac{dq^j}{ds} \dfrac{dq^k}{ds} = \\
+  & = \left( \dfrac{dq^j}{ds} \mathbf{b}_j \right) \cdot \left( \Gamma_{ab}^{3} \mathbf{b}^{a} \mathbf{b}^b \right) \cdot \left( \dfrac{dq^k}{ds} \mathbf{b}_k \right) = \\
+  & = \hat{\mathbf{t}}(s) \cdot \mathbb{b}(s) \cdot \hat{\mathbf{t}}(s) \ .
+\end{aligned}\end{split}
+\end{equation}
+
+
+
+
+
+
+
+
+\begin{figure}[htbp]
+\centering
+\capstart
+
+\noindent\sphinxincludegraphics{{blank}.png}
+\caption{Caption…}\label{\detokenize{ch/differential-geometry/surfaces:fig-principal-directional-curvature}}\end{figure}
+
+
+
+\begin{figure}[htbp]
+\centering
+\capstart
+
+\noindent\sphinxincludegraphics{{blank}.png}
+\caption{Caption…}\label{\detokenize{ch/differential-geometry/surfaces:fig-curvature-regimes}}\end{figure}
 
 
 \subsection{Fundamental forms and Gauss egregium theorem}
@@ -1993,9 +2148,9 @@ having exploited the relation \eqref{equation:ch/differential-geometry/surfaces:
 \end{equation*}
 \sphinxAtStartPar
 so that it immediately follows that the derivatives of the unit normal vector w.r.t. the coordinates \(q^k\) are
-\begin{equation*}
+\begin{equation}\label{equation:ch/differential-geometry/surfaces:eq:surface:weingarten}
 \begin{split}\partial_k \hat{\mathbf{n}} = - \Gamma_{ik}^{3} \mathbf{b}^i = - g^{il} \Gamma_{ik}^{3} \mathbf{b}_l \ ,\end{split}
-\end{equation*}
+\end{equation}
 \sphinxAtStartPar
 or, explicitly
 \begin{equation*}
@@ -2154,7 +2309,7 @@ For a vector field \(\mathbf{v}\),
 \paragraph{Parallel transport}
 \label{\detokenize{ch/differential-geometry/curvature:parallel-transport}}\label{\detokenize{ch/differential-geometry/curvature:differential-geometry-curvature-intrinsic-riemann-curvature-tensor-parallel-transport}}
 \sphinxAtStartPar
-A vector field \(\mathbf{v}\) is parallel transported along a curve \(\gamma\) with element \(d\mathbf{r}\) if \(d \mathbf{r} \cdot \nabla f = \mathbf{0}\). Thus, using the relation \eqref{equation:ch/differential-geometry/curvature:eq:differential-geometry:curvature:directional-derivative:vector}, parallel transport implies
+A vector field \(\mathbf{v}\) is parallel transported along a curve \(\gamma\) with element \(d\mathbf{r}\) if \(d \mathbf{r} \cdot \nabla \mathbf{v} = \mathbf{0}\). Thus, using the relation \eqref{equation:ch/differential-geometry/curvature:eq:differential-geometry:curvature:directional-derivative:vector}, parallel transport implies
 \begin{equation}\label{equation:ch/differential-geometry/curvature:eq:differential-geometry:curvature:parallel-transport:component-increment}
 \begin{split}\begin{aligned}
 \partial_{\mu} v^{\nu} = - \Gamma_{\xi \mu}^{\nu} v^{\xi} \ .
@@ -2242,6 +2397,15 @@ or, in components
 \end{equation*}
 \sphinxAtStartPar
 i.e. when \(X\), \(Y\) don’t commute, as stated above.
+
+
+
+\begin{figure}[htbp]
+\centering
+\capstart
+
+\noindent\sphinxincludegraphics{{blank}.png}
+\caption{Elementary linearized loop. Lie bracket is required to close the loop built with two non\sphinxhyphen{}commutative vector fields \(X\), \(Y\).}\label{\detokenize{ch/differential-geometry/curvature:fig-lie-bracket-linearized-loop}}\end{figure}
 \label{ch/differential-geometry/curvature:coordinate-field-commutation}
 \begin{sphinxadmonition}{note}{Example 9.3.1 (Coordinates vector fields commute, and thus only 4 sides are required to build the loop)}
 
@@ -2412,7 +2576,7 @@ Computing \(\nabla_i \nabla_j Z - \nabla_j \nabla_i Z\) for \(Z = Z^m \mathbf{b}
 \begin{split}R_{\mathbf{ab}cd} = - R_{\mathbf{ba}cd}\end{split}
 \end{equation}\subsubsection*{Proof}
 \begin{equation}\label{equation:ch/differential-geometry/curvature:eq:riemann-tensor:prop-3}
-\begin{split}0 = R_{\mathbf{ab} cd} = R_{cd\mathbf{ab}}\end{split}
+\begin{split}R_{\mathbf{ab} cd} = R_{cd\mathbf{ab}}\end{split}
 \end{equation}\subsubsection*{Proof}
 \begin{equation}\label{equation:ch/differential-geometry/curvature:eq:riemann-tensor:prop-4}
 \begin{split}0 = R_{\mathbf{a} bcd} + R_{\mathbf{a} cdb} + R_{\mathbf{a} dbc}\end{split}
@@ -2649,7 +2813,23 @@ From the latter three relations, it’s possible to retrieve the expression of C
 or
 \begin{equation*}
 \begin{split}\Gamma_{ik}^l = \frac{1}{2} g^{lj} \left( \partial_{k} g_{ij} + \partial_{i} g_{jk} - \partial_{j} g_{ki} \right) \ .\end{split}
-\end{equation*}\label{ch/differential-geometry/curvature:parallel-transport-sphere}
+\end{equation*}
+\begin{figure}[htbp]
+\centering
+\capstart
+
+\noindent\sphinxincludegraphics{{parallel_transport_sphere}.png}
+\caption{\sphinxstylestrong{Extrinsic description of parallel transport}. Parallel transport on a sphere of vector \(\mathbf{v} = v^{\phi} \mathbf{b}_2\) initially in \(X\left(q^1=0, q^2=\frac{\pi}{2}\right)\), moving: 1) along the equator up to \(\left(q^1, q^2\right) = \left( \frac{\pi}{2}, \frac{\pi}{2} \right)\), 2) along a meridian up to \(\left( \frac{\pi}{2}, \delta \phi \right)\), 3) along a parallel up to \(\left( 0, \delta \phi \right)\), and 4) along to the meridian back to \(\left( 0, \frac{\pi}{2} \right)\).}\label{\detokenize{ch/differential-geometry/curvature:fig-parallel-transport-sphere}}\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\capstart
+
+\noindent\sphinxincludegraphics{{parallel_transport_sphere_intrinsic}.png}
+\caption{\sphinxstylestrong{Intrinsic description of parallel transport}. Parallel transport is shown in the chart \(\left( q^1, q^2 \right)\).}\label{\detokenize{ch/differential-geometry/curvature:fig-parallel-transport-sphere-intrinsic}}\end{figure}
+
+
+\label{ch/differential-geometry/curvature:parallel-transport-sphere}
 \begin{sphinxadmonition}{note}{Example 9.3.3 (Parallel transport of a vector on a sphere)}
 
 
@@ -2829,12 +3009,12 @@ Let a vector \(\mathbf{v}\) on the equator and parallel to the local meridian, i
 \sphinxAtStartPar
 \sphinxstylestrong{1. Parallel transport along the equator, \(\phi = \frac{\pi}{2}\), \(\theta\) from \(0\) to \(\overline{\theta}\).} The equator is described by the coordinate \(\phi = \frac{\pi}{2}\), and thus \(\cos \phi = 0\). The solution of the parallel transport equation on the equator gives constant \(v^1(\theta)\) and \(v^2(\theta)\). Thus,
 \begin{equation*}
-\begin{split}v^1\left(\overline{\theta}\right) = 0 \quad , \quad v^2\left(\overline{\theta}\right) = v^\phi \ .\end{split}
+\begin{split}v^1\left( \theta \right) = 0 \quad , \quad v^2\left( \theta \right) = v^\phi \ .\end{split}
 \end{equation*}
 \sphinxAtStartPar
 \sphinxstylestrong{2. Parallel transport along the meridian, \(\theta = \overline{\theta}\), \(\phi\) from \(\frac{\pi}{2}\) to \(\delta \phi\).}
 \begin{equation*}
-\begin{split}v^1\left( 0 \right) = 0 \quad , \quad v^2\left(\overline{\theta}\right) = v^\phi \ .\end{split}
+\begin{split}v^1\left( \phi \right) = 0 \quad , \quad v^2\left( \phi \right) = v^\phi \ .\end{split}
 \end{equation*}
 \sphinxAtStartPar
 \sphinxstylestrong{3.} \sphinxstyleemphasis{Parallel transport along a small circle around the pole to avoid singularity.}
@@ -2849,7 +3029,7 @@ Let a vector \(\mathbf{v}\) on the equator and parallel to the local meridian, i
    \end{aligned} \right.\end{split}
 \end{equation*}
 \sphinxAtStartPar
-\sphinxstyleemphasis{The final values are} \(v^1 = \frac{v^\phi}{\sin \delta \phi} \sin( \cos(\delta \phi) \theta )\), \(v^2 = v^\phi \cos( \cos(\delta \phi) \theta )\). \sphinxstyleemphasis{Exchanging the reference value for \(\theta\) should be enough.} \sphinxstylestrong{todo} \sphinxstyleemphasis{check!}
+\sphinxstyleemphasis{The final values are} \(v^1 = -\frac{v^\phi}{\sin \delta \phi} \sin( \cos(\delta \phi) \theta )\), \(v^2 = v^\phi \cos( \cos(\delta \phi) \theta )\). \sphinxstyleemphasis{Exchanging the reference value for \(\theta\) should be enough.} \sphinxstylestrong{todo} \sphinxstyleemphasis{check!}
 
 \sphinxAtStartPar
 \sphinxstylestrong{4. Parallel transport along the meridian, \(\theta = 0\), \(\phi\) from \(\delta \phi\) to \(\frac{\pi}{2}\).}
@@ -8483,15 +8663,70 @@ Putting together all the pieces of the Lagrange equations, and dividing by \(\fr
 \sphinxAtStartPar
 and thus
 \begin{equation*}
-\begin{split}m \dfrac{d \mathbf{U}}{d \tau} = q \left[ \nabla \mathbf{A} - \nabla^T \mathbf{A} \right] \cdot \mathbf{U} \ .\end{split}
+\begin{split}m \dfrac{d \mathbf{U}}{d \tau} = q \left[ \nabla \mathbf{A} - \nabla^T \mathbf{A} \right] \cdot \mathbf{U} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+or with the definition of the anti\sphinxhyphen{}symmetric tensor \(\mathbf{F} = \nabla \mathbf{A} - \nabla^T \mathbf{A}\),
+\begin{equation*}
+\begin{split}m \dfrac{d \mathbf{U}}{d \tau} = q \, \mathbf{F} \cdot \mathbf{U} \ .\end{split}
 \end{equation*}
 \end{itemize}
 
+\sphinxAtStartPar
+Using coordinates \(\{ q^\mu(\tau) \}\) to parametrize the position \(\mathbf{X}(q^\mu(\tau))\), the \sphinxstylestrong{velocity} reads
+\begin{equation*}
+\begin{split}\mathbf{U} = \frac{d \mathbf{X}}{d \tau} = \dfrac{d q^{\mu}}{d \tau} \dfrac{\partial \mathbf{X}}{\partial q^{\mu}} = \dot{q}^{\mu} \mathbf{b}_{\mu} \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+and the \sphinxstylestrong{acceleration} becomes
+\begin{equation*}
+\begin{split}\dfrac{d \mathbf{U}}{d \tau} = \frac{d}{d \tau} \left( \dot{q}^{\mu} \mathbf{b}_{\mu} \right) = \left\{ \ddot{q}^{\mu} + \Gamma_{\nu \xi}^{\mu} \dot{q}^{\nu} \dot{q}^{\xi}\right\} \mathbf{b}_{\mu} \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+The \sphinxstylestrong{electromagnetic force} per unit charge reads
+\begin{equation*}
+\begin{split}\mathbf{F} \cdot \mathbf{U} = \left( F^{\mu}_{\ \ \nu} \mathbf{b}_{\mu} \otimes \mathbf{b}^{\nu} \right) \cdot \left( \dot{q}^{\xi} \mathbf{b}_{\xi} \right) = F^{\mu}_{\ \ \nu} \dot{q}^{\nu} \mathbf{b}_{\mu} \ .\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Thus, the equation of motion in coordinates and parametrized with the proper time \(\tau\) is
+\begin{equation*}
+\begin{split}m \left( \ddot{q}^{\mu} + \Gamma_{\nu \xi}^{\mu} \dot{q}^{\nu} \dot{q}^{\xi} \right) = q F^{\mu}_{\ \ \nu} \dot{q}^{\nu} \ .\end{split}
+\end{equation*}\subsubsection*{Components of the tensor \protect\(\ \mathbf{F}\protect\)}
+
+\sphinxAtStartPar
+The components of the tensor \(\mathbf{F}\) are immediately found considering its action on a vector \(\mathbf{V}\)
+\begin{equation*}
+\begin{split}\mathbf{F} \cdot \mathbf{V} = \nabla \mathbf{A} \cdot \mathbf{V} - \nabla^T \mathbf{A} \cdot \mathbf{V} =  \nabla \mathbf{A} \cdot \mathbf{V} - \mathbf{V} \cdot \nabla \mathbf{A} \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+Recalling that the gradient of a vector field can be written as
+\begin{equation*}
+\begin{split}\nabla \mathbf{A} = \mathbf{b}^{\nu} \partial_{\nu} \mathbf{A} = \mathbf{b}^{\nu} \partial_{\nu} \left( A^{\mu} \mathbf{b}_{\mu} \right) = \mathbf{b}^{\nu} \otimes \mathbf{b}_{\mu} \left( \partial_{\nu} A^{\mu} + \Gamma_{\nu \xi}^{\mu} A^{\xi} \right) \ ,\end{split}
+\end{equation*}
+\sphinxAtStartPar
+it follows
+\begin{equation*}
+\begin{split}\begin{aligned}
+  \mathbf{F} \cdot \mathbf{V}
+  & = \nabla \mathbf{A} \cdot \mathbf{V} - \mathbf{V} \cdot \nabla \mathbf{A} = \\
+  & = \left( \partial_{\nu} A^{\mu} + \Gamma_{\nu \xi}^{\mu} A^{\xi} \right) \mathbf{b}^{\nu} \otimes \underbrace{\mathbf{b}_{\mu} \cdot \mathbf{b}_{\eta}}_{ g_{\mu \eta} } V^{\eta}
+    - V^{\eta} \underbrace{\mathbf{b}_{\eta} \cdot \mathbf{b}^{\nu}}_{\delta_{\eta}^{\nu}} \otimes \mathbf{b}_{\mu} \left( \partial_{\nu} A^{\mu} + \Gamma_{\nu \xi}^{\mu} A^{\xi} \right) = \\
+  & = g_{\mu \eta} \left( \partial_{\nu} A^{\mu} + \Gamma_{\nu \xi}^{\mu} A^{\xi} \right) V^{\eta} \mathbf{b}^{\nu} 
+    - V^{\nu}\left( \partial_{\nu} A^{\mu} + \Gamma_{\nu \xi}^{\mu} A^{\xi} \right) \mathbf{b}_{\mu}  = \\
+  & = g_{\mu \eta} \left( \partial_{\nu} A^{\mu} + \Gamma_{\nu \xi}^{\mu} A^{\xi} \right) V^{\eta} g^{\nu \chi} \mathbf{b}_{\chi} 
+    - V^{\nu}\left( \partial_{\nu} A^{\mu} + \Gamma_{\nu \xi}^{\mu} A^{\xi} \right) \mathbf{b}_{\mu}  = \\
+  & = \mathbf{b}_{\mu} \left\{ g_{\chi \eta} \left( \partial_{\nu} A^{\chi} + \Gamma_{\nu \xi}^{\chi} A^{\xi} \right) V^{\eta} g^{\nu \mu} - V^{\nu}\left( \partial_{\nu} A^{\mu} + \Gamma_{\nu \xi}^{\mu} A^{\xi} \right) \right\} = \\
+  & = \mathbf{b}_{\mu} \left\{ g_{\chi \nu} \left( \partial_{\eta} A^{\chi} + \Gamma_{\eta \xi}^{\chi} A^{\xi} \right) g^{\eta \mu} - \left( \partial_{\nu} A^{\mu} + \Gamma_{\nu \xi}^{\mu} A^{\xi} \right) \right\} V^{\nu} = \\
+  & = \mathbf{b}_{\mu} \left\{ g^{\eta \mu} g_{\chi \nu} \partial_{\eta} A^{\chi} - \partial_{\nu} A^{\mu} + g_{\chi \nu} g^{\eta \mu}  \Gamma_{\eta \xi}^{\chi} A^{\xi} + \Gamma_{\nu \xi}^{\mu} A^{\xi} \right\} V^{\nu} \ .
+\end{aligned}\end{split}
+\end{equation*}
 
 \subsubsection{Using coordinates}
 \label{\detokenize{ch/calculus-variations/examples:using-coordinates}}\label{\detokenize{ch/calculus-variations/examples:calculus-variations-examples-lagrange-equations-special-relativity-coordinates}}
 \sphinxAtStartPar
-With \(\mathbf{X}\left( q^{\mu}(\lambda) \right)\), \(\mathbf{U} = \frac{d \mathbf{X}}{d \tau} = \lambda'(\tau) \frac{d q^i}{d \lambda} \partial_i \mathbf{X} = \frac{d q^i}{d \tau} \mathbf{b}_i\)
+See \sphinxhref{https://basics2022.github.io/bbooks-physics-modern/ch/relativity-general/geodesics.html\#geodesics-equation}{Physics: General Relativity: Geodesics}
+
+
 
 
 \subsection{Quantum Mechanics}
@@ -25765,7 +26000,7 @@ actor\sphinxhyphen{}critic
 \item\relax\sphinxstyleindexentry{coordinate\sphinxhyphen{}field\sphinxhyphen{}commutation}\sphinxstyleindexextra{ch/differential\sphinxhyphen{}geometry/curvature}\sphinxstyleindexpageref{ch/differential-geometry/curvature:\detokenize{coordinate-field-commutation}}
 \indexspace
 \bigletter{def\sphinxhyphen{}arc\sphinxhyphen{}length}
-\item\relax\sphinxstyleindexentry{def\sphinxhyphen{}arc\sphinxhyphen{}length}\sphinxstyleindexextra{ch/differential\sphinxhyphen{}geometry/lines}\sphinxstyleindexpageref{ch/differential-geometry/lines:\detokenize{def-arc-length}}
+\item\relax\sphinxstyleindexentry{def\sphinxhyphen{}arc\sphinxhyphen{}length}\sphinxstyleindexextra{ch/differential\sphinxhyphen{}geometry/curves}\sphinxstyleindexpageref{ch/differential-geometry/curves:\detokenize{def-arc-length}}
 \indexspace
 \bigletter{def\sphinxhyphen{}differential\sphinxhyphen{}geometry\sphinxhyphen{}riemann\sphinxhyphen{}tensor}
 \item\relax\sphinxstyleindexentry{def\sphinxhyphen{}differential\sphinxhyphen{}geometry\sphinxhyphen{}riemann\sphinxhyphen{}tensor}\sphinxstyleindexextra{ch/differential\sphinxhyphen{}geometry/curvature}\sphinxstyleindexpageref{ch/differential-geometry/curvature:\detokenize{def-differential-geometry-riemann-tensor}}
@@ -25774,7 +26009,7 @@ actor\sphinxhyphen{}critic
 \item\relax\sphinxstyleindexentry{def\sphinxhyphen{}minimal\sphinxhyphen{}phase}\sphinxstyleindexextra{ch/control/frequency\sphinxhyphen{}domain}\sphinxstyleindexpageref{ch/control/frequency-domain:\detokenize{def-minimal-phase}}
 \indexspace
 \bigletter{def\sphinxhyphen{}osculator\sphinxhyphen{}circle}
-\item\relax\sphinxstyleindexentry{def\sphinxhyphen{}osculator\sphinxhyphen{}circle}\sphinxstyleindexextra{ch/differential\sphinxhyphen{}geometry/lines}\sphinxstyleindexpageref{ch/differential-geometry/lines:\detokenize{def-osculator-circle}}
+\item\relax\sphinxstyleindexentry{def\sphinxhyphen{}osculator\sphinxhyphen{}circle}\sphinxstyleindexextra{ch/differential\sphinxhyphen{}geometry/curves}\sphinxstyleindexpageref{ch/differential-geometry/curves:\detokenize{def-osculator-circle}}
 \indexspace
 \bigletter{def\sphinxhyphen{}tensor}
 \item\relax\sphinxstyleindexentry{def\sphinxhyphen{}tensor}\sphinxstyleindexextra{ch/tensor\sphinxhyphen{}algebra\sphinxhyphen{}calculus/algebra}\sphinxstyleindexpageref{ch/tensor-algebra-calculus/algebra:\detokenize{def-tensor}}

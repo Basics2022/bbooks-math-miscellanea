@@ -186,7 +186,7 @@ i.e. when $X$, $Y$ don't commute, as stated above.
 
 ```
 
-```{figure} blank.svg
+```{figure} ../../_static/blank.svg
 :name: fig-lie-bracket-linearized-loop
 :align: center
 :figclass: html-figure

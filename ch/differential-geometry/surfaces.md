@@ -154,7 +154,7 @@ The eigenvectors $\mathbf{v}_{1,2}$ defines the **principal directions**, while 
 
 ```
 
-```{figure} blank.svg
+```{figure} ../../_static/blank.svg
 :name: fig-tangent-normal-deviation
 :align: center
 :figclass: html-figure
@@ -177,7 +177,7 @@ Caption...
 
 ```
 
-```{figure} blank.svg
+```{figure} ../../_static/blank.svg
 :name: fig-curvilinear-natural-basis
 :align: center
 :figclass: html-figure
@@ -427,7 +427,7 @@ $$\kappa_{1,2} = H \pm \sqrt{H^2 - K} .$$
 
 ```
 
-```{figure} blank.svg
+```{figure} ../../_static/blank.svg
 :name: fig-principal-directional-curvature
 :align: center
 :figclass: html-figure
@@ -450,7 +450,7 @@ Caption...
 
 ```
 
-```{figure} blank.svg
+```{figure} ../../_static/blank.svg
 :name: fig-curvature-regimes
 :align: center
 :figclass: html-figure
